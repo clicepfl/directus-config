@@ -40,3 +40,7 @@ If you wish to integrate Directus into a new project, you need to:
    include:
      - path: directus/docker-compose.yaml
    ```
+4. Create a symbolic link for the types declarations (from your `src/` folder):
+   ```sh
+   ln -sr <relative-path-of-directus-submodule>/types types
+   ```
