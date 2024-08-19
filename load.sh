@@ -1,2 +1,1 @@
-wget https://raw.githubusercontent.com/clicepfl/clic-infra/main/roles/directus/files/snapshot.yaml -O snapshot.yaml
-npx directus schema apply snapshot.yaml -y
+docker exec -i clic-directus npx directus schema apply /share/snapshot.yaml -y
