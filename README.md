@@ -26,7 +26,7 @@ If you wish to integrate Directus into a new project, you need to:
    ```json
    {
      "scripts": {
-       "prepare": "git submodule init",
+       "prepare": "git submodule update",
        "load-directus": "sh directus/load.sh",
        "save-directus": "sh directus/save.sh",
        "save-directus-data": "sh directus/save-data.sh",
