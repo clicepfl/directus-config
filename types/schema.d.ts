@@ -1875,6 +1875,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsStdCellTranslations"];
   };
+  "/items/save_the_date_translations": {
+    /**
+     * List Items
+     * @description List the save_the_date_translations items.
+     */
+    get: operations["readItemsSavetheDateTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new save_the_date_translations item.
+     */
+    post: operations["createItemsSavetheDateTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing save_the_date_translations items.
+     */
+    delete: operations["deleteItemsSavetheDateTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple save_the_date_translations items at the same time.
+     */
+    patch: operations["updateItemsSavetheDateTranslations"];
+  };
+  "/items/save_the_date_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single save_the_date_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsSavetheDateTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing save_the_date_translations item.
+     */
+    delete: operations["deleteSingleItemsSavetheDateTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing save_the_date_translations item.
+     */
+    patch: operations["updateSingleItemsSavetheDateTranslations"];
+  };
   "/items/std_cell": {
     /**
      * List Items
@@ -3142,7 +3181,14 @@ export interface components {
     };
     ItemsSavetheDate: {
       id?: number;
-      style?: string | null;
+      background_color?: string | null;
+      text_color?: string | null;
+      image?: string | components["schemas"]["Files"] | null;
+      title_color?: string | null;
+      button_color?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
+        | null;
     };
     ItemsStdCellTranslations: {
       id?: number;
@@ -3152,14 +3198,26 @@ export interface components {
       description?: string | null;
       detail_button_title?: string | null;
     };
+    ItemsSavetheDateTranslations: {
+      id?: number;
+      save_the_date_id?:
+        | number
+        | components["schemas"]["ItemsSavetheDate"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
+    };
     ItemsStdCell: {
       id?: number;
       image?: string | components["schemas"]["Files"] | null;
-      style?: string | null;
       commission?: number | components["schemas"]["ItemsCommissions"] | null;
       url?: string | null;
       /** Format: date */
       date?: string | null;
+      text_color?: string | null;
+      background_color?: string | null;
+      button_color?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsStdCellTranslations"])[]
         | null;
@@ -12784,6 +12842,193 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the save_the_date_translations items.
+   */
+  readItemsSavetheDateTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new save_the_date_translations item.
+   */
+  createItemsSavetheDateTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSavetheDateTranslations"][]
+          | components["schemas"]["ItemsSavetheDateTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing save_the_date_translations items.
+   */
+  deleteItemsSavetheDateTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple save_the_date_translations items at the same time.
+   */
+  updateItemsSavetheDateTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSavetheDateTranslations"][]
+          | components["schemas"]["ItemsSavetheDateTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single save_the_date_translations item by unique identifier.
+   */
+  readSingleItemsSavetheDateTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing save_the_date_translations item.
+   */
+  deleteSingleItemsSavetheDateTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing save_the_date_translations item.
+   */
+  updateSingleItemsSavetheDateTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsSavetheDateTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the std_cell items.
    */
   readItemsStdCell: {
@@ -13000,5 +13245,6 @@ export type Schema = {
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
+  save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
 };
