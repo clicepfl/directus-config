@@ -6,7 +6,7 @@ The services requiring it use git submodules, this directly importing the [direc
 
 ## Developpement
 
-Once the stack has been deployed (see [this](../README.md)), you can import the data schema using `npm run load-directus`, then populate it using sample data with `npm run populate-directus`. You only need to do this once, or if you have deleted Directus' data volume.
+Once the service has been deployed using `docker compose up`, you can import the data schema using `npm run load-directus`, then populate it using sample data with `npm run populate-directus`. You only need to do this once, or if you have deleted Directus' data volume.
 
 You can access the admin panel at http://localhost/directus (username: `clic@epfl.ch`, password: `1234`). There, you can update the data, or modify the schema (see below).
 
