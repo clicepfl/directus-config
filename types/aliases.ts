@@ -15,5 +15,5 @@ export type Partner = Schema["partners"][0];
 export type PartnerCategory = Schema["partner_category"][0];
 export type SocialLink = Schema["social_links"][0];
 export type PublicFiles = Schema["association_public_files"][0];
-export type SaveTheDate = Schema["save_the_date"];
+export type SaveTheDate = Schema["save_the_date"][0];
 export type SaveTheDateCell = Schema["std_cell"][0];
