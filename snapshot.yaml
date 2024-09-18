@@ -1,5 +1,5 @@
 version: 1
-directus: 11.0.2
+directus: 11.1.0
 vendor: postgres
 collections:
   - collection: association
@@ -5993,6 +5993,33 @@ fields:
       validation_message: null
       width: full
   - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
     field: translations
     type: alias
     meta:
@@ -6097,33 +6124,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: save_the_date
     field: image
     type: uuid
@@ -6245,6 +6245,47 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
   - collection: save_the_date_translations
     field: id
     type: integer
@@ -8197,6 +8238,27 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: save_the_date_image_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: save_the_date
+    field: language_button_target
+    related_collection: languages
+    meta:
+      junction_field: null
+      many_collection: save_the_date
+      many_field: language_button_target
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: save_the_date
+      column: language_button_target
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: save_the_date_language_button_target_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: save_the_date_translations
