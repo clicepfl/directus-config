@@ -6007,7 +6007,7 @@ fields:
       note: null
       options: null
       readonly: false
-      required: false
+      required: true
       sort: 1
       special:
         - translations
@@ -6847,7 +6847,7 @@ fields:
       note: null
       options: null
       readonly: false
-      required: false
+      required: true
       sort: 7
       special:
         - translations
@@ -6949,7 +6949,7 @@ fields:
       name: text_color
       table: std_cell
       data_type: character varying
-      default_value: "#1A69D6"
+      default_value: "#18222F"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -6991,7 +6991,7 @@ fields:
       name: background_color
       table: std_cell
       data_type: character varying
-      default_value: "#1A69D6"
+      default_value: "#EEEDEA"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -7033,7 +7033,7 @@ fields:
       name: button_color
       table: std_cell
       data_type: character varying
-      default_value: null
+      default_value: "#1A69D6"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -7220,7 +7220,8 @@ fields:
       hidden: false
       interface: input
       note: null
-      options: null
+      options:
+        iconLeft: null
       readonly: false
       required: true
       sort: 4
@@ -7296,7 +7297,8 @@ fields:
       hidden: false
       interface: input
       note: null
-      options: null
+      options:
+        iconLeft: picture_in_picture_alt
       readonly: false
       required: false
       sort: 6
@@ -7307,6 +7309,45 @@ fields:
       width: full
     schema:
       name: detail_button_title
+      table: std_cell_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: date_replacement
+    type: string
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: date_replacement
+      group: null
+      hidden: false
+      interface: input
+      note: This will replace the date by this text. (optional)
+      options:
+        iconLeft: date_range
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: date_replacement
       table: std_cell_translations
       data_type: character varying
       default_value: null
