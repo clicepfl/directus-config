@@ -1836,45 +1836,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSavetheDate"];
   };
-  "/items/std_cell_translations": {
-    /**
-     * List Items
-     * @description List the std_cell_translations items.
-     */
-    get: operations["readItemsStdCellTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new std_cell_translations item.
-     */
-    post: operations["createItemsStdCellTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing std_cell_translations items.
-     */
-    delete: operations["deleteItemsStdCellTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple std_cell_translations items at the same time.
-     */
-    patch: operations["updateItemsStdCellTranslations"];
-  };
-  "/items/std_cell_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single std_cell_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsStdCellTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing std_cell_translations item.
-     */
-    delete: operations["deleteSingleItemsStdCellTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing std_cell_translations item.
-     */
-    patch: operations["updateSingleItemsStdCellTranslations"];
-  };
   "/items/save_the_date_translations": {
     /**
      * List Items
@@ -1952,6 +1913,45 @@ export interface paths {
      * @description Update an existing std_cell item.
      */
     patch: operations["updateSingleItemsStdCell"];
+  };
+  "/items/std_cell_translations": {
+    /**
+     * List Items
+     * @description List the std_cell_translations items.
+     */
+    get: operations["readItemsStdCellTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new std_cell_translations item.
+     */
+    post: operations["createItemsStdCellTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing std_cell_translations items.
+     */
+    delete: operations["deleteItemsStdCellTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple std_cell_translations items at the same time.
+     */
+    patch: operations["updateItemsStdCellTranslations"];
+  };
+  "/items/std_cell_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single std_cell_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsStdCellTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing std_cell_translations item.
+     */
+    delete: operations["deleteSingleItemsStdCellTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing std_cell_translations item.
+     */
+    patch: operations["updateSingleItemsStdCellTranslations"];
   };
 }
 
@@ -3194,14 +3194,6 @@ export interface components {
         | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
         | null;
     };
-    ItemsStdCellTranslations: {
-      id?: number;
-      std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string;
-      description?: string | null;
-      detail_button_title?: string | null;
-    };
     ItemsSavetheDateTranslations: {
       id?: number;
       save_the_date_id?:
@@ -3226,6 +3218,16 @@ export interface components {
       translations?:
         | (number | components["schemas"]["ItemsStdCellTranslations"])[]
         | null;
+    };
+    ItemsStdCellTranslations: {
+      id?: number;
+      std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string;
+      description?: string | null;
+      detail_button_title?: string | null;
+      /** @description This will replace the date by this text. (optional) */
+      date_replacement?: string | null;
     };
   };
   responses: {
@@ -12660,193 +12662,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the std_cell_translations items.
-   */
-  readItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsStdCellTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new std_cell_translations item.
-   */
-  createItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCellTranslations"][]
-          | components["schemas"]["ItemsStdCellTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing std_cell_translations items.
-   */
-  deleteItemsStdCellTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple std_cell_translations items at the same time.
-   */
-  updateItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCellTranslations"][]
-          | components["schemas"]["ItemsStdCellTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single std_cell_translations item by unique identifier.
-   */
-  readSingleItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsStdCellTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing std_cell_translations item.
-   */
-  deleteSingleItemsStdCellTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing std_cell_translations item.
-   */
-  updateSingleItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsStdCellTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsStdCellTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the save_the_date_translations items.
    */
   readItemsSavetheDateTranslations: {
@@ -13219,6 +13034,193 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the std_cell_translations items.
+   */
+  readItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new std_cell_translations item.
+   */
+  createItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCellTranslations"][]
+          | components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing std_cell_translations items.
+   */
+  deleteItemsStdCellTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple std_cell_translations items at the same time.
+   */
+  updateItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCellTranslations"][]
+          | components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single std_cell_translations item by unique identifier.
+   */
+  readSingleItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing std_cell_translations item.
+   */
+  deleteSingleItemsStdCellTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing std_cell_translations item.
+   */
+  updateSingleItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -13249,7 +13251,7 @@ export type Schema = {
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
-  std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
+  std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
 };
