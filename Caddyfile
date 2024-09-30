@@ -1,0 +1,11 @@
+{
+	auto_https off
+}
+
+http://localhost:80 {
+	handle_path /directus* {
+		reverse_proxy http://directus:8055
+	}
+
+	redir / /directus
+}
