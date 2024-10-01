@@ -6942,7 +6942,8 @@ fields:
       hidden: false
       interface: input
       note: null
-      options: null
+      options:
+        iconLeft: lunch_dining
       readonly: false
       required: true
       sort: 1
@@ -7073,6 +7074,222 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: payment
+    type: string
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: payment
+      group: faculty_dinner
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - text: Cash
+            value: cash
+            icon: monetization_on
+          - text: Camipro
+            value: camipro
+            icon: credit_card
+          - text: Bank transfer
+            value: bank_transfer
+            icon: account_balance
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: payment
+      table: registrations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: late_payment
+    type: boolean
+    meta:
+      collection: registrations
+      conditions:
+        - name: late_payment
+          rule:
+            _and:
+              - payment:
+                  _nnull: true
+          required: true
+          options:
+            iconOn: check_box
+            iconOff: check_box_outline_blank
+            label: Enabled
+      display: null
+      display_options: null
+      field: late_payment
+      group: faculty_dinner
+      hidden: false
+      interface: boolean
+      note: null
+      options:
+        choices: null
+        iconOff: crop_square
+        label: Late
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: late_payment
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: allergies
+    type: text
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: allergies
+      group: faculty_dinner
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: allergies
+      table: registrations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: plusOnes
+    type: integer
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: plusOnes
+      group: faculty_dinner
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: exposure_plus_1
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: plusOnes
+      table: registrations
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: plusOnesCheckedIn
+    type: integer
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: plusOnesCheckedIn
+      group: faculty_dinner
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: plusOnesCheckedIn
+      table: registrations
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
       is_nullable: true
       is_unique: false
       is_primary_key: false
