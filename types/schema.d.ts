@@ -177,51 +177,44 @@ export interface paths {
      */
     patch: operations["updateComment"];
   };
-  "/permissions": {
+  "/roles": {
     /**
-     * List Permissions
-     * @description List all permissions.
+     * List Roles
+     * @description List the roles.
      */
-    get: operations["getPermissions"];
+    get: operations["getRoles"];
     /**
-     * Create a Permission
-     * @description Create a new permission.
+     * Create a Role
+     * @description Create a new role.
      */
-    post: operations["createPermission"];
+    post: operations["createRole"];
     /**
-     * Delete Multiple Permissions
-     * @description Delete multiple existing permissions.
+     * Delete Multiple Roles
+     * @description Delete multiple existing roles.
      */
-    delete: operations["deletePermissions"];
+    delete: operations["deleteRoles"];
     /**
-     * Update Multiple Permissions
-     * @description Update multiple permissions at the same time.
+     * Update Multiple Roles
+     * @description Update multiple roles at the same time.
      */
-    patch: operations["updatePermissions"];
+    patch: operations["updateRoles"];
   };
-  "/permissions/me": {
+  "/roles/{id}": {
     /**
-     * List My Permissions
-     * @description List the permissions that apply to the current user.
+     * Retrieve a Role
+     * @description Retrieve a single role by unique identifier.
      */
-    get: operations["getMyPermissions"];
-  };
-  "/permissions/{id}": {
+    get: operations["getRole"];
     /**
-     * Retrieve a Permission
-     * @description Retrieve a single permissions object by unique identifier.
+     * Delete a Role
+     * @description Delete an existing role
      */
-    get: operations["getPermission"];
+    delete: operations["deleteRole"];
     /**
-     * Delete a Permission
-     * @description Delete an existing permission
+     * Update a Role
+     * @description Update an existing role
      */
-    delete: operations["deletePermission"];
-    /**
-     * Update a Permission
-     * @description Update an existing permission
-     */
-    patch: operations["updatePermission"];
+    patch: operations["updateRole"];
   };
   "/fields": {
     /**
@@ -258,45 +251,6 @@ export interface paths {
      * @description Update an existing field.
      */
     patch: operations["updateField"];
-  };
-  "/files": {
-    /**
-     * List Files
-     * @description List the files.
-     */
-    get: operations["getFiles"];
-    /**
-     * Create a File
-     * @description Create a new file
-     */
-    post: operations["createFile"];
-    /**
-     * Delete Multiple Files
-     * @description Delete multiple existing files.
-     */
-    delete: operations["deleteFiles"];
-    /**
-     * Update Multiple Files
-     * @description Update multiple files at the same time.
-     */
-    patch: operations["updateFiles"];
-  };
-  "/files/{id}": {
-    /**
-     * Retrieve a Files
-     * @description Retrieve a single file by unique identifier.
-     */
-    get: operations["getFile"];
-    /**
-     * Delete a File
-     * @description Delete an existing file.
-     */
-    delete: operations["deleteFile"];
-    /**
-     * Update a File
-     * @description Update an existing file, and/or replace it's file contents.
-     */
-    patch: operations["updateFile"];
   };
   "/collections": {
     /**
@@ -366,44 +320,51 @@ export interface paths {
      */
     patch: operations["updateFolder"];
   };
-  "/roles": {
+  "/permissions": {
     /**
-     * List Roles
-     * @description List the roles.
+     * List Permissions
+     * @description List all permissions.
      */
-    get: operations["getRoles"];
+    get: operations["getPermissions"];
     /**
-     * Create a Role
-     * @description Create a new role.
+     * Create a Permission
+     * @description Create a new permission.
      */
-    post: operations["createRole"];
+    post: operations["createPermission"];
     /**
-     * Delete Multiple Roles
-     * @description Delete multiple existing roles.
+     * Delete Multiple Permissions
+     * @description Delete multiple existing permissions.
      */
-    delete: operations["deleteRoles"];
+    delete: operations["deletePermissions"];
     /**
-     * Update Multiple Roles
-     * @description Update multiple roles at the same time.
+     * Update Multiple Permissions
+     * @description Update multiple permissions at the same time.
      */
-    patch: operations["updateRoles"];
+    patch: operations["updatePermissions"];
   };
-  "/roles/{id}": {
+  "/permissions/me": {
     /**
-     * Retrieve a Role
-     * @description Retrieve a single role by unique identifier.
+     * List My Permissions
+     * @description List the permissions that apply to the current user.
      */
-    get: operations["getRole"];
+    get: operations["getMyPermissions"];
+  };
+  "/permissions/{id}": {
     /**
-     * Delete a Role
-     * @description Delete an existing role
+     * Retrieve a Permission
+     * @description Retrieve a single permissions object by unique identifier.
      */
-    delete: operations["deleteRole"];
+    get: operations["getPermission"];
     /**
-     * Update a Role
-     * @description Update an existing role
+     * Delete a Permission
+     * @description Delete an existing permission
      */
-    patch: operations["updateRole"];
+    delete: operations["deletePermission"];
+    /**
+     * Update a Permission
+     * @description Update an existing permission
+     */
+    patch: operations["updatePermission"];
   };
   "/presets": {
     /**
@@ -443,6 +404,45 @@ export interface paths {
      * @description Update an existing preset.
      */
     patch: operations["updatePreset"];
+  };
+  "/files": {
+    /**
+     * List Files
+     * @description List the files.
+     */
+    get: operations["getFiles"];
+    /**
+     * Create a File
+     * @description Create a new file
+     */
+    post: operations["createFile"];
+    /**
+     * Delete Multiple Files
+     * @description Delete multiple existing files.
+     */
+    delete: operations["deleteFiles"];
+    /**
+     * Update Multiple Files
+     * @description Update multiple files at the same time.
+     */
+    patch: operations["updateFiles"];
+  };
+  "/files/{id}": {
+    /**
+     * Retrieve a Files
+     * @description Retrieve a single file by unique identifier.
+     */
+    get: operations["getFile"];
+    /**
+     * Delete a File
+     * @description Delete an existing file.
+     */
+    delete: operations["deleteFile"];
+    /**
+     * Update a File
+     * @description Update an existing file, and/or replace it's file contents.
+     */
+    patch: operations["updateFile"];
   };
   "/users": {
     /**
@@ -1797,6 +1797,123 @@ export interface paths {
      */
     patch: operations["updateSingleItemsPartnerCategory"];
   };
+  "/items/events_translations": {
+    /**
+     * List Items
+     * @description List the events_translations items.
+     */
+    get: operations["readItemsEventsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new events_translations item.
+     */
+    post: operations["createItemsEventsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events_translations items.
+     */
+    delete: operations["deleteItemsEventsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple events_translations items at the same time.
+     */
+    patch: operations["updateItemsEventsTranslations"];
+  };
+  "/items/events_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsEventsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing events_translations item.
+     */
+    delete: operations["deleteSingleItemsEventsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing events_translations item.
+     */
+    patch: operations["updateSingleItemsEventsTranslations"];
+  };
+  "/items/events": {
+    /**
+     * List Items
+     * @description List the events items.
+     */
+    get: operations["readItemsEvents"];
+    /**
+     * Create an Item
+     * @description Create a new events item.
+     */
+    post: operations["createItemsEvents"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events items.
+     */
+    delete: operations["deleteItemsEvents"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple events items at the same time.
+     */
+    patch: operations["updateItemsEvents"];
+  };
+  "/items/events/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events item by unique identifier.
+     */
+    get: operations["readSingleItemsEvents"];
+    /**
+     * Delete an Item
+     * @description Delete an existing events item.
+     */
+    delete: operations["deleteSingleItemsEvents"];
+    /**
+     * Update an Item
+     * @description Update an existing events item.
+     */
+    patch: operations["updateSingleItemsEvents"];
+  };
+  "/items/registrations": {
+    /**
+     * List Items
+     * @description List the registrations items.
+     */
+    get: operations["readItemsRegistrations"];
+    /**
+     * Create an Item
+     * @description Create a new registrations item.
+     */
+    post: operations["createItemsRegistrations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing registrations items.
+     */
+    delete: operations["deleteItemsRegistrations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple registrations items at the same time.
+     */
+    patch: operations["updateItemsRegistrations"];
+  };
+  "/items/registrations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single registrations item by unique identifier.
+     */
+    get: operations["readSingleItemsRegistrations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing registrations item.
+     */
+    delete: operations["deleteSingleItemsRegistrations"];
+    /**
+     * Update an Item
+     * @description Update an existing registrations item.
+     */
+    patch: operations["updateSingleItemsRegistrations"];
+  };
   "/items/save_the_date": {
     /**
      * List Items
@@ -2022,10 +2139,10 @@ export interface components {
       uploaded_by?: string | components["schemas"]["Users"];
       /**
        * Format: date-time
-       * @description When the file was created.
+       * @description When the file was uploaded.
        * @example 2019-12-03T00:10:15+00:00
        */
-      created_on?: string;
+      uploaded_on?: string;
       modified_by?: string | components["schemas"]["Users"] | null;
       /** Format: timestamp */
       modified_on?: string;
@@ -2071,12 +2188,6 @@ export interface components {
       focal_point_y?: number | null;
       tus_id?: string | null;
       tus_data?: unknown;
-      /**
-       * Format: date-time
-       * @description When the file was last uploaded/replaced.
-       * @example 2019-12-03T00:10:15+00:00
-       */
-      uploaded_on?: string;
     };
     Folders: {
       /**
@@ -2116,11 +2227,26 @@ export interface components {
        * @example Admins have access to all managed data within the system by default
        */
       description?: string | null;
-      /** @description $t:field_options.directus_roles.parent_note */
-      parent?: string | components["schemas"]["Roles"] | null;
-      /** @description $t:field_options.directus_roles.children_note */
-      children?: (string | components["schemas"]["Roles"])[] | null;
-      policies?: unknown;
+      /**
+       * @description Array of IP addresses that are allowed to connect to the API as a user of this role.
+       * @example []
+       */
+      ip_access?: string[];
+      /**
+       * @description Whether or not this role enforces the use of 2FA.
+       * @example false
+       */
+      enforce_tfa?: boolean;
+      /**
+       * @description Admin role. If true, skips all permission checks.
+       * @example false
+       */
+      admin_access?: boolean;
+      /**
+       * @description The users in the role are allowed to use the app.
+       * @example true
+       */
+      app_access?: boolean;
       users?: (string | components["schemas"]["Users"])[] | null;
     };
     Schema: {
@@ -2224,7 +2350,6 @@ export interface components {
       theme_light?: string | null;
       theme_light_overrides?: unknown;
       theme_dark_overrides?: unknown;
-      policies?: unknown;
     };
     Query: {
       /**
@@ -2323,33 +2448,6 @@ export interface components {
       origin?: string;
       revisions?: (number | components["schemas"]["Revisions"])[] | null;
     };
-    Permissions: {
-      /**
-       * @description Unique identifier for the permission.
-       * @example 1
-       */
-      id?: number;
-      /**
-       * @description What collection this permission applies to.
-       * @example customers
-       */
-      collection?: string;
-      /**
-       * @description What action this permission applies to.
-       * @example create
-       * @enum {string}
-       */
-      action?: "create" | "read" | "update" | "delete";
-      /** @description JSON structure containing the permissions checks for this permission. */
-      permissions?: Record<string, unknown> | null;
-      /** @description JSON structure containing the validation checks for this permission. */
-      validation?: Record<string, unknown> | null;
-      /** @description JSON structure containing the preset value for created/updated items. */
-      presets?: Record<string, unknown> | null;
-      /** @description CSV of fields that the user is allowed to interact with. */
-      fields?: string[] | null;
-      policy?: unknown;
-    };
     Fields: {
       id?: number;
       /**
@@ -2404,6 +2502,37 @@ export interface components {
       collapse?: string;
       preview_url?: string | null;
       versioning?: boolean;
+    };
+    Permissions: {
+      /**
+       * @description Unique identifier for the permission.
+       * @example 1
+       */
+      id?: number;
+      /**
+       * @description Unique identifier of the role this permission applies to.
+       * @example 2f24211d-d928-469a-aea3-3c8f53d4e426
+       */
+      role?: string | null;
+      /**
+       * @description What collection this permission applies to.
+       * @example customers
+       */
+      collection?: string;
+      /**
+       * @description What action this permission applies to.
+       * @example create
+       * @enum {string}
+       */
+      action?: "create" | "read" | "update" | "delete";
+      /** @description JSON structure containing the permissions checks for this permission. */
+      permissions?: Record<string, unknown> | null;
+      /** @description JSON structure containing the validation checks for this permission. */
+      validation?: Record<string, unknown> | null;
+      /** @description JSON structure containing the preset value for created/updated items. */
+      presets?: Record<string, unknown> | null;
+      /** @description CSV of fields that the user is allowed to interact with. */
+      fields?: string[] | null;
     };
     Presets: {
       /**
@@ -3178,6 +3307,42 @@ export interface components {
       translations?:
         | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
         | null;
+    };
+    ItemsEventsTranslations: {
+      id?: number;
+      events_id?: number | components["schemas"]["ItemsEvents"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
+    };
+    ItemsEvents: {
+      id?: number;
+      type?: string | null;
+      /** Format: date-time */
+      from?: string | null;
+      /** Format: date-time */
+      to?: string | null;
+      /** Format: date-time */
+      staffing_from?: string | null;
+      /** Format: date-time */
+      staffing_to?: string | null;
+      staffingTypes?: unknown;
+      staffingShiftSize?: number | null;
+      mailTemplate?: string | null;
+      mailSent?: boolean | null;
+      meals?: unknown;
+      translations?:
+        | (number | components["schemas"]["ItemsEventsTranslations"])[]
+        | null;
+    };
+    ItemsRegistrations: {
+      id?: number;
+      event?: number | components["schemas"]["ItemsEvents"] | null;
+      email?: string | null;
+      meal?: number | null;
+      comments?: string | null;
+      family_name?: string | null;
+      first_name?: string | null;
     };
     ItemsSavetheDate: {
       id?: number;
@@ -3981,10 +4146,10 @@ export interface operations {
     };
   };
   /**
-   * List Permissions
-   * @description List all permissions.
+   * List Roles
+   * @description List the roles.
    */
-  getPermissions: {
+  getRoles: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -4002,7 +4167,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Permissions"][];
+            data?: components["schemas"]["Roles"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -4012,71 +4177,34 @@ export interface operations {
     };
   };
   /**
-   * Create a Permission
-   * @description Create a new permission.
+   * Create a Role
+   * @description Create a new role.
    */
-  createPermission: {
+  createRole: {
     parameters: {
       query?: {
+        fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
         "application/json": {
+          /** @description Description of the role. */
+          description?: string;
+          /** @description Whether or not this role enforces the use of 2FA. */
+          enforce_tfa?: boolean;
+          /** @description ID used with external services in SCIM. */
+          external_id?: string;
+          /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+          ip_access?: string[];
+          /** @description Custom override for the admin app module bar navigation. */
+          module_listing?: string;
           /**
-           * @description What collection this permission applies to.
-           * @example customers
+           * @description Name of the role.
+           * @example Interns
            */
-          collection?: string;
-          /**
-           * @description If the user can post comments.
-           * @enum {string}
-           */
-          comment?: "none" | "create" | "update" | "full";
-          /**
-           * @description If the user can create items.
-           * @enum {string}
-           */
-          create?: "none" | "full";
-          /**
-           * @description If the user can update items.
-           * @enum {string}
-           */
-          delete?: "none" | "mine" | "role" | "full";
-          /**
-           * @description If the user is required to leave a comment explaining what was changed.
-           * @enum {string}
-           */
-          explain?: "none" | "create" | "update" | "always";
-          /**
-           * @description If the user can read items.
-           * @enum {string}
-           */
-          read?: "none" | "mine" | "role" | "full";
-          /**
-           * @description Unique identifier of the role this permission applies to.
-           * @example 3
-           */
-          role?: number;
-          /**
-           * @description Explicitly denies read access for specific fields.
-           * @example [
-           *   "featured_image"
-           * ]
-           */
-          read_field_blacklist?: string[];
-          /** @description What status this permission applies to. */
-          status?: string;
-          /** @description Explicitly denies specific statuses to be used. */
-          status_blacklist?: string[];
-          /**
-           * @description If the user can update items.
-           * @enum {string}
-           */
-          update?: "none" | "mine" | "role" | "full";
-          /** @description Explicitly denies write access for specific fields. */
-          write_field_blacklist?: string[];
+          name?: string;
         };
       };
     };
@@ -4085,7 +4213,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Permissions"];
+            data?: components["schemas"]["Roles"];
           };
         };
       };
@@ -4094,10 +4222,10 @@ export interface operations {
     };
   };
   /**
-   * Delete Multiple Permissions
-   * @description Delete multiple existing permissions.
+   * Delete Multiple Roles
+   * @description Delete multiple existing roles.
    */
-  deletePermissions: {
+  deleteRoles: {
     responses: {
       /** @description Successful request */
       200: {
@@ -4107,10 +4235,10 @@ export interface operations {
     };
   };
   /**
-   * Update Multiple Permissions
-   * @description Update multiple permissions at the same time.
+   * Update Multiple Roles
+   * @description Update multiple roles at the same time.
    */
-  updatePermissions: {
+  updateRoles: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -4127,59 +4255,21 @@ export interface operations {
         "application/json": {
           keys?: string[];
           data?: {
+            /** @description Description of the role. */
+            description?: string;
+            /** @description Whether or not this role enforces the use of 2FA. */
+            enforce_tfa?: boolean;
+            /** @description ID used with external services in SCIM. */
+            external_id?: string;
+            /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+            ip_access?: string[];
+            /** @description Custom override for the admin app module bar navigation. */
+            module_listing?: string;
             /**
-             * @description What collection this permission applies to.
-             * @example customers
+             * @description Name of the role.
+             * @example Interns
              */
-            collection?: string;
-            /**
-             * @description If the user can post comments.
-             * @enum {string}
-             */
-            comment?: "none" | "create" | "update" | "full";
-            /**
-             * @description If the user can create items.
-             * @enum {string}
-             */
-            create?: "none" | "full";
-            /**
-             * @description If the user can update items.
-             * @enum {string}
-             */
-            delete?: "none" | "mine" | "role" | "full";
-            /**
-             * @description If the user is required to leave a comment explaining what was changed.
-             * @enum {string}
-             */
-            explain?: "none" | "create" | "update" | "always";
-            /**
-             * @description If the user can read items.
-             * @enum {string}
-             */
-            read?: "none" | "mine" | "role" | "full";
-            /**
-             * @description Unique identifier of the role this permission applies to.
-             * @example 3
-             */
-            role?: number;
-            /**
-             * @description Explicitly denies read access for specific fields.
-             * @example [
-             *   "featured_image"
-             * ]
-             */
-            read_field_blacklist?: string[];
-            /** @description What status this permission applies to. */
-            status?: string;
-            /** @description Explicitly denies specific statuses to be used. */
-            status_blacklist?: string[];
-            /**
-             * @description If the user can update items.
-             * @enum {string}
-             */
-            update?: "none" | "mine" | "role" | "full";
-            /** @description Explicitly denies write access for specific fields. */
-            write_field_blacklist?: string[];
+            name?: string;
           };
         };
       };
@@ -4189,7 +4279,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Permissions"][];
+            data?: components["schemas"]["Roles"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -4198,35 +4288,17 @@ export interface operations {
     };
   };
   /**
-   * List My Permissions
-   * @description List the permissions that apply to the current user.
+   * Retrieve a Role
+   * @description Retrieve a single role by unique identifier.
    */
-  getMyPermissions: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Permissions"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Retrieve a Permission
-   * @description Retrieve a single permissions object by unique identifier.
-   */
-  getPermission: {
+  getRole: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components["parameters"]["Id"];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -4234,7 +4306,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Permissions"];
+            data?: components["schemas"]["Roles"];
           };
         };
       };
@@ -4243,13 +4315,13 @@ export interface operations {
     };
   };
   /**
-   * Delete a Permission
-   * @description Delete an existing permission
+   * Delete a Role
+   * @description Delete an existing role
    */
-  deletePermission: {
+  deleteRole: {
     parameters: {
       path: {
-        id: components["parameters"]["Id"];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -4262,63 +4334,34 @@ export interface operations {
     };
   };
   /**
-   * Update a Permission
-   * @description Update an existing permission
+   * Update a Role
+   * @description Update an existing role
    */
-  updatePermission: {
+  updateRole: {
     parameters: {
       query?: {
+        fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components["parameters"]["Id"];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
         "application/json": {
-          /** @description What collection this permission applies to. */
-          collection?: Record<string, never>;
-          /**
-           * @description If the user can post comments. `full`.
-           * @enum {string}
-           */
-          comment?: "none" | "create" | "update";
-          /**
-           * @description If the user can create items.
-           * @enum {string}
-           */
-          create?: "none" | "full";
-          /**
-           * @description If the user can update items.
-           * @enum {string}
-           */
-          delete?: "none" | "mine" | "role" | "full";
-          /**
-           * @description If the user is required to leave a comment explaining what was changed.
-           * @enum {string}
-           */
-          explain?: "none" | "create" | "update" | "always";
-          /**
-           * @description If the user can read items.
-           * @enum {string}
-           */
-          read?: "none" | "mine" | "role" | "full";
-          /** @description Explicitly denies read access for specific fields. */
-          read_field_blacklist?: Record<string, never>;
-          /** @description Unique identifier of the role this permission applies to. */
-          role?: Record<string, never>;
-          /** @description What status this permission applies to. */
-          status?: Record<string, never>;
-          /** @description Explicitly denies specific statuses to be used. */
-          status_blacklist?: Record<string, never>;
-          /**
-           * @description If the user can update items.
-           * @enum {string}
-           */
-          update?: "none" | "mine" | "role" | "full";
-          /** @description Explicitly denies write access for specific fields. */
-          write_field_blacklist?: Record<string, never>;
+          /** @description Description of the role. */
+          description?: string;
+          /** @description Whether or not this role enforces the use of 2FA. */
+          enforce_tfa?: boolean;
+          /** @description ID used with external services in SCIM. */
+          external_id?: string;
+          /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+          ip_access?: string[];
+          /** @description Custom override for the admin app module bar navigation. */
+          module_listing?: string;
+          /** @description Name of the role. */
+          name?: string;
         };
       };
     };
@@ -4327,7 +4370,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Permissions"];
+            data?: components["schemas"]["Roles"];
           };
         };
       };
@@ -4833,226 +4876,6 @@ export interface operations {
     };
   };
   /**
-   * List Files
-   * @description List the files.
-   */
-  getFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create a File
-   * @description Create a new file
-   */
-  createFile: {
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Files
-   * @description Delete multiple existing files.
-   */
-  deleteFiles: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Files
-   * @description Update multiple files at the same time.
-   */
-  updateFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: {
-            data?: string;
-          };
-          keys?: string[];
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Retrieve a Files
-   * @description Retrieve a single file by unique identifier.
-   */
-  getFile: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete a File
-   * @description Delete an existing file.
-   */
-  deleteFile: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update a File
-   * @description Update an existing file, and/or replace it's file contents.
-   */
-  updateFile: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "multipart/data": {
-          /**
-           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-           * @example User Avatar
-           */
-          title?: string;
-          /** @description Preferred filename when file is downloaded. */
-          filename_download?: string;
-          /** @description Description for the file. */
-          description?: string | null;
-          /**
-           * @description Virtual folder where this file resides in.
-           * @example null
-           */
-          folder?: string | components["schemas"]["Folders"] | null;
-          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-          tags?: string[] | null;
-          /**
-           * Format: binary
-           * @description File contents.
-           */
-          file: unknown;
-        };
-        "application/json": {
-          /**
-           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-           * @example User Avatar
-           */
-          title?: string;
-          /** @description Preferred filename when file is downloaded. */
-          filename_download?: string;
-          /** @description Description for the file. */
-          description?: string | null;
-          /**
-           * @description Virtual folder where this file resides in.
-           * @example null
-           */
-          folder?: string | components["schemas"]["Folders"] | null;
-          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-          tags?: string[] | null;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
    * List Collections
    * @description Returns a list of the collections available in the project.
    */
@@ -5532,10 +5355,10 @@ export interface operations {
     };
   };
   /**
-   * List Roles
-   * @description List the roles.
+   * List Permissions
+   * @description List all permissions.
    */
-  getRoles: {
+  getPermissions: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -5553,7 +5376,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Roles"][];
+            data?: components["schemas"]["Permissions"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -5563,34 +5386,71 @@ export interface operations {
     };
   };
   /**
-   * Create a Role
-   * @description Create a new role.
+   * Create a Permission
+   * @description Create a new permission.
    */
-  createRole: {
+  createPermission: {
     parameters: {
       query?: {
-        fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
         "application/json": {
-          /** @description Description of the role. */
-          description?: string;
-          /** @description Whether or not this role enforces the use of 2FA. */
-          enforce_tfa?: boolean;
-          /** @description ID used with external services in SCIM. */
-          external_id?: string;
-          /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-          ip_access?: string[];
-          /** @description Custom override for the admin app module bar navigation. */
-          module_listing?: string;
           /**
-           * @description Name of the role.
-           * @example Interns
+           * @description What collection this permission applies to.
+           * @example customers
            */
-          name?: string;
+          collection?: string;
+          /**
+           * @description If the user can post comments.
+           * @enum {string}
+           */
+          comment?: "none" | "create" | "update" | "full";
+          /**
+           * @description If the user can create items.
+           * @enum {string}
+           */
+          create?: "none" | "full";
+          /**
+           * @description If the user can update items.
+           * @enum {string}
+           */
+          delete?: "none" | "mine" | "role" | "full";
+          /**
+           * @description If the user is required to leave a comment explaining what was changed.
+           * @enum {string}
+           */
+          explain?: "none" | "create" | "update" | "always";
+          /**
+           * @description If the user can read items.
+           * @enum {string}
+           */
+          read?: "none" | "mine" | "role" | "full";
+          /**
+           * @description Unique identifier of the role this permission applies to.
+           * @example 3
+           */
+          role?: number;
+          /**
+           * @description Explicitly denies read access for specific fields.
+           * @example [
+           *   "featured_image"
+           * ]
+           */
+          read_field_blacklist?: string[];
+          /** @description What status this permission applies to. */
+          status?: string;
+          /** @description Explicitly denies specific statuses to be used. */
+          status_blacklist?: string[];
+          /**
+           * @description If the user can update items.
+           * @enum {string}
+           */
+          update?: "none" | "mine" | "role" | "full";
+          /** @description Explicitly denies write access for specific fields. */
+          write_field_blacklist?: string[];
         };
       };
     };
@@ -5599,7 +5459,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Roles"];
+            data?: components["schemas"]["Permissions"];
           };
         };
       };
@@ -5608,10 +5468,10 @@ export interface operations {
     };
   };
   /**
-   * Delete Multiple Roles
-   * @description Delete multiple existing roles.
+   * Delete Multiple Permissions
+   * @description Delete multiple existing permissions.
    */
-  deleteRoles: {
+  deletePermissions: {
     responses: {
       /** @description Successful request */
       200: {
@@ -5621,10 +5481,10 @@ export interface operations {
     };
   };
   /**
-   * Update Multiple Roles
-   * @description Update multiple roles at the same time.
+   * Update Multiple Permissions
+   * @description Update multiple permissions at the same time.
    */
-  updateRoles: {
+  updatePermissions: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -5641,21 +5501,59 @@ export interface operations {
         "application/json": {
           keys?: string[];
           data?: {
-            /** @description Description of the role. */
-            description?: string;
-            /** @description Whether or not this role enforces the use of 2FA. */
-            enforce_tfa?: boolean;
-            /** @description ID used with external services in SCIM. */
-            external_id?: string;
-            /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-            ip_access?: string[];
-            /** @description Custom override for the admin app module bar navigation. */
-            module_listing?: string;
             /**
-             * @description Name of the role.
-             * @example Interns
+             * @description What collection this permission applies to.
+             * @example customers
              */
-            name?: string;
+            collection?: string;
+            /**
+             * @description If the user can post comments.
+             * @enum {string}
+             */
+            comment?: "none" | "create" | "update" | "full";
+            /**
+             * @description If the user can create items.
+             * @enum {string}
+             */
+            create?: "none" | "full";
+            /**
+             * @description If the user can update items.
+             * @enum {string}
+             */
+            delete?: "none" | "mine" | "role" | "full";
+            /**
+             * @description If the user is required to leave a comment explaining what was changed.
+             * @enum {string}
+             */
+            explain?: "none" | "create" | "update" | "always";
+            /**
+             * @description If the user can read items.
+             * @enum {string}
+             */
+            read?: "none" | "mine" | "role" | "full";
+            /**
+             * @description Unique identifier of the role this permission applies to.
+             * @example 3
+             */
+            role?: number;
+            /**
+             * @description Explicitly denies read access for specific fields.
+             * @example [
+             *   "featured_image"
+             * ]
+             */
+            read_field_blacklist?: string[];
+            /** @description What status this permission applies to. */
+            status?: string;
+            /** @description Explicitly denies specific statuses to be used. */
+            status_blacklist?: string[];
+            /**
+             * @description If the user can update items.
+             * @enum {string}
+             */
+            update?: "none" | "mine" | "role" | "full";
+            /** @description Explicitly denies write access for specific fields. */
+            write_field_blacklist?: string[];
           };
         };
       };
@@ -5665,7 +5563,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Roles"][];
+            data?: components["schemas"]["Permissions"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -5674,25 +5572,16 @@ export interface operations {
     };
   };
   /**
-   * Retrieve a Role
-   * @description Retrieve a single role by unique identifier.
+   * List My Permissions
+   * @description List the permissions that apply to the current user.
    */
-  getRole: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
+  getMyPermissions: {
     responses: {
       /** @description Successful request */
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Roles"];
+            data?: components["schemas"]["Permissions"][];
           };
         };
       };
@@ -5701,13 +5590,40 @@ export interface operations {
     };
   };
   /**
-   * Delete a Role
-   * @description Delete an existing role
+   * Retrieve a Permission
+   * @description Retrieve a single permissions object by unique identifier.
    */
-  deleteRole: {
+  getPermission: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["Id"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Permissions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete a Permission
+   * @description Delete an existing permission
+   */
+  deletePermission: {
     parameters: {
       path: {
-        id: components["parameters"]["UUId"];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
@@ -5720,34 +5636,63 @@ export interface operations {
     };
   };
   /**
-   * Update a Role
-   * @description Update an existing role
+   * Update a Permission
+   * @description Update an existing permission
    */
-  updateRole: {
+  updatePermission: {
     parameters: {
       query?: {
-        fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components["parameters"]["UUId"];
+        id: components["parameters"]["Id"];
       };
     };
     requestBody?: {
       content: {
         "application/json": {
-          /** @description Description of the role. */
-          description?: string;
-          /** @description Whether or not this role enforces the use of 2FA. */
-          enforce_tfa?: boolean;
-          /** @description ID used with external services in SCIM. */
-          external_id?: string;
-          /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-          ip_access?: string[];
-          /** @description Custom override for the admin app module bar navigation. */
-          module_listing?: string;
-          /** @description Name of the role. */
-          name?: string;
+          /** @description What collection this permission applies to. */
+          collection?: Record<string, never>;
+          /**
+           * @description If the user can post comments. `full`.
+           * @enum {string}
+           */
+          comment?: "none" | "create" | "update";
+          /**
+           * @description If the user can create items.
+           * @enum {string}
+           */
+          create?: "none" | "full";
+          /**
+           * @description If the user can update items.
+           * @enum {string}
+           */
+          delete?: "none" | "mine" | "role" | "full";
+          /**
+           * @description If the user is required to leave a comment explaining what was changed.
+           * @enum {string}
+           */
+          explain?: "none" | "create" | "update" | "always";
+          /**
+           * @description If the user can read items.
+           * @enum {string}
+           */
+          read?: "none" | "mine" | "role" | "full";
+          /** @description Explicitly denies read access for specific fields. */
+          read_field_blacklist?: Record<string, never>;
+          /** @description Unique identifier of the role this permission applies to. */
+          role?: Record<string, never>;
+          /** @description What status this permission applies to. */
+          status?: Record<string, never>;
+          /** @description Explicitly denies specific statuses to be used. */
+          status_blacklist?: Record<string, never>;
+          /**
+           * @description If the user can update items.
+           * @enum {string}
+           */
+          update?: "none" | "mine" | "role" | "full";
+          /** @description Explicitly denies write access for specific fields. */
+          write_field_blacklist?: Record<string, never>;
         };
       };
     };
@@ -5756,7 +5701,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Roles"];
+            data?: components["schemas"]["Permissions"];
           };
         };
       };
@@ -6040,6 +5985,226 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["Presets"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * List Files
+   * @description List the files.
+   */
+  getFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create a File
+   * @description Create a new file
+   */
+  createFile: {
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Files
+   * @description Delete multiple existing files.
+   */
+  deleteFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Files
+   * @description Update multiple files at the same time.
+   */
+  updateFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: {
+            data?: string;
+          };
+          keys?: string[];
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Retrieve a Files
+   * @description Retrieve a single file by unique identifier.
+   */
+  getFile: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete a File
+   * @description Delete an existing file.
+   */
+  deleteFile: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update a File
+   * @description Update an existing file, and/or replace it's file contents.
+   */
+  updateFile: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "multipart/data": {
+          /**
+           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+           * @example User Avatar
+           */
+          title?: string;
+          /** @description Preferred filename when file is downloaded. */
+          filename_download?: string;
+          /** @description Description for the file. */
+          description?: string | null;
+          /**
+           * @description Virtual folder where this file resides in.
+           * @example null
+           */
+          folder?: string | components["schemas"]["Folders"] | null;
+          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+          tags?: string[] | null;
+          /**
+           * Format: binary
+           * @description File contents.
+           */
+          file: unknown;
+        };
+        "application/json": {
+          /**
+           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+           * @example User Avatar
+           */
+          title?: string;
+          /** @description Preferred filename when file is downloaded. */
+          filename_download?: string;
+          /** @description Description for the file. */
+          description?: string | null;
+          /**
+           * @description Virtual folder where this file resides in.
+           * @example null
+           */
+          folder?: string | components["schemas"]["Folders"] | null;
+          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+          tags?: string[] | null;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
           };
         };
       };
@@ -12475,6 +12640,567 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the events_translations items.
+   */
+  readItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new events_translations item.
+   */
+  createItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing events_translations items.
+   */
+  deleteItemsEventsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple events_translations items at the same time.
+   */
+  updateItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single events_translations item by unique identifier.
+   */
+  readSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing events_translations item.
+   */
+  deleteSingleItemsEventsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing events_translations item.
+   */
+  updateSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the events items.
+   */
+  readItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new events item.
+   */
+  createItemsEvents: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing events items.
+   */
+  deleteItemsEvents: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple events items at the same time.
+   */
+  updateItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single events item by unique identifier.
+   */
+  readSingleItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing events item.
+   */
+  deleteSingleItemsEvents: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing events item.
+   */
+  updateSingleItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the registrations items.
+   */
+  readItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new registrations item.
+   */
+  createItemsRegistrations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing registrations items.
+   */
+  deleteItemsRegistrations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple registrations items at the same time.
+   */
+  updateItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single registrations item by unique identifier.
+   */
+  readSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing registrations item.
+   */
+  deleteSingleItemsRegistrations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing registrations item.
+   */
+  updateSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the save_the_date items.
    */
   readItemsSavetheDate: {
@@ -13250,6 +13976,9 @@ export type Schema = {
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
+  events_translations: components["schemas"]["ItemsEventsTranslations"][];
+  events: components["schemas"]["ItemsEvents"][];
+  registrations: components["schemas"]["ItemsRegistrations"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
