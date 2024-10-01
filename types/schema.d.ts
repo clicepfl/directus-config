@@ -1875,6 +1875,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsEventsTranslations"];
   };
+  "/items/registrations": {
+    /**
+     * List Items
+     * @description List the registrations items.
+     */
+    get: operations["readItemsRegistrations"];
+    /**
+     * Create an Item
+     * @description Create a new registrations item.
+     */
+    post: operations["createItemsRegistrations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing registrations items.
+     */
+    delete: operations["deleteItemsRegistrations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple registrations items at the same time.
+     */
+    patch: operations["updateItemsRegistrations"];
+  };
+  "/items/registrations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single registrations item by unique identifier.
+     */
+    get: operations["readSingleItemsRegistrations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing registrations item.
+     */
+    delete: operations["deleteSingleItemsRegistrations"];
+    /**
+     * Update an Item
+     * @description Update an existing registrations item.
+     */
+    patch: operations["updateSingleItemsRegistrations"];
+  };
   "/items/save_the_date": {
     /**
      * List Items
@@ -2030,45 +2069,6 @@ export interface paths {
      * @description Update an existing std_cell_translations item.
      */
     patch: operations["updateSingleItemsStdCellTranslations"];
-  };
-  "/items/registrations": {
-    /**
-     * List Items
-     * @description List the registrations items.
-     */
-    get: operations["readItemsRegistrations"];
-    /**
-     * Create an Item
-     * @description Create a new registrations item.
-     */
-    post: operations["createItemsRegistrations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing registrations items.
-     */
-    delete: operations["deleteItemsRegistrations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple registrations items at the same time.
-     */
-    patch: operations["updateItemsRegistrations"];
-  };
-  "/items/registrations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single registrations item by unique identifier.
-     */
-    get: operations["readSingleItemsRegistrations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing registrations item.
-     */
-    delete: operations["deleteSingleItemsRegistrations"];
-    /**
-     * Update an Item
-     * @description Update an existing registrations item.
-     */
-    patch: operations["updateSingleItemsRegistrations"];
   };
 }
 
@@ -3336,6 +3336,23 @@ export interface components {
       title?: string | null;
       description?: string | null;
     };
+    ItemsRegistrations: {
+      id?: number;
+      event?: number | components["schemas"]["ItemsEvents"] | null;
+      email?: string | null;
+      meal?: number | null;
+      comments?: string | null;
+      family_name?: string | null;
+      first_name?: string | null;
+      payment?: string | null;
+      late_payment?: boolean | null;
+      allergies?: string | null;
+      plusOnes?: number | null;
+      plusOnesCheckedIn?: number | null;
+      team?: string | null;
+      year?: string | null;
+      section?: string | null;
+    };
     ItemsSavetheDate: {
       id?: number;
       background_color?: string | null;
@@ -3385,21 +3402,6 @@ export interface components {
       detail_button_title?: string | null;
       /** @description This will replace the date by this text. (optional) */
       date_replacement?: string | null;
-    };
-    ItemsRegistrations: {
-      id?: number;
-      event?: number | components["schemas"]["ItemsEvents"] | null;
-      email?: string | null;
-      meal?: number | null;
-      comments?: string | null;
-      family_name?: string | null;
-      first_name?: string | null;
-      payment?: string | null;
-      late_payment?: boolean | null;
-      allergies?: string | null;
-      plusOnes?: number | null;
-      plusOnesCheckedIn?: number | null;
-      team?: string | null;
     };
   };
   responses: {
@@ -13021,6 +13023,193 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the registrations items.
+   */
+  readItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new registrations item.
+   */
+  createItemsRegistrations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing registrations items.
+   */
+  deleteItemsRegistrations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple registrations items at the same time.
+   */
+  updateItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single registrations item by unique identifier.
+   */
+  readSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing registrations item.
+   */
+  deleteSingleItemsRegistrations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing registrations item.
+   */
+  updateSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the save_the_date items.
    */
   readItemsSavetheDate: {
@@ -13767,193 +13956,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  /**
-   * List Items
-   * @description List the registrations items.
-   */
-  readItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new registrations item.
-   */
-  createItemsRegistrations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing registrations items.
-   */
-  deleteItemsRegistrations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple registrations items at the same time.
-   */
-  updateItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single registrations item by unique identifier.
-   */
-  readSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing registrations item.
-   */
-  deleteSingleItemsRegistrations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing registrations item.
-   */
-  updateSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
 }
 
 export type Schema = {
@@ -13985,9 +13987,9 @@ export type Schema = {
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   events: components["schemas"]["ItemsEvents"][];
   events_translations: components["schemas"]["ItemsEventsTranslations"][];
+  registrations: components["schemas"]["ItemsRegistrations"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
-  registrations: components["schemas"]["ItemsRegistrations"][];
 };
