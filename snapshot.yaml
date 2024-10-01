@@ -3608,7 +3608,7 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: type
       table: events
@@ -3718,7 +3718,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 7
+      sort: 8
       special:
         - alias
         - group
@@ -3744,7 +3744,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 8
+      sort: 9
       special:
         - alias
         - group
@@ -3776,7 +3776,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 6
+      sort: 7
       special:
         - alias
         - group
@@ -4101,6 +4101,45 @@ fields:
       table: events
       data_type: json
       default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: opened
+    type: boolean
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: opened
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: opened
+      table: events
+      data_type: boolean
+      default_value: false
       max_length: null
       numeric_precision: null
       numeric_scale: null
