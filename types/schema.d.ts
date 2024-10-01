@@ -3398,6 +3398,7 @@ export interface components {
       allergies?: string | null;
       plusOnes?: number | null;
       plusOnesCheckedIn?: number | null;
+      team?: string | null;
     };
   };
   responses: {
