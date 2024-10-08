@@ -4055,8 +4055,9 @@ fields:
                   _eq: faculty_dinner
           required: true
           options: {}
-      display: null
-      display_options: null
+      display: formatted-json-value
+      display_options:
+        format: "{{ name }}, {{ count }}"
       field: meals
       group: faculty_dinner
       hidden: false
@@ -4072,6 +4073,19 @@ fields:
               type: string
               required: true
               interface: null
+              width: half
+          - field: count
+            name: count
+            type: integer
+            meta:
+              field: count
+              width: half
+              type: integer
+              required: true
+              note: Do not edit manually
+              interface: input
+              options: {}
+              display: null
           - field: description
             name: description
             type: text
@@ -6901,7 +6915,7 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: email
       table: registrations
@@ -6934,7 +6948,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 7
+      sort: 8
       special:
         - alias
         - group
@@ -7023,7 +7037,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 6
+      sort: 7
       special: null
       translations: null
       validation: null
@@ -7061,7 +7075,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 5
+      sort: 6
       special: null
       translations: null
       validation: null
@@ -7099,7 +7113,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 4
+      sort: 5
       special: null
       translations: null
       validation: null
@@ -7417,7 +7431,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 8
+      sort: 9
       special: null
       translations: null
       validation: null
@@ -7455,7 +7469,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 9
+      sort: 10
       special: null
       translations: null
       validation: null
@@ -7467,6 +7481,45 @@ fields:
       data_type: character varying
       default_value: null
       max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: checked_in
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: checked_in
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: checked_in
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
