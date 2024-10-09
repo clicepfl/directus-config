@@ -1836,44 +1836,44 @@ export interface paths {
      */
     patch: operations["updateSingleItemsEventsTranslations"];
   };
-  "/items/registrations": {
+  "/items/events": {
     /**
      * List Items
-     * @description List the registrations items.
+     * @description List the events items.
      */
-    get: operations["readItemsRegistrations"];
+    get: operations["readItemsEvents"];
     /**
      * Create an Item
-     * @description Create a new registrations item.
+     * @description Create a new events item.
      */
-    post: operations["createItemsRegistrations"];
+    post: operations["createItemsEvents"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing registrations items.
+     * @description Delete multiple existing events items.
      */
-    delete: operations["deleteItemsRegistrations"];
+    delete: operations["deleteItemsEvents"];
     /**
      * Update Multiple Items
-     * @description Update multiple registrations items at the same time.
+     * @description Update multiple events items at the same time.
      */
-    patch: operations["updateItemsRegistrations"];
+    patch: operations["updateItemsEvents"];
   };
-  "/items/registrations/{id}": {
+  "/items/events/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single registrations item by unique identifier.
+     * @description Retrieve a single events item by unique identifier.
      */
-    get: operations["readSingleItemsRegistrations"];
+    get: operations["readSingleItemsEvents"];
     /**
      * Delete an Item
-     * @description Delete an existing registrations item.
+     * @description Delete an existing events item.
      */
-    delete: operations["deleteSingleItemsRegistrations"];
+    delete: operations["deleteSingleItemsEvents"];
     /**
      * Update an Item
-     * @description Update an existing registrations item.
+     * @description Update an existing events item.
      */
-    patch: operations["updateSingleItemsRegistrations"];
+    patch: operations["updateSingleItemsEvents"];
   };
   "/items/save_the_date": {
     /**
@@ -2031,44 +2031,44 @@ export interface paths {
      */
     patch: operations["updateSingleItemsStdCellTranslations"];
   };
-  "/items/events": {
+  "/items/registrations": {
     /**
      * List Items
-     * @description List the events items.
+     * @description List the registrations items.
      */
-    get: operations["readItemsEvents"];
+    get: operations["readItemsRegistrations"];
     /**
      * Create an Item
-     * @description Create a new events item.
+     * @description Create a new registrations item.
      */
-    post: operations["createItemsEvents"];
+    post: operations["createItemsRegistrations"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing events items.
+     * @description Delete multiple existing registrations items.
      */
-    delete: operations["deleteItemsEvents"];
+    delete: operations["deleteItemsRegistrations"];
     /**
      * Update Multiple Items
-     * @description Update multiple events items at the same time.
+     * @description Update multiple registrations items at the same time.
      */
-    patch: operations["updateItemsEvents"];
+    patch: operations["updateItemsRegistrations"];
   };
-  "/items/events/{id}": {
+  "/items/registrations/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single events item by unique identifier.
+     * @description Retrieve a single registrations item by unique identifier.
      */
-    get: operations["readSingleItemsEvents"];
+    get: operations["readSingleItemsRegistrations"];
     /**
      * Delete an Item
-     * @description Delete an existing events item.
+     * @description Delete an existing registrations item.
      */
-    delete: operations["deleteSingleItemsEvents"];
+    delete: operations["deleteSingleItemsRegistrations"];
     /**
      * Update an Item
-     * @description Update an existing events item.
+     * @description Update an existing registrations item.
      */
-    patch: operations["updateSingleItemsEvents"];
+    patch: operations["updateSingleItemsRegistrations"];
   };
 }
 
@@ -3315,23 +3315,27 @@ export interface components {
       title?: string | null;
       description?: string | null;
     };
-    ItemsRegistrations: {
+    ItemsEvents: {
       id?: number;
-      event?: number | components["schemas"]["ItemsEvents"] | null;
-      email?: string | null;
-      meal?: number | null;
-      comments?: string | null;
-      family_name?: string | null;
-      first_name?: string | null;
-      payment?: string | null;
-      late_payment?: boolean | null;
-      allergies?: string | null;
-      plusOnes?: number | null;
-      plusOnesCheckedIn?: number | null;
-      team?: string | null;
-      year?: string | null;
-      section?: string | null;
-      checked_in?: boolean | null;
+      type?: string | null;
+      /** Format: date-time */
+      from?: string | null;
+      /** Format: date-time */
+      to?: string | null;
+      /** Format: date-time */
+      staffing_from?: string | null;
+      /** Format: date-time */
+      staffing_to?: string | null;
+      staffingTypes?: unknown;
+      staffingShiftSize?: number | null;
+      mailTemplate?: string | null;
+      mailSent?: boolean | null;
+      meals?: unknown;
+      opened?: boolean | null;
+      name?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsEventsTranslations"])[]
+        | null;
     };
     ItemsSavetheDate: {
       id?: number;
@@ -3383,26 +3387,24 @@ export interface components {
       /** @description This will replace the date by this text. (optional) */
       date_replacement?: string | null;
     };
-    ItemsEvents: {
-      id?: number;
-      type?: string | null;
-      /** Format: date-time */
-      from?: string | null;
-      /** Format: date-time */
-      to?: string | null;
-      /** Format: date-time */
-      staffing_from?: string | null;
-      /** Format: date-time */
-      staffing_to?: string | null;
-      staffingTypes?: unknown;
-      staffingShiftSize?: number | null;
-      mailTemplate?: string | null;
-      mailSent?: boolean | null;
-      meals?: unknown;
-      opened?: boolean | null;
-      translations?:
-        | (number | components["schemas"]["ItemsEventsTranslations"])[]
-        | null;
+    ItemsRegistrations: {
+      /** Format: uuid */
+      id?: string;
+      event?: number | components["schemas"]["ItemsEvents"] | null;
+      email?: string | null;
+      meal?: number | null;
+      comments?: string | null;
+      family_name?: string | null;
+      first_name?: string | null;
+      payment?: string | null;
+      late_payment?: boolean | null;
+      allergies?: string | null;
+      plusOnes?: number | null;
+      plusOnesCheckedIn?: number | null;
+      team?: string | null;
+      year?: string | null;
+      section?: string | null;
+      checked_in?: boolean | null;
     };
   };
   responses: {
@@ -12837,9 +12839,9 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the registrations items.
+   * @description List the events items.
    */
-  readItemsRegistrations: {
+  readItemsEvents: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -12856,7 +12858,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"][];
+            data?: components["schemas"]["ItemsEvents"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -12866,9 +12868,9 @@ export interface operations {
   };
   /**
    * Create an Item
-   * @description Create a new registrations item.
+   * @description Create a new events item.
    */
-  createItemsRegistrations: {
+  createItemsEvents: {
     parameters: {
       query?: {
         meta?: components["parameters"]["Meta"];
@@ -12877,8 +12879,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
       };
     };
     responses: {
@@ -12895,9 +12897,9 @@ export interface operations {
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing registrations items.
+   * @description Delete multiple existing events items.
    */
-  deleteItemsRegistrations: {
+  deleteItemsEvents: {
     responses: {
       /** @description Successful request */
       200: {
@@ -12908,9 +12910,9 @@ export interface operations {
   };
   /**
    * Update Multiple Items
-   * @description Update multiple registrations items at the same time.
+   * @description Update multiple events items at the same time.
    */
-  updateItemsRegistrations: {
+  updateItemsEvents: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -12925,8 +12927,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
       };
     };
     responses: {
@@ -12942,9 +12944,9 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single registrations item by unique identifier.
+   * @description Retrieve a single events item by unique identifier.
    */
-  readSingleItemsRegistrations: {
+  readSingleItemsEvents: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -12961,7 +12963,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
+            data?: components["schemas"]["ItemsEvents"];
           };
         };
       };
@@ -12971,9 +12973,9 @@ export interface operations {
   };
   /**
    * Delete an Item
-   * @description Delete an existing registrations item.
+   * @description Delete an existing events item.
    */
-  deleteSingleItemsRegistrations: {
+  deleteSingleItemsEvents: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -12991,9 +12993,9 @@ export interface operations {
   };
   /**
    * Update an Item
-   * @description Update an existing registrations item.
+   * @description Update an existing events item.
    */
-  updateSingleItemsRegistrations: {
+  updateSingleItemsEvents: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13006,7 +13008,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsRegistrations"];
+        "application/json": components["schemas"]["ItemsEvents"];
       };
     };
     responses: {
@@ -13014,7 +13016,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
+            data?: components["schemas"]["ItemsEvents"];
           };
         };
       };
@@ -13772,9 +13774,9 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the events items.
+   * @description List the registrations items.
    */
-  readItemsEvents: {
+  readItemsRegistrations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13791,7 +13793,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsEvents"][];
+            data?: components["schemas"]["ItemsRegistrations"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -13801,9 +13803,9 @@ export interface operations {
   };
   /**
    * Create an Item
-   * @description Create a new events item.
+   * @description Create a new registrations item.
    */
-  createItemsEvents: {
+  createItemsRegistrations: {
     parameters: {
       query?: {
         meta?: components["parameters"]["Meta"];
@@ -13812,8 +13814,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
       };
     };
     responses: {
@@ -13830,9 +13832,9 @@ export interface operations {
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing events items.
+   * @description Delete multiple existing registrations items.
    */
-  deleteItemsEvents: {
+  deleteItemsRegistrations: {
     responses: {
       /** @description Successful request */
       200: {
@@ -13843,9 +13845,9 @@ export interface operations {
   };
   /**
    * Update Multiple Items
-   * @description Update multiple events items at the same time.
+   * @description Update multiple registrations items at the same time.
    */
-  updateItemsEvents: {
+  updateItemsRegistrations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13860,8 +13862,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
       };
     };
     responses: {
@@ -13877,9 +13879,9 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single events item by unique identifier.
+   * @description Retrieve a single registrations item by unique identifier.
    */
-  readSingleItemsEvents: {
+  readSingleItemsRegistrations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13896,7 +13898,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
+            data?: components["schemas"]["ItemsRegistrations"];
           };
         };
       };
@@ -13906,9 +13908,9 @@ export interface operations {
   };
   /**
    * Delete an Item
-   * @description Delete an existing events item.
+   * @description Delete an existing registrations item.
    */
-  deleteSingleItemsEvents: {
+  deleteSingleItemsRegistrations: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -13926,9 +13928,9 @@ export interface operations {
   };
   /**
    * Update an Item
-   * @description Update an existing events item.
+   * @description Update an existing registrations item.
    */
-  updateSingleItemsEvents: {
+  updateSingleItemsRegistrations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13941,7 +13943,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsEvents"];
+        "application/json": components["schemas"]["ItemsRegistrations"];
       };
     };
     responses: {
@@ -13949,7 +13951,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
+            data?: components["schemas"]["ItemsRegistrations"];
           };
         };
       };
@@ -13987,10 +13989,10 @@ export type Schema = {
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   events_translations: components["schemas"]["ItemsEventsTranslations"][];
-  registrations: components["schemas"]["ItemsRegistrations"][];
+  events: components["schemas"]["ItemsEvents"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
-  events: components["schemas"]["ItemsEvents"][];
+  registrations: components["schemas"]["ItemsRegistrations"][];
 };
