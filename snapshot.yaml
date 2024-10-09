@@ -419,7 +419,7 @@ collections:
       collapse: open
       collection: inventory
       color: null
-      display_template: "{{name}}\_{{quantity}}\_{{expiration_date}}\_{{location}}\_{{tags}}"
+      display_template: '{{name}}\_{{quantity}}\_{{expiration_date}}\_{{location}}\_{{tags}}'
       group: null
       hidden: false
       icon: shelves
@@ -467,7 +467,7 @@ collections:
       collapse: open
       collection: members
       color: null
-      display_template: "{{name}}\_{{surname}}"
+      display_template: '{{name}}\_{{surname}}'
       group: null
       hidden: false
       icon: frame_person
@@ -731,7 +731,7 @@ collections:
       collapse: open
       collection: social_links
       color: null
-      display_template: "{{account_name}} -\_{{media_name}}"
+      display_template: '{{account_name}} -\_{{media_name}}'
       group: null
       hidden: false
       icon: stream_apps
@@ -1223,7 +1223,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: "{{surname}}\_{{name}}"
+        template: '{{surname}}\_{{name}}'
       field: member
       group: null
       hidden: false
@@ -2667,7 +2667,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: "{{surname}}\_{{name}}"
+        template: '{{surname}}\_{{name}}'
       field: member
       group: null
       hidden: false
@@ -3542,7 +3542,7 @@ fields:
       foreign_key_column: id
   - collection: events
     field: id
-    type: uuid
+    type: integer
     meta:
       collection: events
       conditions: null
@@ -3557,8 +3557,7 @@ fields:
       readonly: true
       required: false
       sort: 1
-      special:
-        - uuid
+      special: null
       translations: null
       validation: null
       validation_message: null
@@ -3566,17 +3565,17 @@ fields:
     schema:
       name: id
       table: events
-      data_type: uuid
-      default_value: null
+      data_type: integer
+      default_value: nextval('events_id_seq'::regclass)
       max_length: null
-      numeric_precision: null
-      numeric_scale: null
+      numeric_precision: 32
+      numeric_scale: 0
       is_nullable: false
       is_unique: true
       is_primary_key: true
       is_generated: false
       generation_expression: null
-      has_auto_increment: false
+      has_auto_increment: true
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
@@ -3719,7 +3718,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 9
+      sort: 10
       special:
         - alias
         - group
@@ -3745,7 +3744,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 10
+      sort: 11
       special:
         - alias
         - group
@@ -3777,7 +3776,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 8
+      sort: 9
       special:
         - alias
         - group
@@ -3803,13 +3802,52 @@ fields:
         defaultOpenSplitView: true
       readonly: false
       required: true
-      sort: 3
+      sort: 8
       special:
         - translations
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: events
+    field: opened
+    type: boolean
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: opened
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: opened
+      table: events
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: events
     field: staffing_from
     type: dateTime
@@ -4128,45 +4166,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
-    field: opened
-    type: boolean
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: opened
-      group: null
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 7
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: opened
-      table: events
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
     field: name
     type: string
     meta:
@@ -4187,7 +4186,7 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: name
       table: events
@@ -4196,6 +4195,45 @@ fields:
       max_length: 255
       numeric_precision: null
       numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: price
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: price
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: attach_money
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: price
+      table: events
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
       is_nullable: true
       is_unique: false
       is_primary_key: false
