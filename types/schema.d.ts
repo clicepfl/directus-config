@@ -1953,45 +1953,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsStdCellTranslations"];
   };
-  "/items/events_translations": {
-    /**
-     * List Items
-     * @description List the events_translations items.
-     */
-    get: operations["readItemsEventsTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new events_translations item.
-     */
-    post: operations["createItemsEventsTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events_translations items.
-     */
-    delete: operations["deleteItemsEventsTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple events_translations items at the same time.
-     */
-    patch: operations["updateItemsEventsTranslations"];
-  };
-  "/items/events_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsEventsTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing events_translations item.
-     */
-    delete: operations["deleteSingleItemsEventsTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing events_translations item.
-     */
-    patch: operations["updateSingleItemsEventsTranslations"];
-  };
   "/items/registrations": {
     /**
      * List Items
@@ -2030,6 +1991,45 @@ export interface paths {
      * @description Update an existing registrations item.
      */
     patch: operations["updateSingleItemsRegistrations"];
+  };
+  "/items/events_translations": {
+    /**
+     * List Items
+     * @description List the events_translations items.
+     */
+    get: operations["readItemsEventsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new events_translations item.
+     */
+    post: operations["createItemsEventsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events_translations items.
+     */
+    delete: operations["deleteItemsEventsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple events_translations items at the same time.
+     */
+    patch: operations["updateItemsEventsTranslations"];
+  };
+  "/items/events_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsEventsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing events_translations item.
+     */
+    delete: operations["deleteSingleItemsEventsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing events_translations item.
+     */
+    patch: operations["updateSingleItemsEventsTranslations"];
   };
   "/items/events": {
     /**
@@ -3358,13 +3358,6 @@ export interface components {
       /** @description This will replace the date by this text. (optional) */
       date_replacement?: string | null;
     };
-    ItemsEventsTranslations: {
-      id?: number;
-      events_id?: number | components["schemas"]["ItemsEvents"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string | null;
-      description?: string | null;
-    };
     ItemsRegistrations: {
       /** Format: uuid */
       id?: string;
@@ -3383,6 +3376,16 @@ export interface components {
       year?: string | null;
       section?: string | null;
       checked_in?: boolean | null;
+      is_staff?: boolean | null;
+      preferences?: unknown;
+      availability?: unknown;
+    };
+    ItemsEventsTranslations: {
+      id?: number;
+      events_id?: number | components["schemas"]["ItemsEvents"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
     };
     ItemsEvents: {
       id?: number;
@@ -13403,193 +13406,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the events_translations items.
-   */
-  readItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new events_translations item.
-   */
-  createItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing events_translations items.
-   */
-  deleteItemsEventsTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple events_translations items at the same time.
-   */
-  updateItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single events_translations item by unique identifier.
-   */
-  readSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing events_translations item.
-   */
-  deleteSingleItemsEventsTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing events_translations item.
-   */
-  updateSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the registrations items.
    */
   readItemsRegistrations: {
@@ -13768,6 +13584,193 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the events_translations items.
+   */
+  readItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new events_translations item.
+   */
+  createItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing events_translations items.
+   */
+  deleteItemsEventsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple events_translations items at the same time.
+   */
+  updateItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single events_translations item by unique identifier.
+   */
+  readSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing events_translations item.
+   */
+  deleteSingleItemsEventsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing events_translations item.
+   */
+  updateSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
           };
         };
       };
@@ -13995,7 +13998,7 @@ export type Schema = {
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
-  events_translations: components["schemas"]["ItemsEventsTranslations"][];
   registrations: components["schemas"]["ItemsRegistrations"][];
+  events_translations: components["schemas"]["ItemsEventsTranslations"][];
   events: components["schemas"]["ItemsEvents"][];
 };
