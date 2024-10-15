@@ -6948,7 +6948,7 @@ fields:
         enableCreate: false
         template: "{{translations.title}}"
       readonly: false
-      required: false
+      required: true
       sort: 2
       special:
         - m2o
