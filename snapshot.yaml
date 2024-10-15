@@ -3718,7 +3718,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 10
+      sort: 12
       special:
         - alias
         - group
@@ -3744,7 +3744,7 @@ fields:
         start: closed
       readonly: false
       required: true
-      sort: 11
+      sort: 13
       special:
         - alias
         - group
@@ -3776,7 +3776,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 9
+      sort: 11
       special:
         - alias
         - group
@@ -3802,7 +3802,7 @@ fields:
         defaultOpenSplitView: true
       readonly: false
       required: true
-      sort: 8
+      sort: 10
       special:
         - translations
       translations: null
@@ -4235,6 +4235,85 @@ fields:
       numeric_precision: 32
       numeric_scale: 0
       is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: max_registrations
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: max_registrations
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: tab_close_right
+        min: 0
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: max_registrations
+      table: events
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: registration_count
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_count
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: null
+      readonly: true
+      required: true
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_count
+      table: events
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
