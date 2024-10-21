@@ -1,9 +1,10 @@
 services:
   # Directus service
   directus:
+    labels:
+      - org.clic.type=directus
     image: directus/directus
     user: ${UID}:${GID}
-    container_name: clic-directus
     environment:
       SECRET: secret
       KEY: key
@@ -26,7 +27,8 @@ services:
 
   # Database for directus
   directus-postgres:
-    container_name: clic-postgres
+    labels:
+      - org.clic.type=directus-postgres
     image: postgres
     environment:
       POSTGRES_DB: directus_data
