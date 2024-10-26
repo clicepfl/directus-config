@@ -252,6 +252,45 @@ export interface paths {
      */
     patch: operations["updateField"];
   };
+  "/files": {
+    /**
+     * List Files
+     * @description List the files.
+     */
+    get: operations["getFiles"];
+    /**
+     * Create a File
+     * @description Create a new file
+     */
+    post: operations["createFile"];
+    /**
+     * Delete Multiple Files
+     * @description Delete multiple existing files.
+     */
+    delete: operations["deleteFiles"];
+    /**
+     * Update Multiple Files
+     * @description Update multiple files at the same time.
+     */
+    patch: operations["updateFiles"];
+  };
+  "/files/{id}": {
+    /**
+     * Retrieve a Files
+     * @description Retrieve a single file by unique identifier.
+     */
+    get: operations["getFile"];
+    /**
+     * Delete a File
+     * @description Delete an existing file.
+     */
+    delete: operations["deleteFile"];
+    /**
+     * Update a File
+     * @description Update an existing file, and/or replace it's file contents.
+     */
+    patch: operations["updateFile"];
+  };
   "/collections": {
     /**
      * List Collections
@@ -404,45 +443,6 @@ export interface paths {
      * @description Update an existing preset.
      */
     patch: operations["updatePreset"];
-  };
-  "/files": {
-    /**
-     * List Files
-     * @description List the files.
-     */
-    get: operations["getFiles"];
-    /**
-     * Create a File
-     * @description Create a new file
-     */
-    post: operations["createFile"];
-    /**
-     * Delete Multiple Files
-     * @description Delete multiple existing files.
-     */
-    delete: operations["deleteFiles"];
-    /**
-     * Update Multiple Files
-     * @description Update multiple files at the same time.
-     */
-    patch: operations["updateFiles"];
-  };
-  "/files/{id}": {
-    /**
-     * Retrieve a Files
-     * @description Retrieve a single file by unique identifier.
-     */
-    get: operations["getFile"];
-    /**
-     * Delete a File
-     * @description Delete an existing file.
-     */
-    delete: operations["deleteFile"];
-    /**
-     * Update a File
-     * @description Update an existing file, and/or replace it's file contents.
-     */
-    patch: operations["updateFile"];
   };
   "/users": {
     /**
@@ -1992,45 +1992,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsRegistrations"];
   };
-  "/items/events_translations": {
-    /**
-     * List Items
-     * @description List the events_translations items.
-     */
-    get: operations["readItemsEventsTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new events_translations item.
-     */
-    post: operations["createItemsEventsTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events_translations items.
-     */
-    delete: operations["deleteItemsEventsTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple events_translations items at the same time.
-     */
-    patch: operations["updateItemsEventsTranslations"];
-  };
-  "/items/events_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsEventsTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing events_translations item.
-     */
-    delete: operations["deleteSingleItemsEventsTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing events_translations item.
-     */
-    patch: operations["updateSingleItemsEventsTranslations"];
-  };
   "/items/events": {
     /**
      * List Items
@@ -2069,6 +2030,45 @@ export interface paths {
      * @description Update an existing events item.
      */
     patch: operations["updateSingleItemsEvents"];
+  };
+  "/items/events_translations": {
+    /**
+     * List Items
+     * @description List the events_translations items.
+     */
+    get: operations["readItemsEventsTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new events_translations item.
+     */
+    post: operations["createItemsEventsTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events_translations items.
+     */
+    delete: operations["deleteItemsEventsTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple events_translations items at the same time.
+     */
+    patch: operations["updateItemsEventsTranslations"];
+  };
+  "/items/events_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsEventsTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing events_translations item.
+     */
+    delete: operations["deleteSingleItemsEventsTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing events_translations item.
+     */
+    patch: operations["updateSingleItemsEventsTranslations"];
   };
 }
 
@@ -2139,10 +2139,10 @@ export interface components {
       uploaded_by?: string | components["schemas"]["Users"];
       /**
        * Format: date-time
-       * @description When the file was uploaded.
+       * @description When the file was created.
        * @example 2019-12-03T00:10:15+00:00
        */
-      uploaded_on?: string;
+      created_on?: string;
       modified_by?: string | components["schemas"]["Users"] | null;
       /** Format: timestamp */
       modified_on?: string;
@@ -2188,6 +2188,12 @@ export interface components {
       focal_point_y?: number | null;
       tus_id?: string | null;
       tus_data?: unknown;
+      /**
+       * Format: date-time
+       * @description When the file was last uploaded/replaced.
+       * @example 2019-12-03T00:10:15+00:00
+       */
+      uploaded_on?: string;
     };
     Folders: {
       /**
@@ -3380,13 +3386,6 @@ export interface components {
       preferences?: unknown;
       availability?: unknown;
     };
-    ItemsEventsTranslations: {
-      id?: number;
-      events_id?: number | components["schemas"]["ItemsEvents"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string | null;
-      description?: string | null;
-    };
     ItemsEvents: {
       id?: number;
       type?: string | null;
@@ -3411,6 +3410,13 @@ export interface components {
       translations?:
         | (number | components["schemas"]["ItemsEventsTranslations"])[]
         | null;
+    };
+    ItemsEventsTranslations: {
+      id?: number;
+      events_id?: number | components["schemas"]["ItemsEvents"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
     };
   };
   responses: {
@@ -4894,6 +4900,226 @@ export interface operations {
     };
   };
   /**
+   * List Files
+   * @description List the files.
+   */
+  getFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create a File
+   * @description Create a new file
+   */
+  createFile: {
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Files
+   * @description Delete multiple existing files.
+   */
+  deleteFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Files
+   * @description Update multiple files at the same time.
+   */
+  updateFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: {
+            data?: string;
+          };
+          keys?: string[];
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Retrieve a Files
+   * @description Retrieve a single file by unique identifier.
+   */
+  getFile: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete a File
+   * @description Delete an existing file.
+   */
+  deleteFile: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update a File
+   * @description Update an existing file, and/or replace it's file contents.
+   */
+  updateFile: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "multipart/data": {
+          /**
+           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+           * @example User Avatar
+           */
+          title?: string;
+          /** @description Preferred filename when file is downloaded. */
+          filename_download?: string;
+          /** @description Description for the file. */
+          description?: string | null;
+          /**
+           * @description Virtual folder where this file resides in.
+           * @example null
+           */
+          folder?: string | components["schemas"]["Folders"] | null;
+          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+          tags?: string[] | null;
+          /**
+           * Format: binary
+           * @description File contents.
+           */
+          file: unknown;
+        };
+        "application/json": {
+          /**
+           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+           * @example User Avatar
+           */
+          title?: string;
+          /** @description Preferred filename when file is downloaded. */
+          filename_download?: string;
+          /** @description Description for the file. */
+          description?: string | null;
+          /**
+           * @description Virtual folder where this file resides in.
+           * @example null
+           */
+          folder?: string | components["schemas"]["Folders"] | null;
+          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+          tags?: string[] | null;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Files"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
    * List Collections
    * @description Returns a list of the collections available in the project.
    */
@@ -6003,226 +6229,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["Presets"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * List Files
-   * @description List the files.
-   */
-  getFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create a File
-   * @description Create a new file
-   */
-  createFile: {
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Files
-   * @description Delete multiple existing files.
-   */
-  deleteFiles: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Files
-   * @description Update multiple files at the same time.
-   */
-  updateFiles: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: {
-            data?: string;
-          };
-          keys?: string[];
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Retrieve a Files
-   * @description Retrieve a single file by unique identifier.
-   */
-  getFile: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete a File
-   * @description Delete an existing file.
-   */
-  deleteFile: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update a File
-   * @description Update an existing file, and/or replace it's file contents.
-   */
-  updateFile: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "multipart/data": {
-          /**
-           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-           * @example User Avatar
-           */
-          title?: string;
-          /** @description Preferred filename when file is downloaded. */
-          filename_download?: string;
-          /** @description Description for the file. */
-          description?: string | null;
-          /**
-           * @description Virtual folder where this file resides in.
-           * @example null
-           */
-          folder?: string | components["schemas"]["Folders"] | null;
-          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-          tags?: string[] | null;
-          /**
-           * Format: binary
-           * @description File contents.
-           */
-          file: unknown;
-        };
-        "application/json": {
-          /**
-           * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-           * @example User Avatar
-           */
-          title?: string;
-          /** @description Preferred filename when file is downloaded. */
-          filename_download?: string;
-          /** @description Description for the file. */
-          description?: string | null;
-          /**
-           * @description Virtual folder where this file resides in.
-           * @example null
-           */
-          folder?: string | components["schemas"]["Folders"] | null;
-          /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-          tags?: string[] | null;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Files"];
           };
         };
       };
@@ -13593,193 +13599,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the events_translations items.
-   */
-  readItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new events_translations item.
-   */
-  createItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing events_translations items.
-   */
-  deleteItemsEventsTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple events_translations items at the same time.
-   */
-  updateItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single events_translations item by unique identifier.
-   */
-  readSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing events_translations item.
-   */
-  deleteSingleItemsEventsTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing events_translations item.
-   */
-  updateSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the events items.
    */
   readItemsEvents: {
@@ -13965,6 +13784,193 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the events_translations items.
+   */
+  readItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new events_translations item.
+   */
+  createItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing events_translations items.
+   */
+  deleteItemsEventsTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple events_translations items at the same time.
+   */
+  updateItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEventsTranslations"][]
+          | components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single events_translations item by unique identifier.
+   */
+  readSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing events_translations item.
+   */
+  deleteSingleItemsEventsTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing events_translations item.
+   */
+  updateSingleItemsEventsTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEventsTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEventsTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -13999,6 +14005,6 @@ export type Schema = {
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
   registrations: components["schemas"]["ItemsRegistrations"][];
-  events_translations: components["schemas"]["ItemsEventsTranslations"][];
   events: components["schemas"]["ItemsEvents"][];
+  events_translations: components["schemas"]["ItemsEventsTranslations"][];
 };
