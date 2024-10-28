@@ -1,5 +1,5 @@
 version: 1
-directus: 10.13.0
+directus: 10.13.2
 vendor: postgres
 collections:
   - collection: association
@@ -4020,7 +4020,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 1
+      sort: 2
       special: null
       translations: null
       validation: null
@@ -4058,7 +4058,7 @@ fields:
       options: null
       readonly: true
       required: true
-      sort: 2
+      sort: 3
       special:
         - cast-boolean
       translations: null
