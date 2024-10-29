@@ -1836,45 +1836,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSavetheDate"];
   };
-  "/items/subsonic": {
-    /**
-     * List Items
-     * @description List the subsonic items.
-     */
-    get: operations["readItemsSubsonic"];
-    /**
-     * Create an Item
-     * @description Create a new subsonic item.
-     */
-    post: operations["createItemsSubsonic"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing subsonic items.
-     */
-    delete: operations["deleteItemsSubsonic"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple subsonic items at the same time.
-     */
-    patch: operations["updateItemsSubsonic"];
-  };
-  "/items/subsonic/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single subsonic item by unique identifier.
-     */
-    get: operations["readSingleItemsSubsonic"];
-    /**
-     * Delete an Item
-     * @description Delete an existing subsonic item.
-     */
-    delete: operations["deleteSingleItemsSubsonic"];
-    /**
-     * Update an Item
-     * @description Update an existing subsonic item.
-     */
-    patch: operations["updateSingleItemsSubsonic"];
-  };
   "/items/artists": {
     /**
      * List Items
@@ -1952,6 +1913,45 @@ export interface paths {
      * @description Update an existing save_the_date_translations item.
      */
     patch: operations["updateSingleItemsSavetheDateTranslations"];
+  };
+  "/items/subsonic": {
+    /**
+     * List Items
+     * @description List the subsonic items.
+     */
+    get: operations["readItemsSubsonic"];
+    /**
+     * Create an Item
+     * @description Create a new subsonic item.
+     */
+    post: operations["createItemsSubsonic"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing subsonic items.
+     */
+    delete: operations["deleteItemsSubsonic"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple subsonic items at the same time.
+     */
+    patch: operations["updateItemsSubsonic"];
+  };
+  "/items/subsonic/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single subsonic item by unique identifier.
+     */
+    get: operations["readSingleItemsSubsonic"];
+    /**
+     * Delete an Item
+     * @description Delete an existing subsonic item.
+     */
+    delete: operations["deleteSingleItemsSubsonic"];
+    /**
+     * Update an Item
+     * @description Update an existing subsonic item.
+     */
+    patch: operations["updateSingleItemsSubsonic"];
   };
   "/items/std_cell": {
     /**
@@ -3272,15 +3272,15 @@ export interface components {
         | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
         | null;
     };
-    ItemsSubsonic: {
-      id?: number;
-      header_image?: string | components["schemas"]["Files"] | null;
-    };
     ItemsArtists: {
       id?: number;
       name?: string | null;
       image?: string | components["schemas"]["Files"] | null;
       link?: string | null;
+      /** Format: time */
+      start_time?: string | null;
+      /** Format: time */
+      end_time?: string | null;
     };
     ItemsSavetheDateTranslations: {
       id?: number;
@@ -3291,6 +3291,13 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
       description?: string | null;
+    };
+    ItemsSubsonic: {
+      id?: number;
+      header_image?: string | components["schemas"]["Files"] | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      map?: string | components["schemas"]["Files"] | null;
+      info?: string | null;
     };
     ItemsStdCell: {
       id?: number;
@@ -12750,193 +12757,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the subsonic items.
-   */
-  readItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new subsonic item.
-   */
-  createItemsSubsonic: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing subsonic items.
-   */
-  deleteItemsSubsonic: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple subsonic items at the same time.
-   */
-  updateItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single subsonic item by unique identifier.
-   */
-  readSingleItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing subsonic item.
-   */
-  deleteSingleItemsSubsonic: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing subsonic item.
-   */
-  updateSingleItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the artists items.
    */
   readItemsArtists: {
@@ -13302,6 +13122,193 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsSavetheDateTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the subsonic items.
+   */
+  readItemsSubsonic: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new subsonic item.
+   */
+  createItemsSubsonic: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSubsonic"][]
+          | components["schemas"]["ItemsSubsonic"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing subsonic items.
+   */
+  deleteItemsSubsonic: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple subsonic items at the same time.
+   */
+  updateItemsSubsonic: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsSubsonic"][]
+          | components["schemas"]["ItemsSubsonic"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single subsonic item by unique identifier.
+   */
+  readSingleItemsSubsonic: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing subsonic item.
+   */
+  deleteSingleItemsSubsonic: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing subsonic item.
+   */
+  updateSingleItemsSubsonic: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsSubsonic"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"];
           };
         };
       };
@@ -13713,9 +13720,9 @@ export type Schema = {
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"][];
-  subsonic: components["schemas"]["ItemsSubsonic"][];
   artists: components["schemas"]["ItemsArtists"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
+  subsonic: components["schemas"]["ItemsSubsonic"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
 };
