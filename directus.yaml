@@ -3,7 +3,7 @@ services:
   directus:
     labels:
       - org.clic.type=directus
-    image: directus/directus:10
+    image: directus/directus:11.1.2
     user: ${UID}:${GID}
     environment:
       SECRET: secret
