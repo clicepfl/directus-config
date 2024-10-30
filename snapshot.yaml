@@ -2,6 +2,30 @@ version: 1
 directus: 10.13.0
 vendor: postgres
 collections:
+  - collection: artists
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: artists
+      color: "#FFFFFF"
+      display_template: null
+      group: subsonic
+      hidden: false
+      icon: spatial_tracking
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: artists
   - collection: association
     meta:
       accountability: all
@@ -794,7 +818,262 @@ collections:
       versioning: false
     schema:
       name: std_cell_translations
+  - collection: subsonic
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: subsonic
+      color: "#FFFFFF"
+      display_template: null
+      group: null
+      hidden: false
+      icon: headphones
+      item_duplication_fields: null
+      note: The page of the CLIC silent party
+      preview_url: https://clic.epfl.ch/subsonic
+      singleton: true
+      sort: 10
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: subsonic
 fields:
+  - collection: artists
+    field: id
+    type: integer
+    meta:
+      collection: artists
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: artists
+      data_type: integer
+      default_value: nextval('artists_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: artists
+    field: name
+    type: string
+    meta:
+      collection: artists
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: artists
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: artists
+    field: image
+    type: uuid
+    meta:
+      collection: artists
+      conditions: null
+      display: image
+      display_options:
+        circle: true
+      field: image
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: image
+      table: artists
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: artists
+    field: link
+    type: string
+    meta:
+      collection: artists
+      conditions: null
+      display: null
+      display_options: null
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: link
+      table: artists
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: artists
+    field: start_time
+    type: time
+    meta:
+      collection: artists
+      conditions: null
+      display: datetime
+      display_options: null
+      field: start_time
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: start_time
+      table: artists
+      data_type: time without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: artists
+    field: end_time
+    type: time
+    meta:
+      collection: artists
+      conditions: null
+      display: datetime
+      display_options: null
+      field: end_time
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: end_time
+      table: artists
+      data_type: time without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: association
     field: id
     type: integer
@@ -5461,9 +5740,10 @@ fields:
       hidden: false
       interface: input
       note: Poll Count used by RoboCLIC.
-      options: null
+      options:
+        min: 0
       readonly: true
-      required: true
+      required: false
       sort: 8
       special: null
       translations: null
@@ -5478,7 +5758,7 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: true
+      is_nullable: false
       is_unique: false
       is_primary_key: false
       is_generated: false
@@ -9268,7 +9548,230 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: subsonic
+    field: id
+    type: integer
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: subsonic
+      data_type: integer
+      default_value: nextval('subsonic_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: subsonic
+    field: header_image
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: header_image
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: header_image
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: logo
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: map
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: map
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        defaultView:
+          bearing: 0
+          center:
+            lat: 0
+            lng: 0
+          pitch: 0
+          zoom: 0
+        geometryType: Point
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: map
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: info
+    type: text
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: info
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: info
+      table: subsonic
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
 relations:
+  - collection: artists
+    field: image
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: artists
+      many_field: image
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: artists
+      column: image
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: artists_image_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: association
     field: logo
     related_collection: directus_files
@@ -10464,5 +10967,68 @@ relations:
       foreign_key_table: std_cell
       foreign_key_column: id
       constraint_name: std_cell_translations_std_cell_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: subsonic
+    field: header_image
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: subsonic
+      many_field: header_image
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: subsonic
+      column: header_image
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: subsonic_header_image_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: subsonic
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: subsonic
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: subsonic
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: subsonic_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: subsonic
+    field: map
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: subsonic
+      many_field: map
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: subsonic
+      column: map
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: subsonic_map_foreign
       on_update: NO ACTION
       on_delete: SET NULL
