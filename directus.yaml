@@ -30,7 +30,7 @@ services:
   directus-postgres:
     labels:
       - org.clic.type=directus-postgres
-    image: postgres
+    image: postgres:16
     hostname: database
     environment:
       POSTGRES_DB: directus_data
