@@ -26,8 +26,10 @@ services:
 
   # Database for directus
   directus-postgres:
-    container_name: clic-postgres
-    image: postgres
+    labels:
+      - org.clic.type=directus-postgres
+    image: postgres:16
+    hostname: database
     environment:
       POSTGRES_DB: directus_data
       POSTGRES_USER: directus_user
