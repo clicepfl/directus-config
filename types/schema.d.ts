@@ -1817,6 +1817,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSavetheDate"];
   };
+  "/comments": {
+    /**
+     * List Comments
+     * @description List the comments.
+     */
+    get: operations["getComments"];
+    /**
+     * Create a Comment
+     * @description Create a new comment.
+     */
+    post: operations["createComment"];
+    /**
+     * Delete Multiple Comments
+     * @description Delete multiple existing comments.
+     */
+    delete: operations["deleteComments"];
+    /**
+     * Update Multiple Comments
+     * @description Update multiple comments at the same time.
+     */
+    patch: operations["updateComments"];
+  };
+  "/comments/{id}": {
+    /**
+     * Retrieve a Comment
+     * @description Retrieve a single comment by unique identifier.
+     */
+    get: operations["getComment"];
+    /**
+     * Delete a Comment
+     * @description Delete an existing comment.
+     */
+    delete: operations["deleteComment"];
+    /**
+     * Update a Comment
+     * @description Update an existing comment.
+     */
+    patch: operations["updateComment"];
+  };
   "/items/artists": {
     /**
      * List Items
@@ -2012,239 +2051,44 @@ export interface paths {
      */
     patch: operations["updateSingleItemsStdCellTranslations"];
   };
-  "/items/registrations": {
+  "/items/subsonic_translations": {
     /**
      * List Items
-     * @description List the registrations items.
+     * @description List the subsonic_translations items.
      */
-    get: operations["readItemsRegistrations"];
+    get: operations["readItemsSubsonicTranslations"];
     /**
      * Create an Item
-     * @description Create a new registrations item.
+     * @description Create a new subsonic_translations item.
      */
-    post: operations["createItemsRegistrations"];
+    post: operations["createItemsSubsonicTranslations"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing registrations items.
+     * @description Delete multiple existing subsonic_translations items.
      */
-    delete: operations["deleteItemsRegistrations"];
+    delete: operations["deleteItemsSubsonicTranslations"];
     /**
      * Update Multiple Items
-     * @description Update multiple registrations items at the same time.
+     * @description Update multiple subsonic_translations items at the same time.
      */
-    patch: operations["updateItemsRegistrations"];
+    patch: operations["updateItemsSubsonicTranslations"];
   };
-  "/items/registrations/{id}": {
+  "/items/subsonic_translations/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single registrations item by unique identifier.
+     * @description Retrieve a single subsonic_translations item by unique identifier.
      */
-    get: operations["readSingleItemsRegistrations"];
+    get: operations["readSingleItemsSubsonicTranslations"];
     /**
      * Delete an Item
-     * @description Delete an existing registrations item.
+     * @description Delete an existing subsonic_translations item.
      */
-    delete: operations["deleteSingleItemsRegistrations"];
+    delete: operations["deleteSingleItemsSubsonicTranslations"];
     /**
      * Update an Item
-     * @description Update an existing registrations item.
+     * @description Update an existing subsonic_translations item.
      */
-    patch: operations["updateSingleItemsRegistrations"];
-  };
-  "/items/events": {
-    /**
-     * List Items
-     * @description List the events items.
-     */
-    get: operations["readItemsEvents"];
-    /**
-     * Create an Item
-     * @description Create a new events item.
-     */
-    post: operations["createItemsEvents"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events items.
-     */
-    delete: operations["deleteItemsEvents"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple events items at the same time.
-     */
-    patch: operations["updateItemsEvents"];
-  };
-  "/items/events/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events item by unique identifier.
-     */
-    get: operations["readSingleItemsEvents"];
-    /**
-     * Delete an Item
-     * @description Delete an existing events item.
-     */
-    delete: operations["deleteSingleItemsEvents"];
-    /**
-     * Update an Item
-     * @description Update an existing events item.
-     */
-    patch: operations["updateSingleItemsEvents"];
-  };
-  "/items/events_translations": {
-    /**
-     * List Items
-     * @description List the events_translations items.
-     */
-    get: operations["readItemsEventsTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new events_translations item.
-     */
-    post: operations["createItemsEventsTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events_translations items.
-     */
-    delete: operations["deleteItemsEventsTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple events_translations items at the same time.
-     */
-    patch: operations["updateItemsEventsTranslations"];
-  };
-  "/items/events_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsEventsTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing events_translations item.
-     */
-    delete: operations["deleteSingleItemsEventsTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing events_translations item.
-     */
-    patch: operations["updateSingleItemsEventsTranslations"];
-  };
-  "/items/artists": {
-    /**
-     * List Items
-     * @description List the artists items.
-     */
-    get: operations["readItemsArtists"];
-    /**
-     * Create an Item
-     * @description Create a new artists item.
-     */
-    post: operations["createItemsArtists"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing artists items.
-     */
-    delete: operations["deleteItemsArtists"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple artists items at the same time.
-     */
-    patch: operations["updateItemsArtists"];
-  };
-  "/items/artists/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single artists item by unique identifier.
-     */
-    get: operations["readSingleItemsArtists"];
-    /**
-     * Delete an Item
-     * @description Delete an existing artists item.
-     */
-    delete: operations["deleteSingleItemsArtists"];
-    /**
-     * Update an Item
-     * @description Update an existing artists item.
-     */
-    patch: operations["updateSingleItemsArtists"];
-  };
-  "/items/subsonic": {
-    /**
-     * List Items
-     * @description List the subsonic items.
-     */
-    get: operations["readItemsSubsonic"];
-    /**
-     * Create an Item
-     * @description Create a new subsonic item.
-     */
-    post: operations["createItemsSubsonic"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing subsonic items.
-     */
-    delete: operations["deleteItemsSubsonic"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple subsonic items at the same time.
-     */
-    patch: operations["updateItemsSubsonic"];
-  };
-  "/items/subsonic/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single subsonic item by unique identifier.
-     */
-    get: operations["readSingleItemsSubsonic"];
-    /**
-     * Delete an Item
-     * @description Delete an existing subsonic item.
-     */
-    delete: operations["deleteSingleItemsSubsonic"];
-    /**
-     * Update an Item
-     * @description Update an existing subsonic item.
-     */
-    patch: operations["updateSingleItemsSubsonic"];
-  };
-  "/comments": {
-    /**
-     * List Comments
-     * @description List the comments.
-     */
-    get: operations["getComments"];
-    /**
-     * Create a Comment
-     * @description Create a new comment.
-     */
-    post: operations["createComment"];
-    /**
-     * Delete Multiple Comments
-     * @description Delete multiple existing comments.
-     */
-    delete: operations["deleteComments"];
-    /**
-     * Update Multiple Comments
-     * @description Update multiple comments at the same time.
-     */
-    patch: operations["updateComments"];
-  };
-  "/comments/{id}": {
-    /**
-     * Retrieve a Comment
-     * @description Retrieve a single comment by unique identifier.
-     */
-    get: operations["getComment"];
-    /**
-     * Delete a Comment
-     * @description Delete an existing comment.
-     */
-    delete: operations["deleteComment"];
-    /**
-     * Update a Comment
-     * @description Update an existing comment.
-     */
-    patch: operations["updateComment"];
+    patch: operations["updateSingleItemsSubsonicTranslations"];
   };
 }
 
@@ -3494,129 +3338,6 @@ export interface components {
         | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
         | null;
     };
-    ItemsArtists: {
-      id?: number;
-      name?: string | null;
-      image?: string | components["schemas"]["Files"] | null;
-      link?: string | null;
-      /** Format: time */
-      start_time?: string | null;
-      /** Format: time */
-      end_time?: string | null;
-    };
-    ItemsSavetheDateTranslations: {
-      id?: number;
-      save_the_date_id?:
-        | number
-        | components["schemas"]["ItemsSavetheDate"]
-        | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string | null;
-      description?: string | null;
-    };
-    ItemsSubsonic: {
-      id?: number;
-      header_image?: string | components["schemas"]["Files"] | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      map?: string | components["schemas"]["Files"] | null;
-      info?: string | null;
-    };
-    ItemsStdCell: {
-      id?: number;
-      image?: string | components["schemas"]["Files"] | null;
-      commission?: number | components["schemas"]["ItemsCommissions"] | null;
-      url?: string | null;
-      /** Format: date */
-      date?: string | null;
-      text_color?: string | null;
-      background_color?: string | null;
-      button_color?: string | null;
-      recurrence?: string | null;
-      translations?:
-        | (number | components["schemas"]["ItemsStdCellTranslations"])[]
-        | null;
-    };
-    ItemsStdCellTranslations: {
-      id?: number;
-      std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string;
-      description?: string | null;
-      detail_button_title?: string | null;
-      /** @description This will replace the date by this text. (optional) */
-      date_replacement?: string | null;
-    };
-    ItemsRegistrations: {
-      /** Format: uuid */
-      id?: string;
-      event?: number | components["schemas"]["ItemsEvents"] | null;
-      email?: string | null;
-      meal?: number | null;
-      comments?: string | null;
-      family_name?: string | null;
-      first_name?: string | null;
-      payment?: string | null;
-      late_payment?: boolean | null;
-      allergies?: string | null;
-      plusOnes?: number | null;
-      plusOnesCheckedIn?: number | null;
-      team?: string | null;
-      year?: string | null;
-      section?: string | null;
-      checked_in?: boolean | null;
-      is_staff?: boolean | null;
-      preferences?: unknown;
-      availability?: unknown;
-    };
-    ItemsEvents: {
-      id?: number;
-      type?: string | null;
-      /** Format: date-time */
-      from?: string | null;
-      /** Format: date-time */
-      to?: string | null;
-      /** Format: date-time */
-      staffing_from?: string | null;
-      /** Format: date-time */
-      staffing_to?: string | null;
-      staffingTypes?: unknown;
-      staffingShiftSize?: number | null;
-      mailTemplate?: string | null;
-      mailSent?: boolean | null;
-      meals?: unknown;
-      opened?: boolean | null;
-      name?: string | null;
-      price?: number | null;
-      max_registrations?: number | null;
-      registration_count?: number;
-      translations?:
-        | (number | components["schemas"]["ItemsEventsTranslations"])[]
-        | null;
-    };
-    ItemsEventsTranslations: {
-      id?: number;
-      events_id?: number | components["schemas"]["ItemsEvents"] | null;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string | null;
-      description?: string | null;
-    };
-    ItemsArtists: {
-      id?: number;
-      name?: string | null;
-      image?: string | components["schemas"]["Files"] | null;
-      link?: string | null;
-      /** Format: time */
-      start_time?: string | null;
-      /** Format: time */
-      end_time?: string | null;
-    };
-    ItemsSubsonic: {
-      id?: number;
-      header_image?: string | components["schemas"]["Files"] | null;
-      logo?: string | components["schemas"]["Files"] | null;
-      map?: string | components["schemas"]["Files"] | null;
-      info?: string | null;
-    };
     Comments: {
       /**
        * @description Unique identifier for this single collection preset.
@@ -3660,6 +3381,66 @@ export interface components {
        * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
        */
       user_updated?: string | components["schemas"]["Users"];
+    };
+    ItemsArtists: {
+      id?: number;
+      name?: string | null;
+      image?: string | components["schemas"]["Files"] | null;
+      link?: string | null;
+      /** Format: time */
+      start_time?: string | null;
+      /** Format: time */
+      end_time?: string | null;
+    };
+    ItemsSavetheDateTranslations: {
+      id?: number;
+      save_the_date_id?:
+        | number
+        | components["schemas"]["ItemsSavetheDate"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
+    };
+    ItemsSubsonic: {
+      id?: number;
+      header_image?: string | components["schemas"]["Files"] | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      map?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (number | components["schemas"]["ItemsSubsonicTranslations"])[]
+        | null;
+    };
+    ItemsStdCell: {
+      id?: number;
+      image?: string | components["schemas"]["Files"] | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      url?: string | null;
+      /** Format: date */
+      date?: string | null;
+      text_color?: string | null;
+      background_color?: string | null;
+      button_color?: string | null;
+      recurrence?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsStdCellTranslations"])[]
+        | null;
+    };
+    ItemsStdCellTranslations: {
+      id?: number;
+      std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string;
+      description?: string | null;
+      detail_button_title?: string | null;
+      /** @description This will replace the date by this text. (optional) */
+      date_replacement?: string | null;
+    };
+    ItemsSubsonicTranslations: {
+      id?: number;
+      subsonic_id?: number | components["schemas"]["ItemsSubsonic"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      info?: string | null;
     };
   };
   responses: {
@@ -13042,6 +12823,209 @@ export interface operations {
     };
   };
   /**
+   * List Comments
+   * @description List the comments.
+   */
+  getComments: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        page?: components["parameters"]["Page"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create a Comment
+   * @description Create a new comment.
+   */
+  createComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description Which collection this collection comment is for.
+           * @example projects
+           */
+          collection: string;
+          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+          item: string;
+          /** @example A new comment */
+          comment: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Comments
+   * @description Delete multiple existing comments.
+   */
+  deleteComments: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Comments
+   * @description Update multiple comments at the same time.
+   */
+  updateComments: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          keys?: string[];
+          data?: {
+            /**
+             * @description Which collection this collection comment is for.
+             * @example projects
+             */
+            collection: string;
+            /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+            item?: string;
+            /** @example A new comment */
+            comment?: string;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Retrieve a Comment
+   * @description Retrieve a single comment by unique identifier.
+   */
+  getComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete a Comment
+   * @description Delete an existing comment.
+   */
+  deleteComment: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update a Comment
+   * @description Update an existing comment.
+   */
+  updateComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description Which collection this comment is for.
+           * @example projects
+           */
+          collection: string;
+          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+          item?: string;
+          /** @example An updated comment */
+          comment?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
    * List Items
    * @description List the artists items.
    */
@@ -13978,9 +13962,9 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the registrations items.
+   * @description List the subsonic_translations items.
    */
-  readItemsRegistrations: {
+  readItemsSubsonicTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -13997,7 +13981,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"][];
+            data?: components["schemas"]["ItemsSubsonicTranslations"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -14007,9 +13991,9 @@ export interface operations {
   };
   /**
    * Create an Item
-   * @description Create a new registrations item.
+   * @description Create a new subsonic_translations item.
    */
-  createItemsRegistrations: {
+  createItemsSubsonicTranslations: {
     parameters: {
       query?: {
         meta?: components["parameters"]["Meta"];
@@ -14018,8 +14002,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+          | components["schemas"]["ItemsSubsonicTranslations"][]
+          | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
@@ -14036,9 +14020,9 @@ export interface operations {
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing registrations items.
+   * @description Delete multiple existing subsonic_translations items.
    */
-  deleteItemsRegistrations: {
+  deleteItemsSubsonicTranslations: {
     responses: {
       /** @description Successful request */
       200: {
@@ -14049,9 +14033,9 @@ export interface operations {
   };
   /**
    * Update Multiple Items
-   * @description Update multiple registrations items at the same time.
+   * @description Update multiple subsonic_translations items at the same time.
    */
-  updateItemsRegistrations: {
+  updateItemsSubsonicTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -14066,8 +14050,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+          | components["schemas"]["ItemsSubsonicTranslations"][]
+          | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
@@ -14083,9 +14067,9 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single registrations item by unique identifier.
+   * @description Retrieve a single subsonic_translations item by unique identifier.
    */
-  readSingleItemsRegistrations: {
+  readSingleItemsSubsonicTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -14102,7 +14086,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
+            data?: components["schemas"]["ItemsSubsonicTranslations"];
           };
         };
       };
@@ -14112,9 +14096,9 @@ export interface operations {
   };
   /**
    * Delete an Item
-   * @description Delete an existing registrations item.
+   * @description Delete an existing subsonic_translations item.
    */
-  deleteSingleItemsRegistrations: {
+  deleteSingleItemsSubsonicTranslations: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -14132,9 +14116,9 @@ export interface operations {
   };
   /**
    * Update an Item
-   * @description Update an existing registrations item.
+   * @description Update an existing subsonic_translations item.
    */
-  updateSingleItemsRegistrations: {
+  updateSingleItemsSubsonicTranslations: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -14147,7 +14131,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsRegistrations"];
+        "application/json": components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
@@ -14155,958 +14139,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the events items.
-   */
-  readItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new events item.
-   */
-  createItemsEvents: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing events items.
-   */
-  deleteItemsEvents: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple events items at the same time.
-   */
-  updateItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single events item by unique identifier.
-   */
-  readSingleItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing events item.
-   */
-  deleteSingleItemsEvents: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing events item.
-   */
-  updateSingleItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the events_translations items.
-   */
-  readItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new events_translations item.
-   */
-  createItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing events_translations items.
-   */
-  deleteItemsEventsTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple events_translations items at the same time.
-   */
-  updateItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEventsTranslations"][]
-          | components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single events_translations item by unique identifier.
-   */
-  readSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing events_translations item.
-   */
-  deleteSingleItemsEventsTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing events_translations item.
-   */
-  updateSingleItemsEventsTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsEventsTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEventsTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the artists items.
-   */
-  readItemsArtists: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsArtists"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new artists item.
-   */
-  createItemsArtists: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsArtists"][]
-          | components["schemas"]["ItemsArtists"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing artists items.
-   */
-  deleteItemsArtists: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple artists items at the same time.
-   */
-  updateItemsArtists: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsArtists"][]
-          | components["schemas"]["ItemsArtists"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single artists item by unique identifier.
-   */
-  readSingleItemsArtists: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsArtists"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing artists item.
-   */
-  deleteSingleItemsArtists: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing artists item.
-   */
-  updateSingleItemsArtists: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsArtists"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsArtists"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the subsonic items.
-   */
-  readItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new subsonic item.
-   */
-  createItemsSubsonic: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing subsonic items.
-   */
-  deleteItemsSubsonic: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple subsonic items at the same time.
-   */
-  updateItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single subsonic item by unique identifier.
-   */
-  readSingleItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing subsonic item.
-   */
-  deleteSingleItemsSubsonic: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing subsonic item.
-   */
-  updateSingleItemsSubsonic: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsSubsonic"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsSubsonic"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Comments
-   * @description List the comments.
-   */
-  getComments: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        page?: components["parameters"]["Page"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Comments"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create a Comment
-   * @description Create a new comment.
-   */
-  createComment: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /**
-           * @description Which collection this collection comment is for.
-           * @example projects
-           */
-          collection: string;
-          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-          item: string;
-          /** @example A new comment */
-          comment: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Comments"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Comments
-   * @description Delete multiple existing comments.
-   */
-  deleteComments: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Comments
-   * @description Update multiple comments at the same time.
-   */
-  updateComments: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          keys?: string[];
-          data?: {
-            /**
-             * @description Which collection this collection comment is for.
-             * @example projects
-             */
-            collection: string;
-            /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-            item?: string;
-            /** @example A new comment */
-            comment?: string;
-          };
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Comments"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Retrieve a Comment
-   * @description Retrieve a single comment by unique identifier.
-   */
-  getComment: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Comments"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete a Comment
-   * @description Delete an existing comment.
-   */
-  deleteComment: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update a Comment
-   * @description Update an existing comment.
-   */
-  updateComment: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /**
-           * @description Which collection this comment is for.
-           * @example projects
-           */
-          collection: string;
-          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-          item?: string;
-          /** @example An updated comment */
-          comment?: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Comments"];
+            data?: components["schemas"]["ItemsSubsonicTranslations"];
           };
         };
       };
@@ -15149,9 +14182,5 @@ export type Schema = {
   subsonic: components["schemas"]["ItemsSubsonic"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
-  registrations: components["schemas"]["ItemsRegistrations"][];
-  events: components["schemas"]["ItemsEvents"][];
-  events_translations: components["schemas"]["ItemsEventsTranslations"][];
-  artists: components["schemas"]["ItemsArtists"][];
-  subsonic: components["schemas"]["ItemsSubsonic"][];
+  subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
 };
