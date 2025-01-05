@@ -2,6 +2,54 @@ version: 1
 directus: 11.1.2
 vendor: postgres
 collections:
+  - collection: ICBD
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: ICBD
+      color: "#FFA439"
+      display_template: null
+      group: null
+      hidden: false
+      icon: trending_up
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: true
+      sort: 11
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: ICBD
+  - collection: ICBD_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: ICBD_translations
+      color: null
+      display_template: null
+      group: ICBD
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: ICBD_translations
   - collection: artists
     meta:
       accountability: all
@@ -386,6 +434,102 @@ collections:
       versioning: false
     schema:
       name: commissions_translations
+  - collection: icbd_activities
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: icbd_activities
+      color: "#FFA439"
+      display_template: null
+      group: ICBD
+      hidden: false
+      icon: patient_list
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 3
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: icbd_activities
+  - collection: icbd_activities_icbd_speakers
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: icbd_activities_icbd_speakers
+      color: null
+      display_template: null
+      group: icbd_activities
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: icbd_activities_icbd_speakers
+  - collection: icbd_activities_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: icbd_activities_translations
+      color: "#FFA439"
+      display_template: null
+      group: icbd_activities
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: icbd_activities_translations
+  - collection: icbd_speakers
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: icbd_speakers
+      color: "#FFA439"
+      display_template: "{{first_name}}\_{{last_name}} ({{company}})"
+      group: ICBD
+      hidden: false
+      icon: co_present
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: icbd_speakers
   - collection: inventory
     meta:
       accountability: all
@@ -795,6 +939,501 @@ collections:
     schema:
       name: subsonic_translations
 fields:
+  - collection: ICBD
+    field: id
+    type: integer
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: ICBD
+      data_type: integer
+      default_value: nextval('"ICBD_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: logo
+    type: uuid
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: ICBD
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: ICBD
+    field: presentation_video
+    type: string
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: presentation_video
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: smart_display
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: presentation_video
+      table: ICBD
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: date
+    type: date
+    meta:
+      collection: ICBD
+      conditions: null
+      display: datetime
+      display_options: null
+      field: date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: date
+      table: ICBD
+      data_type: date
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: start_time
+    type: time
+    meta:
+      collection: ICBD
+      conditions: null
+      display: datetime
+      display_options: null
+      field: start_time
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: start_time
+      table: ICBD
+      data_type: time without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: end_time
+    type: time
+    meta:
+      collection: ICBD
+      conditions: null
+      display: datetime
+      display_options: null
+      field: end_time
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: end_time
+      table: ICBD
+      data_type: time without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: place
+    type: string
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: place
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: pin_drop
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: place
+      table: ICBD
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD
+    field: translations
+    type: alias
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 8
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: ICBD_translations
+    field: id
+    type: integer
+    meta:
+      collection: ICBD_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: ICBD_translations
+      data_type: integer
+      default_value: nextval('"ICBD_translations_id_seq"'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD_translations
+    field: ICBD_id
+    type: integer
+    meta:
+      collection: ICBD_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: ICBD_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: ICBD_id
+      table: ICBD_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: ICBD
+      foreign_key_column: id
+  - collection: ICBD_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: ICBD_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: ICBD_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: ICBD_translations
+    field: description
+    type: text
+    meta:
+      collection: ICBD_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: ICBD_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: ICBD_translations
+    field: registration_instructions
+    type: text
+    meta:
+      collection: ICBD_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_instructions
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: registration_instructions
+      table: ICBD_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: artists
     field: id
     type: integer
@@ -3841,6 +4480,677 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
+  - collection: icbd_activities
+    field: id
+    type: integer
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: icbd_activities
+      data_type: integer
+      default_value: nextval('icbd_activities_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_activities
+    field: translations
+    type: alias
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: translations
+      display_options:
+        template: "{{icbd_activities_id.translations.name}}"
+        userLanguage: true
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+        languageDirectionField: name
+        languageField: name
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: icbd_activities
+    field: hosts
+    type: alias
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{icbd_speakers_id.first_name}}\_{{icbd_speakers_id.last_name}}\_({{icbd_speakers_id.company}})"
+      field: hosts
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options:
+        template: "{{icbd_speakers_id.first_name}}\_{{icbd_speakers_id.last_name}}\_({{icbd_speakers_id.company}})"
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: icbd_activities
+    field: icon
+    type: uuid
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: null
+      display_options: null
+      field: icon
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icon
+      table: icbd_activities
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: icbd_activities
+    field: links-ahuxv-
+    type: alias
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: null
+      display_options: null
+      field: links-ahuxv-
+      group: null
+      hidden: false
+      interface: presentation-links
+      note: null
+      options:
+        links:
+          - icon: emoji_symbols
+            label: Chose icon on iconify
+            type: info
+            url: https://icon-sets.iconify.design/
+      readonly: false
+      required: false
+      sort: 6
+      special:
+        - alias
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: icbd_activities_icbd_speakers
+    field: id
+    type: integer
+    meta:
+      collection: icbd_activities_icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: icbd_activities_icbd_speakers
+      data_type: integer
+      default_value: nextval('icbd_activities_icbd_speakers_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_activities_icbd_speakers
+    field: icbd_activities_id
+    type: integer
+    meta:
+      collection: icbd_activities_icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd_activities_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icbd_activities_id
+      table: icbd_activities_icbd_speakers
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: icbd_activities
+      foreign_key_column: id
+  - collection: icbd_activities_icbd_speakers
+    field: icbd_speakers_id
+    type: integer
+    meta:
+      collection: icbd_activities_icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd_speakers_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icbd_speakers_id
+      table: icbd_activities_icbd_speakers
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: icbd_speakers
+      foreign_key_column: id
+  - collection: icbd_activities_translations
+    field: id
+    type: integer
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: icbd_activities_translations
+      data_type: integer
+      default_value: nextval('icbd_activities_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_activities_translations
+    field: icbd_activities_id
+    type: integer
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd_activities_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icbd_activities_id
+      table: icbd_activities_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: icbd_activities
+      foreign_key_column: id
+  - collection: icbd_activities_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: icbd_activities_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: icbd_activities_translations
+    field: name
+    type: string
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: icbd_activities_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_activities_translations
+    field: description
+    type: text
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: icbd_activities_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_speakers
+    field: id
+    type: integer
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: icbd_speakers
+      data_type: integer
+      default_value: nextval('icbd_speakers_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_speakers
+    field: first_name
+    type: string
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: first_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: first_name
+      table: icbd_speakers
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_speakers
+    field: last_name
+    type: string
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: last_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: last_name
+      table: icbd_speakers
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_speakers
+    field: picture
+    type: uuid
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: picture
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: picture
+      table: icbd_speakers
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: icbd_speakers
+    field: company
+    type: string
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: company
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: work
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: company
+      table: icbd_speakers
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: inventory
     field: id
     type: integer
@@ -8173,6 +9483,69 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
 relations:
+  - collection: ICBD
+    field: logo
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: ICBD
+      many_field: logo
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: ICBD
+      column: logo
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: icbd_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: ICBD_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: ICBD_id
+      many_collection: ICBD_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: ICBD_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: icbd_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: ICBD_translations
+    field: ICBD_id
+    related_collection: ICBD
+    meta:
+      junction_field: languages_code
+      many_collection: ICBD_translations
+      many_field: ICBD_id
+      one_allowed_collections: null
+      one_collection: ICBD
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: ICBD_translations
+      column: ICBD_id
+      foreign_key_table: ICBD
+      foreign_key_column: id
+      constraint_name: icbd_translations_icbd_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: artists
     field: image
     related_collection: directus_files
@@ -8801,6 +10174,132 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: commissions_translations_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_activities
+    field: icon
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: icbd_activities
+      many_field: icon
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: icbd_activities
+      column: icon
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: icbd_activities_icon_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_activities_icbd_speakers
+    field: icbd_speakers_id
+    related_collection: icbd_speakers
+    meta:
+      junction_field: icbd_activities_id
+      many_collection: icbd_activities_icbd_speakers
+      many_field: icbd_speakers_id
+      one_allowed_collections: null
+      one_collection: icbd_speakers
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: icbd_activities_icbd_speakers
+      column: icbd_speakers_id
+      foreign_key_table: icbd_speakers
+      foreign_key_column: id
+      constraint_name: icbd_activities_icbd_speakers_icbd_speakers_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_activities_icbd_speakers
+    field: icbd_activities_id
+    related_collection: icbd_activities
+    meta:
+      junction_field: icbd_speakers_id
+      many_collection: icbd_activities_icbd_speakers
+      many_field: icbd_activities_id
+      one_allowed_collections: null
+      one_collection: icbd_activities
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: hosts
+      sort_field: null
+    schema:
+      table: icbd_activities_icbd_speakers
+      column: icbd_activities_id
+      foreign_key_table: icbd_activities
+      foreign_key_column: id
+      constraint_name: icbd_activities_icbd_speakers_icbd_activities_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_activities_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: icbd_activities_id
+      many_collection: icbd_activities_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: icbd_activities_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: icbd_activities_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_activities_translations
+    field: icbd_activities_id
+    related_collection: icbd_activities
+    meta:
+      junction_field: languages_code
+      many_collection: icbd_activities_translations
+      many_field: icbd_activities_id
+      one_allowed_collections: null
+      one_collection: icbd_activities
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: icbd_activities_translations
+      column: icbd_activities_id
+      foreign_key_table: icbd_activities
+      foreign_key_column: id
+      constraint_name: icbd_activities_translations_icbd_activities_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_speakers
+    field: picture
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: icbd_speakers
+      many_field: picture
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: icbd_speakers
+      column: picture
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: icbd_speakers_picture_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: inventory

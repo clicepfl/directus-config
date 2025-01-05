@@ -2090,6 +2090,240 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSubsonicTranslations"];
   };
+  "/items/icbd_activities": {
+    /**
+     * List Items
+     * @description List the icbd_activities items.
+     */
+    get: operations["readItemsIcbdActivities"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities item.
+     */
+    post: operations["createItemsIcbdActivities"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities items.
+     */
+    delete: operations["deleteItemsIcbdActivities"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivities"];
+  };
+  "/items/icbd_activities/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivities"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivities"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities item.
+     */
+    patch: operations["updateSingleItemsIcbdActivities"];
+  };
+  "/items/ICBD": {
+    /**
+     * List Items
+     * @description List the ICBD items.
+     */
+    get: operations["readItemsIcbd"];
+    /**
+     * Create an Item
+     * @description Create a new ICBD item.
+     */
+    post: operations["createItemsIcbd"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing ICBD items.
+     */
+    delete: operations["deleteItemsIcbd"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple ICBD items at the same time.
+     */
+    patch: operations["updateItemsIcbd"];
+  };
+  "/items/ICBD/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single ICBD item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbd"];
+    /**
+     * Delete an Item
+     * @description Delete an existing ICBD item.
+     */
+    delete: operations["deleteSingleItemsIcbd"];
+    /**
+     * Update an Item
+     * @description Update an existing ICBD item.
+     */
+    patch: operations["updateSingleItemsIcbd"];
+  };
+  "/items/icbd_speakers": {
+    /**
+     * List Items
+     * @description List the icbd_speakers items.
+     */
+    get: operations["readItemsIcbdSpeakers"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_speakers item.
+     */
+    post: operations["createItemsIcbdSpeakers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_speakers items.
+     */
+    delete: operations["deleteItemsIcbdSpeakers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_speakers items at the same time.
+     */
+    patch: operations["updateItemsIcbdSpeakers"];
+  };
+  "/items/icbd_speakers/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_speakers item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdSpeakers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_speakers item.
+     */
+    delete: operations["deleteSingleItemsIcbdSpeakers"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_speakers item.
+     */
+    patch: operations["updateSingleItemsIcbdSpeakers"];
+  };
+  "/items/icbd_activities_translations": {
+    /**
+     * List Items
+     * @description List the icbd_activities_translations items.
+     */
+    get: operations["readItemsIcbdActivitiesTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_translations item.
+     */
+    post: operations["createItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_translations items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_translations items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesTranslations"];
+  };
+  "/items/icbd_activities_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_translations item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_translations item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
+  };
+  "/items/icbd_activities_icbd_speakers": {
+    /**
+     * List Items
+     * @description List the icbd_activities_icbd_speakers items.
+     */
+    get: operations["readItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_icbd_speakers item.
+     */
+    post: operations["createItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_icbd_speakers items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_icbd_speakers items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesIcbdSpeakers"];
+  };
+  "/items/icbd_activities_icbd_speakers/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_icbd_speakers item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_icbd_speakers item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesIcbdSpeakers"];
+  };
+  "/items/ICBD_translations": {
+    /**
+     * List Items
+     * @description List the ICBD_translations items.
+     */
+    get: operations["readItemsIcbdTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new ICBD_translations item.
+     */
+    post: operations["createItemsIcbdTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing ICBD_translations items.
+     */
+    delete: operations["deleteItemsIcbdTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple ICBD_translations items at the same time.
+     */
+    patch: operations["updateItemsIcbdTranslations"];
+  };
+  "/items/ICBD_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single ICBD_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing ICBD_translations item.
+     */
+    delete: operations["deleteSingleItemsIcbdTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing ICBD_translations item.
+     */
+    patch: operations["updateSingleItemsIcbdTranslations"];
+  };
 }
 
 export type webhooks = Record<string, never>;
@@ -3441,6 +3675,66 @@ export interface components {
       subsonic_id?: number | components["schemas"]["ItemsSubsonic"] | null;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       info?: string | null;
+    };
+    ItemsIcbdActivities: {
+      id?: number;
+      icon?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
+        | null;
+      hosts?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]
+        | null;
+    };
+    ItemsIcbd: {
+      id?: number;
+      logo?: string | components["schemas"]["Files"] | null;
+      presentation_video?: string | null;
+      /** Format: date */
+      date?: string;
+      /** Format: time */
+      start_time?: string;
+      /** Format: time */
+      end_time?: string;
+      place?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsIcbdTranslations"])[]
+        | null;
+    };
+    ItemsIcbdSpeakers: {
+      id?: number;
+      first_name?: string | null;
+      last_name?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+      company?: string | null;
+    };
+    ItemsIcbdActivitiesTranslations: {
+      id?: number;
+      icbd_activities_id?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
+      description?: string | null;
+    };
+    ItemsIcbdActivitiesIcbdSpeakers: {
+      id?: number;
+      icbd_activities_id?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      icbd_speakers_id?:
+        | number
+        | components["schemas"]["ItemsIcbdSpeakers"]
+        | null;
+    };
+    ItemsIcbdTranslations: {
+      id?: number;
+      ICBD_id?: number | components["schemas"]["ItemsIcbd"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      description?: string | null;
+      registration_instructions?: string | null;
     };
   };
   responses: {
@@ -14147,6 +14441,1128 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the icbd_activities items.
+   */
+  readItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities item.
+   */
+  createItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities items.
+   */
+  deleteItemsIcbdActivities: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities items at the same time.
+   */
+  updateItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities item by unique identifier.
+   */
+  readSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities item.
+   */
+  deleteSingleItemsIcbdActivities: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities item.
+   */
+  updateSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the ICBD items.
+   */
+  readItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new ICBD item.
+   */
+  createItemsIcbd: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbd"][]
+          | components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing ICBD items.
+   */
+  deleteItemsIcbd: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple ICBD items at the same time.
+   */
+  updateItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbd"][]
+          | components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single ICBD item by unique identifier.
+   */
+  readSingleItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing ICBD item.
+   */
+  deleteSingleItemsIcbd: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing ICBD item.
+   */
+  updateSingleItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_speakers items.
+   */
+  readItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_speakers item.
+   */
+  createItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_speakers items.
+   */
+  deleteItemsIcbdSpeakers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_speakers items at the same time.
+   */
+  updateItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_speakers item by unique identifier.
+   */
+  readSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_speakers item.
+   */
+  deleteSingleItemsIcbdSpeakers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_speakers item.
+   */
+  updateSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities_translations items.
+   */
+  readItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_translations item.
+   */
+  createItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_translations items.
+   */
+  deleteItemsIcbdActivitiesTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_translations items at the same time.
+   */
+  updateItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_translations item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_translations item.
+   */
+  deleteSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_translations item.
+   */
+  updateSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities_icbd_speakers items.
+   */
+  readItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_icbd_speakers item.
+   */
+  createItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_icbd_speakers items.
+   */
+  deleteItemsIcbdActivitiesIcbdSpeakers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_icbd_speakers items at the same time.
+   */
+  updateItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_icbd_speakers item.
+   */
+  deleteSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_icbd_speakers item.
+   */
+  updateSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the ICBD_translations items.
+   */
+  readItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new ICBD_translations item.
+   */
+  createItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdTranslations"][]
+          | components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing ICBD_translations items.
+   */
+  deleteItemsIcbdTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple ICBD_translations items at the same time.
+   */
+  updateItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdTranslations"][]
+          | components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single ICBD_translations item by unique identifier.
+   */
+  readSingleItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing ICBD_translations item.
+   */
+  deleteSingleItemsIcbdTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing ICBD_translations item.
+   */
+  updateSingleItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -14183,4 +15599,10 @@ export type Schema = {
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
+  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
+  ICBD: components["schemas"]["ItemsIcbd"][];
+  icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
+  icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+  icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
+  ICBD_translations: components["schemas"]["ItemsIcbdTranslations"][];
 };
