@@ -2363,6 +2363,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsIcbdTranslations"];
   };
+  "/items/icbd_phds": {
+    /**
+     * List Items
+     * @description List the icbd_phds items.
+     */
+    get: operations["readItemsIcbdPhds"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_phds item.
+     */
+    post: operations["createItemsIcbdPhds"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_phds items.
+     */
+    delete: operations["deleteItemsIcbdPhds"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_phds items at the same time.
+     */
+    patch: operations["updateItemsIcbdPhds"];
+  };
+  "/items/icbd_phds/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_phds item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdPhds"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_phds item.
+     */
+    delete: operations["deleteSingleItemsIcbdPhds"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_phds item.
+     */
+    patch: operations["updateSingleItemsIcbdPhds"];
+  };
 }
 
 export type webhooks = Record<string, never>;
@@ -3782,6 +3821,13 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       description?: string | null;
       registration_instructions?: string | null;
+    };
+    ItemsIcbdPhds: {
+      id?: number;
+      first_name?: string;
+      last_name?: string | null;
+      laboratory?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
     };
   };
   responses: {
@@ -15797,6 +15843,193 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the icbd_phds items.
+   */
+  readItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_phds item.
+   */
+  createItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdPhds"][]
+          | components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_phds items.
+   */
+  deleteItemsIcbdPhds: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_phds items at the same time.
+   */
+  updateItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdPhds"][]
+          | components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_phds item by unique identifier.
+   */
+  readSingleItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_phds item.
+   */
+  deleteSingleItemsIcbdPhds: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_phds item.
+   */
+  updateSingleItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -15840,4 +16073,5 @@ export type Schema = {
   ICBD_files: components["schemas"]["ItemsIcbdFiles"][];
   icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
   ICBD_translations: components["schemas"]["ItemsIcbdTranslations"][];
+  icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
 };

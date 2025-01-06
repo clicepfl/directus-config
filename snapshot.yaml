@@ -36,14 +36,14 @@ collections:
       collection: ICBD_files
       color: null
       display_template: null
-      group: null
+      group: ICBD
       hidden: true
       icon: import_export
       item_duplication_fields: null
       note: null
       preview_url: null
       singleton: false
-      sort: null
+      sort: 1
       sort_field: null
       translations: null
       unarchive_value: null
@@ -475,7 +475,7 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 4
+      sort: 6
       sort_field: null
       translations: null
       unarchive_value: null
@@ -530,6 +530,30 @@ collections:
       versioning: false
     schema:
       name: icbd_activities_translations
+  - collection: icbd_phds
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: icbd_phds
+      color: "#FFA439"
+      display_template: null
+      group: ICBD
+      hidden: false
+      icon: school
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 4
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: icbd_phds
   - collection: icbd_speakers
     meta:
       accountability: all
@@ -5117,6 +5141,203 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: icbd_phds
+    field: id
+    type: integer
+    meta:
+      collection: icbd_phds
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: icbd_phds
+      data_type: integer
+      default_value: nextval('icbd_phds_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_phds
+    field: first_name
+    type: string
+    meta:
+      collection: icbd_phds
+      conditions: null
+      display: null
+      display_options: null
+      field: first_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: first_name
+      table: icbd_phds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_phds
+    field: last_name
+    type: string
+    meta:
+      collection: icbd_phds
+      conditions: null
+      display: null
+      display_options: null
+      field: last_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: last_name
+      table: icbd_phds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_phds
+    field: laboratory
+    type: string
+    meta:
+      collection: icbd_phds
+      conditions: null
+      display: null
+      display_options: null
+      field: laboratory
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: science
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: laboratory
+      table: icbd_phds
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_phds
+    field: picture
+    type: uuid
+    meta:
+      collection: icbd_phds
+      conditions: null
+      display: null
+      display_options: null
+      field: picture
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: picture
+      table: icbd_phds
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: icbd_speakers
     field: id
     type: integer
@@ -10485,6 +10706,27 @@ relations:
       foreign_key_table: icbd_activities
       foreign_key_column: id
       constraint_name: icbd_activities_translations_icbd_activities_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: icbd_phds
+    field: picture
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: icbd_phds
+      many_field: picture
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: icbd_phds
+      column: picture
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: icbd_phds_picture_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: icbd_speakers
