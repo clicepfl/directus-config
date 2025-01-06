@@ -1240,7 +1240,7 @@ fields:
         iconLeft: pin_drop
       readonly: false
       required: false
-      sort: 7
+      sort: 8
       special: null
       translations: null
       validation: null
@@ -1280,7 +1280,7 @@ fields:
         defaultOpenSplitView: true
       readonly: false
       required: true
-      sort: 8
+      sort: 9
       special:
         - translations
       translations: null
@@ -1303,13 +1303,53 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 9
+      sort: 10
       special:
         - files
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: ICBD
+    field: timetable
+    type: uuid
+    meta:
+      collection: ICBD
+      conditions: null
+      display: null
+      display_options: null
+      field: timetable
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: timetable
+      table: ICBD
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: ICBD_files
     field: id
     type: integer
@@ -5521,6 +5561,46 @@ fields:
       width: full
     schema:
       name: company
+      table: icbd_speakers
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_speakers
+    field: linkedin
+    type: string
+    meta:
+      collection: icbd_speakers
+      conditions: null
+      display: null
+      display_options: null
+      field: linkedin
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: add_link
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: linkedin
       table: icbd_speakers
       data_type: character varying
       default_value: null
@@ -9887,6 +9967,27 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: icbd_logo_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: ICBD
+    field: timetable
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: ICBD
+      many_field: timetable
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: ICBD
+      column: timetable
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: icbd_timetable_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: ICBD_files

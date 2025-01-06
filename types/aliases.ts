@@ -22,4 +22,4 @@ export type Subsonic = Schema["subsonic"][0];
 export type ICBD = Schema["ICBD"][0];
 export type ICBDSpeaker = Schema["icbd_speakers"][0];
 export type ICBDActivity = Schema["icbd_activities"][0];
-export type ICBDPhds = Schema["icbd_phds"][0];
+export type ICBDPhd = Schema["icbd_phds"][0];
