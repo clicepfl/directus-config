@@ -19,3 +19,7 @@ export type PublicFiles = Schema["association_public_files"][0];
 export type SaveTheDate = Schema["save_the_date"][0];
 export type SaveTheDateCell = Schema["std_cell"][0];
 export type Subsonic = Schema["subsonic"][0];
+export type ICBD = Schema["ICBD"][0];
+export type ICBDSpeaker = Schema["icbd_speakers"][0];
+export type ICBDActivity = Schema["icbd_activities"][0];
+export type ICBDPhd = Schema["icbd_phds"][0];
