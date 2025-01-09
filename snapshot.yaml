@@ -6604,7 +6604,7 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: false
+      is_nullable: true
       is_unique: false
       is_indexed: false
       is_primary_key: false
@@ -8199,6 +8199,75 @@ fields:
       validation_message: null
       width: full
   - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: save_the_date
     field: translations
     type: alias
     meta:
@@ -8305,33 +8374,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: save_the_date
     field: image
     type: uuid
@@ -8456,48 +8498,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: language_button_target
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: language_button_target
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        template: "{{name}}"
-      readonly: false
-      required: true
-      sort: 6
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: language_button_target
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
   - collection: save_the_date_translations
     field: id
     type: integer
@@ -9147,6 +9147,55 @@ fields:
       validation_message: null
       width: full
   - collection: std_cell
+    field: recurrence
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: labels
+      display_options: null
+      field: recurrence
+      group: null
+      hidden: false
+      interface: select-radio
+      note: null
+      options:
+        choices:
+          - text: Punctual
+            value: Punctual
+          - text: Weekly
+            value: weekly
+          - text: Monthly
+            value: monthly
+          - text: From
+            value: from
+        iconOn: update
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: recurrence
+      table: std_cell
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
     field: text_color
     type: string
     meta:
@@ -9263,55 +9312,6 @@ fields:
       table: std_cell
       data_type: character varying
       default_value: "#1A69D6"
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: recurrence
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: labels
-      display_options: null
-      field: recurrence
-      group: null
-      hidden: false
-      interface: select-radio
-      note: null
-      options:
-        choices:
-          - text: Punctual
-            value: Punctual
-          - text: Weekly
-            value: weekly
-          - text: Monthly
-            value: monthly
-          - text: From
-            value: from
-        iconOn: update
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: recurrence
-      table: std_cell
-      data_type: character varying
-      default_value: null
       max_length: 255
       numeric_precision: null
       numeric_scale: null
