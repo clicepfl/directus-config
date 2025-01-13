@@ -3776,6 +3776,8 @@ export interface components {
     ItemsIcbdActivities: {
       id?: number;
       icon?: string | components["schemas"]["Files"] | null;
+      timeslots?: unknown;
+      color?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
         | null;
