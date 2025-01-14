@@ -8,6 +8,8 @@ INSERT INTO public.directus_folders (id, name, parent) VALUES ('24a99ee1-4eee-48
 INSERT INTO public.directus_folders (id, name, parent) VALUES ('82caf9c9-995b-404f-ba7e-76f704a6dd3e', 'association', '48e39cd0-878d-4850-a6d5-5f903bd0c2fb') ON CONFLICT DO NOTHING;
 INSERT INTO public.directus_folders (id, name, parent) VALUES ('07d9aa98-227f-4d9a-916f-e19f30cda26a', 'commissions', '48e39cd0-878d-4850-a6d5-5f903bd0c2fb') ON CONFLICT DO NOTHING;
 INSERT INTO public.directus_folders (id, name, parent) VALUES ('2fd1d075-83a4-40b7-902e-b46a0d861dfe', 'gallery', '48e39cd0-878d-4850-a6d5-5f903bd0c2fb') ON CONFLICT DO NOTHING;
+INSERT INTO public.directus_folders (id, name, parent) VALUES ('18e98463-e2a4-4c82-965f-b598cb9e6370', 'icbd', '48e39cd0-878d-4850-a6d5-5f903bd0c2fb') ON CONFLICT DO NOTHING;
+INSERT INTO public.directus_folders (id, name, parent) VALUES ('c1a3c999-6bf8-4ad9-bd41-62b7fa5394c8', 'subsonic', '48e39cd0-878d-4850-a6d5-5f903bd0c2fb') ON CONFLICT DO NOTHING;
 
 
 INSERT INTO public.directus_users (id) VALUES ('49733485-a937-4776-a34b-914ed2b5ce16') ON CONFLICT DO NOTHING;
