@@ -386,7 +386,7 @@ INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'di
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'events', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'ICBD', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'ICBD_files', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
-INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'ICBD_translation', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
+INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'ICBD_translations', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_speakers', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_phds', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_activities', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
