@@ -13,8 +13,9 @@ docker exec -u root -it $(directus_container) npx directus-typescript-gen --emai
 echo 'DELETE FROM directus_flows; DELETE FROM directus_operations;' > $BASEDIR/flows.sql
 docker exec $(database_container) pg_dump -U directus_user directus_data -t directus_operations -t directus_flows --data-only --column-inserts --on-conflict-do-nothing --disable-triggers >>$BASEDIR/flows.sql
 
-# Hard fix for singleton elements
-sed -i -e 's/association: components\["schemas"\]\["ItemsAssociation"\]\[\]/association: components\["schemas"\]\["ItemsAssociation"\]/' $BASEDIR/schema.d.ts
 mv -f $BASEDIR/schema.d.ts $BASEDIR/types/schema.d.ts
+
+# Hard fix for singleton elements
+sed -i -e 's/association: components\["schemas"\]\["ItemsAssociation"\]\[\]/association: components\["schemas"\]\["ItemsAssociation"\]/' $BASEDIR/types/schema.d.ts
 
 npx prettier --write $BASEDIR/types/schema.d.ts $BASEDIR/snapshot.yaml
