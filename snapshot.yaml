@@ -1,5 +1,5 @@
 version: 1
-directus: 10.13.4
+directus: 11.1.2
 vendor: postgres
 collections:
   - collection: ICBD
@@ -10,7 +10,7 @@ collections:
       archive_value: null
       collapse: open
       collection: ICBD
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: null
       hidden: false
@@ -82,7 +82,7 @@ collections:
       archive_value: null
       collapse: open
       collection: artists
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: subsonic
       hidden: false
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: commissions
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: groups_3
@@ -458,6 +458,30 @@ collections:
       versioning: false
     schema:
       name: commissions_translations
+  - collection: events
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: events
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: event
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 8
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: events
   - collection: icbd_activities
     meta:
       accountability: all
@@ -466,7 +490,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -514,7 +538,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities_translations
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: icbd_activities
       hidden: true
@@ -538,7 +562,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_phds
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -562,7 +586,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_speakers
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: "{{first_name}}\_{{last_name}} ({{company}})"
       group: ICBD
       hidden: false
@@ -611,7 +635,7 @@ collections:
       collapse: open
       collection: languages
       color: null
-      display_template: '{{code}}'
+      display_template: "{{code}}"
       group: null
       hidden: false
       icon: language
@@ -659,7 +683,7 @@ collections:
       collapse: closed
       collection: news
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: breaking_news_alt_1
@@ -803,7 +827,7 @@ collections:
       collapse: open
       collection: partners
       color: null
-      display_template: '{{name}}'
+      display_template: "{{name}}"
       group: null
       hidden: false
       icon: partner_exchange
@@ -818,6 +842,30 @@ collections:
       versioning: false
     schema:
       name: partners
+  - collection: registrations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: registrations
+      color: null
+      display_template: null
+      group: events
+      hidden: false
+      icon: person_add
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: registrations
   - collection: save_the_date
     meta:
       accountability: all
@@ -946,7 +994,7 @@ collections:
       archive_value: null
       collapse: open
       collection: subsonic
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: null
       hidden: false
@@ -986,54 +1034,6 @@ collections:
       versioning: false
     schema:
       name: subsonic_translations
-  - collection: events
-    meta:
-      accountability: all
-      archive_app_filter: true
-      archive_field: null
-      archive_value: null
-      collapse: open
-      collection: events
-      color: null
-      display_template: null
-      group: null
-      hidden: false
-      icon: event
-      item_duplication_fields: null
-      note: null
-      preview_url: null
-      singleton: false
-      sort: 8
-      sort_field: null
-      translations: null
-      unarchive_value: null
-      versioning: false
-    schema:
-      name: events
-  - collection: registrations
-    meta:
-      accountability: all
-      archive_app_filter: true
-      archive_field: null
-      archive_value: null
-      collapse: open
-      collection: registrations
-      color: null
-      display_template: null
-      group: events
-      hidden: false
-      icon: person_add
-      item_duplication_fields: null
-      note: null
-      preview_url: null
-      singleton: false
-      sort: 1
-      sort_field: null
-      translations: null
-      unarchive_value: null
-      versioning: false
-    schema:
-      name: registrations
 fields:
   - collection: ICBD
     field: id
@@ -1067,6 +1067,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1106,6 +1107,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1145,6 +1147,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1183,6 +1186,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1221,6 +1225,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1259,6 +1264,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1298,6 +1304,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1384,6 +1391,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1422,6 +1430,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1460,6 +1469,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1498,6 +1508,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1536,6 +1547,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1574,6 +1586,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1612,6 +1625,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1650,6 +1664,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1688,6 +1703,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1726,6 +1742,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1764,6 +1781,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1805,6 +1823,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1843,6 +1862,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1881,6 +1901,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1919,6 +1940,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -1957,6 +1979,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -1995,6 +2018,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2034,6 +2058,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2073,6 +2098,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2111,6 +2137,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2151,6 +2178,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2242,7 +2270,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{icon.$thumbnail}}{{link}}'
+        template: "{{icon.$thumbnail}}{{link}}"
       readonly: false
       required: false
       sort: 9
@@ -2262,6 +2290,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2301,6 +2330,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2339,6 +2369,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2380,6 +2411,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2401,18 +2433,18 @@ fields:
       note: null
       options:
         choices:
-          - text: Committee
-            value: committee
-            color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
-          - text: Team
-            value: team
-            color: '#FFA439'
+            text: Committee
+            value: committee
+          - color: "#FFA439"
             icon: partner_exchange
-          - text: Member
-            value: member
-            color: '#A2B5CD'
+            text: Team
+            value: team
+          - color: "#A2B5CD"
             icon: card_membership
+            text: Member
+            value: member
       readonly: false
       required: true
       sort: 3
@@ -2431,6 +2463,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2446,7 +2479,7 @@ fields:
       display: translations
       display_options:
         languageField: name
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -2472,7 +2505,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{slug}}'
+        template: "{{slug}}"
       field: pole
       group: null
       hidden: false
@@ -2480,7 +2513,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{slug}}'
+        template: "{{slug}}"
       readonly: false
       required: false
       sort: 4
@@ -2500,6 +2533,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2538,6 +2572,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2576,6 +2611,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2614,6 +2650,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2652,6 +2689,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2690,6 +2728,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2728,6 +2767,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2766,6 +2806,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2804,6 +2845,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2818,7 +2860,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -2868,6 +2910,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2883,7 +2926,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: mail
       group: null
       hidden: false
@@ -2909,6 +2952,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -2947,6 +2991,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -2985,6 +3030,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3023,6 +3069,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3061,6 +3108,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3099,6 +3147,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3137,6 +3186,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3151,7 +3201,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: attach_file
       field: link
       group: null
@@ -3178,6 +3228,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3218,6 +3269,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3232,7 +3284,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -3284,6 +3336,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3322,6 +3375,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3360,6 +3414,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3399,6 +3454,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3437,6 +3493,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3475,6 +3532,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3513,6 +3571,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3551,6 +3610,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3589,6 +3649,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3627,6 +3688,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3665,6 +3727,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3704,6 +3767,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3742,6 +3806,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3756,7 +3821,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -3783,6 +3848,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3824,6 +3890,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3838,7 +3905,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -3871,18 +3938,18 @@ fields:
       note: null
       options:
         choices:
-          - text: Committee
-            value: committee
+          - color: "#3399FF"
             icon: groups
-            color: '#3399FF'
-          - text: Team
-            value: team
+            text: Committee
+            value: committee
+          - color: "#FFA439"
             icon: partner_exchange
-            color: '#FFA439'
-          - text: Member
-            value: member
+            text: Team
+            value: team
+          - color: "#2ECDA7"
             icon: card_membership
-            color: '#2ECDA7'
+            text: Member
+            value: member
         icon: grade
       readonly: false
       required: true
@@ -3902,6 +3969,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -3940,6 +4008,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -3978,6 +4047,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4016,6 +4086,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4054,6 +4125,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4092,6 +4164,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4107,7 +4180,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -4133,6 +4206,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4172,6 +4246,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4236,6 +4311,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4297,6 +4373,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4358,6 +4435,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4396,6 +4474,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4434,6 +4513,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4472,6 +4552,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4510,6 +4591,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4548,6 +4630,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4586,6 +4669,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4624,6 +4708,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4664,12 +4749,810 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
+  - collection: events
+    field: id
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: events
+      data_type: integer
+      default_value: nextval('events_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: type
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Faculty dinner
+            value: faculty_dinner
+          - text: ICBD
+            value: icbd
+          - text: Hello world
+            value: hello_world
+          - text: Other
+            value: other
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: type
+      table: events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: from
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: from
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: from
+      table: events
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: to
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: to
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: to
+      table: events
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: mail
+    type: alias
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: mail
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        start: closed
+      readonly: false
+      required: true
+      sort: 12
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: events
+    field: staffing
+    type: alias
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: staffing
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        start: closed
+      readonly: false
+      required: true
+      sort: 13
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: events
+    field: faculty_dinner
+    type: alias
+    meta:
+      collection: events
+      conditions:
+        - hidden: false
+          name: display
+          options: {}
+          rule:
+            _and:
+              - type:
+                  _eq: faculty_dinner
+      display: null
+      display_options: null
+      field: faculty_dinner
+      group: null
+      hidden: true
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: events
+    field: translations
+    type: alias
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options:
+        defaultOpenSplitView: true
+      readonly: false
+      required: true
+      sort: 10
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: events
+    field: opened
+    type: boolean
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: opened
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: opened
+      table: events
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: name
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: name
+      table: events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: price
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: price
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: attach_money
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: price
+      table: events
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: max_registrations
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: max_registrations
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: tab_close_right
+        min: 0
+      readonly: false
+      required: false
+      sort: 9
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: max_registrations
+      table: events
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: registration_count
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_count
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: null
+      readonly: true
+      required: true
+      sort: 8
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_count
+      table: events
+      data_type: integer
+      default_value: 0
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: staffing_from
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: staffing_from
+      group: staffing
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: staffing_from
+      table: events
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: staffing_to
+    type: dateTime
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: staffing_to
+      group: staffing
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: staffing_to
+      table: events
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: staffingTypes
+    type: json
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: staffingTypes
+      group: staffing
+      hidden: false
+      interface: tags
+      note: null
+      options: {}
+      readonly: false
+      required: true
+      sort: 4
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: staffingTypes
+      table: events
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: staffingShiftSize
+    type: integer
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: staffingShiftSize
+      group: staffing
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: timer
+        max: 120
+        min: 15
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: staffingShiftSize
+      table: events
+      data_type: integer
+      default_value: 30
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: mailTemplate
+    type: text
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: mailTemplate
+      group: mail
+      hidden: false
+      interface: input-rich-text-html
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: mailTemplate
+      table: events
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: mailSent
+    type: boolean
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: mailSent
+      group: mail
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: true
+      sort: 2
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: mailSent
+      table: events
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: meals
+    type: json
+    meta:
+      collection: events
+      conditions:
+        - name: must_be_set
+          options: {}
+          required: true
+          rule:
+            _and:
+              - type:
+                  _eq: faculty_dinner
+      display: formatted-json-value
+      display_options:
+        format: "{{ name }}, {{ count }}"
+      field: meals
+      group: faculty_dinner
+      hidden: false
+      interface: list
+      note: null
+      options:
+        fields:
+          - field: name
+            meta:
+              field: name
+              interface: null
+              required: true
+              type: string
+              width: half
+            name: name
+            type: string
+          - field: count
+            meta:
+              display: null
+              field: count
+              interface: input
+              note: Do not edit manually
+              options: {}
+              required: true
+              type: integer
+              width: half
+            name: count
+            type: integer
+          - field: description
+            meta:
+              field: description
+              interface: null
+              required: true
+              type: text
+            name: description
+            type: text
+          - field: additional_infos
+            meta:
+              field: additional_infos
+              interface: null
+              type: text
+            name: additional_infos
+            type: text
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: meals
+      table: events
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: icbd_activities
     field: id
     type: integer
@@ -4702,6 +5585,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -4716,7 +5600,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{icbd_activities_id.translations.name}}'
+        template: "{{icbd_activities_id.translations.name}}"
         userLanguage: true
       field: translations
       group: null
@@ -4794,6 +5678,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4887,7 +5772,7 @@ fields:
               type: string
             name: custom_name
             type: string
-        template: '[{{ room }}] - {{ start_time }} : {{ end_time }}'
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }}"
       readonly: false
       required: false
       sort: 9
@@ -4907,6 +5792,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4945,6 +5831,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -4983,6 +5870,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5021,6 +5909,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5059,6 +5948,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5097,6 +5987,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5135,6 +6026,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5173,6 +6065,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5211,6 +6104,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5249,6 +6143,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5287,6 +6182,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5325,6 +6221,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5363,6 +6260,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5402,6 +6300,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5441,6 +6340,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5479,6 +6379,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5517,6 +6418,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5555,6 +6457,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5595,6 +6498,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5634,6 +6538,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5673,6 +6578,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5711,6 +6617,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -5750,6 +6657,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5765,7 +6673,7 @@ fields:
       display: formatted-value
       display_options:
         bold: true
-        color: '#A2B5CD'
+        color: "#A2B5CD"
         icon: numbers
       field: quantity
       group: null
@@ -5793,6 +6701,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5831,6 +6740,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5851,7 +6761,7 @@ fields:
       interface: presentation-divider
       note: null
       options:
-        color: '#2ECDA7'
+        color: "#2ECDA7"
         icon: local_shipping
         title: $t:need-to-order
       readonly: false
@@ -5879,17 +6789,17 @@ fields:
       note: null
       options:
         links:
-          - label: $t:bob-cassettes
-            icon: dishwasher_gen
+          - icon: dishwasher_gen
+            label: $t:bob-cassettes
             type: normal
             url: >-
               https://daan.tech/ch_fr/product-category/detergent-lave-vaisselle-ch_fr/
-          - label: Filtres Café
-            icon: coffee_maker
+          - icon: coffee_maker
+            label: Filtres Café
             type: normal
             url: https://shopjura.com/jura-care-products.html
-          - label: $t:digitec
-            icon: electrical_services
+          - icon: electrical_services
+            label: $t:digitec
             type: normal
             url: https://www.digitec.ch/fr
       readonly: false
@@ -5938,7 +6848,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -5946,7 +6856,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -5966,6 +6876,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -5978,19 +6889,19 @@ fields:
     meta:
       collection: inventory
       conditions:
-        - name: If in shelve
+        - hidden: false
+          name: If in shelve
+          options:
+            clear: false
+            font: sans-serif
+            masked: false
+            slug: false
+            trim: false
+          required: true
           rule:
             _and:
               - place:
                   _contains: shelve
-          hidden: false
-          required: true
-          options:
-            font: sans-serif
-            trim: false
-            masked: false
-            clear: false
-            slug: false
       display: formatted-value
       display_options:
         icon: table_rows
@@ -6021,6 +6932,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6033,19 +6945,19 @@ fields:
     meta:
       collection: inventory
       conditions:
-        - name: If in shelve
+        - hidden: false
+          name: If in shelve
+          options:
+            clear: false
+            font: sans-serif
+            masked: false
+            slug: false
+            trim: false
+          required: true
           rule:
             _and:
               - place:
                   _contains: shelve
-          hidden: false
-          required: true
-          options:
-            font: sans-serif
-            trim: false
-            masked: false
-            clear: false
-            slug: false
       display: formatted-value
       display_options:
         icon: view_column
@@ -6076,6 +6988,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6090,8 +7003,8 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        background: '#3399FF'
-        color: '#FFFFFF'
+        background: "#3399FF"
+        color: "#FFFFFF"
         format: true
       field: place
       group: null
@@ -6101,22 +7014,22 @@ fields:
       options:
         allowOther: true
         choices:
-          - text: Shelve 1
+          - color: "#6644FF"
+            icon: shelves
+            text: Shelve 1
             value: shelve-1
+          - color: "#3399FF"
             icon: shelves
-            color: '#6644FF'
-          - text: Shelve 2
+            text: Shelve 2
             value: shelve-2
-            icon: shelves
-            color: '#3399FF'
-          - text: Office
-            value: office
+          - color: "#2ECDA7"
             icon: scene
-            color: '#2ECDA7'
-          - text: Admin
-            value: admin
+            text: Office
+            value: office
+          - color: "#FFC23B"
             icon: tv_with_assistant
-            color: '#FFC23B'
+            text: Admin
+            value: admin
         icon: location_on
       readonly: false
       required: true
@@ -6136,6 +7049,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6182,6 +7096,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6220,6 +7135,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6260,6 +7176,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6299,6 +7216,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -6337,6 +7255,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6375,6 +7294,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -6413,6 +7333,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6451,6 +7372,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6466,7 +7388,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -6492,6 +7414,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6531,6 +7454,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6570,6 +7494,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6610,6 +7535,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6649,6 +7575,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6687,6 +7614,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -6702,21 +7630,21 @@ fields:
       display: labels
       display_options:
         choices:
-          - text: $t:published
-            value: published
+          - background: var(--theme--primary-background)
             color: var(--theme--primary)
             foreground: var(--theme--primary)
-            background: var(--theme--primary-background)
-          - text: $t:draft
-            value: draft
+            text: $t:published
+            value: published
+          - background: var(--theme--background-normal)
             color: var(--theme--foreground)
             foreground: var(--theme--foreground)
-            background: var(--theme--background-normal)
-          - text: $t:archived
-            value: archived
+            text: $t:draft
+            value: draft
+          - background: var(--theme--warning-background)
             color: var(--theme--warning)
             foreground: var(--theme--warning)
-            background: var(--theme--warning-background)
+            text: $t:archived
+            value: archived
         showAsDot: true
       field: status
       group: null
@@ -6725,18 +7653,18 @@ fields:
       note: null
       options:
         choices:
-          - text: $t:published
-            value: published
-            color: var(--theme--primary)
+          - color: var(--theme--primary)
             icon: task_alt
-          - text: $t:draft
-            value: draft
-            color: var(--theme--foreground)
+            text: $t:published
+            value: published
+          - color: var(--theme--foreground)
             icon: draft_orders
-          - text: $t:archived
-            value: archived
-            color: var(--theme--warning)
+            text: $t:draft
+            value: draft
+          - color: var(--theme--warning)
             icon: archive
+            text: $t:archived
+            value: archived
         icon: null
       readonly: false
       required: false
@@ -6756,6 +7684,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6794,6 +7723,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6814,7 +7744,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 9
@@ -6834,6 +7764,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6874,6 +7805,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6914,6 +7846,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -6928,7 +7861,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -6955,7 +7888,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{commissions_id.name}}'
+        template: "{{commissions_id.name}}"
       field: commissions
       group: null
       hidden: false
@@ -6964,7 +7897,7 @@ fields:
       options:
         enableCreate: false
         fields: []
-        template: '{{commissions_id.slug}}'
+        template: "{{commissions_id.slug}}"
       readonly: false
       required: false
       sort: 6
@@ -7007,6 +7940,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7045,7 +7979,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#E35169'
+        defaultColor: "#E35169"
       field: video_link
       group: null
       hidden: false
@@ -7071,6 +8005,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7109,6 +8044,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7147,6 +8083,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7185,6 +8122,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7223,6 +8161,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7261,6 +8200,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7299,6 +8239,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7337,6 +8278,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7375,6 +8317,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7413,6 +8356,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7451,6 +8395,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7489,6 +8434,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7527,6 +8473,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7567,6 +8514,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7605,6 +8553,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7645,6 +8594,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: true
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7659,7 +8609,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -7709,6 +8659,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7747,6 +8698,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7785,6 +8737,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7823,6 +8776,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7861,6 +8815,7 @@ fields:
       numeric_scale: 0
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -7899,6 +8854,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7939,6 +8895,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -7978,6 +8935,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -8016,6 +8974,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -8054,6 +9013,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -8093,6 +9053,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -8114,7 +9075,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{rank}}'
+        template: "{{rank}}"
       readonly: false
       required: true
       sort: 10
@@ -8134,2566 +9095,13 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
       foreign_key_table: partner_category
       foreign_key_column: id
-  - collection: save_the_date
-    field: id
-    type: integer
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: save_the_date
-      data_type: integer
-      default_value: nextval('save_the_date_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date
-    field: end_cell
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: end_cell
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: info
-      readonly: false
-      required: false
-      sort: 3
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: save_the_date
-    field: language_button_target
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: language_button_target
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        template: '{{name}}'
-      readonly: false
-      required: true
-      sort: 6
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: language_button_target
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
-  - collection: save_the_date
-    field: translations
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: end_cell
-      hidden: false
-      interface: translations
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 1
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: save_the_date
-    field: background_color
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: background_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#F6F5F4'
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: background_color
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date
-    field: text_color
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: text_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#241F31'
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: text_color
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date
-    field: image
-    type: uuid
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: image
-      group: style
-      hidden: false
-      interface: file-image
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: image
-      table: save_the_date
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: save_the_date
-    field: title_color
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: title_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#232B79'
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: title_color
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date
-    field: button_color
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: button_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#1A69D6'
-      readonly: false
-      required: false
-      sort: 5
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: button_color
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date_translations
-    field: id
-    type: integer
-    meta:
-      collection: save_the_date_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: save_the_date_translations
-      data_type: integer
-      default_value: nextval('save_the_date_translations_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date_translations
-    field: save_the_date_id
-    type: integer
-    meta:
-      collection: save_the_date_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: save_the_date_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: save_the_date_id
-      table: save_the_date_translations
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: save_the_date
-      foreign_key_column: id
-  - collection: save_the_date_translations
-    field: languages_code
-    type: string
-    meta:
-      collection: save_the_date_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: languages_code
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: languages_code
-      table: save_the_date_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
-  - collection: save_the_date_translations
-    field: title
-    type: string
-    meta:
-      collection: save_the_date_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: title
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: title
-      table: save_the_date_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: save_the_date_translations
-    field: description
-    type: text
-    meta:
-      collection: save_the_date_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: description
-      group: null
-      hidden: false
-      interface: input-multiline
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 5
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: description
-      table: save_the_date_translations
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: social_links
-    field: id
-    type: integer
-    meta:
-      collection: social_links
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: social_links
-      data_type: integer
-      default_value: nextval('social_links_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: social_links
-    field: link
-    type: string
-    meta:
-      collection: social_links
-      conditions: null
-      display: formatted-value
-      display_options:
-        color: '#3399FF'
-        icon: media_link
-      field: link
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: link
-      readonly: false
-      required: true
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: link
-      table: social_links
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: social_links
-    field: logo
-    type: uuid
-    meta:
-      collection: social_links
-      conditions: null
-      display: image
-      display_options: null
-      field: logo
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        folder: 82caf9c9-995b-404f-ba7e-76f704a6dd3e
-      readonly: false
-      required: false
-      sort: 5
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: logo
-      table: social_links
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: social_links
-    field: media_name
-    type: string
-    meta:
-      collection: social_links
-      conditions: null
-      display: null
-      display_options: null
-      field: media_name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: app_shortcut
-      readonly: false
-      required: true
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: media_name
-      table: social_links
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: social_links
-    field: account_name
-    type: string
-    meta:
-      collection: social_links
-      conditions: null
-      display: null
-      display_options: null
-      field: account_name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: account_name
-      table: social_links
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: id
-    type: integer
-    meta:
-      collection: std_cell
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: std_cell
-      data_type: integer
-      default_value: nextval('std_cell_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: image
-    type: uuid
-    meta:
-      collection: std_cell
-      conditions: null
-      display: image
-      display_options: null
-      field: image
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        folder: 8890baa5-447e-45a3-a573-95c76830e876
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: image
-      table: std_cell
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: std_cell
-    field: commission
-    type: integer
-    meta:
-      collection: std_cell
-      conditions: null
-      display: related-values
-      display_options:
-        template: '{{name}}'
-      field: commission
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        template: '{{name}}'
-      readonly: false
-      required: false
-      sort: 5
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: commission
-      table: std_cell
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: commissions
-      foreign_key_column: id
-  - collection: std_cell
-    field: url
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: null
-      display_options: null
-      field: url
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: link
-      readonly: false
-      required: false
-      sort: 6
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: url
-      table: std_cell
-      data_type: character varying
-      default_value: https://clic.epfl.ch
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: translations
-    type: alias
-    meta:
-      collection: std_cell
-      conditions: null
-      display: translations
-      display_options:
-        template: '{{title}}'
-        userLanguage: true
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 7
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: std_cell
-    field: date
-    type: date
-    meta:
-      collection: std_cell
-      conditions: null
-      display: datetime
-      display_options: null
-      field: date
-      group: null
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: date
-      table: std_cell
-      data_type: date
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: style
-    type: alias
-    meta:
-      collection: std_cell
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-      readonly: false
-      required: false
-      sort: 8
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: std_cell
-    field: recurrence
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: labels
-      display_options: null
-      field: recurrence
-      group: null
-      hidden: false
-      interface: select-radio
-      note: null
-      options:
-        choices:
-          - text: Punctual
-            value: Punctual
-          - text: Weekly
-            value: weekly
-          - text: Monthly
-            value: monthly
-          - text: From
-            value: from
-        iconOn: update
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: recurrence
-      table: std_cell
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: text_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#18222F'
-      field: text_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#18222F'
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: text_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#18222F'
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: background_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#EEEDEA'
-      field: background_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#EEEDEA'
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: background_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#EEEDEA'
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: button_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#1A69D6'
-      field: button_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - name: default
-            color: '#1A69D6'
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: button_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#1A69D6'
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell_translations
-    field: id
-    type: integer
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: std_cell_translations
-      data_type: integer
-      default_value: nextval('std_cell_translations_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell_translations
-    field: std_cell_id
-    type: integer
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: std_cell_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: std_cell_id
-      table: std_cell_translations
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: std_cell
-      foreign_key_column: id
-  - collection: std_cell_translations
-    field: languages_code
-    type: string
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: languages_code
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: languages_code
-      table: std_cell_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
-  - collection: std_cell_translations
-    field: title
-    type: string
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: title
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: null
-      readonly: false
-      required: true
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: title
-      table: std_cell_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell_translations
-    field: description
-    type: text
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: description
-      group: null
-      hidden: false
-      interface: input-multiline
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 5
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: description
-      table: std_cell_translations
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell_translations
-    field: detail_button_title
-    type: string
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: detail_button_title
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: picture_in_picture_alt
-      readonly: false
-      required: false
-      sort: 6
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: detail_button_title
-      table: std_cell_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell_translations
-    field: date_replacement
-    type: string
-    meta:
-      collection: std_cell_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: date_replacement
-      group: null
-      hidden: false
-      interface: input
-      note: This will replace the date by this text. (optional)
-      options:
-        iconLeft: date_range
-      readonly: false
-      required: false
-      sort: 7
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: date_replacement
-      table: std_cell_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: subsonic
-    field: id
-    type: integer
-    meta:
-      collection: subsonic
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: subsonic
-      data_type: integer
-      default_value: nextval('subsonic_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: subsonic
-    field: header_image
-    type: uuid
-    meta:
-      collection: subsonic
-      conditions: null
-      display: null
-      display_options: null
-      field: header_image
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: header_image
-      table: subsonic
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: subsonic
-    field: logo
-    type: uuid
-    meta:
-      collection: subsonic
-      conditions: null
-      display: null
-      display_options: null
-      field: logo
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        crop: false
-      readonly: false
-      required: false
-      sort: 3
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: logo
-      table: subsonic
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: subsonic
-    field: map
-    type: uuid
-    meta:
-      collection: subsonic
-      conditions: null
-      display: null
-      display_options: null
-      field: map
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        defaultView:
-          bearing: 0
-          center:
-            lat: 0
-            lng: 0
-          pitch: 0
-          zoom: 0
-        geometryType: Point
-      readonly: false
-      required: false
-      sort: 4
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: map
-      table: subsonic
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
-  - collection: subsonic
-    field: translations
-    type: alias
-    meta:
-      collection: subsonic
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 5
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: subsonic_translations
-    field: id
-    type: integer
-    meta:
-      collection: subsonic_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: subsonic_translations
-      data_type: integer
-      default_value: nextval('subsonic_translations_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: subsonic_translations
-    field: subsonic_id
-    type: integer
-    meta:
-      collection: subsonic_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: subsonic_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: subsonic_id
-      table: subsonic_translations
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: subsonic
-      foreign_key_column: id
-  - collection: subsonic_translations
-    field: languages_code
-    type: string
-    meta:
-      collection: subsonic_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: languages_code
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: languages_code
-      table: subsonic_translations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
-  - collection: subsonic_translations
-    field: info
-    type: text
-    meta:
-      collection: subsonic_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: info
-      group: null
-      hidden: false
-      interface: input-rich-text-md
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: info
-      table: subsonic_translations
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: id
-    type: integer
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: input
-      note: null
-      options: null
-      readonly: true
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: events
-      data_type: integer
-      default_value: nextval('events_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: type
-    type: string
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: type
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        choices:
-          - text: Faculty dinner
-            value: faculty_dinner
-          - text: ICBD
-            value: icbd
-          - text: Hello world
-            value: hello_world
-          - text: Other
-            value: other
-      readonly: false
-      required: true
-      sort: 6
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: type
-      table: events
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: from
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: from
-      group: null
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: from
-      table: events
-      data_type: timestamp without time zone
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: to
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: to
-      group: null
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 5
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: to
-      table: events
-      data_type: timestamp without time zone
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: mail
-    type: alias
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mail
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        start: closed
-      readonly: false
-      required: true
-      sort: 12
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: events
-    field: staffing
-    type: alias
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: staffing
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        start: closed
-      readonly: false
-      required: true
-      sort: 13
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: events
-    field: faculty_dinner
-    type: alias
-    meta:
-      collection: events
-      conditions:
-        - name: display
-          rule:
-            _and:
-              - type:
-                  _eq: faculty_dinner
-          hidden: false
-          options: {}
-      display: null
-      display_options: null
-      field: faculty_dinner
-      group: null
-      hidden: true
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 11
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: events
-    field: translations
-    type: alias
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options:
-        defaultOpenSplitView: true
-      readonly: false
-      required: true
-      sort: 10
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: events
-    field: opened
-    type: boolean
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: opened
-      group: null
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 7
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: opened
-      table: events
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: staffing_from
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: staffing_from
-      group: staffing
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: staffing_from
-      table: events
-      data_type: timestamp without time zone
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: staffing_to
-    type: dateTime
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: staffing_to
-      group: staffing
-      hidden: false
-      interface: datetime
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: staffing_to
-      table: events
-      data_type: timestamp without time zone
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: staffingTypes
-    type: json
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: staffingTypes
-      group: staffing
-      hidden: false
-      interface: tags
-      note: null
-      options: {}
-      readonly: false
-      required: true
-      sort: 4
-      special:
-        - cast-json
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: staffingTypes
-      table: events
-      data_type: json
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: staffingShiftSize
-    type: integer
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: staffingShiftSize
-      group: staffing
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: timer
-        max: 120
-        min: 15
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: staffingShiftSize
-      table: events
-      data_type: integer
-      default_value: 30
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: mailTemplate
-    type: text
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mailTemplate
-      group: mail
-      hidden: false
-      interface: input-rich-text-html
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: mailTemplate
-      table: events
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: mailSent
-    type: boolean
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mailSent
-      group: mail
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: true
-      required: true
-      sort: 2
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: mailSent
-      table: events
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: meals
-    type: json
-    meta:
-      collection: events
-      conditions:
-        - name: must_be_set
-          rule:
-            _and:
-              - type:
-                  _eq: faculty_dinner
-          required: true
-          options: {}
-      display: formatted-json-value
-      display_options:
-        format: "{{ name }}, {{ count }}"
-      field: meals
-      group: faculty_dinner
-      hidden: false
-      interface: list
-      note: null
-      options:
-        fields:
-          - field: name
-            name: name
-            type: string
-            meta:
-              field: name
-              type: string
-              required: true
-              interface: null
-              width: half
-          - field: count
-            name: count
-            type: integer
-            meta:
-              field: count
-              width: half
-              type: integer
-              required: true
-              note: Do not edit manually
-              interface: input
-              options: {}
-              display: null
-          - field: description
-            name: description
-            type: text
-            meta:
-              field: description
-              type: text
-              required: true
-              interface: null
-          - field: additional_infos
-            name: additional_infos
-            type: text
-            meta:
-              field: additional_infos
-              type: text
-              interface: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - cast-json
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: meals
-      table: events
-      data_type: json
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: name
-    type: string
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: name
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options: null
-      readonly: false
-      required: true
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: name
-      table: events
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: price
-    type: integer
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: price
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: attach_money
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: price
-      table: events
-      data_type: integer
-      default_value: 0
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: max_registrations
-    type: integer
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: max_registrations
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: tab_close_right
-        min: 0
-      readonly: false
-      required: false
-      sort: 9
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: max_registrations
-      table: events
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: registration_count
-    type: integer
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: registration_count
-      group: null
-      hidden: false
-      interface: input
-      note: null
-      options:
-        iconLeft: null
-      readonly: true
-      required: true
-      sort: 8
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: registration_count
-      table: events
-      data_type: integer
-      default_value: 0
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
   - collection: registrations
     field: id
     type: uuid
@@ -10727,6 +9135,7 @@ fields:
       numeric_scale: null
       is_nullable: false
       is_unique: true
+      is_indexed: false
       is_primary_key: true
       is_generated: false
       generation_expression: null
@@ -10768,6 +9177,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -10806,6 +9216,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -10869,6 +9280,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -10907,6 +9319,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -10945,6 +9358,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -10983,6 +9397,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11021,6 +9436,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11060,12 +9476,39 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: registrations
+    field: staffing
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: staffing
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        start: closed
+      readonly: false
+      required: true
+      sort: 10
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
   - collection: registrations
     field: faculty_dinner
     type: alias
@@ -11149,6 +9592,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11171,15 +9615,15 @@ fields:
       options:
         allowNone: true
         choices:
-          - text: Cash
+          - icon: monetization_on
+            text: Cash
             value: cash
-            icon: monetization_on
-          - text: Camipro
+          - icon: credit_card
+            text: Camipro
             value: camipro
-            icon: credit_card
-          - text: Bank transfer
+          - icon: account_balance
+            text: Bank transfer
             value: bank_transfer
-            icon: account_balance
       readonly: false
       required: false
       sort: 2
@@ -11198,6 +9642,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11211,15 +9656,15 @@ fields:
       collection: registrations
       conditions:
         - name: late_payment
+          options:
+            iconOff: check_box_outline_blank
+            iconOn: check_box
+            label: Enabled
+          required: true
           rule:
             _and:
               - payment:
                   _nnull: true
-          required: true
-          options:
-            iconOn: check_box
-            iconOff: check_box_outline_blank
-            label: Enabled
       display: null
       display_options: null
       field: late_payment
@@ -11250,6 +9695,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11288,6 +9734,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11327,6 +9774,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11365,6 +9813,7 @@ fields:
       numeric_scale: 0
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11404,38 +9853,13 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: registrations
-    field: staffing
-    type: alias
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: staffing
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        start: closed
-      readonly: false
-      required: true
-      sort: 10
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: registrations
     field: is_staff
     type: boolean
@@ -11469,6 +9893,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11510,6 +9935,7 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -11551,6 +9977,1821 @@ fields:
       numeric_scale: null
       is_nullable: true
       is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date
+    field: id
+    type: integer
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: save_the_date
+      data_type: integer
+      default_value: nextval('save_the_date_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date
+    field: end_cell
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: end_cell
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: info
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: save_the_date
+    field: translations
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: end_cell
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 1
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: background_color
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: background_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#F6F5F4"
+            name: default
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: background_color
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date
+    field: text_color
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: text_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#241F31"
+            name: default
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: text_color
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date
+    field: image
+    type: uuid
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: image
+      group: style
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: image
+      table: save_the_date
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: save_the_date
+    field: title_color
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: title_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#232B79"
+            name: default
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title_color
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date
+    field: button_color
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: button_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#1A69D6"
+            name: default
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: button_color
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date_translations
+    field: id
+    type: integer
+    meta:
+      collection: save_the_date_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: save_the_date_translations
+      data_type: integer
+      default_value: nextval('save_the_date_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date_translations
+    field: save_the_date_id
+    type: integer
+    meta:
+      collection: save_the_date_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: save_the_date_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: save_the_date_id
+      table: save_the_date_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: save_the_date
+      foreign_key_column: id
+  - collection: save_the_date_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: save_the_date_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: save_the_date_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: save_the_date_translations
+    field: title
+    type: string
+    meta:
+      collection: save_the_date_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: save_the_date_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: save_the_date_translations
+    field: description
+    type: text
+    meta:
+      collection: save_the_date_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: save_the_date_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: id
+    type: integer
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: social_links
+      data_type: integer
+      default_value: nextval('social_links_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: link
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: formatted-value
+      display_options:
+        color: "#3399FF"
+        icon: media_link
+      field: link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: link
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: link
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: logo
+    type: uuid
+    meta:
+      collection: social_links
+      conditions: null
+      display: image
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        folder: 82caf9c9-995b-404f-ba7e-76f704a6dd3e
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: social_links
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: social_links
+    field: media_name
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: media_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: app_shortcut
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: media_name
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: social_links
+    field: account_name
+    type: string
+    meta:
+      collection: social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: account_name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: account_name
+      table: social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: id
+    type: integer
+    meta:
+      collection: std_cell
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: std_cell
+      data_type: integer
+      default_value: nextval('std_cell_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: image
+    type: uuid
+    meta:
+      collection: std_cell
+      conditions: null
+      display: image
+      display_options: null
+      field: image
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        folder: 8890baa5-447e-45a3-a573-95c76830e876
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: image
+      table: std_cell
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: std_cell
+    field: commission
+    type: integer
+    meta:
+      collection: std_cell
+      conditions: null
+      display: related-values
+      display_options:
+        template: "{{name}}"
+      field: commission
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        template: "{{name}}"
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: commission
+      table: std_cell
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: commissions
+      foreign_key_column: id
+  - collection: std_cell
+    field: url
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: null
+      display_options: null
+      field: url
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: link
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: url
+      table: std_cell
+      data_type: character varying
+      default_value: https://clic.epfl.ch
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: translations
+    type: alias
+    meta:
+      collection: std_cell
+      conditions: null
+      display: translations
+      display_options:
+        template: "{{title}}"
+        userLanguage: true
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 7
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: std_cell
+    field: date
+    type: date
+    meta:
+      collection: std_cell
+      conditions: null
+      display: datetime
+      display_options: null
+      field: date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: date
+      table: std_cell
+      data_type: date
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: style
+    type: alias
+    meta:
+      collection: std_cell
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+      readonly: false
+      required: false
+      sort: 8
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: std_cell
+    field: recurrence
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: labels
+      display_options: null
+      field: recurrence
+      group: null
+      hidden: false
+      interface: select-radio
+      note: null
+      options:
+        choices:
+          - text: Punctual
+            value: Punctual
+          - text: Weekly
+            value: weekly
+          - text: Monthly
+            value: monthly
+          - text: From
+            value: from
+        iconOn: update
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: recurrence
+      table: std_cell
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: text_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#18222F"
+      field: text_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#18222F"
+            name: default
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: text_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#18222F"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: background_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#EEEDEA"
+      field: background_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#EEEDEA"
+            name: default
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: background_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#EEEDEA"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: button_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#1A69D6"
+      field: button_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#1A69D6"
+            name: default
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: button_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#1A69D6"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: id
+    type: integer
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: std_cell_translations
+      data_type: integer
+      default_value: nextval('std_cell_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: std_cell_id
+    type: integer
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: std_cell_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: std_cell_id
+      table: std_cell_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: std_cell
+      foreign_key_column: id
+  - collection: std_cell_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: std_cell_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: std_cell_translations
+    field: title
+    type: string
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: std_cell_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: description
+    type: text
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: std_cell_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: detail_button_title
+    type: string
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: detail_button_title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: picture_in_picture_alt
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: detail_button_title
+      table: std_cell_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell_translations
+    field: date_replacement
+    type: string
+    meta:
+      collection: std_cell_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: date_replacement
+      group: null
+      hidden: false
+      interface: input
+      note: This will replace the date by this text. (optional)
+      options:
+        iconLeft: date_range
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: date_replacement
+      table: std_cell_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: subsonic
+    field: id
+    type: integer
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: subsonic
+      data_type: integer
+      default_value: nextval('subsonic_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: subsonic
+    field: header_image
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: header_image
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: header_image
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: logo
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: logo
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: logo
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: map
+    type: uuid
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: map
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        defaultView:
+          bearing: 0
+          center:
+            lat: 0
+            lng: 0
+          pitch: 0
+          zoom: 0
+        geometryType: Point
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: map
+      table: subsonic
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: subsonic
+    field: translations
+    type: alias
+    meta:
+      collection: subsonic
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: subsonic_translations
+    field: id
+    type: integer
+    meta:
+      collection: subsonic_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: subsonic_translations
+      data_type: integer
+      default_value: nextval('subsonic_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: subsonic_translations
+    field: subsonic_id
+    type: integer
+    meta:
+      collection: subsonic_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: subsonic_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: subsonic_id
+      table: subsonic_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: subsonic
+      foreign_key_column: id
+  - collection: subsonic_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: subsonic_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: subsonic_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: subsonic_translations
+    field: info
+    type: text
+    meta:
+      collection: subsonic_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: info
+      group: null
+      hidden: false
+      interface: input-rich-text-md
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: info
+      table: subsonic_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
       is_primary_key: false
       is_generated: false
       generation_expression: null
@@ -12797,6 +13038,27 @@ relations:
       constraint_name: partners_category_foreign
       on_update: NO ACTION
       on_delete: SET NULL
+  - collection: registrations
+    field: event
+    related_collection: events
+    meta:
+      junction_field: null
+      many_collection: registrations
+      many_field: event
+      one_allowed_collections: null
+      one_collection: events
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: registrations
+      column: event
+      foreign_key_table: events
+      foreign_key_column: id
+      constraint_name: registrations_event_foreign
+      on_update: NO ACTION
+      on_delete: CASCADE
   - collection: save_the_date
     field: image
     related_collection: directus_files
@@ -13091,24 +13353,3 @@ relations:
       constraint_name: subsonic_translations_subsonic_id_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: registrations
-    field: event
-    related_collection: events
-    meta:
-      junction_field: null
-      many_collection: registrations
-      many_field: event
-      one_allowed_collections: null
-      one_collection: events
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: registrations
-      column: event
-      foreign_key_table: events
-      foreign_key_column: id
-      constraint_name: registrations_event_foreign
-      on_update: NO ACTION
-      on_delete: CASCADE
