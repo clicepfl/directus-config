@@ -6318,18 +6318,58 @@ fields:
       note: null
       options: null
       readonly: false
-      required: false
+      required: true
       sort: 4
       special: null
       translations: null
       validation: null
       validation_message: null
-      width: full
+      width: half
     schema:
       name: start
       table: icbd_activities_registrations
       data_type: time without time zone
       default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: icbd_activities_registrations
+    field: attended
+    type: boolean
+    meta:
+      collection: icbd_activities_registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: attended
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: attended
+      table: icbd_activities_registrations
+      data_type: boolean
+      default_value: false
       max_length: null
       numeric_precision: null
       numeric_scale: null
@@ -9888,7 +9928,7 @@ fields:
         start: closed
       readonly: false
       required: false
-      sort: 10
+      sort: 12
       special:
         - alias
         - group
@@ -9996,7 +10036,7 @@ fields:
       display: null
       display_options: null
       field: payment
-      group: faculty_dinner
+      group: null
       hidden: false
       interface: select-dropdown
       note: null
@@ -10014,7 +10054,7 @@ fields:
             value: bank_transfer
       readonly: false
       required: false
-      sort: 2
+      sort: 10
       special: null
       translations: null
       validation: null
@@ -10066,7 +10106,7 @@ fields:
         label: Late
       readonly: false
       required: false
-      sort: 3
+      sort: 2
       special:
         - cast-boolean
       translations: null
@@ -10106,7 +10146,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 4
+      sort: 3
       special: null
       translations: null
       validation: null
@@ -10146,7 +10186,7 @@ fields:
         iconLeft: exposure_plus_1
       readonly: false
       required: false
-      sort: 5
+      sort: 4
       special: null
       translations: null
       validation: null
@@ -10185,7 +10225,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 6
+      sort: 5
       special: null
       translations: null
       validation: null
@@ -10360,6 +10400,133 @@ fields:
       table: registrations
       data_type: json
       default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: retreived_deposit
+    type: boolean
+    meta:
+      collection: registrations
+      conditions:
+        - name: requires_can_retrieve
+          options:
+            iconOff: check_box_outline_blank
+            iconOn: check_box
+            label: Enabled
+          readonly: false
+          rule:
+            _and:
+              - can_retreive_deposit:
+                  _eq: true
+      display: boolean
+      display_options:
+        labelOff: "No"
+        labelOn: "Yes"
+      field: retreived_deposit
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options:
+        label: Retreived
+      readonly: true
+      required: true
+      sort: 2
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: retreived_deposit
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: icbd
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd
+      group: additional_infos
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: registrations
+    field: can_retreive_deposit
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: boolean
+      display_options:
+        colorOff: null
+        colorOn: null
+        labelOff: "No"
+        labelOn: "Yes"
+      field: can_retreive_deposit
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options:
+        colorOff: null
+        colorOn: null
+        iconOff: do_not_disturb_on
+        iconOn: check
+        label: null
+      readonly: true
+      required: true
+      sort: 1
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: can_retreive_deposit
+      table: registrations
+      data_type: boolean
+      default_value: false
       max_length: null
       numeric_precision: null
       numeric_scale: null
