@@ -5929,6 +5929,9 @@ fields:
           - field: full
             meta:
               display: boolean
+              display_options:
+                labelOff: Not full
+                labelOn: Full
               field: full
               interface: boolean
               note: Do not edit manually
@@ -5936,7 +5939,7 @@ fields:
               type: boolean
             name: full
             type: boolean
-        template: "[{{ room }}] - {{ start_time }} : {{ end_time }}"
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
       readonly: false
       required: false
       sort: 9
@@ -6328,7 +6331,7 @@ fields:
       note: null
       options: null
       readonly: false
-      required: true
+      required: false
       sort: 4
       special: null
       translations: null
