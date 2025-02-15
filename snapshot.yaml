@@ -5926,6 +5926,16 @@ fields:
               width: full
             name: max_attendees
             type: integer
+          - field: full
+            meta:
+              display: boolean
+              field: full
+              interface: boolean
+              note: Do not edit manually
+              required: false
+              type: boolean
+            name: full
+            type: boolean
         template: "[{{ room }}] - {{ start_time }} : {{ end_time }}"
       readonly: false
       required: false
