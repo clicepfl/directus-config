@@ -36,6 +36,7 @@ services:
     volumes:
       - .:/share
       - ./uploads:/directus/uploads
+      - ./templates:/directus/templates
       - directus-extensions:/directus-extensions
 
   # Database for directus

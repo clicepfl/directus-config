@@ -1382,46 +1382,6 @@ fields:
       validation: null
       validation_message: null
       width: full
-  - collection: ICBD
-    field: timetable
-    type: uuid
-    meta:
-      collection: ICBD
-      conditions: null
-      display: null
-      display_options: null
-      field: timetable
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 7
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: timetable
-      table: ICBD
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
   - collection: ICBD_files
     field: id
     type: integer
@@ -5763,6 +5723,29 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: icbd_activities
+    field: translations
+    type: alias
+    meta:
+      collection: icbd_activities
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 12
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: icbd_activities
     field: hosts
     type: alias
     meta:
@@ -6053,29 +6036,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: icbd_activities
-    field: translations
-    type: alias
-    meta:
-      collection: icbd_activities
-      conditions: null
-      display: null
-      display_options: null
-      field: translations
-      group: null
-      hidden: false
-      interface: translations
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 12
-      special:
-        - translations
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: icbd_activities_icbd_speakers
     field: id
     type: integer
@@ -6435,6 +6395,45 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: icbd_activities_translations
+    field: icbd_activities_id
+    type: integer
+    meta:
+      collection: icbd_activities_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd_activities_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 7
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: icbd_activities_id
+      table: icbd_activities_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: icbd_activities
+      foreign_key_column: id
+  - collection: icbd_activities_translations
     field: languages_code
     type: string
     meta:
@@ -6551,45 +6550,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: icbd_activities_translations
-    field: icbd_activities_id
-    type: integer
-    meta:
-      collection: icbd_activities_translations
-      conditions: null
-      display: null
-      display_options: null
-      field: icbd_activities_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 7
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: icbd_activities_id
-      table: icbd_activities_translations
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: icbd_activities
-      foreign_key_column: id
   - collection: icbd_phds
     field: id
     type: integer
@@ -10552,6 +10512,126 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: registrations
+    field: registration_complete
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_complete
+      group: icbd
+      hidden: true
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_complete
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: registration_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_email_sent
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_email_sent
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: confirmation_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: confirmation_email_sent
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: confirmation_email_sent
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: save_the_date
     field: id
     type: integer
@@ -12386,27 +12466,6 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: icbd_logo_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: ICBD
-    field: timetable
-    related_collection: directus_files
-    meta:
-      junction_field: null
-      many_collection: ICBD
-      many_field: timetable
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: ICBD
-      column: timetable
-      foreign_key_table: directus_files
-      foreign_key_column: id
-      constraint_name: icbd_timetable_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: ICBD_files

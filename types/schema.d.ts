@@ -764,44 +764,44 @@ export interface paths {
      */
     post: operations["promoteContentVersion"];
   };
-  "/comments": {
+  "/items/icbd_activities": {
     /**
-     * List Comments
-     * @description List the comments.
+     * List Items
+     * @description List the icbd_activities items.
      */
-    get: operations["getComments"];
+    get: operations["readItemsIcbdActivities"];
     /**
-     * Create a Comment
-     * @description Create a new comment.
+     * Create an Item
+     * @description Create a new icbd_activities item.
      */
-    post: operations["createComment"];
+    post: operations["createItemsIcbdActivities"];
     /**
-     * Delete Multiple Comments
-     * @description Delete multiple existing comments.
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities items.
      */
-    delete: operations["deleteComments"];
+    delete: operations["deleteItemsIcbdActivities"];
     /**
-     * Update Multiple Comments
-     * @description Update multiple comments at the same time.
+     * Update Multiple Items
+     * @description Update multiple icbd_activities items at the same time.
      */
-    patch: operations["updateComments"];
+    patch: operations["updateItemsIcbdActivities"];
   };
-  "/comments/{id}": {
+  "/items/icbd_activities/{id}": {
     /**
-     * Retrieve a Comment
-     * @description Retrieve a single comment by unique identifier.
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities item by unique identifier.
      */
-    get: operations["getComment"];
+    get: operations["readSingleItemsIcbdActivities"];
     /**
-     * Delete a Comment
-     * @description Delete an existing comment.
+     * Delete an Item
+     * @description Delete an existing icbd_activities item.
      */
-    delete: operations["deleteComment"];
+    delete: operations["deleteSingleItemsIcbdActivities"];
     /**
-     * Update a Comment
-     * @description Update an existing comment.
+     * Update an Item
+     * @description Update an existing icbd_activities item.
      */
-    patch: operations["updateComment"];
+    patch: operations["updateSingleItemsIcbdActivities"];
   };
   "/items/ICBD": {
     /**
@@ -1778,6 +1778,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsIcbdActivitiesIcbdSpeakers"];
   };
+  "/items/icbd_activities_translations": {
+    /**
+     * List Items
+     * @description List the icbd_activities_translations items.
+     */
+    get: operations["readItemsIcbdActivitiesTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_translations item.
+     */
+    post: operations["createItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_translations items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_translations items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesTranslations"];
+  };
+  "/items/icbd_activities_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_translations item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_translations item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
+  };
   "/items/icbd_phds": {
     /**
      * List Items
@@ -2324,6 +2363,45 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSubsonicTranslations"];
   };
+  "/comments": {
+    /**
+     * List Comments
+     * @description List the comments.
+     */
+    get: operations["getComments"];
+    /**
+     * Create a Comment
+     * @description Create a new comment.
+     */
+    post: operations["createComment"];
+    /**
+     * Delete Multiple Comments
+     * @description Delete multiple existing comments.
+     */
+    delete: operations["deleteComments"];
+    /**
+     * Update Multiple Comments
+     * @description Update multiple comments at the same time.
+     */
+    patch: operations["updateComments"];
+  };
+  "/comments/{id}": {
+    /**
+     * Retrieve a Comment
+     * @description Retrieve a single comment by unique identifier.
+     */
+    get: operations["getComment"];
+    /**
+     * Delete a Comment
+     * @description Delete an existing comment.
+     */
+    delete: operations["deleteComment"];
+    /**
+     * Update a Comment
+     * @description Update an existing comment.
+     */
+    patch: operations["updateComment"];
+  };
   "/items/events": {
     /**
      * List Items
@@ -2363,83 +2441,44 @@ export interface paths {
      */
     patch: operations["updateSingleItemsEvents"];
   };
-  "/items/icbd_activities": {
+  "/items/icbd_activities_registrations": {
     /**
      * List Items
-     * @description List the icbd_activities items.
+     * @description List the icbd_activities_registrations items.
      */
-    get: operations["readItemsIcbdActivities"];
+    get: operations["readItemsIcbdActivitiesRegistrations"];
     /**
      * Create an Item
-     * @description Create a new icbd_activities item.
+     * @description Create a new icbd_activities_registrations item.
      */
-    post: operations["createItemsIcbdActivities"];
+    post: operations["createItemsIcbdActivitiesRegistrations"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities items.
+     * @description Delete multiple existing icbd_activities_registrations items.
      */
-    delete: operations["deleteItemsIcbdActivities"];
+    delete: operations["deleteItemsIcbdActivitiesRegistrations"];
     /**
      * Update Multiple Items
-     * @description Update multiple icbd_activities items at the same time.
+     * @description Update multiple icbd_activities_registrations items at the same time.
      */
-    patch: operations["updateItemsIcbdActivities"];
+    patch: operations["updateItemsIcbdActivitiesRegistrations"];
   };
-  "/items/icbd_activities/{id}": {
+  "/items/icbd_activities_registrations/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single icbd_activities item by unique identifier.
+     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
      */
-    get: operations["readSingleItemsIcbdActivities"];
+    get: operations["readSingleItemsIcbdActivitiesRegistrations"];
     /**
      * Delete an Item
-     * @description Delete an existing icbd_activities item.
+     * @description Delete an existing icbd_activities_registrations item.
      */
-    delete: operations["deleteSingleItemsIcbdActivities"];
+    delete: operations["deleteSingleItemsIcbdActivitiesRegistrations"];
     /**
      * Update an Item
-     * @description Update an existing icbd_activities item.
+     * @description Update an existing icbd_activities_registrations item.
      */
-    patch: operations["updateSingleItemsIcbdActivities"];
-  };
-  "/items/icbd_activities_translations": {
-    /**
-     * List Items
-     * @description List the icbd_activities_translations items.
-     */
-    get: operations["readItemsIcbdActivitiesTranslations"];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_translations item.
-     */
-    post: operations["createItemsIcbdActivitiesTranslations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_translations items.
-     */
-    delete: operations["deleteItemsIcbdActivitiesTranslations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_translations items at the same time.
-     */
-    patch: operations["updateItemsIcbdActivitiesTranslations"];
-  };
-  "/items/icbd_activities_translations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_translations item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbdActivitiesTranslations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_translations item.
-     */
-    delete: operations["deleteSingleItemsIcbdActivitiesTranslations"];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_translations item.
-     */
-    patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
+    patch: operations["updateSingleItemsIcbdActivitiesRegistrations"];
   };
   "/items/registrations": {
     /**
@@ -2479,45 +2518,6 @@ export interface paths {
      * @description Update an existing registrations item.
      */
     patch: operations["updateSingleItemsRegistrations"];
-  };
-  "/items/icbd_activities_registrations": {
-    /**
-     * List Items
-     * @description List the icbd_activities_registrations items.
-     */
-    get: operations["readItemsIcbdActivitiesRegistrations"];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_registrations item.
-     */
-    post: operations["createItemsIcbdActivitiesRegistrations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_registrations items.
-     */
-    delete: operations["deleteItemsIcbdActivitiesRegistrations"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_registrations items at the same time.
-     */
-    patch: operations["updateItemsIcbdActivitiesRegistrations"];
-  };
-  "/items/icbd_activities_registrations/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbdActivitiesRegistrations"];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_registrations item.
-     */
-    delete: operations["deleteSingleItemsIcbdActivitiesRegistrations"];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_registrations item.
-     */
-    patch: operations["updateSingleItemsIcbdActivitiesRegistrations"];
   };
 }
 
@@ -3474,49 +3474,18 @@ export interface components {
        */
       delta?: Record<string, never>;
     };
-    Comments: {
-      /**
-       * @description Unique identifier for this single collection preset.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      id?: string;
-      /**
-       * @description The collection of the item the Comment is created for.
-       * @example articles
-       */
-      collection?: string | components["schemas"]["Collections"];
-      /**
-       * @description The item the Comment is created for.
-       * @example 123
-       */
-      item?: string;
-      /**
-       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
-       * @example This is a comment
-       */
-      comment?: string;
-      /**
-       * Format: date-time
-       * @description When the Comment was created.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_created?: string | null;
-      /**
-       * Format: date-time
-       * @description When the Comment was updated.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_updated?: string | null;
-      /**
-       * @description User that created the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_created?: string | components["schemas"]["Users"];
-      /**
-       * @description User that updated the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_updated?: string | components["schemas"]["Users"];
+    ItemsIcbdActivities: {
+      id?: number;
+      icon?: string | components["schemas"]["Files"] | null;
+      timeslots?: unknown;
+      color?: string | null;
+      type?: string | null;
+      hosts?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
+        | null;
     };
     ItemsIcbd: {
       id?: number;
@@ -3529,7 +3498,6 @@ export interface components {
       /** Format: time */
       end_time?: string;
       place?: string | null;
-      timetable?: string | components["schemas"]["Files"] | null;
       translations?:
         | (number | components["schemas"]["ItemsIcbdTranslations"])[]
         | null;
@@ -3782,6 +3750,16 @@ export interface components {
         | components["schemas"]["ItemsIcbdSpeakers"]
         | null;
     };
+    ItemsIcbdActivitiesTranslations: {
+      id?: number;
+      icbd_activities_id?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
+      description?: string | null;
+    };
     ItemsIcbdPhds: {
       id?: number;
       first_name?: string;
@@ -3928,6 +3906,50 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       info?: string | null;
     };
+    Comments: {
+      /**
+       * @description Unique identifier for this single collection preset.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      id?: string;
+      /**
+       * @description The collection of the item the Comment is created for.
+       * @example articles
+       */
+      collection?: string | components["schemas"]["Collections"];
+      /**
+       * @description The item the Comment is created for.
+       * @example 123
+       */
+      item?: string;
+      /**
+       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
+       * @example This is a comment
+       */
+      comment?: string;
+      /**
+       * Format: date-time
+       * @description When the Comment was created.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_created?: string | null;
+      /**
+       * Format: date-time
+       * @description When the Comment was updated.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_updated?: string | null;
+      /**
+       * @description User that created the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_created?: string | components["schemas"]["Users"];
+      /**
+       * @description User that updated the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_updated?: string | components["schemas"]["Users"];
+    };
     ItemsEvents: {
       id?: number;
       type?: string | null;
@@ -3936,10 +3958,6 @@ export interface components {
       /** Format: date-time */
       to?: string | null;
       opened?: boolean | null;
-      name?: string | null;
-      price?: number | null;
-      max_registrations?: number | null;
-      registration_count?: number;
       /** Format: date-time */
       staffing_from?: string | null;
       /** Format: date-time */
@@ -3949,31 +3967,26 @@ export interface components {
       mailTemplate?: string | null;
       mailSent?: boolean | null;
       meals?: unknown;
+      name?: string | null;
+      price?: number | null;
+      max_registrations?: number | null;
+      registration_count?: number;
       interview_slots?: unknown;
       speed_networking_slots?: unknown;
     };
-    ItemsIcbdActivities: {
+    ItemsIcbdActivitiesRegistrations: {
       id?: number;
-      icon?: string | components["schemas"]["Files"] | null;
-      timeslots?: unknown;
-      color?: string | null;
-      type?: string | null;
-      hosts?:
-        | (number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
-        | null;
-    };
-    ItemsIcbdActivitiesTranslations: {
-      id?: number;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      name?: string | null;
-      description?: string | null;
-      icbd_activities_id?:
+      icbd_activity?:
         | number
         | components["schemas"]["ItemsIcbdActivities"]
         | null;
+      registration?:
+        | string
+        | components["schemas"]["ItemsRegistrations"]
+        | null;
+      /** Format: time */
+      start?: string | null;
+      attended?: boolean | null;
     };
     ItemsRegistrations: {
       /** Format: uuid */
@@ -3998,20 +4011,9 @@ export interface components {
       availability?: unknown;
       retreived_deposit?: boolean | null;
       can_retreive_deposit?: boolean | null;
-    };
-    ItemsIcbdActivitiesRegistrations: {
-      id?: number;
-      icbd_activity?:
-        | number
-        | components["schemas"]["ItemsIcbdActivities"]
-        | null;
-      registration?:
-        | string
-        | components["schemas"]["ItemsRegistrations"]
-        | null;
-      /** Format: time */
-      start?: string | null;
-      attended?: boolean | null;
+      registration_complete?: boolean | null;
+      registration_email_sent?: boolean | null;
+      confirmation_email_sent?: boolean | null;
     };
   };
   responses: {
@@ -8345,20 +8347,19 @@ export interface operations {
     };
   };
   /**
-   * List Comments
-   * @description List the comments.
+   * List Items
+   * @description List the icbd_activities items.
    */
-  getComments: {
+  readItemsIcbdActivities: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
         limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
         offset?: components["parameters"]["Offset"];
-        page?: components["parameters"]["Page"];
         sort?: components["parameters"]["Sort"];
         filter?: components["parameters"]["Filter"];
         search?: components["parameters"]["Search"];
-        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
@@ -8366,7 +8367,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Comments"][];
+            data?: components["schemas"]["ItemsIcbdActivities"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -8375,29 +8376,20 @@ export interface operations {
     };
   };
   /**
-   * Create a Comment
-   * @description Create a new comment.
+   * Create an Item
+   * @description Create a new icbd_activities item.
    */
-  createComment: {
+  createItemsIcbdActivities: {
     parameters: {
       query?: {
-        fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        "application/json": {
-          /**
-           * @description Which collection this collection comment is for.
-           * @example projects
-           */
-          collection: string;
-          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-          item: string;
-          /** @example A new comment */
-          comment: string;
-        };
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
       };
     };
     responses: {
@@ -8405,7 +8397,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Comments"];
+            data?: unknown;
           };
         };
       };
@@ -8413,10 +8405,10 @@ export interface operations {
     };
   };
   /**
-   * Delete Multiple Comments
-   * @description Delete multiple existing comments.
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities items.
    */
-  deleteComments: {
+  deleteItemsIcbdActivities: {
     responses: {
       /** @description Successful request */
       200: {
@@ -8426,10 +8418,10 @@ export interface operations {
     };
   };
   /**
-   * Update Multiple Comments
-   * @description Update multiple comments at the same time.
+   * Update Multiple Items
+   * @description Update multiple icbd_activities items at the same time.
    */
-  updateComments: {
+  updateItemsIcbdActivities: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
@@ -8443,20 +8435,9 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": {
-          keys?: string[];
-          data?: {
-            /**
-             * @description Which collection this collection comment is for.
-             * @example projects
-             */
-            collection: string;
-            /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-            item?: string;
-            /** @example A new comment */
-            comment?: string;
-          };
-        };
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
       };
     };
     responses: {
@@ -8464,23 +8445,26 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Comments"][];
-            meta?: components["schemas"]["x-metadata"];
+            data?: unknown;
           };
         };
       };
-      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
-   * Retrieve a Comment
-   * @description Retrieve a single comment by unique identifier.
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities item by unique identifier.
    */
-  getComment: {
+  readSingleItemsIcbdActivities: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
       };
     };
     responses: {
@@ -8488,50 +8472,52 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Comments"];
+            data?: components["schemas"]["ItemsIcbdActivities"];
           };
         };
       };
       401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
-   * Delete a Comment
-   * @description Delete an existing comment.
+   * Delete an Item
+   * @description Delete an existing icbd_activities item.
    */
-  deleteComment: {
+  deleteSingleItemsIcbdActivities: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
     responses: {
       /** @description Successful request */
       200: {
         content: never;
       };
       401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
-   * Update a Comment
-   * @description Update an existing comment.
+   * Update an Item
+   * @description Update an existing icbd_activities item.
    */
-  updateComment: {
+  updateSingleItemsIcbdActivities: {
     parameters: {
       query?: {
         fields?: components["parameters"]["Fields"];
         meta?: components["parameters"]["Meta"];
       };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
     };
     requestBody?: {
       content: {
-        "application/json": {
-          /**
-           * @description Which collection this comment is for.
-           * @example projects
-           */
-          collection: string;
-          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
-          item?: string;
-          /** @example An updated comment */
-          comment?: string;
-        };
+        "application/json": components["schemas"]["ItemsIcbdActivities"];
       };
     };
     responses: {
@@ -8539,7 +8525,7 @@ export interface operations {
       200: {
         content: {
           "application/json": {
-            data?: components["schemas"]["Comments"];
+            data?: components["schemas"]["ItemsIcbdActivities"];
           };
         };
       };
@@ -13224,6 +13210,193 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the icbd_activities_translations items.
+   */
+  readItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_translations item.
+   */
+  createItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_translations items.
+   */
+  deleteItemsIcbdActivitiesTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_translations items at the same time.
+   */
+  updateItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_translations item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_translations item.
+   */
+  deleteSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_translations item.
+   */
+  updateSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the icbd_phds items.
    */
   readItemsIcbdPhds: {
@@ -15841,6 +16014,209 @@ export interface operations {
     };
   };
   /**
+   * List Comments
+   * @description List the comments.
+   */
+  getComments: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        page?: components["parameters"]["Page"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create a Comment
+   * @description Create a new comment.
+   */
+  createComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description Which collection this collection comment is for.
+           * @example projects
+           */
+          collection: string;
+          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+          item: string;
+          /** @example A new comment */
+          comment: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Comments
+   * @description Delete multiple existing comments.
+   */
+  deleteComments: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Comments
+   * @description Update multiple comments at the same time.
+   */
+  updateComments: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          keys?: string[];
+          data?: {
+            /**
+             * @description Which collection this collection comment is for.
+             * @example projects
+             */
+            collection: string;
+            /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+            item?: string;
+            /** @example A new comment */
+            comment?: string;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Retrieve a Comment
+   * @description Retrieve a single comment by unique identifier.
+   */
+  getComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete a Comment
+   * @description Delete an existing comment.
+   */
+  deleteComment: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update a Comment
+   * @description Update an existing comment.
+   */
+  updateComment: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description Which collection this comment is for.
+           * @example projects
+           */
+          collection: string;
+          /** @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28 */
+          item?: string;
+          /** @example An updated comment */
+          comment?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
    * List Items
    * @description List the events items.
    */
@@ -16020,567 +16396,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_activities items.
-   */
-  readItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities item.
-   */
-  createItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivities"][]
-          | components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities items.
-   */
-  deleteItemsIcbdActivities: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities items at the same time.
-   */
-  updateItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivities"][]
-          | components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities item by unique identifier.
-   */
-  readSingleItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities item.
-   */
-  deleteSingleItemsIcbdActivities: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities item.
-   */
-  updateSingleItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_activities_translations items.
-   */
-  readItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities_translations item.
-   */
-  createItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities_translations items.
-   */
-  deleteItemsIcbdActivitiesTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities_translations items at the same time.
-   */
-  updateItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities_translations item by unique identifier.
-   */
-  readSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities_translations item.
-   */
-  deleteSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities_translations item.
-   */
-  updateSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the registrations items.
-   */
-  readItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new registrations item.
-   */
-  createItemsRegistrations: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing registrations items.
-   */
-  deleteItemsRegistrations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple registrations items at the same time.
-   */
-  updateItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single registrations item by unique identifier.
-   */
-  readSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing registrations item.
-   */
-  deleteSingleItemsRegistrations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing registrations item.
-   */
-  updateSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsRegistrations"];
           };
         };
       };
@@ -16775,9 +16590,197 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the registrations items.
+   */
+  readItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new registrations item.
+   */
+  createItemsRegistrations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing registrations items.
+   */
+  deleteItemsRegistrations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple registrations items at the same time.
+   */
+  updateItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single registrations item by unique identifier.
+   */
+  readSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing registrations item.
+   */
+  deleteSingleItemsRegistrations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing registrations item.
+   */
+  updateSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
+  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
   ICBD: components["schemas"]["ItemsIcbd"][];
   ICBD_files: components["schemas"]["ItemsIcbdFiles"][];
   languages: components["schemas"]["ItemsLanguages"][];
@@ -16803,6 +16806,7 @@ export type Schema = {
   commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
   icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
   icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
+  icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
   inventory: components["schemas"]["ItemsInventory"][];
   news: components["schemas"]["ItemsNews"][];
@@ -16818,8 +16822,6 @@ export type Schema = {
   subsonic: components["schemas"]["ItemsSubsonic"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
   events: components["schemas"]["ItemsEvents"][];
-  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
-  icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
-  registrations: components["schemas"]["ItemsRegistrations"][];
   icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+  registrations: components["schemas"]["ItemsRegistrations"][];
 };
