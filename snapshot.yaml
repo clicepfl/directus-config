@@ -542,7 +542,7 @@ collections:
       display_template: null
       group: registrations
       hidden: false
-      icon: interactive_space
+      icon: null
       item_duplication_fields: null
       note: null
       preview_url: null
@@ -1382,46 +1382,6 @@ fields:
       validation: null
       validation_message: null
       width: full
-  - collection: ICBD
-    field: timetable
-    type: uuid
-    meta:
-      collection: ICBD
-      conditions: null
-      display: null
-      display_options: null
-      field: timetable
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 7
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: timetable
-      table: ICBD
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
   - collection: ICBD_files
     field: id
     type: integer
@@ -5075,10 +5035,8 @@ fields:
     meta:
       collection: events
       conditions: null
-      display: formatted-value
-      display_options:
-        background: "#6644FF"
-        color: "#FFFFFF"
+      display: null
+      display_options: null
       field: name
       group: null
       hidden: false
@@ -5116,10 +5074,8 @@ fields:
     meta:
       collection: events
       conditions: null
-      display: formatted-value
-      display_options:
-        icon: monetization_on
-        suffix: " CHF"
+      display: null
+      display_options: null
       field: price
       group: null
       hidden: false
@@ -5199,9 +5155,8 @@ fields:
     meta:
       collection: events
       conditions: null
-      display: formatted-value
-      display_options:
-        icon: groups
+      display: null
+      display_options: null
       field: registration_count
       group: null
       hidden: false
@@ -5234,38 +5189,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: events
-    field: icbd
-    type: alias
-    meta:
-      collection: events
-      conditions:
-        - hidden: false
-          name: display
-          options: {}
-          rule:
-            _and:
-              - type:
-                  _eq: icbd
-      display: null
-      display_options: null
-      field: icbd
-      group: null
-      hidden: true
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 11
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: events
     field: staffing_from
     type: dateTime
@@ -5590,6 +5513,38 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: events
+    field: icbd
+    type: alias
+    meta:
+      collection: events
+      conditions:
+        - hidden: false
+          name: display
+          options: {}
+          rule:
+            _and:
+              - type:
+                  _eq: icbd
+      display: null
+      display_options: null
+      field: icbd
+      group: null
+      hidden: true
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
   - collection: events
     field: interview_slots
     type: json
@@ -5957,6 +5912,9 @@ fields:
           - field: full
             meta:
               display: boolean
+              display_options:
+                labelOff: Not full
+                labelOn: Full
               field: full
               interface: boolean
               note: Do not edit manually
@@ -5964,7 +5922,7 @@ fields:
               type: boolean
             name: full
             type: boolean
-        template: "[{{ room }}] - {{ start_time }} : {{ end_time }}"
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
       readonly: false
       required: false
       sort: 9
@@ -6240,9 +6198,8 @@ fields:
     meta:
       collection: icbd_activities_registrations
       conditions: null
-      display: related-values
-      display_options:
-        template: "{{translations.name}}"
+      display: null
+      display_options: null
       field: icbd_activity
       group: null
       hidden: false
@@ -6283,9 +6240,8 @@ fields:
     meta:
       collection: icbd_activities_registrations
       conditions: null
-      display: related-values
-      display_options:
-        template: "{{email}}"
+      display: null
+      display_options: null
       field: registration
       group: null
       hidden: false
@@ -6326,7 +6282,7 @@ fields:
     meta:
       collection: icbd_activities_registrations
       conditions: null
-      display: datetime
+      display: null
       display_options: null
       field: start
       group: null
@@ -6335,7 +6291,7 @@ fields:
       note: null
       options: null
       readonly: false
-      required: true
+      required: false
       sort: 4
       special: null
       translations: null
@@ -9592,9 +9548,8 @@ fields:
     meta:
       collection: registrations
       conditions: null
-      display: related-values
-      display_options:
-        template: "{{name}}"
+      display: null
+      display_options: null
       field: event
       group: null
       hidden: false
@@ -9602,7 +9557,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: "{{name}}"
+        template: "{{translations.title}}"
       readonly: false
       required: true
       sort: 2
@@ -9635,17 +9590,14 @@ fields:
     meta:
       collection: registrations
       conditions: null
-      display: formatted-value
-      display_options:
-        border: true
-        icon: mail
+      display: null
+      display_options: null
       field: email
       group: null
       hidden: false
       interface: input
       note: null
-      options:
-        iconLeft: mail
+      options: null
       readonly: false
       required: true
       sort: 3
@@ -9959,57 +9911,6 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
-    field: payment
-    type: string
-    meta:
-      collection: registrations
-      conditions: null
-      display: formatted-value
-      display_options:
-        icon: payments
-      field: payment
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        allowNone: true
-        choices:
-          - icon: monetization_on
-            text: Cash
-            value: cash
-          - icon: credit_card
-            text: Camipro
-            value: camipro
-          - icon: account_balance
-            text: Bank transfer
-            value: bank_transfer
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: payment
-      table: registrations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
     field: faculty_dinner
     type: alias
     meta:
@@ -10060,31 +9961,6 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
-    field: icbd
-    type: alias
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: icbd
-      group: additional_infos
-      hidden: false
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: registrations
     field: meal
     type: integer
     meta:
@@ -10115,6 +9991,56 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: payment
+    type: string
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: payment
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - icon: monetization_on
+            text: Cash
+            value: cash
+          - icon: credit_card
+            text: Camipro
+            value: camipro
+          - icon: account_balance
+            text: Bank transfer
+            value: bank_transfer
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: payment
+      table: registrations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_indexed: false
@@ -10513,6 +10439,31 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: registrations
+    field: icbd
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd
+      group: additional_infos
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: registrations
     field: can_retreive_deposit
     type: boolean
     meta:
@@ -10546,6 +10497,126 @@ fields:
       width: half
     schema:
       name: can_retreive_deposit
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: registration_complete
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_complete
+      group: icbd
+      hidden: true
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 5
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_complete
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: registration_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: registration_email_sent
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: registration_email_sent
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: confirmation_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: confirmation_email_sent
+      group: icbd
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 4
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: confirmation_email_sent
       table: registrations
       data_type: boolean
       default_value: false
@@ -10626,6 +10697,75 @@ fields:
       validation: null
       validation_message: null
       width: full
+  - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
   - collection: save_the_date
     field: translations
     type: alias
@@ -10733,33 +10873,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: save_the_date
     field: image
     type: uuid
@@ -10884,48 +10997,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: language_button_target
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: language_button_target
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        template: "{{name}}"
-      readonly: false
-      required: true
-      sort: 6
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: language_button_target
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
   - collection: save_the_date_translations
     field: id
     type: integer
@@ -11575,6 +11646,55 @@ fields:
       validation_message: null
       width: full
   - collection: std_cell
+    field: recurrence
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: labels
+      display_options: null
+      field: recurrence
+      group: null
+      hidden: false
+      interface: select-radio
+      note: null
+      options:
+        choices:
+          - text: Punctual
+            value: Punctual
+          - text: Weekly
+            value: weekly
+          - text: Monthly
+            value: monthly
+          - text: From
+            value: from
+        iconOn: update
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: recurrence
+      table: std_cell
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
     field: text_color
     type: string
     meta:
@@ -11691,55 +11811,6 @@ fields:
       table: std_cell
       data_type: character varying
       default_value: "#1A69D6"
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: recurrence
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: labels
-      display_options: null
-      field: recurrence
-      group: null
-      hidden: false
-      interface: select-radio
-      note: null
-      options:
-        choices:
-          - text: Punctual
-            value: Punctual
-          - text: Weekly
-            value: weekly
-          - text: Monthly
-            value: monthly
-          - text: From
-            value: from
-        iconOn: update
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: recurrence
-      table: std_cell
-      data_type: character varying
-      default_value: null
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -12395,27 +12466,6 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: icbd_logo_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: ICBD
-    field: timetable
-    related_collection: directus_files
-    meta:
-      junction_field: null
-      many_collection: ICBD
-      many_field: timetable
-      one_allowed_collections: null
-      one_collection: directus_files
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: ICBD
-      column: timetable
-      foreign_key_table: directus_files
-      foreign_key_column: id
-      constraint_name: icbd_timetable_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: ICBD_files
