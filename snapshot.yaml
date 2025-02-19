@@ -10522,11 +10522,11 @@ fields:
       display_options: null
       field: registration_complete
       group: icbd
-      hidden: false
+      hidden: true
       interface: boolean
       note: null
       options: null
-      readonly: false
+      readonly: true
       required: false
       sort: 5
       special:
