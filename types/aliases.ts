@@ -24,3 +24,6 @@ export type ICBDSpeaker = Schema["icbd_speakers"][0];
 export type ICBDActivity = Schema["icbd_activities"][0];
 export type ICBDPhd = Schema["icbd_phds"][0];
 export type ICBDSpeakerActivityRelation = Schema["icbd_activities_icbd_speakers"][0];
+export type Registration = Schema["registrations"][0];
+export type Event = Schema["events"][0];
+export type ICBDActivityRegistration = Schema["icbd_activities_registrations"][0];
