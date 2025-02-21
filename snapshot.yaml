@@ -467,7 +467,7 @@ collections:
       collapse: open
       collection: events
       color: null
-      display_template: null
+      display_template: '{{name}}'
       group: null
       hidden: false
       icon: event
@@ -875,7 +875,7 @@ collections:
       collapse: open
       collection: registrations
       color: null
-      display_template: null
+      display_template: "{{first_name}}{{family_name}}\_@ {{event.name}}"
       group: events
       hidden: false
       icon: person_add
