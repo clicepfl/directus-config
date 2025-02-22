@@ -467,7 +467,7 @@ collections:
       collapse: open
       collection: events
       color: null
-      display_template: '{{name}}'
+      display_template: null
       group: null
       hidden: false
       icon: event
@@ -491,7 +491,7 @@ collections:
       collapse: open
       collection: icbd_activities
       color: '#FFA439'
-      display_template: "{{type}}\_({{translations.name}})"
+      display_template: null
       group: ICBD
       hidden: false
       icon: patient_list
@@ -875,7 +875,7 @@ collections:
       collapse: open
       collection: registrations
       color: null
-      display_template: "{{first_name}}{{family_name}}\_@ {{event.name}}"
+      display_template: null
       group: events
       hidden: false
       icon: person_add
@@ -5513,6 +5513,176 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: events
+    field: icbd
+    type: alias
+    meta:
+      collection: events
+      conditions:
+        - hidden: false
+          name: display
+          options: {}
+          rule:
+            _and:
+              - type:
+                  _eq: icbd
+      display: null
+      display_options: null
+      field: icbd
+      group: null
+      hidden: true
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: events
+    field: interview_slots
+    type: json
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: interview_slots
+      group: icbd
+      hidden: false
+      interface: list
+      note: null
+      options:
+        fields:
+          - field: start
+            meta:
+              field: start
+              interface: null
+              required: true
+              type: time
+              width: half
+            name: start
+            type: time
+          - field: end
+            meta:
+              field: end
+              interface: null
+              required: true
+              type: time
+              width: half
+            name: end
+            type: time
+          - field: slots
+            meta:
+              field: slots
+              interface: null
+              required: true
+              type: integer
+            name: slots
+            type: integer
+        sort: start
+        template: '{{ start }} - {{ end }}'
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: interview_slots
+      table: events
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: speed_networking_slots
+    type: json
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: speed_networking_slots
+      group: icbd
+      hidden: false
+      interface: list
+      note: null
+      options:
+        fields:
+          - field: start
+            meta:
+              field: start
+              interface: null
+              required: true
+              type: time
+              width: half
+            name: start
+            type: time
+          - field: end
+            meta:
+              field: end
+              interface: null
+              required: true
+              type: time
+              width: half
+            name: end
+            type: time
+          - field: slots
+            meta:
+              field: slots
+              interface: null
+              required: true
+              type: integer
+            name: slots
+            type: integer
+        sort: start
+        template: '{{ start }} - {{ end }}'
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: speed_networking_slots
+      table: events
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: icbd_activities
     field: id
     type: integer
@@ -5825,8 +5995,7 @@ fields:
       collection: icbd_activities
       conditions: null
       display: null
-      display_options:
-        choices: null
+      display_options: null
       field: type
       group: null
       hidden: false
