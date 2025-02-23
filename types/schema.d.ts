@@ -3867,8 +3867,6 @@ export interface components {
       price?: number | null;
       max_registrations?: number | null;
       registration_count?: number;
-      interview_slots?: unknown;
-      speed_networking_slots?: unknown;
     };
     ItemsRegistrations: {
       /** Format: uuid */
