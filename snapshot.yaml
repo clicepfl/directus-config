@@ -5844,6 +5844,9 @@ fields:
           - icon: interpreter_mode
             text: Interview
             value: interview
+          - icon: lab_profile
+            text: CV Correction
+            value: cv_correction
       readonly: false
       required: true
       sort: 11
