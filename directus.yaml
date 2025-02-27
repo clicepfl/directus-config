@@ -31,6 +31,9 @@ services:
       ROOT_REDIRECT: /directus/admin
       ADMIN_EMAIL: clic@epfl.ch
       ADMIN_PASSWORD: 1234
+
+      MAIL_SENDER_SECRET: ${MAIL_SENDER_SECRET}
+      FLOWS_ENV_ALLOW_LIST: MAIL_SENDER_SECRET
     depends_on:
       - directus-postgres
     volumes:
