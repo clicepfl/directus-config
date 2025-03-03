@@ -3,7 +3,7 @@ services:
   directus:
     labels:
       - org.clic.type=directus
-    image: directus/directus:11.1.2
+    image: directus/directus:11.5.1
     user: ${UID}:${GID}
     hostname: directus
     environment:

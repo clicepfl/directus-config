@@ -4,2520 +4,2559 @@
  */
 
 export interface paths {
-  '/assets/{id}': {
+  "/assets/{id}": {
     /**
      * Get an Asset
      * @description Image typed files can be dynamically resized and transformed to fit any need.
      */
-    get: operations['getAsset'];
+    get: operations["getAsset"];
   };
-  '/auth/login': {
+  "/auth/login": {
     /**
      * Retrieve a Temporary Access Token
      * @description Retrieve a Temporary Access Token
      */
-    post: operations['login'];
+    post: operations["login"];
   };
-  '/auth/refresh': {
+  "/auth/refresh": {
     /**
      * Refresh Token
      * @description Refresh a Temporary Access Token.
      */
-    post: operations['refresh'];
+    post: operations["refresh"];
   };
-  '/auth/logout': {
+  "/auth/logout": {
     /**
      * Log Out
      * @description Log Out
      */
-    post: operations['logout'];
+    post: operations["logout"];
   };
-  '/auth/password/request': {
+  "/auth/password/request": {
     /**
      * Request a Password Reset
      * @description Request a reset password email to be send.
      */
-    post: operations['passwordRequest'];
+    post: operations["passwordRequest"];
   };
-  '/auth/password/reset': {
+  "/auth/password/reset": {
     /**
      * Reset a Password
      * @description The request a password reset endpoint sends an email with a link to the admin app which in turn uses this endpoint to allow the user to reset their password.
      */
-    post: operations['passwordReset'];
+    post: operations["passwordReset"];
   };
-  '/auth/oauth': {
+  "/auth/oauth": {
     /**
      * List OAuth Providers
      * @description List configured OAuth providers.
      */
-    get: operations['oauth'];
+    get: operations["oauth"];
   };
-  '/auth/oauth/{provider}': {
+  "/auth/oauth/{provider}": {
     /**
      * Authenticated using an OAuth provider
      * @description Start OAuth flow using the specified provider
      */
-    get: operations['oauthProvider'];
+    get: operations["oauthProvider"];
   };
-  '/schema/snapshot': {
+  "/schema/snapshot": {
     /**
      * Retrieve Schema Snapshot
      * @description Retrieve the current schema. This endpoint is only available to admin users.
      */
-    get: operations['schemaSnapshot'];
+    get: operations["schemaSnapshot"];
   };
-  '/schema/apply': {
+  "/schema/apply": {
     /**
      * Apply Schema Difference
      * @description Update the instance's schema by passing the diff previously retrieved via `/schema/diff` endpoint in the JSON request body or a JSON/YAML file. This endpoint is only available to admin users.
      */
-    post: operations['schemaApply'];
+    post: operations["schemaApply"];
   };
-  '/schema/diff': {
+  "/schema/diff": {
     /**
      * Retrieve Schema Difference
      * @description Compare the current instance's schema against the schema snapshot in JSON request body or a JSON/YAML file and retrieve the difference. This endpoint is only available to admin users.
      */
-    post: operations['schemaDiff'];
+    post: operations["schemaDiff"];
   };
-  '/server/info': {
+  "/server/info": {
     /**
      * System Info
      * @description Perform a system status check and return the options.
      */
-    get: operations['serverInfo'];
+    get: operations["serverInfo"];
   };
-  '/server/ping': {
+  "/server/ping": {
     /**
      * Ping
      * @description Ping, pong. Ping.. pong.
      */
-    get: operations['ping'];
+    get: operations["ping"];
   };
-  '/utils/hash/generate': {
+  "/utils/hash/generate": {
     /**
      * Hash a string
      * @description Generate a hash for a given string.
      */
-    post: operations['hash-generate'];
+    post: operations["hash-generate"];
   };
-  '/utils/hash/verify': {
+  "/utils/hash/verify": {
     /**
      * Hash a string
      * @description Generate a hash for a given string.
      */
-    post: operations['hash-verify'];
+    post: operations["hash-verify"];
   };
-  '/utils/sort/{collection}': {
+  "/utils/sort/{collection}": {
     /**
      * Sort Items
      * @description Re-sort items in collection based on start and to value of item
      */
-    post: operations['sort'];
+    post: operations["sort"];
   };
-  '/utils/import/{collection}': {
+  "/utils/import/{collection}": {
     /**
      * Import Items
      * @description Import multiple records from a JSON or CSV file into a collection.
      */
-    post: operations['import'];
+    post: operations["import"];
   };
-  '/utils/export/{collection}': {
+  "/utils/export/{collection}": {
     /**
      * Export Items
      * @description Export a larger data set to a file in the File Library
      */
-    post: operations['export'];
+    post: operations["export"];
   };
-  '/utils/cache/clear': {
+  "/utils/cache/clear": {
     /**
      * Clear Cache
      * @description Resets both the data and schema cache of Directus.
      */
-    post: operations['clear-cache'];
+    post: operations["clear-cache"];
   };
-  '/utils/random/string': {
+  "/utils/random/string": {
     /**
      * Get a Random String
      * @description Returns a random string of given length.
      */
-    get: operations['random'];
+    get: operations["random"];
   };
-  '/activity': {
+  "/activity": {
     /**
      * List Activity Actions
      * @description Returns a list of activity actions.
      */
-    get: operations['getActivities'];
+    get: operations["getActivities"];
   };
-  '/activity/{id}': {
+  "/activity/{id}": {
     /**
      * Retrieve an Activity Action
      * @description Retrieves the details of an existing activity action. Provide the primary key of the activity action and Directus will return the corresponding information.
      */
-    get: operations['getActivity'];
+    get: operations["getActivity"];
   };
-  '/permissions': {
+  "/permissions": {
     /**
      * List Permissions
      * @description List all permissions.
      */
-    get: operations['getPermissions'];
+    get: operations["getPermissions"];
     /**
      * Create a Permission
      * @description Create a new permission.
      */
-    post: operations['createPermission'];
+    post: operations["createPermission"];
     /**
      * Delete Multiple Permissions
      * @description Delete multiple existing permissions.
      */
-    delete: operations['deletePermissions'];
+    delete: operations["deletePermissions"];
     /**
      * Update Multiple Permissions
      * @description Update multiple permissions at the same time.
      */
-    patch: operations['updatePermissions'];
+    patch: operations["updatePermissions"];
   };
-  '/permissions/me': {
+  "/permissions/me": {
     /**
      * List My Permissions
      * @description List the permissions that apply to the current user.
      */
-    get: operations['getMyPermissions'];
+    get: operations["getMyPermissions"];
   };
-  '/permissions/{id}': {
+  "/permissions/{id}": {
     /**
      * Retrieve a Permission
      * @description Retrieve a single permissions object by unique identifier.
      */
-    get: operations['getPermission'];
+    get: operations["getPermission"];
     /**
      * Delete a Permission
      * @description Delete an existing permission
      */
-    delete: operations['deletePermission'];
+    delete: operations["deletePermission"];
     /**
      * Update a Permission
      * @description Update an existing permission
      */
-    patch: operations['updatePermission'];
+    patch: operations["updatePermission"];
   };
-  '/fields': {
+  "/fields": {
     /**
      * List All Fields
      * @description Returns a list of the fields available in the project.
      */
-    get: operations['getFields'];
+    get: operations["getFields"];
   };
-  '/fields/{collection}': {
+  "/fields/{collection}": {
     /**
      * List Fields in Collection
      * @description Returns a list of the fields available in the given collection.
      */
-    get: operations['getCollectionFields'];
+    get: operations["getCollectionFields"];
     /**
      * Create Field in Collection
      * @description Create a new field in a given collection.
      */
-    post: operations['createField'];
+    post: operations["createField"];
   };
-  '/fields/{collection}/{id}': {
+  "/fields/{collection}/{id}": {
     /**
      * Retrieve a Field
      * @description Retrieves the details of a single field in a given collection.
      */
-    get: operations['getCollectionField'];
+    get: operations["getCollectionField"];
     /**
      * Delete a Field
      * @description Delete an existing field.
      */
-    delete: operations['deleteField'];
+    delete: operations["deleteField"];
     /**
      * Update a Field
      * @description Update an existing field.
      */
-    patch: operations['updateField'];
+    patch: operations["updateField"];
   };
-  '/files': {
+  "/files": {
     /**
      * List Files
      * @description List the files.
      */
-    get: operations['getFiles'];
+    get: operations["getFiles"];
     /**
      * Create a File
      * @description Create a new file
      */
-    post: operations['createFile'];
+    post: operations["createFile"];
     /**
      * Delete Multiple Files
      * @description Delete multiple existing files.
      */
-    delete: operations['deleteFiles'];
+    delete: operations["deleteFiles"];
     /**
      * Update Multiple Files
      * @description Update multiple files at the same time.
      */
-    patch: operations['updateFiles'];
+    patch: operations["updateFiles"];
   };
-  '/files/{id}': {
+  "/files/{id}": {
     /**
      * Retrieve a Files
      * @description Retrieve a single file by unique identifier.
      */
-    get: operations['getFile'];
+    get: operations["getFile"];
     /**
      * Delete a File
      * @description Delete an existing file.
      */
-    delete: operations['deleteFile'];
+    delete: operations["deleteFile"];
     /**
      * Update a File
      * @description Update an existing file, and/or replace it's file contents.
      */
-    patch: operations['updateFile'];
+    patch: operations["updateFile"];
   };
-  '/collections': {
+  "/collections": {
     /**
      * List Collections
      * @description Returns a list of the collections available in the project.
      */
-    get: operations['getCollections'];
+    get: operations["getCollections"];
     /**
      * Create a Collection
      * @description Create a new collection in Directus.
      */
-    post: operations['createCollection'];
+    post: operations["createCollection"];
   };
-  '/collections/{id}': {
+  "/collections/{id}": {
     /**
      * Retrieve a Collection
      * @description Retrieves the details of a single collection.
      */
-    get: operations['getCollection'];
+    get: operations["getCollection"];
     /**
      * Delete a Collection
      * @description Delete an existing collection. Warning: This will delete the whole collection, including the items within. Proceed with caution.
      */
-    delete: operations['deleteCollection'];
+    delete: operations["deleteCollection"];
     /**
      * Update a Collection
      * @description Update an existing collection.
      */
-    patch: operations['updateCollection'];
+    patch: operations["updateCollection"];
   };
-  '/folders': {
+  "/folders": {
     /**
      * List Folders
      * @description List the folders.
      */
-    get: operations['getFolders'];
+    get: operations["getFolders"];
     /**
      * Create a Folder
      * @description Create a new folder.
      */
-    post: operations['createFolder'];
+    post: operations["createFolder"];
     /**
      * Delete Multiple Folders
      * @description Delete multiple existing folders.
      */
-    delete: operations['deleteFolders'];
+    delete: operations["deleteFolders"];
     /**
      * Update Multiple Folders
      * @description Update multiple folders at the same time.
      */
-    patch: operations['updateFolders'];
+    patch: operations["updateFolders"];
   };
-  '/folders/{id}': {
+  "/folders/{id}": {
     /**
      * Retrieve a Folder
      * @description Retrieve a single folder by unique identifier.
      */
-    get: operations['getFolder'];
+    get: operations["getFolder"];
     /**
      * Delete a Folder
      * @description Delete an existing folder
      */
-    delete: operations['deleteFolder'];
+    delete: operations["deleteFolder"];
     /**
      * Update a Folder
      * @description Update an existing folder
      */
-    patch: operations['updateFolder'];
+    patch: operations["updateFolder"];
   };
-  '/roles': {
+  "/roles": {
     /**
      * List Roles
      * @description List the roles.
      */
-    get: operations['getRoles'];
+    get: operations["getRoles"];
     /**
      * Create a Role
      * @description Create a new role.
      */
-    post: operations['createRole'];
+    post: operations["createRole"];
     /**
      * Delete Multiple Roles
      * @description Delete multiple existing roles.
      */
-    delete: operations['deleteRoles'];
+    delete: operations["deleteRoles"];
     /**
      * Update Multiple Roles
      * @description Update multiple roles at the same time.
      */
-    patch: operations['updateRoles'];
+    patch: operations["updateRoles"];
   };
-  '/roles/{id}': {
+  "/roles/{id}": {
     /**
      * Retrieve a Role
      * @description Retrieve a single role by unique identifier.
      */
-    get: operations['getRole'];
+    get: operations["getRole"];
     /**
      * Delete a Role
      * @description Delete an existing role
      */
-    delete: operations['deleteRole'];
+    delete: operations["deleteRole"];
     /**
      * Update a Role
      * @description Update an existing role
      */
-    patch: operations['updateRole'];
+    patch: operations["updateRole"];
   };
-  '/presets': {
+  "/presets": {
     /**
      * List Presets
      * @description List the presets.
      */
-    get: operations['getPresets'];
+    get: operations["getPresets"];
     /**
      * Create a Preset
      * @description Create a new preset.
      */
-    post: operations['createPreset'];
+    post: operations["createPreset"];
     /**
      * Delete Multiple Presets
      * @description Delete multiple existing presets.
      */
-    delete: operations['deletePresets'];
+    delete: operations["deletePresets"];
     /**
      * Update Multiple Presets
      * @description Update multiple presets at the same time.
      */
-    patch: operations['updatePresets'];
+    patch: operations["updatePresets"];
   };
-  '/presets/{id}': {
+  "/presets/{id}": {
     /**
      * Retrieve a Preset
      * @description Retrieve a single preset by unique identifier.
      */
-    get: operations['getPreset'];
+    get: operations["getPreset"];
     /**
      * Delete a Preset
      * @description Delete an existing preset.
      */
-    delete: operations['deletePreset'];
+    delete: operations["deletePreset"];
     /**
      * Update a Preset
      * @description Update an existing preset.
      */
-    patch: operations['updatePreset'];
+    patch: operations["updatePreset"];
   };
-  '/users': {
+  "/users": {
     /**
      * List Users
      * @description List the users.
      */
-    get: operations['getUsers'];
+    get: operations["getUsers"];
     /**
      * Create a User
      * @description Create a new user.
      */
-    post: operations['createUser'];
+    post: operations["createUser"];
     /**
      * Delete Multiple Users
      * @description Delete multiple existing users.
      */
-    delete: operations['deleteUsers'];
+    delete: operations["deleteUsers"];
     /**
      * Update Multiple Users
      * @description Update multiple users at the same time.
      */
-    patch: operations['updateUsers'];
+    patch: operations["updateUsers"];
   };
-  '/users/{id}': {
+  "/users/{id}": {
     /**
      * Retrieve a User
      * @description Retrieve a single user by unique identifier.
      */
-    get: operations['getUser'];
+    get: operations["getUser"];
     /**
      * Delete a User
      * @description Delete an existing user
      */
-    delete: operations['deleteUser'];
+    delete: operations["deleteUser"];
     /**
      * Update a User
      * @description Update an existing user
      */
-    patch: operations['updateUser'];
+    patch: operations["updateUser"];
   };
-  '/users/invite': {
+  "/users/invite": {
     /**
      * Invite User(s)
      * @description Invites one or more users to this project. It creates a user with an invited status, and then sends an email to the user with instructions on how to activate their account.
      */
-    post: operations['invite'];
+    post: operations["invite"];
   };
-  '/users/invite/accept': {
+  "/users/invite/accept": {
     /**
      * Accept User Invite
      * @description Accepts and enables an invited user using a JWT invitation token.
      */
-    post: operations['acceptInvite'];
+    post: operations["acceptInvite"];
   };
-  '/users/me': {
+  "/users/me": {
     /**
      * Retrieve Current User
      * @description Retrieve the currently authenticated user.
      */
-    get: operations['getMe'];
+    get: operations["getMe"];
     /**
      * Update Current User
      * @description Update the currently authenticated user.
      */
-    patch: operations['updateMe'];
+    patch: operations["updateMe"];
   };
-  '/users/me/track/page': {
+  "/users/me/track/page": {
     /**
      * Update Last Page
      * @description Updates the last used page field of the currently authenticated user. This is used internally to be able to open the Directus admin app from the last page you used.
      */
-    patch: operations['updateLastUsedPageMe'];
+    patch: operations["updateLastUsedPageMe"];
   };
-  '/users/me/tfa/enable': {
+  "/users/me/tfa/enable": {
     /**
      * Enable 2FA
      * @description Enables two-factor authentication for the currently authenticated user.
      */
-    post: operations['meTfaEnable'];
+    post: operations["meTfaEnable"];
   };
-  '/users/me/tfa/disable': {
+  "/users/me/tfa/disable": {
     /**
      * Disable 2FA
      * @description Disables two-factor authentication for the currently authenticated user.
      */
-    post: operations['meTfaDisable'];
+    post: operations["meTfaDisable"];
   };
-  '/relations': {
+  "/relations": {
     /**
      * List Relations
      * @description List the relations.
      */
-    get: operations['getRelations'];
+    get: operations["getRelations"];
     /**
      * Create a Relation
      * @description Create a new relation.
      */
-    post: operations['createRelation'];
+    post: operations["createRelation"];
   };
-  '/relations/{id}': {
+  "/relations/{id}": {
     /**
      * Retrieve a Relation
      * @description Retrieve a single relation by unique identifier.
      */
-    get: operations['getRelation'];
+    get: operations["getRelation"];
     /**
      * Delete a Relation
      * @description Delete an existing relation.
      */
-    delete: operations['deleteRelation'];
+    delete: operations["deleteRelation"];
     /**
      * Update a Relation
      * @description Update an existing relation
      */
-    patch: operations['updateRelation'];
+    patch: operations["updateRelation"];
   };
-  '/revisions': {
+  "/revisions": {
     /**
      * List Revisions
      * @description List the revisions.
      */
-    get: operations['getRevisions'];
+    get: operations["getRevisions"];
   };
-  '/revisions/{id}': {
+  "/revisions/{id}": {
     /**
      * Retrieve a Revision
      * @description Retrieve a single revision by unique identifier.
      */
-    get: operations['getRevision'];
+    get: operations["getRevision"];
   };
-  '/flows': {
+  "/flows": {
     /**
      * List Flows
      * @description Get all flows.
      */
-    get: operations['getFlows'];
+    get: operations["getFlows"];
     /**
      * Create a Flow
      * @description Create a new flow.
      */
-    post: operations['createFlow'];
+    post: operations["createFlow"];
     /**
      * Delete Multiple Flows
      * @description Delete multiple existing flows.
      */
-    delete: operations['deleteFlows'];
+    delete: operations["deleteFlows"];
     /**
      * Update Multiple Flows
      * @description Update multiple flows at the same time.
      */
-    patch: operations['updateFlows'];
+    patch: operations["updateFlows"];
   };
-  '/flows/{id}': {
+  "/flows/{id}": {
     /**
      * Retrieve a Flow
      * @description Retrieve a single flow by unique identifier.
      */
-    get: operations['getFlow'];
+    get: operations["getFlow"];
     /**
      * Delete a Flow
      * @description Delete an existing flow
      */
-    delete: operations['deleteFlow'];
+    delete: operations["deleteFlow"];
     /**
      * Update a Flow
      * @description Update an existing flow
      */
-    patch: operations['updateFlow'];
+    patch: operations["updateFlow"];
   };
-  '/operations': {
+  "/operations": {
     /**
      * List Operations
      * @description Get all operations.
      */
-    get: operations['getOperations'];
+    get: operations["getOperations"];
     /**
      * Create an Operation
      * @description Create a new operation.
      */
-    post: operations['createOperation'];
+    post: operations["createOperation"];
     /**
      * Delete Multiple Operations
      * @description Delete multiple existing operations.
      */
-    delete: operations['deleteOperations'];
+    delete: operations["deleteOperations"];
     /**
      * Update Multiple Operations
      * @description Update multiple operations at the same time.
      */
-    patch: operations['updateOperations'];
+    patch: operations["updateOperations"];
   };
-  '/operations/{id}': {
+  "/operations/{id}": {
     /**
      * Retrieve an Operation
      * @description Retrieve a single operation by unique identifier.
      */
-    get: operations['getOperation'];
+    get: operations["getOperation"];
     /**
      * Delete an Operation
      * @description Delete an existing operation
      */
-    delete: operations['deleteOperation'];
+    delete: operations["deleteOperation"];
     /**
      * Update an Operation
      * @description Update an existing operation
      */
-    patch: operations['updateOperation'];
+    patch: operations["updateOperation"];
   };
-  '/webhooks': {
+  "/webhooks": {
     /**
      * List Webhooks
      * @description Get all webhooks.
      */
-    get: operations['getWebhooks'];
+    get: operations["getWebhooks"];
     /**
      * Create a Webhook
      * @description Create a new webhook.
      */
-    post: operations['createWebhook'];
+    post: operations["createWebhook"];
     /**
      * Delete Multiple Webhooks
      * @description Delete multiple existing webhooks.
      */
-    delete: operations['deleteWebhooks'];
+    delete: operations["deleteWebhooks"];
     /**
      * Update Multiple Webhooks
      * @description Update multiple webhooks at the same time.
      */
-    patch: operations['updateWebhooks'];
+    patch: operations["updateWebhooks"];
   };
-  '/webhooks/{id}': {
+  "/webhooks/{id}": {
     /**
      * Retrieve a Webhook
      * @description Retrieve a single webhook by unique identifier.
      */
-    get: operations['getWebhook'];
+    get: operations["getWebhook"];
     /**
      * Delete a Webhook
      * @description Delete an existing webhook
      */
-    delete: operations['deleteWebhook'];
+    delete: operations["deleteWebhook"];
     /**
      * Update a Webhook
      * @description Update an existing webhook
      */
-    patch: operations['updateWebhook'];
+    patch: operations["updateWebhook"];
   };
-  '/extensions': {
+  "/extensions": {
     /**
      * List Extensions
      * @description List the installed extensions and their configuration in the project.
      */
-    get: operations['listExtensions'];
+    get: operations["listExtensions"];
   };
-  '/extensions/{name}': {
+  "/extensions/{name}": {
     /**
      * Update an Extension
      * @description Update an existing extension.
      */
-    patch: operations['updateExtensions'];
+    patch: operations["updateExtensions"];
   };
-  '/extensions/{bundle}/{name}': {
+  "/extensions/{bundle}/{name}": {
     /**
      * Update an Extension
      * @description Update an existing extension.
      */
-    patch: operations['updateExtensionBundle'];
+    patch: operations["updateExtensionBundle"];
   };
-  '/settings': {
+  "/settings": {
     /**
      * Retrieve Settings
      * @description List the settings.
      */
-    get: operations['getSettings'];
+    get: operations["getSettings"];
     /**
      * Update Settings
      * @description Update the settings
      */
-    patch: operations['updateSetting'];
+    patch: operations["updateSetting"];
   };
-  '/versions': {
+  "/versions": {
     /**
      * List Content Versions
      * @description Get all Content Versions.
      */
-    get: operations['getContentVersions'];
+    get: operations["getContentVersions"];
     /**
      * Create Multiple Content Versions
      * @description Create multiple new Content Versions.
      */
-    post: operations['createContentVersion'];
+    post: operations["createContentVersion"];
     /**
      * Delete Multiple Content Versions
      * @description Delete multiple existing Content Versions.
      */
-    delete: operations['deleteContentVersions'];
+    delete: operations["deleteContentVersions"];
     /**
      * Update Multiple Content Versions
      * @description Update multiple Content Versions at the same time.
      */
-    patch: operations['updateContentVersions'];
+    patch: operations["updateContentVersions"];
   };
-  '/versions/{id}': {
+  "/versions/{id}": {
     /**
      * Retrieve a Content Version
      * @description Retrieve a single Content Version by unique identifier.
      */
-    get: operations['getContentVersion'];
+    get: operations["getContentVersion"];
     /**
      * Delete a Content Version
      * @description Delete an existing Content Version.
      */
-    delete: operations['deleteContentVersion'];
+    delete: operations["deleteContentVersion"];
     /**
      * Update a Content Version
      * @description Update an existing Content Version.
      */
-    patch: operations['updateContentVersion'];
+    patch: operations["updateContentVersion"];
   };
-  '/versions/{id}/save': {
+  "/versions/{id}/save": {
     /**
      * Save to a Content Version
      * @description Save item changes to an existing Content Version.
      */
-    post: operations['saveContentVersion'];
+    post: operations["saveContentVersion"];
   };
-  '/versions/{id}/compare': {
+  "/versions/{id}/compare": {
     /**
      * Compare a Content Version
      * @description Compare an existing Content Version with the main version of the item.
      */
-    get: operations['compareContentVersion'];
+    get: operations["compareContentVersion"];
   };
-  '/versions/{id}/promote': {
+  "/versions/{id}/promote": {
     /**
      * Promote a Content Version
      * @description Pass the current hash of the main version of the item (obtained from the `compare` endpoint) along with an optional array of field names of which the values are to be promoted (by default, all fields are selected).
      */
-    post: operations['promoteContentVersion'];
+    post: operations["promoteContentVersion"];
   };
-  '/items/association': {
+  "/items/association": {
     /**
      * List Items
      * @description List the association items.
      */
-    get: operations['readItemsAssociation'];
+    get: operations["readItemsAssociation"];
     /**
      * Create an Item
      * @description Create a new association item.
      */
-    post: operations['createItemsAssociation'];
+    post: operations["createItemsAssociation"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association items.
      */
-    delete: operations['deleteItemsAssociation'];
+    delete: operations["deleteItemsAssociation"];
     /**
      * Update Multiple Items
      * @description Update multiple association items at the same time.
      */
-    patch: operations['updateItemsAssociation'];
+    patch: operations["updateItemsAssociation"];
   };
-  '/items/association/{id}': {
+  "/items/association/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association item by unique identifier.
      */
-    get: operations['readSingleItemsAssociation'];
+    get: operations["readSingleItemsAssociation"];
     /**
      * Delete an Item
      * @description Delete an existing association item.
      */
-    delete: operations['deleteSingleItemsAssociation'];
+    delete: operations["deleteSingleItemsAssociation"];
     /**
      * Update an Item
      * @description Update an existing association item.
      */
-    patch: operations['updateSingleItemsAssociation'];
+    patch: operations["updateSingleItemsAssociation"];
   };
-  '/items/association_public_files': {
+  "/items/association_public_files": {
     /**
      * List Items
      * @description List the association_public_files items.
      */
-    get: operations['readItemsAssociationPublicFiles'];
+    get: operations["readItemsAssociationPublicFiles"];
     /**
      * Create an Item
      * @description Create a new association_public_files item.
      */
-    post: operations['createItemsAssociationPublicFiles'];
+    post: operations["createItemsAssociationPublicFiles"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_public_files items.
      */
-    delete: operations['deleteItemsAssociationPublicFiles'];
+    delete: operations["deleteItemsAssociationPublicFiles"];
     /**
      * Update Multiple Items
      * @description Update multiple association_public_files items at the same time.
      */
-    patch: operations['updateItemsAssociationPublicFiles'];
+    patch: operations["updateItemsAssociationPublicFiles"];
   };
-  '/items/association_public_files/{id}': {
+  "/items/association_public_files/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_public_files item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationPublicFiles'];
+    get: operations["readSingleItemsAssociationPublicFiles"];
     /**
      * Delete an Item
      * @description Delete an existing association_public_files item.
      */
-    delete: operations['deleteSingleItemsAssociationPublicFiles'];
+    delete: operations["deleteSingleItemsAssociationPublicFiles"];
     /**
      * Update an Item
      * @description Update an existing association_public_files item.
      */
-    patch: operations['updateSingleItemsAssociationPublicFiles'];
+    patch: operations["updateSingleItemsAssociationPublicFiles"];
   };
-  '/items/members': {
+  "/items/members": {
     /**
      * List Items
      * @description List the members items.
      */
-    get: operations['readItemsMembers'];
+    get: operations["readItemsMembers"];
     /**
      * Create an Item
      * @description Create a new members item.
      */
-    post: operations['createItemsMembers'];
+    post: operations["createItemsMembers"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing members items.
      */
-    delete: operations['deleteItemsMembers'];
+    delete: operations["deleteItemsMembers"];
     /**
      * Update Multiple Items
      * @description Update multiple members items at the same time.
      */
-    patch: operations['updateItemsMembers'];
+    patch: operations["updateItemsMembers"];
   };
-  '/items/members/{id}': {
+  "/items/members/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single members item by unique identifier.
      */
-    get: operations['readSingleItemsMembers'];
+    get: operations["readSingleItemsMembers"];
     /**
      * Delete an Item
      * @description Delete an existing members item.
      */
-    delete: operations['deleteSingleItemsMembers'];
+    delete: operations["deleteSingleItemsMembers"];
     /**
      * Update an Item
      * @description Update an existing members item.
      */
-    patch: operations['updateSingleItemsMembers'];
+    patch: operations["updateSingleItemsMembers"];
   };
-  '/items/association_memberships': {
+  "/items/association_memberships": {
     /**
      * List Items
      * @description List the association_memberships items.
      */
-    get: operations['readItemsAssociationMemberships'];
+    get: operations["readItemsAssociationMemberships"];
     /**
      * Create an Item
      * @description Create a new association_memberships item.
      */
-    post: operations['createItemsAssociationMemberships'];
+    post: operations["createItemsAssociationMemberships"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_memberships items.
      */
-    delete: operations['deleteItemsAssociationMemberships'];
+    delete: operations["deleteItemsAssociationMemberships"];
     /**
      * Update Multiple Items
      * @description Update multiple association_memberships items at the same time.
      */
-    patch: operations['updateItemsAssociationMemberships'];
+    patch: operations["updateItemsAssociationMemberships"];
   };
-  '/items/association_memberships/{id}': {
+  "/items/association_memberships/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_memberships item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationMemberships'];
+    get: operations["readSingleItemsAssociationMemberships"];
     /**
      * Delete an Item
      * @description Delete an existing association_memberships item.
      */
-    delete: operations['deleteSingleItemsAssociationMemberships'];
+    delete: operations["deleteSingleItemsAssociationMemberships"];
     /**
      * Update an Item
      * @description Update an existing association_memberships item.
      */
-    patch: operations['updateSingleItemsAssociationMemberships'];
+    patch: operations["updateSingleItemsAssociationMemberships"];
   };
-  '/items/association_poles': {
+  "/items/association_poles": {
     /**
      * List Items
      * @description List the association_poles items.
      */
-    get: operations['readItemsAssociationPoles'];
+    get: operations["readItemsAssociationPoles"];
     /**
      * Create an Item
      * @description Create a new association_poles item.
      */
-    post: operations['createItemsAssociationPoles'];
+    post: operations["createItemsAssociationPoles"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_poles items.
      */
-    delete: operations['deleteItemsAssociationPoles'];
+    delete: operations["deleteItemsAssociationPoles"];
     /**
      * Update Multiple Items
      * @description Update multiple association_poles items at the same time.
      */
-    patch: operations['updateItemsAssociationPoles'];
+    patch: operations["updateItemsAssociationPoles"];
   };
-  '/items/association_poles/{id}': {
+  "/items/association_poles/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_poles item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationPoles'];
+    get: operations["readSingleItemsAssociationPoles"];
     /**
      * Delete an Item
      * @description Delete an existing association_poles item.
      */
-    delete: operations['deleteSingleItemsAssociationPoles'];
+    delete: operations["deleteSingleItemsAssociationPoles"];
     /**
      * Update an Item
      * @description Update an existing association_poles item.
      */
-    patch: operations['updateSingleItemsAssociationPoles'];
+    patch: operations["updateSingleItemsAssociationPoles"];
   };
-  '/items/languages': {
+  "/items/languages": {
     /**
      * List Items
      * @description List the languages items.
      */
-    get: operations['readItemsLanguages'];
+    get: operations["readItemsLanguages"];
     /**
      * Create an Item
      * @description Create a new languages item.
      */
-    post: operations['createItemsLanguages'];
+    post: operations["createItemsLanguages"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing languages items.
      */
-    delete: operations['deleteItemsLanguages'];
+    delete: operations["deleteItemsLanguages"];
     /**
      * Update Multiple Items
      * @description Update multiple languages items at the same time.
      */
-    patch: operations['updateItemsLanguages'];
+    patch: operations["updateItemsLanguages"];
   };
-  '/items/languages/{id}': {
+  "/items/languages/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single languages item by unique identifier.
      */
-    get: operations['readSingleItemsLanguages'];
+    get: operations["readSingleItemsLanguages"];
     /**
      * Delete an Item
      * @description Delete an existing languages item.
      */
-    delete: operations['deleteSingleItemsLanguages'];
+    delete: operations["deleteSingleItemsLanguages"];
     /**
      * Update an Item
      * @description Update an existing languages item.
      */
-    patch: operations['updateSingleItemsLanguages'];
+    patch: operations["updateSingleItemsLanguages"];
   };
-  '/items/association_memberships_translations': {
+  "/items/association_memberships_translations": {
     /**
      * List Items
      * @description List the association_memberships_translations items.
      */
-    get: operations['readItemsAssociationMembershipsTranslations'];
+    get: operations["readItemsAssociationMembershipsTranslations"];
     /**
      * Create an Item
      * @description Create a new association_memberships_translations item.
      */
-    post: operations['createItemsAssociationMembershipsTranslations'];
+    post: operations["createItemsAssociationMembershipsTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_memberships_translations items.
      */
-    delete: operations['deleteItemsAssociationMembershipsTranslations'];
+    delete: operations["deleteItemsAssociationMembershipsTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple association_memberships_translations items at the same time.
      */
-    patch: operations['updateItemsAssociationMembershipsTranslations'];
+    patch: operations["updateItemsAssociationMembershipsTranslations"];
   };
-  '/items/association_memberships_translations/{id}': {
+  "/items/association_memberships_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_memberships_translations item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationMembershipsTranslations'];
+    get: operations["readSingleItemsAssociationMembershipsTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing association_memberships_translations item.
      */
-    delete: operations['deleteSingleItemsAssociationMembershipsTranslations'];
+    delete: operations["deleteSingleItemsAssociationMembershipsTranslations"];
     /**
      * Update an Item
      * @description Update an existing association_memberships_translations item.
      */
-    patch: operations['updateSingleItemsAssociationMembershipsTranslations'];
+    patch: operations["updateSingleItemsAssociationMembershipsTranslations"];
   };
-  '/items/partners': {
+  "/items/partners": {
     /**
      * List Items
      * @description List the partners items.
      */
-    get: operations['readItemsPartners'];
+    get: operations["readItemsPartners"];
     /**
      * Create an Item
      * @description Create a new partners item.
      */
-    post: operations['createItemsPartners'];
+    post: operations["createItemsPartners"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing partners items.
      */
-    delete: operations['deleteItemsPartners'];
+    delete: operations["deleteItemsPartners"];
     /**
      * Update Multiple Items
      * @description Update multiple partners items at the same time.
      */
-    patch: operations['updateItemsPartners'];
+    patch: operations["updateItemsPartners"];
   };
-  '/items/partners/{id}': {
+  "/items/partners/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single partners item by unique identifier.
      */
-    get: operations['readSingleItemsPartners'];
+    get: operations["readSingleItemsPartners"];
     /**
      * Delete an Item
      * @description Delete an existing partners item.
      */
-    delete: operations['deleteSingleItemsPartners'];
+    delete: operations["deleteSingleItemsPartners"];
     /**
      * Update an Item
      * @description Update an existing partners item.
      */
-    patch: operations['updateSingleItemsPartners'];
+    patch: operations["updateSingleItemsPartners"];
   };
-  '/items/association_partners': {
+  "/items/association_partners": {
     /**
      * List Items
      * @description List the association_partners items.
      */
-    get: operations['readItemsAssociationPartners'];
+    get: operations["readItemsAssociationPartners"];
     /**
      * Create an Item
      * @description Create a new association_partners item.
      */
-    post: operations['createItemsAssociationPartners'];
+    post: operations["createItemsAssociationPartners"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_partners items.
      */
-    delete: operations['deleteItemsAssociationPartners'];
+    delete: operations["deleteItemsAssociationPartners"];
     /**
      * Update Multiple Items
      * @description Update multiple association_partners items at the same time.
      */
-    patch: operations['updateItemsAssociationPartners'];
+    patch: operations["updateItemsAssociationPartners"];
   };
-  '/items/association_partners/{id}': {
+  "/items/association_partners/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_partners item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationPartners'];
+    get: operations["readSingleItemsAssociationPartners"];
     /**
      * Delete an Item
      * @description Delete an existing association_partners item.
      */
-    delete: operations['deleteSingleItemsAssociationPartners'];
+    delete: operations["deleteSingleItemsAssociationPartners"];
     /**
      * Update an Item
      * @description Update an existing association_partners item.
      */
-    patch: operations['updateSingleItemsAssociationPartners'];
+    patch: operations["updateSingleItemsAssociationPartners"];
   };
-  '/items/association_poles_translations': {
+  "/items/association_poles_translations": {
     /**
      * List Items
      * @description List the association_poles_translations items.
      */
-    get: operations['readItemsAssociationPolesTranslations'];
+    get: operations["readItemsAssociationPolesTranslations"];
     /**
      * Create an Item
      * @description Create a new association_poles_translations item.
      */
-    post: operations['createItemsAssociationPolesTranslations'];
+    post: operations["createItemsAssociationPolesTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_poles_translations items.
      */
-    delete: operations['deleteItemsAssociationPolesTranslations'];
+    delete: operations["deleteItemsAssociationPolesTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple association_poles_translations items at the same time.
      */
-    patch: operations['updateItemsAssociationPolesTranslations'];
+    patch: operations["updateItemsAssociationPolesTranslations"];
   };
-  '/items/association_poles_translations/{id}': {
+  "/items/association_poles_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_poles_translations item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationPolesTranslations'];
+    get: operations["readSingleItemsAssociationPolesTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing association_poles_translations item.
      */
-    delete: operations['deleteSingleItemsAssociationPolesTranslations'];
+    delete: operations["deleteSingleItemsAssociationPolesTranslations"];
     /**
      * Update an Item
      * @description Update an existing association_poles_translations item.
      */
-    patch: operations['updateSingleItemsAssociationPolesTranslations'];
+    patch: operations["updateSingleItemsAssociationPolesTranslations"];
   };
-  '/items/association_public_files_translations': {
+  "/items/association_public_files_translations": {
     /**
      * List Items
      * @description List the association_public_files_translations items.
      */
-    get: operations['readItemsAssociationPublicFilesTranslations'];
+    get: operations["readItemsAssociationPublicFilesTranslations"];
     /**
      * Create an Item
      * @description Create a new association_public_files_translations item.
      */
-    post: operations['createItemsAssociationPublicFilesTranslations'];
+    post: operations["createItemsAssociationPublicFilesTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_public_files_translations items.
      */
-    delete: operations['deleteItemsAssociationPublicFilesTranslations'];
+    delete: operations["deleteItemsAssociationPublicFilesTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple association_public_files_translations items at the same time.
      */
-    patch: operations['updateItemsAssociationPublicFilesTranslations'];
+    patch: operations["updateItemsAssociationPublicFilesTranslations"];
   };
-  '/items/association_public_files_translations/{id}': {
+  "/items/association_public_files_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_public_files_translations item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationPublicFilesTranslations'];
+    get: operations["readSingleItemsAssociationPublicFilesTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing association_public_files_translations item.
      */
-    delete: operations['deleteSingleItemsAssociationPublicFilesTranslations'];
+    delete: operations["deleteSingleItemsAssociationPublicFilesTranslations"];
     /**
      * Update an Item
      * @description Update an existing association_public_files_translations item.
      */
-    patch: operations['updateSingleItemsAssociationPublicFilesTranslations'];
+    patch: operations["updateSingleItemsAssociationPublicFilesTranslations"];
   };
-  '/items/social_links': {
+  "/items/social_links": {
     /**
      * List Items
      * @description List the social_links items.
      */
-    get: operations['readItemsSocialLinks'];
+    get: operations["readItemsSocialLinks"];
     /**
      * Create an Item
      * @description Create a new social_links item.
      */
-    post: operations['createItemsSocialLinks'];
+    post: operations["createItemsSocialLinks"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing social_links items.
      */
-    delete: operations['deleteItemsSocialLinks'];
+    delete: operations["deleteItemsSocialLinks"];
     /**
      * Update Multiple Items
      * @description Update multiple social_links items at the same time.
      */
-    patch: operations['updateItemsSocialLinks'];
+    patch: operations["updateItemsSocialLinks"];
   };
-  '/items/social_links/{id}': {
+  "/items/social_links/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single social_links item by unique identifier.
      */
-    get: operations['readSingleItemsSocialLinks'];
+    get: operations["readSingleItemsSocialLinks"];
     /**
      * Delete an Item
      * @description Delete an existing social_links item.
      */
-    delete: operations['deleteSingleItemsSocialLinks'];
+    delete: operations["deleteSingleItemsSocialLinks"];
     /**
      * Update an Item
      * @description Update an existing social_links item.
      */
-    patch: operations['updateSingleItemsSocialLinks'];
+    patch: operations["updateSingleItemsSocialLinks"];
   };
-  '/items/association_social_links': {
-    /**
-     * List Items
-     * @description List the association_social_links items.
-     */
-    get: operations['readItemsAssociationSocialLinks'];
-    /**
-     * Create an Item
-     * @description Create a new association_social_links item.
-     */
-    post: operations['createItemsAssociationSocialLinks'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing association_social_links items.
-     */
-    delete: operations['deleteItemsAssociationSocialLinks'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple association_social_links items at the same time.
-     */
-    patch: operations['updateItemsAssociationSocialLinks'];
-  };
-  '/items/association_social_links/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single association_social_links item by unique identifier.
-     */
-    get: operations['readSingleItemsAssociationSocialLinks'];
-    /**
-     * Delete an Item
-     * @description Delete an existing association_social_links item.
-     */
-    delete: operations['deleteSingleItemsAssociationSocialLinks'];
-    /**
-     * Update an Item
-     * @description Update an existing association_social_links item.
-     */
-    patch: operations['updateSingleItemsAssociationSocialLinks'];
-  };
-  '/items/association_translations': {
+  "/items/association_translations": {
     /**
      * List Items
      * @description List the association_translations items.
      */
-    get: operations['readItemsAssociationTranslations'];
+    get: operations["readItemsAssociationTranslations"];
     /**
      * Create an Item
      * @description Create a new association_translations item.
      */
-    post: operations['createItemsAssociationTranslations'];
+    post: operations["createItemsAssociationTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing association_translations items.
      */
-    delete: operations['deleteItemsAssociationTranslations'];
+    delete: operations["deleteItemsAssociationTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple association_translations items at the same time.
      */
-    patch: operations['updateItemsAssociationTranslations'];
+    patch: operations["updateItemsAssociationTranslations"];
   };
-  '/items/association_translations/{id}': {
+  "/items/association_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single association_translations item by unique identifier.
      */
-    get: operations['readSingleItemsAssociationTranslations'];
+    get: operations["readSingleItemsAssociationTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing association_translations item.
      */
-    delete: operations['deleteSingleItemsAssociationTranslations'];
+    delete: operations["deleteSingleItemsAssociationTranslations"];
     /**
      * Update an Item
      * @description Update an existing association_translations item.
      */
-    patch: operations['updateSingleItemsAssociationTranslations'];
+    patch: operations["updateSingleItemsAssociationTranslations"];
   };
-  '/items/commissions': {
+  "/items/commissions": {
     /**
      * List Items
      * @description List the commissions items.
      */
-    get: operations['readItemsCommissions'];
+    get: operations["readItemsCommissions"];
     /**
      * Create an Item
      * @description Create a new commissions item.
      */
-    post: operations['createItemsCommissions'];
+    post: operations["createItemsCommissions"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing commissions items.
      */
-    delete: operations['deleteItemsCommissions'];
+    delete: operations["deleteItemsCommissions"];
     /**
      * Update Multiple Items
      * @description Update multiple commissions items at the same time.
      */
-    patch: operations['updateItemsCommissions'];
+    patch: operations["updateItemsCommissions"];
   };
-  '/items/commissions/{id}': {
+  "/items/commissions/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single commissions item by unique identifier.
      */
-    get: operations['readSingleItemsCommissions'];
+    get: operations["readSingleItemsCommissions"];
     /**
      * Delete an Item
      * @description Delete an existing commissions item.
      */
-    delete: operations['deleteSingleItemsCommissions'];
+    delete: operations["deleteSingleItemsCommissions"];
     /**
      * Update an Item
      * @description Update an existing commissions item.
      */
-    patch: operations['updateSingleItemsCommissions'];
+    patch: operations["updateSingleItemsCommissions"];
   };
-  '/items/commission_memberships': {
+  "/items/commission_memberships": {
     /**
      * List Items
      * @description List the commission_memberships items.
      */
-    get: operations['readItemsCommissionMemberships'];
+    get: operations["readItemsCommissionMemberships"];
     /**
      * Create an Item
      * @description Create a new commission_memberships item.
      */
-    post: operations['createItemsCommissionMemberships'];
+    post: operations["createItemsCommissionMemberships"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing commission_memberships items.
      */
-    delete: operations['deleteItemsCommissionMemberships'];
+    delete: operations["deleteItemsCommissionMemberships"];
     /**
      * Update Multiple Items
      * @description Update multiple commission_memberships items at the same time.
      */
-    patch: operations['updateItemsCommissionMemberships'];
+    patch: operations["updateItemsCommissionMemberships"];
   };
-  '/items/commission_memberships/{id}': {
+  "/items/commission_memberships/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single commission_memberships item by unique identifier.
      */
-    get: operations['readSingleItemsCommissionMemberships'];
+    get: operations["readSingleItemsCommissionMemberships"];
     /**
      * Delete an Item
      * @description Delete an existing commission_memberships item.
      */
-    delete: operations['deleteSingleItemsCommissionMemberships'];
+    delete: operations["deleteSingleItemsCommissionMemberships"];
     /**
      * Update an Item
      * @description Update an existing commission_memberships item.
      */
-    patch: operations['updateSingleItemsCommissionMemberships'];
+    patch: operations["updateSingleItemsCommissionMemberships"];
   };
-  '/items/commission_memberships_translations': {
+  "/items/commission_memberships_translations": {
     /**
      * List Items
      * @description List the commission_memberships_translations items.
      */
-    get: operations['readItemsCommissionMembershipsTranslations'];
+    get: operations["readItemsCommissionMembershipsTranslations"];
     /**
      * Create an Item
      * @description Create a new commission_memberships_translations item.
      */
-    post: operations['createItemsCommissionMembershipsTranslations'];
+    post: operations["createItemsCommissionMembershipsTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing commission_memberships_translations items.
      */
-    delete: operations['deleteItemsCommissionMembershipsTranslations'];
+    delete: operations["deleteItemsCommissionMembershipsTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple commission_memberships_translations items at the same time.
      */
-    patch: operations['updateItemsCommissionMembershipsTranslations'];
+    patch: operations["updateItemsCommissionMembershipsTranslations"];
   };
-  '/items/commission_memberships_translations/{id}': {
+  "/items/commission_memberships_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single commission_memberships_translations item by unique identifier.
      */
-    get: operations['readSingleItemsCommissionMembershipsTranslations'];
+    get: operations["readSingleItemsCommissionMembershipsTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing commission_memberships_translations item.
      */
-    delete: operations['deleteSingleItemsCommissionMembershipsTranslations'];
+    delete: operations["deleteSingleItemsCommissionMembershipsTranslations"];
     /**
      * Update an Item
      * @description Update an existing commission_memberships_translations item.
      */
-    patch: operations['updateSingleItemsCommissionMembershipsTranslations'];
+    patch: operations["updateSingleItemsCommissionMembershipsTranslations"];
   };
-  '/items/commissions_social_links': {
+  "/items/commissions_social_links": {
     /**
      * List Items
      * @description List the commissions_social_links items.
      */
-    get: operations['readItemsCommissionsSocialLinks'];
+    get: operations["readItemsCommissionsSocialLinks"];
     /**
      * Create an Item
      * @description Create a new commissions_social_links item.
      */
-    post: operations['createItemsCommissionsSocialLinks'];
+    post: operations["createItemsCommissionsSocialLinks"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing commissions_social_links items.
      */
-    delete: operations['deleteItemsCommissionsSocialLinks'];
+    delete: operations["deleteItemsCommissionsSocialLinks"];
     /**
      * Update Multiple Items
      * @description Update multiple commissions_social_links items at the same time.
      */
-    patch: operations['updateItemsCommissionsSocialLinks'];
+    patch: operations["updateItemsCommissionsSocialLinks"];
   };
-  '/items/commissions_social_links/{id}': {
+  "/items/commissions_social_links/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single commissions_social_links item by unique identifier.
      */
-    get: operations['readSingleItemsCommissionsSocialLinks'];
+    get: operations["readSingleItemsCommissionsSocialLinks"];
     /**
      * Delete an Item
      * @description Delete an existing commissions_social_links item.
      */
-    delete: operations['deleteSingleItemsCommissionsSocialLinks'];
+    delete: operations["deleteSingleItemsCommissionsSocialLinks"];
     /**
      * Update an Item
      * @description Update an existing commissions_social_links item.
      */
-    patch: operations['updateSingleItemsCommissionsSocialLinks'];
+    patch: operations["updateSingleItemsCommissionsSocialLinks"];
   };
-  '/items/commissions_translations': {
+  "/items/commissions_translations": {
     /**
      * List Items
      * @description List the commissions_translations items.
      */
-    get: operations['readItemsCommissionsTranslations'];
+    get: operations["readItemsCommissionsTranslations"];
     /**
      * Create an Item
      * @description Create a new commissions_translations item.
      */
-    post: operations['createItemsCommissionsTranslations'];
+    post: operations["createItemsCommissionsTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing commissions_translations items.
      */
-    delete: operations['deleteItemsCommissionsTranslations'];
+    delete: operations["deleteItemsCommissionsTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple commissions_translations items at the same time.
      */
-    patch: operations['updateItemsCommissionsTranslations'];
+    patch: operations["updateItemsCommissionsTranslations"];
   };
-  '/items/commissions_translations/{id}': {
+  "/items/commissions_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single commissions_translations item by unique identifier.
      */
-    get: operations['readSingleItemsCommissionsTranslations'];
+    get: operations["readSingleItemsCommissionsTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing commissions_translations item.
      */
-    delete: operations['deleteSingleItemsCommissionsTranslations'];
+    delete: operations["deleteSingleItemsCommissionsTranslations"];
     /**
      * Update an Item
      * @description Update an existing commissions_translations item.
      */
-    patch: operations['updateSingleItemsCommissionsTranslations'];
+    patch: operations["updateSingleItemsCommissionsTranslations"];
   };
-  '/items/inventory': {
+  "/items/inventory": {
     /**
      * List Items
      * @description List the inventory items.
      */
-    get: operations['readItemsInventory'];
+    get: operations["readItemsInventory"];
     /**
      * Create an Item
      * @description Create a new inventory item.
      */
-    post: operations['createItemsInventory'];
+    post: operations["createItemsInventory"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing inventory items.
      */
-    delete: operations['deleteItemsInventory'];
+    delete: operations["deleteItemsInventory"];
     /**
      * Update Multiple Items
      * @description Update multiple inventory items at the same time.
      */
-    patch: operations['updateItemsInventory'];
+    patch: operations["updateItemsInventory"];
   };
-  '/items/inventory/{id}': {
+  "/items/inventory/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single inventory item by unique identifier.
      */
-    get: operations['readSingleItemsInventory'];
+    get: operations["readSingleItemsInventory"];
     /**
      * Delete an Item
      * @description Delete an existing inventory item.
      */
-    delete: operations['deleteSingleItemsInventory'];
+    delete: operations["deleteSingleItemsInventory"];
     /**
      * Update an Item
      * @description Update an existing inventory item.
      */
-    patch: operations['updateSingleItemsInventory'];
+    patch: operations["updateSingleItemsInventory"];
   };
-  '/items/news': {
+  "/items/news": {
     /**
      * List Items
      * @description List the news items.
      */
-    get: operations['readItemsNews'];
+    get: operations["readItemsNews"];
     /**
      * Create an Item
      * @description Create a new news item.
      */
-    post: operations['createItemsNews'];
+    post: operations["createItemsNews"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing news items.
      */
-    delete: operations['deleteItemsNews'];
+    delete: operations["deleteItemsNews"];
     /**
      * Update Multiple Items
      * @description Update multiple news items at the same time.
      */
-    patch: operations['updateItemsNews'];
+    patch: operations["updateItemsNews"];
   };
-  '/items/news/{id}': {
+  "/items/news/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single news item by unique identifier.
      */
-    get: operations['readSingleItemsNews'];
+    get: operations["readSingleItemsNews"];
     /**
      * Delete an Item
      * @description Delete an existing news item.
      */
-    delete: operations['deleteSingleItemsNews'];
+    delete: operations["deleteSingleItemsNews"];
     /**
      * Update an Item
      * @description Update an existing news item.
      */
-    patch: operations['updateSingleItemsNews'];
+    patch: operations["updateSingleItemsNews"];
   };
-  '/items/news_commissions': {
+  "/items/news_commissions": {
     /**
      * List Items
      * @description List the news_commissions items.
      */
-    get: operations['readItemsNewsCommissions'];
+    get: operations["readItemsNewsCommissions"];
     /**
      * Create an Item
      * @description Create a new news_commissions item.
      */
-    post: operations['createItemsNewsCommissions'];
+    post: operations["createItemsNewsCommissions"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing news_commissions items.
      */
-    delete: operations['deleteItemsNewsCommissions'];
+    delete: operations["deleteItemsNewsCommissions"];
     /**
      * Update Multiple Items
      * @description Update multiple news_commissions items at the same time.
      */
-    patch: operations['updateItemsNewsCommissions'];
+    patch: operations["updateItemsNewsCommissions"];
   };
-  '/items/news_commissions/{id}': {
+  "/items/news_commissions/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single news_commissions item by unique identifier.
      */
-    get: operations['readSingleItemsNewsCommissions'];
+    get: operations["readSingleItemsNewsCommissions"];
     /**
      * Delete an Item
      * @description Delete an existing news_commissions item.
      */
-    delete: operations['deleteSingleItemsNewsCommissions'];
+    delete: operations["deleteSingleItemsNewsCommissions"];
     /**
      * Update an Item
      * @description Update an existing news_commissions item.
      */
-    patch: operations['updateSingleItemsNewsCommissions'];
+    patch: operations["updateSingleItemsNewsCommissions"];
   };
-  '/items/news_partners': {
+  "/items/news_partners": {
     /**
      * List Items
      * @description List the news_partners items.
      */
-    get: operations['readItemsNewsPartners'];
+    get: operations["readItemsNewsPartners"];
     /**
      * Create an Item
      * @description Create a new news_partners item.
      */
-    post: operations['createItemsNewsPartners'];
+    post: operations["createItemsNewsPartners"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing news_partners items.
      */
-    delete: operations['deleteItemsNewsPartners'];
+    delete: operations["deleteItemsNewsPartners"];
     /**
      * Update Multiple Items
      * @description Update multiple news_partners items at the same time.
      */
-    patch: operations['updateItemsNewsPartners'];
+    patch: operations["updateItemsNewsPartners"];
   };
-  '/items/news_partners/{id}': {
+  "/items/news_partners/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single news_partners item by unique identifier.
      */
-    get: operations['readSingleItemsNewsPartners'];
+    get: operations["readSingleItemsNewsPartners"];
     /**
      * Delete an Item
      * @description Delete an existing news_partners item.
      */
-    delete: operations['deleteSingleItemsNewsPartners'];
+    delete: operations["deleteSingleItemsNewsPartners"];
     /**
      * Update an Item
      * @description Update an existing news_partners item.
      */
-    patch: operations['updateSingleItemsNewsPartners'];
+    patch: operations["updateSingleItemsNewsPartners"];
   };
-  '/items/news_translations': {
+  "/items/news_translations": {
     /**
      * List Items
      * @description List the news_translations items.
      */
-    get: operations['readItemsNewsTranslations'];
+    get: operations["readItemsNewsTranslations"];
     /**
      * Create an Item
      * @description Create a new news_translations item.
      */
-    post: operations['createItemsNewsTranslations'];
+    post: operations["createItemsNewsTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing news_translations items.
      */
-    delete: operations['deleteItemsNewsTranslations'];
+    delete: operations["deleteItemsNewsTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple news_translations items at the same time.
      */
-    patch: operations['updateItemsNewsTranslations'];
+    patch: operations["updateItemsNewsTranslations"];
   };
-  '/items/news_translations/{id}': {
+  "/items/news_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single news_translations item by unique identifier.
      */
-    get: operations['readSingleItemsNewsTranslations'];
+    get: operations["readSingleItemsNewsTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing news_translations item.
      */
-    delete: operations['deleteSingleItemsNewsTranslations'];
+    delete: operations["deleteSingleItemsNewsTranslations"];
     /**
      * Update an Item
      * @description Update an existing news_translations item.
      */
-    patch: operations['updateSingleItemsNewsTranslations'];
+    patch: operations["updateSingleItemsNewsTranslations"];
   };
-  '/items/partner_category_translations': {
+  "/items/partner_category_translations": {
     /**
      * List Items
      * @description List the partner_category_translations items.
      */
-    get: operations['readItemsPartnerCategoryTranslations'];
+    get: operations["readItemsPartnerCategoryTranslations"];
     /**
      * Create an Item
      * @description Create a new partner_category_translations item.
      */
-    post: operations['createItemsPartnerCategoryTranslations'];
+    post: operations["createItemsPartnerCategoryTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing partner_category_translations items.
      */
-    delete: operations['deleteItemsPartnerCategoryTranslations'];
+    delete: operations["deleteItemsPartnerCategoryTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple partner_category_translations items at the same time.
      */
-    patch: operations['updateItemsPartnerCategoryTranslations'];
+    patch: operations["updateItemsPartnerCategoryTranslations"];
   };
-  '/items/partner_category_translations/{id}': {
+  "/items/partner_category_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single partner_category_translations item by unique identifier.
      */
-    get: operations['readSingleItemsPartnerCategoryTranslations'];
+    get: operations["readSingleItemsPartnerCategoryTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing partner_category_translations item.
      */
-    delete: operations['deleteSingleItemsPartnerCategoryTranslations'];
+    delete: operations["deleteSingleItemsPartnerCategoryTranslations"];
     /**
      * Update an Item
      * @description Update an existing partner_category_translations item.
      */
-    patch: operations['updateSingleItemsPartnerCategoryTranslations'];
+    patch: operations["updateSingleItemsPartnerCategoryTranslations"];
   };
-  '/items/partner_category': {
+  "/items/partner_category": {
     /**
      * List Items
      * @description List the partner_category items.
      */
-    get: operations['readItemsPartnerCategory'];
+    get: operations["readItemsPartnerCategory"];
     /**
      * Create an Item
      * @description Create a new partner_category item.
      */
-    post: operations['createItemsPartnerCategory'];
+    post: operations["createItemsPartnerCategory"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing partner_category items.
      */
-    delete: operations['deleteItemsPartnerCategory'];
+    delete: operations["deleteItemsPartnerCategory"];
     /**
      * Update Multiple Items
      * @description Update multiple partner_category items at the same time.
      */
-    patch: operations['updateItemsPartnerCategory'];
+    patch: operations["updateItemsPartnerCategory"];
   };
-  '/items/partner_category/{id}': {
+  "/items/partner_category/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single partner_category item by unique identifier.
      */
-    get: operations['readSingleItemsPartnerCategory'];
+    get: operations["readSingleItemsPartnerCategory"];
     /**
      * Delete an Item
      * @description Delete an existing partner_category item.
      */
-    delete: operations['deleteSingleItemsPartnerCategory'];
+    delete: operations["deleteSingleItemsPartnerCategory"];
     /**
      * Update an Item
      * @description Update an existing partner_category item.
      */
-    patch: operations['updateSingleItemsPartnerCategory'];
+    patch: operations["updateSingleItemsPartnerCategory"];
   };
-  '/items/save_the_date': {
+  "/items/save_the_date": {
     /**
      * List Items
      * @description List the save_the_date items.
      */
-    get: operations['readItemsSavetheDate'];
+    get: operations["readItemsSavetheDate"];
     /**
      * Create an Item
      * @description Create a new save_the_date item.
      */
-    post: operations['createItemsSavetheDate'];
+    post: operations["createItemsSavetheDate"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing save_the_date items.
      */
-    delete: operations['deleteItemsSavetheDate'];
+    delete: operations["deleteItemsSavetheDate"];
     /**
      * Update Multiple Items
      * @description Update multiple save_the_date items at the same time.
      */
-    patch: operations['updateItemsSavetheDate'];
+    patch: operations["updateItemsSavetheDate"];
   };
-  '/items/save_the_date/{id}': {
+  "/items/save_the_date/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single save_the_date item by unique identifier.
      */
-    get: operations['readSingleItemsSavetheDate'];
+    get: operations["readSingleItemsSavetheDate"];
     /**
      * Delete an Item
      * @description Delete an existing save_the_date item.
      */
-    delete: operations['deleteSingleItemsSavetheDate'];
+    delete: operations["deleteSingleItemsSavetheDate"];
     /**
      * Update an Item
      * @description Update an existing save_the_date item.
      */
-    patch: operations['updateSingleItemsSavetheDate'];
+    patch: operations["updateSingleItemsSavetheDate"];
   };
-  '/items/save_the_date_translations': {
-    /**
-     * List Items
-     * @description List the save_the_date_translations items.
-     */
-    get: operations['readItemsSavetheDateTranslations'];
-    /**
-     * Create an Item
-     * @description Create a new save_the_date_translations item.
-     */
-    post: operations['createItemsSavetheDateTranslations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing save_the_date_translations items.
-     */
-    delete: operations['deleteItemsSavetheDateTranslations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple save_the_date_translations items at the same time.
-     */
-    patch: operations['updateItemsSavetheDateTranslations'];
-  };
-  '/items/save_the_date_translations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single save_the_date_translations item by unique identifier.
-     */
-    get: operations['readSingleItemsSavetheDateTranslations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing save_the_date_translations item.
-     */
-    delete: operations['deleteSingleItemsSavetheDateTranslations'];
-    /**
-     * Update an Item
-     * @description Update an existing save_the_date_translations item.
-     */
-    patch: operations['updateSingleItemsSavetheDateTranslations'];
-  };
-  '/items/std_cell': {
-    /**
-     * List Items
-     * @description List the std_cell items.
-     */
-    get: operations['readItemsStdCell'];
-    /**
-     * Create an Item
-     * @description Create a new std_cell item.
-     */
-    post: operations['createItemsStdCell'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing std_cell items.
-     */
-    delete: operations['deleteItemsStdCell'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple std_cell items at the same time.
-     */
-    patch: operations['updateItemsStdCell'];
-  };
-  '/items/std_cell/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single std_cell item by unique identifier.
-     */
-    get: operations['readSingleItemsStdCell'];
-    /**
-     * Delete an Item
-     * @description Delete an existing std_cell item.
-     */
-    delete: operations['deleteSingleItemsStdCell'];
-    /**
-     * Update an Item
-     * @description Update an existing std_cell item.
-     */
-    patch: operations['updateSingleItemsStdCell'];
-  };
-  '/items/std_cell_translations': {
-    /**
-     * List Items
-     * @description List the std_cell_translations items.
-     */
-    get: operations['readItemsStdCellTranslations'];
-    /**
-     * Create an Item
-     * @description Create a new std_cell_translations item.
-     */
-    post: operations['createItemsStdCellTranslations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing std_cell_translations items.
-     */
-    delete: operations['deleteItemsStdCellTranslations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple std_cell_translations items at the same time.
-     */
-    patch: operations['updateItemsStdCellTranslations'];
-  };
-  '/items/std_cell_translations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single std_cell_translations item by unique identifier.
-     */
-    get: operations['readSingleItemsStdCellTranslations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing std_cell_translations item.
-     */
-    delete: operations['deleteSingleItemsStdCellTranslations'];
-    /**
-     * Update an Item
-     * @description Update an existing std_cell_translations item.
-     */
-    patch: operations['updateSingleItemsStdCellTranslations'];
-  };
-  '/comments': {
+  "/comments": {
     /**
      * List Comments
      * @description List the comments.
      */
-    get: operations['getComments'];
+    get: operations["getComments"];
     /**
      * Create a Comment
      * @description Create a new comment.
      */
-    post: operations['createComment'];
+    post: operations["createComment"];
     /**
      * Delete Multiple Comments
      * @description Delete multiple existing comments.
      */
-    delete: operations['deleteComments'];
+    delete: operations["deleteComments"];
     /**
      * Update Multiple Comments
      * @description Update multiple comments at the same time.
      */
-    patch: operations['updateComments'];
+    patch: operations["updateComments"];
   };
-  '/comments/{id}': {
+  "/comments/{id}": {
     /**
      * Retrieve a Comment
      * @description Retrieve a single comment by unique identifier.
      */
-    get: operations['getComment'];
+    get: operations["getComment"];
     /**
      * Delete a Comment
      * @description Delete an existing comment.
      */
-    delete: operations['deleteComment'];
+    delete: operations["deleteComment"];
     /**
      * Update a Comment
      * @description Update an existing comment.
      */
-    patch: operations['updateComment'];
+    patch: operations["updateComment"];
   };
-  '/items/events': {
-    /**
-     * List Items
-     * @description List the events items.
-     */
-    get: operations['readItemsEvents'];
-    /**
-     * Create an Item
-     * @description Create a new events item.
-     */
-    post: operations['createItemsEvents'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events items.
-     */
-    delete: operations['deleteItemsEvents'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple events items at the same time.
-     */
-    patch: operations['updateItemsEvents'];
-  };
-  '/items/events/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events item by unique identifier.
-     */
-    get: operations['readSingleItemsEvents'];
-    /**
-     * Delete an Item
-     * @description Delete an existing events item.
-     */
-    delete: operations['deleteSingleItemsEvents'];
-    /**
-     * Update an Item
-     * @description Update an existing events item.
-     */
-    patch: operations['updateSingleItemsEvents'];
-  };
-  '/items/registrations': {
-    /**
-     * List Items
-     * @description List the registrations items.
-     */
-    get: operations['readItemsRegistrations'];
-    /**
-     * Create an Item
-     * @description Create a new registrations item.
-     */
-    post: operations['createItemsRegistrations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing registrations items.
-     */
-    delete: operations['deleteItemsRegistrations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple registrations items at the same time.
-     */
-    patch: operations['updateItemsRegistrations'];
-  };
-  '/items/registrations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single registrations item by unique identifier.
-     */
-    get: operations['readSingleItemsRegistrations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing registrations item.
-     */
-    delete: operations['deleteSingleItemsRegistrations'];
-    /**
-     * Update an Item
-     * @description Update an existing registrations item.
-     */
-    patch: operations['updateSingleItemsRegistrations'];
-  };
-  '/items/ICBD': {
+  "/items/ICBD": {
     /**
      * List Items
      * @description List the ICBD items.
      */
-    get: operations['readItemsIcbd'];
+    get: operations["readItemsIcbd"];
     /**
      * Create an Item
      * @description Create a new ICBD item.
      */
-    post: operations['createItemsIcbd'];
+    post: operations["createItemsIcbd"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing ICBD items.
      */
-    delete: operations['deleteItemsIcbd'];
+    delete: operations["deleteItemsIcbd"];
     /**
      * Update Multiple Items
      * @description Update multiple ICBD items at the same time.
      */
-    patch: operations['updateItemsIcbd'];
+    patch: operations["updateItemsIcbd"];
   };
-  '/items/ICBD/{id}': {
+  "/items/ICBD/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single ICBD item by unique identifier.
      */
-    get: operations['readSingleItemsIcbd'];
+    get: operations["readSingleItemsIcbd"];
     /**
      * Delete an Item
      * @description Delete an existing ICBD item.
      */
-    delete: operations['deleteSingleItemsIcbd'];
+    delete: operations["deleteSingleItemsIcbd"];
     /**
      * Update an Item
      * @description Update an existing ICBD item.
      */
-    patch: operations['updateSingleItemsIcbd'];
+    patch: operations["updateSingleItemsIcbd"];
   };
-  '/items/ICBD_files': {
-    /**
-     * List Items
-     * @description List the ICBD_files items.
-     */
-    get: operations['readItemsIcbdFiles'];
-    /**
-     * Create an Item
-     * @description Create a new ICBD_files item.
-     */
-    post: operations['createItemsIcbdFiles'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing ICBD_files items.
-     */
-    delete: operations['deleteItemsIcbdFiles'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple ICBD_files items at the same time.
-     */
-    patch: operations['updateItemsIcbdFiles'];
-  };
-  '/items/ICBD_files/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single ICBD_files item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdFiles'];
-    /**
-     * Delete an Item
-     * @description Delete an existing ICBD_files item.
-     */
-    delete: operations['deleteSingleItemsIcbdFiles'];
-    /**
-     * Update an Item
-     * @description Update an existing ICBD_files item.
-     */
-    patch: operations['updateSingleItemsIcbdFiles'];
-  };
-  '/items/ICBD_translations': {
-    /**
-     * List Items
-     * @description List the ICBD_translations items.
-     */
-    get: operations['readItemsIcbdTranslations'];
-    /**
-     * Create an Item
-     * @description Create a new ICBD_translations item.
-     */
-    post: operations['createItemsIcbdTranslations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing ICBD_translations items.
-     */
-    delete: operations['deleteItemsIcbdTranslations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple ICBD_translations items at the same time.
-     */
-    patch: operations['updateItemsIcbdTranslations'];
-  };
-  '/items/ICBD_translations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single ICBD_translations item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdTranslations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing ICBD_translations item.
-     */
-    delete: operations['deleteSingleItemsIcbdTranslations'];
-    /**
-     * Update an Item
-     * @description Update an existing ICBD_translations item.
-     */
-    patch: operations['updateSingleItemsIcbdTranslations'];
-  };
-  '/items/artists': {
+  "/items/artists": {
     /**
      * List Items
      * @description List the artists items.
      */
-    get: operations['readItemsArtists'];
+    get: operations["readItemsArtists"];
     /**
      * Create an Item
      * @description Create a new artists item.
      */
-    post: operations['createItemsArtists'];
+    post: operations["createItemsArtists"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing artists items.
      */
-    delete: operations['deleteItemsArtists'];
+    delete: operations["deleteItemsArtists"];
     /**
      * Update Multiple Items
      * @description Update multiple artists items at the same time.
      */
-    patch: operations['updateItemsArtists'];
+    patch: operations["updateItemsArtists"];
   };
-  '/items/artists/{id}': {
+  "/items/artists/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single artists item by unique identifier.
      */
-    get: operations['readSingleItemsArtists'];
+    get: operations["readSingleItemsArtists"];
     /**
      * Delete an Item
      * @description Delete an existing artists item.
      */
-    delete: operations['deleteSingleItemsArtists'];
+    delete: operations["deleteSingleItemsArtists"];
     /**
      * Update an Item
      * @description Update an existing artists item.
      */
-    patch: operations['updateSingleItemsArtists'];
+    patch: operations["updateSingleItemsArtists"];
   };
-  '/items/icbd_activities': {
+  "/items/save_the_date_translations": {
     /**
      * List Items
-     * @description List the icbd_activities items.
+     * @description List the save_the_date_translations items.
      */
-    get: operations['readItemsIcbdActivities'];
+    get: operations["readItemsSavetheDateTranslations"];
     /**
      * Create an Item
-     * @description Create a new icbd_activities item.
+     * @description Create a new save_the_date_translations item.
      */
-    post: operations['createItemsIcbdActivities'];
+    post: operations["createItemsSavetheDateTranslations"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities items.
+     * @description Delete multiple existing save_the_date_translations items.
      */
-    delete: operations['deleteItemsIcbdActivities'];
+    delete: operations["deleteItemsSavetheDateTranslations"];
     /**
      * Update Multiple Items
-     * @description Update multiple icbd_activities items at the same time.
+     * @description Update multiple save_the_date_translations items at the same time.
      */
-    patch: operations['updateItemsIcbdActivities'];
+    patch: operations["updateItemsSavetheDateTranslations"];
   };
-  '/items/icbd_activities/{id}': {
+  "/items/save_the_date_translations/{id}": {
     /**
      * Retrieve an Item
-     * @description Retrieve a single icbd_activities item by unique identifier.
+     * @description Retrieve a single save_the_date_translations item by unique identifier.
      */
-    get: operations['readSingleItemsIcbdActivities'];
+    get: operations["readSingleItemsSavetheDateTranslations"];
     /**
      * Delete an Item
-     * @description Delete an existing icbd_activities item.
+     * @description Delete an existing save_the_date_translations item.
      */
-    delete: operations['deleteSingleItemsIcbdActivities'];
+    delete: operations["deleteSingleItemsSavetheDateTranslations"];
     /**
      * Update an Item
-     * @description Update an existing icbd_activities item.
+     * @description Update an existing save_the_date_translations item.
      */
-    patch: operations['updateSingleItemsIcbdActivities'];
+    patch: operations["updateSingleItemsSavetheDateTranslations"];
   };
-  '/items/icbd_speakers': {
-    /**
-     * List Items
-     * @description List the icbd_speakers items.
-     */
-    get: operations['readItemsIcbdSpeakers'];
-    /**
-     * Create an Item
-     * @description Create a new icbd_speakers item.
-     */
-    post: operations['createItemsIcbdSpeakers'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_speakers items.
-     */
-    delete: operations['deleteItemsIcbdSpeakers'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_speakers items at the same time.
-     */
-    patch: operations['updateItemsIcbdSpeakers'];
-  };
-  '/items/icbd_speakers/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_speakers item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdSpeakers'];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_speakers item.
-     */
-    delete: operations['deleteSingleItemsIcbdSpeakers'];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_speakers item.
-     */
-    patch: operations['updateSingleItemsIcbdSpeakers'];
-  };
-  '/items/icbd_activities_icbd_speakers': {
-    /**
-     * List Items
-     * @description List the icbd_activities_icbd_speakers items.
-     */
-    get: operations['readItemsIcbdActivitiesIcbdSpeakers'];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_icbd_speakers item.
-     */
-    post: operations['createItemsIcbdActivitiesIcbdSpeakers'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_icbd_speakers items.
-     */
-    delete: operations['deleteItemsIcbdActivitiesIcbdSpeakers'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_icbd_speakers items at the same time.
-     */
-    patch: operations['updateItemsIcbdActivitiesIcbdSpeakers'];
-  };
-  '/items/icbd_activities_icbd_speakers/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdActivitiesIcbdSpeakers'];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_icbd_speakers item.
-     */
-    delete: operations['deleteSingleItemsIcbdActivitiesIcbdSpeakers'];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_icbd_speakers item.
-     */
-    patch: operations['updateSingleItemsIcbdActivitiesIcbdSpeakers'];
-  };
-  '/items/icbd_activities_registrations': {
-    /**
-     * List Items
-     * @description List the icbd_activities_registrations items.
-     */
-    get: operations['readItemsIcbdActivitiesRegistrations'];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_registrations item.
-     */
-    post: operations['createItemsIcbdActivitiesRegistrations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_registrations items.
-     */
-    delete: operations['deleteItemsIcbdActivitiesRegistrations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_registrations items at the same time.
-     */
-    patch: operations['updateItemsIcbdActivitiesRegistrations'];
-  };
-  '/items/icbd_activities_registrations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdActivitiesRegistrations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_registrations item.
-     */
-    delete: operations['deleteSingleItemsIcbdActivitiesRegistrations'];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_registrations item.
-     */
-    patch: operations['updateSingleItemsIcbdActivitiesRegistrations'];
-  };
-  '/items/icbd_activities_translations': {
-    /**
-     * List Items
-     * @description List the icbd_activities_translations items.
-     */
-    get: operations['readItemsIcbdActivitiesTranslations'];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_translations item.
-     */
-    post: operations['createItemsIcbdActivitiesTranslations'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_translations items.
-     */
-    delete: operations['deleteItemsIcbdActivitiesTranslations'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_translations items at the same time.
-     */
-    patch: operations['updateItemsIcbdActivitiesTranslations'];
-  };
-  '/items/icbd_activities_translations/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_translations item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdActivitiesTranslations'];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_translations item.
-     */
-    delete: operations['deleteSingleItemsIcbdActivitiesTranslations'];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_translations item.
-     */
-    patch: operations['updateSingleItemsIcbdActivitiesTranslations'];
-  };
-  '/items/icbd_phds': {
-    /**
-     * List Items
-     * @description List the icbd_phds items.
-     */
-    get: operations['readItemsIcbdPhds'];
-    /**
-     * Create an Item
-     * @description Create a new icbd_phds item.
-     */
-    post: operations['createItemsIcbdPhds'];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_phds items.
-     */
-    delete: operations['deleteItemsIcbdPhds'];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_phds items at the same time.
-     */
-    patch: operations['updateItemsIcbdPhds'];
-  };
-  '/items/icbd_phds/{id}': {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_phds item by unique identifier.
-     */
-    get: operations['readSingleItemsIcbdPhds'];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_phds item.
-     */
-    delete: operations['deleteSingleItemsIcbdPhds'];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_phds item.
-     */
-    patch: operations['updateSingleItemsIcbdPhds'];
-  };
-  '/items/subsonic': {
+  "/items/subsonic": {
     /**
      * List Items
      * @description List the subsonic items.
      */
-    get: operations['readItemsSubsonic'];
+    get: operations["readItemsSubsonic"];
     /**
      * Create an Item
      * @description Create a new subsonic item.
      */
-    post: operations['createItemsSubsonic'];
+    post: operations["createItemsSubsonic"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing subsonic items.
      */
-    delete: operations['deleteItemsSubsonic'];
+    delete: operations["deleteItemsSubsonic"];
     /**
      * Update Multiple Items
      * @description Update multiple subsonic items at the same time.
      */
-    patch: operations['updateItemsSubsonic'];
+    patch: operations["updateItemsSubsonic"];
   };
-  '/items/subsonic/{id}': {
+  "/items/subsonic/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single subsonic item by unique identifier.
      */
-    get: operations['readSingleItemsSubsonic'];
+    get: operations["readSingleItemsSubsonic"];
     /**
      * Delete an Item
      * @description Delete an existing subsonic item.
      */
-    delete: operations['deleteSingleItemsSubsonic'];
+    delete: operations["deleteSingleItemsSubsonic"];
     /**
      * Update an Item
      * @description Update an existing subsonic item.
      */
-    patch: operations['updateSingleItemsSubsonic'];
+    patch: operations["updateSingleItemsSubsonic"];
   };
-  '/items/subsonic_translations': {
+  "/items/std_cell": {
+    /**
+     * List Items
+     * @description List the std_cell items.
+     */
+    get: operations["readItemsStdCell"];
+    /**
+     * Create an Item
+     * @description Create a new std_cell item.
+     */
+    post: operations["createItemsStdCell"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing std_cell items.
+     */
+    delete: operations["deleteItemsStdCell"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple std_cell items at the same time.
+     */
+    patch: operations["updateItemsStdCell"];
+  };
+  "/items/std_cell/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single std_cell item by unique identifier.
+     */
+    get: operations["readSingleItemsStdCell"];
+    /**
+     * Delete an Item
+     * @description Delete an existing std_cell item.
+     */
+    delete: operations["deleteSingleItemsStdCell"];
+    /**
+     * Update an Item
+     * @description Update an existing std_cell item.
+     */
+    patch: operations["updateSingleItemsStdCell"];
+  };
+  "/items/std_cell_translations": {
+    /**
+     * List Items
+     * @description List the std_cell_translations items.
+     */
+    get: operations["readItemsStdCellTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new std_cell_translations item.
+     */
+    post: operations["createItemsStdCellTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing std_cell_translations items.
+     */
+    delete: operations["deleteItemsStdCellTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple std_cell_translations items at the same time.
+     */
+    patch: operations["updateItemsStdCellTranslations"];
+  };
+  "/items/std_cell_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single std_cell_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsStdCellTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing std_cell_translations item.
+     */
+    delete: operations["deleteSingleItemsStdCellTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing std_cell_translations item.
+     */
+    patch: operations["updateSingleItemsStdCellTranslations"];
+  };
+  "/items/subsonic_translations": {
     /**
      * List Items
      * @description List the subsonic_translations items.
      */
-    get: operations['readItemsSubsonicTranslations'];
+    get: operations["readItemsSubsonicTranslations"];
     /**
      * Create an Item
      * @description Create a new subsonic_translations item.
      */
-    post: operations['createItemsSubsonicTranslations'];
+    post: operations["createItemsSubsonicTranslations"];
     /**
      * Delete Multiple Items
      * @description Delete multiple existing subsonic_translations items.
      */
-    delete: operations['deleteItemsSubsonicTranslations'];
+    delete: operations["deleteItemsSubsonicTranslations"];
     /**
      * Update Multiple Items
      * @description Update multiple subsonic_translations items at the same time.
      */
-    patch: operations['updateItemsSubsonicTranslations'];
+    patch: operations["updateItemsSubsonicTranslations"];
   };
-  '/items/subsonic_translations/{id}': {
+  "/items/subsonic_translations/{id}": {
     /**
      * Retrieve an Item
      * @description Retrieve a single subsonic_translations item by unique identifier.
      */
-    get: operations['readSingleItemsSubsonicTranslations'];
+    get: operations["readSingleItemsSubsonicTranslations"];
     /**
      * Delete an Item
      * @description Delete an existing subsonic_translations item.
      */
-    delete: operations['deleteSingleItemsSubsonicTranslations'];
+    delete: operations["deleteSingleItemsSubsonicTranslations"];
     /**
      * Update an Item
      * @description Update an existing subsonic_translations item.
      */
-    patch: operations['updateSingleItemsSubsonicTranslations'];
+    patch: operations["updateSingleItemsSubsonicTranslations"];
+  };
+  "/items/icbd_activities": {
+    /**
+     * List Items
+     * @description List the icbd_activities items.
+     */
+    get: operations["readItemsIcbdActivities"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities item.
+     */
+    post: operations["createItemsIcbdActivities"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities items.
+     */
+    delete: operations["deleteItemsIcbdActivities"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivities"];
+  };
+  "/items/icbd_activities/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivities"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivities"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities item.
+     */
+    patch: operations["updateSingleItemsIcbdActivities"];
+  };
+  "/items/icbd_speakers": {
+    /**
+     * List Items
+     * @description List the icbd_speakers items.
+     */
+    get: operations["readItemsIcbdSpeakers"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_speakers item.
+     */
+    post: operations["createItemsIcbdSpeakers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_speakers items.
+     */
+    delete: operations["deleteItemsIcbdSpeakers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_speakers items at the same time.
+     */
+    patch: operations["updateItemsIcbdSpeakers"];
+  };
+  "/items/icbd_speakers/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_speakers item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdSpeakers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_speakers item.
+     */
+    delete: operations["deleteSingleItemsIcbdSpeakers"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_speakers item.
+     */
+    patch: operations["updateSingleItemsIcbdSpeakers"];
+  };
+  "/items/icbd_activities_translations": {
+    /**
+     * List Items
+     * @description List the icbd_activities_translations items.
+     */
+    get: operations["readItemsIcbdActivitiesTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_translations item.
+     */
+    post: operations["createItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_translations items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_translations items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesTranslations"];
+  };
+  "/items/icbd_activities_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_translations item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_translations item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
+  };
+  "/items/ICBD_files": {
+    /**
+     * List Items
+     * @description List the ICBD_files items.
+     */
+    get: operations["readItemsIcbdFiles"];
+    /**
+     * Create an Item
+     * @description Create a new ICBD_files item.
+     */
+    post: operations["createItemsIcbdFiles"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing ICBD_files items.
+     */
+    delete: operations["deleteItemsIcbdFiles"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple ICBD_files items at the same time.
+     */
+    patch: operations["updateItemsIcbdFiles"];
+  };
+  "/items/ICBD_files/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single ICBD_files item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdFiles"];
+    /**
+     * Delete an Item
+     * @description Delete an existing ICBD_files item.
+     */
+    delete: operations["deleteSingleItemsIcbdFiles"];
+    /**
+     * Update an Item
+     * @description Update an existing ICBD_files item.
+     */
+    patch: operations["updateSingleItemsIcbdFiles"];
+  };
+  "/items/icbd_activities_icbd_speakers": {
+    /**
+     * List Items
+     * @description List the icbd_activities_icbd_speakers items.
+     */
+    get: operations["readItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_icbd_speakers item.
+     */
+    post: operations["createItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_icbd_speakers items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_icbd_speakers items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesIcbdSpeakers"];
+  };
+  "/items/icbd_activities_icbd_speakers/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_icbd_speakers item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesIcbdSpeakers"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_icbd_speakers item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesIcbdSpeakers"];
+  };
+  "/items/ICBD_translations": {
+    /**
+     * List Items
+     * @description List the ICBD_translations items.
+     */
+    get: operations["readItemsIcbdTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new ICBD_translations item.
+     */
+    post: operations["createItemsIcbdTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing ICBD_translations items.
+     */
+    delete: operations["deleteItemsIcbdTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple ICBD_translations items at the same time.
+     */
+    patch: operations["updateItemsIcbdTranslations"];
+  };
+  "/items/ICBD_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single ICBD_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing ICBD_translations item.
+     */
+    delete: operations["deleteSingleItemsIcbdTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing ICBD_translations item.
+     */
+    patch: operations["updateSingleItemsIcbdTranslations"];
+  };
+  "/items/icbd_phds": {
+    /**
+     * List Items
+     * @description List the icbd_phds items.
+     */
+    get: operations["readItemsIcbdPhds"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_phds item.
+     */
+    post: operations["createItemsIcbdPhds"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_phds items.
+     */
+    delete: operations["deleteItemsIcbdPhds"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_phds items at the same time.
+     */
+    patch: operations["updateItemsIcbdPhds"];
+  };
+  "/items/icbd_phds/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_phds item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdPhds"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_phds item.
+     */
+    delete: operations["deleteSingleItemsIcbdPhds"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_phds item.
+     */
+    patch: operations["updateSingleItemsIcbdPhds"];
+  };
+  "/items/icbd_activities_registrations": {
+    /**
+     * List Items
+     * @description List the icbd_activities_registrations items.
+     */
+    get: operations["readItemsIcbdActivitiesRegistrations"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_registrations item.
+     */
+    post: operations["createItemsIcbdActivitiesRegistrations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_registrations items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesRegistrations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_registrations items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesRegistrations"];
+  };
+  "/items/icbd_activities_registrations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesRegistrations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_registrations item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesRegistrations"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_registrations item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesRegistrations"];
+  };
+  "/items/events": {
+    /**
+     * List Items
+     * @description List the events items.
+     */
+    get: operations["readItemsEvents"];
+    /**
+     * Create an Item
+     * @description Create a new events item.
+     */
+    post: operations["createItemsEvents"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events items.
+     */
+    delete: operations["deleteItemsEvents"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple events items at the same time.
+     */
+    patch: operations["updateItemsEvents"];
+  };
+  "/items/events/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events item by unique identifier.
+     */
+    get: operations["readSingleItemsEvents"];
+    /**
+     * Delete an Item
+     * @description Delete an existing events item.
+     */
+    delete: operations["deleteSingleItemsEvents"];
+    /**
+     * Update an Item
+     * @description Update an existing events item.
+     */
+    patch: operations["updateSingleItemsEvents"];
+  };
+  "/items/registrations": {
+    /**
+     * List Items
+     * @description List the registrations items.
+     */
+    get: operations["readItemsRegistrations"];
+    /**
+     * Create an Item
+     * @description Create a new registrations item.
+     */
+    post: operations["createItemsRegistrations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing registrations items.
+     */
+    delete: operations["deleteItemsRegistrations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple registrations items at the same time.
+     */
+    patch: operations["updateItemsRegistrations"];
+  };
+  "/items/registrations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single registrations item by unique identifier.
+     */
+    get: operations["readSingleItemsRegistrations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing registrations item.
+     */
+    delete: operations["deleteSingleItemsRegistrations"];
+    /**
+     * Update an Item
+     * @description Update an existing registrations item.
+     */
+    patch: operations["updateSingleItemsRegistrations"];
+  };
+  "/items/association_social_links": {
+    /**
+     * List Items
+     * @description List the association_social_links items.
+     */
+    get: operations["readItemsAssociationSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new association_social_links item.
+     */
+    post: operations["createItemsAssociationSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_social_links items.
+     */
+    delete: operations["deleteItemsAssociationSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_social_links items at the same time.
+     */
+    patch: operations["updateItemsAssociationSocialLinks"];
+  };
+  "/items/association_social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_social_links item.
+     */
+    delete: operations["deleteSingleItemsAssociationSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing association_social_links item.
+     */
+    patch: operations["updateSingleItemsAssociationSocialLinks"];
+  };
+  "/items/association_social_links_1": {
+    /**
+     * List Items
+     * @description List the association_social_links_1 items.
+     */
+    get: operations["readItemsAssociationSocialLinks1"];
+    /**
+     * Create an Item
+     * @description Create a new association_social_links_1 item.
+     */
+    post: operations["createItemsAssociationSocialLinks1"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing association_social_links_1 items.
+     */
+    delete: operations["deleteItemsAssociationSocialLinks1"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple association_social_links_1 items at the same time.
+     */
+    patch: operations["updateItemsAssociationSocialLinks1"];
+  };
+  "/items/association_social_links_1/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single association_social_links_1 item by unique identifier.
+     */
+    get: operations["readSingleItemsAssociationSocialLinks1"];
+    /**
+     * Delete an Item
+     * @description Delete an existing association_social_links_1 item.
+     */
+    delete: operations["deleteSingleItemsAssociationSocialLinks1"];
+    /**
+     * Update an Item
+     * @description Update an existing association_social_links_1 item.
+     */
+    patch: operations["updateSingleItemsAssociationSocialLinks1"];
   };
 }
 
@@ -2580,19 +2619,19 @@ export interface components {
        * @description Virtual folder where this file resides in.
        * @example null
        */
-      folder?: string | components['schemas']['Folders'] | null;
+      folder?: string | components["schemas"]["Folders"] | null;
       /**
        * @description Who uploaded the file.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      uploaded_by?: string | components['schemas']['Users'];
+      uploaded_by?: string | components["schemas"]["Users"];
       /**
        * Format: date-time
        * @description When the file was created.
        * @example 2019-12-03T00:10:15+00:00
        */
       created_on?: string;
-      modified_by?: string | components['schemas']['Users'] | null;
+      modified_by?: string | components["schemas"]["Users"] | null;
       /** Format: timestamp */
       modified_on?: string;
       /**
@@ -2659,7 +2698,7 @@ export interface components {
        * @description Unique identifier of the parent folder. This allows for nested folders.
        * @example null
        */
-      parent?: string | components['schemas']['Folders'] | null;
+      parent?: string | components["schemas"]["Folders"] | null;
     };
     Roles: {
       /**
@@ -2683,20 +2722,20 @@ export interface components {
        */
       description?: string | null;
       /** @description $t:field_options.directus_roles.parent_note */
-      parent?: string | components['schemas']['Roles'] | null;
+      parent?: string | components["schemas"]["Roles"] | null;
       /** @description $t:field_options.directus_roles.children_note */
-      children?: (string | components['schemas']['Roles'])[] | null;
+      children?: (string | components["schemas"]["Roles"])[] | null;
       policies?: unknown;
-      users?: (string | components['schemas']['Users'])[] | null;
+      users?: (string | components["schemas"]["Users"])[] | null;
     };
     Schema: {
       /** @example 1 */
       version?: number;
       directus?: string;
       vendor?: string;
-      collections?: components['schemas']['Collections'][];
-      fields?: components['schemas']['Fields'][];
-      relations?: components['schemas']['Relations'][];
+      collections?: components["schemas"]["Collections"][];
+      fields?: components["schemas"]["Fields"][];
+      relations?: components["schemas"]["Relations"][];
     };
     Users: {
       /**
@@ -2746,7 +2785,7 @@ export interface components {
        * @description The user's avatar.
        * @example null
        */
-      avatar?: string | components['schemas']['Files'] | null;
+      avatar?: string | components["schemas"]["Files"] | null;
       /**
        * @description The user's language used in Directus.
        * @example en-US
@@ -2762,12 +2801,12 @@ export interface components {
        * @example active
        * @enum {string}
        */
-      status?: 'active' | 'invited' | 'draft' | 'suspended' | 'deleted';
+      status?: "active" | "invited" | "draft" | "suspended" | "deleted";
       /**
        * @description Unique identifier of the role of this user.
        * @example 2f24211d-d928-469a-aea3-3c8f53d4e426
        */
-      role?: string | components['schemas']['Roles'];
+      role?: string | components["schemas"]["Roles"];
       /** @description Static token for the user. */
       token?: string | null;
       /**
@@ -2834,7 +2873,7 @@ export interface components {
        */
       deep?: Record<string, never>;
     };
-    'x-metadata': {
+    "x-metadata": {
       /** @description Returns the total item count of the collection you're querying. */
       total_count?: number;
       /** @description Returns the item count of the collection you're querying, taking the current filter/search parameters into account. */
@@ -2851,9 +2890,9 @@ export interface components {
        * @example update
        * @enum {string}
        */
-      action?: 'create' | 'update' | 'delete' | 'login';
+      action?: "create" | "update" | "delete" | "login";
       /** @description The user who performed this action. */
-      user?: string | components['schemas']['Users'] | null;
+      user?: string | components["schemas"]["Users"] | null;
       /**
        * Format: date-time
        * @description When the action happened.
@@ -2871,7 +2910,7 @@ export interface components {
        */
       user_agent?: string;
       /** @description Collection identifier in which the item resides. */
-      collection?: string | components['schemas']['Collections'];
+      collection?: string | components["schemas"]["Collections"];
       /**
        * @description Unique identifier for the item the action applied to. This is always a string, even for integer primary keys.
        * @example 328
@@ -2887,7 +2926,7 @@ export interface components {
        * @example https://directus.io
        */
       origin?: string;
-      revisions?: (number | components['schemas']['Revisions'])[] | null;
+      revisions?: (number | components["schemas"]["Revisions"])[] | null;
     };
     Permissions: {
       /**
@@ -2905,7 +2944,7 @@ export interface components {
        * @example create
        * @enum {string}
        */
-      action?: 'create' | 'read' | 'update' | 'delete';
+      action?: "create" | "read" | "update" | "delete";
       /** @description JSON structure containing the permissions checks for this permission. */
       permissions?: Record<string, unknown> | null;
       /** @description JSON structure containing the validation checks for this permission. */
@@ -2941,7 +2980,7 @@ export interface components {
       note?: string | null;
       conditions?: unknown;
       required?: boolean | null;
-      group?: number | components['schemas']['Fields'] | null;
+      group?: number | components["schemas"]["Fields"] | null;
       validation?: unknown;
       validation_message?: string | null;
     };
@@ -2966,7 +3005,7 @@ export interface components {
       color?: string | null;
       item_duplication_fields?: unknown;
       sort?: number | null;
-      group?: string | components['schemas']['Collections'] | null;
+      group?: string | components["schemas"]["Collections"] | null;
       collapse?: string;
       preview_url?: string | null;
       versioning?: boolean;
@@ -2983,17 +3022,17 @@ export interface components {
        * @description The unique identifier of the user to whom this collection preset applies.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      user?: string | components['schemas']['Users'] | null;
+      user?: string | components["schemas"]["Users"] | null;
       /**
        * @description The unique identifier of a role in the platform. If `user` is null, this will be used to apply the collection preset or bookmark for all users in the role.
        * @example 50419801-0f30-8644-2b3c-9bc2d980d0a0
        */
-      role?: string | components['schemas']['Roles'] | null;
+      role?: string | components["schemas"]["Roles"] | null;
       /**
        * @description What collection this collection preset is used for.
        * @example articles
        */
-      collection?: string | components['schemas']['Collections'];
+      collection?: string | components["schemas"]["Collections"];
       /** @description Search query. */
       search?: string | null;
       /**
@@ -3073,12 +3112,12 @@ export interface components {
        * @description Unique identifier for the activity record.
        * @example 2
        */
-      activity?: number | components['schemas']['Activity'];
+      activity?: number | components["schemas"]["Activity"];
       /**
        * @description Collection of the updated item.
        * @example articles
        */
-      collection?: string | components['schemas']['Collections'];
+      collection?: string | components["schemas"]["Collections"];
       /**
        * @description Primary key of updated item.
        * @example 168
@@ -3111,7 +3150,7 @@ export interface components {
        * @description Associated version of this revision.
        * @example draft
        */
-      version?: string | components['schemas']['Versions'];
+      version?: string | components["schemas"]["Versions"];
     };
     Flows: {
       /**
@@ -3141,7 +3180,7 @@ export interface components {
        * @example active
        * @enum {string}
        */
-      status?: 'active' | 'inactive';
+      status?: "active" | "inactive";
       /**
        * @description Type of trigger for the flow. One of `hook`, `webhook`, `operation`, `schedule`, `manual`.
        * @example manual
@@ -3161,7 +3200,7 @@ export interface components {
        * @description UUID of the operation connected to the trigger in the flow.
        * @example 92e82998-e421-412f-a513-13701e83e4ce
        */
-      operation?: string | components['schemas']['Operations'];
+      operation?: string | components["schemas"]["Operations"];
       /**
        * Format: date-time
        * @description Timestamp in ISO8601 when the flow was created.
@@ -3172,8 +3211,8 @@ export interface components {
        * @description The user who created the flow.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      user_created?: string | components['schemas']['Users'];
-      operations?: (string | components['schemas']['Operations'])[] | null;
+      user_created?: string | components["schemas"]["Users"];
+      operations?: (string | components["schemas"]["Operations"])[] | null;
     };
     Operations: {
       /**
@@ -3215,13 +3254,13 @@ export interface components {
        * @description The operation triggered when the current operation succeeds (or `then` logic of a condition operation).
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      resolve?: string | components['schemas']['Operations'];
+      resolve?: string | components["schemas"]["Operations"];
       /**
        * @description The operation triggered when the current operation fails (or `otherwise` logic of a condition operation).
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      reject?: string | components['schemas']['Operations'];
-      flow?: string | components['schemas']['Flows'];
+      reject?: string | components["schemas"]["Operations"];
+      flow?: string | components["schemas"]["Flows"];
       /**
        * Format: date-time
        * @description Timestamp in ISO8601 when the operation was created.
@@ -3232,7 +3271,7 @@ export interface components {
        * @description The user who created the operation.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      user_created?: string | components['schemas']['Users'];
+      user_created?: string | components["schemas"]["Users"];
     };
     Webhooks: {
       /**
@@ -3273,7 +3312,7 @@ export interface components {
       collections?: string[];
       headers?: unknown;
       was_active_before_deprecation?: boolean;
-      migrated_flow?: string | components['schemas']['Flows'] | null;
+      migrated_flow?: string | components["schemas"]["Flows"] | null;
     };
     Extensions: {
       enabled?: boolean;
@@ -3343,7 +3382,7 @@ export interface components {
        * @example all
        * @enum {string|null}
        */
-      storage_asset_transform?: 'all' | 'none' | 'presets' | null;
+      storage_asset_transform?: "all" | "none" | "presets" | null;
       /**
        * @description Array of allowed
        * @example null
@@ -3356,7 +3395,7 @@ export interface components {
              * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
              * @enum {string}
              */
-            fit?: 'cover' | 'contain' | 'inside' | 'outside';
+            fit?: "cover" | "contain" | "inside" | "outside";
             /** @description Width of the thumbnail. */
             width?: number;
             /** @description Height of the thumbnail. */
@@ -3369,7 +3408,7 @@ export interface components {
              * @description Reformat output image
              * @enum {string}
              */
-            format?: '' | 'jpeg' | 'png' | 'webp' | 'tiff' | 'avif';
+            format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
             /** @description Additional transformations to apply */
             transforms?:
               | {
@@ -3399,7 +3438,7 @@ export interface components {
       default_language?: string;
       custom_aspect_ratios?: unknown;
       /** @description $t:field_options.directus_settings.project_favicon_note */
-      public_favicon?: string | components['schemas']['Files'] | null;
+      public_favicon?: string | components["schemas"]["Files"] | null;
       default_appearance?: string;
       default_theme_light?: string | null;
       theme_light_overrides?: unknown;
@@ -3413,7 +3452,7 @@ export interface components {
       /** @description $t:fields.directus_settings.public_registration_verify_email_note */
       public_registration_verify_email?: boolean;
       /** @description $t:fields.directus_settings.public_registration_role_note */
-      public_registration_role?: string | components['schemas']['Roles'] | null;
+      public_registration_role?: string | components["schemas"]["Roles"] | null;
       /** @description $t:fields.directus_settings.public_registration_email_filter_note */
       public_registration_email_filter?: unknown;
     };
@@ -3437,7 +3476,7 @@ export interface components {
        * @description Name of the collection the Content Version is created on.
        * @example articles
        */
-      collection?: string | components['schemas']['Collections'];
+      collection?: string | components["schemas"]["Collections"];
       /**
        * @description The item the Content Version is created on.
        * @example 168
@@ -3460,12 +3499,12 @@ export interface components {
        * @description User that created the Content Version.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      user_created?: string | components['schemas']['Users'];
+      user_created?: string | components["schemas"]["Users"];
       /**
        * @description User that last updated the Content Version.
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
-      user_updated?: string | components['schemas']['Users'];
+      user_updated?: string | components["schemas"]["Users"];
       /**
        * @description The current changes compared to the main version of the item.
        * @example {
@@ -3480,30 +3519,33 @@ export interface components {
       email?: string | null;
       phone?: string | null;
       address?: string | null;
-      logo?: string | components['schemas']['Files'] | null;
+      logo?: string | components["schemas"]["Files"] | null;
       public_files?:
         | number
-        | components['schemas']['ItemsAssociationPublicFiles']
+        | components["schemas"]["ItemsAssociationPublicFiles"]
         | null;
-      preview_image?: string | components['schemas']['Files'] | null;
-      translations?:
-        | (number | components['schemas']['ItemsAssociationTranslations'])[]
-        | null;
+      preview_image?: string | components["schemas"]["Files"] | null;
       partners?:
-        | (number | components['schemas']['ItemsAssociationPartners'])[]
+        | (number | components["schemas"]["ItemsAssociationPartners"])[]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
         | null;
       social_links?:
-        | (number | components['schemas']['ItemsAssociationSocialLinks'])[]
+        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
+        | null;
+      channels?:
+        | (number | components["schemas"]["ItemsAssociationSocialLinks1"])[]
         | null;
     };
     ItemsAssociationPublicFiles: {
       id?: number;
       link?: string | null;
-      icon?: string | components['schemas']['Files'] | null;
+      icon?: string | components["schemas"]["Files"] | null;
       translations?:
         | (
             | number
-            | components['schemas']['ItemsAssociationPublicFilesTranslations']
+            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
           )[]
         | null;
     };
@@ -3514,19 +3556,19 @@ export interface components {
       email?: string | null;
       sciper?: string | null;
       link?: string | null;
-      picture?: string | components['schemas']['Files'] | null;
+      picture?: string | components["schemas"]["Files"] | null;
       /** @description Poll Count used by RoboCLIC. */
       poll_count?: number | null;
     };
     ItemsAssociationMemberships: {
       id?: number;
-      member?: number | components['schemas']['ItemsMembers'];
+      member?: number | components["schemas"]["ItemsMembers"];
       level?: string | null;
-      pole?: number | components['schemas']['ItemsAssociationPoles'] | null;
+      pole?: number | components["schemas"]["ItemsAssociationPoles"] | null;
       translations?:
         | (
             | number
-            | components['schemas']['ItemsAssociationMembershipsTranslations']
+            | components["schemas"]["ItemsAssociationMembershipsTranslations"]
           )[]
         | null;
     };
@@ -3537,7 +3579,7 @@ export interface components {
       translations?:
         | (
             | number
-            | components['schemas']['ItemsAssociationPolesTranslations']
+            | components["schemas"]["ItemsAssociationPolesTranslations"]
           )[]
         | null;
     };
@@ -3549,38 +3591,38 @@ export interface components {
       id?: number;
       association_memberships_id?:
         | number
-        | components['schemas']['ItemsAssociationMemberships']
+        | components["schemas"]["ItemsAssociationMemberships"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
     };
     ItemsPartners: {
       id?: number;
       name?: string | null;
-      logo?: string | components['schemas']['Files'] | null;
+      logo?: string | components["schemas"]["Files"] | null;
       link?: string | null;
       /** Format: date */
       start?: string | null;
       /** Format: date */
       end?: string | null;
-      commission?: number | components['schemas']['ItemsCommissions'] | null;
-      category?: number | components['schemas']['ItemsPartnerCategory'] | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      category?: number | components["schemas"]["ItemsPartnerCategory"] | null;
     };
     ItemsAssociationPartners: {
       id?: number;
       association_id?:
         | number
-        | components['schemas']['ItemsAssociation']
+        | components["schemas"]["ItemsAssociation"]
         | null;
-      partners_id?: number | components['schemas']['ItemsPartners'] | null;
+      partners_id?: number | components["schemas"]["ItemsPartners"] | null;
     };
     ItemsAssociationPolesTranslations: {
       id?: number;
       association_poles_id?:
         | number
-        | components['schemas']['ItemsAssociationPoles']
+        | components["schemas"]["ItemsAssociationPoles"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       name?: string | null;
       description?: string | null;
     };
@@ -3588,62 +3630,51 @@ export interface components {
       id?: number;
       association_public_files_id?:
         | number
-        | components['schemas']['ItemsAssociationPublicFiles']
+        | components["schemas"]["ItemsAssociationPublicFiles"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       name?: string | null;
     };
     ItemsSocialLinks: {
       id?: number;
       link?: string | null;
-      logo?: string | components['schemas']['Files'] | null;
+      logo?: string | components["schemas"]["Files"] | null;
       media_name?: string | null;
       account_name?: string | null;
-    };
-    ItemsAssociationSocialLinks: {
-      id?: number;
-      association_id?:
-        | number
-        | components['schemas']['ItemsAssociation']
-        | null;
-      social_links_id?:
-        | number
-        | components['schemas']['ItemsSocialLinks']
-        | null;
     };
     ItemsAssociationTranslations: {
       id?: number;
       association_id?:
         | number
-        | components['schemas']['ItemsAssociation']
+        | components["schemas"]["ItemsAssociation"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       description?: string | null;
-      banner?: string | components['schemas']['Files'] | null;
+      banner?: string | components["schemas"]["Files"] | null;
     };
     ItemsCommissions: {
       id?: number;
       email?: string | null;
       slug?: string | null;
-      logo?: string | components['schemas']['Files'] | null;
+      logo?: string | components["schemas"]["Files"] | null;
       name?: string | null;
       translations?:
-        | (number | components['schemas']['ItemsCommissionsTranslations'])[]
+        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
         | null;
-      partners?: (number | components['schemas']['ItemsPartners'])[] | null;
+      partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
       social_links?:
-        | (number | components['schemas']['ItemsCommissionsSocialLinks'])[]
+        | (number | components["schemas"]["ItemsCommissionsSocialLinks"])[]
         | null;
     };
     ItemsCommissionMemberships: {
       id?: number;
-      commission?: number | components['schemas']['ItemsCommissions'];
-      member?: number | components['schemas']['ItemsMembers'];
+      commission?: number | components["schemas"]["ItemsCommissions"];
+      member?: number | components["schemas"]["ItemsMembers"];
       level?: string | null;
       translations?:
         | (
             | number
-            | components['schemas']['ItemsCommissionMembershipsTranslations']
+            | components["schemas"]["ItemsCommissionMembershipsTranslations"]
           )[]
         | null;
     };
@@ -3651,32 +3682,32 @@ export interface components {
       id?: number;
       commission_memberships_id?:
         | number
-        | components['schemas']['ItemsCommissionMemberships']
+        | components["schemas"]["ItemsCommissionMemberships"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
     };
     ItemsCommissionsSocialLinks: {
       id?: number;
       commissions_id?:
         | number
-        | components['schemas']['ItemsCommissions']
+        | components["schemas"]["ItemsCommissions"]
         | null;
       social_links_id?:
         | number
-        | components['schemas']['ItemsSocialLinks']
+        | components["schemas"]["ItemsSocialLinks"]
         | null;
     };
     ItemsCommissionsTranslations: {
       id?: number;
       commissions_id?:
         | number
-        | components['schemas']['ItemsCommissions']
+        | components["schemas"]["ItemsCommissions"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       small_description?: string | null;
       description?: string | null;
-      banner?: string | components['schemas']['Files'] | null;
+      banner?: string | components["schemas"]["Files"] | null;
     };
     ItemsInventory: {
       id?: number;
@@ -3684,20 +3715,20 @@ export interface components {
       quantity?: number | null;
       /** Format: date */
       expiration_date?: string | null;
-      commission?: number | components['schemas']['ItemsCommissions'] | null;
-      row?: number | null;
-      column?: number | null;
-      place?: string | null;
       tags?: unknown;
       /** @description Why it is usefull ? Where can we find it ? */
       details?: string | null;
-      picture?: string | components['schemas']['Files'] | null;
+      picture?: string | components["schemas"]["Files"] | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      row?: number | null;
+      column?: number | null;
+      place?: string | null;
     };
     ItemsNews: {
       id?: number;
       status?: string;
       sort?: number | null;
-      user_created?: string | components['schemas']['Users'] | null;
+      user_created?: string | components["schemas"]["Users"] | null;
       /** Format: timestamp */
       date_created?: string | null;
       /** Format: timestamp */
@@ -3705,42 +3736,42 @@ export interface components {
       slug?: string | null;
       video_link?: string | null;
       translations?:
-        | (number | components['schemas']['ItemsNewsTranslations'])[]
+        | (number | components["schemas"]["ItemsNewsTranslations"])[]
         | null;
       commissions?:
-        | (number | components['schemas']['ItemsNewsCommissions'])[]
+        | (number | components["schemas"]["ItemsNewsCommissions"])[]
         | null;
-      partners?: (number | components['schemas']['ItemsNewsPartners'])[] | null;
+      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
     };
     ItemsNewsCommissions: {
       id?: number;
-      news_id?: number | components['schemas']['ItemsNews'] | null;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
       commissions_id?:
         | number
-        | components['schemas']['ItemsCommissions']
+        | components["schemas"]["ItemsCommissions"]
         | null;
     };
     ItemsNewsPartners: {
       id?: number;
-      news_id?: number | components['schemas']['ItemsNews'] | null;
-      partners_id?: number | components['schemas']['ItemsPartners'] | null;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
+      partners_id?: number | components["schemas"]["ItemsPartners"] | null;
     };
     ItemsNewsTranslations: {
       id?: number;
-      news_id?: number | components['schemas']['ItemsNews'] | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      news_id?: number | components["schemas"]["ItemsNews"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string;
       description?: string;
       content?: string;
-      banner?: string | components['schemas']['Files'] | null;
+      banner?: string | components["schemas"]["Files"] | null;
     };
     ItemsPartnerCategoryTranslations: {
       id?: number;
       partner_category_id?:
         | number
-        | components['schemas']['ItemsPartnerCategory']
+        | components["schemas"]["ItemsPartnerCategory"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       /** @description Pluralized name of the category */
       name?: string | null;
     };
@@ -3749,58 +3780,23 @@ export interface components {
       /** @description 0 is the highest category (e.g. premium) */
       rank?: number | null;
       translations?:
-        | (number | components['schemas']['ItemsPartnerCategoryTranslations'])[]
+        | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
         | null;
     };
     ItemsSavetheDate: {
       id?: number;
-      language_button_target?:
-        | string
-        | components['schemas']['ItemsLanguages']
-        | null;
       background_color?: string | null;
       text_color?: string | null;
-      image?: string | components['schemas']['Files'] | null;
+      image?: string | components["schemas"]["Files"] | null;
       title_color?: string | null;
       button_color?: string | null;
+      language_button_target?:
+        | string
+        | components["schemas"]["ItemsLanguages"]
+        | null;
       translations?:
-        | (number | components['schemas']['ItemsSavetheDateTranslations'])[]
+        | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
         | null;
-    };
-    ItemsSavetheDateTranslations: {
-      id?: number;
-      save_the_date_id?:
-        | number
-        | components['schemas']['ItemsSavetheDate']
-        | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
-      title?: string | null;
-      description?: string | null;
-    };
-    ItemsStdCell: {
-      id?: number;
-      image?: string | components['schemas']['Files'] | null;
-      commission?: number | components['schemas']['ItemsCommissions'] | null;
-      url?: string | null;
-      /** Format: date */
-      date?: string | null;
-      recurrence?: string | null;
-      text_color?: string | null;
-      background_color?: string | null;
-      button_color?: string | null;
-      translations?:
-        | (number | components['schemas']['ItemsStdCellTranslations'])[]
-        | null;
-    };
-    ItemsStdCellTranslations: {
-      id?: number;
-      std_cell_id?: number | components['schemas']['ItemsStdCell'] | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
-      title?: string;
-      description?: string | null;
-      detail_button_title?: string | null;
-      /** @description This will replace the date by this text. (optional) */
-      date_replacement?: string | null;
     };
     Comments: {
       /**
@@ -3812,7 +3808,7 @@ export interface components {
        * @description The collection of the item the Comment is created for.
        * @example articles
        */
-      collection?: string | components['schemas']['Collections'];
+      collection?: string | components["schemas"]["Collections"];
       /**
        * @description The item the Comment is created for.
        * @example 123
@@ -3839,12 +3835,165 @@ export interface components {
        * @description User that created the Comment.
        * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
        */
-      user_created?: string | components['schemas']['Users'];
+      user_created?: string | components["schemas"]["Users"];
       /**
        * @description User that updated the Comment.
        * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
        */
-      user_updated?: string | components['schemas']['Users'];
+      user_updated?: string | components["schemas"]["Users"];
+    };
+    ItemsIcbd: {
+      id?: number;
+      logo?: string | components["schemas"]["Files"] | null;
+      presentation_video?: string | null;
+      /** Format: date */
+      date?: string;
+      /** Format: time */
+      start_time?: string;
+      /** Format: time */
+      end_time?: string;
+      place?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsIcbdTranslations"])[]
+        | null;
+      partners_images?:
+        | (number | components["schemas"]["ItemsIcbdFiles"])[]
+        | null;
+    };
+    ItemsArtists: {
+      id?: number;
+      name?: string | null;
+      image?: string | components["schemas"]["Files"] | null;
+      link?: string | null;
+      /** Format: time */
+      start_time?: string | null;
+      /** Format: time */
+      end_time?: string | null;
+    };
+    ItemsSavetheDateTranslations: {
+      id?: number;
+      save_the_date_id?:
+        | number
+        | components["schemas"]["ItemsSavetheDate"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
+    };
+    ItemsSubsonic: {
+      id?: number;
+      header_image?: string | components["schemas"]["Files"] | null;
+      logo?: string | components["schemas"]["Files"] | null;
+      map?: string | components["schemas"]["Files"] | null;
+      translations?:
+        | (number | components["schemas"]["ItemsSubsonicTranslations"])[]
+        | null;
+    };
+    ItemsStdCell: {
+      id?: number;
+      image?: string | components["schemas"]["Files"] | null;
+      commission?: number | components["schemas"]["ItemsCommissions"] | null;
+      url?: string | null;
+      /** Format: date */
+      date?: string | null;
+      text_color?: string | null;
+      background_color?: string | null;
+      button_color?: string | null;
+      recurrence?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsStdCellTranslations"])[]
+        | null;
+    };
+    ItemsStdCellTranslations: {
+      id?: number;
+      std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string;
+      description?: string | null;
+      detail_button_title?: string | null;
+      /** @description This will replace the date by this text. (optional) */
+      date_replacement?: string | null;
+    };
+    ItemsSubsonicTranslations: {
+      id?: number;
+      subsonic_id?: number | components["schemas"]["ItemsSubsonic"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      info?: string | null;
+    };
+    ItemsIcbdActivities: {
+      id?: number;
+      icon?: string | components["schemas"]["Files"] | null;
+      timeslots?: unknown;
+      color?: string | null;
+      type?: string | null;
+      hosts?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]
+        | null;
+      translations?:
+        | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
+        | null;
+    };
+    ItemsIcbdSpeakers: {
+      id?: number;
+      first_name?: string | null;
+      last_name?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+      company?: string | null;
+      linkedin?: string | null;
+    };
+    ItemsIcbdActivitiesTranslations: {
+      id?: number;
+      icbd_activities_id?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
+      description?: string | null;
+    };
+    ItemsIcbdFiles: {
+      id?: number;
+      ICBD_id?: number | components["schemas"]["ItemsIcbd"] | null;
+      directus_files_id?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsIcbdActivitiesIcbdSpeakers: {
+      id?: number;
+      icbd_activities_id?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      icbd_speakers_id?:
+        | number
+        | components["schemas"]["ItemsIcbdSpeakers"]
+        | null;
+    };
+    ItemsIcbdTranslations: {
+      id?: number;
+      ICBD_id?: number | components["schemas"]["ItemsIcbd"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      description?: string | null;
+      registration_instructions?: string | null;
+    };
+    ItemsIcbdPhds: {
+      id?: number;
+      first_name?: string;
+      last_name?: string | null;
+      laboratory?: string | null;
+      picture?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsIcbdActivitiesRegistrations: {
+      id?: number;
+      icbd_activity?:
+        | number
+        | components["schemas"]["ItemsIcbdActivities"]
+        | null;
+      registration?:
+        | string
+        | components["schemas"]["ItemsRegistrations"]
+        | null;
+      /** Format: time */
+      start?: string | null;
+      attended?: boolean | null;
     };
     ItemsEvents: {
       id?: number;
@@ -3854,6 +4003,10 @@ export interface components {
       /** Format: date-time */
       to?: string | null;
       opened?: boolean | null;
+      name?: string | null;
+      price?: number | null;
+      max_registrations?: number | null;
+      registration_count?: number;
       /** Format: date-time */
       staffing_from?: string | null;
       /** Format: date-time */
@@ -3863,15 +4016,11 @@ export interface components {
       mailTemplate?: string | null;
       mailSent?: boolean | null;
       meals?: unknown;
-      name?: string | null;
-      price?: number | null;
-      max_registrations?: number | null;
-      registration_count?: number;
     };
     ItemsRegistrations: {
       /** Format: uuid */
       id?: string;
-      event?: number | components['schemas']['ItemsEvents'] | null;
+      event?: number | components["schemas"]["ItemsEvents"] | null;
       email?: string | null;
       comments?: string | null;
       family_name?: string | null;
@@ -3895,130 +4044,34 @@ export interface components {
       registration_email_sent?: boolean | null;
       confirmation_email_sent?: boolean | null;
     };
-    ItemsIcbd: {
+    ItemsAssociationSocialLinks: {
       id?: number;
-      logo?: string | components['schemas']['Files'] | null;
-      presentation_video?: string | null;
-      /** Format: date */
-      date?: string;
-      /** Format: time */
-      start_time?: string;
-      /** Format: time */
-      end_time?: string;
-      place?: string | null;
-      translations?:
-        | (number | components['schemas']['ItemsIcbdTranslations'])[]
-        | null;
-      partners_images?:
-        | (number | components['schemas']['ItemsIcbdFiles'])[]
-        | null;
-    };
-    ItemsIcbdFiles: {
-      id?: number;
-      ICBD_id?: number | components['schemas']['ItemsIcbd'] | null;
-      directus_files_id?: string | components['schemas']['Files'] | null;
-    };
-    ItemsIcbdTranslations: {
-      id?: number;
-      ICBD_id?: number | components['schemas']['ItemsIcbd'] | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
-      description?: string | null;
-      registration_instructions?: string | null;
-    };
-    ItemsArtists: {
-      id?: number;
-      name?: string | null;
-      image?: string | components['schemas']['Files'] | null;
-      link?: string | null;
-      /** Format: time */
-      start_time?: string | null;
-      /** Format: time */
-      end_time?: string | null;
-    };
-    ItemsIcbdActivities: {
-      id?: number;
-      icon?: string | components['schemas']['Files'] | null;
-      timeslots?: unknown;
-      color?: string | null;
-      type?: string | null;
-      translations?:
-        | (number | components['schemas']['ItemsIcbdActivitiesTranslations'])[]
-        | null;
-      hosts?:
-        | (number | components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'])[]
-        | null;
-    };
-    ItemsIcbdSpeakers: {
-      id?: number;
-      first_name?: string | null;
-      last_name?: string | null;
-      picture?: string | components['schemas']['Files'] | null;
-      company?: string | null;
-      linkedin?: string | null;
-    };
-    ItemsIcbdActivitiesIcbdSpeakers: {
-      id?: number;
-      icbd_activities_id?:
+      association_id?:
         | number
-        | components['schemas']['ItemsIcbdActivities']
+        | components["schemas"]["ItemsAssociation"]
         | null;
-      icbd_speakers_id?:
+      social_links_id?:
         | number
-        | components['schemas']['ItemsIcbdSpeakers']
+        | components["schemas"]["ItemsSocialLinks"]
         | null;
     };
-    ItemsIcbdActivitiesRegistrations: {
+    ItemsAssociationSocialLinks1: {
       id?: number;
-      icbd_activity?:
+      association_id?:
         | number
-        | components['schemas']['ItemsIcbdActivities']
+        | components["schemas"]["ItemsAssociation"]
         | null;
-      registration?:
-        | string
-        | components['schemas']['ItemsRegistrations']
-        | null;
-      /** Format: time */
-      start?: string | null;
-      attended?: boolean | null;
-    };
-    ItemsIcbdActivitiesTranslations: {
-      id?: number;
-      icbd_activities_id?:
+      social_links_id?:
         | number
-        | components['schemas']['ItemsIcbdActivities']
+        | components["schemas"]["ItemsSocialLinks"]
         | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
-      name?: string | null;
-      description?: string | null;
-    };
-    ItemsIcbdPhds: {
-      id?: number;
-      first_name?: string;
-      last_name?: string | null;
-      laboratory?: string | null;
-      picture?: string | components['schemas']['Files'] | null;
-    };
-    ItemsSubsonic: {
-      id?: number;
-      header_image?: string | components['schemas']['Files'] | null;
-      logo?: string | components['schemas']['Files'] | null;
-      map?: string | components['schemas']['Files'] | null;
-      translations?:
-        | (number | components['schemas']['ItemsSubsonicTranslations'])[]
-        | null;
-    };
-    ItemsSubsonicTranslations: {
-      id?: number;
-      subsonic_id?: number | components['schemas']['ItemsSubsonic'] | null;
-      languages_code?: string | components['schemas']['ItemsLanguages'] | null;
-      info?: string | null;
     };
   };
   responses: {
     /** @description Error: Not found. */
     NotFoundError: {
       content: {
-        'application/json': {
+        "application/json": {
           error?: {
             /** Format: int64 */
             code?: number;
@@ -4030,7 +4083,7 @@ export interface components {
     /** @description Error: Unauthorized request */
     UnauthorizedError: {
       content: {
-        'application/json': {
+        "application/json": {
           error?: {
             /** Format: int64 */
             code?: number;
@@ -4064,7 +4117,7 @@ export interface components {
     /** @description Control what fields are being returned in the object. */
     Fields?: string[];
     /** @description Saves the API response to a file. Accepts one of "csv", "json", "xml", "yaml". */
-    Export?: 'csv' | 'json' | 'xml' | 'yaml';
+    Export?: "csv" | "json" | "xml" | "yaml";
     /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
     Version?: string;
   };
@@ -4101,10 +4154,10 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'text/plain': string;
+          "text/plain": string;
         };
       };
-      404: components['responses']['NotFoundError'];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4114,7 +4167,7 @@ export interface operations {
   login: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Email address of the user you're retrieving the access token for.
            * @example admin@example.com
@@ -4131,7 +4184,7 @@ export interface operations {
            * @default json
            * @enum {string}
            */
-          mode?: 'json' | 'cookie' | 'session';
+          mode?: "json" | "cookie" | "session";
           /** @description The user's one-time-password (if MFA is enabled). */
           otp?: string;
         };
@@ -4141,7 +4194,7 @@ export interface operations {
       /** @description Successful authentification */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: {
               /** @example eyJhbGciOiJI... */
               access_token?: string;
@@ -4162,7 +4215,7 @@ export interface operations {
   refresh: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description JWT access token you want to refresh. This token can't be expired.
            * @example eyJ0eXAiOiJKV...
@@ -4173,7 +4226,7 @@ export interface operations {
            * @default json
            * @enum {string}
            */
-          mode?: 'json' | 'cookie' | 'session';
+          mode?: "json" | "cookie" | "session";
         };
       };
     };
@@ -4181,7 +4234,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: {
               /** @example eyJhbGciOiJI... */
               access_token?: string;
@@ -4193,7 +4246,7 @@ export interface operations {
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4203,7 +4256,7 @@ export interface operations {
   logout: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description The refresh token to invalidate. If you have the refresh token in a cookie through /auth/login, you don't have to submit it here.
            * @example eyJ0eXAiOiJKV...
@@ -4213,7 +4266,7 @@ export interface operations {
            * @description Whether the refresh token is submitted in the JSON response, or in a httpOnly cookie.
            * @enum {string}
            */
-          mode?: 'json' | 'cookie' | 'session';
+          mode?: "json" | "cookie" | "session";
         };
       };
     };
@@ -4231,7 +4284,7 @@ export interface operations {
   passwordRequest: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Email address of the user you're requesting a reset for.
            * @example admin@example.com
@@ -4241,7 +4294,7 @@ export interface operations {
       };
     };
     responses: {
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4251,7 +4304,7 @@ export interface operations {
   passwordReset: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description One-time use JWT token that is used to verify the user.
            * @example eyJ0eXAiOiJKV1Qi...
@@ -4267,7 +4320,7 @@ export interface operations {
       };
     };
     responses: {
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4279,7 +4332,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             public?: boolean;
             /**
              * @example [
@@ -4291,7 +4344,7 @@ export interface operations {
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4313,7 +4366,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             public?: boolean;
             data?: {
               token?: string;
@@ -4321,7 +4374,7 @@ export interface operations {
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4331,20 +4384,20 @@ export interface operations {
   schemaSnapshot: {
     parameters: {
       query?: {
-        export?: components['parameters']['Export'];
+        export?: components["parameters"]["Export"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Schema'];
+          "application/json": {
+            data?: components["schemas"]["Schema"];
           };
-          'text/yaml': string;
+          "text/yaml": string;
         };
       };
-      403: components['responses']['UnauthorizedError'];
+      403: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4354,10 +4407,10 @@ export interface operations {
   schemaApply: {
     requestBody: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Diff'];
+        "application/json": {
+          data?: components["schemas"]["Diff"];
         };
-        'multipart/form-data': {
+        "multipart/form-data": {
           /** Format: binary */
           file?: string;
         };
@@ -4368,7 +4421,7 @@ export interface operations {
       204: {
         content: never;
       };
-      403: components['responses']['UnauthorizedError'];
+      403: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4384,10 +4437,10 @@ export interface operations {
     };
     requestBody: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Schema'];
+        "application/json": {
+          data?: components["schemas"]["Schema"];
         };
-        'multipart/form-data': {
+        "multipart/form-data": {
           /** Format: binary */
           file?: string;
         };
@@ -4397,8 +4450,8 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Diff'];
+          "application/json": {
+            data?: components["schemas"]["Diff"];
           };
         };
       };
@@ -4406,7 +4459,7 @@ export interface operations {
       204: {
         content: never;
       };
-      403: components['responses']['UnauthorizedError'];
+      403: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4424,13 +4477,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: Record<string, never>;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4442,7 +4495,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/text': string;
+          "application/text": string;
         };
       };
     };
@@ -4451,10 +4504,10 @@ export interface operations {
    * Hash a string
    * @description Generate a hash for a given string.
    */
-  'hash-generate': {
+  "hash-generate": {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description String to hash. */
           string: string;
         };
@@ -4464,7 +4517,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @example $argon2i$v=19$m=4096,t=3,p=1$pOyIa/zmRAjCVLb2f7kOyg$DasoO6LzMM+6iKfzCDq6JbsYsZWLSm33p7i9NxL9mDc */
             data?: string;
           };
@@ -4476,10 +4529,10 @@ export interface operations {
    * Hash a string
    * @description Generate a hash for a given string.
    */
-  'hash-verify': {
+  "hash-verify": {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description String to hash. */
           string: string;
           /** @description Hash you want to verify against. */
@@ -4491,7 +4544,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @example true */
             data?: boolean;
           };
@@ -4512,7 +4565,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Primary key of item to move */
           item?: number;
           /** @description Primary key of item where to move the current item to */
@@ -4540,7 +4593,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'multipart/form-data': {
+        "multipart/form-data": {
           /** Format: binary */
           file?: string;
         };
@@ -4566,14 +4619,14 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description What file format to save the export to. One of csv, xml, json
            * @enum {string}
            */
-          format: 'csv' | 'xml' | 'json';
-          query: components['schemas']['Query'];
-          file: components['schemas']['Files'];
+          format: "csv" | "xml" | "json";
+          query: components["schemas"]["Query"];
+          file: components["schemas"]["Files"];
         };
       };
     };
@@ -4588,7 +4641,7 @@ export interface operations {
    * Clear Cache
    * @description Resets both the data and schema cache of Directus.
    */
-  'clear-cache': {
+  "clear-cache": {
     responses: {
       /** @description Successful request */
       200: {
@@ -4611,7 +4664,7 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             /** @example 1>M3+4oh.S */
             data?: string;
           };
@@ -4626,27 +4679,27 @@ export interface operations {
   getActivities: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Activity'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Activity"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4656,24 +4709,24 @@ export interface operations {
   getActivity: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Activity'];
+          "application/json": {
+            data?: components["schemas"]["Activity"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4683,28 +4736,28 @@ export interface operations {
   getPermissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        page?: components['parameters']['Page'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        page?: components["parameters"]["Page"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Permissions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4714,12 +4767,12 @@ export interface operations {
   createPermission: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description What collection this permission applies to.
            * @example customers
@@ -4729,27 +4782,27 @@ export interface operations {
            * @description If the user can post comments.
            * @enum {string}
            */
-          comment?: 'none' | 'create' | 'update' | 'full';
+          comment?: "none" | "create" | "update" | "full";
           /**
            * @description If the user can create items.
            * @enum {string}
            */
-          create?: 'none' | 'full';
+          create?: "none" | "full";
           /**
            * @description If the user can update items.
            * @enum {string}
            */
-          delete?: 'none' | 'mine' | 'role' | 'full';
+          delete?: "none" | "mine" | "role" | "full";
           /**
            * @description If the user is required to leave a comment explaining what was changed.
            * @enum {string}
            */
-          explain?: 'none' | 'create' | 'update' | 'always';
+          explain?: "none" | "create" | "update" | "always";
           /**
            * @description If the user can read items.
            * @enum {string}
            */
-          read?: 'none' | 'mine' | 'role' | 'full';
+          read?: "none" | "mine" | "role" | "full";
           /**
            * @description Unique identifier of the role this permission applies to.
            * @example 3
@@ -4770,7 +4823,7 @@ export interface operations {
            * @description If the user can update items.
            * @enum {string}
            */
-          update?: 'none' | 'mine' | 'role' | 'full';
+          update?: "none" | "mine" | "role" | "full";
           /** @description Explicitly denies write access for specific fields. */
           write_field_blacklist?: string[];
         };
@@ -4780,13 +4833,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'];
+          "application/json": {
+            data?: components["schemas"]["Permissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4799,7 +4852,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4809,18 +4862,18 @@ export interface operations {
   updatePermissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           keys?: string[];
           data?: {
             /**
@@ -4832,27 +4885,27 @@ export interface operations {
              * @description If the user can post comments.
              * @enum {string}
              */
-            comment?: 'none' | 'create' | 'update' | 'full';
+            comment?: "none" | "create" | "update" | "full";
             /**
              * @description If the user can create items.
              * @enum {string}
              */
-            create?: 'none' | 'full';
+            create?: "none" | "full";
             /**
              * @description If the user can update items.
              * @enum {string}
              */
-            delete?: 'none' | 'mine' | 'role' | 'full';
+            delete?: "none" | "mine" | "role" | "full";
             /**
              * @description If the user is required to leave a comment explaining what was changed.
              * @enum {string}
              */
-            explain?: 'none' | 'create' | 'update' | 'always';
+            explain?: "none" | "create" | "update" | "always";
             /**
              * @description If the user can read items.
              * @enum {string}
              */
-            read?: 'none' | 'mine' | 'role' | 'full';
+            read?: "none" | "mine" | "role" | "full";
             /**
              * @description Unique identifier of the role this permission applies to.
              * @example 3
@@ -4873,7 +4926,7 @@ export interface operations {
              * @description If the user can update items.
              * @enum {string}
              */
-            update?: 'none' | 'mine' | 'role' | 'full';
+            update?: "none" | "mine" | "role" | "full";
             /** @description Explicitly denies write access for specific fields. */
             write_field_blacklist?: string[];
           };
@@ -4884,13 +4937,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Permissions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -4902,13 +4955,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'][];
+          "application/json": {
+            data?: components["schemas"]["Permissions"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4918,24 +4971,24 @@ export interface operations {
   getPermission: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'];
+          "application/json": {
+            data?: components["schemas"]["Permissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4945,7 +4998,7 @@ export interface operations {
   deletePermission: {
     parameters: {
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
@@ -4953,8 +5006,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -4964,42 +5017,42 @@ export interface operations {
   updatePermission: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description What collection this permission applies to. */
           collection?: Record<string, never>;
           /**
            * @description If the user can post comments. `full`.
            * @enum {string}
            */
-          comment?: 'none' | 'create' | 'update';
+          comment?: "none" | "create" | "update";
           /**
            * @description If the user can create items.
            * @enum {string}
            */
-          create?: 'none' | 'full';
+          create?: "none" | "full";
           /**
            * @description If the user can update items.
            * @enum {string}
            */
-          delete?: 'none' | 'mine' | 'role' | 'full';
+          delete?: "none" | "mine" | "role" | "full";
           /**
            * @description If the user is required to leave a comment explaining what was changed.
            * @enum {string}
            */
-          explain?: 'none' | 'create' | 'update' | 'always';
+          explain?: "none" | "create" | "update" | "always";
           /**
            * @description If the user can read items.
            * @enum {string}
            */
-          read?: 'none' | 'mine' | 'role' | 'full';
+          read?: "none" | "mine" | "role" | "full";
           /** @description Explicitly denies read access for specific fields. */
           read_field_blacklist?: Record<string, never>;
           /** @description Unique identifier of the role this permission applies to. */
@@ -5012,7 +5065,7 @@ export interface operations {
            * @description If the user can update items.
            * @enum {string}
            */
-          update?: 'none' | 'mine' | 'role' | 'full';
+          update?: "none" | "mine" | "role" | "full";
           /** @description Explicitly denies write access for specific fields. */
           write_field_blacklist?: Record<string, never>;
         };
@@ -5022,13 +5075,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Permissions'];
+          "application/json": {
+            data?: components["schemas"]["Permissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5038,21 +5091,21 @@ export interface operations {
   getFields: {
     parameters: {
       query?: {
-        limit?: components['parameters']['Limit'];
-        sort?: components['parameters']['Sort'];
+        limit?: components["parameters"]["Limit"];
+        sort?: components["parameters"]["Sort"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Fields'][];
+          "application/json": {
+            data?: components["schemas"]["Fields"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5062,7 +5115,7 @@ export interface operations {
   getCollectionFields: {
     parameters: {
       query?: {
-        sort?: components['parameters']['Sort'];
+        sort?: components["parameters"]["Sort"];
       };
       path: {
         /** @description Unique identifier of the collection the item resides in. */
@@ -5073,13 +5126,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Fields'][];
+          "application/json": {
+            data?: components["schemas"]["Fields"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5095,7 +5148,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Unique name of the field. Field name is unique within the collection.
            * @example id
@@ -5200,7 +5253,7 @@ export interface operations {
              * @description What interface is used in the admin app to edit the value for this field.
              * @example primary-key
              */
-            'system-interface'?: string | null;
+            "system-interface"?: string | null;
             /**
              * @description Options for the interface that's used. This format is based on the individual interface.
              * @example null
@@ -5242,11 +5295,11 @@ export interface operations {
              * @enum {string|null}
              */
             width?:
-              | 'half'
-              | 'half-left'
-              | 'half-right'
-              | 'full'
-              | 'fill'
+              | "half"
+              | "half-left"
+              | "half-right"
+              | "full"
+              | "fill"
               | null;
             /**
              * @description What field group this field is part of.
@@ -5271,13 +5324,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Fields'];
+          "application/json": {
+            data?: components["schemas"]["Fields"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5297,13 +5350,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Fields'];
+          "application/json": {
+            data?: components["schemas"]["Fields"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5324,8 +5377,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5343,7 +5396,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Unique name of the field. Field name is unique within the collection.
            * @example id
@@ -5448,7 +5501,7 @@ export interface operations {
              * @description What interface is used in the admin app to edit the value for this field.
              * @example primary-key
              */
-            'system-interface'?: string | null;
+            "system-interface"?: string | null;
             /**
              * @description Options for the interface that's used. This format is based on the individual interface.
              * @example null
@@ -5490,11 +5543,11 @@ export interface operations {
              * @enum {string|null}
              */
             width?:
-              | 'half'
-              | 'half-left'
-              | 'half-right'
-              | 'full'
-              | 'fill'
+              | "half"
+              | "half-left"
+              | "half-right"
+              | "full"
+              | "fill"
               | null;
             /**
              * @description What field group this field is part of.
@@ -5519,13 +5572,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Fields'];
+          "application/json": {
+            data?: components["schemas"]["Fields"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5535,26 +5588,26 @@ export interface operations {
   getFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Files'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5564,7 +5617,7 @@ export interface operations {
   createFile: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           data?: string;
         };
       };
@@ -5573,12 +5626,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Files'];
+          "application/json": {
+            data?: components["schemas"]["Files"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5591,7 +5644,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5601,18 +5654,18 @@ export interface operations {
   updateFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           data?: {
             data?: string;
           };
@@ -5624,13 +5677,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Files'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Files"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5640,23 +5693,23 @@ export interface operations {
   getFile: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Files'];
+          "application/json": {
+            data?: components["schemas"]["Files"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5666,7 +5719,7 @@ export interface operations {
   deleteFile: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -5674,7 +5727,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5684,16 +5737,16 @@ export interface operations {
   updateFile: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'multipart/data': {
+        "multipart/data": {
           /**
            * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
            * @example User Avatar
@@ -5707,7 +5760,7 @@ export interface operations {
            * @description Virtual folder where this file resides in.
            * @example null
            */
-          folder?: string | components['schemas']['Folders'] | null;
+          folder?: string | components["schemas"]["Folders"] | null;
           /** @description Tags for the file. Is automatically populated based on Exif data for images. */
           tags?: string[] | null;
           /**
@@ -5716,7 +5769,7 @@ export interface operations {
            */
           file: unknown;
         };
-        'application/json': {
+        "application/json": {
           /**
            * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
            * @example User Avatar
@@ -5730,7 +5783,7 @@ export interface operations {
            * @description Virtual folder where this file resides in.
            * @example null
            */
-          folder?: string | components['schemas']['Folders'] | null;
+          folder?: string | components["schemas"]["Folders"] | null;
           /** @description Tags for the file. Is automatically populated based on Exif data for images. */
           tags?: string[] | null;
         };
@@ -5740,12 +5793,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Files'];
+          "application/json": {
+            data?: components["schemas"]["Files"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -5755,21 +5808,21 @@ export interface operations {
   getCollections: {
     parameters: {
       query?: {
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Collections'][];
+          "application/json": {
+            data?: components["schemas"]["Collections"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5779,12 +5832,12 @@ export interface operations {
   createCollection: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Unique name of the collection.
            * @example my_collection
@@ -5859,13 +5912,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Collections'];
+          "application/json": {
+            data?: components["schemas"]["Collections"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5875,7 +5928,7 @@ export interface operations {
   getCollection: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Unique identifier of the collection. */
@@ -5886,13 +5939,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Collections'];
+          "application/json": {
+            data?: components["schemas"]["Collections"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5911,8 +5964,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -5922,7 +5975,7 @@ export interface operations {
   updateCollection: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Unique identifier of the collection. */
@@ -5931,7 +5984,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Metadata of the collection. */
           meta?: {
             /**
@@ -6007,13 +6060,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Collections'];
+          "application/json": {
+            data?: components["schemas"]["Collections"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6023,27 +6076,27 @@ export interface operations {
   getFolders: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Folders'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Folders"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6053,13 +6106,13 @@ export interface operations {
   createFolder: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Name of the folder.
            * @example Amsterdam
@@ -6074,13 +6127,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Folders'];
+          "application/json": {
+            data?: components["schemas"]["Folders"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6093,7 +6146,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6103,18 +6156,18 @@ export interface operations {
   updateFolders: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           data?: {
             /**
              * @description Name of the folder.
@@ -6132,13 +6185,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Folders'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Folders"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6148,24 +6201,24 @@ export interface operations {
   getFolder: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Folders'];
+          "application/json": {
+            data?: components["schemas"]["Folders"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6175,7 +6228,7 @@ export interface operations {
   deleteFolder: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -6183,8 +6236,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6194,16 +6247,16 @@ export interface operations {
   updateFolder: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Name of the folder. Can't be null or empty. */
           name?: string;
           /**
@@ -6218,13 +6271,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Folders'];
+          "application/json": {
+            data?: components["schemas"]["Folders"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6234,28 +6287,28 @@ export interface operations {
   getRoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        page?: components['parameters']['Page'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        page?: components["parameters"]["Page"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Roles"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6265,13 +6318,13 @@ export interface operations {
   createRole: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Description of the role. */
           description?: string;
           /** @description Whether or not this role enforces the use of 2FA. */
@@ -6294,13 +6347,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'];
+          "application/json": {
+            data?: components["schemas"]["Roles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6313,7 +6366,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6323,18 +6376,18 @@ export interface operations {
   updateRoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           keys?: string[];
           data?: {
             /** @description Description of the role. */
@@ -6360,13 +6413,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Roles"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6376,24 +6429,24 @@ export interface operations {
   getRole: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'];
+          "application/json": {
+            data?: components["schemas"]["Roles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6403,7 +6456,7 @@ export interface operations {
   deleteRole: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -6411,8 +6464,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6422,16 +6475,16 @@ export interface operations {
   updateRole: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Description of the role. */
           description?: string;
           /** @description Whether or not this role enforces the use of 2FA. */
@@ -6451,13 +6504,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'];
+          "application/json": {
+            data?: components["schemas"]["Roles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6467,27 +6520,27 @@ export interface operations {
   getPresets: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        page?: components['parameters']['Page'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        page?: components["parameters"]["Page"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Presets'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Presets"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6497,13 +6550,13 @@ export interface operations {
   createPreset: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description What collection this collection preset is used for.
            * @example articles
@@ -6544,12 +6597,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Presets'];
+          "application/json": {
+            data?: components["schemas"]["Presets"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6562,7 +6615,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6572,18 +6625,18 @@ export interface operations {
   updatePresets: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           keys?: string[];
           data?: {
             /**
@@ -6627,13 +6680,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Presets'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Presets"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6643,23 +6696,23 @@ export interface operations {
   getPreset: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Presets'];
+          "application/json": {
+            data?: components["schemas"]["Presets"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6669,7 +6722,7 @@ export interface operations {
   deletePreset: {
     parameters: {
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
@@ -6677,7 +6730,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6687,16 +6740,16 @@ export interface operations {
   updatePreset: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description What collection this collection preset is used for.
            * @example articles
@@ -6734,12 +6787,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Presets'];
+          "application/json": {
+            data?: components["schemas"]["Presets"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6749,27 +6802,27 @@ export interface operations {
   getUsers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Users"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6779,25 +6832,25 @@ export interface operations {
   createUser: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Users'];
+        "application/json": components["schemas"]["Users"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6810,7 +6863,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6820,19 +6873,19 @@ export interface operations {
   updateUsers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Users'];
+        "application/json": {
+          data?: components["schemas"]["Users"];
           keys?: string[];
         };
       };
@@ -6841,13 +6894,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Users"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -6857,24 +6910,24 @@ export interface operations {
   getUser: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6884,7 +6937,7 @@ export interface operations {
   deleteUser: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -6892,8 +6945,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6903,29 +6956,29 @@ export interface operations {
   updateUser: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Users'];
+        "application/json": components["schemas"]["Users"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: Record<string, never>;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6935,7 +6988,7 @@ export interface operations {
   invite: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Email address or array of email addresses of the to-be-invited user(s). */
           email?: string;
         };
@@ -6945,13 +6998,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6961,7 +7014,7 @@ export interface operations {
   acceptInvite: {
     requestBody: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Accept invite token.
            * @example eyJh...KmUk
@@ -6980,13 +7033,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -6996,21 +7049,21 @@ export interface operations {
   getMe: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7022,13 +7075,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Users'];
+          "application/json": {
+            data?: components["schemas"]["Users"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7038,7 +7091,7 @@ export interface operations {
   updateLastUsedPageMe: {
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Path of the page you used last. */
           last_page?: string;
         };
@@ -7049,8 +7102,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7063,8 +7116,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7077,8 +7130,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7088,27 +7141,27 @@ export interface operations {
   getRelations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        page?: components['parameters']['Page'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        page?: components["parameters"]["Page"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Relations'][];
+          "application/json": {
+            data?: components["schemas"]["Relations"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7118,13 +7171,13 @@ export interface operations {
   createRelation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Collection that has the field that holds the foreign key.
            * @example articles
@@ -7154,13 +7207,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Relations'];
+          "application/json": {
+            data?: components["schemas"]["Relations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7170,24 +7223,24 @@ export interface operations {
   getRelation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Relations'];
+          "application/json": {
+            data?: components["schemas"]["Relations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7197,7 +7250,7 @@ export interface operations {
   deleteRelation: {
     parameters: {
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
@@ -7205,8 +7258,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7216,16 +7269,16 @@ export interface operations {
   updateRelation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Collection that has the field that holds the foreign key. */
           collection_many?: string;
           /** @description Collection on the _one_ side of the relationship. */
@@ -7246,13 +7299,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Relations'];
+          "application/json": {
+            data?: components["schemas"]["Relations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7262,28 +7315,28 @@ export interface operations {
   getRevisions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        page?: components['parameters']['Page'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        page?: components["parameters"]["Page"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Revisions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Revisions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7293,24 +7346,24 @@ export interface operations {
   getRevision: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['Id'];
+        id: components["parameters"]["Id"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Revisions'];
+          "application/json": {
+            data?: components["schemas"]["Revisions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7322,14 +7375,14 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Flows'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Flows"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7339,26 +7392,26 @@ export interface operations {
   createFlow: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Flows'];
+        "application/json": components["schemas"]["Flows"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Flows'];
+          "application/json": {
+            data?: components["schemas"]["Flows"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7371,7 +7424,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7381,19 +7434,19 @@ export interface operations {
   updateFlows: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Flows'];
+        "application/json": {
+          data?: components["schemas"]["Flows"];
           keys?: string[];
         };
       };
@@ -7402,13 +7455,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Flows'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Flows"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7418,20 +7471,20 @@ export interface operations {
   getFlow: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Flows'];
+          "application/json": {
+            data?: components["schemas"]["Flows"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7441,7 +7494,7 @@ export interface operations {
   deleteFlow: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -7449,8 +7502,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7460,29 +7513,29 @@ export interface operations {
   updateFlow: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Flows'];
+        "application/json": components["schemas"]["Flows"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Flows'];
+          "application/json": {
+            data?: components["schemas"]["Flows"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7494,14 +7547,14 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Operations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Operations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7511,26 +7564,26 @@ export interface operations {
   createOperation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Operations'];
+        "application/json": components["schemas"]["Operations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Operations'];
+          "application/json": {
+            data?: components["schemas"]["Operations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7543,7 +7596,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7553,19 +7606,19 @@ export interface operations {
   updateOperations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Operations'];
+        "application/json": {
+          data?: components["schemas"]["Operations"];
           keys?: string[];
         };
       };
@@ -7574,13 +7627,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Operations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Operations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7590,20 +7643,20 @@ export interface operations {
   getOperation: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Operations'];
+          "application/json": {
+            data?: components["schemas"]["Operations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7613,7 +7666,7 @@ export interface operations {
   deleteOperation: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -7621,8 +7674,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7632,29 +7685,29 @@ export interface operations {
   updateOperation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Operations'];
+        "application/json": components["schemas"]["Operations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Operations'];
+          "application/json": {
+            data?: components["schemas"]["Operations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7666,13 +7719,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Webhooks'];
+          "application/json": {
+            data?: components["schemas"]["Webhooks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7682,13 +7735,13 @@ export interface operations {
   createWebhook: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description The name of the webhook.
            * @example create articles
@@ -7723,7 +7776,7 @@ export interface operations {
            * @description The collections that triggers this webhook.
            * @example null
            */
-          'system-collections'?: unknown;
+          "system-collections"?: unknown;
         };
       };
     };
@@ -7731,13 +7784,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'];
+          "application/json": {
+            data?: components["schemas"]["Roles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7750,7 +7803,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7760,18 +7813,18 @@ export interface operations {
   updateWebhooks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           data?: {
             /**
              * @description The name of the webhook.
@@ -7807,7 +7860,7 @@ export interface operations {
              * @description The collections that triggers this webhook.
              * @example null
              */
-            'system-collections'?: unknown;
+            "system-collections"?: unknown;
           };
           keys?: string[];
         };
@@ -7817,13 +7870,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Webhooks'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Webhooks"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7833,20 +7886,20 @@ export interface operations {
   getWebhook: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Webhooks'];
+          "application/json": {
+            data?: components["schemas"]["Webhooks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7856,7 +7909,7 @@ export interface operations {
   deleteWebhook: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -7864,8 +7917,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7875,16 +7928,16 @@ export interface operations {
   updateWebhook: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description The name of the webhook.
            * @example create articles
@@ -7919,7 +7972,7 @@ export interface operations {
            * @description The collections that triggers this webhook.
            * @example null
            */
-          'system-collections'?: unknown;
+          "system-collections"?: unknown;
         };
       };
     };
@@ -7927,13 +7980,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Roles'];
+          "application/json": {
+            data?: components["schemas"]["Roles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -7945,12 +7998,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Extensions'][];
+          "application/json": {
+            data?: components["schemas"]["Extensions"][];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -7965,7 +8018,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
           meta?: {
             /**
@@ -7981,13 +8034,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Extensions'];
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8003,7 +8056,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
           meta?: {
             /**
@@ -8019,13 +8072,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Extensions'];
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8035,23 +8088,23 @@ export interface operations {
   getSettings: {
     parameters: {
       query?: {
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        page?: components['parameters']['Page'];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        page?: components["parameters"]["Page"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Settings'];
+          "application/json": {
+            data?: components["schemas"]["Settings"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8061,20 +8114,20 @@ export interface operations {
   updateSetting: {
     requestBody?: {
       content: {
-        'application/json': Record<string, never>;
+        "application/json": Record<string, never>;
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Settings'];
+          "application/json": {
+            data?: components["schemas"]["Settings"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8084,27 +8137,27 @@ export interface operations {
   getContentVersions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        meta?: components['parameters']['Meta'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Versions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Versions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8114,26 +8167,26 @@ export interface operations {
   createContentVersion: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Versions'];
+        "application/json": components["schemas"]["Versions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Versions'];
+          "application/json": {
+            data?: components["schemas"]["Versions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8146,7 +8199,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8156,19 +8209,19 @@ export interface operations {
   updateContentVersions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
-          data?: components['schemas']['Versions'];
+        "application/json": {
+          data?: components["schemas"]["Versions"];
           keys?: string[];
         };
       };
@@ -8177,13 +8230,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Versions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Versions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8193,24 +8246,24 @@ export interface operations {
   getContentVersion: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Versions'];
+          "application/json": {
+            data?: components["schemas"]["Versions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8220,7 +8273,7 @@ export interface operations {
   deleteContentVersion: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
@@ -8228,8 +8281,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8239,29 +8292,29 @@ export interface operations {
   updateContentVersion: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['Versions'];
+        "application/json": components["schemas"]["Versions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Versions'];
+          "application/json": {
+            data?: components["schemas"]["Versions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8271,23 +8324,23 @@ export interface operations {
   saveContentVersion: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': Record<string, never>;
+        "application/json": Record<string, never>;
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': Record<string, never>;
+          "application/json": Record<string, never>;
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8297,20 +8350,20 @@ export interface operations {
   compareContentVersion: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: Record<string, never>;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8320,12 +8373,12 @@ export interface operations {
   promoteContentVersion: {
     parameters: {
       path: {
-        id: components['parameters']['UUId'];
+        id: components["parameters"]["UUId"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /** @description Hash of the main version of the item to be promoted. */
           mainHash?: string;
           /** @description Optional array of field names of which the values are to be promoted. */
@@ -8337,11 +8390,11 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': Record<string, never>;
+          "application/json": Record<string, never>;
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8351,26 +8404,26 @@ export interface operations {
   readItemsAssociation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociation'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8380,26 +8433,26 @@ export interface operations {
   createItemsAssociation: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociation'][]
-          | components['schemas']['ItemsAssociation'];
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8412,7 +8465,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8422,27 +8475,27 @@ export interface operations {
   updateItemsAssociation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociation'][]
-          | components['schemas']['ItemsAssociation'];
+        "application/json":
+          | components["schemas"]["ItemsAssociation"][]
+          | components["schemas"]["ItemsAssociation"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -8456,9 +8509,9 @@ export interface operations {
   readSingleItemsAssociation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -8469,13 +8522,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociation'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8494,8 +8547,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8505,8 +8558,8 @@ export interface operations {
   updateSingleItemsAssociation: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -8515,20 +8568,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociation'];
+        "application/json": components["schemas"]["ItemsAssociation"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociation'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociation"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8538,26 +8591,26 @@ export interface operations {
   readItemsAssociationPublicFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFiles'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8567,26 +8620,26 @@ export interface operations {
   createItemsAssociationPublicFiles: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPublicFiles'][]
-          | components['schemas']['ItemsAssociationPublicFiles'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8599,7 +8652,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8609,27 +8662,27 @@ export interface operations {
   updateItemsAssociationPublicFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPublicFiles'][]
-          | components['schemas']['ItemsAssociationPublicFiles'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFiles"][]
+          | components["schemas"]["ItemsAssociationPublicFiles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -8643,9 +8696,9 @@ export interface operations {
   readSingleItemsAssociationPublicFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -8656,13 +8709,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFiles'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8681,8 +8734,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8692,8 +8745,8 @@ export interface operations {
   updateSingleItemsAssociationPublicFiles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -8702,20 +8755,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationPublicFiles'];
+        "application/json": components["schemas"]["ItemsAssociationPublicFiles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFiles'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFiles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8725,26 +8778,26 @@ export interface operations {
   readItemsMembers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsMembers'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8754,26 +8807,26 @@ export interface operations {
   createItemsMembers: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsMembers'][]
-          | components['schemas']['ItemsMembers'];
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8786,7 +8839,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8796,27 +8849,27 @@ export interface operations {
   updateItemsMembers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsMembers'][]
-          | components['schemas']['ItemsMembers'];
+        "application/json":
+          | components["schemas"]["ItemsMembers"][]
+          | components["schemas"]["ItemsMembers"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -8830,9 +8883,9 @@ export interface operations {
   readSingleItemsMembers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -8843,13 +8896,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsMembers'];
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8868,8 +8921,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8879,8 +8932,8 @@ export interface operations {
   updateSingleItemsMembers: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -8889,20 +8942,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsMembers'];
+        "application/json": components["schemas"]["ItemsMembers"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsMembers'];
+          "application/json": {
+            data?: components["schemas"]["ItemsMembers"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -8912,26 +8965,26 @@ export interface operations {
   readItemsAssociationMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMemberships'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8941,26 +8994,26 @@ export interface operations {
   createItemsAssociationMemberships: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationMemberships'][]
-          | components['schemas']['ItemsAssociationMemberships'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationMemberships"][]
+          | components["schemas"]["ItemsAssociationMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8973,7 +9026,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -8983,27 +9036,27 @@ export interface operations {
   updateItemsAssociationMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationMemberships'][]
-          | components['schemas']['ItemsAssociationMemberships'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationMemberships"][]
+          | components["schemas"]["ItemsAssociationMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9017,9 +9070,9 @@ export interface operations {
   readSingleItemsAssociationMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9030,13 +9083,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMemberships'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9055,8 +9108,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9066,8 +9119,8 @@ export interface operations {
   updateSingleItemsAssociationMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -9076,20 +9129,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationMemberships'];
+        "application/json": components["schemas"]["ItemsAssociationMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMemberships'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMemberships"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9099,26 +9152,26 @@ export interface operations {
   readItemsAssociationPoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPoles'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPoles"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9128,26 +9181,26 @@ export interface operations {
   createItemsAssociationPoles: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPoles'][]
-          | components['schemas']['ItemsAssociationPoles'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPoles"][]
+          | components["schemas"]["ItemsAssociationPoles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9160,7 +9213,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9170,27 +9223,27 @@ export interface operations {
   updateItemsAssociationPoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPoles'][]
-          | components['schemas']['ItemsAssociationPoles'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPoles"][]
+          | components["schemas"]["ItemsAssociationPoles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9204,9 +9257,9 @@ export interface operations {
   readSingleItemsAssociationPoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9217,13 +9270,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPoles'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPoles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9242,8 +9295,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9253,8 +9306,8 @@ export interface operations {
   updateSingleItemsAssociationPoles: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -9263,20 +9316,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationPoles'];
+        "application/json": components["schemas"]["ItemsAssociationPoles"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPoles'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPoles"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9286,26 +9339,26 @@ export interface operations {
   readItemsLanguages: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsLanguages'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9315,26 +9368,26 @@ export interface operations {
   createItemsLanguages: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsLanguages'][]
-          | components['schemas']['ItemsLanguages'];
+        "application/json":
+          | components["schemas"]["ItemsLanguages"][]
+          | components["schemas"]["ItemsLanguages"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9347,7 +9400,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9357,27 +9410,27 @@ export interface operations {
   updateItemsLanguages: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsLanguages'][]
-          | components['schemas']['ItemsLanguages'];
+        "application/json":
+          | components["schemas"]["ItemsLanguages"][]
+          | components["schemas"]["ItemsLanguages"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9391,9 +9444,9 @@ export interface operations {
   readSingleItemsLanguages: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9404,13 +9457,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsLanguages'];
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9429,8 +9482,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9440,8 +9493,8 @@ export interface operations {
   updateSingleItemsLanguages: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -9450,20 +9503,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsLanguages'];
+        "application/json": components["schemas"]["ItemsLanguages"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsLanguages'];
+          "application/json": {
+            data?: components["schemas"]["ItemsLanguages"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9473,26 +9526,26 @@ export interface operations {
   readItemsAssociationMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMembershipsTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9502,26 +9555,26 @@ export interface operations {
   createItemsAssociationMembershipsTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationMembershipsTranslations'][]
-          | components['schemas']['ItemsAssociationMembershipsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9534,7 +9587,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9544,27 +9597,27 @@ export interface operations {
   updateItemsAssociationMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationMembershipsTranslations'][]
-          | components['schemas']['ItemsAssociationMembershipsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
+          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9578,9 +9631,9 @@ export interface operations {
   readSingleItemsAssociationMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9591,13 +9644,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMembershipsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9616,8 +9669,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9627,8 +9680,8 @@ export interface operations {
   updateSingleItemsAssociationMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -9637,20 +9690,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationMembershipsTranslations'];
+        "application/json": components["schemas"]["ItemsAssociationMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationMembershipsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationMembershipsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9660,26 +9713,26 @@ export interface operations {
   readItemsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartners'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9689,26 +9742,26 @@ export interface operations {
   createItemsPartners: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartners'][]
-          | components['schemas']['ItemsPartners'];
+        "application/json":
+          | components["schemas"]["ItemsPartners"][]
+          | components["schemas"]["ItemsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9721,7 +9774,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9731,27 +9784,27 @@ export interface operations {
   updateItemsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartners'][]
-          | components['schemas']['ItemsPartners'];
+        "application/json":
+          | components["schemas"]["ItemsPartners"][]
+          | components["schemas"]["ItemsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9765,9 +9818,9 @@ export interface operations {
   readSingleItemsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9778,13 +9831,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9803,8 +9856,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9814,8 +9867,8 @@ export interface operations {
   updateSingleItemsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -9824,20 +9877,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsPartners'];
+        "application/json": components["schemas"]["ItemsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9847,26 +9900,26 @@ export interface operations {
   readItemsAssociationPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPartners'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9876,26 +9929,26 @@ export interface operations {
   createItemsAssociationPartners: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPartners'][]
-          | components['schemas']['ItemsAssociationPartners'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPartners"][]
+          | components["schemas"]["ItemsAssociationPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9908,7 +9961,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -9918,27 +9971,27 @@ export interface operations {
   updateItemsAssociationPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPartners'][]
-          | components['schemas']['ItemsAssociationPartners'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPartners"][]
+          | components["schemas"]["ItemsAssociationPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -9952,9 +10005,9 @@ export interface operations {
   readSingleItemsAssociationPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -9965,13 +10018,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -9990,8 +10043,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10001,8 +10054,8 @@ export interface operations {
   updateSingleItemsAssociationPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -10011,20 +10064,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationPartners'];
+        "application/json": components["schemas"]["ItemsAssociationPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10034,26 +10087,26 @@ export interface operations {
   readItemsAssociationPolesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPolesTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPolesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10063,26 +10116,26 @@ export interface operations {
   createItemsAssociationPolesTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPolesTranslations'][]
-          | components['schemas']['ItemsAssociationPolesTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPolesTranslations"][]
+          | components["schemas"]["ItemsAssociationPolesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10095,7 +10148,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10105,27 +10158,27 @@ export interface operations {
   updateItemsAssociationPolesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPolesTranslations'][]
-          | components['schemas']['ItemsAssociationPolesTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPolesTranslations"][]
+          | components["schemas"]["ItemsAssociationPolesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -10139,9 +10192,9 @@ export interface operations {
   readSingleItemsAssociationPolesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -10152,13 +10205,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPolesTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPolesTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10177,8 +10230,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10188,8 +10241,8 @@ export interface operations {
   updateSingleItemsAssociationPolesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -10198,20 +10251,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationPolesTranslations'];
+        "application/json": components["schemas"]["ItemsAssociationPolesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPolesTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPolesTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10221,26 +10274,26 @@ export interface operations {
   readItemsAssociationPublicFilesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFilesTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10250,26 +10303,26 @@ export interface operations {
   createItemsAssociationPublicFilesTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPublicFilesTranslations'][]
-          | components['schemas']['ItemsAssociationPublicFilesTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10282,7 +10335,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10292,27 +10345,27 @@ export interface operations {
   updateItemsAssociationPublicFilesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationPublicFilesTranslations'][]
-          | components['schemas']['ItemsAssociationPublicFilesTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
+          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -10326,9 +10379,9 @@ export interface operations {
   readSingleItemsAssociationPublicFilesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -10339,13 +10392,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFilesTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10364,8 +10417,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10375,8 +10428,8 @@ export interface operations {
   updateSingleItemsAssociationPublicFilesTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -10385,20 +10438,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationPublicFilesTranslations'];
+        "application/json": components["schemas"]["ItemsAssociationPublicFilesTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationPublicFilesTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationPublicFilesTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10408,26 +10461,26 @@ export interface operations {
   readItemsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSocialLinks'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10437,26 +10490,26 @@ export interface operations {
   createItemsSocialLinks: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSocialLinks'][]
-          | components['schemas']['ItemsSocialLinks'];
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10469,7 +10522,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10479,27 +10532,27 @@ export interface operations {
   updateItemsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSocialLinks'][]
-          | components['schemas']['ItemsSocialLinks'];
+        "application/json":
+          | components["schemas"]["ItemsSocialLinks"][]
+          | components["schemas"]["ItemsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -10513,9 +10566,9 @@ export interface operations {
   readSingleItemsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -10526,13 +10579,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSocialLinks'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10551,8 +10604,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10562,8 +10615,8 @@ export interface operations {
   updateSingleItemsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -10572,207 +10625,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsSocialLinks'];
+        "application/json": components["schemas"]["ItemsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSocialLinks'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSocialLinks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the association_social_links items.
-   */
-  readItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationSocialLinks'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new association_social_links item.
-   */
-  createItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationSocialLinks'][]
-          | components['schemas']['ItemsAssociationSocialLinks'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing association_social_links items.
-   */
-  deleteItemsAssociationSocialLinks: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple association_social_links items at the same time.
-   */
-  updateItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationSocialLinks'][]
-          | components['schemas']['ItemsAssociationSocialLinks'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single association_social_links item by unique identifier.
-   */
-  readSingleItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationSocialLinks'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing association_social_links item.
-   */
-  deleteSingleItemsAssociationSocialLinks: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing association_social_links item.
-   */
-  updateSingleItemsAssociationSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsAssociationSocialLinks'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationSocialLinks'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10782,26 +10648,26 @@ export interface operations {
   readItemsAssociationTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10811,26 +10677,26 @@ export interface operations {
   createItemsAssociationTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationTranslations'][]
-          | components['schemas']['ItemsAssociationTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationTranslations"][]
+          | components["schemas"]["ItemsAssociationTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10843,7 +10709,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10853,27 +10719,27 @@ export interface operations {
   updateItemsAssociationTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsAssociationTranslations'][]
-          | components['schemas']['ItemsAssociationTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsAssociationTranslations"][]
+          | components["schemas"]["ItemsAssociationTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -10887,9 +10753,9 @@ export interface operations {
   readSingleItemsAssociationTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -10900,13 +10766,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10925,8 +10791,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10936,8 +10802,8 @@ export interface operations {
   updateSingleItemsAssociationTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -10946,20 +10812,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsAssociationTranslations'];
+        "application/json": components["schemas"]["ItemsAssociationTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsAssociationTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -10969,26 +10835,26 @@ export interface operations {
   readItemsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -10998,26 +10864,26 @@ export interface operations {
   createItemsCommissions: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissions'][]
-          | components['schemas']['ItemsCommissions'];
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11030,7 +10896,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11040,27 +10906,27 @@ export interface operations {
   updateItemsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissions'][]
-          | components['schemas']['ItemsCommissions'];
+        "application/json":
+          | components["schemas"]["ItemsCommissions"][]
+          | components["schemas"]["ItemsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -11074,9 +10940,9 @@ export interface operations {
   readSingleItemsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -11087,13 +10953,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissions'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11112,8 +10978,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11123,8 +10989,8 @@ export interface operations {
   updateSingleItemsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -11133,20 +10999,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsCommissions'];
+        "application/json": components["schemas"]["ItemsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissions'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11156,26 +11022,26 @@ export interface operations {
   readItemsCommissionMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMemberships'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11185,26 +11051,26 @@ export interface operations {
   createItemsCommissionMemberships: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionMemberships'][]
-          | components['schemas']['ItemsCommissionMemberships'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionMemberships"][]
+          | components["schemas"]["ItemsCommissionMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11217,7 +11083,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11227,27 +11093,27 @@ export interface operations {
   updateItemsCommissionMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionMemberships'][]
-          | components['schemas']['ItemsCommissionMemberships'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionMemberships"][]
+          | components["schemas"]["ItemsCommissionMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -11261,9 +11127,9 @@ export interface operations {
   readSingleItemsCommissionMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -11274,13 +11140,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMemberships'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11299,8 +11165,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11310,8 +11176,8 @@ export interface operations {
   updateSingleItemsCommissionMemberships: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -11320,20 +11186,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsCommissionMemberships'];
+        "application/json": components["schemas"]["ItemsCommissionMemberships"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMemberships'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMemberships"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11343,26 +11209,26 @@ export interface operations {
   readItemsCommissionMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMembershipsTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11372,26 +11238,26 @@ export interface operations {
   createItemsCommissionMembershipsTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionMembershipsTranslations'][]
-          | components['schemas']['ItemsCommissionMembershipsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11404,7 +11270,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11414,27 +11280,27 @@ export interface operations {
   updateItemsCommissionMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionMembershipsTranslations'][]
-          | components['schemas']['ItemsCommissionMembershipsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
+          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -11448,9 +11314,9 @@ export interface operations {
   readSingleItemsCommissionMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -11461,13 +11327,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMembershipsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11486,8 +11352,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11497,8 +11363,8 @@ export interface operations {
   updateSingleItemsCommissionMembershipsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -11507,20 +11373,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsCommissionMembershipsTranslations'];
+        "application/json": components["schemas"]["ItemsCommissionMembershipsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionMembershipsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionMembershipsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11530,26 +11396,26 @@ export interface operations {
   readItemsCommissionsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsSocialLinks'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11559,26 +11425,26 @@ export interface operations {
   createItemsCommissionsSocialLinks: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionsSocialLinks'][]
-          | components['schemas']['ItemsCommissionsSocialLinks'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionsSocialLinks"][]
+          | components["schemas"]["ItemsCommissionsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11591,7 +11457,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11601,27 +11467,27 @@ export interface operations {
   updateItemsCommissionsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionsSocialLinks'][]
-          | components['schemas']['ItemsCommissionsSocialLinks'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionsSocialLinks"][]
+          | components["schemas"]["ItemsCommissionsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -11635,9 +11501,9 @@ export interface operations {
   readSingleItemsCommissionsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -11648,13 +11514,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsSocialLinks'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11673,8 +11539,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11684,8 +11550,8 @@ export interface operations {
   updateSingleItemsCommissionsSocialLinks: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -11694,20 +11560,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsCommissionsSocialLinks'];
+        "application/json": components["schemas"]["ItemsCommissionsSocialLinks"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsSocialLinks'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsSocialLinks"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11717,26 +11583,26 @@ export interface operations {
   readItemsCommissionsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11746,26 +11612,26 @@ export interface operations {
   createItemsCommissionsTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionsTranslations'][]
-          | components['schemas']['ItemsCommissionsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionsTranslations"][]
+          | components["schemas"]["ItemsCommissionsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11778,7 +11644,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11788,27 +11654,27 @@ export interface operations {
   updateItemsCommissionsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsCommissionsTranslations'][]
-          | components['schemas']['ItemsCommissionsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsCommissionsTranslations"][]
+          | components["schemas"]["ItemsCommissionsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -11822,9 +11688,9 @@ export interface operations {
   readSingleItemsCommissionsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -11835,13 +11701,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11860,8 +11726,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11871,8 +11737,8 @@ export interface operations {
   updateSingleItemsCommissionsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -11881,20 +11747,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsCommissionsTranslations'];
+        "application/json": components["schemas"]["ItemsCommissionsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsCommissionsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsCommissionsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -11904,26 +11770,26 @@ export interface operations {
   readItemsInventory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsInventory'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11933,26 +11799,26 @@ export interface operations {
   createItemsInventory: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsInventory'][]
-          | components['schemas']['ItemsInventory'];
+        "application/json":
+          | components["schemas"]["ItemsInventory"][]
+          | components["schemas"]["ItemsInventory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11965,7 +11831,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -11975,27 +11841,27 @@ export interface operations {
   updateItemsInventory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsInventory'][]
-          | components['schemas']['ItemsInventory'];
+        "application/json":
+          | components["schemas"]["ItemsInventory"][]
+          | components["schemas"]["ItemsInventory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12009,9 +11875,9 @@ export interface operations {
   readSingleItemsInventory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12022,13 +11888,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsInventory'];
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12047,8 +11913,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12058,8 +11924,8 @@ export interface operations {
   updateSingleItemsInventory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -12068,20 +11934,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsInventory'];
+        "application/json": components["schemas"]["ItemsInventory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsInventory'];
+          "application/json": {
+            data?: components["schemas"]["ItemsInventory"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12091,26 +11957,26 @@ export interface operations {
   readItemsNews: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNews'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12120,26 +11986,26 @@ export interface operations {
   createItemsNews: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNews'][]
-          | components['schemas']['ItemsNews'];
+        "application/json":
+          | components["schemas"]["ItemsNews"][]
+          | components["schemas"]["ItemsNews"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12152,7 +12018,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12162,27 +12028,27 @@ export interface operations {
   updateItemsNews: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNews'][]
-          | components['schemas']['ItemsNews'];
+        "application/json":
+          | components["schemas"]["ItemsNews"][]
+          | components["schemas"]["ItemsNews"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12196,9 +12062,9 @@ export interface operations {
   readSingleItemsNews: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12209,13 +12075,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNews'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12234,8 +12100,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12245,8 +12111,8 @@ export interface operations {
   updateSingleItemsNews: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -12255,20 +12121,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsNews'];
+        "application/json": components["schemas"]["ItemsNews"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNews'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNews"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12278,26 +12144,26 @@ export interface operations {
   readItemsNewsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsCommissions'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12307,26 +12173,26 @@ export interface operations {
   createItemsNewsCommissions: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsCommissions'][]
-          | components['schemas']['ItemsNewsCommissions'];
+        "application/json":
+          | components["schemas"]["ItemsNewsCommissions"][]
+          | components["schemas"]["ItemsNewsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12339,7 +12205,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12349,27 +12215,27 @@ export interface operations {
   updateItemsNewsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsCommissions'][]
-          | components['schemas']['ItemsNewsCommissions'];
+        "application/json":
+          | components["schemas"]["ItemsNewsCommissions"][]
+          | components["schemas"]["ItemsNewsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12383,9 +12249,9 @@ export interface operations {
   readSingleItemsNewsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12396,13 +12262,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsCommissions'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12421,8 +12287,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12432,8 +12298,8 @@ export interface operations {
   updateSingleItemsNewsCommissions: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -12442,20 +12308,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsNewsCommissions'];
+        "application/json": components["schemas"]["ItemsNewsCommissions"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsCommissions'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsCommissions"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12465,26 +12331,26 @@ export interface operations {
   readItemsNewsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsPartners'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12494,26 +12360,26 @@ export interface operations {
   createItemsNewsPartners: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsPartners'][]
-          | components['schemas']['ItemsNewsPartners'];
+        "application/json":
+          | components["schemas"]["ItemsNewsPartners"][]
+          | components["schemas"]["ItemsNewsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12526,7 +12392,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12536,27 +12402,27 @@ export interface operations {
   updateItemsNewsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsPartners'][]
-          | components['schemas']['ItemsNewsPartners'];
+        "application/json":
+          | components["schemas"]["ItemsNewsPartners"][]
+          | components["schemas"]["ItemsNewsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12570,9 +12436,9 @@ export interface operations {
   readSingleItemsNewsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12583,13 +12449,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12608,8 +12474,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12619,8 +12485,8 @@ export interface operations {
   updateSingleItemsNewsPartners: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -12629,20 +12495,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsNewsPartners'];
+        "application/json": components["schemas"]["ItemsNewsPartners"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsPartners'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsPartners"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12652,26 +12518,26 @@ export interface operations {
   readItemsNewsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12681,26 +12547,26 @@ export interface operations {
   createItemsNewsTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsTranslations'][]
-          | components['schemas']['ItemsNewsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsNewsTranslations"][]
+          | components["schemas"]["ItemsNewsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12713,7 +12579,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12723,27 +12589,27 @@ export interface operations {
   updateItemsNewsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsNewsTranslations'][]
-          | components['schemas']['ItemsNewsTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsNewsTranslations"][]
+          | components["schemas"]["ItemsNewsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12757,9 +12623,9 @@ export interface operations {
   readSingleItemsNewsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12770,13 +12636,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12795,8 +12661,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12806,8 +12672,8 @@ export interface operations {
   updateSingleItemsNewsTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -12816,20 +12682,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsNewsTranslations'];
+        "application/json": components["schemas"]["ItemsNewsTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsNewsTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsNewsTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12839,26 +12705,26 @@ export interface operations {
   readItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategoryTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12868,26 +12734,26 @@ export interface operations {
   createItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartnerCategoryTranslations'][]
-          | components['schemas']['ItemsPartnerCategoryTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
+          | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12900,7 +12766,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -12910,27 +12776,27 @@ export interface operations {
   updateItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartnerCategoryTranslations'][]
-          | components['schemas']['ItemsPartnerCategoryTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
+          | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -12944,9 +12810,9 @@ export interface operations {
   readSingleItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -12957,13 +12823,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategoryTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12982,8 +12848,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -12993,8 +12859,8 @@ export interface operations {
   updateSingleItemsPartnerCategoryTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -13003,20 +12869,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsPartnerCategoryTranslations'];
+        "application/json": components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategoryTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategoryTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13026,26 +12892,26 @@ export interface operations {
   readItemsPartnerCategory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategory'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategory"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13055,26 +12921,26 @@ export interface operations {
   createItemsPartnerCategory: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartnerCategory'][]
-          | components['schemas']['ItemsPartnerCategory'];
+        "application/json":
+          | components["schemas"]["ItemsPartnerCategory"][]
+          | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13087,7 +12953,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13097,27 +12963,27 @@ export interface operations {
   updateItemsPartnerCategory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsPartnerCategory'][]
-          | components['schemas']['ItemsPartnerCategory'];
+        "application/json":
+          | components["schemas"]["ItemsPartnerCategory"][]
+          | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -13131,9 +12997,9 @@ export interface operations {
   readSingleItemsPartnerCategory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -13144,13 +13010,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategory'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategory"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13169,8 +13035,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13180,8 +13046,8 @@ export interface operations {
   updateSingleItemsPartnerCategory: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -13190,20 +13056,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsPartnerCategory'];
+        "application/json": components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsPartnerCategory'];
+          "application/json": {
+            data?: components["schemas"]["ItemsPartnerCategory"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13213,26 +13079,26 @@ export interface operations {
   readItemsSavetheDate: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDate'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDate"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13242,26 +13108,26 @@ export interface operations {
   createItemsSavetheDate: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSavetheDate'][]
-          | components['schemas']['ItemsSavetheDate'];
+        "application/json":
+          | components["schemas"]["ItemsSavetheDate"][]
+          | components["schemas"]["ItemsSavetheDate"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13274,7 +13140,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13284,27 +13150,27 @@ export interface operations {
   updateItemsSavetheDate: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSavetheDate'][]
-          | components['schemas']['ItemsSavetheDate'];
+        "application/json":
+          | components["schemas"]["ItemsSavetheDate"][]
+          | components["schemas"]["ItemsSavetheDate"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -13318,9 +13184,9 @@ export interface operations {
   readSingleItemsSavetheDate: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -13331,13 +13197,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDate'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDate"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13356,8 +13222,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13367,8 +13233,8 @@ export interface operations {
   updateSingleItemsSavetheDate: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -13377,581 +13243,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsSavetheDate'];
+        "application/json": components["schemas"]["ItemsSavetheDate"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDate'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDate"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the save_the_date_translations items.
-   */
-  readItemsSavetheDateTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDateTranslations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new save_the_date_translations item.
-   */
-  createItemsSavetheDateTranslations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsSavetheDateTranslations'][]
-          | components['schemas']['ItemsSavetheDateTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing save_the_date_translations items.
-   */
-  deleteItemsSavetheDateTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple save_the_date_translations items at the same time.
-   */
-  updateItemsSavetheDateTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsSavetheDateTranslations'][]
-          | components['schemas']['ItemsSavetheDateTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single save_the_date_translations item by unique identifier.
-   */
-  readSingleItemsSavetheDateTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDateTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing save_the_date_translations item.
-   */
-  deleteSingleItemsSavetheDateTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing save_the_date_translations item.
-   */
-  updateSingleItemsSavetheDateTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsSavetheDateTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSavetheDateTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the std_cell items.
-   */
-  readItemsStdCell: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCell'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new std_cell item.
-   */
-  createItemsStdCell: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsStdCell'][]
-          | components['schemas']['ItemsStdCell'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing std_cell items.
-   */
-  deleteItemsStdCell: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple std_cell items at the same time.
-   */
-  updateItemsStdCell: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsStdCell'][]
-          | components['schemas']['ItemsStdCell'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single std_cell item by unique identifier.
-   */
-  readSingleItemsStdCell: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCell'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing std_cell item.
-   */
-  deleteSingleItemsStdCell: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing std_cell item.
-   */
-  updateSingleItemsStdCell: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsStdCell'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCell'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the std_cell_translations items.
-   */
-  readItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCellTranslations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new std_cell_translations item.
-   */
-  createItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsStdCellTranslations'][]
-          | components['schemas']['ItemsStdCellTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing std_cell_translations items.
-   */
-  deleteItemsStdCellTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple std_cell_translations items at the same time.
-   */
-  updateItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsStdCellTranslations'][]
-          | components['schemas']['ItemsStdCellTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single std_cell_translations item by unique identifier.
-   */
-  readSingleItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCellTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing std_cell_translations item.
-   */
-  deleteSingleItemsStdCellTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing std_cell_translations item.
-   */
-  updateSingleItemsStdCellTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsStdCellTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsStdCellTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -13961,27 +13266,27 @@ export interface operations {
   getComments: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        offset?: components['parameters']['Offset'];
-        page?: components['parameters']['Page'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        page?: components["parameters"]["Page"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Comments'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -13991,13 +13296,13 @@ export interface operations {
   createComment: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Which collection this collection comment is for.
            * @example projects
@@ -14014,12 +13319,12 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Comments'];
+          "application/json": {
+            data?: components["schemas"]["Comments"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14032,7 +13337,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14042,18 +13347,18 @@ export interface operations {
   updateComments: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           keys?: string[];
           data?: {
             /**
@@ -14073,13 +13378,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Comments'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["Comments"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14089,20 +13394,20 @@ export interface operations {
   getComment: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Comments'];
+          "application/json": {
+            data?: components["schemas"]["Comments"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14115,7 +13420,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14125,13 +13430,13 @@ export interface operations {
   updateComment: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json': {
+        "application/json": {
           /**
            * @description Which collection this comment is for.
            * @example projects
@@ -14148,387 +13453,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['Comments'];
+          "application/json": {
+            data?: components["schemas"]["Comments"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the events items.
-   */
-  readItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsEvents'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new events item.
-   */
-  createItemsEvents: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsEvents'][]
-          | components['schemas']['ItemsEvents'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing events items.
-   */
-  deleteItemsEvents: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple events items at the same time.
-   */
-  updateItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsEvents'][]
-          | components['schemas']['ItemsEvents'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single events item by unique identifier.
-   */
-  readSingleItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsEvents'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing events item.
-   */
-  deleteSingleItemsEvents: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing events item.
-   */
-  updateSingleItemsEvents: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsEvents'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsEvents'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the registrations items.
-   */
-  readItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsRegistrations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new registrations item.
-   */
-  createItemsRegistrations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsRegistrations'][]
-          | components['schemas']['ItemsRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing registrations items.
-   */
-  deleteItemsRegistrations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple registrations items at the same time.
-   */
-  updateItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsRegistrations'][]
-          | components['schemas']['ItemsRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single registrations item by unique identifier.
-   */
-  readSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsRegistrations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing registrations item.
-   */
-  deleteSingleItemsRegistrations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing registrations item.
-   */
-  updateSingleItemsRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsRegistrations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -14538,26 +13469,26 @@ export interface operations {
   readItemsIcbd: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbd'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14567,26 +13498,26 @@ export interface operations {
   createItemsIcbd: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsIcbd'][]
-          | components['schemas']['ItemsIcbd'];
+        "application/json":
+          | components["schemas"]["ItemsIcbd"][]
+          | components["schemas"]["ItemsIcbd"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14599,7 +13530,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -14609,27 +13540,27 @@ export interface operations {
   updateItemsIcbd: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsIcbd'][]
-          | components['schemas']['ItemsIcbd'];
+        "application/json":
+          | components["schemas"]["ItemsIcbd"][]
+          | components["schemas"]["ItemsIcbd"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -14643,9 +13574,9 @@ export interface operations {
   readSingleItemsIcbd: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -14656,13 +13587,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbd'];
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -14681,8 +13612,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -14692,8 +13623,8 @@ export interface operations {
   updateSingleItemsIcbd: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -14702,394 +13633,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsIcbd'];
+        "application/json": components["schemas"]["ItemsIcbd"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbd'];
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the ICBD_files items.
-   */
-  readItemsIcbdFiles: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdFiles'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new ICBD_files item.
-   */
-  createItemsIcbdFiles: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdFiles'][]
-          | components['schemas']['ItemsIcbdFiles'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing ICBD_files items.
-   */
-  deleteItemsIcbdFiles: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple ICBD_files items at the same time.
-   */
-  updateItemsIcbdFiles: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdFiles'][]
-          | components['schemas']['ItemsIcbdFiles'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single ICBD_files item by unique identifier.
-   */
-  readSingleItemsIcbdFiles: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdFiles'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing ICBD_files item.
-   */
-  deleteSingleItemsIcbdFiles: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing ICBD_files item.
-   */
-  updateSingleItemsIcbdFiles: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdFiles'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdFiles'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the ICBD_translations items.
-   */
-  readItemsIcbdTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdTranslations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new ICBD_translations item.
-   */
-  createItemsIcbdTranslations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdTranslations'][]
-          | components['schemas']['ItemsIcbdTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing ICBD_translations items.
-   */
-  deleteItemsIcbdTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple ICBD_translations items at the same time.
-   */
-  updateItemsIcbdTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdTranslations'][]
-          | components['schemas']['ItemsIcbdTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single ICBD_translations item by unique identifier.
-   */
-  readSingleItemsIcbdTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing ICBD_translations item.
-   */
-  deleteSingleItemsIcbdTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing ICBD_translations item.
-   */
-  updateSingleItemsIcbdTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -15099,26 +13656,26 @@ export interface operations {
   readItemsArtists: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsArtists'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsArtists"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -15128,26 +13685,26 @@ export interface operations {
   createItemsArtists: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsArtists'][]
-          | components['schemas']['ItemsArtists'];
+        "application/json":
+          | components["schemas"]["ItemsArtists"][]
+          | components["schemas"]["ItemsArtists"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -15160,7 +13717,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -15170,27 +13727,27 @@ export interface operations {
   updateItemsArtists: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsArtists'][]
-          | components['schemas']['ItemsArtists'];
+        "application/json":
+          | components["schemas"]["ItemsArtists"][]
+          | components["schemas"]["ItemsArtists"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -15204,9 +13761,9 @@ export interface operations {
   readSingleItemsArtists: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -15217,13 +13774,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsArtists'];
+          "application/json": {
+            data?: components["schemas"]["ItemsArtists"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -15242,8 +13799,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -15253,8 +13810,8 @@ export interface operations {
   updateSingleItemsArtists: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -15263,121 +13820,121 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsArtists'];
+        "application/json": components["schemas"]["ItemsArtists"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsArtists'];
+          "application/json": {
+            data?: components["schemas"]["ItemsArtists"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
    * List Items
-   * @description List the icbd_activities items.
+   * @description List the save_the_date_translations items.
    */
-  readItemsIcbdActivities: {
+  readItemsSavetheDateTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivities'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
    * Create an Item
-   * @description Create a new icbd_activities item.
+   * @description Create a new save_the_date_translations item.
    */
-  createItemsIcbdActivities: {
+  createItemsSavetheDateTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivities'][]
-          | components['schemas']['ItemsIcbdActivities'];
+        "application/json":
+          | components["schemas"]["ItemsSavetheDateTranslations"][]
+          | components["schemas"]["ItemsSavetheDateTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
    * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities items.
+   * @description Delete multiple existing save_the_date_translations items.
    */
-  deleteItemsIcbdActivities: {
+  deleteItemsSavetheDateTranslations: {
     responses: {
       /** @description Successful request */
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
    * Update Multiple Items
-   * @description Update multiple icbd_activities items at the same time.
+   * @description Update multiple save_the_date_translations items at the same time.
    */
-  updateItemsIcbdActivities: {
+  updateItemsSavetheDateTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivities'][]
-          | components['schemas']['ItemsIcbdActivities'];
+        "application/json":
+          | components["schemas"]["ItemsSavetheDateTranslations"][]
+          | components["schemas"]["ItemsSavetheDateTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -15386,14 +13943,14 @@ export interface operations {
   };
   /**
    * Retrieve an Item
-   * @description Retrieve a single icbd_activities item by unique identifier.
+   * @description Retrieve a single save_the_date_translations item by unique identifier.
    */
-  readSingleItemsIcbdActivities: {
+  readSingleItemsSavetheDateTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -15404,20 +13961,20 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivities'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
    * Delete an Item
-   * @description Delete an existing icbd_activities item.
+   * @description Delete an existing save_the_date_translations item.
    */
-  deleteSingleItemsIcbdActivities: {
+  deleteSingleItemsSavetheDateTranslations: {
     parameters: {
       path: {
         /** @description Index of the item. */
@@ -15429,19 +13986,19 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
    * Update an Item
-   * @description Update an existing icbd_activities item.
+   * @description Update an existing save_the_date_translations item.
    */
-  updateSingleItemsIcbdActivities: {
+  updateSingleItemsSavetheDateTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -15450,955 +14007,20 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsIcbdActivities'];
+        "application/json": components["schemas"]["ItemsSavetheDateTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivities'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSavetheDateTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_speakers items.
-   */
-  readItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdSpeakers'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_speakers item.
-   */
-  createItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdSpeakers'][]
-          | components['schemas']['ItemsIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_speakers items.
-   */
-  deleteItemsIcbdSpeakers: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_speakers items at the same time.
-   */
-  updateItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdSpeakers'][]
-          | components['schemas']['ItemsIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_speakers item by unique identifier.
-   */
-  readSingleItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdSpeakers'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_speakers item.
-   */
-  deleteSingleItemsIcbdSpeakers: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_speakers item.
-   */
-  updateSingleItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdSpeakers'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_activities_icbd_speakers items.
-   */
-  readItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities_icbd_speakers item.
-   */
-  createItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'][]
-          | components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities_icbd_speakers items.
-   */
-  deleteItemsIcbdActivitiesIcbdSpeakers: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities_icbd_speakers items at the same time.
-   */
-  updateItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'][]
-          | components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
-   */
-  readSingleItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities_icbd_speakers item.
-   */
-  deleteSingleItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities_icbd_speakers item.
-   */
-  updateSingleItemsIcbdActivitiesIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_activities_registrations items.
-   */
-  readItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesRegistrations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities_registrations item.
-   */
-  createItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesRegistrations'][]
-          | components['schemas']['ItemsIcbdActivitiesRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities_registrations items.
-   */
-  deleteItemsIcbdActivitiesRegistrations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities_registrations items at the same time.
-   */
-  updateItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesRegistrations'][]
-          | components['schemas']['ItemsIcbdActivitiesRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities_registrations item by unique identifier.
-   */
-  readSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesRegistrations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities_registrations item.
-   */
-  deleteSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities_registrations item.
-   */
-  updateSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdActivitiesRegistrations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesRegistrations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_activities_translations items.
-   */
-  readItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesTranslations'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities_translations item.
-   */
-  createItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesTranslations'][]
-          | components['schemas']['ItemsIcbdActivitiesTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities_translations items.
-   */
-  deleteItemsIcbdActivitiesTranslations: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities_translations items at the same time.
-   */
-  updateItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdActivitiesTranslations'][]
-          | components['schemas']['ItemsIcbdActivitiesTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities_translations item by unique identifier.
-   */
-  readSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities_translations item.
-   */
-  deleteSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities_translations item.
-   */
-  updateSingleItemsIcbdActivitiesTranslations: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdActivitiesTranslations'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdActivitiesTranslations'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * List Items
-   * @description List the icbd_phds items.
-   */
-  readItemsIcbdPhds: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdPhds'][];
-            meta?: components['schemas']['x-metadata'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_phds item.
-   */
-  createItemsIcbdPhds: {
-    parameters: {
-      query?: {
-        meta?: components['parameters']['Meta'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdPhds'][]
-          | components['schemas']['ItemsIcbdPhds'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_phds items.
-   */
-  deleteItemsIcbdPhds: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_phds items at the same time.
-   */
-  updateItemsIcbdPhds: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json':
-          | components['schemas']['ItemsIcbdPhds'][]
-          | components['schemas']['ItemsIcbdPhds'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_phds item by unique identifier.
-   */
-  readSingleItemsIcbdPhds: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdPhds'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_phds item.
-   */
-  deleteSingleItemsIcbdPhds: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_phds item.
-   */
-  updateSingleItemsIcbdPhds: {
-    parameters: {
-      query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        'application/json': components['schemas']['ItemsIcbdPhds'];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          'application/json': {
-            data?: components['schemas']['ItemsIcbdPhds'];
-          };
-        };
-      };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16408,26 +14030,26 @@ export interface operations {
   readItemsSubsonic: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonic'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16437,26 +14059,26 @@ export interface operations {
   createItemsSubsonic: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSubsonic'][]
-          | components['schemas']['ItemsSubsonic'];
+        "application/json":
+          | components["schemas"]["ItemsSubsonic"][]
+          | components["schemas"]["ItemsSubsonic"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16469,7 +14091,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16479,27 +14101,27 @@ export interface operations {
   updateItemsSubsonic: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSubsonic'][]
-          | components['schemas']['ItemsSubsonic'];
+        "application/json":
+          | components["schemas"]["ItemsSubsonic"][]
+          | components["schemas"]["ItemsSubsonic"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -16513,9 +14135,9 @@ export interface operations {
   readSingleItemsSubsonic: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -16526,13 +14148,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonic'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16551,8 +14173,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16562,8 +14184,8 @@ export interface operations {
   updateSingleItemsSubsonic: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -16572,20 +14194,394 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsSubsonic'];
+        "application/json": components["schemas"]["ItemsSubsonic"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonic'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonic"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the std_cell items.
+   */
+  readItemsStdCell: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCell"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new std_cell item.
+   */
+  createItemsStdCell: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCell"][]
+          | components["schemas"]["ItemsStdCell"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing std_cell items.
+   */
+  deleteItemsStdCell: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple std_cell items at the same time.
+   */
+  updateItemsStdCell: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCell"][]
+          | components["schemas"]["ItemsStdCell"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single std_cell item by unique identifier.
+   */
+  readSingleItemsStdCell: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCell"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing std_cell item.
+   */
+  deleteSingleItemsStdCell: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing std_cell item.
+   */
+  updateSingleItemsStdCell: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsStdCell"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCell"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the std_cell_translations items.
+   */
+  readItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new std_cell_translations item.
+   */
+  createItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCellTranslations"][]
+          | components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing std_cell_translations items.
+   */
+  deleteItemsStdCellTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple std_cell_translations items at the same time.
+   */
+  updateItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsStdCellTranslations"][]
+          | components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single std_cell_translations item by unique identifier.
+   */
+  readSingleItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing std_cell_translations item.
+   */
+  deleteSingleItemsStdCellTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing std_cell_translations item.
+   */
+  updateSingleItemsStdCellTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsStdCellTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsStdCellTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16595,26 +14591,26 @@ export interface operations {
   readItemsSubsonicTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonicTranslations'][];
-            meta?: components['schemas']['x-metadata'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonicTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16624,26 +14620,26 @@ export interface operations {
   createItemsSubsonicTranslations: {
     parameters: {
       query?: {
-        meta?: components['parameters']['Meta'];
+        meta?: components["parameters"]["Meta"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSubsonicTranslations'][]
-          | components['schemas']['ItemsSubsonicTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsSubsonicTranslations"][]
+          | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16656,7 +14652,7 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
+      401: components["responses"]["UnauthorizedError"];
     };
   };
   /**
@@ -16666,27 +14662,27 @@ export interface operations {
   updateItemsSubsonicTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        limit?: components['parameters']['Limit'];
-        meta?: components['parameters']['Meta'];
-        offset?: components['parameters']['Offset'];
-        sort?: components['parameters']['Sort'];
-        filter?: components['parameters']['Filter'];
-        search?: components['parameters']['Search'];
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
       };
     };
     requestBody?: {
       content: {
-        'application/json':
-          | components['schemas']['ItemsSubsonicTranslations'][]
-          | components['schemas']['ItemsSubsonicTranslations'];
+        "application/json":
+          | components["schemas"]["ItemsSubsonicTranslations"][]
+          | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
+          "application/json": {
             data?: unknown;
           };
         };
@@ -16700,9 +14696,9 @@ export interface operations {
   readSingleItemsSubsonicTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
-        version?: components['parameters']['Version'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
       };
       path: {
         /** @description Index of the item. */
@@ -16713,13 +14709,13 @@ export interface operations {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonicTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonicTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16738,8 +14734,8 @@ export interface operations {
       200: {
         content: never;
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
   /**
@@ -16749,8 +14745,8 @@ export interface operations {
   updateSingleItemsSubsonicTranslations: {
     parameters: {
       query?: {
-        fields?: components['parameters']['Fields'];
-        meta?: components['parameters']['Meta'];
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
       };
       path: {
         /** @description Index of the item. */
@@ -16759,67 +14755,2312 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        'application/json': components['schemas']['ItemsSubsonicTranslations'];
+        "application/json": components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
       /** @description Successful request */
       200: {
         content: {
-          'application/json': {
-            data?: components['schemas']['ItemsSubsonicTranslations'];
+          "application/json": {
+            data?: components["schemas"]["ItemsSubsonicTranslations"];
           };
         };
       };
-      401: components['responses']['UnauthorizedError'];
-      404: components['responses']['NotFoundError'];
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities items.
+   */
+  readItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities item.
+   */
+  createItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities items.
+   */
+  deleteItemsIcbdActivities: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities items at the same time.
+   */
+  updateItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivities"][]
+          | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities item by unique identifier.
+   */
+  readSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities item.
+   */
+  deleteSingleItemsIcbdActivities: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities item.
+   */
+  updateSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_speakers items.
+   */
+  readItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_speakers item.
+   */
+  createItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_speakers items.
+   */
+  deleteItemsIcbdSpeakers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_speakers items at the same time.
+   */
+  updateItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_speakers item by unique identifier.
+   */
+  readSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_speakers item.
+   */
+  deleteSingleItemsIcbdSpeakers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_speakers item.
+   */
+  updateSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities_translations items.
+   */
+  readItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_translations item.
+   */
+  createItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_translations items.
+   */
+  deleteItemsIcbdActivitiesTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_translations items at the same time.
+   */
+  updateItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
+          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_translations item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_translations item.
+   */
+  deleteSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_translations item.
+   */
+  updateSingleItemsIcbdActivitiesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the ICBD_files items.
+   */
+  readItemsIcbdFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdFiles"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new ICBD_files item.
+   */
+  createItemsIcbdFiles: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdFiles"][]
+          | components["schemas"]["ItemsIcbdFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing ICBD_files items.
+   */
+  deleteItemsIcbdFiles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple ICBD_files items at the same time.
+   */
+  updateItemsIcbdFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdFiles"][]
+          | components["schemas"]["ItemsIcbdFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single ICBD_files item by unique identifier.
+   */
+  readSingleItemsIcbdFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing ICBD_files item.
+   */
+  deleteSingleItemsIcbdFiles: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing ICBD_files item.
+   */
+  updateSingleItemsIcbdFiles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdFiles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdFiles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities_icbd_speakers items.
+   */
+  readItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_icbd_speakers item.
+   */
+  createItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_icbd_speakers items.
+   */
+  deleteItemsIcbdActivitiesIcbdSpeakers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_icbd_speakers items at the same time.
+   */
+  updateItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
+          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_icbd_speakers item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_icbd_speakers item.
+   */
+  deleteSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_icbd_speakers item.
+   */
+  updateSingleItemsIcbdActivitiesIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the ICBD_translations items.
+   */
+  readItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new ICBD_translations item.
+   */
+  createItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdTranslations"][]
+          | components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing ICBD_translations items.
+   */
+  deleteItemsIcbdTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple ICBD_translations items at the same time.
+   */
+  updateItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdTranslations"][]
+          | components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single ICBD_translations item by unique identifier.
+   */
+  readSingleItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing ICBD_translations item.
+   */
+  deleteSingleItemsIcbdTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing ICBD_translations item.
+   */
+  updateSingleItemsIcbdTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_phds items.
+   */
+  readItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_phds item.
+   */
+  createItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdPhds"][]
+          | components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_phds items.
+   */
+  deleteItemsIcbdPhds: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_phds items at the same time.
+   */
+  updateItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdPhds"][]
+          | components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_phds item by unique identifier.
+   */
+  readSingleItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_phds item.
+   */
+  deleteSingleItemsIcbdPhds: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_phds item.
+   */
+  updateSingleItemsIcbdPhds: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdPhds"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdPhds"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_activities_registrations items.
+   */
+  readItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities_registrations item.
+   */
+  createItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities_registrations items.
+   */
+  deleteItemsIcbdActivitiesRegistrations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities_registrations items at the same time.
+   */
+  updateItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities_registrations item by unique identifier.
+   */
+  readSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities_registrations item.
+   */
+  deleteSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities_registrations item.
+   */
+  updateSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the events items.
+   */
+  readItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new events item.
+   */
+  createItemsEvents: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing events items.
+   */
+  deleteItemsEvents: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple events items at the same time.
+   */
+  updateItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single events item by unique identifier.
+   */
+  readSingleItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing events item.
+   */
+  deleteSingleItemsEvents: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing events item.
+   */
+  updateSingleItemsEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the registrations items.
+   */
+  readItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new registrations item.
+   */
+  createItemsRegistrations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing registrations items.
+   */
+  deleteItemsRegistrations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple registrations items at the same time.
+   */
+  updateItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsRegistrations"][]
+          | components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single registrations item by unique identifier.
+   */
+  readSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing registrations item.
+   */
+  deleteSingleItemsRegistrations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing registrations item.
+   */
+  updateSingleItemsRegistrations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_social_links items.
+   */
+  readItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_social_links item.
+   */
+  createItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_social_links items.
+   */
+  deleteItemsAssociationSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_social_links items at the same time.
+   */
+  updateItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks"][]
+          | components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_social_links item by unique identifier.
+   */
+  readSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_social_links item.
+   */
+  deleteSingleItemsAssociationSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_social_links item.
+   */
+  updateSingleItemsAssociationSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the association_social_links_1 items.
+   */
+  readItemsAssociationSocialLinks1: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks1"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new association_social_links_1 item.
+   */
+  createItemsAssociationSocialLinks1: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks1"][]
+          | components["schemas"]["ItemsAssociationSocialLinks1"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing association_social_links_1 items.
+   */
+  deleteItemsAssociationSocialLinks1: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple association_social_links_1 items at the same time.
+   */
+  updateItemsAssociationSocialLinks1: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsAssociationSocialLinks1"][]
+          | components["schemas"]["ItemsAssociationSocialLinks1"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single association_social_links_1 item by unique identifier.
+   */
+  readSingleItemsAssociationSocialLinks1: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks1"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing association_social_links_1 item.
+   */
+  deleteSingleItemsAssociationSocialLinks1: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing association_social_links_1 item.
+   */
+  updateSingleItemsAssociationSocialLinks1: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks1"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsAssociationSocialLinks1"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
     };
   };
 }
 
 export type Schema = {
-  association: components['schemas']['ItemsAssociation'];
-  association_public_files: components['schemas']['ItemsAssociationPublicFiles'][];
-  members: components['schemas']['ItemsMembers'][];
-  association_memberships: components['schemas']['ItemsAssociationMemberships'][];
-  association_poles: components['schemas']['ItemsAssociationPoles'][];
-  languages: components['schemas']['ItemsLanguages'][];
-  association_memberships_translations: components['schemas']['ItemsAssociationMembershipsTranslations'][];
-  partners: components['schemas']['ItemsPartners'][];
-  association_partners: components['schemas']['ItemsAssociationPartners'][];
-  association_poles_translations: components['schemas']['ItemsAssociationPolesTranslations'][];
-  association_public_files_translations: components['schemas']['ItemsAssociationPublicFilesTranslations'][];
-  social_links: components['schemas']['ItemsSocialLinks'][];
-  association_social_links: components['schemas']['ItemsAssociationSocialLinks'][];
-  association_translations: components['schemas']['ItemsAssociationTranslations'][];
-  commissions: components['schemas']['ItemsCommissions'][];
-  commission_memberships: components['schemas']['ItemsCommissionMemberships'][];
-  commission_memberships_translations: components['schemas']['ItemsCommissionMembershipsTranslations'][];
-  commissions_social_links: components['schemas']['ItemsCommissionsSocialLinks'][];
-  commissions_translations: components['schemas']['ItemsCommissionsTranslations'][];
-  inventory: components['schemas']['ItemsInventory'][];
-  news: components['schemas']['ItemsNews'][];
-  news_commissions: components['schemas']['ItemsNewsCommissions'][];
-  news_partners: components['schemas']['ItemsNewsPartners'][];
-  news_translations: components['schemas']['ItemsNewsTranslations'][];
-  partner_category_translations: components['schemas']['ItemsPartnerCategoryTranslations'][];
-  partner_category: components['schemas']['ItemsPartnerCategory'][];
-  save_the_date: components['schemas']['ItemsSavetheDate'][];
-  save_the_date_translations: components['schemas']['ItemsSavetheDateTranslations'][];
-  std_cell: components['schemas']['ItemsStdCell'][];
-  std_cell_translations: components['schemas']['ItemsStdCellTranslations'][];
-  events: components['schemas']['ItemsEvents'][];
-  registrations: components['schemas']['ItemsRegistrations'][];
-  ICBD: components['schemas']['ItemsIcbd'][];
-  ICBD_files: components['schemas']['ItemsIcbdFiles'][];
-  ICBD_translations: components['schemas']['ItemsIcbdTranslations'][];
-  artists: components['schemas']['ItemsArtists'][];
-  icbd_activities: components['schemas']['ItemsIcbdActivities'][];
-  icbd_speakers: components['schemas']['ItemsIcbdSpeakers'][];
-  icbd_activities_icbd_speakers: components['schemas']['ItemsIcbdActivitiesIcbdSpeakers'][];
-  icbd_activities_registrations: components['schemas']['ItemsIcbdActivitiesRegistrations'][];
-  icbd_activities_translations: components['schemas']['ItemsIcbdActivitiesTranslations'][];
-  icbd_phds: components['schemas']['ItemsIcbdPhds'][];
-  subsonic: components['schemas']['ItemsSubsonic'][];
-  subsonic_translations: components['schemas']['ItemsSubsonicTranslations'][];
+  association: components["schemas"]["ItemsAssociation"];
+  association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
+  members: components["schemas"]["ItemsMembers"][];
+  association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
+  association_poles: components["schemas"]["ItemsAssociationPoles"][];
+  languages: components["schemas"]["ItemsLanguages"][];
+  association_memberships_translations: components["schemas"]["ItemsAssociationMembershipsTranslations"][];
+  partners: components["schemas"]["ItemsPartners"][];
+  association_partners: components["schemas"]["ItemsAssociationPartners"][];
+  association_poles_translations: components["schemas"]["ItemsAssociationPolesTranslations"][];
+  association_public_files_translations: components["schemas"]["ItemsAssociationPublicFilesTranslations"][];
+  social_links: components["schemas"]["ItemsSocialLinks"][];
+  association_translations: components["schemas"]["ItemsAssociationTranslations"][];
+  commissions: components["schemas"]["ItemsCommissions"][];
+  commission_memberships: components["schemas"]["ItemsCommissionMemberships"][];
+  commission_memberships_translations: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
+  commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
+  commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
+  inventory: components["schemas"]["ItemsInventory"][];
+  news: components["schemas"]["ItemsNews"][];
+  news_commissions: components["schemas"]["ItemsNewsCommissions"][];
+  news_partners: components["schemas"]["ItemsNewsPartners"][];
+  news_translations: components["schemas"]["ItemsNewsTranslations"][];
+  partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
+  partner_category: components["schemas"]["ItemsPartnerCategory"][];
+  save_the_date: components["schemas"]["ItemsSavetheDate"][];
+  ICBD: components["schemas"]["ItemsIcbd"][];
+  artists: components["schemas"]["ItemsArtists"][];
+  save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
+  subsonic: components["schemas"]["ItemsSubsonic"][];
+  std_cell: components["schemas"]["ItemsStdCell"][];
+  std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
+  subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
+  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
+  icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
+  icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+  ICBD_files: components["schemas"]["ItemsIcbdFiles"][];
+  icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
+  ICBD_translations: components["schemas"]["ItemsIcbdTranslations"][];
+  icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
+  icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+  events: components["schemas"]["ItemsEvents"][];
+  registrations: components["schemas"]["ItemsRegistrations"][];
+  association_social_links: components["schemas"]["ItemsAssociationSocialLinks"][];
+  association_social_links_1: components["schemas"]["ItemsAssociationSocialLinks1"][];
 };
