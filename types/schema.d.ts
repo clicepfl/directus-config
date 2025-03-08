@@ -3867,6 +3867,13 @@ export interface components {
       price?: number | null;
       max_registrations?: number | null;
       registration_count?: number;
+      /** @description Unique url name of the event, e.g. "icbd-2025" */
+      slug?: string | null;
+      /**
+       * Format: uuid
+       * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+       */
+      admin_secret?: string | null;
     };
     ItemsRegistrations: {
       /** Format: uuid */

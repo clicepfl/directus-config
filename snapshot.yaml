@@ -4804,7 +4804,7 @@ fields:
             value: other
       readonly: false
       required: true
-      sort: 6
+      sort: 7
       special: null
       translations: null
       validation: null
@@ -4843,7 +4843,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 4
+      sort: 5
       special: null
       translations: null
       validation: null
@@ -4882,7 +4882,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 5
+      sort: 6
       special: null
       translations: null
       validation: null
@@ -4922,7 +4922,7 @@ fields:
         start: closed
       readonly: false
       required: false
-      sort: 12
+      sort: 13
       special:
         - alias
         - group
@@ -4948,7 +4948,7 @@ fields:
         start: closed
       readonly: false
       required: false
-      sort: 13
+      sort: 14
       special:
         - alias
         - group
@@ -4980,7 +4980,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 10
+      sort: 12
       special:
         - alias
         - group
@@ -5005,7 +5005,7 @@ fields:
       options: null
       readonly: false
       required: true
-      sort: 7
+      sort: 8
       special:
         - cast-boolean
       translations: null
@@ -5085,7 +5085,7 @@ fields:
         iconLeft: attach_money
       readonly: false
       required: true
-      sort: 3
+      sort: 4
       special: null
       translations: null
       validation: null
@@ -5126,7 +5126,7 @@ fields:
         min: 0
       readonly: false
       required: false
-      sort: 9
+      sort: 10
       special: null
       translations: null
       validation: null
@@ -5166,7 +5166,7 @@ fields:
         iconLeft: null
       readonly: true
       required: true
-      sort: 8
+      sort: 9
       special: null
       translations: null
       validation: null
@@ -5500,6 +5500,90 @@ fields:
       name: meals
       table: events
       data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: slug
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: raw
+      display_options: {}
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: Unique url name of the event, e.g. "icbd-2025"
+      options:
+        placeholder: my-event-name
+        slug: true
+        trim: true
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: slug
+      table: events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: true
+      is_indexed: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: admin_secret
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: admin_secret
+      group: null
+      hidden: false
+      interface: null
+      note: Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+      options:
+        iconLeft: password
+        placeholder: null
+      readonly: true
+      required: true
+      sort: 11
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: admin_secret
+      table: events
+      data_type: uuid
       default_value: null
       max_length: null
       numeric_precision: null
