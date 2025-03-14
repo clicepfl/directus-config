@@ -1,4 +1,5 @@
 # Ignore images that Directus create as cache (when resizing)
 uploads/**_**
 
-new-dump.sql.env
+new-dump.sql
+.env
