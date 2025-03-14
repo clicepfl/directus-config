@@ -3860,8 +3860,6 @@ export interface components {
       staffing_to?: string | null;
       staffingTypes?: unknown;
       staffingShiftSize?: number | null;
-      mailTemplate?: string | null;
-      mailSent?: boolean | null;
       meals?: unknown;
       name?: string | null;
       price?: number | null;
@@ -3874,6 +3872,7 @@ export interface components {
        * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
        */
       admin_secret?: string | null;
+      banner?: string | components['schemas']['Files'] | null;
     };
     ItemsRegistrations: {
       /** Format: uuid */

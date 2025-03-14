@@ -4906,32 +4906,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
-    field: mail
-    type: alias
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mail
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        start: closed
-      readonly: false
-      required: false
-      sort: 13
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: events
     field: staffing
     type: alias
     meta:
@@ -4948,7 +4922,7 @@ fields:
         start: closed
       readonly: false
       required: false
-      sort: 14
+      sort: 15
       special:
         - alias
         - group
@@ -4980,7 +4954,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 12
+      sort: 13
       special:
         - alias
         - group
@@ -5350,85 +5324,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
-    field: mailTemplate
-    type: text
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mailTemplate
-      group: mail
-      hidden: false
-      interface: input-rich-text-html
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: mailTemplate
-      table: events
-      data_type: text
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: mailSent
-    type: boolean
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: mailSent
-      group: mail
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: true
-      required: true
-      sort: 2
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: mailSent
-      table: events
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
     field: meals
     type: json
     meta:
@@ -5467,7 +5362,7 @@ fields:
               interface: input
               note: Do not edit manually
               options: {}
-              required: true
+              required: false
               type: integer
               width: half
             name: count
@@ -5572,7 +5467,7 @@ fields:
         iconLeft: password
         placeholder: null
       readonly: true
-      required: true
+      required: false
       sort: 11
       special:
         - uuid
@@ -5597,6 +5492,47 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: events
+    field: banner
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 12
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: events
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: icbd_activities
     field: id
     type: integer
@@ -9560,7 +9496,7 @@ fields:
         start: first
       readonly: false
       required: false
-      sort: 11
+      sort: 12
       special:
         - alias
         - group
@@ -9821,7 +9757,7 @@ fields:
         start: closed
       readonly: false
       required: false
-      sort: 12
+      sort: 13
       special:
         - alias
         - group
@@ -10448,7 +10384,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 5
+      sort: 4
       special:
         - cast-boolean
       translations: null
@@ -10521,14 +10457,14 @@ fields:
       display: null
       display_options: null
       field: confirmation_email_sent
-      group: icbd
+      group: null
       hidden: false
       interface: boolean
       note: null
       options: null
       readonly: false
       required: false
-      sort: 4
+      sort: 11
       special:
         - cast-boolean
       translations: null
@@ -13100,6 +13036,27 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: commissions_translations_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: events
+    field: banner
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: events
+      many_field: banner
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: events
+      column: banner
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: events_banner_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: icbd_activities
