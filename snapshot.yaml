@@ -9881,6 +9881,9 @@ fields:
           - icon: account_balance
             text: Bank transfer
             value: bank_transfer
+          - icon: work
+            text: Staff
+            value: staff
       readonly: false
       required: false
       sort: 10
