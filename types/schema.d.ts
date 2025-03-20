@@ -3900,6 +3900,7 @@ export interface components {
       registration_complete?: boolean | null;
       registration_email_sent?: boolean | null;
       confirmation_email_sent?: boolean | null;
+      guest?: boolean | null;
     };
     ItemsIcbd: {
       id?: number;
