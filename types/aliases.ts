@@ -27,3 +27,4 @@ export type ICBDSpeakerActivityRelation = Schema["icbd_activities_icbd_speakers"
 export type Registration = Schema["registrations"][0];
 export type Event = Schema["events"][0];
 export type ICBDActivityRegistration = Schema["icbd_activities_registrations"][0];
+export type GameStarSocialLink = Schema["game_star_social_links"][0];

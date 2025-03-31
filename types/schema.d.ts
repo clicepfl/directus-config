@@ -4265,9 +4265,9 @@ export interface components {
     };
     ItemsGameStarSocialLinks: {
       id?: number;
-      social_link?: string | null;
+      social_link?: string;
       social_account?: string | null;
-      social_type?: string | null;
+      social_type?: string;
     };
     ItemsGameStarEventsTranslations: {
       id?: number;
