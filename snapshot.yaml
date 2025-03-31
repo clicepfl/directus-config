@@ -10,7 +10,7 @@ collections:
       archive_value: null
       collapse: open
       collection: ICBD
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: null
       hidden: false
@@ -82,7 +82,7 @@ collections:
       archive_value: null
       collapse: open
       collection: artists
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: subsonic
       hidden: false
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: commissions
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: groups_3
@@ -482,6 +482,150 @@ collections:
       versioning: false
     schema:
       name: events
+  - collection: game_star
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star
+      color: "#FFDA8A"
+      display_template: null
+      group: null
+      hidden: false
+      icon: videogame_asset
+      item_duplication_fields: null
+      note: Content of clicgamestar.ch
+      preview_url: null
+      singleton: true
+      sort: 13
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star
+  - collection: game_star_events
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star_events
+      color: "#FFDA8A"
+      display_template: null
+      group: game_star
+      hidden: false
+      icon: event
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star_events
+  - collection: game_star_events_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star_events_translations
+      color: null
+      display_template: null
+      group: game_star_events
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star_events_translations
+  - collection: game_star_projects
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star_projects
+      color: "#FFDA8A"
+      display_template: null
+      group: game_star
+      hidden: false
+      icon: play_shapes
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 2
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star_projects
+  - collection: game_star_projects_translations
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star_projects_translations
+      color: null
+      display_template: null
+      group: game_star_projects
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 1
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star_projects_translations
+  - collection: game_star_social_links
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: game_star_social_links
+      color: "#FFDA8A"
+      display_template: null
+      group: game_star
+      hidden: false
+      icon: link
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: 3
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: game_star_social_links
   - collection: icbd_activities
     meta:
       accountability: all
@@ -490,7 +634,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -562,7 +706,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities_translations
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: icbd_activities
       hidden: true
@@ -586,7 +730,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_phds
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -610,7 +754,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_speakers
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: "{{first_name}}\_{{last_name}} ({{company}})"
       group: ICBD
       hidden: false
@@ -659,7 +803,7 @@ collections:
       collapse: open
       collection: languages
       color: null
-      display_template: '{{code}}'
+      display_template: "{{code}}"
       group: null
       hidden: false
       icon: language
@@ -707,7 +851,7 @@ collections:
       collapse: closed
       collection: news
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: breaking_news_alt_1
@@ -851,7 +995,7 @@ collections:
       collapse: open
       collection: partners
       color: null
-      display_template: '{{name}}'
+      display_template: "{{name}}"
       group: null
       hidden: false
       icon: partner_exchange
@@ -1018,7 +1162,7 @@ collections:
       archive_value: null
       collapse: open
       collection: subsonic
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: null
       hidden: false
@@ -2254,7 +2398,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{icon.$thumbnail}}{{link}}'
+        template: "{{icon.$thumbnail}}{{link}}"
       readonly: false
       required: false
       sort: 9
@@ -2417,15 +2561,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#A2B5CD'
+          - color: "#A2B5CD"
             icon: card_membership
             text: Member
             value: member
@@ -2463,7 +2607,7 @@ fields:
       display: translations
       display_options:
         languageField: name
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -2489,7 +2633,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{slug}}'
+        template: "{{slug}}"
       field: pole
       group: null
       hidden: false
@@ -2497,7 +2641,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{slug}}'
+        template: "{{slug}}"
       readonly: false
       required: false
       sort: 4
@@ -2844,7 +2988,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -2910,7 +3054,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: mail
       group: null
       hidden: false
@@ -3185,7 +3329,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: attach_file
       field: link
       group: null
@@ -3268,7 +3412,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -3805,7 +3949,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -3889,7 +4033,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -3922,15 +4066,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: card_membership
             text: Member
             value: member
@@ -4164,7 +4308,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -5164,6 +5308,131 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
+    field: slug
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: raw
+      display_options: {}
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: Unique url name of the event, e.g. "icbd-2025"
+      options:
+        placeholder: my-event-name
+        slug: true
+        trim: true
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: slug
+      table: events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: true
+      is_indexed: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: admin_secret
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: admin_secret
+      group: null
+      hidden: false
+      interface: null
+      note: Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+      options:
+        iconLeft: password
+        placeholder: null
+      readonly: true
+      required: false
+      sort: 11
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: admin_secret
+      table: events
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: banner
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 12
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: events
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: events
     field: staffing_from
     type: dateTime
     meta:
@@ -5338,7 +5607,7 @@ fields:
                   _eq: faculty_dinner
       display: formatted-json-value
       display_options:
-        format: '{{ name }}, {{ count }}'
+        format: "{{ name }}, {{ count }}"
       field: meals
       group: faculty_dinner
       hidden: false
@@ -5408,23 +5677,749 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: events
-    field: slug
+  - collection: game_star
+    field: id
+    type: integer
+    meta:
+      collection: game_star
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star
+      data_type: integer
+      default_value: nextval('game_star_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events
+    field: id
+    type: integer
+    meta:
+      collection: game_star_events
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star_events
+      data_type: integer
+      default_value: nextval('game_star_events_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events
+    field: translations
+    type: alias
+    meta:
+      collection: game_star_events
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: game_star_events_translations
+    field: id
+    type: integer
+    meta:
+      collection: game_star_events_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star_events_translations
+      data_type: integer
+      default_value: nextval('game_star_events_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events_translations
+    field: game_star_events_id
+    type: integer
+    meta:
+      collection: game_star_events_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: game_star_events_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: game_star_events_id
+      table: game_star_events_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: game_star_events
+      foreign_key_column: id
+  - collection: game_star_events_translations
+    field: languages_code
     type: string
     meta:
-      collection: events
+      collection: game_star_events_translations
       conditions: null
-      display: raw
-      display_options: {}
-      field: slug
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: game_star_events_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: game_star_events_translations
+    field: title
+    type: string
+    meta:
+      collection: game_star_events_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
       group: null
       hidden: false
       interface: input
-      note: Unique url name of the event, e.g. "icbd-2025"
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: game_star_events_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events_translations
+    field: description
+    type: text
+    meta:
+      collection: game_star_events_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: game_star_events_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events_translations
+    field: content
+    type: text
+    meta:
+      collection: game_star_events_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: content
+      group: null
+      hidden: false
+      interface: input-rich-text-html
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: content
+      table: game_star_events_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects
+    field: id
+    type: integer
+    meta:
+      collection: game_star_projects
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star_projects
+      data_type: integer
+      default_value: nextval('game_star_projects_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects
+    field: translations
+    type: alias
+    meta:
+      collection: game_star_projects
+      conditions: null
+      display: null
+      display_options: null
+      field: translations
+      group: null
+      hidden: false
+      interface: translations
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special:
+        - translations
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: game_star_projects_translations
+    field: id
+    type: integer
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star_projects_translations
+      data_type: integer
+      default_value: nextval('game_star_projects_translations_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects_translations
+    field: game_star_projects_id
+    type: integer
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: game_star_projects_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: game_star_projects_id
+      table: game_star_projects_translations
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: game_star_projects
+      foreign_key_column: id
+  - collection: game_star_projects_translations
+    field: languages_code
+    type: string
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: languages_code
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: languages_code
+      table: game_star_projects_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: game_star_projects_translations
+    field: title
+    type: string
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: title
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: title
+      table: game_star_projects_translations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects_translations
+    field: description
+    type: text
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: description
+      group: null
+      hidden: false
+      interface: input-multiline
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 5
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: description
+      table: game_star_projects_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects_translations
+    field: content
+    type: text
+    meta:
+      collection: game_star_projects_translations
+      conditions: null
+      display: null
+      display_options: null
+      field: content
+      group: null
+      hidden: false
+      interface: input-rich-text-html
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: content
+      table: game_star_projects_translations
+      data_type: text
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_social_links
+    field: id
+    type: integer
+    meta:
+      collection: game_star_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: game_star_social_links
+      data_type: integer
+      default_value: nextval('game_star_social_links_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_social_links
+    field: social_type
+    type: json
+    meta:
+      collection: game_star_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: social_type
+      group: null
+      hidden: false
+      interface: select-multiple-dropdown
+      note: null
       options:
-        placeholder: my-event-name
-        slug: true
-        trim: true
+        choices:
+          - text: Telegram
+            value: telegram
+          - text: Instagram
+            value: instagram
+          - text: Discord
+            value: discord
+          - text: Email
+            value: email
+          - text: GitHub
+            value: github
+          - text: LinkedIn
+            value: linkedin
+          - text: Twitter
+            value: twitter
+          - text: Linktree
+            value: linktree
+          - text: YouTube
+            value: youtube
+      readonly: false
+      required: true
+      sort: 2
+      special:
+        - cast-json
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: social_type
+      table: game_star_social_links
+      data_type: json
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_social_links
+    field: social_link
+    type: string
+    meta:
+      collection: game_star_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: social_link
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
       readonly: false
       required: true
       sort: 3
@@ -5432,58 +6427,16 @@ fields:
       translations: null
       validation: null
       validation_message: null
-      width: half
+      width: full
     schema:
-      name: slug
-      table: events
+      name: social_link
+      table: game_star_social_links
       data_type: character varying
       default_value: null
       max_length: 255
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
-      is_unique: true
-      is_indexed: true
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: admin_secret
-    type: uuid
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: admin_secret
-      group: null
-      hidden: false
-      interface: null
-      note: Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
-      options:
-        iconLeft: password
-        placeholder: null
-      readonly: true
-      required: false
-      sort: 11
-      special:
-        - uuid
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: admin_secret
-      table: events
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
       is_unique: false
       is_indexed: false
       is_primary_key: false
@@ -5492,36 +6445,34 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: events
-    field: banner
-    type: uuid
+  - collection: game_star_social_links
+    field: social_account
+    type: string
     meta:
-      collection: events
+      collection: game_star_social_links
       conditions: null
       display: null
       display_options: null
-      field: banner
+      field: social_account
       group: null
       hidden: false
-      interface: file-image
+      interface: input
       note: null
-      options:
-        crop: false
+      options: null
       readonly: false
       required: false
-      sort: 12
-      special:
-        - file
+      sort: 4
+      special: null
       translations: null
       validation: null
       validation_message: null
       width: full
     schema:
-      name: banner
-      table: events
-      data_type: uuid
+      name: social_account
+      table: game_star_social_links
+      data_type: character varying
       default_value: null
-      max_length: null
+      max_length: 255
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -5531,8 +6482,8 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: icbd_activities
     field: id
     type: integer
@@ -5772,7 +6723,7 @@ fields:
               type: boolean
             name: full
             type: boolean
-        template: '[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]'
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
       readonly: false
       required: false
       sort: 9
@@ -6063,7 +7014,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.name}}'
+        template: "{{translations.name}}"
       readonly: false
       required: true
       sort: 2
@@ -6105,7 +7056,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{email}}'
+        template: "{{email}}"
       readonly: false
       required: true
       sort: 3
@@ -6929,7 +7880,7 @@ fields:
       display: formatted-value
       display_options:
         bold: true
-        color: '#A2B5CD'
+        color: "#A2B5CD"
         icon: numbers
       field: quantity
       group: null
@@ -7017,7 +7968,7 @@ fields:
       interface: presentation-divider
       note: null
       options:
-        color: '#2ECDA7'
+        color: "#2ECDA7"
         icon: local_shipping
         title: $t:need-to-order
       readonly: false
@@ -7104,7 +8055,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -7112,7 +8063,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -7259,8 +8210,8 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        background: '#3399FF'
-        color: '#FFFFFF'
+        background: "#3399FF"
+        color: "#FFFFFF"
         format: true
       field: place
       group: null
@@ -7270,19 +8221,19 @@ fields:
       options:
         allowOther: true
         choices:
-          - color: '#6644FF'
+          - color: "#6644FF"
             icon: shelves
             text: Shelve 1
             value: shelve-1
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: shelves
             text: Shelve 2
             value: shelve-2
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: scene
             text: Office
             value: office
-          - color: '#FFC23B'
+          - color: "#FFC23B"
             icon: tv_with_assistant
             text: Admin
             value: admin
@@ -7644,7 +8595,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -8000,7 +8951,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 9
@@ -8117,7 +9068,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -8144,7 +9095,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{commissions_id.name}}'
+        template: "{{commissions_id.name}}"
       field: commissions
       group: null
       hidden: false
@@ -8153,7 +9104,7 @@ fields:
       options:
         enableCreate: false
         fields: []
-        template: '{{commissions_id.slug}}'
+        template: "{{commissions_id.slug}}"
       readonly: false
       required: false
       sort: 6
@@ -8235,7 +9186,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#E35169'
+        defaultColor: "#E35169"
       field: video_link
       group: null
       hidden: false
@@ -8865,7 +9816,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -9331,7 +10282,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{rank}}'
+        template: "{{rank}}"
       readonly: false
       required: true
       sort: 10
@@ -9413,7 +10364,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.title}}'
+        template: "{{translations.title}}"
       readonly: false
       required: true
       sort: 2
@@ -9767,6 +10718,99 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: payment
+    type: string
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: payment
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - icon: monetization_on
+            text: Cash
+            value: cash
+          - icon: credit_card
+            text: Camipro
+            value: camipro
+          - icon: account_balance
+            text: Bank transfer
+            value: bank_transfer
+          - icon: work
+            text: Staff
+            value: staff
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: payment
+      table: registrations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: confirmation_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: confirmation_email_sent
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: confirmation_email_sent
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
     field: faculty_dinner
     type: alias
     meta:
@@ -9817,6 +10861,31 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: icbd
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd
+      group: additional_infos
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: registrations
     field: meal
     type: integer
     meta:
@@ -9847,59 +10916,6 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: payment
-    type: string
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: payment
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        allowNone: true
-        choices:
-          - icon: monetization_on
-            text: Cash
-            value: cash
-          - icon: credit_card
-            text: Camipro
-            value: camipro
-          - icon: account_balance
-            text: Bank transfer
-            value: bank_transfer
-          - icon: work
-            text: Staff
-            value: staff
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: payment
-      table: registrations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_indexed: false
@@ -10081,6 +11097,46 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: registrations
+    field: guest
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: guest
+      group: faculty_dinner
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: guest
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
     field: team
     type: string
     meta:
@@ -10245,31 +11301,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: registrations
-    field: icbd
-    type: alias
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: icbd
-      group: additional_infos
-      hidden: false
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: registrations
     field: retreived_deposit
     type: boolean
     meta:
@@ -10287,8 +11318,8 @@ fields:
                   _eq: true
       display: boolean
       display_options:
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: retreived_deposit
       group: icbd
       hidden: false
@@ -10332,8 +11363,8 @@ fields:
       display_options:
         colorOff: null
         colorOn: null
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: can_retreive_deposit
       group: icbd
       hidden: false
@@ -10436,86 +11467,6 @@ fields:
       width: half
     schema:
       name: registration_email_sent
-      table: registrations
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: confirmation_email_sent
-    type: boolean
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: confirmation_email_sent
-      group: null
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 11
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: confirmation_email_sent
-      table: registrations
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: guest
-    type: boolean
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: guest
-      group: faculty_dinner
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: guest
       table: registrations
       data_type: boolean
       default_value: false
@@ -10638,7 +11589,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: true
       sort: 6
@@ -10703,7 +11654,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#F6F5F4'
+          - color: "#F6F5F4"
             name: default
       readonly: false
       required: false
@@ -10745,7 +11696,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#241F31'
+          - color: "#241F31"
             name: default
       readonly: false
       required: false
@@ -10827,7 +11778,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#232B79'
+          - color: "#232B79"
             name: default
       readonly: false
       required: false
@@ -10869,7 +11820,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#1A69D6'
+          - color: "#1A69D6"
             name: default
       readonly: false
       required: false
@@ -11138,7 +12089,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: media_link
       field: link
       group: null
@@ -11380,14 +12331,14 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -11462,7 +12413,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -11601,7 +12552,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#18222F'
+        defaultColor: "#18222F"
       field: text_color
       group: style
       hidden: false
@@ -11609,7 +12560,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#18222F'
+          - color: "#18222F"
             name: default
       readonly: false
       required: false
@@ -11623,7 +12574,7 @@ fields:
       name: text_color
       table: std_cell
       data_type: character varying
-      default_value: '#18222F'
+      default_value: "#18222F"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -11644,7 +12595,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#EEEDEA'
+        defaultColor: "#EEEDEA"
       field: background_color
       group: style
       hidden: false
@@ -11652,7 +12603,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#EEEDEA'
+          - color: "#EEEDEA"
             name: default
       readonly: false
       required: false
@@ -11666,7 +12617,7 @@ fields:
       name: background_color
       table: std_cell
       data_type: character varying
-      default_value: '#EEEDEA'
+      default_value: "#EEEDEA"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -11687,7 +12638,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#1A69D6'
+        defaultColor: "#1A69D6"
       field: button_color
       group: style
       hidden: false
@@ -11695,7 +12646,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#1A69D6'
+          - color: "#1A69D6"
             name: default
       readonly: false
       required: false
@@ -11709,7 +12660,7 @@ fields:
       name: button_color
       table: std_cell
       data_type: character varying
-      default_value: '#1A69D6'
+      default_value: "#1A69D6"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -13100,6 +14051,90 @@ relations:
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: events_banner_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: game_star_events_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: game_star_events_id
+      many_collection: game_star_events_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: game_star_events_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: game_star_events_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: game_star_events_translations
+    field: game_star_events_id
+    related_collection: game_star_events
+    meta:
+      junction_field: languages_code
+      many_collection: game_star_events_translations
+      many_field: game_star_events_id
+      one_allowed_collections: null
+      one_collection: game_star_events
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: game_star_events_translations
+      column: game_star_events_id
+      foreign_key_table: game_star_events
+      foreign_key_column: id
+      constraint_name: game_star_events_translations_game_star_events_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: game_star_projects_translations
+    field: languages_code
+    related_collection: languages
+    meta:
+      junction_field: game_star_projects_id
+      many_collection: game_star_projects_translations
+      many_field: languages_code
+      one_allowed_collections: null
+      one_collection: languages
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: game_star_projects_translations
+      column: languages_code
+      foreign_key_table: languages
+      foreign_key_column: code
+      constraint_name: game_star_projects_translations_languages_code_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: game_star_projects_translations
+    field: game_star_projects_id
+    related_collection: game_star_projects
+    meta:
+      junction_field: languages_code
+      many_collection: game_star_projects_translations
+      many_field: game_star_projects_id
+      one_allowed_collections: null
+      one_collection: game_star_projects
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: translations
+      sort_field: null
+    schema:
+      table: game_star_projects_translations
+      column: game_star_projects_id
+      foreign_key_table: game_star_projects
+      foreign_key_column: id
+      constraint_name: game_star_projects_translations_game_star___18994fa3_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: icbd_activities
