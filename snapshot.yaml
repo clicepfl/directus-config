@@ -6348,65 +6348,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: game_star_social_links
-    field: social_type
-    type: json
-    meta:
-      collection: game_star_social_links
-      conditions: null
-      display: null
-      display_options: null
-      field: social_type
-      group: null
-      hidden: false
-      interface: select-multiple-dropdown
-      note: null
-      options:
-        choices:
-          - text: Telegram
-            value: telegram
-          - text: Instagram
-            value: instagram
-          - text: Discord
-            value: discord
-          - text: Email
-            value: email
-          - text: GitHub
-            value: github
-          - text: LinkedIn
-            value: linkedin
-          - text: Twitter
-            value: twitter
-          - text: Linktree
-            value: linktree
-          - text: YouTube
-            value: youtube
-      readonly: false
-      required: true
-      sort: 2
-      special:
-        - cast-json
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: social_type
-      table: game_star_social_links
-      data_type: json
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: game_star_social_links
     field: social_link
     type: string
     meta:
@@ -6469,6 +6410,64 @@ fields:
       width: full
     schema:
       name: social_account
+      table: game_star_social_links
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_social_links
+    field: social_type
+    type: string
+    meta:
+      collection: game_star_social_links
+      conditions: null
+      display: null
+      display_options: null
+      field: social_type
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - text: Telegram
+            value: telegram
+          - text: Instagram
+            value: instagram
+          - text: Discord
+            value: discord
+          - text: Email
+            value: email
+          - text: GitHub
+            value: github
+          - text: LinkedIn
+            value: linkedin
+          - text: Twitter
+            value: twitter
+          - text: Linktree
+            value: linktree
+          - text: YouTube
+            value: youtube
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: social_type
       table: game_star_social_links
       data_type: character varying
       default_value: null

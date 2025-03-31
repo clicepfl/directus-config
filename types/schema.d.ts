@@ -2558,45 +2558,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsGameStar"];
   };
-  "/items/game_star_social_links": {
-    /**
-     * List Items
-     * @description List the game_star_social_links items.
-     */
-    get: operations["readItemsGameStarSocialLinks"];
-    /**
-     * Create an Item
-     * @description Create a new game_star_social_links item.
-     */
-    post: operations["createItemsGameStarSocialLinks"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing game_star_social_links items.
-     */
-    delete: operations["deleteItemsGameStarSocialLinks"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple game_star_social_links items at the same time.
-     */
-    patch: operations["updateItemsGameStarSocialLinks"];
-  };
-  "/items/game_star_social_links/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single game_star_social_links item by unique identifier.
-     */
-    get: operations["readSingleItemsGameStarSocialLinks"];
-    /**
-     * Delete an Item
-     * @description Delete an existing game_star_social_links item.
-     */
-    delete: operations["deleteSingleItemsGameStarSocialLinks"];
-    /**
-     * Update an Item
-     * @description Update an existing game_star_social_links item.
-     */
-    patch: operations["updateSingleItemsGameStarSocialLinks"];
-  };
   "/items/game_star_events": {
     /**
      * List Items
@@ -2635,6 +2596,45 @@ export interface paths {
      * @description Update an existing game_star_events item.
      */
     patch: operations["updateSingleItemsGameStarEvents"];
+  };
+  "/items/game_star_social_links": {
+    /**
+     * List Items
+     * @description List the game_star_social_links items.
+     */
+    get: operations["readItemsGameStarSocialLinks"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_social_links item.
+     */
+    post: operations["createItemsGameStarSocialLinks"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_social_links items.
+     */
+    delete: operations["deleteItemsGameStarSocialLinks"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_social_links items at the same time.
+     */
+    patch: operations["updateItemsGameStarSocialLinks"];
+  };
+  "/items/game_star_social_links/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_social_links item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarSocialLinks"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_social_links item.
+     */
+    delete: operations["deleteSingleItemsGameStarSocialLinks"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_social_links item.
+     */
+    patch: operations["updateSingleItemsGameStarSocialLinks"];
   };
   "/items/game_star_events_translations": {
     /**
@@ -4257,17 +4257,17 @@ export interface components {
     ItemsGameStar: {
       id?: number;
     };
-    ItemsGameStarSocialLinks: {
-      id?: number;
-      social_type?: unknown;
-      social_link?: string | null;
-      social_account?: string | null;
-    };
     ItemsGameStarEvents: {
       id?: number;
       translations?:
         | (number | components["schemas"]["ItemsGameStarEventsTranslations"])[]
         | null;
+    };
+    ItemsGameStarSocialLinks: {
+      id?: number;
+      social_link?: string | null;
+      social_account?: string | null;
+      social_type?: string | null;
     };
     ItemsGameStarEventsTranslations: {
       id?: number;
@@ -17251,193 +17251,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the game_star_social_links items.
-   */
-  readItemsGameStarSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarSocialLinks"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new game_star_social_links item.
-   */
-  createItemsGameStarSocialLinks: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarSocialLinks"][]
-          | components["schemas"]["ItemsGameStarSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing game_star_social_links items.
-   */
-  deleteItemsGameStarSocialLinks: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple game_star_social_links items at the same time.
-   */
-  updateItemsGameStarSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarSocialLinks"][]
-          | components["schemas"]["ItemsGameStarSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single game_star_social_links item by unique identifier.
-   */
-  readSingleItemsGameStarSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing game_star_social_links item.
-   */
-  deleteSingleItemsGameStarSocialLinks: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing game_star_social_links item.
-   */
-  updateSingleItemsGameStarSocialLinks: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsGameStarSocialLinks"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the game_star_events items.
    */
   readItemsGameStarEvents: {
@@ -17616,6 +17429,193 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsGameStarEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the game_star_social_links items.
+   */
+  readItemsGameStarSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarSocialLinks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_social_links item.
+   */
+  createItemsGameStarSocialLinks: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarSocialLinks"][]
+          | components["schemas"]["ItemsGameStarSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_social_links items.
+   */
+  deleteItemsGameStarSocialLinks: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_social_links items at the same time.
+   */
+  updateItemsGameStarSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarSocialLinks"][]
+          | components["schemas"]["ItemsGameStarSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_social_links item by unique identifier.
+   */
+  readSingleItemsGameStarSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarSocialLinks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_social_links item.
+   */
+  deleteSingleItemsGameStarSocialLinks: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_social_links item.
+   */
+  updateSingleItemsGameStarSocialLinks: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarSocialLinks"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarSocialLinks"];
           };
         };
       };
@@ -18232,8 +18232,8 @@ export type Schema = {
   icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
   game_star: components["schemas"]["ItemsGameStar"][];
-  game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
   game_star_events: components["schemas"]["ItemsGameStarEvents"][];
+  game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
   game_star_events_translations: components["schemas"]["ItemsGameStarEventsTranslations"][];
   game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
