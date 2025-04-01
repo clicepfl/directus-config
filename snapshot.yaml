@@ -1,5 +1,5 @@
 version: 1
-directus: 11.1.2
+directus: 11.5.1
 vendor: postgres
 collections:
   - collection: ICBD
@@ -122,6 +122,30 @@ collections:
       versioning: false
     schema:
       name: association
+  - collection: association_files
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: association_files
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: association_files
   - collection: association_memberships
     meta:
       accountability: all
@@ -314,30 +338,6 @@ collections:
       versioning: false
     schema:
       name: association_social_links
-  - collection: association_social_links_1
-    meta:
-      accountability: all
-      archive_app_filter: true
-      archive_field: null
-      archive_value: null
-      collapse: open
-      collection: association_social_links_1
-      color: null
-      display_template: null
-      group: association
-      hidden: true
-      icon: import_export
-      item_duplication_fields: null
-      note: null
-      preview_url: null
-      singleton: false
-      sort: 6
-      sort_field: null
-      translations: null
-      unarchive_value: null
-      versioning: false
-    schema:
-      name: association_social_links_1
   - collection: association_translations
     meta:
       accountability: all
@@ -355,7 +355,7 @@ collections:
       note: null
       preview_url: null
       singleton: false
-      sort: 7
+      sort: 6
       sort_field: null
       translations: null
       unarchive_value: null
@@ -2234,7 +2234,30 @@ fields:
       options: {}
       readonly: false
       required: false
-      sort: 11
+      sort: 10
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: association
+    field: social_links
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
       special:
         - m2m
       translations: null
@@ -2258,7 +2281,7 @@ fields:
         template: "{{icon.$thumbnail}}{{link}}"
       readonly: false
       required: false
-      sort: 10
+      sort: 9
       special:
         - m2o
       translations: null
@@ -2298,7 +2321,7 @@ fields:
       options: null
       readonly: false
       required: false
-      sort: 12
+      sort: 11
       special:
         - file
       translations: null
@@ -2323,52 +2346,145 @@ fields:
       foreign_key_table: directus_files
       foreign_key_column: id
   - collection: association
-    field: social_links
+    field: channels
     type: alias
     meta:
       collection: association
       conditions: null
       display: null
       display_options: null
-      field: social_links
-      group: null
-      hidden: false
-      interface: list-m2m
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 8
-      special:
-        - m2m
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: association
-    field: channels
-    type: alias
-    meta:
-      collection: association
-      conditions: null
-      display: related-values
-      display_options:
-        template: "{{social_links_id.media_name}}\_- {{social_links_id.account_name}}"
       field: channels
       group: null
       hidden: false
-      interface: list-m2m
+      interface: files
       note: null
       options: null
       readonly: false
       required: false
-      sort: 9
+      sort: 12
       special:
-        - m2m
+        - files
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: association_files
+    field: id
+    type: integer
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: association_files
+      data_type: integer
+      default_value: nextval('association_files_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: association_files
+    field: association_id
+    type: integer
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: association_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: association_id
+      table: association_files
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: association
+      foreign_key_column: id
+  - collection: association_files
+    field: directus_files_id
+    type: uuid
+    meta:
+      collection: association_files
+      conditions: null
+      display: null
+      display_options: null
+      field: directus_files_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: directus_files_id
+      table: association_files
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
   - collection: association_memberships
     field: id
     type: integer
@@ -3596,123 +3712,6 @@ fields:
     schema:
       name: social_links_id
       table: association_social_links
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: social_links
-      foreign_key_column: id
-  - collection: association_social_links_1
-    field: id
-    type: integer
-    meta:
-      collection: association_social_links_1
-      conditions: null
-      display: null
-      display_options: null
-      field: id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: id
-      table: association_social_links_1
-      data_type: integer
-      default_value: nextval('association_social_links_1_id_seq'::regclass)
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: false
-      is_unique: true
-      is_indexed: false
-      is_primary_key: true
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: true
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: association_social_links_1
-    field: association_id
-    type: integer
-    meta:
-      collection: association_social_links_1
-      conditions: null
-      display: null
-      display_options: null
-      field: association_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: association_id
-      table: association_social_links_1
-      data_type: integer
-      default_value: null
-      max_length: null
-      numeric_precision: 32
-      numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: association
-      foreign_key_column: id
-  - collection: association_social_links_1
-    field: social_links_id
-    type: integer
-    meta:
-      collection: association_social_links_1
-      conditions: null
-      display: null
-      display_options: null
-      field: social_links_id
-      group: null
-      hidden: true
-      interface: null
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: social_links_id
-      table: association_social_links_1
       data_type: integer
       default_value: null
       max_length: null
@@ -10699,6 +10698,75 @@ fields:
       validation_message: null
       width: full
   - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
+  - collection: save_the_date
     field: translations
     type: alias
     meta:
@@ -10805,33 +10873,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: save_the_date
     field: image
     type: uuid
@@ -10956,48 +10997,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: save_the_date
-    field: language_button_target
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: language_button_target
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        template: "{{name}}"
-      readonly: false
-      required: true
-      sort: 6
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: language_button_target
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
   - collection: save_the_date_translations
     field: id
     type: integer
@@ -11647,6 +11646,55 @@ fields:
       validation_message: null
       width: full
   - collection: std_cell
+    field: recurrence
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: labels
+      display_options: null
+      field: recurrence
+      group: null
+      hidden: false
+      interface: select-radio
+      note: null
+      options:
+        choices:
+          - text: Punctual
+            value: Punctual
+          - text: Weekly
+            value: weekly
+          - text: Monthly
+            value: monthly
+          - text: From
+            value: from
+        iconOn: update
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: recurrence
+      table: std_cell
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
     field: text_color
     type: string
     meta:
@@ -11763,55 +11811,6 @@ fields:
       table: std_cell
       data_type: character varying
       default_value: "#1A69D6"
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: recurrence
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: labels
-      display_options: null
-      field: recurrence
-      group: null
-      hidden: false
-      interface: select-radio
-      note: null
-      options:
-        choices:
-          - text: Punctual
-            value: Punctual
-          - text: Weekly
-            value: weekly
-          - text: Monthly
-            value: monthly
-          - text: From
-            value: from
-        iconOn: update
-      readonly: false
-      required: false
-      sort: 4
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: recurrence
-      table: std_cell
-      data_type: character varying
-      default_value: null
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -12637,6 +12636,48 @@ relations:
       constraint_name: association_preview_image_foreign
       on_update: NO ACTION
       on_delete: SET NULL
+  - collection: association_files
+    field: directus_files_id
+    related_collection: directus_files
+    meta:
+      junction_field: association_id
+      many_collection: association_files
+      many_field: directus_files_id
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: association_files
+      column: directus_files_id
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: association_files_directus_files_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: association_files
+    field: association_id
+    related_collection: association
+    meta:
+      junction_field: directus_files_id
+      many_collection: association_files
+      many_field: association_id
+      one_allowed_collections: null
+      one_collection: association
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: channels
+      sort_field: null
+    schema:
+      table: association_files
+      column: association_id
+      foreign_key_table: association
+      foreign_key_column: id
+      constraint_name: association_files_association_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
   - collection: association_memberships
     field: member
     related_collection: members
@@ -12908,48 +12949,6 @@ relations:
       foreign_key_table: association
       foreign_key_column: id
       constraint_name: association_social_links_association_id_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: association_social_links_1
-    field: social_links_id
-    related_collection: social_links
-    meta:
-      junction_field: association_id
-      many_collection: association_social_links_1
-      many_field: social_links_id
-      one_allowed_collections: null
-      one_collection: social_links
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: null
-      sort_field: null
-    schema:
-      table: association_social_links_1
-      column: social_links_id
-      foreign_key_table: social_links
-      foreign_key_column: id
-      constraint_name: association_social_links_1_social_links_id_foreign
-      on_update: NO ACTION
-      on_delete: SET NULL
-  - collection: association_social_links_1
-    field: association_id
-    related_collection: association
-    meta:
-      junction_field: social_links_id
-      many_collection: association_social_links_1
-      many_field: association_id
-      one_allowed_collections: null
-      one_collection: association
-      one_collection_field: null
-      one_deselect_action: nullify
-      one_field: channels
-      sort_field: null
-    schema:
-      table: association_social_links_1
-      column: association_id
-      foreign_key_table: association
-      foreign_key_column: id
-      constraint_name: association_social_links_1_association_id_foreign
       on_update: NO ACTION
       on_delete: SET NULL
   - collection: association_translations
