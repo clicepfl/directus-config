@@ -2558,45 +2558,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsGameStar"];
   };
-  "/items/game_star_events": {
-    /**
-     * List Items
-     * @description List the game_star_events items.
-     */
-    get: operations["readItemsGameStarEvents"];
-    /**
-     * Create an Item
-     * @description Create a new game_star_events item.
-     */
-    post: operations["createItemsGameStarEvents"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing game_star_events items.
-     */
-    delete: operations["deleteItemsGameStarEvents"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple game_star_events items at the same time.
-     */
-    patch: operations["updateItemsGameStarEvents"];
-  };
-  "/items/game_star_events/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single game_star_events item by unique identifier.
-     */
-    get: operations["readSingleItemsGameStarEvents"];
-    /**
-     * Delete an Item
-     * @description Delete an existing game_star_events item.
-     */
-    delete: operations["deleteSingleItemsGameStarEvents"];
-    /**
-     * Update an Item
-     * @description Update an existing game_star_events item.
-     */
-    patch: operations["updateSingleItemsGameStarEvents"];
-  };
   "/items/game_star_social_links": {
     /**
      * List Items
@@ -2675,45 +2636,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsGameStarEventsTranslations"];
   };
-  "/items/game_star_projects": {
-    /**
-     * List Items
-     * @description List the game_star_projects items.
-     */
-    get: operations["readItemsGameStarProjects"];
-    /**
-     * Create an Item
-     * @description Create a new game_star_projects item.
-     */
-    post: operations["createItemsGameStarProjects"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing game_star_projects items.
-     */
-    delete: operations["deleteItemsGameStarProjects"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple game_star_projects items at the same time.
-     */
-    patch: operations["updateItemsGameStarProjects"];
-  };
-  "/items/game_star_projects/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single game_star_projects item by unique identifier.
-     */
-    get: operations["readSingleItemsGameStarProjects"];
-    /**
-     * Delete an Item
-     * @description Delete an existing game_star_projects item.
-     */
-    delete: operations["deleteSingleItemsGameStarProjects"];
-    /**
-     * Update an Item
-     * @description Update an existing game_star_projects item.
-     */
-    patch: operations["updateSingleItemsGameStarProjects"];
-  };
   "/items/game_star_projects_translations": {
     /**
      * List Items
@@ -2752,6 +2674,84 @@ export interface paths {
      * @description Update an existing game_star_projects_translations item.
      */
     patch: operations["updateSingleItemsGameStarProjectsTranslations"];
+  };
+  "/items/game_star_events": {
+    /**
+     * List Items
+     * @description List the game_star_events items.
+     */
+    get: operations["readItemsGameStarEvents"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_events item.
+     */
+    post: operations["createItemsGameStarEvents"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_events items.
+     */
+    delete: operations["deleteItemsGameStarEvents"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_events items at the same time.
+     */
+    patch: operations["updateItemsGameStarEvents"];
+  };
+  "/items/game_star_events/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_events item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarEvents"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_events item.
+     */
+    delete: operations["deleteSingleItemsGameStarEvents"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_events item.
+     */
+    patch: operations["updateSingleItemsGameStarEvents"];
+  };
+  "/items/game_star_projects": {
+    /**
+     * List Items
+     * @description List the game_star_projects items.
+     */
+    get: operations["readItemsGameStarProjects"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_projects item.
+     */
+    post: operations["createItemsGameStarProjects"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_projects items.
+     */
+    delete: operations["deleteItemsGameStarProjects"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_projects items at the same time.
+     */
+    patch: operations["updateItemsGameStarProjects"];
+  };
+  "/items/game_star_projects/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_projects item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarProjects"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_projects item.
+     */
+    delete: operations["deleteSingleItemsGameStarProjects"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_projects item.
+     */
+    patch: operations["updateSingleItemsGameStarProjects"];
   };
 }
 
@@ -4257,12 +4257,6 @@ export interface components {
     ItemsGameStar: {
       id?: number;
     };
-    ItemsGameStarEvents: {
-      id?: number;
-      translations?:
-        | (number | components["schemas"]["ItemsGameStarEventsTranslations"])[]
-        | null;
-    };
     ItemsGameStarSocialLinks: {
       id?: number;
       social_link?: string;
@@ -4280,15 +4274,6 @@ export interface components {
       description?: string | null;
       content?: string | null;
     };
-    ItemsGameStarProjects: {
-      id?: number;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsGameStarProjectsTranslations"]
-          )[]
-        | null;
-    };
     ItemsGameStarProjectsTranslations: {
       id?: number;
       game_star_projects_id?:
@@ -4299,6 +4284,25 @@ export interface components {
       title?: string | null;
       description?: string | null;
       content?: string | null;
+    };
+    ItemsGameStarEvents: {
+      id?: number;
+      slug?: string | null;
+      status?: string | null;
+      translations?:
+        | (number | components["schemas"]["ItemsGameStarEventsTranslations"])[]
+        | null;
+    };
+    ItemsGameStarProjects: {
+      id?: number;
+      slug?: string | null;
+      status?: string | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsGameStarProjectsTranslations"]
+          )[]
+        | null;
     };
   };
   responses: {
@@ -17251,193 +17255,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the game_star_events items.
-   */
-  readItemsGameStarEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarEvents"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new game_star_events item.
-   */
-  createItemsGameStarEvents: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEvents"][]
-          | components["schemas"]["ItemsGameStarEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing game_star_events items.
-   */
-  deleteItemsGameStarEvents: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple game_star_events items at the same time.
-   */
-  updateItemsGameStarEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEvents"][]
-          | components["schemas"]["ItemsGameStarEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single game_star_events item by unique identifier.
-   */
-  readSingleItemsGameStarEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing game_star_events item.
-   */
-  deleteSingleItemsGameStarEvents: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing game_star_events item.
-   */
-  updateSingleItemsGameStarEvents: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsGameStarEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the game_star_social_links items.
    */
   readItemsGameStarSocialLinks: {
@@ -17812,193 +17629,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the game_star_projects items.
-   */
-  readItemsGameStarProjects: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarProjects"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new game_star_projects item.
-   */
-  createItemsGameStarProjects: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjects"][]
-          | components["schemas"]["ItemsGameStarProjects"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing game_star_projects items.
-   */
-  deleteItemsGameStarProjects: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple game_star_projects items at the same time.
-   */
-  updateItemsGameStarProjects: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjects"][]
-          | components["schemas"]["ItemsGameStarProjects"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: unknown;
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single game_star_projects item by unique identifier.
-   */
-  readSingleItemsGameStarProjects: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarProjects"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing game_star_projects item.
-   */
-  deleteSingleItemsGameStarProjects: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing game_star_projects item.
-   */
-  updateSingleItemsGameStarProjects: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsGameStarProjects"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGameStarProjects"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the game_star_projects_translations items.
    */
   readItemsGameStarProjectsTranslations: {
@@ -18184,6 +17814,380 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the game_star_events items.
+   */
+  readItemsGameStarEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarEvents"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_events item.
+   */
+  createItemsGameStarEvents: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarEvents"][]
+          | components["schemas"]["ItemsGameStarEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_events items.
+   */
+  deleteItemsGameStarEvents: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_events items at the same time.
+   */
+  updateItemsGameStarEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarEvents"][]
+          | components["schemas"]["ItemsGameStarEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_events item by unique identifier.
+   */
+  readSingleItemsGameStarEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_events item.
+   */
+  deleteSingleItemsGameStarEvents: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_events item.
+   */
+  updateSingleItemsGameStarEvents: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the game_star_projects items.
+   */
+  readItemsGameStarProjects: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarProjects"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_projects item.
+   */
+  createItemsGameStarProjects: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarProjects"][]
+          | components["schemas"]["ItemsGameStarProjects"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_projects items.
+   */
+  deleteItemsGameStarProjects: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_projects items at the same time.
+   */
+  updateItemsGameStarProjects: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarProjects"][]
+          | components["schemas"]["ItemsGameStarProjects"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_projects item by unique identifier.
+   */
+  readSingleItemsGameStarProjects: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarProjects"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_projects item.
+   */
+  deleteSingleItemsGameStarProjects: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_projects item.
+   */
+  updateSingleItemsGameStarProjects: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarProjects"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarProjects"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -18232,9 +18236,9 @@ export type Schema = {
   icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
   game_star: components["schemas"]["ItemsGameStar"][];
-  game_star_events: components["schemas"]["ItemsGameStarEvents"][];
   game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
   game_star_events_translations: components["schemas"]["ItemsGameStarEventsTranslations"][];
-  game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
+  game_star_events: components["schemas"]["ItemsGameStarEvents"][];
+  game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
 };

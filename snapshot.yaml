@@ -5761,23 +5761,110 @@ fields:
     meta:
       collection: game_star_events
       conditions: null
-      display: null
-      display_options: null
+      display: translations
+      display_options:
+        template: "{{title}}"
       field: translations
       group: null
       hidden: false
       interface: translations
       note: null
-      options: null
+      options:
+        defaultOpenSplitView: true
       readonly: false
       required: true
-      sort: 2
+      sort: 3
       special:
         - translations
       translations: null
       validation: null
       validation_message: null
       width: full
+  - collection: game_star_events
+    field: slug
+    type: string
+    meta:
+      collection: game_star_events
+      conditions: null
+      display: null
+      display_options: null
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: slug
+      table: game_star_events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_events
+    field: status
+    type: string
+    meta:
+      collection: game_star_events
+      conditions: null
+      display: labels
+      display_options: null
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - icon: check_circle
+            text: Published
+            value: published
+          - icon: draft_orders
+            text: Draft
+            value: draft
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: status
+      table: game_star_events
+      data_type: character varying
+      default_value: draft
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: game_star_events_translations
     field: id
     type: integer
@@ -6057,14 +6144,16 @@ fields:
     meta:
       collection: game_star_projects
       conditions: null
-      display: null
-      display_options: null
+      display: translations
+      display_options:
+        template: "{{title}}"
       field: translations
       group: null
       hidden: false
       interface: translations
       note: null
-      options: null
+      options:
+        defaultOpenSplitView: true
       readonly: false
       required: true
       sort: 2
@@ -6074,6 +6163,92 @@ fields:
       validation: null
       validation_message: null
       width: full
+  - collection: game_star_projects
+    field: slug
+    type: string
+    meta:
+      collection: game_star_projects
+      conditions: null
+      display: null
+      display_options: null
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: slug
+      table: game_star_projects
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: game_star_projects
+    field: status
+    type: string
+    meta:
+      collection: game_star_projects
+      conditions: null
+      display: labels
+      display_options:
+        color: null
+      field: status
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        choices:
+          - icon: check_circle
+            text: Published
+            value: published
+          - icon: draft_orders
+            text: Draft
+            value: draft
+      readonly: false
+      required: false
+      sort: 4
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: status
+      table: game_star_projects
+      data_type: character varying
+      default_value: draft
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: game_star_projects_translations
     field: id
     type: integer
