@@ -2917,11 +2917,6 @@ export interface components {
        */
       item?: string;
       /**
-       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
-       * @example null
-       */
-      comment?: string | null;
-      /**
        * @description Origin of the request when the action took place.
        * @example https://directus.io
        */
@@ -3562,7 +3557,7 @@ export interface components {
     };
     ItemsAssociationMemberships: {
       id?: number;
-      member?: number | components["schemas"]["ItemsMembers"];
+      member: number | components["schemas"]["ItemsMembers"];
       level?: string | null;
       pole?: number | components["schemas"]["ItemsAssociationPoles"] | null;
       translations?:
@@ -3574,7 +3569,7 @@ export interface components {
     };
     ItemsAssociationPoles: {
       id?: number;
-      slug?: string;
+      slug: string;
       mail?: string | null;
       translations?:
         | (
@@ -3584,7 +3579,7 @@ export interface components {
         | null;
     };
     ItemsLanguages: {
-      code?: string;
+      code: string;
       name?: string | null;
     };
     ItemsAssociationMembershipsTranslations: {
@@ -3668,8 +3663,8 @@ export interface components {
     };
     ItemsCommissionMemberships: {
       id?: number;
-      commission?: number | components["schemas"]["ItemsCommissions"];
-      member?: number | components["schemas"]["ItemsMembers"];
+      commission: number | components["schemas"]["ItemsCommissions"];
+      member: number | components["schemas"]["ItemsMembers"];
       level?: string | null;
       translations?:
         | (
@@ -3760,9 +3755,9 @@ export interface components {
       id?: number;
       news_id?: number | components["schemas"]["ItemsNews"] | null;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string;
-      description?: string;
-      content?: string;
+      title: string;
+      description: string;
+      content: string;
       banner?: string | components["schemas"]["Files"] | null;
     };
     ItemsPartnerCategoryTranslations: {
@@ -3847,11 +3842,11 @@ export interface components {
       logo?: string | components["schemas"]["Files"] | null;
       presentation_video?: string | null;
       /** Format: date */
-      date?: string;
+      date: string;
       /** Format: time */
-      start_time?: string;
+      start_time: string;
       /** Format: time */
-      end_time?: string;
+      end_time: string;
       place?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsIcbdTranslations"])[]
@@ -3908,7 +3903,7 @@ export interface components {
       id?: number;
       std_cell_id?: number | components["schemas"]["ItemsStdCell"] | null;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      title?: string;
+      title: string;
       description?: string | null;
       detail_button_title?: string | null;
       /** @description This will replace the date by this text. (optional) */
@@ -3976,7 +3971,7 @@ export interface components {
     };
     ItemsIcbdPhds: {
       id?: number;
-      first_name?: string;
+      first_name: string;
       last_name?: string | null;
       laboratory?: string | null;
       picture?: string | components["schemas"]["Files"] | null;
@@ -4019,7 +4014,7 @@ export interface components {
     };
     ItemsRegistrations: {
       /** Format: uuid */
-      id?: string;
+      id: string;
       event?: number | components["schemas"]["ItemsEvents"] | null;
       email?: string | null;
       comments?: string | null;
