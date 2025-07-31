@@ -392,3 +392,4 @@ INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'ic
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_activities', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_activities_translations', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
 INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'icbd_activities_icbd_speakers', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
+INSERT INTO directus_permissions (collection, action, fields, policy) SELECT 'association_files', 'read', '*', id FROM directus_policies WHERE name ='$t:public_label' ON CONFLICT DO NOTHING;
