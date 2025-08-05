@@ -10,7 +10,7 @@ collections:
       archive_value: null
       collapse: open
       collection: ICBD
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: null
       hidden: false
@@ -82,7 +82,7 @@ collections:
       archive_value: null
       collapse: open
       collection: artists
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: subsonic
       hidden: false
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: commissions
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: groups_3
@@ -482,6 +482,30 @@ collections:
       versioning: false
     schema:
       name: events
+  - collection: galleries
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: galleries
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: add_a_photo
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: galleries
   - collection: icbd_activities
     meta:
       accountability: all
@@ -490,7 +514,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -562,7 +586,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities_translations
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: icbd_activities
       hidden: true
@@ -586,7 +610,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_phds
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -610,7 +634,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_speakers
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: "{{first_name}}\_{{last_name}} ({{company}})"
       group: ICBD
       hidden: false
@@ -659,7 +683,7 @@ collections:
       collapse: open
       collection: languages
       color: null
-      display_template: '{{code}}'
+      display_template: "{{code}}"
       group: null
       hidden: false
       icon: language
@@ -707,7 +731,7 @@ collections:
       collapse: closed
       collection: news
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: breaking_news_alt_1
@@ -851,7 +875,7 @@ collections:
       collapse: open
       collection: partners
       color: null
-      display_template: '{{name}}'
+      display_template: "{{name}}"
       group: null
       hidden: false
       icon: partner_exchange
@@ -1018,7 +1042,7 @@ collections:
       archive_value: null
       collapse: open
       collection: subsonic
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: null
       hidden: false
@@ -2218,29 +2242,6 @@ fields:
       validation_message: null
       width: full
   - collection: association
-    field: social_links
-    type: alias
-    meta:
-      collection: association
-      conditions: null
-      display: null
-      display_options: null
-      field: social_links
-      group: null
-      hidden: false
-      interface: list-m2m
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 8
-      special:
-        - m2m
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: association
     field: public_files
     type: integer
     meta:
@@ -2254,7 +2255,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{icon.$thumbnail}}{{link}}'
+        template: "{{icon.$thumbnail}}{{link}}"
       readonly: false
       required: false
       sort: 9
@@ -2321,6 +2322,29 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
+  - collection: association
+    field: social_links
+    type: alias
+    meta:
+      collection: association
+      conditions: null
+      display: null
+      display_options: null
+      field: social_links
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 8
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
   - collection: association_memberships
     field: id
     type: integer
@@ -2417,15 +2441,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#A2B5CD'
+          - color: "#A2B5CD"
             icon: card_membership
             text: Member
             value: member
@@ -2463,7 +2487,7 @@ fields:
       display: translations
       display_options:
         languageField: name
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -2489,7 +2513,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{slug}}'
+        template: "{{slug}}"
       field: pole
       group: null
       hidden: false
@@ -2497,7 +2521,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{slug}}'
+        template: "{{slug}}"
       readonly: false
       required: false
       sort: 4
@@ -2844,7 +2868,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -2910,7 +2934,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: mail
       group: null
       hidden: false
@@ -3185,7 +3209,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: attach_file
       field: link
       group: null
@@ -3268,7 +3292,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -3805,7 +3829,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -3889,7 +3913,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -3922,15 +3946,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: card_membership
             text: Member
             value: member
@@ -4164,7 +4188,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -5338,7 +5362,7 @@ fields:
                   _eq: faculty_dinner
       display: formatted-json-value
       display_options:
-        format: '{{ name }}, {{ count }}'
+        format: "{{ name }}, {{ count }}"
       field: meals
       group: faculty_dinner
       hidden: false
@@ -5533,6 +5557,206 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
+  - collection: galleries
+    field: id
+    type: integer
+    meta:
+      collection: galleries
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: galleries
+      data_type: integer
+      default_value: nextval('galleries_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: galleries
+    field: date
+    type: dateTime
+    meta:
+      collection: galleries
+      conditions: null
+      display: datetime
+      display_options: null
+      field: date
+      group: null
+      hidden: false
+      interface: datetime
+      note: null
+      options: {}
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: date
+      table: galleries
+      data_type: timestamp without time zone
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: galleries
+    field: name
+    type: string
+    meta:
+      collection: galleries
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: galleries
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: galleries
+    field: preview
+    type: uuid
+    meta:
+      collection: galleries
+      conditions: null
+      display: null
+      display_options: null
+      field: preview
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 5
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: preview
+      table: galleries
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: galleries
+    field: url
+    type: string
+    meta:
+      collection: galleries
+      conditions: null
+      display: null
+      display_options: null
+      field: url
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        iconLeft: link
+      readonly: false
+      required: false
+      sort: 6
+      special: null
+      translations: null
+      validation:
+        _and:
+          - url:
+              _regex: ^https?://
+      validation_message: Should be a valid website URL
+      width: full
+    schema:
+      name: url
+      table: galleries
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: icbd_activities
     field: id
     type: integer
@@ -5772,7 +5996,7 @@ fields:
               type: boolean
             name: full
             type: boolean
-        template: '[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]'
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
       readonly: false
       required: false
       sort: 9
@@ -6063,7 +6287,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.name}}'
+        template: "{{translations.name}}"
       readonly: false
       required: true
       sort: 2
@@ -6105,7 +6329,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{email}}'
+        template: "{{email}}"
       readonly: false
       required: true
       sort: 3
@@ -6929,7 +7153,7 @@ fields:
       display: formatted-value
       display_options:
         bold: true
-        color: '#A2B5CD'
+        color: "#A2B5CD"
         icon: numbers
       field: quantity
       group: null
@@ -7017,7 +7241,7 @@ fields:
       interface: presentation-divider
       note: null
       options:
-        color: '#2ECDA7'
+        color: "#2ECDA7"
         icon: local_shipping
         title: $t:need-to-order
       readonly: false
@@ -7104,7 +7328,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -7112,7 +7336,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -7259,8 +7483,8 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        background: '#3399FF'
-        color: '#FFFFFF'
+        background: "#3399FF"
+        color: "#FFFFFF"
         format: true
       field: place
       group: null
@@ -7270,19 +7494,19 @@ fields:
       options:
         allowOther: true
         choices:
-          - color: '#6644FF'
+          - color: "#6644FF"
             icon: shelves
             text: Shelve 1
             value: shelve-1
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: shelves
             text: Shelve 2
             value: shelve-2
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: scene
             text: Office
             value: office
-          - color: '#FFC23B'
+          - color: "#FFC23B"
             icon: tv_with_assistant
             text: Admin
             value: admin
@@ -7644,7 +7868,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -8000,7 +8224,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 9
@@ -8117,7 +8341,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -8144,7 +8368,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{commissions_id.name}}'
+        template: "{{commissions_id.name}}"
       field: commissions
       group: null
       hidden: false
@@ -8153,7 +8377,7 @@ fields:
       options:
         enableCreate: false
         fields: []
-        template: '{{commissions_id.slug}}'
+        template: "{{commissions_id.slug}}"
       readonly: false
       required: false
       sort: 6
@@ -8235,7 +8459,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#E35169'
+        defaultColor: "#E35169"
       field: video_link
       group: null
       hidden: false
@@ -8865,7 +9089,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -9331,7 +9555,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{rank}}'
+        template: "{{rank}}"
       readonly: false
       required: true
       sort: 10
@@ -9413,7 +9637,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.title}}'
+        template: "{{translations.title}}"
       readonly: false
       required: true
       sort: 2
@@ -9767,6 +9991,59 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: payment
+    type: string
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: payment
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - icon: monetization_on
+            text: Cash
+            value: cash
+          - icon: credit_card
+            text: Camipro
+            value: camipro
+          - icon: account_balance
+            text: Bank transfer
+            value: bank_transfer
+          - icon: work
+            text: Staff
+            value: staff
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: payment
+      table: registrations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
     field: faculty_dinner
     type: alias
     meta:
@@ -9817,6 +10094,31 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: icbd
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd
+      group: additional_infos
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: registrations
     field: meal
     type: integer
     meta:
@@ -9847,59 +10149,6 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: payment
-    type: string
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: payment
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        allowNone: true
-        choices:
-          - icon: monetization_on
-            text: Cash
-            value: cash
-          - icon: credit_card
-            text: Camipro
-            value: camipro
-          - icon: account_balance
-            text: Bank transfer
-            value: bank_transfer
-          - icon: work
-            text: Staff
-            value: staff
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: payment
-      table: registrations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_indexed: false
@@ -10245,31 +10494,6 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: registrations
-    field: icbd
-    type: alias
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: icbd
-      group: additional_infos
-      hidden: false
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: registrations
     field: retreived_deposit
     type: boolean
     meta:
@@ -10287,8 +10511,8 @@ fields:
                   _eq: true
       display: boolean
       display_options:
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: retreived_deposit
       group: icbd
       hidden: false
@@ -10332,8 +10556,8 @@ fields:
       display_options:
         colorOff: null
         colorOn: null
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: can_retreive_deposit
       group: icbd
       hidden: false
@@ -10597,75 +10821,6 @@ fields:
       validation_message: null
       width: full
   - collection: save_the_date
-    field: style
-    type: alias
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: style
-      group: null
-      hidden: false
-      interface: group-detail
-      note: null
-      options:
-        headerIcon: format_paint
-        start: closed
-      readonly: false
-      required: false
-      sort: 2
-      special:
-        - alias
-        - group
-        - no-data
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-  - collection: save_the_date
-    field: language_button_target
-    type: string
-    meta:
-      collection: save_the_date
-      conditions: null
-      display: null
-      display_options: null
-      field: language_button_target
-      group: null
-      hidden: false
-      interface: select-dropdown-m2o
-      note: null
-      options:
-        enableCreate: false
-        template: '{{name}}'
-      readonly: false
-      required: true
-      sort: 6
-      special:
-        - m2o
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: language_button_target
-      table: save_the_date
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: languages
-      foreign_key_column: code
-  - collection: save_the_date
     field: translations
     type: alias
     meta:
@@ -10703,7 +10858,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#F6F5F4'
+          - color: "#F6F5F4"
             name: default
       readonly: false
       required: false
@@ -10745,7 +10900,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#241F31'
+          - color: "#241F31"
             name: default
       readonly: false
       required: false
@@ -10772,6 +10927,33 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: save_the_date
+    field: style
+    type: alias
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: style
+      group: null
+      hidden: false
+      interface: group-detail
+      note: null
+      options:
+        headerIcon: format_paint
+        start: closed
+      readonly: false
+      required: false
+      sort: 2
+      special:
+        - alias
+        - group
+        - no-data
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
   - collection: save_the_date
     field: image
     type: uuid
@@ -10827,7 +11009,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#232B79'
+          - color: "#232B79"
             name: default
       readonly: false
       required: false
@@ -10869,7 +11051,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#1A69D6'
+          - color: "#1A69D6"
             name: default
       readonly: false
       required: false
@@ -10896,6 +11078,48 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: save_the_date
+    field: language_button_target
+    type: string
+    meta:
+      collection: save_the_date
+      conditions: null
+      display: null
+      display_options: null
+      field: language_button_target
+      group: null
+      hidden: false
+      interface: select-dropdown-m2o
+      note: null
+      options:
+        enableCreate: false
+        template: "{{name}}"
+      readonly: false
+      required: true
+      sort: 6
+      special:
+        - m2o
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: language_button_target
+      table: save_the_date
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: languages
+      foreign_key_column: code
   - collection: save_the_date_translations
     field: id
     type: integer
@@ -11138,7 +11362,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: media_link
       field: link
       group: null
@@ -11380,14 +11604,14 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -11462,7 +11686,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -11545,6 +11769,135 @@ fields:
       validation_message: null
       width: full
   - collection: std_cell
+    field: text_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#18222F"
+      field: text_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#18222F"
+            name: default
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: text_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#18222F"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: background_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#EEEDEA"
+      field: background_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#EEEDEA"
+            name: default
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: background_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#EEEDEA"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
+    field: button_color
+    type: string
+    meta:
+      collection: std_cell
+      conditions: null
+      display: color
+      display_options:
+        defaultColor: "#1A69D6"
+      field: button_color
+      group: style
+      hidden: false
+      interface: select-color
+      note: null
+      options:
+        presets:
+          - color: "#1A69D6"
+            name: default
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: button_color
+      table: std_cell
+      data_type: character varying
+      default_value: "#1A69D6"
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: std_cell
     field: recurrence
     type: string
     meta:
@@ -11581,135 +11934,6 @@ fields:
       table: std_cell
       data_type: character varying
       default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: text_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#18222F'
-      field: text_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - color: '#18222F'
-            name: default
-      readonly: false
-      required: false
-      sort: 1
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: text_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#18222F'
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: background_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#EEEDEA'
-      field: background_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - color: '#EEEDEA'
-            name: default
-      readonly: false
-      required: false
-      sort: 2
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: background_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#EEEDEA'
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: std_cell
-    field: button_color
-    type: string
-    meta:
-      collection: std_cell
-      conditions: null
-      display: color
-      display_options:
-        defaultColor: '#1A69D6'
-      field: button_color
-      group: style
-      hidden: false
-      interface: select-color
-      note: null
-      options:
-        presets:
-          - color: '#1A69D6'
-            name: default
-      readonly: false
-      required: false
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: button_color
-      table: std_cell
-      data_type: character varying
-      default_value: '#1A69D6'
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -13102,6 +13326,27 @@ relations:
       constraint_name: events_banner_foreign
       on_update: NO ACTION
       on_delete: SET NULL
+  - collection: galleries
+    field: preview
+    related_collection: directus_files
+    meta:
+      junction_field: null
+      many_collection: galleries
+      many_field: preview
+      one_allowed_collections: null
+      one_collection: directus_files
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: null
+      sort_field: null
+    schema:
+      table: galleries
+      column: preview
+      foreign_key_table: directus_files
+      foreign_key_column: id
+      constraint_name: galleries_preview_foreign
+      on_update: NO ACTION
+      on_delete: NO ACTION
   - collection: icbd_activities
     field: icon
     related_collection: directus_files
