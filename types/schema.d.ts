@@ -2636,6 +2636,84 @@ export interface paths {
      */
     patch: operations["updateSingleItemsGameStarEventsTranslations"];
   };
+  "/items/game_star_articles_translations": {
+    /**
+     * List Items
+     * @description List the game_star_articles_translations items.
+     */
+    get: operations["readItemsGameStarArticlesTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_articles_translations item.
+     */
+    post: operations["createItemsGameStarArticlesTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_articles_translations items.
+     */
+    delete: operations["deleteItemsGameStarArticlesTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_articles_translations items at the same time.
+     */
+    patch: operations["updateItemsGameStarArticlesTranslations"];
+  };
+  "/items/game_star_articles_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_articles_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarArticlesTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_articles_translations item.
+     */
+    delete: operations["deleteSingleItemsGameStarArticlesTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_articles_translations item.
+     */
+    patch: operations["updateSingleItemsGameStarArticlesTranslations"];
+  };
+  "/items/game_star_articles": {
+    /**
+     * List Items
+     * @description List the game_star_articles items.
+     */
+    get: operations["readItemsGameStarArticles"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_articles item.
+     */
+    post: operations["createItemsGameStarArticles"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_articles items.
+     */
+    delete: operations["deleteItemsGameStarArticles"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_articles items at the same time.
+     */
+    patch: operations["updateItemsGameStarArticles"];
+  };
+  "/items/game_star_articles/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_articles item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarArticles"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_articles item.
+     */
+    delete: operations["deleteSingleItemsGameStarArticles"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_articles item.
+     */
+    patch: operations["updateSingleItemsGameStarArticles"];
+  };
   "/items/game_star_projects_translations": {
     /**
      * List Items
@@ -2752,6 +2830,45 @@ export interface paths {
      * @description Update an existing game_star_projects item.
      */
     patch: operations["updateSingleItemsGameStarProjects"];
+  };
+  "/items/game_star_translations": {
+    /**
+     * List Items
+     * @description List the game_star_translations items.
+     */
+    get: operations["readItemsGameStarTranslations"];
+    /**
+     * Create an Item
+     * @description Create a new game_star_translations item.
+     */
+    post: operations["createItemsGameStarTranslations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing game_star_translations items.
+     */
+    delete: operations["deleteItemsGameStarTranslations"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple game_star_translations items at the same time.
+     */
+    patch: operations["updateItemsGameStarTranslations"];
+  };
+  "/items/game_star_translations/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single game_star_translations item by unique identifier.
+     */
+    get: operations["readSingleItemsGameStarTranslations"];
+    /**
+     * Delete an Item
+     * @description Delete an existing game_star_translations item.
+     */
+    delete: operations["deleteSingleItemsGameStarTranslations"];
+    /**
+     * Update an Item
+     * @description Update an existing game_star_translations item.
+     */
+    patch: operations["updateSingleItemsGameStarTranslations"];
   };
 }
 
@@ -4256,6 +4373,9 @@ export interface components {
     };
     ItemsGameStar: {
       id?: number;
+      translations?:
+        | (number | components["schemas"]["ItemsGameStarTranslations"])[]
+        | null;
     };
     ItemsGameStarSocialLinks: {
       id?: number;
@@ -4273,6 +4393,30 @@ export interface components {
       title?: string | null;
       description?: string | null;
       content?: string | null;
+      cover_image?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsGameStarArticlesTranslations: {
+      id?: number;
+      game_star_articles_id?:
+        | number
+        | components["schemas"]["ItemsGameStarArticles"]
+        | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      title?: string | null;
+      description?: string | null;
+      content?: string | null;
+      cover_image?: string | components["schemas"]["Files"] | null;
+    };
+    ItemsGameStarArticles: {
+      id?: number;
+      slug?: string | null;
+      status?: string | null;
+      translations?:
+        | (
+            | number
+            | components["schemas"]["ItemsGameStarArticlesTranslations"]
+          )[]
+        | null;
     };
     ItemsGameStarProjectsTranslations: {
       id?: number;
@@ -4289,6 +4433,10 @@ export interface components {
       id?: number;
       slug?: string | null;
       status?: string | null;
+      /** Format: date-time */
+      start?: string | null;
+      /** Format: date-time */
+      end?: string | null;
       translations?:
         | (number | components["schemas"]["ItemsGameStarEventsTranslations"])[]
         | null;
@@ -4303,6 +4451,13 @@ export interface components {
             | components["schemas"]["ItemsGameStarProjectsTranslations"]
           )[]
         | null;
+    };
+    ItemsGameStarTranslations: {
+      id?: number;
+      game_star_id?: number | components["schemas"]["ItemsGameStar"] | null;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      about_title?: string | null;
+      about_text?: string | null;
     };
   };
   responses: {
@@ -17629,6 +17784,380 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the game_star_articles_translations items.
+   */
+  readItemsGameStarArticlesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticlesTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_articles_translations item.
+   */
+  createItemsGameStarArticlesTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarArticlesTranslations"][]
+          | components["schemas"]["ItemsGameStarArticlesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_articles_translations items.
+   */
+  deleteItemsGameStarArticlesTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_articles_translations items at the same time.
+   */
+  updateItemsGameStarArticlesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarArticlesTranslations"][]
+          | components["schemas"]["ItemsGameStarArticlesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_articles_translations item by unique identifier.
+   */
+  readSingleItemsGameStarArticlesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticlesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_articles_translations item.
+   */
+  deleteSingleItemsGameStarArticlesTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_articles_translations item.
+   */
+  updateSingleItemsGameStarArticlesTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarArticlesTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticlesTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the game_star_articles items.
+   */
+  readItemsGameStarArticles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticles"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_articles item.
+   */
+  createItemsGameStarArticles: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarArticles"][]
+          | components["schemas"]["ItemsGameStarArticles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_articles items.
+   */
+  deleteItemsGameStarArticles: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_articles items at the same time.
+   */
+  updateItemsGameStarArticles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarArticles"][]
+          | components["schemas"]["ItemsGameStarArticles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_articles item by unique identifier.
+   */
+  readSingleItemsGameStarArticles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_articles item.
+   */
+  deleteSingleItemsGameStarArticles: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_articles item.
+   */
+  updateSingleItemsGameStarArticles: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarArticles"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarArticles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the game_star_projects_translations items.
    */
   readItemsGameStarProjectsTranslations: {
@@ -18188,6 +18717,193 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  /**
+   * List Items
+   * @description List the game_star_translations items.
+   */
+  readItemsGameStarTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarTranslations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new game_star_translations item.
+   */
+  createItemsGameStarTranslations: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarTranslations"][]
+          | components["schemas"]["ItemsGameStarTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing game_star_translations items.
+   */
+  deleteItemsGameStarTranslations: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple game_star_translations items at the same time.
+   */
+  updateItemsGameStarTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsGameStarTranslations"][]
+          | components["schemas"]["ItemsGameStarTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: unknown;
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single game_star_translations item by unique identifier.
+   */
+  readSingleItemsGameStarTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing game_star_translations item.
+   */
+  deleteSingleItemsGameStarTranslations: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing game_star_translations item.
+   */
+  updateSingleItemsGameStarTranslations: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsGameStarTranslations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsGameStarTranslations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
 }
 
 export type Schema = {
@@ -18238,7 +18954,10 @@ export type Schema = {
   game_star: components["schemas"]["ItemsGameStar"][];
   game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
   game_star_events_translations: components["schemas"]["ItemsGameStarEventsTranslations"][];
+  game_star_articles_translations: components["schemas"]["ItemsGameStarArticlesTranslations"][];
+  game_star_articles: components["schemas"]["ItemsGameStarArticles"][];
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
   game_star_events: components["schemas"]["ItemsGameStarEvents"][];
   game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
+  game_star_translations: components["schemas"]["ItemsGameStarTranslations"][];
 };
