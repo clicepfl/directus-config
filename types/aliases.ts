@@ -28,3 +28,4 @@ export type Registration = Schema["registrations"][0];
 export type Event = Schema["events"][0];
 export type ICBDActivityRegistration = Schema["icbd_activities_registrations"][0];
 export type GameStarSocialLink = Schema["game_star_social_links"][0];
+export type GameStarEvent = Schema["game_star_events"][0];
