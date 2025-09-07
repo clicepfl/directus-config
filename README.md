@@ -11,7 +11,7 @@ The services requiring it use git submodules, this directly importing the [direc
 
 ### Starting the instance
 
-First, use `docker compose up` to boot up a local instance. Then, you can import the data schema using `sh load.sh` and populate it using sample data with `sh populate.sh`. You only need to do this once, or if you have deleted Directus' data volume.
+First, copy the `.env.example` file to `.env` and, if needed, update the `SMTP_IT_PASSWORD` and `MAIL_SENDER_SECRET` variables with their actual values (see the vaultwarden). Then, use `docker compose up` to boot up a local instance. Then, you can import the data schema using `sh load.sh` and populate it using sample data with `sh populate.sh`. You only need to do this once, or if you have deleted Directus' data volume.
 
 You can access the admin panel at <http://localhost/directus> (username: `clic@epfl.ch`, password: `1234`). There, you can update the data, or modify the schema (see below).
 
