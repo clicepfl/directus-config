@@ -5164,6 +5164,131 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: events
+    field: slug
+    type: string
+    meta:
+      collection: events
+      conditions: null
+      display: raw
+      display_options: {}
+      field: slug
+      group: null
+      hidden: false
+      interface: input
+      note: Unique url name of the event, e.g. "icbd-2025"
+      options:
+        placeholder: my-event-name
+        slug: true
+        trim: true
+      readonly: false
+      required: true
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: slug
+      table: events
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: true
+      is_indexed: true
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: admin_secret
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: admin_secret
+      group: null
+      hidden: false
+      interface: null
+      note: Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+      options:
+        iconLeft: password
+        placeholder: null
+      readonly: true
+      required: false
+      sort: 11
+      special:
+        - uuid
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: admin_secret
+      table: events
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: events
+    field: banner
+    type: uuid
+    meta:
+      collection: events
+      conditions: null
+      display: null
+      display_options: null
+      field: banner
+      group: null
+      hidden: false
+      interface: file-image
+      note: null
+      options:
+        crop: false
+      readonly: false
+      required: false
+      sort: 12
+      special:
+        - file
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: banner
+      table: events
+      data_type: uuid
+      default_value: null
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: directus_files
+      foreign_key_column: id
+  - collection: events
     field: staffing_from
     type: dateTime
     meta:
@@ -5408,131 +5533,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: events
-    field: slug
-    type: string
-    meta:
-      collection: events
-      conditions: null
-      display: raw
-      display_options: {}
-      field: slug
-      group: null
-      hidden: false
-      interface: input
-      note: Unique url name of the event, e.g. "icbd-2025"
-      options:
-        placeholder: my-event-name
-        slug: true
-        trim: true
-      readonly: false
-      required: true
-      sort: 3
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: slug
-      table: events
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: true
-      is_indexed: true
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: admin_secret
-    type: uuid
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: admin_secret
-      group: null
-      hidden: false
-      interface: null
-      note: Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
-      options:
-        iconLeft: password
-        placeholder: null
-      readonly: true
-      required: false
-      sort: 11
-      special:
-        - uuid
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: admin_secret
-      table: events
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: events
-    field: banner
-    type: uuid
-    meta:
-      collection: events
-      conditions: null
-      display: null
-      display_options: null
-      field: banner
-      group: null
-      hidden: false
-      interface: file-image
-      note: null
-      options:
-        crop: false
-      readonly: false
-      required: false
-      sort: 12
-      special:
-        - file
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
-    schema:
-      name: banner
-      table: events
-      data_type: uuid
-      default_value: null
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: directus_files
-      foreign_key_column: id
   - collection: icbd_activities
     field: id
     type: integer
@@ -9767,6 +9767,99 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: payment
+    type: string
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: payment
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: null
+      options:
+        allowNone: true
+        choices:
+          - icon: monetization_on
+            text: Cash
+            value: cash
+          - icon: credit_card
+            text: Camipro
+            value: camipro
+          - icon: account_balance
+            text: Bank transfer
+            value: bank_transfer
+          - icon: work
+            text: Staff
+            value: staff
+      readonly: false
+      required: false
+      sort: 10
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: payment
+      table: registrations
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
+    field: confirmation_email_sent
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: confirmation_email_sent
+      group: null
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 11
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: confirmation_email_sent
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
     field: faculty_dinner
     type: alias
     meta:
@@ -9817,6 +9910,31 @@ fields:
       validation_message: null
       width: full
   - collection: registrations
+    field: icbd
+    type: alias
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: icbd
+      group: additional_infos
+      hidden: false
+      interface: group-raw
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special:
+        - alias
+        - no-data
+        - group
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: registrations
     field: meal
     type: integer
     meta:
@@ -9847,59 +9965,6 @@ fields:
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: payment
-    type: string
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: payment
-      group: null
-      hidden: false
-      interface: select-dropdown
-      note: null
-      options:
-        allowNone: true
-        choices:
-          - icon: monetization_on
-            text: Cash
-            value: cash
-          - icon: credit_card
-            text: Camipro
-            value: camipro
-          - icon: account_balance
-            text: Bank transfer
-            value: bank_transfer
-          - icon: work
-            text: Staff
-            value: staff
-      readonly: false
-      required: false
-      sort: 10
-      special: null
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: payment
-      table: registrations
-      data_type: character varying
-      default_value: null
-      max_length: 255
-      numeric_precision: null
-      numeric_scale: null
       is_nullable: true
       is_unique: false
       is_indexed: false
@@ -10081,6 +10146,46 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
   - collection: registrations
+    field: guest
+    type: boolean
+    meta:
+      collection: registrations
+      conditions: null
+      display: null
+      display_options: null
+      field: guest
+      group: faculty_dinner
+      hidden: false
+      interface: boolean
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: guest
+      table: registrations
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: registrations
     field: team
     type: string
     meta:
@@ -10244,31 +10349,6 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: registrations
-    field: icbd
-    type: alias
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: icbd
-      group: additional_infos
-      hidden: false
-      interface: group-raw
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 1
-      special:
-        - alias
-        - no-data
-        - group
-      translations: null
-      validation: null
-      validation_message: null
-      width: full
   - collection: registrations
     field: retreived_deposit
     type: boolean
@@ -10436,86 +10516,6 @@ fields:
       width: half
     schema:
       name: registration_email_sent
-      table: registrations
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: confirmation_email_sent
-    type: boolean
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: confirmation_email_sent
-      group: null
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 11
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: confirmation_email_sent
-      table: registrations
-      data_type: boolean
-      default_value: false
-      max_length: null
-      numeric_precision: null
-      numeric_scale: null
-      is_nullable: true
-      is_unique: false
-      is_indexed: false
-      is_primary_key: false
-      is_generated: false
-      generation_expression: null
-      has_auto_increment: false
-      foreign_key_table: null
-      foreign_key_column: null
-  - collection: registrations
-    field: guest
-    type: boolean
-    meta:
-      collection: registrations
-      conditions: null
-      display: null
-      display_options: null
-      field: guest
-      group: faculty_dinner
-      hidden: false
-      interface: boolean
-      note: null
-      options: null
-      readonly: false
-      required: false
-      sort: 3
-      special:
-        - cast-boolean
-      translations: null
-      validation: null
-      validation_message: null
-      width: half
-    schema:
-      name: guest
       table: registrations
       data_type: boolean
       default_value: false
