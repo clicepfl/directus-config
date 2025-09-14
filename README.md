@@ -11,15 +11,19 @@ The services requiring it use git submodules, this directly importing the [direc
 
 ### Starting the instance
 
-First, use `docker compose up` to boot up a local instance. Then, you can import the data schema using `sh load.sh` and populate it using sample data with `sh populate.sh`. You only need to do this once, or if you have deleted Directus' data volume.
+First, copy the `.env.example` file to `.env` and, if needed, update the `SMTP_IT_PASSWORD` and `MAIL_SENDER_SECRET` variables with their actual values (see the vaultwarden). Then, use `docker compose up` to boot up a local instance. Then, you can import the data schema using `sh load.sh` and populate it using sample data with `sh populate.sh`. You only need to do this once, or if you have deleted Directus' data volume.
 
 You can access the admin panel at <http://localhost/directus> (username: `clic@epfl.ch`, password: `1234`). There, you can update the data, or modify the schema (see below).
 
-### Modifying the schema
+### Reset
 
-If you wish to change the schema, you can do it on your local instance admin panel, then export it using `sh save.sh`. It will create a `snapshot.yaml` file in the `directus/` folder. You should then upload this file to the [infrastructure repo](https://github.com/clicepfl/clic-infra) through a PR. You will also need to commit `app/src/types/schema.d.ts` and you may add aliases for useful types in `app/src/types/aliases.ts`.
+To fully reset your local instance, first stop it using `docker compose down`. Then, identify the database volume that you are using with `docker volume ls`, it will have the name `<project>_directus-data` (e.g. `clicketing_directus-data`). Now, start again the instance (`docker compose up`).
 
-You may also want to update the sample data: the files are automatically saved in `directus/uploads/`, and you can generate a dump of Directus' database using `sh save-data.sh`, which will write into `directus/new-dump.sql`. Then, copy the relevant insertions in the `directus/dump.sql` (take care of the order, to avoid constraint error during populate).
+### Modifying the schema/flows
+
+If you wish to change the schema or update/add flows, you can do it on your local instance admin panel, then export it using `sh save.sh`. It will create a `snapshot.yaml` file in the same folder as well as a `flows.sql`. After merging these changes into the `main` branch, the `directus` stack on the server should be restarted (see the [wiki](https://clic.epfl.ch/wiclic/books/it/page/server#bkmrk-deployment)).
+
+You may also want to update the sample data: the files are automatically saved in `uploads/`, and you can generate a dump of Directus' database using `sh save-data.sh`, which will write into `new-dump.sql`. Then, copy the relevant insertions in the `dump.sql` (take care of the order, to avoid constraint error during populate).
 
 ## Setting up Directus in a new repository
 
