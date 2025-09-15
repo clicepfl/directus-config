@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-if ! command -v yq >/dev/null 2>&1
-then
-    echo "yq command could not be found"
-    exit 1
+if ! command -v yq >/dev/null 2>&1; then
+	echo "yq command could not be found"
+	exit 1
 fi
 
 help() {
