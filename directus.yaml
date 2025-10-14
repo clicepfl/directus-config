@@ -3,7 +3,7 @@ services:
   directus:
     labels:
       - org.clic.type=directus
-    image: directus/directus:11.1.2
+    image: tractr/directus-sync:11.12.0
     user: ${UID}:${GID}
     hostname: directus
     environment:
