@@ -1,0 +1,33 @@
+{
+  "collection": "news",
+  "field": "translations",
+  "type": "alias",
+  "meta": {
+    "collection": "news",
+    "conditions": null,
+    "display": "translations",
+    "display_options": {
+      "template": "{{title}}",
+      "userLanguage": true
+    },
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": {
+      "defaultOpenSplitView": true,
+      "languageField": "code"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 5,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

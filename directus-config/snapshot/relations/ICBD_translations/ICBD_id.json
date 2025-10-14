@@ -1,0 +1,25 @@
+{
+  "collection": "ICBD_translations",
+  "field": "ICBD_id",
+  "related_collection": "ICBD",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "ICBD_translations",
+    "many_field": "ICBD_id",
+    "one_allowed_collections": null,
+    "one_collection": "ICBD",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "ICBD_translations",
+    "column": "ICBD_id",
+    "foreign_key_table": "ICBD",
+    "foreign_key_column": "id",
+    "constraint_name": "icbd_translations_icbd_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

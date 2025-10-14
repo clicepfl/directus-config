@@ -1,0 +1,25 @@
+{
+  "collection": "association_translations",
+  "field": "banner",
+  "related_collection": "directus_files",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "association_translations",
+    "many_field": "banner",
+    "one_allowed_collections": null,
+    "one_collection": "directus_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "association_translations",
+    "column": "banner",
+    "foreign_key_table": "directus_files",
+    "foreign_key_column": "id",
+    "constraint_name": "association_translations_banner_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

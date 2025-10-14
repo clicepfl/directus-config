@@ -1,0 +1,76 @@
+{
+  "collection": "inventory",
+  "field": "place",
+  "type": "string",
+  "meta": {
+    "collection": "inventory",
+    "conditions": null,
+    "display": "formatted-value",
+    "display_options": {
+      "background": "#3399FF",
+      "color": "#FFFFFF",
+      "format": true
+    },
+    "field": "place",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "allowOther": true,
+      "choices": [
+        {
+          "color": "#6644FF",
+          "icon": "shelves",
+          "text": "Shelve 1",
+          "value": "shelve-1"
+        },
+        {
+          "color": "#3399FF",
+          "icon": "shelves",
+          "text": "Shelve 2",
+          "value": "shelve-2"
+        },
+        {
+          "color": "#2ECDA7",
+          "icon": "scene",
+          "text": "Office",
+          "value": "office"
+        },
+        {
+          "color": "#FFC23B",
+          "icon": "tv_with_assistant",
+          "text": "Admin",
+          "value": "admin"
+        }
+      ],
+      "icon": "location_on"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 6,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "place",
+    "table": "inventory",
+    "data_type": "character varying",
+    "default_value": null,
+    "max_length": 255,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}

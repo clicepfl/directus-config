@@ -1,0 +1,47 @@
+{
+  "collection": "news",
+  "field": "video_link",
+  "type": "string",
+  "meta": {
+    "collection": "news",
+    "conditions": null,
+    "display": "color",
+    "display_options": {
+      "defaultColor": "#E35169"
+    },
+    "field": "video_link",
+    "group": null,
+    "hidden": false,
+    "interface": "input",
+    "note": null,
+    "options": {
+      "iconLeft": "media_link"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 12,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "video_link",
+    "table": "news",
+    "data_type": "character varying",
+    "default_value": null,
+    "max_length": 255,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}

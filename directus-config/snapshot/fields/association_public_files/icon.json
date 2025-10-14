@@ -1,0 +1,47 @@
+{
+  "collection": "association_public_files",
+  "field": "icon",
+  "type": "uuid",
+  "meta": {
+    "collection": "association_public_files",
+    "conditions": null,
+    "display": "image",
+    "display_options": null,
+    "field": "icon",
+    "group": null,
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "82caf9c9-995b-404f-ba7e-76f704a6dd3e"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "icon",
+    "table": "association_public_files",
+    "data_type": "uuid",
+    "default_value": null,
+    "max_length": null,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": "directus_files",
+    "foreign_key_column": "id"
+  }
+}

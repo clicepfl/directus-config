@@ -1,0 +1,25 @@
+{
+  "collection": "game_star_translations",
+  "field": "game_star_id",
+  "related_collection": "game_star",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "game_star_translations",
+    "many_field": "game_star_id",
+    "one_allowed_collections": null,
+    "one_collection": "game_star",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "game_star_translations",
+    "column": "game_star_id",
+    "foreign_key_table": "game_star",
+    "foreign_key_column": "id",
+    "constraint_name": "game_star_translations_game_star_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collection": "news_commissions",
+  "field": "commissions_id",
+  "related_collection": "commissions",
+  "meta": {
+    "junction_field": "news_id",
+    "many_collection": "news_commissions",
+    "many_field": "commissions_id",
+    "one_allowed_collections": null,
+    "one_collection": "commissions",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "schema": {
+    "table": "news_commissions",
+    "column": "commissions_id",
+    "foreign_key_table": "commissions",
+    "foreign_key_column": "id",
+    "constraint_name": "news_commissions_commissions_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "CASCADE"
+  }
+}

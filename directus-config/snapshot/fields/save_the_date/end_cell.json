@@ -1,0 +1,31 @@
+{
+  "collection": "save_the_date",
+  "field": "end_cell",
+  "type": "alias",
+  "meta": {
+    "collection": "save_the_date",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "end_cell",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": {
+      "headerIcon": "info"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 3,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

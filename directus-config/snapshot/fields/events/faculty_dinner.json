@@ -1,0 +1,44 @@
+{
+  "collection": "events",
+  "field": "faculty_dinner",
+  "type": "alias",
+  "meta": {
+    "collection": "events",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "display",
+        "options": {},
+        "rule": {
+          "_and": [
+            {
+              "type": {
+                "_eq": "faculty_dinner"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": null,
+    "display_options": null,
+    "field": "faculty_dinner",
+    "group": null,
+    "hidden": true,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 13,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

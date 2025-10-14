@@ -1,0 +1,1022 @@
+[
+  {
+    "collection": "artists",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "be0b0786-7053-4679-994a-5bef74a254fd"
+  },
+  {
+    "collection": "artists",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "3e594a77-c757-476e-ac1b-de8bf88ac64c"
+  },
+  {
+    "collection": "association_memberships_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "e8bcff80-323d-4bbd-876d-8bb87ae98a50"
+  },
+  {
+    "collection": "association_memberships_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2d27f610-e50c-4446-8ead-312e70bbec4a"
+  },
+  {
+    "collection": "association_memberships",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2d4ad320-1413-489c-a1b0-5108739941ac"
+  },
+  {
+    "collection": "association_memberships",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "c24223ce-498b-44fe-b803-17b8b88fd492"
+  },
+  {
+    "collection": "association_partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "4f34bfb1-cd05-4d00-aa40-0ddc6bbbbb3f"
+  },
+  {
+    "collection": "association_partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "f2e53526-6e80-47d9-b639-cc52966d009e"
+  },
+  {
+    "collection": "association_poles_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "e61467b3-577d-48ca-a2b0-428730861f3c"
+  },
+  {
+    "collection": "association_poles_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "e95fcc04-fa1e-4f70-895c-9fb6768e0e09"
+  },
+  {
+    "collection": "association_poles",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ad6a4e30-3ff2-4993-b2ab-7bf3e8a07f78"
+  },
+  {
+    "collection": "association_poles",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "fbd80a4a-384f-4609-af27-4309b81806bd"
+  },
+  {
+    "collection": "association_public_files_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ddb0310c-e5fd-4032-9155-7e1cc92d8de3"
+  },
+  {
+    "collection": "association_public_files_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ceb64d4b-9fac-4ec9-8272-2861017f25b5"
+  },
+  {
+    "collection": "association_public_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "58124483-66c8-4210-9c92-c71e9e148b3c"
+  },
+  {
+    "collection": "association_public_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "f9c3879d-104b-436d-842e-8dc51ddf5be2"
+  },
+  {
+    "collection": "association_social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "b221ccdc-ded3-4462-8881-4a46db620651"
+  },
+  {
+    "collection": "association_social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "94d780ed-a008-4f34-8cbf-b32a1135d754"
+  },
+  {
+    "collection": "association_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "3f4bfaff-822f-486e-b3f8-c93eec571618"
+  },
+  {
+    "collection": "association_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "b266ff7c-d4ca-46ce-b676-2d5c302ded0f"
+  },
+  {
+    "collection": "association",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "67087193-b625-4886-aa68-2e06d029be92"
+  },
+  {
+    "collection": "association",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "4f041acb-e563-4274-bcc4-c524f70c754f"
+  },
+  {
+    "collection": "commission_memberships_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "9d608691-a2f6-4784-a25c-1cb932a1b4d7"
+  },
+  {
+    "collection": "commission_memberships_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "628e5813-a331-4693-9e66-50ea52447417"
+  },
+  {
+    "collection": "commission_memberships",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "fcd2796b-00d2-4efc-bd6a-1ac964357d7a"
+  },
+  {
+    "collection": "commission_memberships",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "3ad500cb-5f7b-491e-a6c3-541850642d48"
+  },
+  {
+    "collection": "commissions_social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "dd3ec3e3-01c6-4505-aac4-526b80ccfdc6"
+  },
+  {
+    "collection": "commissions_social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "b9ec65ef-c064-4a5f-ba4a-ffb9f71952fb"
+  },
+  {
+    "collection": "commissions_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "570fdff5-c037-4abe-b19e-0049a6b2d25c"
+  },
+  {
+    "collection": "commissions_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "92cea925-2c67-42ac-ab82-8b943ad0fac7"
+  },
+  {
+    "collection": "commissions",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "9ef9799f-a4cc-44e1-b900-b94c671d4dc5"
+  },
+  {
+    "collection": "commissions",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ccb60ce8-f5a1-4943-8266-2a5285aac6b7"
+  },
+  {
+    "collection": "directus_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "bfa0422e-2ee5-4d4d-a472-1d36035cbc2a"
+  },
+  {
+    "collection": "directus_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "9cc55104-f9cd-4c63-9139-96ec7e9889b0"
+  },
+  {
+    "collection": "directus_folders",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "8486c298-c520-4a89-ac3b-43b646b2b3bc"
+  },
+  {
+    "collection": "directus_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "fa8f3dd4-24ec-4916-b009-1115c2e306c1"
+  },
+  {
+    "collection": "directus_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "8b413930-fba3-4bbc-8f19-bb5d2c90e5eb"
+  },
+  {
+    "collection": "events",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "722e18c4-498b-41ed-a695-ff16f4d07586"
+  },
+  {
+    "collection": "events",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "54fa9144-6348-4f1d-9a2e-390d5a7ce4ed"
+  },
+  {
+    "collection": "icbd_activities_icbd_speakers",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "77e0b49f-2f5e-4ae6-bf8d-fb0920a75f64"
+  },
+  {
+    "collection": "icbd_activities_icbd_speakers",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2fa06da0-622d-4b38-90d7-a1162930d003"
+  },
+  {
+    "collection": "icbd_activities_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "bbba038e-3137-420c-b622-3255607c3e5d"
+  },
+  {
+    "collection": "icbd_activities_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "7768c1e9-15cd-40ee-8174-e427e2926f28"
+  },
+  {
+    "collection": "icbd_activities",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "cbdaa178-f853-4287-8799-be15961a5533"
+  },
+  {
+    "collection": "icbd_activities",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "f7b146f0-e784-4f51-8a2c-6d4a552361f6"
+  },
+  {
+    "collection": "ICBD_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "0311b3fa-c80b-4353-b0df-e57701ed5740"
+  },
+  {
+    "collection": "ICBD_files",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "92d54e34-8e67-4225-8a9c-a97187e9e7d2"
+  },
+  {
+    "collection": "icbd_phds",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "31fe58b5-fcdc-495f-bdd3-24d4a53d6864"
+  },
+  {
+    "collection": "icbd_phds",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ec45c8ab-0512-4e8a-99b9-d36a223af2b0"
+  },
+  {
+    "collection": "icbd_speakers",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "02875c2c-2f37-4b4b-99a3-4d2f99868d29"
+  },
+  {
+    "collection": "icbd_speakers",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "0d029f6d-d16a-4cd4-90bb-c58a12c51196"
+  },
+  {
+    "collection": "ICBD_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2a2858a3-d293-4223-a95e-da7005e4c736"
+  },
+  {
+    "collection": "ICBD_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "fbc4df36-de8f-4706-a33a-dba6bfada0fa"
+  },
+  {
+    "collection": "ICBD",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "78286306-60f0-431c-b67d-6cf274cfd85b"
+  },
+  {
+    "collection": "ICBD",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "3651797e-04b2-46c8-af57-15ea8bbfa984"
+  },
+  {
+    "collection": "languages",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "61afa197-2bb1-43fc-b792-2dbfd0971fb9"
+  },
+  {
+    "collection": "languages",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "28873f80-b121-444d-804c-1cd1836f0dee"
+  },
+  {
+    "collection": "members",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "30ee0feb-c66f-4550-b61d-6b248a180054"
+  },
+  {
+    "collection": "members",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "7d25c690-5ad1-4f2a-96e9-9b6c00493436"
+  },
+  {
+    "collection": "news_commissions",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "895f8aed-8eef-445a-a4f9-e05e8a2252f3"
+  },
+  {
+    "collection": "news_commissions",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "fb5d57ac-3489-4890-b0a6-2a54e3de687f"
+  },
+  {
+    "collection": "news_partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "8fee38d4-e98d-4bcb-b1cd-4849574fa306"
+  },
+  {
+    "collection": "news_partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "9fc97c09-936c-4795-ae5e-44fd239f33be"
+  },
+  {
+    "collection": "news_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "12fbb5a8-fb30-4a13-80f7-be31482a2cd1"
+  },
+  {
+    "collection": "news_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "e6545a42-162c-4396-9bda-5a75bc8d4872"
+  },
+  {
+    "collection": "news",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "a6503379-b453-4a78-a6a0-dd921921f212"
+  },
+  {
+    "collection": "news",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "4d630080-a78f-442d-93ab-e9c21b95732a"
+  },
+  {
+    "collection": "partner_category_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "11e6a6f9-92e5-490b-a908-8accb948f648"
+  },
+  {
+    "collection": "partner_category_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "5be075dc-e04f-40e8-8023-dc890e412e29"
+  },
+  {
+    "collection": "partner_category",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2c6cedf1-ff77-4c57-876d-dac0a55c69b8"
+  },
+  {
+    "collection": "partner_category",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "f260ef8d-9ba3-4fbe-ba97-ac57dd0fac01"
+  },
+  {
+    "collection": "partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "744709af-ef40-443e-8b3a-231c25a9ebd2"
+  },
+  {
+    "collection": "partners",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "36c92237-8fec-4445-9a3d-775c4fc5ffbf"
+  },
+  {
+    "collection": "save_the_date_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "416b28d5-7c2a-4720-bfe2-3c0f06645fbd"
+  },
+  {
+    "collection": "save_the_date_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "8e1f74dd-b4ca-48a8-a03f-85259335a393"
+  },
+  {
+    "collection": "save_the_date",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "b9feff6b-4c99-4d31-9a38-1ac65cb19f17"
+  },
+  {
+    "collection": "save_the_date",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "40247199-6cea-4f52-a277-8671fe21ecd1"
+  },
+  {
+    "collection": "social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "05707c7a-32fc-4f35-a387-8660700f4086"
+  },
+  {
+    "collection": "social_links",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "9ac27706-c6ee-49cf-b4a9-2a6a52c29999"
+  },
+  {
+    "collection": "std_cell_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ad6a6206-815f-4ed4-839c-1c209da75925"
+  },
+  {
+    "collection": "std_cell_translations",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "c9aa5c1a-7289-4099-b781-c5931ab8a94c"
+  },
+  {
+    "collection": "std_cell",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "2f649ae2-f7a2-4c2b-a907-b7345b273a53"
+  },
+  {
+    "collection": "std_cell",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "b3180de4-4984-4f72-a5b8-7a56e2195a77"
+  },
+  {
+    "collection": "subsonic",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "ab49c545-4d2e-49a6-9ee6-dad65206e283"
+  },
+  {
+    "collection": "subsonic",
+    "action": "read",
+    "permissions": null,
+    "validation": null,
+    "presets": null,
+    "fields": [
+      "*"
+    ],
+    "policy": "_sync_default_public_policy",
+    "_syncId": "bf05466f-f725-4c06-9f98-10221a80e8e5"
+  }
+]

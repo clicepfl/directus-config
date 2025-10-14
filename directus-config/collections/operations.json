@@ -1,0 +1,1260 @@
+[
+  {
+    "name": "Activities",
+    "key": "activities",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "collection": "icbd_activities_registrations",
+      "query": {
+        "filter": {
+          "registration": {
+            "_eq": "{{$trigger.key}}"
+          }
+        }
+      },
+      "permissions": "$full"
+    },
+    "resolve": "67869fd2-2941-48c9-beeb-a09bcc5e531d",
+    "reject": null,
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "_syncId": "c9a74c4d-3abd-4a52-9b8c-0e4ba006a809"
+  },
+  {
+    "name": "Activities",
+    "key": "activities",
+    "type": "item-read",
+    "position_x": 21,
+    "position_y": 17,
+    "options": {
+      "collection": "icbd_activities",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "resolve": "dfc12e6c-7005-41fe-94a7-204ea027169a",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "0c6f624f-b7cd-4e4a-9218-f3995a73ae3e"
+  },
+  {
+    "name": "Run Script",
+    "key": "activities_populated",
+    "type": "exec",
+    "position_x": 75,
+    "position_y": 17,
+    "options": {
+      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => a.timeslot.start_time.localeCompare(b.timeslot.start_time));\n};\n"
+    },
+    "resolve": "56856507-0ece-477e-8aad-ef78daeba08d",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "41d488f2-4d08-4353-a270-1856a10a09ab"
+  },
+  {
+    "name": "activity",
+    "key": "activity",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "collection": "icbd_activities",
+      "permissions": "$full",
+      "key": [
+        "{{activity_registration.icbd_activity}}"
+      ]
+    },
+    "resolve": "426ce290-3c55-4e09-bf3b-c5a6af3e754a",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "74cfca65-841c-436b-a0f7-de25a19230a7"
+  },
+  {
+    "name": "Activity ids",
+    "key": "activity_ids",
+    "type": "exec",
+    "position_x": 3,
+    "position_y": 17,
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activity_registrations.map(e => e.icbd_activity)\n;\n}"
+    },
+    "resolve": "0c6f624f-b7cd-4e4a-9218-f3995a73ae3e",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "5c4f5d8b-eda4-4f5d-8fb8-a58611f7e119"
+  },
+  {
+    "name": "activity_registration",
+    "key": "activity_registration",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "permissions": "$full",
+      "collection": "icbd_activities_registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "resolve": "74cfca65-841c-436b-a0f7-de25a19230a7",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "ec4f99da-d913-441d-a257-4f9679e0ddb5"
+  },
+  {
+    "name": "Activity registrations",
+    "key": "activity_registrations",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "query": {
+        "filter": {
+          "registration": {
+            "_eq": "{{$trigger.key}}"
+          }
+        }
+      },
+      "collection": "icbd_activities_registrations"
+    },
+    "resolve": "7436ccd1-3a3f-4442-9a0b-9b1a8f4aed0c",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "1b0c52b8-4c29-472a-8120-99dd3ca4c8d6"
+  },
+  {
+    "name": "Can retrieve deposit",
+    "key": "can_retrieve_deposit",
+    "type": "exec",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n    return data.registration.checked_in && data.activities.every(a => a.attended);\n}"
+    },
+    "resolve": "bbc8bcf2-75ca-4d21-abcf-a9a0d00c9667",
+    "reject": null,
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "_syncId": "67869fd2-2941-48c9-beeb-a09bcc5e531d"
+  },
+  {
+    "name": "Can send",
+    "key": "can_send",
+    "type": "exec",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.event.type === \"faculty_dinner\" && data.registration.payment !== null && !data.registration.confirmation_email_sent;\n}"
+    },
+    "resolve": "bab99d73-d44c-4d06-bc50-f5da3cc183ea",
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "494f0c1b-26e0-400b-94b4-92ef3fb52d4a"
+  },
+  {
+    "name": "close",
+    "key": "close",
+    "type": "item-update",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$event.id}}"
+      ],
+      "payload": {}
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "_syncId": "474cd640-23f4-4cfa-945f-dee822e50e05"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_326ml",
+    "type": "condition",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_dinner"
+          }
+        }
+      }
+    },
+    "resolve": "bd939bd2-f856-4481-be44-4534ff65d541",
+    "reject": null,
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "_syncId": "b7be5edc-1c3b-4516-b56a-13fe4add3d67"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_6ep4e",
+    "type": "condition",
+    "position_x": 91,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "_and": [
+          {
+            "is_complete": {
+              "_eq": true
+            }
+          },
+          {
+            "event": {
+              "type": {
+                "_eq": "icbd"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "resolve": "5c4f5d8b-eda4-4f5d-8fb8-a58611f7e119",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "948792c0-1b43-4519-b8ba-2f86de2e69be"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_hw",
+    "type": "condition",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "hello_world"
+          }
+        }
+      }
+    },
+    "resolve": "74b77733-2bbb-4278-87f9-2a06d8b3f936",
+    "reject": null,
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "_syncId": "4dce6006-df67-4bf8-b999-6866cb9eeb99"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_nynbu",
+    "type": "condition",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "_and": [
+          {
+            "registration": {
+              "registration_email_sent": {
+                "_eq": false
+              }
+            }
+          },
+          {
+            "registration": {
+              "registration_complete": {
+                "_eq": true
+              }
+            }
+          }
+        ]
+      }
+    },
+    "resolve": "316f1ecd-d99c-4b46-9150-5451ee420d71",
+    "reject": null,
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "_syncId": "90d72d6c-4046-44ee-b781-7b38d6a4f540"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_vgvop",
+    "type": "condition",
+    "position_x": 3,
+    "position_y": 17,
+    "options": {
+      "filter": {
+        "can_send": {
+          "_eq": true
+        }
+      }
+    },
+    "resolve": "5073b991-8d5a-4ece-a1e2-2496515359c7",
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "bab99d73-d44c-4d06-bc50-f5da3cc183ea"
+  },
+  {
+    "name": "Condition",
+    "key": "condition_vregu",
+    "type": "condition",
+    "position_x": 21,
+    "position_y": 17,
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_dinner"
+          }
+        }
+      }
+    },
+    "resolve": "4f7b3d42-e270-45a9-8b1d-f960ae7dc2b7",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "38d5effd-1f8e-4af0-bb07-05430a09eaed"
+  },
+  {
+    "name": "Count meals",
+    "key": "count_meals",
+    "type": "exec",
+    "position_x": 39,
+    "position_y": 17,
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.event.meals.map((meal, idx) => ({...meal, count: data.registrations.filter(o => o.meal == idx).length}))\n}"
+    },
+    "resolve": "c936bd2c-764f-40bd-86e1-b2804dec71de",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "4f7b3d42-e270-45a9-8b1d-f960ae7dc2b7"
+  },
+  {
+    "name": "Count registrations",
+    "key": "count_vjtqe",
+    "type": "exec",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n    let count = 0;\n    count += data.registrations.length;\n    \n    for(let i = 0; i < data.registrations.length; i += 1) {\n        if(data.registrations[i].plusOnes) {\n            count += data.registrations[i].plusOnes;\n        }\n    }\n    \n    return {\n        \"registration_count\": count,\n        \"opened\": data.event.opened && !(typeof data.event.max_registrations === \"number\" && data.event.max_registrations <= count),\n    };\n}"
+    },
+    "resolve": "eabec4dd-4bff-4e8f-ae4a-08a0231b2677",
+    "reject": null,
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "44a55a3a-0f59-42e5-8f97-89fd5d5c4585"
+  },
+  {
+    "name": "CV Correction",
+    "key": "cv_correction",
+    "type": "exec",
+    "position_x": 21,
+    "position_y": 33,
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activities.some(a => a !== null && a.type === \"cv_correction\");\n}"
+    },
+    "resolve": "49e7ccc7-a9f5-4f1b-913f-73acc0dde672",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "6dd0f441-f4ae-41ef-80c5-e103aa71d9e0"
+  },
+  {
+    "name": "CV Correction Template",
+    "key": "cv_correction_template",
+    "type": "exec",
+    "position_x": 57,
+    "position_y": 33,
+    "options": {
+      "code": "module.exports = async function(data) {\n    return data.cv_correction ? \"\\\"cv_presentation\\\"\" : null;\n}"
+    },
+    "resolve": "d26a17cf-9b1b-4964-9300-4036ee2cd5eb",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "f4becaa9-52b0-4faa-b32c-eae88ab3f397"
+  },
+  {
+    "name": "Data",
+    "key": "data",
+    "type": "exec",
+    "position_x": 39,
+    "position_y": 33,
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data;\n}"
+    },
+    "resolve": "f4becaa9-52b0-4faa-b32c-eae88ab3f397",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "49e7ccc7-a9f5-4f1b-913f-73acc0dde672"
+  },
+  {
+    "name": "Event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{registration.event}}"
+      ],
+      "collection": "events"
+    },
+    "resolve": "a6b76304-e41f-4f7a-a4db-93ebb149e681",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "7436ccd1-3a3f-4442-9a0b-9b1a8f4aed0c"
+  },
+  {
+    "name": "Fetch event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.event}}"
+      ],
+      "collection": "events"
+    },
+    "resolve": "44a55a3a-0f59-42e5-8f97-89fd5d5c4585",
+    "reject": null,
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "194e16a6-d977-41e1-a145-25c78b7de2df"
+  },
+  {
+    "name": "Event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 3,
+    "position_y": 18,
+    "options": {
+      "key": [
+        "{{registration.event}}"
+      ],
+      "collection": "events"
+    },
+    "resolve": "38d5effd-1f8e-4af0-bb07-05430a09eaed",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "3b99fc19-63f5-42f3-b983-4e16f0336959"
+  },
+  {
+    "name": "Event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.payload.event}}"
+      ]
+    },
+    "resolve": "4dce6006-df67-4bf8-b999-6866cb9eeb99",
+    "reject": null,
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "_syncId": "45df3b5d-2e78-4c07-91d7-bd76f998f649"
+  },
+  {
+    "name": "Event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.payload.event}}"
+      ]
+    },
+    "resolve": "b7be5edc-1c3b-4516-b56a-13fe4add3d67",
+    "reject": null,
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "_syncId": "be3938f8-f7a5-44f1-a30f-d4abdff9e07f"
+  },
+  {
+    "name": "Event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{registration.event}}"
+      ],
+      "collection": "events"
+    },
+    "resolve": "494f0c1b-26e0-400b-94b4-92ef3fb52d4a",
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "2c0c4af2-601a-484b-ba62-ea10ba10f0e3"
+  },
+  {
+    "name": "event",
+    "key": "event",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "events",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{$trigger.id}}"
+          }
+        }
+      }
+    },
+    "resolve": "fa2f4d8b-17a4-407a-9213-57e36f33f831",
+    "reject": null,
+    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "_syncId": "aa997a66-9e4a-4a92-a354-ee7e37d01bf1"
+  },
+  {
+    "name": "Fetch registration",
+    "key": "fetch_registration",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "query": null,
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "resolve": "0f9a6ec8-e194-42b0-ae11-3dec906c27e3",
+    "reject": null,
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "_syncId": "7c933f7f-db4a-48b5-b1e0-709a5ce4c86f"
+  },
+  {
+    "name": "Is complete",
+    "key": "is_complete",
+    "type": "exec",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null);\n}"
+    },
+    "resolve": "948792c0-1b43-4519-b8ba-2f86de2e69be",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "a6b76304-e41f-4f7a-a4db-93ebb149e681"
+  },
+  {
+    "name": "is_full",
+    "key": "is_full",
+    "type": "condition",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "event": {
+          "max_registrations": {
+            "_null": false,
+            "_gte": "{{$event.registration_count}}"
+          }
+        }
+      }
+    },
+    "resolve": "474cd640-23f4-4cfa-945f-dee822e50e05",
+    "reject": null,
+    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "_syncId": "fa2f4d8b-17a4-407a-9213-57e36f33f831"
+  },
+  {
+    "name": "Run Script",
+    "key": "is_full",
+    "type": "exec",
+    "position_x": 91,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
+    },
+    "resolve": "93858059-12f3-49a2-b0ec-63d7985a6da0",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "a674b295-5b1b-4806-b765-ca781cad4a06"
+  },
+  {
+    "name": "Is update",
+    "key": "is_update",
+    "type": "condition",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "filter": {
+        "$trigger": {
+          "event": {
+            "_eq": "registrations.items.update"
+          }
+        }
+      }
+    },
+    "resolve": "7c933f7f-db4a-48b5-b1e0-709a5ce4c86f",
+    "reject": "f735c8a2-ba29-4cab-ba44-ce4796f0b2ba",
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "_syncId": "34f7bab6-8a94-45df-94b0-cdec6fc41237"
+  },
+  {
+    "name": "Read Data",
+    "key": "item_read_florn",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "collection": "icbd_activities_registrations"
+    },
+    "resolve": "70800c71-2584-4cc6-87c0-8033b59ca985",
+    "reject": null,
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "_syncId": "b6f66091-a867-4628-95a8-b2ab391b7088"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_ez8bv",
+    "type": "item-update",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{registration.id}}"
+      ],
+      "payload": {
+        "registration_email_sent": true
+      },
+      "collection": "registrations"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "_syncId": "c6bf39ee-131c-4843-bfb4-b8957c69baaa"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_fkeir_fxbvb_prbka",
+    "type": "item-update",
+    "position_x": 3,
+    "position_y": 49,
+    "options": {
+      "collection": "registrations",
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "key": [
+        "{{registration.id}}"
+      ]
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "e7661637-04aa-47d0-8c99-2f159b7838d5"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_oylhg",
+    "type": "item-update",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "payload": {
+        "can_retreive_deposit": "{{$last}}"
+      },
+      "collection": "registrations"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "_syncId": "bbc8bcf2-75ca-4d21-abcf-a9a0d00c9667"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_oz10r",
+    "type": "item-update",
+    "position_x": 39,
+    "position_y": 17,
+    "options": {
+      "key": [
+        "{{registration.id}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "collection": "registrations"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "b1f49935-5bce-46fc-b15c-2423b07b3b06"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_qsajm_sbmyv_pnyif",
+    "type": "item-update",
+    "position_x": 57,
+    "position_y": 17,
+    "options": {
+      "collection": "events",
+      "key": [],
+      "payload": {
+        "meals": "{{count_meals}}"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "c936bd2c-764f-40bd-86e1-b2804dec71de"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_rz4iw_lnanl",
+    "type": "item-update",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "query": null,
+      "collection": "events",
+      "key": [
+        "{{$trigger.event}}"
+      ],
+      "permissions": "$full",
+      "payload": "{{$last}}"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "eabec4dd-4bff-4e8f-ae4a-08a0231b2677"
+  },
+  {
+    "name": "Update Data",
+    "key": "item_update_wrcj6",
+    "type": "item-update",
+    "position_x": 127,
+    "position_y": 1,
+    "options": {
+      "collection": "icbd_activities",
+      "permissions": "$full",
+      "key": [
+        "{{activity.id}}"
+      ],
+      "payload": "{{new_activity}}"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "732f671e-6050-42ef-b4b5-bbad41385119"
+  },
+  {
+    "name": "Run Script",
+    "key": "key",
+    "type": "exec",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data[\"$last\"].registration;\n}"
+    },
+    "resolve": "abdfd227-4e0b-415a-a014-48767ac9c4eb",
+    "reject": null,
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "_syncId": "70800c71-2584-4cc6-87c0-8033b59ca985"
+  },
+  {
+    "name": "Log to Console",
+    "key": "log_a9wh0",
+    "type": "log",
+    "position_x": 91,
+    "position_y": 1,
+    "options": {
+      "message": "{{$last}}"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "89245842-f81a-4329-91a7-81023b8132d2"
+  },
+  {
+    "name": "Send Email",
+    "key": "mail_hlcl6",
+    "type": "mail",
+    "position_x": 21,
+    "position_y": 17,
+    "options": {
+      "subject": "Confirmation for IC Faculty Dinner",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template",
+      "template": "faculty_dinner_confirmation",
+      "data": {
+        "event": "{{event}}",
+        "registration": "{{registration}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024"
+      }
+    },
+    "resolve": "b1f49935-5bce-46fc-b15c-2423b07b3b06",
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "5073b991-8d5a-4ece-a1e2-2496515359c7"
+  },
+  {
+    "name": "Send Email",
+    "key": "mail_ofzwn",
+    "type": "mail",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "type": "template",
+      "subject": "Your registration to ICBD",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "template": "icbd_registration_email",
+      "data": {
+        "registration": "{{registration}}"
+      }
+    },
+    "resolve": "c6bf39ee-131c-4843-bfb4-b8957c69baaa",
+    "reject": null,
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "_syncId": "316f1ecd-d99c-4b46-9150-5451ee420d71"
+  },
+  {
+    "name": "Send Email",
+    "key": "mail_ofzwn",
+    "type": "mail",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "type": "template",
+      "subject": "Your registration to IC Faculty Dinner",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "template": "faculty_dinner_preregistration",
+      "data": {
+        "registration": "{{$trigger.payload}}",
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "_syncId": "bd939bd2-f856-4481-be44-4534ff65d541"
+  },
+  {
+    "name": "matching_registrations",
+    "key": "matching_registrations",
+    "type": "item-read",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "collection": "icbd_activities_registrations",
+      "query": {
+        "filter": {
+          "_and": [
+            {
+              "icbd_activity": {
+                "_eq": "{{activity.id}}"
+              }
+            },
+            {
+              "start": {
+                "_eq": "{{timeslot.start_time}}"
+              }
+            }
+          ]
+        }
+      },
+      "permissions": "$full"
+    },
+    "resolve": "a674b295-5b1b-4806-b765-ca781cad4a06",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "94c5e7bd-5e1b-440c-af98-9e7ca4262e8d"
+  },
+  {
+    "name": "new_activity",
+    "key": "new_activity",
+    "type": "exec",
+    "position_x": 109,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n    copy = JSON.parse(JSON.stringify(data.activity));\n    \n    copy.timeslots.find(t => t.start_time == data.activity_registration.start).full = data.is_full;\n    \n\treturn copy;\n}"
+    },
+    "resolve": "732f671e-6050-42ef-b4b5-bbad41385119",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "93858059-12f3-49a2-b0ec-63d7985a6da0"
+  },
+  {
+    "name": "QRCode URL",
+    "key": "qrcode_url",
+    "type": "exec",
+    "position_x": 3,
+    "position_y": 33,
+    "options": {
+      "code": "module.exports = async function(data) {\n    return `https://clic.epfl.ch/clicketing/api/qrcode?value=${data.registration.id}&size=1024`\n}"
+    },
+    "resolve": "6dd0f441-f4ae-41ef-80c5-e103aa71d9e0",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "56856507-0ece-477e-8aad-ef78daeba08d"
+  },
+  {
+    "name": "Registration",
+    "key": "registration",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "collection": "registrations"
+    },
+    "resolve": "1b0c52b8-4c29-472a-8120-99dd3ca4c8d6",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "f40c3c18-0fb2-4244-8462-b81cdf84ec14"
+  },
+  {
+    "name": "registration",
+    "key": "registration",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "collection": "registrations"
+    },
+    "resolve": "90d72d6c-4046-44ee-b781-7b38d6a4f540",
+    "reject": null,
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "_syncId": "dd1c5f17-0771-4592-a736-5e9127ae0146"
+  },
+  {
+    "name": "Registration",
+    "key": "registration",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "collection": "registrations",
+      "permissions": ""
+    },
+    "resolve": "c9a74c4d-3abd-4a52-9b8c-0e4ba006a809",
+    "reject": null,
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "_syncId": "37eec463-8b39-424f-b665-225996d7446a"
+  },
+  {
+    "name": "Registration",
+    "key": "registration",
+    "type": "item-read",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "query": null,
+      "key": [
+        "{{registration_key}}"
+      ],
+      "collection": "registrations"
+    },
+    "resolve": "d2a6cb61-2870-4d61-99d5-169aa25d3ef0",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "381677c2-528d-49bf-95ee-242fa1406557"
+  },
+  {
+    "name": "Registration",
+    "key": "registration",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "collection": "registrations"
+    },
+    "resolve": "2c0c4af2-601a-484b-ba62-ea10ba10f0e3",
+    "reject": null,
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "caae5d01-7966-44f8-b56e-2835006b003e"
+  },
+  {
+    "name": "Registration key",
+    "key": "registration_key",
+    "type": "exec",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data[\"$trigger\"].key || data[\"$trigger\"].keys[0];\n}"
+    },
+    "resolve": "381677c2-528d-49bf-95ee-242fa1406557",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "4a09cda8-7444-4256-8cde-b6229ef8519a"
+  },
+  {
+    "name": "Registrations",
+    "key": "registrations",
+    "type": "item-read",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "collection": "registrations",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{registration.event}}"
+          }
+        }
+      }
+    },
+    "resolve": "3b99fc19-63f5-42f3-b983-4e16f0336959",
+    "reject": null,
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "d2a6cb61-2870-4d61-99d5-169aa25d3ef0"
+  },
+  {
+    "name": "Fetch registrations",
+    "key": "registrations",
+    "type": "item-read",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "collection": "registrations",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{$trigger.event}}"
+          }
+        }
+      }
+    },
+    "resolve": "194e16a6-d977-41e1-a145-25c78b7de2df",
+    "reject": null,
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "c3fc6458-f133-41e9-a78c-53b13ee7d235"
+  },
+  {
+    "name": "Webhook / Request URL",
+    "key": "request_mbi47",
+    "type": "request",
+    "position_x": 75,
+    "position_y": 33,
+    "options": {
+      "body": "{\n  \"template_name\": \"icbd_confirmation\",\n  \"ics_name\": {{ cv_correction_template }},\n  \"email_address\": \"{{ registration.email }}\",\n  \"subject\": \"ICBD registration confirmation\",\n  \"parameters\": {{ data }}\n}",
+      "url": "https://clic.epfl.ch/mail-sender/send?secret=74dc0c2810fc14a65c571bc38e3d6fe63d9a41c9",
+      "method": "POST",
+      "headers": [
+        {
+          "header": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    "resolve": "e7661637-04aa-47d0-8c99-2f159b7838d5",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "d26a17cf-9b1b-4964-9300-4036ee2cd5eb"
+  },
+  {
+    "name": "Send Email",
+    "key": "send_email_kxure",
+    "type": "mail",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "subject": "Registration Confirmation for Hello World",
+      "type": "template",
+      "template": "hello_world_confirmation",
+      "data": {
+        "event": "{{event}}",
+        "registration": "{{$trigger.payload}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{$trigger.key}}&size=1024"
+      }
+    },
+    "resolve": "54402000-6522-455a-ba3b-6fad07cdcb67",
+    "reject": null,
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "_syncId": "74b77733-2bbb-4278-87f9-2a06d8b3f936"
+  },
+  {
+    "name": "timeslot",
+    "key": "timeslot",
+    "type": "exec",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.find(t => t.start_time == data.activity_registration.start);\n}"
+    },
+    "resolve": "94c5e7bd-5e1b-440c-af98-9e7ca4262e8d",
+    "reject": null,
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "_syncId": "426ce290-3c55-4e09-bf3b-c5a6af3e754a"
+  },
+  {
+    "name": "translations",
+    "key": "translations",
+    "type": "item-read",
+    "position_x": 57,
+    "position_y": 17,
+    "options": {
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      },
+      "collection": "icbd_activities_translations"
+    },
+    "resolve": "41d488f2-4d08-4353-a270-1856a10a09ab",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "883f6da7-a61d-45dc-9497-3c437994c732"
+  },
+  {
+    "name": "Translations id",
+    "key": "translations_id",
+    "type": "exec",
+    "position_x": 39,
+    "position_y": 17,
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activities.map(a => a.translations).flat();\n}"
+    },
+    "resolve": "883f6da7-a61d-45dc-9497-3c437994c732",
+    "reject": null,
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "dfc12e6c-7005-41fe-94a7-204ea027169a"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_90arx",
+    "type": "trigger",
+    "position_x": 37,
+    "position_y": 1,
+    "options": {
+      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+      "payload": {
+        "key": "{{$trigger.keys[0]}}"
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
+    "_syncId": "ed1a29b1-d5a6-41a8-9788-fe3ac3cf2794"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_ehyqh",
+    "type": "trigger",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "payload": {
+        "key": "{{key}}"
+      },
+      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "_syncId": "14525f1b-e7ee-40e0-a10a-18c42d822551"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_js0o2",
+    "type": "trigger",
+    "position_x": 19,
+    "position_y": 1,
+    "options": {
+      "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+      "payload": {
+        "key": "{{$trigger.keys[0]}}"
+      }
+    },
+    "resolve": "ed1a29b1-d5a6-41a8-9788-fe3ac3cf2794",
+    "reject": null,
+    "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
+    "_syncId": "2c634271-27c4-444f-b3c4-30243b5c0e78"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_o9drl",
+    "type": "trigger",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+      "payload": "{{$last}}"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "_syncId": "0f9a6ec8-e194-42b0-ae11-3dec906c27e3"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_o9drl_bjfdv",
+    "type": "trigger",
+    "position_x": 37,
+    "position_y": 16,
+    "options": {
+      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+      "payload": "{{$trigger.payload}}"
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "_syncId": "f735c8a2-ba29-4cab-ba44-ce4796f0b2ba"
+  },
+  {
+    "name": "Trigger Flow",
+    "key": "trigger_rmf4o",
+    "type": "trigger",
+    "position_x": 55,
+    "position_y": 1,
+    "options": {
+      "payload": {
+        "key": "{{key}}"
+      },
+      "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b"
+    },
+    "resolve": "14525f1b-e7ee-40e0-a10a-18c42d822551",
+    "reject": null,
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "_syncId": "abdfd227-4e0b-415a-a014-48767ac9c4eb"
+  },
+  {
+    "name": "Update Data",
+    "key": "update_data_wwpfl",
+    "type": "item-update",
+    "position_x": 73,
+    "position_y": 1,
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      }
+    },
+    "resolve": null,
+    "reject": null,
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "_syncId": "54402000-6522-455a-ba3b-6fad07cdcb67"
+  }
+]

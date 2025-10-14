@@ -1,0 +1,28 @@
+{
+  "collection": "std_cell",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "std_cell",
+    "color": null,
+    "display_template": null,
+    "group": "save_the_date",
+    "hidden": false,
+    "icon": "splitscreen",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": "https://clic.epfl.ch/save-the-date",
+    "singleton": false,
+    "sort": 2,
+    "sort_field": null,
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "std_cell"
+  }
+}

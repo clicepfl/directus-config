@@ -1,0 +1,27 @@
+{
+  "collection": "commissions",
+  "field": "social_links",
+  "type": "alias",
+  "meta": {
+    "collection": "commissions",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "social_links",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 9,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

@@ -1,0 +1,254 @@
+[
+  {
+    "language": "fr-FR",
+    "key": "need-to-order",
+    "value": "Besoin de commander ?",
+    "_syncId": "0befaaa9-2c59-47b1-8d8c-2904fe0853b4"
+  },
+  {
+    "language": "en-US",
+    "key": "commission",
+    "value": "commission",
+    "_syncId": "10201adb-4767-4bfe-aeb1-45403e747fc7"
+  },
+  {
+    "language": "en-US",
+    "key": "committee",
+    "value": "committee",
+    "_syncId": "10776e9f-2ebc-4587-bdf0-7ebd5d753960"
+  },
+  {
+    "language": "fr-FR",
+    "key": "commission",
+    "value": "commission",
+    "_syncId": "16ca14b0-7541-4541-ac9d-be5600242d75"
+  },
+  {
+    "language": "fr-FR",
+    "key": "readMore",
+    "value": "lire plus",
+    "_syncId": "17fd5b55-2672-4020-8735-f86bfb4e8493"
+  },
+  {
+    "language": "br-FR",
+    "key": "bob-cassettes",
+    "value": "Cassettes Bob",
+    "_syncId": "22d43ee1-8185-4963-88c7-65d099c0e0fd"
+  },
+  {
+    "language": "en-US",
+    "key": "bob-cassettes",
+    "value": "Bob cassettes",
+    "_syncId": "325bc174-8b90-401c-87e0-b65f14ea28ad"
+  },
+  {
+    "language": "fr-FR",
+    "key": "news",
+    "value": "news",
+    "_syncId": "33d17b1b-4e8c-432f-a2c6-923640c9f262"
+  },
+  {
+    "language": "fr-FR",
+    "key": "digitec",
+    "value": "Digitec",
+    "_syncId": "3915c29e-e870-4a39-8a6e-7b728735aa94"
+  },
+  {
+    "language": "fr-FR",
+    "key": "by",
+    "value": "par",
+    "_syncId": "3c9ccf0e-5b22-40df-9748-de53df97c32b"
+  },
+  {
+    "language": "fr-FR",
+    "key": "association",
+    "value": "association",
+    "_syncId": "3dae7afd-e1ff-412e-83a2-5cca093601bf"
+  },
+  {
+    "language": "en-US",
+    "key": "pole",
+    "value": "positions",
+    "_syncId": "42b273e4-b12f-487e-9464-87370d9ee30c"
+  },
+  {
+    "language": "fr-FR",
+    "key": "committee",
+    "value": "comité",
+    "_syncId": "42f4966e-c046-4759-a55d-0936381fafda"
+  },
+  {
+    "language": "en-US",
+    "key": "coffee-filter",
+    "value": "Coffee filter",
+    "_syncId": "5bd005d2-61c9-49d0-ac34-f29d5dece04e"
+  },
+  {
+    "language": "fr-FR",
+    "key": "moreNews",
+    "value": "plus de news",
+    "_syncId": "6354c61f-18b2-41fe-9f92-bcc2bcdfa095"
+  },
+  {
+    "language": "en-US",
+    "key": "by",
+    "value": "by",
+    "_syncId": "72aa57c9-d399-4cea-ab99-bb054984ef6c"
+  },
+  {
+    "language": "fr-FR",
+    "key": "contact",
+    "value": "Nous contacter : ",
+    "_syncId": "734ad24d-3746-4a00-8bb6-20ffbaeec7d6"
+  },
+  {
+    "language": "fr-FR",
+    "key": "coffee-filter",
+    "value": "Filtres café",
+    "_syncId": "737801f8-d4c7-445b-a7cd-32296cdb10d5"
+  },
+  {
+    "language": "fr-FR",
+    "key": "partners",
+    "value": "partenaires",
+    "_syncId": "9208ed0c-ff02-4810-8a72-c7baa49a236d"
+  },
+  {
+    "language": "en-US",
+    "key": "association",
+    "value": "association",
+    "_syncId": "92210ce8-fdf4-4b69-8a62-efea1ad88678"
+  },
+  {
+    "language": "en-US",
+    "key": "gallery",
+    "value": "gallery",
+    "_syncId": "93b11d4a-548b-4711-9d20-18002e7693fb"
+  },
+  {
+    "language": "en-US",
+    "key": "digitec",
+    "value": "Digitec",
+    "_syncId": "9dc9ff2f-1f3f-4e6f-b4dd-59b63c294573"
+  },
+  {
+    "language": "en-US",
+    "key": "dateIndicator",
+    "value": "on",
+    "_syncId": "a7fe7439-47f9-4a7c-af24-538626758b3f"
+  },
+  {
+    "language": "en-US",
+    "key": "commissions",
+    "value": "commissions",
+    "_syncId": "ad07bb20-3b36-41da-84e4-55b4c49cfa4d"
+  },
+  {
+    "language": "en-US",
+    "key": "timeIndicator",
+    "value": "at",
+    "_syncId": "b4e4f1ec-e566-4214-b317-01a420fd1d89"
+  },
+  {
+    "language": "fr-FR",
+    "key": "gallery",
+    "value": "galerie",
+    "_syncId": "b78db243-c26e-449d-9ad2-b354bec718ac"
+  },
+  {
+    "language": "en-US",
+    "key": "moreNews",
+    "value": "more news",
+    "_syncId": "ba6469a1-d486-47c8-90d7-de7e783f49d4"
+  },
+  {
+    "language": "en-US",
+    "key": "relatedContent",
+    "value": "related content",
+    "_syncId": "c36a25e9-57d8-4333-b19b-b29a42c56c4b"
+  },
+  {
+    "language": "fr-FR",
+    "key": "dateIndicator",
+    "value": "le",
+    "_syncId": "c65650b2-09e6-458c-8132-b9ca464a5bf5"
+  },
+  {
+    "language": "en-US",
+    "key": "contact",
+    "value": "Contact us : ",
+    "_syncId": "c863c1fb-308d-43b6-a780-224e7004c04d"
+  },
+  {
+    "language": "en-US",
+    "key": "slogan",
+    "value": "Association of students in Computer science and Communication systems",
+    "_syncId": "cbd918da-a766-4f80-8612-82d4163cdc95"
+  },
+  {
+    "language": "fr-FR",
+    "key": "relatedContent",
+    "value": "voir aussi ...",
+    "_syncId": "ce27ba10-800e-493c-965e-7eaba066aa19"
+  },
+  {
+    "language": "en-US",
+    "key": "news",
+    "value": "news",
+    "_syncId": "d0a01b49-1886-43d0-90fe-66b108f2f86a"
+  },
+  {
+    "language": "fr-FR",
+    "key": "pole",
+    "value": "pôles",
+    "_syncId": "d30eedbc-1f0d-4615-a38a-6623ac36cc3a"
+  },
+  {
+    "language": "fr-FR",
+    "key": "slogan",
+    "value": "Association des étudiant.e.s en Informatique et Systèmes de communication",
+    "_syncId": "d3e318cb-2236-41d8-90e6-eef529e24261"
+  },
+  {
+    "language": "en-US",
+    "key": "association",
+    "value": "association",
+    "_syncId": "d6f5920e-2d06-47e3-9448-dd46ba616f4a"
+  },
+  {
+    "language": "en-US",
+    "key": "need-to-order",
+    "value": "Need to order?",
+    "_syncId": "d95d8790-615a-47c8-93b9-8fd468b37475"
+  },
+  {
+    "language": "en-US",
+    "key": "partners",
+    "value": "partners",
+    "_syncId": "db26ae6c-1613-47ee-8358-e6ce639ef8ea"
+  },
+  {
+    "language": "en-US",
+    "key": "readMore",
+    "value": "read more",
+    "_syncId": "e7b4aeea-32c9-42d1-a3bb-a7299ef08ff8"
+  },
+  {
+    "language": "fr-FR",
+    "key": "commissions",
+    "value": "commissions",
+    "_syncId": "eded9fef-9397-44b3-a002-9ce03e13a7ec"
+  },
+  {
+    "language": "fr-FR",
+    "key": "timeIndicator",
+    "value": "à",
+    "_syncId": "f713de7a-9348-4937-aa14-0c44a9afde06"
+  },
+  {
+    "language": "fr-FR",
+    "key": "association",
+    "value": "association",
+    "_syncId": "fe51c042-e1b6-4c70-9b42-5f6e4c1d176d"
+  }
+]

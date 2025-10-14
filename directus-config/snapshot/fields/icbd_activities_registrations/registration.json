@@ -1,0 +1,48 @@
+{
+  "collection": "icbd_activities_registrations",
+  "field": "registration",
+  "type": "uuid",
+  "meta": {
+    "collection": "icbd_activities_registrations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "registration",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown-m2o",
+    "note": null,
+    "options": {
+      "enableCreate": false,
+      "template": "{{email}}"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 3,
+    "special": [
+      "m2o"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "half"
+  },
+  "schema": {
+    "name": "registration",
+    "table": "icbd_activities_registrations",
+    "data_type": "uuid",
+    "default_value": null,
+    "max_length": null,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": "registrations",
+    "foreign_key_column": "id"
+  }
+}

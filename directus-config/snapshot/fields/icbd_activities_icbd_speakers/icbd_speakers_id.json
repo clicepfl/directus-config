@@ -1,0 +1,43 @@
+{
+  "collection": "icbd_activities_icbd_speakers",
+  "field": "icbd_speakers_id",
+  "type": "integer",
+  "meta": {
+    "collection": "icbd_activities_icbd_speakers",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "icbd_speakers_id",
+    "group": null,
+    "hidden": true,
+    "interface": null,
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 3,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "name": "icbd_speakers_id",
+    "table": "icbd_activities_icbd_speakers",
+    "data_type": "integer",
+    "default_value": null,
+    "max_length": null,
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": "icbd_speakers",
+    "foreign_key_column": "id"
+  }
+}

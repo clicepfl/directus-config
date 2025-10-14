@@ -1,0 +1,236 @@
+[
+  {
+    "name": "[ICBD] Update deposit retrievability",
+    "icon": "monetization_on",
+    "color": "#FF9D2D",
+    "description": null,
+    "status": "active",
+    "trigger": "operation",
+    "accountability": "all",
+    "options": {
+      "return": "$last"
+    },
+    "operation": "37eec463-8b39-424f-b665-225996d7446a",
+    "_syncId": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2"
+  },
+  {
+    "name": "[G] Close full events",
+    "icon": "tab_close",
+    "color": null,
+    "description": "Closes even with limited slots once they are full",
+    "status": "active",
+    "trigger": "operation",
+    "accountability": "all",
+    "options": {},
+    "operation": "aa997a66-9e4a-4a92-a354-ee7e37d01bf1",
+    "_syncId": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee"
+  },
+  {
+    "name": "[ICBD] Send confirmation email",
+    "icon": "mark_email_read",
+    "color": "#FF9D2D",
+    "description": "Send email when all activity timeslots are assigned",
+    "status": "active",
+    "trigger": "operation",
+    "accountability": "all",
+    "options": {
+      "return": "$last"
+    },
+    "operation": "f40c3c18-0fb2-4244-8462-b81cdf84ec14",
+    "_syncId": "2eb347c0-164e-4a8b-a6f1-e4d66472389b"
+  },
+  {
+    "name": "[FD] Count meals",
+    "icon": "lunch_dining",
+    "color": "#2ECDA7",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.create",
+        "items.update"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "4a09cda8-7444-4256-8cde-b6229ef8519a",
+    "_syncId": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13"
+  },
+  {
+    "name": "[FD] Send pre-registration mail",
+    "icon": "mark_email_unread",
+    "color": "#2ECDA7",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.create"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "be3938f8-f7a5-44f1-a30f-d4abdff9e07f",
+    "_syncId": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3"
+  },
+  {
+    "name": "[G] Update registration count",
+    "icon": "numbers",
+    "color": null,
+    "description": "Updates the number of participants based on registrations and plus ones",
+    "status": "active",
+    "trigger": "operation",
+    "accountability": "all",
+    "options": {},
+    "operation": "c3fc6458-f133-41e9-a78c-53b13ee7d235",
+    "_syncId": "6cf86bff-9bfb-4707-9166-411d7b60f564"
+  },
+  {
+    "name": "[G] CU Registration",
+    "icon": "start",
+    "color": null,
+    "description": "[TRIGGER] Create or Update",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update",
+        "items.create"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "34f7bab6-8a94-45df-94b0-cdec6fc41237",
+    "_syncId": "93c8399e-f2b9-4808-9904-e01dac447ef8"
+  },
+  {
+    "name": "[HW] Send confirmation email",
+    "icon": "mark_email_read",
+    "color": "#7C0E9F",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.create"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "45df3b5d-2e78-4c07-91d7-bd76f998f649",
+    "_syncId": "9a85d36a-6cde-4a6a-8b35-dbe798226592"
+  },
+  {
+    "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
+    "icon": "start",
+    "color": "#FF9D2D",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "icbd_activities_registrations"
+      ]
+    },
+    "operation": "b6f66091-a867-4628-95a8-b2ab391b7088",
+    "_syncId": "a9a5e703-de12-4e18-9e71-987bd759ab88"
+  },
+  {
+    "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
+    "icon": "start",
+    "color": "#FF9D2D",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "2c634271-27c4-444f-b3c4-30243b5c0e78",
+    "_syncId": "ad0d9b41-7409-414d-aa77-1baf45565dbd"
+  },
+  {
+    "name": "[FD] Send confirmation email",
+    "icon": "mark_email_read",
+    "color": "#2ECDA7",
+    "description": null,
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "caae5d01-7966-44f8-b56e-2835006b003e",
+    "_syncId": "bd181b20-151d-451e-9e1d-8b01bb197fab"
+  },
+  {
+    "name": "[ICBD] Send registration blocked email",
+    "icon": "mail_lock",
+    "color": "#FF9D2D",
+    "description": "Send email when registration form is filled",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "registrations"
+      ]
+    },
+    "operation": "dd1c5f17-0771-4592-a736-5e9127ae0146",
+    "_syncId": "d1849102-ba01-4a47-bd0c-9bfe125cda3a"
+  },
+  {
+    "name": "[ICBD] Update activity status",
+    "icon": "lock_reset",
+    "color": "#FF9D2D",
+    "description": "Updates activities timeslots to indicate whether they are full",
+    "status": "active",
+    "trigger": "event",
+    "accountability": "all",
+    "options": {
+      "type": "action",
+      "scope": [
+        "items.update"
+      ],
+      "collections": [
+        "icbd_activities_registrations"
+      ]
+    },
+    "operation": "ec4f99da-d913-441d-a257-4f9679e0ddb5",
+    "_syncId": "d2ba770b-1958-4b19-bcd3-82193aac3a3d"
+  }
+]

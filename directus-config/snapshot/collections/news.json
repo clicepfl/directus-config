@@ -1,0 +1,28 @@
+{
+  "collection": "news",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": "status",
+    "archive_value": "archived",
+    "collapse": "closed",
+    "collection": "news",
+    "color": null,
+    "display_template": "{{slug}}",
+    "group": null,
+    "hidden": false,
+    "icon": "breaking_news_alt_1",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": "https://clic.epfl.ch/news/{{slug}}",
+    "singleton": false,
+    "sort": 5,
+    "sort_field": "sort",
+    "translations": null,
+    "unarchive_value": "draft",
+    "versioning": false
+  },
+  "schema": {
+    "name": "news"
+  }
+}

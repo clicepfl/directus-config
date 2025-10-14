@@ -1,0 +1,32 @@
+{
+  "collection": "save_the_date",
+  "field": "style",
+  "type": "alias",
+  "meta": {
+    "collection": "save_the_date",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "style",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": {
+      "headerIcon": "format_paint",
+      "start": "closed"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 2,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  }
+}

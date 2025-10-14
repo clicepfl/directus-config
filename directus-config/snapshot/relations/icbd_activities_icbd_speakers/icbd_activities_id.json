@@ -1,0 +1,25 @@
+{
+  "collection": "icbd_activities_icbd_speakers",
+  "field": "icbd_activities_id",
+  "related_collection": "icbd_activities",
+  "meta": {
+    "junction_field": "icbd_speakers_id",
+    "many_collection": "icbd_activities_icbd_speakers",
+    "many_field": "icbd_activities_id",
+    "one_allowed_collections": null,
+    "one_collection": "icbd_activities",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "hosts",
+    "sort_field": null
+  },
+  "schema": {
+    "table": "icbd_activities_icbd_speakers",
+    "column": "icbd_activities_id",
+    "foreign_key_table": "icbd_activities",
+    "foreign_key_column": "id",
+    "constraint_name": "icbd_activities_icbd_speakers_icbd_activities_id_foreign",
+    "on_update": "NO ACTION",
+    "on_delete": "SET NULL"
+  }
+}

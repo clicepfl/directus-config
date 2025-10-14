@@ -1,0 +1,64 @@
+{
+  "collection": "association_memberships",
+  "field": "level",
+  "type": "string",
+  "meta": {
+    "collection": "association_memberships",
+    "conditions": null,
+    "display": "labels",
+    "display_options": null,
+    "field": "level",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "choices": [
+        {
+          "color": "#3399FF",
+          "icon": "groups",
+          "text": "Committee",
+          "value": "committee"
+        },
+        {
+          "color": "#FFA439",
+          "icon": "partner_exchange",
+          "text": "Team",
+          "value": "team"
+        },
+        {
+          "color": "#A2B5CD",
+          "icon": "card_membership",
+          "text": "Member",
+          "value": "member"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 3,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "half"
+  },
+  "schema": {
+    "name": "level",
+    "table": "association_memberships",
+    "data_type": "character varying",
+    "default_value": null,
+    "max_length": 255,
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "is_nullable": true,
+    "is_unique": false,
+    "is_indexed": false,
+    "is_primary_key": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "foreign_key_table": null,
+    "foreign_key_column": null
+  }
+}
