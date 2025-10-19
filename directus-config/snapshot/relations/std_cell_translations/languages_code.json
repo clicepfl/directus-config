@@ -1,7 +1,6 @@
 {
   "collection": "std_cell_translations",
   "field": "languages_code",
-  "related_collection": "languages",
   "meta": {
     "junction_field": "std_cell_id",
     "many_collection": "std_cell_translations",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "languages",
   "schema": {
-    "table": "std_cell_translations",
     "column": "languages_code",
-    "foreign_key_table": "languages",
-    "foreign_key_column": "code",
     "constraint_name": "std_cell_translations_languages_code_foreign",
+    "foreign_key_column": "code",
+    "foreign_key_table": "languages",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "std_cell_translations"
   }
 }

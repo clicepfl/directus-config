@@ -1,7 +1,6 @@
 {
   "collection": "subsonic",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "subsonic",
     "conditions": null,
@@ -23,5 +22,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

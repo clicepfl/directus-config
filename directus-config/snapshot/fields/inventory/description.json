@@ -1,7 +1,6 @@
 {
   "collection": "inventory",
   "field": "description",
-  "type": "alias",
   "meta": {
     "collection": "inventory",
     "conditions": null,
@@ -29,5 +28,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

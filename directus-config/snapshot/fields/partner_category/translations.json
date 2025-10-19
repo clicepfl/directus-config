@@ -1,7 +1,6 @@
 {
   "collection": "partner_category",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "partner_category",
     "conditions": null,
@@ -28,5 +27,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

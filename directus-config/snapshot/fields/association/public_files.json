@@ -1,7 +1,6 @@
 {
   "collection": "association",
   "field": "public_files",
-  "type": "integer",
   "meta": {
     "collection": "association",
     "conditions": null,
@@ -27,21 +26,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "public_files",
-    "table": "association",
     "data_type": "integer",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_public_files",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "association_public_files",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "public_files",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "association"
+  },
+  "type": "integer"
 }

@@ -1,7 +1,6 @@
 {
   "collection": "ICBD",
   "field": "partners_images",
-  "type": "alias",
   "meta": {
     "collection": "ICBD",
     "conditions": null,
@@ -23,5 +22,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

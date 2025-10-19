@@ -1,7 +1,6 @@
 {
   "collection": "news",
   "field": "user_created",
-  "related_collection": "directus_users",
   "meta": {
     "junction_field": null,
     "many_collection": "news",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "directus_users",
   "schema": {
-    "table": "news",
     "column": "user_created",
-    "foreign_key_table": "directus_users",
-    "foreign_key_column": "id",
     "constraint_name": "news_user_created_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_users",
+    "on_delete": "NO ACTION",
     "on_update": "NO ACTION",
-    "on_delete": "NO ACTION"
+    "table": "news"
   }
 }

@@ -1,7 +1,6 @@
 {
   "collection": "icbd_activities_icbd_speakers",
   "field": "icbd_speakers_id",
-  "related_collection": "icbd_speakers",
   "meta": {
     "junction_field": "icbd_activities_id",
     "many_collection": "icbd_activities_icbd_speakers",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "icbd_speakers",
   "schema": {
-    "table": "icbd_activities_icbd_speakers",
     "column": "icbd_speakers_id",
-    "foreign_key_table": "icbd_speakers",
-    "foreign_key_column": "id",
     "constraint_name": "icbd_activities_icbd_speakers_icbd_speakers_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "icbd_speakers",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "icbd_activities_icbd_speakers"
   }
 }

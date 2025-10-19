@@ -1,7 +1,6 @@
 {
   "collection": "association_poles",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "association_poles",
     "conditions": null,
@@ -26,5 +25,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

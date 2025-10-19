@@ -1,7 +1,6 @@
 {
   "collection": "association_public_files",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "association_public_files",
     "conditions": null,
@@ -30,5 +29,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

@@ -1,7 +1,6 @@
 {
   "collection": "subsonic",
   "field": "logo",
-  "related_collection": "directus_files",
   "meta": {
     "junction_field": null,
     "many_collection": "subsonic",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "directus_files",
   "schema": {
-    "table": "subsonic",
     "column": "logo",
-    "foreign_key_table": "directus_files",
-    "foreign_key_column": "id",
     "constraint_name": "subsonic_logo_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "subsonic"
   }
 }

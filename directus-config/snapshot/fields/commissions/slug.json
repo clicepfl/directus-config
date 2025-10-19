@@ -1,7 +1,6 @@
 {
   "collection": "commissions",
   "field": "slug",
-  "type": "string",
   "meta": {
     "collection": "commissions",
     "conditions": null,
@@ -25,21 +24,22 @@
     "width": "half"
   },
   "schema": {
-    "name": "slug",
-    "table": "commissions",
     "data_type": "character varying",
     "default_value": null,
-    "max_length": 255,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": null,
-    "foreign_key_column": null
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "slug",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "commissions"
+  },
+  "type": "string"
 }

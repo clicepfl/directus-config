@@ -1,7 +1,6 @@
 {
   "collection": "save_the_date",
   "field": "style",
-  "type": "alias",
   "meta": {
     "collection": "save_the_date",
     "conditions": null,
@@ -28,5 +27,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

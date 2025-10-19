@@ -1,4 +1,8 @@
 type Query {
+  icbd_activities(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities!]!
+  icbd_activities_by_id(id: ID!, version: String): icbd_activities
+  icbd_activities_aggregated(groupBy: [String], filter: icbd_activities_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_aggregated!]!
+  icbd_activities_by_version(version: String!, id: ID!): version_icbd_activities
   ICBD(version: String): ICBD
   ICBD_by_version(version: String!): version_ICBD
   ICBD_files(filter: ICBD_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [ICBD_files!]!
@@ -87,10 +91,6 @@ type Query {
   commissions_translations_by_id(id: ID!, version: String): commissions_translations
   commissions_translations_aggregated(groupBy: [String], filter: commissions_translations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [commissions_translations_aggregated!]!
   commissions_translations_by_version(version: String!, id: ID!): version_commissions_translations
-  icbd_activities(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities!]!
-  icbd_activities_by_id(id: ID!, version: String): icbd_activities
-  icbd_activities_aggregated(groupBy: [String], filter: icbd_activities_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_aggregated!]!
-  icbd_activities_by_version(version: String!, id: ID!): version_icbd_activities
   icbd_speakers(filter: icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_speakers!]!
   icbd_speakers_by_id(id: ID!, version: String): icbd_speakers
   icbd_speakers_aggregated(groupBy: [String], filter: icbd_speakers_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_speakers_aggregated!]!
@@ -99,10 +99,6 @@ type Query {
   icbd_activities_icbd_speakers_by_id(id: ID!, version: String): icbd_activities_icbd_speakers
   icbd_activities_icbd_speakers_aggregated(groupBy: [String], filter: icbd_activities_icbd_speakers_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_icbd_speakers_aggregated!]!
   icbd_activities_icbd_speakers_by_version(version: String!, id: ID!): version_icbd_activities_icbd_speakers
-  icbd_activities_registrations(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_registrations!]!
-  icbd_activities_registrations_by_id(id: ID!, version: String): icbd_activities_registrations
-  icbd_activities_registrations_aggregated(groupBy: [String], filter: icbd_activities_registrations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_registrations_aggregated!]!
-  icbd_activities_registrations_by_version(version: String!, id: ID!): version_icbd_activities_registrations
   icbd_activities_translations(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_translations!]!
   icbd_activities_translations_by_id(id: ID!, version: String): icbd_activities_translations
   icbd_activities_translations_aggregated(groupBy: [String], filter: icbd_activities_translations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_translations_aggregated!]!
@@ -159,14 +155,22 @@ type Query {
   subsonic_translations_by_id(id: ID!, version: String): subsonic_translations
   subsonic_translations_aggregated(groupBy: [String], filter: subsonic_translations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [subsonic_translations_aggregated!]!
   subsonic_translations_by_version(version: String!, id: ID!): version_subsonic_translations
-  events(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [events!]!
-  events_by_id(id: ID!, version: String): events
-  events_aggregated(groupBy: [String], filter: events_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [events_aggregated!]!
-  events_by_version(version: String!, id: ID!): version_events
+  icbd_activities_registrations(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_registrations!]!
+  icbd_activities_registrations_by_id(id: ID!, version: String): icbd_activities_registrations
+  icbd_activities_registrations_aggregated(groupBy: [String], filter: icbd_activities_registrations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [icbd_activities_registrations_aggregated!]!
+  icbd_activities_registrations_by_version(version: String!, id: ID!): version_icbd_activities_registrations
+  directus_sync_id_map(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_sync_id_map!]!
+  directus_sync_id_map_by_id(id: ID!, version: String): directus_sync_id_map
+  directus_sync_id_map_aggregated(groupBy: [String], filter: directus_sync_id_map_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_sync_id_map_aggregated!]!
+  directus_sync_id_map_by_version(version: String!, id: ID!): version_directus_sync_id_map
   game_star_social_links(filter: game_star_social_links_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [game_star_social_links!]!
   game_star_social_links_by_id(id: ID!, version: String): game_star_social_links
   game_star_social_links_aggregated(groupBy: [String], filter: game_star_social_links_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [game_star_social_links_aggregated!]!
   game_star_social_links_by_version(version: String!, id: ID!): version_game_star_social_links
+  events(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [events!]!
+  events_by_id(id: ID!, version: String): events
+  events_aggregated(groupBy: [String], filter: events_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [events_aggregated!]!
+  events_by_version(version: String!, id: ID!): version_events
   registrations(filter: registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [registrations!]!
   registrations_by_id(id: ID!, version: String): registrations
   registrations_aggregated(groupBy: [String], filter: registrations_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [registrations_aggregated!]!
@@ -204,6 +208,8 @@ type Query {
 }
 
 type Mutation {
+  create_icbd_activities_items(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_input!]): [icbd_activities!]!
+  create_icbd_activities_item(data: create_icbd_activities_input!): icbd_activities
   create_ICBD_files_items(filter: ICBD_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_ICBD_files_input!]): [ICBD_files!]!
   create_ICBD_files_item(data: create_ICBD_files_input!): ICBD_files
   create_languages_items(filter: languages_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_languages_input!]): [languages!]!
@@ -246,14 +252,10 @@ type Mutation {
   create_commissions_social_links_item(data: create_commissions_social_links_input!): commissions_social_links
   create_commissions_translations_items(filter: commissions_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_commissions_translations_input!]): [commissions_translations!]!
   create_commissions_translations_item(data: create_commissions_translations_input!): commissions_translations
-  create_icbd_activities_items(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_input!]): [icbd_activities!]!
-  create_icbd_activities_item(data: create_icbd_activities_input!): icbd_activities
   create_icbd_speakers_items(filter: icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_speakers_input!]): [icbd_speakers!]!
   create_icbd_speakers_item(data: create_icbd_speakers_input!): icbd_speakers
   create_icbd_activities_icbd_speakers_items(filter: icbd_activities_icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_icbd_speakers_input!]): [icbd_activities_icbd_speakers!]!
   create_icbd_activities_icbd_speakers_item(data: create_icbd_activities_icbd_speakers_input!): icbd_activities_icbd_speakers
-  create_icbd_activities_registrations_items(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_registrations_input!]): [icbd_activities_registrations!]!
-  create_icbd_activities_registrations_item(data: create_icbd_activities_registrations_input!): icbd_activities_registrations
   create_icbd_activities_translations_items(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_translations_input!]): [icbd_activities_translations!]!
   create_icbd_activities_translations_item(data: create_icbd_activities_translations_input!): icbd_activities_translations
   create_icbd_phds_items(filter: icbd_phds_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_phds_input!]): [icbd_phds!]!
@@ -280,10 +282,14 @@ type Mutation {
   create_std_cell_translations_item(data: create_std_cell_translations_input!): std_cell_translations
   create_subsonic_translations_items(filter: subsonic_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_subsonic_translations_input!]): [subsonic_translations!]!
   create_subsonic_translations_item(data: create_subsonic_translations_input!): subsonic_translations
-  create_events_items(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_events_input!]): [events!]!
-  create_events_item(data: create_events_input!): events
+  create_icbd_activities_registrations_items(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_icbd_activities_registrations_input!]): [icbd_activities_registrations!]!
+  create_icbd_activities_registrations_item(data: create_icbd_activities_registrations_input!): icbd_activities_registrations
+  create_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_sync_id_map_input!]): [directus_sync_id_map!]!
+  create_directus_sync_id_map_item(data: create_directus_sync_id_map_input!): directus_sync_id_map
   create_game_star_social_links_items(filter: game_star_social_links_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_game_star_social_links_input!]): [game_star_social_links!]!
   create_game_star_social_links_item(data: create_game_star_social_links_input!): game_star_social_links
+  create_events_items(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_events_input!]): [events!]!
+  create_events_item(data: create_events_input!): events
   create_registrations_items(filter: registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_registrations_input!]): [registrations!]!
   create_registrations_item(data: create_registrations_input!): registrations
   create_game_star_articles_translations_items(filter: game_star_articles_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_game_star_articles_translations_input!]): [game_star_articles_translations!]!
@@ -300,6 +306,9 @@ type Mutation {
   create_game_star_projects_item(data: create_game_star_projects_input!): game_star_projects
   create_game_star_translations_items(filter: game_star_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_game_star_translations_input!]): [game_star_translations!]!
   create_game_star_translations_item(data: create_game_star_translations_input!): game_star_translations
+  update_icbd_activities_items(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_input!): [icbd_activities!]!
+  update_icbd_activities_batch(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_input!]): [icbd_activities!]!
+  update_icbd_activities_item(id: ID!, data: update_icbd_activities_input!): icbd_activities
   update_ICBD(data: update_ICBD_input!): ICBD
   update_ICBD_files_items(filter: ICBD_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_ICBD_files_input!): [ICBD_files!]!
   update_ICBD_files_batch(filter: ICBD_files_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_ICBD_files_input!]): [ICBD_files!]!
@@ -365,18 +374,12 @@ type Mutation {
   update_commissions_translations_items(filter: commissions_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_commissions_translations_input!): [commissions_translations!]!
   update_commissions_translations_batch(filter: commissions_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_commissions_translations_input!]): [commissions_translations!]!
   update_commissions_translations_item(id: ID!, data: update_commissions_translations_input!): commissions_translations
-  update_icbd_activities_items(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_input!): [icbd_activities!]!
-  update_icbd_activities_batch(filter: icbd_activities_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_input!]): [icbd_activities!]!
-  update_icbd_activities_item(id: ID!, data: update_icbd_activities_input!): icbd_activities
   update_icbd_speakers_items(filter: icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_speakers_input!): [icbd_speakers!]!
   update_icbd_speakers_batch(filter: icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_speakers_input!]): [icbd_speakers!]!
   update_icbd_speakers_item(id: ID!, data: update_icbd_speakers_input!): icbd_speakers
   update_icbd_activities_icbd_speakers_items(filter: icbd_activities_icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_icbd_speakers_input!): [icbd_activities_icbd_speakers!]!
   update_icbd_activities_icbd_speakers_batch(filter: icbd_activities_icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_icbd_speakers_input!]): [icbd_activities_icbd_speakers!]!
   update_icbd_activities_icbd_speakers_item(id: ID!, data: update_icbd_activities_icbd_speakers_input!): icbd_activities_icbd_speakers
-  update_icbd_activities_registrations_items(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_registrations_input!): [icbd_activities_registrations!]!
-  update_icbd_activities_registrations_batch(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_registrations_input!]): [icbd_activities_registrations!]!
-  update_icbd_activities_registrations_item(id: ID!, data: update_icbd_activities_registrations_input!): icbd_activities_registrations
   update_icbd_activities_translations_items(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_translations_input!): [icbd_activities_translations!]!
   update_icbd_activities_translations_batch(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_translations_input!]): [icbd_activities_translations!]!
   update_icbd_activities_translations_item(id: ID!, data: update_icbd_activities_translations_input!): icbd_activities_translations
@@ -418,12 +421,18 @@ type Mutation {
   update_subsonic_translations_items(filter: subsonic_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_subsonic_translations_input!): [subsonic_translations!]!
   update_subsonic_translations_batch(filter: subsonic_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_subsonic_translations_input!]): [subsonic_translations!]!
   update_subsonic_translations_item(id: ID!, data: update_subsonic_translations_input!): subsonic_translations
-  update_events_items(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_events_input!): [events!]!
-  update_events_batch(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_events_input!]): [events!]!
-  update_events_item(id: ID!, data: update_events_input!): events
+  update_icbd_activities_registrations_items(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_icbd_activities_registrations_input!): [icbd_activities_registrations!]!
+  update_icbd_activities_registrations_batch(filter: icbd_activities_registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_icbd_activities_registrations_input!]): [icbd_activities_registrations!]!
+  update_icbd_activities_registrations_item(id: ID!, data: update_icbd_activities_registrations_input!): icbd_activities_registrations
+  update_directus_sync_id_map_items(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_sync_id_map_input!): [directus_sync_id_map!]!
+  update_directus_sync_id_map_batch(filter: directus_sync_id_map_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_sync_id_map_input!]): [directus_sync_id_map!]!
+  update_directus_sync_id_map_item(id: ID!, data: update_directus_sync_id_map_input!): directus_sync_id_map
   update_game_star_social_links_items(filter: game_star_social_links_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_game_star_social_links_input!): [game_star_social_links!]!
   update_game_star_social_links_batch(filter: game_star_social_links_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_game_star_social_links_input!]): [game_star_social_links!]!
   update_game_star_social_links_item(id: ID!, data: update_game_star_social_links_input!): game_star_social_links
+  update_events_items(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_events_input!): [events!]!
+  update_events_batch(filter: events_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_events_input!]): [events!]!
+  update_events_item(id: ID!, data: update_events_input!): events
   update_registrations_items(filter: registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_registrations_input!): [registrations!]!
   update_registrations_batch(filter: registrations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_registrations_input!]): [registrations!]!
   update_registrations_item(id: ID!, data: update_registrations_input!): registrations
@@ -449,6 +458,8 @@ type Mutation {
   update_game_star_translations_batch(filter: game_star_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_game_star_translations_input!]): [game_star_translations!]!
   update_game_star_translations_item(id: ID!, data: update_game_star_translations_input!): game_star_translations
   update_game_star(data: update_game_star_input!): game_star
+  delete_icbd_activities_items(ids: [ID]!): delete_many
+  delete_icbd_activities_item(id: ID!): delete_one
   delete_ICBD_files_items(ids: [ID]!): delete_many
   delete_ICBD_files_item(id: ID!): delete_one
   delete_languages_items(ids: [ID]!): delete_many
@@ -491,14 +502,10 @@ type Mutation {
   delete_commissions_social_links_item(id: ID!): delete_one
   delete_commissions_translations_items(ids: [ID]!): delete_many
   delete_commissions_translations_item(id: ID!): delete_one
-  delete_icbd_activities_items(ids: [ID]!): delete_many
-  delete_icbd_activities_item(id: ID!): delete_one
   delete_icbd_speakers_items(ids: [ID]!): delete_many
   delete_icbd_speakers_item(id: ID!): delete_one
   delete_icbd_activities_icbd_speakers_items(ids: [ID]!): delete_many
   delete_icbd_activities_icbd_speakers_item(id: ID!): delete_one
-  delete_icbd_activities_registrations_items(ids: [ID]!): delete_many
-  delete_icbd_activities_registrations_item(id: ID!): delete_one
   delete_icbd_activities_translations_items(ids: [ID]!): delete_many
   delete_icbd_activities_translations_item(id: ID!): delete_one
   delete_icbd_phds_items(ids: [ID]!): delete_many
@@ -525,10 +532,14 @@ type Mutation {
   delete_std_cell_translations_item(id: ID!): delete_one
   delete_subsonic_translations_items(ids: [ID]!): delete_many
   delete_subsonic_translations_item(id: ID!): delete_one
-  delete_events_items(ids: [ID]!): delete_many
-  delete_events_item(id: ID!): delete_one
+  delete_icbd_activities_registrations_items(ids: [ID]!): delete_many
+  delete_icbd_activities_registrations_item(id: ID!): delete_one
+  delete_directus_sync_id_map_items(ids: [ID]!): delete_many
+  delete_directus_sync_id_map_item(id: ID!): delete_one
   delete_game_star_social_links_items(ids: [ID]!): delete_many
   delete_game_star_social_links_item(id: ID!): delete_one
+  delete_events_items(ids: [ID]!): delete_many
+  delete_events_item(id: ID!): delete_one
   delete_registrations_items(ids: [ID]!): delete_many
   delete_registrations_item(id: ID!): delete_one
   delete_game_star_articles_translations_items(ids: [ID]!): delete_many
@@ -564,10 +575,8 @@ type Subscription {
   directus_operations_mutated(event: EventEnum): directus_operations_mutated
   directus_translations_mutated(event: EventEnum): directus_translations_mutated
   directus_webhooks_mutated(event: EventEnum): directus_webhooks_mutated
-  directus_policies_mutated(event: EventEnum): directus_policies_mutated
   directus_versions_mutated(event: EventEnum): directus_versions_mutated
-  directus_access_mutated(event: EventEnum): directus_access_mutated
-  directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  icbd_activities_mutated(event: EventEnum): icbd_activities_mutated
   ICBD_mutated(event: EventEnum): ICBD_mutated
   ICBD_files_mutated(event: EventEnum): ICBD_files_mutated
   languages_mutated(event: EventEnum): languages_mutated
@@ -591,10 +600,8 @@ type Subscription {
   commission_memberships_translations_mutated(event: EventEnum): commission_memberships_translations_mutated
   commissions_social_links_mutated(event: EventEnum): commissions_social_links_mutated
   commissions_translations_mutated(event: EventEnum): commissions_translations_mutated
-  icbd_activities_mutated(event: EventEnum): icbd_activities_mutated
   icbd_speakers_mutated(event: EventEnum): icbd_speakers_mutated
   icbd_activities_icbd_speakers_mutated(event: EventEnum): icbd_activities_icbd_speakers_mutated
-  icbd_activities_registrations_mutated(event: EventEnum): icbd_activities_registrations_mutated
   icbd_activities_translations_mutated(event: EventEnum): icbd_activities_translations_mutated
   icbd_phds_mutated(event: EventEnum): icbd_phds_mutated
   inventory_mutated(event: EventEnum): inventory_mutated
@@ -610,8 +617,14 @@ type Subscription {
   std_cell_translations_mutated(event: EventEnum): std_cell_translations_mutated
   subsonic_mutated(event: EventEnum): subsonic_mutated
   subsonic_translations_mutated(event: EventEnum): subsonic_translations_mutated
-  events_mutated(event: EventEnum): events_mutated
+  directus_policies_mutated(event: EventEnum): directus_policies_mutated
+  directus_access_mutated(event: EventEnum): directus_access_mutated
+  directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  directus_settings_mutated(event: EventEnum): directus_settings_mutated
+  icbd_activities_registrations_mutated(event: EventEnum): icbd_activities_registrations_mutated
+  directus_sync_id_map_mutated(event: EventEnum): directus_sync_id_map_mutated
   game_star_social_links_mutated(event: EventEnum): game_star_social_links_mutated
+  events_mutated(event: EventEnum): events_mutated
   registrations_mutated(event: EventEnum): registrations_mutated
   game_star_articles_translations_mutated(event: EventEnum): game_star_articles_translations_mutated
   game_star_articles_mutated(event: EventEnum): game_star_articles_mutated
@@ -621,7 +634,6 @@ type Subscription {
   game_star_projects_mutated(event: EventEnum): game_star_projects_mutated
   game_star_translations_mutated(event: EventEnum): game_star_translations_mutated
   game_star_mutated(event: EventEnum): game_star_mutated
-  directus_settings_mutated(event: EventEnum): directus_settings_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -1758,6 +1770,46 @@ type directus_shares_mutated {
   data: directus_shares
 }
 
+type directus_sync_id_map {
+  id: ID!
+  table: String!
+  sync_id: String!
+  local_id: String!
+  created_at: Date
+  created_at_func: datetime_functions
+}
+
+type directus_sync_id_map_aggregated {
+  group: JSON
+  countAll: Int
+  count: directus_sync_id_map_aggregated_count
+  countDistinct: directus_sync_id_map_aggregated_count
+  avg: directus_sync_id_map_aggregated_fields
+  sum: directus_sync_id_map_aggregated_fields
+  avgDistinct: directus_sync_id_map_aggregated_fields
+  sumDistinct: directus_sync_id_map_aggregated_fields
+  min: directus_sync_id_map_aggregated_fields
+  max: directus_sync_id_map_aggregated_fields
+}
+
+type directus_sync_id_map_aggregated_count {
+  id: Int
+  table: Int
+  sync_id: Int
+  local_id: Int
+  created_at: Int
+}
+
+type directus_sync_id_map_aggregated_fields {
+  id: Float
+}
+
+type directus_sync_id_map_mutated {
+  key: ID!
+  event: EventEnum
+  data: directus_sync_id_map
+}
+
 type directus_translations {
   id: ID!
   language: String!
@@ -1866,10 +1918,6 @@ type events {
   to: Date
   to_func: datetime_functions
   opened: Boolean
-  name: String
-  price: Int
-  max_registrations: Int
-  registration_count: Int!
   staffing_from: Date
   staffing_from_func: datetime_functions
   staffing_to: Date
@@ -1879,6 +1927,10 @@ type events {
   staffingShiftSize: Int
   meals: JSON
   meals_func: count_functions
+  name: String
+  price: Int
+  max_registrations: Int
+  registration_count: Int!
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -1909,15 +1961,15 @@ type events_aggregated_count {
   from: Int
   to: Int
   opened: Int
-  name: Int
-  price: Int
-  max_registrations: Int
-  registration_count: Int
   staffing_from: Int
   staffing_to: Int
   staffingTypes: Int
   staffingShiftSize: Int
   meals: Int
+  name: Int
+  price: Int
+  max_registrations: Int
+  registration_count: Int
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -1931,10 +1983,10 @@ type events_aggregated_count {
 
 type events_aggregated_fields {
   id: Float
+  staffingShiftSize: Float
   price: Float
   max_registrations: Float
   registration_count: Float
-  staffingShiftSize: Float
 }
 
 type events_mutated {
@@ -2308,10 +2360,10 @@ type icbd_activities {
   timeslots_func: count_functions
   color: String
   type: String
-  translations(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_translations]
-  translations_func: count_functions
   hosts(filter: icbd_activities_icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_icbd_speakers]
   hosts_func: count_functions
+  translations(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_translations]
+  translations_func: count_functions
 }
 
 type icbd_activities_aggregated {
@@ -2333,8 +2385,8 @@ type icbd_activities_aggregated_count {
   timeslots: Int
   color: Int
   type: Int
-  translations: Int
   hosts: Int
+  translations: Int
 }
 
 type icbd_activities_aggregated_fields {
@@ -3082,8 +3134,8 @@ type registrations {
   year: String
   section: String
   checked_in: Boolean
-  payment: String
   meal: Int
+  payment: String
   late_payment: Boolean
   allergies: String
   plusOnes: Int
@@ -3125,8 +3177,8 @@ type registrations_aggregated_count {
   year: Int
   section: Int
   checked_in: Int
-  payment: Int
   meal: Int
+  payment: Int
   late_payment: Int
   allergies: Int
   plusOnes: Int
@@ -3557,21 +3609,30 @@ type version_commissions_translations {
 }
 
 """"""
+type version_directus_sync_id_map {
+  id: ID
+  table: String
+  sync_id: String
+  local_id: String
+  created_at: Date
+}
+
+""""""
 type version_events {
   id: ID
   type: String
   from: Date
   to: Date
   opened: Boolean
-  name: String
-  price: Int
-  max_registrations: Int
-  registration_count: Int
   staffing_from: Date
   staffing_to: Date
   staffingTypes: JSON
   staffingShiftSize: Int
   meals: JSON
+  name: String
+  price: Int
+  max_registrations: Int
+  registration_count: Int
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -3685,8 +3746,8 @@ type version_icbd_activities {
   timeslots: JSON
   color: String
   type: String
-  translations: JSON
   hosts: JSON
+  translations: JSON
 }
 
 """"""
@@ -3868,8 +3929,8 @@ type version_registrations {
   year: String
   section: String
   checked_in: Boolean
-  payment: String
   meal: Int
+  payment: String
   late_payment: Boolean
   allergies: String
   plusOnes: Int
@@ -4476,6 +4537,14 @@ input create_directus_roles_input {
   users: [create_directus_users_input]
 }
 
+input create_directus_sync_id_map_input {
+  id: ID
+  table: String!
+  sync_id: String!
+  local_id: String!
+  created_at: Date
+}
+
 input create_directus_users_input {
   id: ID
   first_name: String
@@ -4513,15 +4582,15 @@ input create_events_input {
   from: Date
   to: Date
   opened: Boolean
-  name: String
-  price: Int
-  max_registrations: Int
-  registration_count: Int!
   staffing_from: Date
   staffing_to: Date
   staffingTypes: JSON
   staffingShiftSize: Int
   meals: JSON
+  name: String
+  price: Int
+  max_registrations: Int
+  registration_count: Int!
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -4618,8 +4687,8 @@ input create_icbd_activities_input {
   timeslots: JSON
   color: String
   type: String
-  translations: [create_icbd_activities_translations_input]
   hosts: [create_icbd_activities_icbd_speakers_input]
+  translations: [create_icbd_activities_translations_input]
 }
 
 input create_icbd_activities_registrations_input {
@@ -4789,8 +4858,8 @@ input create_registrations_input {
   year: String
   section: String
   checked_in: Boolean
-  payment: String
   meal: Int
+  payment: String
   late_payment: Boolean
   allergies: String
   plusOnes: Int
@@ -5239,6 +5308,17 @@ input directus_roles_quantifier_filter {
   _none: directus_roles_filter
 }
 
+input directus_sync_id_map_filter {
+  id: number_filter_operators
+  table: string_filter_operators
+  sync_id: string_filter_operators
+  local_id: string_filter_operators
+  created_at: date_filter_operators
+  created_at_func: datetime_function_filter_operators
+  _and: [directus_sync_id_map_filter]
+  _or: [directus_sync_id_map_filter]
+}
+
 input directus_users_filter {
   id: id_filter_operators
   first_name: string_filter_operators
@@ -5347,10 +5427,6 @@ input events_filter {
   to: date_filter_operators
   to_func: datetime_function_filter_operators
   opened: boolean_filter_operators
-  name: string_filter_operators
-  price: number_filter_operators
-  max_registrations: number_filter_operators
-  registration_count: number_filter_operators
   staffing_from: date_filter_operators
   staffing_from_func: datetime_function_filter_operators
   staffing_to: date_filter_operators
@@ -5360,6 +5436,10 @@ input events_filter {
   staffingShiftSize: number_filter_operators
   meals: string_filter_operators
   meals_func: count_function_filter_operators
+  name: string_filter_operators
+  price: number_filter_operators
+  max_registrations: number_filter_operators
+  registration_count: number_filter_operators
   slug: string_filter_operators
   admin_secret: id_filter_operators
   banner: directus_files_filter
@@ -5536,10 +5616,10 @@ input icbd_activities_filter {
   timeslots_func: count_function_filter_operators
   color: string_filter_operators
   type: string_filter_operators
-  translations: icbd_activities_translations_quantifier_filter
-  translations_func: count_function_filter_operators
   hosts: icbd_activities_icbd_speakers_quantifier_filter
   hosts_func: count_function_filter_operators
+  translations: icbd_activities_translations_quantifier_filter
+  translations_func: count_function_filter_operators
   _and: [icbd_activities_filter]
   _or: [icbd_activities_filter]
 }
@@ -5913,8 +5993,8 @@ input registrations_filter {
   year: string_filter_operators
   section: string_filter_operators
   checked_in: boolean_filter_operators
-  payment: string_filter_operators
   meal: number_filter_operators
+  payment: string_filter_operators
   late_payment: boolean_filter_operators
   allergies: string_filter_operators
   plusOnes: number_filter_operators
@@ -6295,6 +6375,14 @@ input update_directus_roles_input {
   users: [update_directus_users_input]
 }
 
+input update_directus_sync_id_map_input {
+  id: ID
+  table: String
+  sync_id: String
+  local_id: String
+  created_at: Date
+}
+
 input update_directus_users_input {
   id: ID
   first_name: String
@@ -6332,15 +6420,15 @@ input update_events_input {
   from: Date
   to: Date
   opened: Boolean
-  name: String
-  price: Int
-  max_registrations: Int
-  registration_count: Int
   staffing_from: Date
   staffing_to: Date
   staffingTypes: JSON
   staffingShiftSize: Int
   meals: JSON
+  name: String
+  price: Int
+  max_registrations: Int
+  registration_count: Int
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -6437,8 +6525,8 @@ input update_icbd_activities_input {
   timeslots: JSON
   color: String
   type: String
-  translations: [update_icbd_activities_translations_input]
   hosts: [update_icbd_activities_icbd_speakers_input]
+  translations: [update_icbd_activities_translations_input]
 }
 
 input update_icbd_activities_registrations_input {
@@ -6608,8 +6696,8 @@ input update_registrations_input {
   year: String
   section: String
   checked_in: Boolean
-  payment: String
   meal: Int
+  payment: String
   late_payment: Boolean
   allergies: String
   plusOnes: Int

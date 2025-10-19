@@ -1,7 +1,6 @@
 {
   "collection": "commission_memberships",
   "field": "commission",
-  "type": "integer",
   "meta": {
     "collection": "commission_memberships",
     "conditions": null,
@@ -29,21 +28,22 @@
     "width": "half"
   },
   "schema": {
-    "name": "commission",
-    "table": "commission_memberships",
     "data_type": "integer",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "is_nullable": false,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "commissions",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "commissions",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": false,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "commission",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "commission_memberships"
+  },
+  "type": "integer"
 }

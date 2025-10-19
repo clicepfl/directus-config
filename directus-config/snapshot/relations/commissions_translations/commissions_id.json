@@ -1,7 +1,6 @@
 {
   "collection": "commissions_translations",
   "field": "commissions_id",
-  "related_collection": "commissions",
   "meta": {
     "junction_field": "languages_code",
     "many_collection": "commissions_translations",
@@ -13,13 +12,14 @@
     "one_field": "translations",
     "sort_field": null
   },
+  "related_collection": "commissions",
   "schema": {
-    "table": "commissions_translations",
     "column": "commissions_id",
-    "foreign_key_table": "commissions",
-    "foreign_key_column": "id",
     "constraint_name": "commissions_translations_commissions_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "commissions",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "commissions_translations"
   }
 }

@@ -1,7 +1,6 @@
 {
   "collection": "association",
   "field": "public_files",
-  "related_collection": "association_public_files",
   "meta": {
     "junction_field": null,
     "many_collection": "association",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "association_public_files",
   "schema": {
-    "table": "association",
     "column": "public_files",
-    "foreign_key_table": "association_public_files",
-    "foreign_key_column": "id",
     "constraint_name": "association_public_files_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_public_files",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "association"
   }
 }

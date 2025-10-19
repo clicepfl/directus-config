@@ -1,7 +1,6 @@
 {
   "collection": "icbd_activities",
   "field": "hosts",
-  "type": "alias",
   "meta": {
     "collection": "icbd_activities",
     "conditions": null,
@@ -27,5 +26,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

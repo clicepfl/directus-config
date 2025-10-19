@@ -1,7 +1,6 @@
 {
   "collection": "news",
   "field": "user_created",
-  "type": "uuid",
   "meta": {
     "collection": "news",
     "conditions": null,
@@ -27,21 +26,22 @@
     "width": "half"
   },
   "schema": {
-    "name": "user_created",
-    "table": "news",
     "data_type": "uuid",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_users",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "directus_users",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "user_created",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "news"
+  },
+  "type": "uuid"
 }

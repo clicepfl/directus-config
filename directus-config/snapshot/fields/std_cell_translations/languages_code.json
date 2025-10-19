@@ -1,7 +1,6 @@
 {
   "collection": "std_cell_translations",
   "field": "languages_code",
-  "type": "string",
   "meta": {
     "collection": "std_cell_translations",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "languages_code",
-    "table": "std_cell_translations",
     "data_type": "character varying",
     "default_value": null,
-    "max_length": 255,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "code",
+    "foreign_key_table": "languages",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "languages",
-    "foreign_key_column": "code"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "languages_code",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "std_cell_translations"
+  },
+  "type": "string"
 }

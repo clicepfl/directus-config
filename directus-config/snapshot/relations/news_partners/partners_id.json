@@ -1,7 +1,6 @@
 {
   "collection": "news_partners",
   "field": "partners_id",
-  "related_collection": "partners",
   "meta": {
     "junction_field": "news_id",
     "many_collection": "news_partners",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "partners",
   "schema": {
-    "table": "news_partners",
     "column": "partners_id",
-    "foreign_key_table": "partners",
-    "foreign_key_column": "id",
     "constraint_name": "news_partners_partners_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "partners",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "news_partners"
   }
 }

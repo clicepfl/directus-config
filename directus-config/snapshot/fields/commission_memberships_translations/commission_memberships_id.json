@@ -1,7 +1,6 @@
 {
   "collection": "commission_memberships_translations",
   "field": "commission_memberships_id",
-  "type": "integer",
   "meta": {
     "collection": "commission_memberships_translations",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "commission_memberships_id",
-    "table": "commission_memberships_translations",
     "data_type": "integer",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "commission_memberships",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "commission_memberships",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "commission_memberships_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "commission_memberships_translations"
+  },
+  "type": "integer"
 }

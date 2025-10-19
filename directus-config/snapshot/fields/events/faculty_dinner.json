@@ -1,7 +1,6 @@
 {
   "collection": "events",
   "field": "faculty_dinner",
-  "type": "alias",
   "meta": {
     "collection": "events",
     "conditions": [
@@ -40,5 +39,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

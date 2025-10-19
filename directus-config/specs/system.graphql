@@ -65,12 +65,12 @@ type Query {
   webhooks(filter: directus_webhooks_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_webhooks!]!
   webhooks_by_id(id: ID!, version: String): directus_webhooks
   webhooks_aggregated(groupBy: [String], filter: directus_webhooks_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_webhooks_aggregated!]!
-  policies(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_policies!]!
-  policies_by_id(id: ID!, version: String): directus_policies
-  policies_aggregated(groupBy: [String], filter: directus_policies_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_policies_aggregated!]!
   versions(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_versions!]!
   versions_by_id(id: ID!, version: String): directus_versions
   versions_aggregated(groupBy: [String], filter: directus_versions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_versions_aggregated!]!
+  policies(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_policies!]!
+  policies_by_id(id: ID!, version: String): directus_policies
+  policies_aggregated(groupBy: [String], filter: directus_policies_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_policies_aggregated!]!
   access(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [directus_access!]!
   access_by_id(id: ID!, version: String): directus_access
   access_aggregated(groupBy: [String], filter: directus_access_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_access_aggregated!]!
@@ -139,10 +139,10 @@ type Mutation {
   create_translations_item(data: create_directus_translations_input!): directus_translations
   create_webhooks_items(filter: directus_webhooks_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_webhooks_input!]): [directus_webhooks!]!
   create_webhooks_item(data: create_directus_webhooks_input!): directus_webhooks
-  create_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_policies_input!]): [directus_policies!]!
-  create_policies_item(data: create_directus_policies_input!): directus_policies
   create_versions_items(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_versions_input!]): [directus_versions!]!
   create_versions_item(data: create_directus_versions_input!): directus_versions
+  create_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_policies_input!]): [directus_policies!]!
+  create_policies_item(data: create_directus_policies_input!): directus_policies
   create_access_items(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_access_input!]): [directus_access!]!
   create_access_item(data: create_directus_access_input!): directus_access
   create_comments_items(filter: directus_comments_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [create_directus_comments_input!]): [directus_comments!]!
@@ -189,12 +189,12 @@ type Mutation {
   update_webhooks_items(filter: directus_webhooks_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_webhooks_input!): [directus_webhooks!]!
   update_webhooks_batch(filter: directus_webhooks_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_webhooks_input!]): [directus_webhooks!]!
   update_webhooks_item(id: ID!, data: update_directus_webhooks_input!): directus_webhooks
-  update_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_policies_input!): [directus_policies!]!
-  update_policies_batch(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_policies_input!]): [directus_policies!]!
-  update_policies_item(id: ID!, data: update_directus_policies_input!): directus_policies
   update_versions_items(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_versions_input!): [directus_versions!]!
   update_versions_batch(filter: directus_versions_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_versions_input!]): [directus_versions!]!
   update_versions_item(id: ID!, data: update_directus_versions_input!): directus_versions
+  update_policies_items(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_policies_input!): [directus_policies!]!
+  update_policies_batch(filter: directus_policies_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_policies_input!]): [directus_policies!]!
+  update_policies_item(id: ID!, data: update_directus_policies_input!): directus_policies
   update_access_items(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, ids: [ID]!, data: update_directus_access_input!): [directus_access!]!
   update_access_batch(filter: directus_access_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String, data: [update_directus_access_input!]): [directus_access!]!
   update_access_item(id: ID!, data: update_directus_access_input!): directus_access
@@ -230,10 +230,10 @@ type Mutation {
   delete_translations_item(id: ID!): delete_one
   delete_webhooks_items(ids: [ID]!): delete_many
   delete_webhooks_item(id: ID!): delete_one
-  delete_policies_items(ids: [ID]!): delete_many
-  delete_policies_item(id: ID!): delete_one
   delete_versions_items(ids: [ID]!): delete_many
   delete_versions_item(id: ID!): delete_one
+  delete_policies_items(ids: [ID]!): delete_many
+  delete_policies_item(id: ID!): delete_one
   delete_access_items(ids: [ID]!): delete_many
   delete_access_item(id: ID!): delete_one
   delete_comments_items(ids: [ID]!): delete_many
@@ -257,10 +257,8 @@ type Subscription {
   directus_operations_mutated(event: EventEnum): directus_operations_mutated
   directus_translations_mutated(event: EventEnum): directus_translations_mutated
   directus_webhooks_mutated(event: EventEnum): directus_webhooks_mutated
-  directus_policies_mutated(event: EventEnum): directus_policies_mutated
   directus_versions_mutated(event: EventEnum): directus_versions_mutated
-  directus_access_mutated(event: EventEnum): directus_access_mutated
-  directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  icbd_activities_mutated(event: EventEnum): icbd_activities_mutated
   ICBD_mutated(event: EventEnum): ICBD_mutated
   ICBD_files_mutated(event: EventEnum): ICBD_files_mutated
   languages_mutated(event: EventEnum): languages_mutated
@@ -284,10 +282,8 @@ type Subscription {
   commission_memberships_translations_mutated(event: EventEnum): commission_memberships_translations_mutated
   commissions_social_links_mutated(event: EventEnum): commissions_social_links_mutated
   commissions_translations_mutated(event: EventEnum): commissions_translations_mutated
-  icbd_activities_mutated(event: EventEnum): icbd_activities_mutated
   icbd_speakers_mutated(event: EventEnum): icbd_speakers_mutated
   icbd_activities_icbd_speakers_mutated(event: EventEnum): icbd_activities_icbd_speakers_mutated
-  icbd_activities_registrations_mutated(event: EventEnum): icbd_activities_registrations_mutated
   icbd_activities_translations_mutated(event: EventEnum): icbd_activities_translations_mutated
   icbd_phds_mutated(event: EventEnum): icbd_phds_mutated
   inventory_mutated(event: EventEnum): inventory_mutated
@@ -303,8 +299,14 @@ type Subscription {
   std_cell_translations_mutated(event: EventEnum): std_cell_translations_mutated
   subsonic_mutated(event: EventEnum): subsonic_mutated
   subsonic_translations_mutated(event: EventEnum): subsonic_translations_mutated
-  events_mutated(event: EventEnum): events_mutated
+  directus_policies_mutated(event: EventEnum): directus_policies_mutated
+  directus_access_mutated(event: EventEnum): directus_access_mutated
+  directus_comments_mutated(event: EventEnum): directus_comments_mutated
+  directus_settings_mutated(event: EventEnum): directus_settings_mutated
+  icbd_activities_registrations_mutated(event: EventEnum): icbd_activities_registrations_mutated
+  directus_sync_id_map_mutated(event: EventEnum): directus_sync_id_map_mutated
   game_star_social_links_mutated(event: EventEnum): game_star_social_links_mutated
+  events_mutated(event: EventEnum): events_mutated
   registrations_mutated(event: EventEnum): registrations_mutated
   game_star_articles_translations_mutated(event: EventEnum): game_star_articles_translations_mutated
   game_star_articles_mutated(event: EventEnum): game_star_articles_mutated
@@ -314,7 +316,6 @@ type Subscription {
   game_star_projects_mutated(event: EventEnum): game_star_projects_mutated
   game_star_translations_mutated(event: EventEnum): game_star_translations_mutated
   game_star_mutated(event: EventEnum): game_star_mutated
-  directus_settings_mutated(event: EventEnum): directus_settings_mutated
 }
 
 """The `Boolean` scalar type represents `true` or `false`."""
@@ -1691,6 +1692,21 @@ type directus_shares_mutated {
   data: directus_shares
 }
 
+type directus_sync_id_map {
+  id: ID!
+  table: String!
+  sync_id: String!
+  local_id: String!
+  created_at: Date
+  created_at_func: datetime_functions
+}
+
+type directus_sync_id_map_mutated {
+  key: ID!
+  event: EventEnum
+  data: directus_sync_id_map
+}
+
 type directus_translations {
   id: ID!
   language: String!
@@ -1903,10 +1919,6 @@ type events {
   to: Date
   to_func: datetime_functions
   opened: Boolean
-  name: String
-  price: Int
-  max_registrations: Int
-  registration_count: Int!
   staffing_from: Date
   staffing_from_func: datetime_functions
   staffing_to: Date
@@ -1916,6 +1928,10 @@ type events {
   staffingShiftSize: Int
   meals: JSON
   meals_func: count_functions
+  name: String
+  price: Int
+  max_registrations: Int
+  registration_count: Int!
 
   """
   Unique url name of the event, e.g. "icbd-2025"
@@ -2090,10 +2106,10 @@ type icbd_activities {
   timeslots_func: count_functions
   color: String
   type: String
-  translations(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_translations]
-  translations_func: count_functions
   hosts(filter: icbd_activities_icbd_speakers_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_icbd_speakers]
   hosts_func: count_functions
+  translations(filter: icbd_activities_translations_filter, sort: [String], limit: Int, offset: Int, page: Int, search: String): [icbd_activities_translations]
+  translations_func: count_functions
 }
 
 type icbd_activities_icbd_speakers {
@@ -2388,8 +2404,8 @@ type registrations {
   year: String
   section: String
   checked_in: Boolean
-  payment: String
   meal: Int
+  payment: String
   late_payment: Boolean
   allergies: String
   plusOnes: Int
@@ -3813,10 +3829,6 @@ input events_filter {
   to: date_filter_operators
   to_func: datetime_function_filter_operators
   opened: boolean_filter_operators
-  name: string_filter_operators
-  price: number_filter_operators
-  max_registrations: number_filter_operators
-  registration_count: number_filter_operators
   staffing_from: date_filter_operators
   staffing_from_func: datetime_function_filter_operators
   staffing_to: date_filter_operators
@@ -3826,6 +3838,10 @@ input events_filter {
   staffingShiftSize: number_filter_operators
   meals: string_filter_operators
   meals_func: count_function_filter_operators
+  name: string_filter_operators
+  price: number_filter_operators
+  max_registrations: number_filter_operators
+  registration_count: number_filter_operators
   slug: string_filter_operators
   admin_secret: id_filter_operators
   banner: directus_files_filter
@@ -3993,10 +4009,10 @@ input icbd_activities_filter {
   timeslots_func: count_function_filter_operators
   color: string_filter_operators
   type: string_filter_operators
-  translations: icbd_activities_translations_quantifier_filter
-  translations_func: count_function_filter_operators
   hosts: icbd_activities_icbd_speakers_quantifier_filter
   hosts_func: count_function_filter_operators
+  translations: icbd_activities_translations_quantifier_filter
+  translations_func: count_function_filter_operators
   _and: [icbd_activities_filter]
   _or: [icbd_activities_filter]
 }
@@ -4331,8 +4347,8 @@ input registrations_filter {
   year: string_filter_operators
   section: string_filter_operators
   checked_in: boolean_filter_operators
-  payment: string_filter_operators
   meal: number_filter_operators
+  payment: string_filter_operators
   late_payment: boolean_filter_operators
   allergies: string_filter_operators
   plusOnes: number_filter_operators

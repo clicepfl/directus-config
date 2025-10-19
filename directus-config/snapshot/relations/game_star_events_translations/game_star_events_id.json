@@ -1,7 +1,6 @@
 {
   "collection": "game_star_events_translations",
   "field": "game_star_events_id",
-  "related_collection": "game_star_events",
   "meta": {
     "junction_field": "languages_code",
     "many_collection": "game_star_events_translations",
@@ -13,13 +12,14 @@
     "one_field": "translations",
     "sort_field": null
   },
+  "related_collection": "game_star_events",
   "schema": {
-    "table": "game_star_events_translations",
     "column": "game_star_events_id",
-    "foreign_key_table": "game_star_events",
-    "foreign_key_column": "id",
     "constraint_name": "game_star_events_translations_game_star_events_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "game_star_events",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "game_star_events_translations"
   }
 }

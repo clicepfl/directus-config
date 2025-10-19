@@ -1,7 +1,6 @@
 {
   "collection": "association_public_files",
   "field": "icon",
-  "related_collection": "directus_files",
   "meta": {
     "junction_field": null,
     "many_collection": "association_public_files",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "directus_files",
   "schema": {
-    "table": "association_public_files",
     "column": "icon",
-    "foreign_key_table": "directus_files",
-    "foreign_key_column": "id",
     "constraint_name": "association_public_files_icon_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "association_public_files"
   }
 }

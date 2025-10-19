@@ -1,7 +1,6 @@
 {
   "collection": "events",
   "field": "staffing_from",
-  "type": "dateTime",
   "meta": {
     "collection": "events",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "half"
   },
   "schema": {
-    "name": "staffing_from",
-    "table": "events",
     "data_type": "timestamp without time zone",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": null,
-    "foreign_key_column": null
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "staffing_from",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "events"
+  },
+  "type": "dateTime"
 }

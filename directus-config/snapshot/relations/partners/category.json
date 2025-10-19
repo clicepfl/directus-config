@@ -1,7 +1,6 @@
 {
   "collection": "partners",
   "field": "category",
-  "related_collection": "partner_category",
   "meta": {
     "junction_field": null,
     "many_collection": "partners",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "partner_category",
   "schema": {
-    "table": "partners",
     "column": "category",
-    "foreign_key_table": "partner_category",
-    "foreign_key_column": "id",
     "constraint_name": "partners_category_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "partner_category",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "partners"
   }
 }

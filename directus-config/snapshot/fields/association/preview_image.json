@@ -1,7 +1,6 @@
 {
   "collection": "association",
   "field": "preview_image",
-  "type": "uuid",
   "meta": {
     "collection": "association",
     "conditions": null,
@@ -25,21 +24,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "preview_image",
-    "table": "association",
     "data_type": "uuid",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "directus_files",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "preview_image",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "association"
+  },
+  "type": "uuid"
 }

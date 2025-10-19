@@ -1,7 +1,6 @@
 {
   "collection": "save_the_date",
   "field": "language_button_target",
-  "related_collection": "languages",
   "meta": {
     "junction_field": null,
     "many_collection": "save_the_date",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "languages",
   "schema": {
-    "table": "save_the_date",
     "column": "language_button_target",
-    "foreign_key_table": "languages",
-    "foreign_key_column": "code",
     "constraint_name": "save_the_date_language_button_target_foreign",
+    "foreign_key_column": "code",
+    "foreign_key_table": "languages",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "save_the_date"
   }
 }

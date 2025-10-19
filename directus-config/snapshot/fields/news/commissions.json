@@ -1,7 +1,6 @@
 {
   "collection": "news",
   "field": "commissions",
-  "type": "alias",
   "meta": {
     "collection": "news",
     "conditions": null,
@@ -29,5 +28,6 @@
     "validation": null,
     "validation_message": null,
     "width": "half"
-  }
+  },
+  "type": "alias"
 }

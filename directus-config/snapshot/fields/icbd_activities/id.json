@@ -1,7 +1,6 @@
 {
   "collection": "icbd_activities",
   "field": "id",
-  "type": "integer",
   "meta": {
     "collection": "icbd_activities",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "id",
-    "table": "icbd_activities",
     "data_type": "integer",
     "default_value": "nextval('icbd_activities_id_seq'::regclass)",
-    "max_length": null,
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "is_nullable": false,
-    "is_unique": true,
-    "is_indexed": false,
-    "is_primary_key": true,
-    "is_generated": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": true,
-    "foreign_key_table": null,
-    "foreign_key_column": null
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": false,
+    "is_primary_key": true,
+    "is_unique": true,
+    "max_length": null,
+    "name": "id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "icbd_activities"
+  },
+  "type": "integer"
 }

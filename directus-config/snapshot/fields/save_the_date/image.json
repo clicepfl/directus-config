@@ -1,7 +1,6 @@
 {
   "collection": "save_the_date",
   "field": "image",
-  "type": "uuid",
   "meta": {
     "collection": "save_the_date",
     "conditions": null,
@@ -25,21 +24,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "image",
-    "table": "save_the_date",
     "data_type": "uuid",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "directus_files",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "image",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "save_the_date"
+  },
+  "type": "uuid"
 }

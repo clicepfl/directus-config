@@ -1,7 +1,6 @@
 {
   "collection": "commissions_social_links",
   "field": "social_links_id",
-  "related_collection": "social_links",
   "meta": {
     "junction_field": "commissions_id",
     "many_collection": "commissions_social_links",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "social_links",
   "schema": {
-    "table": "commissions_social_links",
     "column": "social_links_id",
-    "foreign_key_table": "social_links",
-    "foreign_key_column": "id",
     "constraint_name": "commissions_social_links_social_links_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "social_links",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "on_delete": "SET NULL"
+    "table": "commissions_social_links"
   }
 }

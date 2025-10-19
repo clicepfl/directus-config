@@ -1,7 +1,6 @@
 {
   "collection": "registrations",
   "field": "event",
-  "related_collection": "events",
   "meta": {
     "junction_field": null,
     "many_collection": "registrations",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "events",
   "schema": {
-    "table": "registrations",
     "column": "event",
-    "foreign_key_table": "events",
-    "foreign_key_column": "id",
     "constraint_name": "registrations_event_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "events",
+    "on_delete": "CASCADE",
     "on_update": "NO ACTION",
-    "on_delete": "CASCADE"
+    "table": "registrations"
   }
 }

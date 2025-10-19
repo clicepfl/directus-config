@@ -1,7 +1,6 @@
 {
   "collection": "news_commissions",
   "field": "commissions_id",
-  "related_collection": "commissions",
   "meta": {
     "junction_field": "news_id",
     "many_collection": "news_commissions",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "commissions",
   "schema": {
-    "table": "news_commissions",
     "column": "commissions_id",
-    "foreign_key_table": "commissions",
-    "foreign_key_column": "id",
     "constraint_name": "news_commissions_commissions_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "commissions",
+    "on_delete": "CASCADE",
     "on_update": "NO ACTION",
-    "on_delete": "CASCADE"
+    "table": "news_commissions"
   }
 }

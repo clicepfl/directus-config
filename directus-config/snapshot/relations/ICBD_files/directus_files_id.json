@@ -1,7 +1,6 @@
 {
   "collection": "ICBD_files",
   "field": "directus_files_id",
-  "related_collection": "directus_files",
   "meta": {
     "junction_field": "ICBD_id",
     "many_collection": "ICBD_files",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "directus_files",
   "schema": {
-    "table": "ICBD_files",
     "column": "directus_files_id",
-    "foreign_key_table": "directus_files",
-    "foreign_key_column": "id",
     "constraint_name": "icbd_files_directus_files_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "CASCADE",
     "on_update": "NO ACTION",
-    "on_delete": "CASCADE"
+    "table": "ICBD_files"
   }
 }

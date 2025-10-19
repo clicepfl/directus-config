@@ -1,7 +1,6 @@
 {
   "collection": "game_star_projects_translations",
   "field": "description",
-  "type": "text",
   "meta": {
     "collection": "game_star_projects_translations",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "description",
-    "table": "game_star_projects_translations",
     "data_type": "text",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": null,
-    "foreign_key_column": null
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "description",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "game_star_projects_translations"
+  },
+  "type": "text"
 }

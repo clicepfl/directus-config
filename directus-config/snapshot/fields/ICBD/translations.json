@@ -1,7 +1,6 @@
 {
   "collection": "ICBD",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "ICBD",
     "conditions": null,
@@ -25,5 +24,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

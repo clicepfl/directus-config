@@ -1,7 +1,6 @@
 {
   "collection": "association_memberships",
   "field": "member",
-  "related_collection": "members",
   "meta": {
     "junction_field": null,
     "many_collection": "association_memberships",
@@ -13,13 +12,14 @@
     "one_field": null,
     "sort_field": null
   },
+  "related_collection": "members",
   "schema": {
-    "table": "association_memberships",
     "column": "member",
-    "foreign_key_table": "members",
-    "foreign_key_column": "id",
     "constraint_name": "association_memberships_member_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "members",
+    "on_delete": "NO ACTION",
     "on_update": "NO ACTION",
-    "on_delete": "NO ACTION"
+    "table": "association_memberships"
   }
 }

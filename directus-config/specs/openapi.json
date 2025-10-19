@@ -3,7 +3,7 @@
   "info": {
     "title": "Dynamic API Specification",
     "description": "This is a dynamically generated API specification for all endpoints existing on the current project.",
-    "version": "2aca5623ae009821e627e8ba24bfeb14fde45391"
+    "version": "d306ab921bb3207b745fe5cee3b37e990899c9de"
   },
   "servers": [
     {
@@ -7051,14 +7051,71 @@
         ]
       }
     },
-    "/comments": {
-      "get": {
+    "/items/icbd_activities": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new icbd_activities item.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "getComments",
-        "summary": "List Comments",
-        "description": "List the comments.",
+        "operationId": "createItemsIcbdActivities",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsIcbdActivities"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsIcbdActivities"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsIcbdActivities"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the icbd_activities items.",
+        "tags": [
+          "Items",
+          "ItemsIcbdActivities"
+        ],
+        "operationId": "readItemsIcbdActivities",
         "security": [
           {
             "Auth": []
@@ -7072,10 +7129,10 @@
             "$ref": "#/components/parameters/Limit"
           },
           {
-            "$ref": "#/components/parameters/Offset"
+            "$ref": "#/components/parameters/Meta"
           },
           {
-            "$ref": "#/components/parameters/Page"
+            "$ref": "#/components/parameters/Offset"
           },
           {
             "$ref": "#/components/parameters/Sort"
@@ -7085,9 +7142,6 @@
           },
           {
             "$ref": "#/components/parameters/Search"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
           }
         ],
         "responses": {
@@ -7101,7 +7155,8 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/Comments"
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsIcbdActivities"
                       }
                     },
                     "meta": {
@@ -7117,78 +7172,14 @@
           }
         }
       },
-      "post": {
-        "tags": [
-          "Comments"
-        ],
-        "operationId": "createComment",
-        "summary": "Create a Comment",
-        "description": "Create a new comment.",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": [
-                  "collection",
-                  "item",
-                  "comment"
-                ],
-                "properties": {
-                  "collection": {
-                    "type": "string",
-                    "description": "Which collection this collection comment is for.",
-                    "example": "projects"
-                  },
-                  "item": {
-                    "type": "string",
-                    "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
-                  },
-                  "comment": {
-                    "type": "string",
-                    "example": "A new comment"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Comments"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
       "patch": {
-        "summary": "Update Multiple Comments",
-        "description": "Update multiple comments at the same time.",
+        "summary": "Update Multiple Items",
+        "description": "Update multiple icbd_activities items at the same time.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "updateComments",
+        "operationId": "updateItemsIcbdActivities",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -7216,36 +7207,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "keys": {
+                "oneOf": [
+                  {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "$ref": "#/components/schemas/ItemsIcbdActivities"
                     }
                   },
-                  "data": {
-                    "type": "object",
-                    "required": [
-                      "collection"
-                    ],
-                    "properties": {
-                      "collection": {
-                        "type": "string",
-                        "description": "Which collection this collection comment is for.",
-                        "example": "projects"
-                      },
-                      "item": {
-                        "type": "string",
-                        "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
-                      },
-                      "comment": {
-                        "type": "string",
-                        "example": "A new comment"
-                      }
-                    }
+                  {
+                    "$ref": "#/components/schemas/ItemsIcbdActivities"
                   }
-                }
+                ]
               }
             }
           }
@@ -7256,34 +7228,28 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
                   "properties": {
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/Comments"
+                        "$ref": "#/components/schemas/ItemsIcbdActivities"
                       }
-                    },
-                    "meta": {
-                      "$ref": "#/components/schemas/x-metadata"
                     }
                   }
                 }
               }
             }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
           }
         }
       },
       "delete": {
-        "summary": "Delete Multiple Comments",
-        "description": "Delete multiple existing comments.",
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing icbd_activities items.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "deleteComments",
+        "operationId": "deleteItemsIcbdActivities",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -7291,28 +7257,48 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           }
-        }
+        },
+        "parameters": []
       }
     },
-    "/comments/{id}": {
+    "/items/icbd_activities/{id}": {
       "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single icbd_activities item by unique identifier.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "getComment",
-        "summary": "Retrieve a Comment",
-        "description": "Retrieve a single comment by unique identifier.",
-        "security": [
-          {
-            "Auth": []
-          }
-        ],
+        "operationId": "readSingleItemsIcbdActivities",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
           },
           {
             "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
           }
         ],
         "responses": {
@@ -7324,7 +7310,8 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Comments"
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsIcbdActivities"
                     }
                   }
                 }
@@ -7333,22 +7320,46 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
           }
         }
       },
       "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing icbd_activities item.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "updateComment",
-        "summary": "Update a Comment",
-        "description": "Update an existing comment.",
+        "operationId": "updateSingleItemsIcbdActivities",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
           },
           {
             "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
           }
         ],
         "requestBody": {
@@ -7356,24 +7367,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "required": [
-                  "collection"
-                ],
-                "properties": {
-                  "collection": {
-                    "type": "string",
-                    "description": "Which collection this comment is for.",
-                    "example": "projects"
-                  },
-                  "item": {
-                    "type": "string",
-                    "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
-                  },
-                  "comment": {
-                    "type": "string",
-                    "example": "An updated comment"
-                  }
-                }
+                "$ref": "#/components/schemas/ItemsIcbdActivities"
               }
             }
           }
@@ -7387,7 +7381,8 @@
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Comments"
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsIcbdActivities"
                     }
                   }
                 }
@@ -7403,25 +7398,46 @@
         }
       },
       "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing icbd_activities item.",
         "tags": [
-          "Comments"
+          "Items",
+          "ItemsIcbdActivities"
         ],
-        "operationId": "deleteComment",
-        "summary": "Delete a Comment",
-        "description": "Delete an existing comment.",
-        "security": [
-          {
-            "Auth": []
-          }
-        ],
+        "operationId": "deleteSingleItemsIcbdActivities",
         "responses": {
           "200": {
             "description": "Successful request"
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     "/items/ICBD": {
@@ -16359,395 +16375,6 @@
         ]
       }
     },
-    "/items/icbd_activities": {
-      "post": {
-        "summary": "Create an Item",
-        "description": "Create a new icbd_activities item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "createItemsIcbdActivities",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsIcbdActivities"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsIcbdActivities"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsIcbdActivities"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "get": {
-        "summary": "List Items",
-        "description": "List the icbd_activities items.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "readItemsIcbdActivities",
-        "security": [
-          {
-            "Auth": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "$ref": "#/components/schemas/ItemsIcbdActivities"
-                      }
-                    },
-                    "meta": {
-                      "$ref": "#/components/schemas/x-metadata"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update Multiple Items",
-        "description": "Update multiple icbd_activities items at the same time.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "updateItemsIcbdActivities",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsIcbdActivities"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsIcbdActivities"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsIcbdActivities"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing icbd_activities items.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "deleteItemsIcbdActivities",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        },
-        "parameters": []
-      }
-    },
-    "/items/icbd_activities/{id}": {
-      "get": {
-        "summary": "Retrieve an Item",
-        "description": "Retrieve a single icbd_activities item by unique identifier.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "readSingleItemsIcbdActivities",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Version"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsIcbdActivities"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update an Item",
-        "description": "Update an existing icbd_activities item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "updateSingleItemsIcbdActivities",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/components/schemas/ItemsIcbdActivities"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsIcbdActivities"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete an Item",
-        "description": "Delete an existing icbd_activities item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivities"
-        ],
-        "operationId": "deleteSingleItemsIcbdActivities",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
     "/items/icbd_speakers": {
       "post": {
         "summary": "Create an Item",
@@ -17491,395 +17118,6 @@
           "ItemsIcbdActivitiesIcbdSpeakers"
         ],
         "operationId": "deleteSingleItemsIcbdActivitiesIcbdSpeakers",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    "/items/icbd_activities_registrations": {
-      "post": {
-        "summary": "Create an Item",
-        "description": "Create a new icbd_activities_registrations item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "createItemsIcbdActivitiesRegistrations",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Meta"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "get": {
-        "summary": "List Items",
-        "description": "List the icbd_activities_registrations items.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "readItemsIcbdActivitiesRegistrations",
-        "security": [
-          {
-            "Auth": []
-          }
-        ],
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                      }
-                    },
-                    "meta": {
-                      "$ref": "#/components/schemas/x-metadata"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update Multiple Items",
-        "description": "Update multiple icbd_activities_registrations items at the same time.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "updateItemsIcbdActivitiesRegistrations",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Sort"
-          },
-          {
-            "$ref": "#/components/parameters/Filter"
-          },
-          {
-            "$ref": "#/components/parameters/Search"
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                    }
-                  },
-                  {
-                    "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing icbd_activities_registrations items.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "deleteItemsIcbdActivitiesRegistrations",
-        "responses": {
-          "200": {
-            "description": "Successful request"
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          }
-        },
-        "parameters": []
-      }
-    },
-    "/items/icbd_activities_registrations/{id}": {
-      "get": {
-        "summary": "Retrieve an Item",
-        "description": "Retrieve a single icbd_activities_registrations item by unique identifier.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "readSingleItemsIcbdActivitiesRegistrations",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Version"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update an Item",
-        "description": "Update an existing icbd_activities_registrations item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "updateSingleItemsIcbdActivitiesRegistrations",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Fields"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "name": "id",
-            "description": "Index of the item.",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "oneOf": [
-                {
-                  "type": "integer",
-                  "description": "Incremental index of the item.",
-                  "example": 1
-                },
-                {
-                  "type": "string",
-                  "description": "Unique identifier of the item.",
-                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
-                }
-              ]
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "object",
-                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete an Item",
-        "description": "Delete an existing icbd_activities_registrations item.",
-        "tags": [
-          "Items",
-          "ItemsIcbdActivitiesRegistrations"
-        ],
-        "operationId": "deleteSingleItemsIcbdActivitiesRegistrations",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -23738,15 +22976,475 @@
         ]
       }
     },
-    "/items/events": {
+    "/comments": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "getComments",
+        "summary": "List Comments",
+        "description": "List the comments.",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Comments"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "createComment",
+        "summary": "Create a Comment",
+        "description": "Create a new comment.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "collection",
+                  "item",
+                  "comment"
+                ],
+                "properties": {
+                  "collection": {
+                    "type": "string",
+                    "description": "Which collection this collection comment is for.",
+                    "example": "projects"
+                  },
+                  "item": {
+                    "type": "string",
+                    "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "A new comment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Comments"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Comments",
+        "description": "Update multiple comments at the same time.",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "updateComments",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "keys": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "data": {
+                    "type": "object",
+                    "required": [
+                      "collection"
+                    ],
+                    "properties": {
+                      "collection": {
+                        "type": "string",
+                        "description": "Which collection this collection comment is for.",
+                        "example": "projects"
+                      },
+                      "item": {
+                        "type": "string",
+                        "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
+                      },
+                      "comment": {
+                        "type": "string",
+                        "example": "A new comment"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Comments"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Comments",
+        "description": "Delete multiple existing comments.",
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "deleteComments",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/comments/{id}": {
+      "get": {
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "getComment",
+        "summary": "Retrieve a Comment",
+        "description": "Retrieve a single comment by unique identifier.",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Comments"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "updateComment",
+        "summary": "Update a Comment",
+        "description": "Update an existing comment.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "collection"
+                ],
+                "properties": {
+                  "collection": {
+                    "type": "string",
+                    "description": "Which collection this comment is for.",
+                    "example": "projects"
+                  },
+                  "item": {
+                    "type": "string",
+                    "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "example": "An updated comment"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Comments"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Comments"
+        ],
+        "operationId": "deleteComment",
+        "summary": "Delete a Comment",
+        "description": "Delete an existing comment.",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "summary": "Retrieve Settings",
+        "description": "List the settings.",
+        "operationId": "getSettings",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Page"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "tags": [
+          "Settings"
+        ]
+      },
+      "patch": {
+        "summary": "Update Settings",
+        "description": "Update the settings",
+        "operationId": "updateSetting",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Settings"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "tags": [
+          "Settings"
+        ]
+      }
+    },
+    "/items/icbd_activities_registrations": {
       "post": {
         "summary": "Create an Item",
-        "description": "Create a new events item.",
+        "description": "Create a new icbd_activities_registrations item.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "createItemsEvents",
+        "operationId": "createItemsIcbdActivitiesRegistrations",
         "parameters": [
           {
             "$ref": "#/components/parameters/Meta"
@@ -23760,11 +23458,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsEvents"
+                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsEvents"
+                    "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                   }
                 ]
               }
@@ -23782,7 +23480,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsEvents"
+                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                       }
                     }
                   }
@@ -23797,12 +23495,12 @@
       },
       "get": {
         "summary": "List Items",
-        "description": "List the events items.",
+        "description": "List the icbd_activities_registrations items.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "readItemsEvents",
+        "operationId": "readItemsIcbdActivitiesRegistrations",
         "security": [
           {
             "Auth": []
@@ -23843,7 +23541,7 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "$ref": "#/components/schemas/ItemsEvents"
+                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                       }
                     },
                     "meta": {
@@ -23861,12 +23559,12 @@
       },
       "patch": {
         "summary": "Update Multiple Items",
-        "description": "Update multiple events items at the same time.",
+        "description": "Update multiple icbd_activities_registrations items at the same time.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "updateItemsEvents",
+        "operationId": "updateItemsIcbdActivitiesRegistrations",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -23898,11 +23596,11 @@
                   {
                     "type": "array",
                     "items": {
-                      "$ref": "#/components/schemas/ItemsEvents"
+                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                     }
                   },
                   {
-                    "$ref": "#/components/schemas/ItemsEvents"
+                    "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                   }
                 ]
               }
@@ -23919,7 +23617,7 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/ItemsEvents"
+                        "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                       }
                     }
                   }
@@ -23931,12 +23629,12 @@
       },
       "delete": {
         "summary": "Delete Multiple Items",
-        "description": "Delete multiple existing events items.",
+        "description": "Delete multiple existing icbd_activities_registrations items.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "deleteItemsEvents",
+        "operationId": "deleteItemsIcbdActivitiesRegistrations",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -23948,15 +23646,15 @@
         "parameters": []
       }
     },
-    "/items/events/{id}": {
+    "/items/icbd_activities_registrations/{id}": {
       "get": {
         "summary": "Retrieve an Item",
-        "description": "Retrieve a single events item by unique identifier.",
+        "description": "Retrieve a single icbd_activities_registrations item by unique identifier.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "readSingleItemsEvents",
+        "operationId": "readSingleItemsIcbdActivitiesRegistrations",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -23998,7 +23696,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsEvents"
+                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                     }
                   }
                 }
@@ -24015,12 +23713,12 @@
       },
       "patch": {
         "summary": "Update an Item",
-        "description": "Update an existing events item.",
+        "description": "Update an existing icbd_activities_registrations item.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "updateSingleItemsEvents",
+        "operationId": "updateSingleItemsIcbdActivitiesRegistrations",
         "parameters": [
           {
             "$ref": "#/components/parameters/Fields"
@@ -24054,7 +23752,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "$ref": "#/components/schemas/ItemsEvents"
+                "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
               }
             }
           }
@@ -24069,7 +23767,7 @@
                   "properties": {
                     "data": {
                       "type": "object",
-                      "$ref": "#/components/schemas/ItemsEvents"
+                      "$ref": "#/components/schemas/ItemsIcbdActivitiesRegistrations"
                     }
                   }
                 }
@@ -24086,12 +23784,401 @@
       },
       "delete": {
         "summary": "Delete an Item",
-        "description": "Delete an existing events item.",
+        "description": "Delete an existing icbd_activities_registrations item.",
         "tags": [
           "Items",
-          "ItemsEvents"
+          "ItemsIcbdActivitiesRegistrations"
         ],
-        "operationId": "deleteSingleItemsEvents",
+        "operationId": "deleteSingleItemsIcbdActivitiesRegistrations",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/items/directus_sync_id_map": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new directus_sync_id_map item.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "createItemsDirectusSyncIDMap",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the directus_sync_id_map items.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "readItemsDirectusSyncIDMap",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Items",
+        "description": "Update multiple directus_sync_id_map items at the same time.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "updateItemsDirectusSyncIDMap",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing directus_sync_id_map items.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "deleteItemsDirectusSyncIDMap",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/items/directus_sync_id_map/{id}": {
+      "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single directus_sync_id_map item by unique identifier.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "readSingleItemsDirectusSyncIDMap",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing directus_sync_id_map item.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "updateSingleItemsDirectusSyncIDMap",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsDirectusSyncIDMap"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing directus_sync_id_map item.",
+        "tags": [
+          "Items",
+          "ItemsDirectusSyncIDMap"
+        ],
+        "operationId": "deleteSingleItemsDirectusSyncIDMap",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -24481,6 +24568,395 @@
           "ItemsGameStarSocialLinks"
         ],
         "operationId": "deleteSingleItemsGameStarSocialLinks",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "/items/events": {
+      "post": {
+        "summary": "Create an Item",
+        "description": "Create a new events item.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "createItemsEvents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Meta"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsEvents"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsEvents"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsEvents"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "get": {
+        "summary": "List Items",
+        "description": "List the events items.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "readItemsEvents",
+        "security": [
+          {
+            "Auth": []
+          }
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/components/schemas/ItemsEvents"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/x-metadata"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Multiple Items",
+        "description": "Update multiple events items at the same time.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "updateItemsEvents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/Sort"
+          },
+          {
+            "$ref": "#/components/parameters/Filter"
+          },
+          {
+            "$ref": "#/components/parameters/Search"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ItemsEvents"
+                    }
+                  },
+                  {
+                    "$ref": "#/components/schemas/ItemsEvents"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ItemsEvents"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Multiple Items",
+        "description": "Delete multiple existing events items.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "deleteItemsEvents",
+        "responses": {
+          "200": {
+            "description": "Successful request"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        },
+        "parameters": []
+      }
+    },
+    "/items/events/{id}": {
+      "get": {
+        "summary": "Retrieve an Item",
+        "description": "Retrieve a single events item by unique identifier.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "readSingleItemsEvents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "$ref": "#/components/parameters/Version"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsEvents"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update an Item",
+        "description": "Update an existing events item.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "updateSingleItemsEvents",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Fields"
+          },
+          {
+            "$ref": "#/components/parameters/Meta"
+          },
+          {
+            "name": "id",
+            "description": "Index of the item.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "description": "Incremental index of the item.",
+                  "example": 1
+                },
+                {
+                  "type": "string",
+                  "description": "Unique identifier of the item.",
+                  "example": "8cbb43fe-4cdf-4991-8352-c461779cec02"
+                }
+              ]
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/components/schemas/ItemsEvents"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "$ref": "#/components/schemas/ItemsEvents"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFoundError"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete an Item",
+        "description": "Delete an existing events item.",
+        "tags": [
+          "Items",
+          "ItemsEvents"
+        ],
+        "operationId": "deleteSingleItemsEvents",
         "responses": {
           "200": {
             "description": "Successful request"
@@ -28010,93 +28486,6 @@
           }
         ]
       }
-    },
-    "/settings": {
-      "get": {
-        "summary": "Retrieve Settings",
-        "description": "List the settings.",
-        "operationId": "getSettings",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/Limit"
-          },
-          {
-            "$ref": "#/components/parameters/Offset"
-          },
-          {
-            "$ref": "#/components/parameters/Meta"
-          },
-          {
-            "$ref": "#/components/parameters/Page"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
-        ]
-      },
-      "patch": {
-        "summary": "Update Settings",
-        "description": "Update the settings",
-        "operationId": "updateSetting",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Settings"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFoundError"
-          }
-        },
-        "tags": [
-          "Settings"
-        ]
-      }
     }
   },
   "tags": [
@@ -28213,9 +28602,8 @@
       "x-collection": "directus_versions"
     },
     {
-      "name": "Comments",
-      "description": "Comments can be added to items.",
-      "x-collection": "directus_comments"
+      "name": "ItemsIcbdActivities",
+      "x-collection": "icbd_activities"
     },
     {
       "name": "ItemsIcbd",
@@ -28310,20 +28698,12 @@
       "x-collection": "commissions_translations"
     },
     {
-      "name": "ItemsIcbdActivities",
-      "x-collection": "icbd_activities"
-    },
-    {
       "name": "ItemsIcbdSpeakers",
       "x-collection": "icbd_speakers"
     },
     {
       "name": "ItemsIcbdActivitiesIcbdSpeakers",
       "x-collection": "icbd_activities_icbd_speakers"
-    },
-    {
-      "name": "ItemsIcbdActivitiesRegistrations",
-      "x-collection": "icbd_activities_registrations"
     },
     {
       "name": "ItemsIcbdActivitiesTranslations",
@@ -28387,12 +28767,30 @@
       "x-collection": "subsonic_translations"
     },
     {
-      "name": "ItemsEvents",
-      "x-collection": "events"
+      "name": "Comments",
+      "description": "Comments can be added to items.",
+      "x-collection": "directus_comments"
+    },
+    {
+      "name": "Settings",
+      "description": "Settings control the way the platform works and acts.",
+      "x-collection": "directus_settings"
+    },
+    {
+      "name": "ItemsIcbdActivitiesRegistrations",
+      "x-collection": "icbd_activities_registrations"
+    },
+    {
+      "name": "ItemsDirectusSyncIDMap",
+      "x-collection": "directus_sync_id_map"
     },
     {
       "name": "ItemsGameStarSocialLinks",
       "x-collection": "game_star_social_links"
+    },
+    {
+      "name": "ItemsEvents",
+      "x-collection": "events"
     },
     {
       "name": "ItemsRegistrations",
@@ -28429,11 +28827,6 @@
     {
       "name": "ItemsGameStar",
       "x-collection": "game_star"
-    },
-    {
-      "name": "Settings",
-      "description": "Settings control the way the platform works and acts.",
-      "x-collection": "directus_settings"
     }
   ],
   "components": {
@@ -29992,76 +30385,66 @@
         },
         "x-collection": "directus_versions"
       },
-      "Comments": {
+      "ItemsIcbdActivities": {
         "type": "object",
         "properties": {
           "id": {
-            "description": "Unique identifier for this single collection preset.",
-            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
-            "type": "string"
+            "nullable": false,
+            "type": "integer"
           },
-          "collection": {
-            "description": "The collection of the item the Comment is created for.",
-            "example": "articles",
+          "icon": {
+            "nullable": true,
             "oneOf": [
               {
-                "type": "string"
+                "type": "string",
+                "format": "uuid"
               },
               {
-                "$ref": "#/components/schemas/Collections"
+                "$ref": "#/components/schemas/Files"
               }
             ]
           },
-          "item": {
-            "description": "The item the Comment is created for.",
-            "example": "123",
-            "type": "string"
-          },
-          "comment": {
-            "description": "User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.",
-            "example": "This is a comment",
-            "type": "string"
-          },
-          "date_created": {
-            "description": "When the Comment was created.",
-            "type": "string",
-            "example": "2024-01-23T12:34:56Z",
-            "format": "date-time",
+          "timeslots": {
             "nullable": true
           },
-          "date_updated": {
-            "description": "When the Comment was updated.",
-            "type": "string",
-            "example": "2024-01-23T12:34:56Z",
-            "format": "date-time",
-            "nullable": true
+          "color": {
+            "nullable": true,
+            "type": "string"
           },
-          "user_created": {
-            "description": "User that created the Comment.",
-            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Users"
-              }
-            ]
+          "type": {
+            "nullable": true,
+            "type": "string"
           },
-          "user_updated": {
-            "description": "User that updated the Comment.",
-            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/components/schemas/Users"
-              }
-            ]
+          "hosts": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsIcbdActivitiesIcbdSpeakers"
+                }
+              ]
+            }
+          },
+          "translations": {
+            "nullable": true,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "$ref": "#/components/schemas/ItemsIcbdActivitiesTranslations"
+                }
+              ]
+            }
           }
         },
-        "x-collection": "directus_comments"
+        "x-collection": "icbd_activities"
       },
       "ItemsIcbd": {
         "type": "object",
@@ -31119,67 +31502,6 @@
         },
         "x-collection": "commissions_translations"
       },
-      "ItemsIcbdActivities": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "icon": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/Files"
-              }
-            ]
-          },
-          "timeslots": {
-            "nullable": true
-          },
-          "color": {
-            "nullable": true,
-            "type": "string"
-          },
-          "type": {
-            "nullable": true,
-            "type": "string"
-          },
-          "translations": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsIcbdActivitiesTranslations"
-                }
-              ]
-            }
-          },
-          "hosts": {
-            "nullable": true,
-            "type": "array",
-            "items": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "$ref": "#/components/schemas/ItemsIcbdActivitiesIcbdSpeakers"
-                }
-              ]
-            }
-          }
-        },
-        "x-collection": "icbd_activities"
-      },
       "ItemsIcbdSpeakers": {
         "type": "object",
         "properties": {
@@ -31249,48 +31571,6 @@
           }
         },
         "x-collection": "icbd_activities_icbd_speakers"
-      },
-      "ItemsIcbdActivitiesRegistrations": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "icbd_activity": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsIcbdActivities"
-              }
-            ]
-          },
-          "registration": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/ItemsRegistrations"
-              }
-            ]
-          },
-          "start": {
-            "nullable": true,
-            "type": "string",
-            "format": "time"
-          },
-          "attended": {
-            "nullable": true,
-            "type": "boolean"
-          }
-        },
-        "x-collection": "icbd_activities_registrations"
       },
       "ItemsIcbdActivitiesTranslations": {
         "type": "object",
@@ -32039,6 +32319,472 @@
         },
         "x-collection": "subsonic_translations"
       },
+      "Comments": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for this single collection preset.",
+            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
+            "type": "string"
+          },
+          "collection": {
+            "description": "The collection of the item the Comment is created for.",
+            "example": "articles",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Collections"
+              }
+            ]
+          },
+          "item": {
+            "description": "The item the Comment is created for.",
+            "example": "123",
+            "type": "string"
+          },
+          "comment": {
+            "description": "User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.",
+            "example": "This is a comment",
+            "type": "string"
+          },
+          "date_created": {
+            "description": "When the Comment was created.",
+            "type": "string",
+            "example": "2024-01-23T12:34:56Z",
+            "format": "date-time",
+            "nullable": true
+          },
+          "date_updated": {
+            "description": "When the Comment was updated.",
+            "type": "string",
+            "example": "2024-01-23T12:34:56Z",
+            "format": "date-time",
+            "nullable": true
+          },
+          "user_created": {
+            "description": "User that created the Comment.",
+            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Users"
+              }
+            ]
+          },
+          "user_updated": {
+            "description": "User that updated the Comment.",
+            "example": "81dfa7e0-56d2-471f-b96a-1cf8a62bdf28",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/Users"
+              }
+            ]
+          }
+        },
+        "x-collection": "directus_comments"
+      },
+      "Settings": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Unique identifier for the setting.",
+            "type": "integer",
+            "example": 1
+          },
+          "project_name": {
+            "description": "The name of the project.",
+            "type": "string",
+            "example": "Directus"
+          },
+          "project_url": {
+            "description": "The url of the project.",
+            "type": "string",
+            "example": null,
+            "nullable": true
+          },
+          "project_color": {
+            "description": "The brand color of the project.",
+            "type": "string",
+            "example": null,
+            "nullable": true
+          },
+          "project_logo": {
+            "description": "The logo of the project.",
+            "type": "string",
+            "example": null,
+            "nullable": true
+          },
+          "public_foreground": {
+            "description": "The foreground of the project.",
+            "type": "string",
+            "example": null,
+            "nullable": true
+          },
+          "public_background": {
+            "description": "The background of the project.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            },
+            "example": null,
+            "nullable": true
+          },
+          "public_note": {
+            "description": "Note rendered on the public pages of the app.",
+            "type": "string",
+            "example": null,
+            "nullable": true
+          },
+          "auth_login_attempts": {
+            "description": "Allowed authentication login attempts before the user's status is set to blocked.",
+            "type": "integer",
+            "example": 25
+          },
+          "auth_password_policy": {
+            "description": "Authentication password policy.",
+            "type": "string",
+            "nullable": true
+          },
+          "storage_asset_transform": {
+            "description": "What transformations are allowed in the assets endpoint.",
+            "type": "string",
+            "enum": [
+              "all",
+              "none",
+              "presets"
+            ],
+            "example": "all",
+            "nullable": true
+          },
+          "storage_asset_presets": {
+            "description": "Array of allowed",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "description": "Key for the asset. Used in the assets endpoint.",
+                  "type": "string"
+                },
+                "fit": {
+                  "description": "Whether to crop the thumbnail to match the size, or maintain the aspect ratio.",
+                  "type": "string",
+                  "enum": [
+                    "cover",
+                    "contain",
+                    "inside",
+                    "outside"
+                  ]
+                },
+                "width": {
+                  "description": "Width of the thumbnail.",
+                  "type": "integer"
+                },
+                "height": {
+                  "description": "Height of the thumbnail.",
+                  "type": "integer"
+                },
+                "withoutEnlargement": {
+                  "description": "No image upscale",
+                  "type": "boolean"
+                },
+                "quality": {
+                  "description": "Quality of the compression used.",
+                  "type": "integer"
+                },
+                "format": {
+                  "description": "Reformat output image",
+                  "type": "string",
+                  "enum": [
+                    "",
+                    "jpeg",
+                    "png",
+                    "webp",
+                    "tiff",
+                    "avif"
+                  ]
+                },
+                "transforms": {
+                  "description": "Additional transformations to apply",
+                  "type": "array",
+                  "nullable": true,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "method": {
+                        "description": "The Sharp method name",
+                        "type": "string"
+                      },
+                      "arguments": {
+                        "description": "A list of arguments to pass to the Sharp method",
+                        "type": "array",
+                        "nullable": true,
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "argument": {
+                              "description": "A JSON representation of the argument value",
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "example": null,
+            "nullable": true
+          },
+          "custom_css": {
+            "nullable": true,
+            "type": "string"
+          },
+          "storage_default_folder": {
+            "description": "Default folder to place files",
+            "type": "string",
+            "format": "uuid"
+          },
+          "basemaps": {
+            "nullable": true
+          },
+          "mapbox_key": {
+            "nullable": true,
+            "type": "string"
+          },
+          "module_bar": {
+            "nullable": true
+          },
+          "project_descriptor": {
+            "nullable": true,
+            "type": "string"
+          },
+          "default_language": {
+            "nullable": false,
+            "type": "string"
+          },
+          "custom_aspect_ratios": {
+            "nullable": true
+          },
+          "public_favicon": {
+            "nullable": true,
+            "description": "$t:field_options.directus_settings.project_favicon_note",
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/Files"
+              }
+            ]
+          },
+          "default_appearance": {
+            "nullable": false,
+            "type": "string"
+          },
+          "default_theme_light": {
+            "nullable": true,
+            "type": "string"
+          },
+          "theme_light_overrides": {
+            "nullable": true
+          },
+          "default_theme_dark": {
+            "nullable": true,
+            "type": "string"
+          },
+          "theme_dark_overrides": {
+            "nullable": true
+          },
+          "report_error_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "report_bug_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "report_feature_url": {
+            "nullable": true,
+            "type": "string"
+          },
+          "public_registration": {
+            "nullable": false,
+            "description": "$t:fields.directus_settings.public_registration_note",
+            "type": "boolean"
+          },
+          "public_registration_verify_email": {
+            "nullable": false,
+            "description": "$t:fields.directus_settings.public_registration_verify_email_note",
+            "type": "boolean"
+          },
+          "public_registration_role": {
+            "nullable": true,
+            "description": "$t:fields.directus_settings.public_registration_role_note",
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/Roles"
+              }
+            ]
+          },
+          "public_registration_email_filter": {
+            "nullable": true,
+            "description": "$t:fields.directus_settings.public_registration_email_filter_note"
+          },
+          "visual_editor_urls": {
+            "nullable": true
+          },
+          "accepted_terms": {
+            "nullable": true,
+            "type": "boolean"
+          },
+          "project_id": {
+            "nullable": true,
+            "type": "string",
+            "format": "uuid"
+          },
+          "mcp_enabled": {
+            "nullable": false,
+            "description": "$t:fields.directus_settings.mcp_enabled_note",
+            "type": "boolean"
+          },
+          "mcp_allow_deletes": {
+            "nullable": false,
+            "description": "$t:fields.directus_settings.mcp_allow_deletes_note",
+            "type": "boolean"
+          },
+          "mcp_prompts_collection": {
+            "nullable": true,
+            "description": "$t:fields.directus_settings.mcp_prompts_collection_note",
+            "type": "string"
+          },
+          "mcp_system_prompt_enabled": {
+            "nullable": false,
+            "description": "$t:fields.directus_settings.mcp_system_prompt_enabled_note",
+            "type": "boolean"
+          },
+          "mcp_system_prompt": {
+            "nullable": true,
+            "description": "$t:fields.directus_settings.mcp_system_prompt_note",
+            "type": "string"
+          }
+        },
+        "x-collection": "directus_settings"
+      },
+      "ItemsIcbdActivitiesRegistrations": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "icbd_activity": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsIcbdActivities"
+              }
+            ]
+          },
+          "registration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "$ref": "#/components/schemas/ItemsRegistrations"
+              }
+            ]
+          },
+          "start": {
+            "nullable": true,
+            "type": "string",
+            "format": "time"
+          },
+          "attended": {
+            "nullable": true,
+            "type": "boolean"
+          }
+        },
+        "x-collection": "icbd_activities_registrations"
+      },
+      "ItemsDirectusSyncIDMap": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "table": {
+            "nullable": false,
+            "type": "string"
+          },
+          "sync_id": {
+            "nullable": false,
+            "type": "string"
+          },
+          "local_id": {
+            "nullable": false,
+            "type": "string"
+          },
+          "created_at": {
+            "nullable": true,
+            "type": "string",
+            "format": "timestamp"
+          }
+        },
+        "x-collection": "directus_sync_id_map",
+        "required": [
+          "table",
+          "sync_id",
+          "local_id"
+        ]
+      },
+      "ItemsGameStarSocialLinks": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "nullable": false,
+            "type": "integer"
+          },
+          "social_type": {
+            "nullable": true,
+            "type": "string"
+          },
+          "social_link": {
+            "nullable": true,
+            "type": "string"
+          },
+          "social_account": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        "x-collection": "game_star_social_links"
+      },
       "ItemsEvents": {
         "type": "object",
         "properties": {
@@ -32064,22 +32810,6 @@
             "nullable": true,
             "type": "boolean"
           },
-          "name": {
-            "nullable": true,
-            "type": "string"
-          },
-          "price": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "max_registrations": {
-            "nullable": true,
-            "type": "integer"
-          },
-          "registration_count": {
-            "nullable": false,
-            "type": "integer"
-          },
           "staffing_from": {
             "nullable": true,
             "type": "string",
@@ -32099,6 +32829,22 @@
           },
           "meals": {
             "nullable": true
+          },
+          "name": {
+            "nullable": true,
+            "type": "string"
+          },
+          "price": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "max_registrations": {
+            "nullable": true,
+            "type": "integer"
+          },
+          "registration_count": {
+            "nullable": false,
+            "type": "integer"
           },
           "slug": {
             "nullable": true,
@@ -32125,28 +32871,6 @@
           }
         },
         "x-collection": "events"
-      },
-      "ItemsGameStarSocialLinks": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "nullable": false,
-            "type": "integer"
-          },
-          "social_type": {
-            "nullable": true,
-            "type": "string"
-          },
-          "social_link": {
-            "nullable": true,
-            "type": "string"
-          },
-          "social_account": {
-            "nullable": true,
-            "type": "string"
-          }
-        },
-        "x-collection": "game_star_social_links"
       },
       "ItemsRegistrations": {
         "type": "object",
@@ -32195,13 +32919,13 @@
             "nullable": true,
             "type": "boolean"
           },
-          "payment": {
-            "nullable": true,
-            "type": "string"
-          },
           "meal": {
             "nullable": true,
             "type": "integer"
+          },
+          "payment": {
+            "nullable": true,
+            "type": "string"
           },
           "late_payment": {
             "nullable": true,
@@ -32600,305 +33324,6 @@
           }
         },
         "x-collection": "game_star"
-      },
-      "Settings": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "description": "Unique identifier for the setting.",
-            "type": "integer",
-            "example": 1
-          },
-          "project_name": {
-            "description": "The name of the project.",
-            "type": "string",
-            "example": "Directus"
-          },
-          "project_url": {
-            "description": "The url of the project.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "project_color": {
-            "description": "The brand color of the project.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "project_logo": {
-            "description": "The logo of the project.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "public_foreground": {
-            "description": "The foreground of the project.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "public_background": {
-            "description": "The background of the project.",
-            "type": "object",
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "type": {
-                "type": "string"
-              }
-            },
-            "example": null,
-            "nullable": true
-          },
-          "public_note": {
-            "description": "Note rendered on the public pages of the app.",
-            "type": "string",
-            "example": null,
-            "nullable": true
-          },
-          "auth_login_attempts": {
-            "description": "Allowed authentication login attempts before the user's status is set to blocked.",
-            "type": "integer",
-            "example": 25
-          },
-          "auth_password_policy": {
-            "description": "Authentication password policy.",
-            "type": "string",
-            "nullable": true
-          },
-          "storage_asset_transform": {
-            "description": "What transformations are allowed in the assets endpoint.",
-            "type": "string",
-            "enum": [
-              "all",
-              "none",
-              "presets"
-            ],
-            "example": "all",
-            "nullable": true
-          },
-          "storage_asset_presets": {
-            "description": "Array of allowed",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "key": {
-                  "description": "Key for the asset. Used in the assets endpoint.",
-                  "type": "string"
-                },
-                "fit": {
-                  "description": "Whether to crop the thumbnail to match the size, or maintain the aspect ratio.",
-                  "type": "string",
-                  "enum": [
-                    "cover",
-                    "contain",
-                    "inside",
-                    "outside"
-                  ]
-                },
-                "width": {
-                  "description": "Width of the thumbnail.",
-                  "type": "integer"
-                },
-                "height": {
-                  "description": "Height of the thumbnail.",
-                  "type": "integer"
-                },
-                "withoutEnlargement": {
-                  "description": "No image upscale",
-                  "type": "boolean"
-                },
-                "quality": {
-                  "description": "Quality of the compression used.",
-                  "type": "integer"
-                },
-                "format": {
-                  "description": "Reformat output image",
-                  "type": "string",
-                  "enum": [
-                    "",
-                    "jpeg",
-                    "png",
-                    "webp",
-                    "tiff",
-                    "avif"
-                  ]
-                },
-                "transforms": {
-                  "description": "Additional transformations to apply",
-                  "type": "array",
-                  "nullable": true,
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "method": {
-                        "description": "The Sharp method name",
-                        "type": "string"
-                      },
-                      "arguments": {
-                        "description": "A list of arguments to pass to the Sharp method",
-                        "type": "array",
-                        "nullable": true,
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "argument": {
-                              "description": "A JSON representation of the argument value",
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "example": null,
-            "nullable": true
-          },
-          "custom_css": {
-            "nullable": true,
-            "type": "string"
-          },
-          "storage_default_folder": {
-            "description": "Default folder to place files",
-            "type": "string",
-            "format": "uuid"
-          },
-          "basemaps": {
-            "nullable": true
-          },
-          "mapbox_key": {
-            "nullable": true,
-            "type": "string"
-          },
-          "module_bar": {
-            "nullable": true
-          },
-          "project_descriptor": {
-            "nullable": true,
-            "type": "string"
-          },
-          "default_language": {
-            "nullable": false,
-            "type": "string"
-          },
-          "custom_aspect_ratios": {
-            "nullable": true
-          },
-          "public_favicon": {
-            "nullable": true,
-            "description": "$t:field_options.directus_settings.project_favicon_note",
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/Files"
-              }
-            ]
-          },
-          "default_appearance": {
-            "nullable": false,
-            "type": "string"
-          },
-          "default_theme_light": {
-            "nullable": true,
-            "type": "string"
-          },
-          "theme_light_overrides": {
-            "nullable": true
-          },
-          "default_theme_dark": {
-            "nullable": true,
-            "type": "string"
-          },
-          "theme_dark_overrides": {
-            "nullable": true
-          },
-          "report_error_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "report_bug_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "report_feature_url": {
-            "nullable": true,
-            "type": "string"
-          },
-          "public_registration": {
-            "nullable": false,
-            "description": "$t:fields.directus_settings.public_registration_note",
-            "type": "boolean"
-          },
-          "public_registration_verify_email": {
-            "nullable": false,
-            "description": "$t:fields.directus_settings.public_registration_verify_email_note",
-            "type": "boolean"
-          },
-          "public_registration_role": {
-            "nullable": true,
-            "description": "$t:fields.directus_settings.public_registration_role_note",
-            "oneOf": [
-              {
-                "type": "string",
-                "format": "uuid"
-              },
-              {
-                "$ref": "#/components/schemas/Roles"
-              }
-            ]
-          },
-          "public_registration_email_filter": {
-            "nullable": true,
-            "description": "$t:fields.directus_settings.public_registration_email_filter_note"
-          },
-          "visual_editor_urls": {
-            "nullable": true
-          },
-          "accepted_terms": {
-            "nullable": true,
-            "type": "boolean"
-          },
-          "project_id": {
-            "nullable": true,
-            "type": "string",
-            "format": "uuid"
-          },
-          "mcp_enabled": {
-            "nullable": false,
-            "description": "$t:fields.directus_settings.mcp_enabled_note",
-            "type": "boolean"
-          },
-          "mcp_allow_deletes": {
-            "nullable": false,
-            "description": "$t:fields.directus_settings.mcp_allow_deletes_note",
-            "type": "boolean"
-          },
-          "mcp_prompts_collection": {
-            "nullable": true,
-            "description": "$t:fields.directus_settings.mcp_prompts_collection_note",
-            "type": "string"
-          },
-          "mcp_system_prompt_enabled": {
-            "nullable": false,
-            "description": "$t:fields.directus_settings.mcp_system_prompt_enabled_note",
-            "type": "boolean"
-          },
-          "mcp_system_prompt": {
-            "nullable": true,
-            "description": "$t:fields.directus_settings.mcp_system_prompt_note",
-            "type": "string"
-          }
-        },
-        "x-collection": "directus_settings"
       }
     },
     "parameters": {

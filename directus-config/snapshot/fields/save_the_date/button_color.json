@@ -1,7 +1,6 @@
 {
   "collection": "save_the_date",
   "field": "button_color",
-  "type": "string",
   "meta": {
     "collection": "save_the_date",
     "conditions": null,
@@ -30,21 +29,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "button_color",
-    "table": "save_the_date",
     "data_type": "character varying",
     "default_value": null,
-    "max_length": 255,
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": null,
-    "foreign_key_column": null
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "button_color",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "save_the_date"
+  },
+  "type": "string"
 }

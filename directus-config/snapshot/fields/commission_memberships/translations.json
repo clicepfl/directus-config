@@ -1,7 +1,6 @@
 {
   "collection": "commission_memberships",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "commission_memberships",
     "conditions": null,
@@ -28,5 +27,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

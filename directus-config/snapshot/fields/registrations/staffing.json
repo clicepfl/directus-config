@@ -1,7 +1,6 @@
 {
   "collection": "registrations",
   "field": "staffing",
-  "type": "alias",
   "meta": {
     "collection": "registrations",
     "conditions": null,
@@ -27,5 +26,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

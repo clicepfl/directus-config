@@ -1,7 +1,6 @@
 {
   "collection": "game_star_projects",
   "field": "translations",
-  "type": "alias",
   "meta": {
     "collection": "game_star_projects",
     "conditions": null,
@@ -28,5 +27,6 @@
     "validation": null,
     "validation_message": null,
     "width": "full"
-  }
+  },
+  "type": "alias"
 }

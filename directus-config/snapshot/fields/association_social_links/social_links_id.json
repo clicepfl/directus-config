@@ -1,7 +1,6 @@
 {
   "collection": "association_social_links",
   "field": "social_links_id",
-  "type": "integer",
   "meta": {
     "collection": "association_social_links",
     "conditions": null,
@@ -23,21 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "name": "social_links_id",
-    "table": "association_social_links",
     "data_type": "integer",
     "default_value": null,
-    "max_length": null,
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "is_nullable": true,
-    "is_unique": false,
-    "is_indexed": false,
-    "is_primary_key": false,
-    "is_generated": false,
+    "foreign_key_column": "id",
+    "foreign_key_table": "social_links",
     "generation_expression": null,
     "has_auto_increment": false,
-    "foreign_key_table": "social_links",
-    "foreign_key_column": "id"
-  }
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "social_links_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "association_social_links"
+  },
+  "type": "integer"
 }
