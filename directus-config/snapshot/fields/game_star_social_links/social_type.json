@@ -1,0 +1,84 @@
+{
+  "collection": "game_star_social_links",
+  "field": "social_type",
+  "meta": {
+    "collection": "game_star_social_links",
+    "conditions": null,
+    "display": "formatted-value",
+    "display_options": {
+      "format": true
+    },
+    "field": "social_type",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "choices": [
+        {
+          "text": "Telegram",
+          "value": "telegram"
+        },
+        {
+          "text": "Instagram",
+          "value": "instagram"
+        },
+        {
+          "text": "Discord",
+          "value": "discord"
+        },
+        {
+          "text": "Email",
+          "value": "email"
+        },
+        {
+          "text": "Github",
+          "value": "github"
+        },
+        {
+          "text": "LinkedIn",
+          "value": "linkedin"
+        },
+        {
+          "text": "Twitter",
+          "value": "twitter"
+        },
+        {
+          "text": "LinkTree",
+          "value": "linktree"
+        },
+        {
+          "text": "YouTube",
+          "value": "youtube"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 2,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "character varying",
+    "default_value": null,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "social_type",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "game_star_social_links"
+  },
+  "type": "string"
+}

@@ -1,0 +1,47 @@
+{
+  "collection": "news",
+  "field": "user_created",
+  "meta": {
+    "collection": "news",
+    "conditions": null,
+    "display": "user",
+    "display_options": null,
+    "field": "user_created",
+    "group": null,
+    "hidden": true,
+    "interface": "select-dropdown-m2o",
+    "note": null,
+    "options": {
+      "template": "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
+    },
+    "readonly": true,
+    "required": false,
+    "sort": 9,
+    "special": [
+      "user-created"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "half"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_users",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "user_created",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "news"
+  },
+  "type": "uuid"
+}

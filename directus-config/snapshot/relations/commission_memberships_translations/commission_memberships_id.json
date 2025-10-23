@@ -1,0 +1,25 @@
+{
+  "collection": "commission_memberships_translations",
+  "field": "commission_memberships_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "commission_memberships_translations",
+    "many_field": "commission_memberships_id",
+    "one_allowed_collections": null,
+    "one_collection": "commission_memberships",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "commission_memberships",
+  "schema": {
+    "column": "commission_memberships_id",
+    "constraint_name": "commission_memberships_translations_commis__5c94997f_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "commission_memberships",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "commission_memberships_translations"
+  }
+}

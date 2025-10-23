@@ -1,0 +1,47 @@
+{
+  "collection": "association",
+  "field": "public_files",
+  "meta": {
+    "collection": "association",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "public_files",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown-m2o",
+    "note": null,
+    "options": {
+      "template": "{{icon.$thumbnail}}{{link}}"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 9,
+    "special": [
+      "m2o"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "integer",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_public_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "public_files",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "association"
+  },
+  "type": "integer"
+}

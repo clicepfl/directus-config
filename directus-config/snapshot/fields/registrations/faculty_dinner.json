@@ -1,0 +1,29 @@
+{
+  "collection": "registrations",
+  "field": "faculty_dinner",
+  "meta": {
+    "collection": "registrations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "faculty_dinner",
+    "group": "additional_infos",
+    "hidden": false,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 2,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

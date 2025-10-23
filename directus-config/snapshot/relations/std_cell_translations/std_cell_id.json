@@ -1,0 +1,25 @@
+{
+  "collection": "std_cell_translations",
+  "field": "std_cell_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "std_cell_translations",
+    "many_field": "std_cell_id",
+    "one_allowed_collections": null,
+    "one_collection": "std_cell",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "std_cell",
+  "schema": {
+    "column": "std_cell_id",
+    "constraint_name": "std_cell_translations_std_cell_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "std_cell",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "std_cell_translations"
+  }
+}

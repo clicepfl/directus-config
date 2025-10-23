@@ -1,0 +1,25 @@
+{
+  "collection": "association_social_links",
+  "field": "social_links_id",
+  "meta": {
+    "junction_field": "association_id",
+    "many_collection": "association_social_links",
+    "many_field": "social_links_id",
+    "one_allowed_collections": null,
+    "one_collection": "social_links",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "social_links",
+  "schema": {
+    "column": "social_links_id",
+    "constraint_name": "association_social_links_social_links_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "social_links",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_social_links"
+  }
+}

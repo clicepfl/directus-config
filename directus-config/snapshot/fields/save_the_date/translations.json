@@ -1,0 +1,27 @@
+{
+  "collection": "save_the_date",
+  "field": "translations",
+  "meta": {
+    "collection": "save_the_date",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "translations",
+    "group": "end_cell",
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": true,
+    "sort": 1,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

@@ -1,0 +1,25 @@
+{
+  "collection": "save_the_date_translations",
+  "field": "save_the_date_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "save_the_date_translations",
+    "many_field": "save_the_date_id",
+    "one_allowed_collections": null,
+    "one_collection": "save_the_date",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "save_the_date",
+  "schema": {
+    "column": "save_the_date_id",
+    "constraint_name": "save_the_date_translations_save_the_date_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "save_the_date",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "save_the_date_translations"
+  }
+}

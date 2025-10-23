@@ -1,0 +1,56 @@
+{
+  "collection": "registrations",
+  "field": "can_retreive_deposit",
+  "meta": {
+    "collection": "registrations",
+    "conditions": null,
+    "display": "boolean",
+    "display_options": {
+      "colorOff": null,
+      "colorOn": null,
+      "labelOff": "No",
+      "labelOn": "Yes"
+    },
+    "field": "can_retreive_deposit",
+    "group": "icbd",
+    "hidden": false,
+    "interface": "boolean",
+    "note": null,
+    "options": {
+      "colorOff": null,
+      "colorOn": null,
+      "iconOff": "do_not_disturb_on",
+      "iconOn": "check",
+      "label": null
+    },
+    "readonly": true,
+    "required": true,
+    "sort": 1,
+    "special": [
+      "cast-boolean"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "half"
+  },
+  "schema": {
+    "data_type": "boolean",
+    "default_value": false,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "can_retreive_deposit",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "registrations"
+  },
+  "type": "boolean"
+}

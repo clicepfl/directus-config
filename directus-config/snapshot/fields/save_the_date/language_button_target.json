@@ -1,0 +1,48 @@
+{
+  "collection": "save_the_date",
+  "field": "language_button_target",
+  "meta": {
+    "collection": "save_the_date",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "language_button_target",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown-m2o",
+    "note": null,
+    "options": {
+      "enableCreate": false,
+      "template": "{{name}}"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 6,
+    "special": [
+      "m2o"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "character varying",
+    "default_value": null,
+    "foreign_key_column": "code",
+    "foreign_key_table": "languages",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "language_button_target",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "save_the_date"
+  },
+  "type": "string"
+}

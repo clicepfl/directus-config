@@ -1,0 +1,25 @@
+{
+  "collection": "registrations",
+  "field": "event",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "registrations",
+    "many_field": "event",
+    "one_allowed_collections": null,
+    "one_collection": "events",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "events",
+  "schema": {
+    "column": "event",
+    "constraint_name": "registrations_event_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "events",
+    "on_delete": "CASCADE",
+    "on_update": "NO ACTION",
+    "table": "registrations"
+  }
+}

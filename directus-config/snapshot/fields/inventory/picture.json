@@ -1,0 +1,47 @@
+{
+  "collection": "inventory",
+  "field": "picture",
+  "meta": {
+    "collection": "inventory",
+    "conditions": null,
+    "display": "image",
+    "display_options": null,
+    "field": "picture",
+    "group": "description",
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "f656eb54-a2c2-4c19-8e4c-1543031d5703"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 1,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "picture",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "inventory"
+  },
+  "type": "uuid"
+}

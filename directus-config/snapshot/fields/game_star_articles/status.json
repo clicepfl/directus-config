@@ -1,0 +1,63 @@
+{
+  "collection": "game_star_articles",
+  "field": "status",
+  "meta": {
+    "collection": "game_star_articles",
+    "conditions": null,
+    "display": "formatted-value",
+    "display_options": {
+      "color": null,
+      "conditionalFormatting": null,
+      "filled": true,
+      "icon": true
+    },
+    "field": "status",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "choices": [
+        {
+          "color": "#FFDA8A",
+          "icon": "check_circle",
+          "text": "Published",
+          "value": "published"
+        },
+        {
+          "color": "#FFDA8A",
+          "icon": "draft_orders",
+          "text": "Draft",
+          "value": "draft"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "character varying",
+    "default_value": "draft",
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "status",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "game_star_articles"
+  },
+  "type": "string"
+}

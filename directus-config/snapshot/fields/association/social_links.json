@@ -1,0 +1,27 @@
+{
+  "collection": "association",
+  "field": "social_links",
+  "meta": {
+    "collection": "association",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "social_links",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 8,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

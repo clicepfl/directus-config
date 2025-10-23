@@ -1,0 +1,25 @@
+{
+  "collection": "game_star_events_translations",
+  "field": "cover_image",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "game_star_events_translations",
+    "many_field": "cover_image",
+    "one_allowed_collections": null,
+    "one_collection": "directus_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "directus_files",
+  "schema": {
+    "column": "cover_image",
+    "constraint_name": "game_star_events_translations_cover_image_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "game_star_events_translations"
+  }
+}

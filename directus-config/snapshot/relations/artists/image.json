@@ -1,0 +1,25 @@
+{
+  "collection": "artists",
+  "field": "image",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "artists",
+    "many_field": "image",
+    "one_allowed_collections": null,
+    "one_collection": "directus_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "directus_files",
+  "schema": {
+    "column": "image",
+    "constraint_name": "artists_image_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "artists"
+  }
+}

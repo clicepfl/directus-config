@@ -1,0 +1,37 @@
+{
+  "collection": "icbd_activities",
+  "field": "links-ahuxv-",
+  "meta": {
+    "collection": "icbd_activities",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "links-ahuxv-",
+    "group": null,
+    "hidden": false,
+    "interface": "presentation-links",
+    "note": null,
+    "options": {
+      "links": [
+        {
+          "icon": "emoji_symbols",
+          "label": "Chose icon on iconify",
+          "type": "info",
+          "url": "https://icon-sets.iconify.design/"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 6,
+    "special": [
+      "alias",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

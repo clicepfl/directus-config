@@ -1,0 +1,25 @@
+{
+  "collection": "association_memberships",
+  "field": "pole",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "association_memberships",
+    "many_field": "pole",
+    "one_allowed_collections": null,
+    "one_collection": "association_poles",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "association_poles",
+  "schema": {
+    "column": "pole",
+    "constraint_name": "association_memberships_pole_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_poles",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_memberships"
+  }
+}

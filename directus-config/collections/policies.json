@@ -1,0 +1,34 @@
+[
+  {
+    "_syncId": "_sync_default_admin_policy",
+    "admin_access": true,
+    "app_access": true,
+    "description": "$t:admin_policy_description",
+    "enforce_tfa": false,
+    "icon": "verified",
+    "ip_access": null,
+    "name": "Administrator",
+    "roles": [
+      {
+        "role": "_sync_default_admin_role",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "_sync_default_public_policy",
+    "admin_access": false,
+    "app_access": false,
+    "description": "$t:public_description",
+    "enforce_tfa": false,
+    "icon": "public",
+    "ip_access": null,
+    "name": "$t:public_label",
+    "roles": [
+      {
+        "role": null,
+        "sort": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+{
+  "collection": "registrations",
+  "field": "additional_infos",
+  "meta": {
+    "collection": "registrations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "additional_infos",
+    "group": null,
+    "hidden": false,
+    "interface": "group-accordion",
+    "note": null,
+    "options": {
+      "start": "first"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 12,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

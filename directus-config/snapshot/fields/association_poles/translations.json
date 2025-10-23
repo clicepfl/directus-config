@@ -1,0 +1,30 @@
+{
+  "collection": "association_poles",
+  "field": "translations",
+  "meta": {
+    "collection": "association_poles",
+    "conditions": null,
+    "display": "translations",
+    "display_options": {
+      "template": "{{name}}",
+      "userLanguage": true
+    },
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": true,
+    "sort": 4,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

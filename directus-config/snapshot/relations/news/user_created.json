@@ -1,0 +1,25 @@
+{
+  "collection": "news",
+  "field": "user_created",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "news",
+    "many_field": "user_created",
+    "one_allowed_collections": null,
+    "one_collection": "directus_users",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "directus_users",
+  "schema": {
+    "column": "user_created",
+    "constraint_name": "news_user_created_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_users",
+    "on_delete": "NO ACTION",
+    "on_update": "NO ACTION",
+    "table": "news"
+  }
+}

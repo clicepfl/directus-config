@@ -1,0 +1,32 @@
+{
+  "collection": "partner_category",
+  "field": "translations",
+  "meta": {
+    "collection": "partner_category",
+    "conditions": null,
+    "display": "translations",
+    "display_options": {
+      "template": "{{name}}",
+      "userLanguage": true
+    },
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": {
+      "defaultOpenSplitView": true
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 3,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

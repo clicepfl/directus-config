@@ -1,0 +1,47 @@
+{
+  "collection": "commissions_translations",
+  "field": "banner",
+  "meta": {
+    "collection": "commissions_translations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "banner",
+    "group": null,
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "07d9aa98-227f-4d9a-916f-e19f30cda26a"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 7,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "banner",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "commissions_translations"
+  },
+  "type": "uuid"
+}

@@ -1,0 +1,45 @@
+{
+  "collection": "save_the_date",
+  "field": "image",
+  "meta": {
+    "collection": "save_the_date",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "image",
+    "group": "style",
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 1,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "image",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "save_the_date"
+  },
+  "type": "uuid"
+}

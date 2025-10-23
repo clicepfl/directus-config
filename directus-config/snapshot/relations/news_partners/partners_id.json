@@ -1,0 +1,25 @@
+{
+  "collection": "news_partners",
+  "field": "partners_id",
+  "meta": {
+    "junction_field": "news_id",
+    "many_collection": "news_partners",
+    "many_field": "partners_id",
+    "one_allowed_collections": null,
+    "one_collection": "partners",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "partners",
+  "schema": {
+    "column": "partners_id",
+    "constraint_name": "news_partners_partners_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "partners",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "news_partners"
+  }
+}

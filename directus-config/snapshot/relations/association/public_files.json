@@ -1,0 +1,25 @@
+{
+  "collection": "association",
+  "field": "public_files",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "association",
+    "many_field": "public_files",
+    "one_allowed_collections": null,
+    "one_collection": "association_public_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "association_public_files",
+  "schema": {
+    "column": "public_files",
+    "constraint_name": "association_public_files_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_public_files",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collection": "social_links",
+  "meta": {
+    "accountability": "all",
+    "archive_app_filter": true,
+    "archive_field": null,
+    "archive_value": null,
+    "collapse": "open",
+    "collection": "social_links",
+    "color": null,
+    "display_template": "{{account_name}} - {{media_name}}",
+    "group": null,
+    "hidden": false,
+    "icon": "stream_apps",
+    "item_duplication_fields": null,
+    "note": null,
+    "preview_url": null,
+    "singleton": false,
+    "sort": 7,
+    "sort_field": null,
+    "translations": null,
+    "unarchive_value": null,
+    "versioning": false
+  },
+  "schema": {
+    "name": "social_links"
+  }
+}

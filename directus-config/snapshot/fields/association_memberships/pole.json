@@ -1,0 +1,50 @@
+{
+  "collection": "association_memberships",
+  "field": "pole",
+  "meta": {
+    "collection": "association_memberships",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{slug}}"
+    },
+    "field": "pole",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown-m2o",
+    "note": null,
+    "options": {
+      "enableCreate": false,
+      "template": "{{slug}}"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "m2o"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "integer",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_poles",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "pole",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "association_memberships"
+  },
+  "type": "integer"
+}

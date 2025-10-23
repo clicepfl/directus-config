@@ -1,0 +1,25 @@
+{
+  "collection": "icbd_activities_registrations",
+  "field": "registration",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "icbd_activities_registrations",
+    "many_field": "registration",
+    "one_allowed_collections": null,
+    "one_collection": "registrations",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "registrations",
+  "schema": {
+    "column": "registration",
+    "constraint_name": "icbd_activities_registrations_registration_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "registrations",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "icbd_activities_registrations"
+  }
+}

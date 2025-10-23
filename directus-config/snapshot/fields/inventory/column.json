@@ -1,0 +1,71 @@
+{
+  "collection": "inventory",
+  "field": "column",
+  "meta": {
+    "collection": "inventory",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "If in shelve",
+        "options": {
+          "clear": false,
+          "font": "sans-serif",
+          "masked": false,
+          "slug": false,
+          "trim": false
+        },
+        "required": true,
+        "rule": {
+          "_and": [
+            {
+              "place": {
+                "_contains": "shelve"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": "formatted-value",
+    "display_options": {
+      "icon": "view_column"
+    },
+    "field": "column",
+    "group": null,
+    "hidden": true,
+    "interface": "input",
+    "note": null,
+    "options": {
+      "iconLeft": "view_column",
+      "max": 10,
+      "min": 0
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 8,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "integer",
+    "default_value": null,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "column",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "inventory"
+  },
+  "type": "integer"
+}

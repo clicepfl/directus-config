@@ -1,0 +1,33 @@
+{
+  "collection": "news",
+  "field": "commissions",
+  "meta": {
+    "collection": "news",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{commissions_id.name}}"
+    },
+    "field": "commissions",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "enableCreate": false,
+      "fields": [],
+      "template": "{{commissions_id.slug}}"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 6,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "half"
+  },
+  "type": "alias"
+}

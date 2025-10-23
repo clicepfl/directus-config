@@ -1,0 +1,29 @@
+{
+  "collection": "game_star",
+  "field": "translations",
+  "meta": {
+    "collection": "game_star",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": {
+      "defaultOpenSplitView": true
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 2,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

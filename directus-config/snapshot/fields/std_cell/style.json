@@ -1,0 +1,31 @@
+{
+  "collection": "std_cell",
+  "field": "style",
+  "meta": {
+    "collection": "std_cell",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "style",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": {
+      "headerIcon": "format_paint"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 8,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

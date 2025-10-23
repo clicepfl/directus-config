@@ -1,0 +1,65 @@
+{
+  "collection": "commission_memberships",
+  "field": "level",
+  "meta": {
+    "collection": "commission_memberships",
+    "conditions": null,
+    "display": "labels",
+    "display_options": null,
+    "field": "level",
+    "group": null,
+    "hidden": false,
+    "interface": "select-dropdown",
+    "note": null,
+    "options": {
+      "choices": [
+        {
+          "color": "#3399FF",
+          "icon": "groups",
+          "text": "Committee",
+          "value": "committee"
+        },
+        {
+          "color": "#FFA439",
+          "icon": "partner_exchange",
+          "text": "Team",
+          "value": "team"
+        },
+        {
+          "color": "#2ECDA7",
+          "icon": "card_membership",
+          "text": "Member",
+          "value": "member"
+        }
+      ],
+      "icon": "grade"
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 4,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "character varying",
+    "default_value": "committee",
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "level",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "commission_memberships"
+  },
+  "type": "string"
+}

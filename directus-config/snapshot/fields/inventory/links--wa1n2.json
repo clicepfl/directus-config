@@ -1,0 +1,49 @@
+{
+  "collection": "inventory",
+  "field": "links--wa1n2",
+  "meta": {
+    "collection": "inventory",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "links--wa1n2",
+    "group": null,
+    "hidden": false,
+    "interface": "presentation-links",
+    "note": null,
+    "options": {
+      "links": [
+        {
+          "icon": "dishwasher_gen",
+          "label": "$t:bob-cassettes",
+          "type": "normal",
+          "url": "https://daan.tech/ch_fr/product-category/detergent-lave-vaisselle-ch_fr/"
+        },
+        {
+          "icon": "coffee_maker",
+          "label": "Filtres Café",
+          "type": "normal",
+          "url": "https://shopjura.com/jura-care-products.html"
+        },
+        {
+          "icon": "electrical_services",
+          "label": "$t:digitec",
+          "type": "normal",
+          "url": "https://www.digitec.ch/fr"
+        }
+      ]
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 12,
+    "special": [
+      "alias",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

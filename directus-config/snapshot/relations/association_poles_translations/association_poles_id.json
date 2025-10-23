@@ -1,0 +1,25 @@
+{
+  "collection": "association_poles_translations",
+  "field": "association_poles_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "association_poles_translations",
+    "many_field": "association_poles_id",
+    "one_allowed_collections": null,
+    "one_collection": "association_poles",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "association_poles",
+  "schema": {
+    "column": "association_poles_id",
+    "constraint_name": "association_poles_translations_association_poles_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_poles",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_poles_translations"
+  }
+}

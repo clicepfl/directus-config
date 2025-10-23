@@ -1,0 +1,27 @@
+{
+  "collection": "subsonic",
+  "field": "translations",
+  "meta": {
+    "collection": "subsonic",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 5,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

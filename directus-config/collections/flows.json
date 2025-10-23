@@ -1,0 +1,236 @@
+[
+  {
+    "_syncId": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": null,
+    "icon": "monetization_on",
+    "name": "[ICBD] Update deposit retrievability",
+    "operation": "a7970442-4d7e-4708-a10b-d5c7fbf0c6e3",
+    "options": {
+      "return": "$last"
+    },
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "_syncId": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "accountability": "all",
+    "color": null,
+    "description": "Closes even with limited slots once they are full",
+    "icon": "tab_close",
+    "name": "[G] Close full events",
+    "operation": "329b9b4b-19ad-4d5b-9552-98f2b8cdbeb8",
+    "options": {},
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "_syncId": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": "Send email when all activity timeslots are assigned",
+    "icon": "mark_email_read",
+    "name": "[ICBD] Send confirmation email",
+    "operation": "a1406dcc-8930-4232-a39e-20db4db5b791",
+    "options": {
+      "return": "$last"
+    },
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "_syncId": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "accountability": "all",
+    "color": "#2ECDA7",
+    "description": null,
+    "icon": "lunch_dining",
+    "name": "[FD] Count meals",
+    "operation": "0f2f6646-d4e3-4729-95ad-9bfd6412ff29",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.create",
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "accountability": "all",
+    "color": "#2ECDA7",
+    "description": null,
+    "icon": "mark_email_unread",
+    "name": "[FD] Send pre-registration mail",
+    "operation": "29fcd5a3-d9d1-4eeb-874e-51c83be92009",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "accountability": "all",
+    "color": null,
+    "description": "Updates the number of participants based on registrations and plus ones",
+    "icon": "numbers",
+    "name": "[G] Update registration count",
+    "operation": "f90adf41-fc9c-49b7-a5c8-1ca2a7b0ccaf",
+    "options": {},
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "_syncId": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "accountability": "all",
+    "color": null,
+    "description": "[TRIGGER] Create or Update",
+    "icon": "start",
+    "name": "[G] CU Registration",
+    "operation": "b5a4dae7-26c4-4082-9b5a-838d898adbe3",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update",
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "accountability": "all",
+    "color": "#7C0E9F",
+    "description": null,
+    "icon": "mark_email_read",
+    "name": "[HW] Send confirmation email",
+    "operation": "332576ae-1ab9-48d8-b084-5e2d3c1f3439",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": null,
+    "icon": "start",
+    "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
+    "operation": "cb9c8379-bac4-45f5-8538-cf0b382f13e5",
+    "options": {
+      "collections": [
+        "icbd_activities_registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": null,
+    "icon": "start",
+    "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
+    "operation": "efe96730-8c6d-4500-9afc-3cf8fce09e87",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "accountability": "all",
+    "color": "#2ECDA7",
+    "description": null,
+    "icon": "mark_email_read",
+    "name": "[FD] Send confirmation email",
+    "operation": "35355e6f-a3ba-4164-8c27-0377467e4073",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": "Send email when registration form is filled",
+    "icon": "mail_lock",
+    "name": "[ICBD] Send registration blocked email",
+    "operation": "cae93410-a9e6-4b15-bbd7-40af4b401a77",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "accountability": "all",
+    "color": "#FF9D2D",
+    "description": "Updates activities timeslots to indicate whether they are full",
+    "icon": "lock_reset",
+    "name": "[ICBD] Update activity status",
+    "operation": "012cc5c8-55d4-486f-9c02-10fa4b402636",
+    "options": {
+      "collections": [
+        "icbd_activities_registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  }
+]

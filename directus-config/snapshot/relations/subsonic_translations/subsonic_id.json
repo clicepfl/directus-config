@@ -1,0 +1,25 @@
+{
+  "collection": "subsonic_translations",
+  "field": "subsonic_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "subsonic_translations",
+    "many_field": "subsonic_id",
+    "one_allowed_collections": null,
+    "one_collection": "subsonic",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "subsonic",
+  "schema": {
+    "column": "subsonic_id",
+    "constraint_name": "subsonic_translations_subsonic_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "subsonic",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "subsonic_translations"
+  }
+}

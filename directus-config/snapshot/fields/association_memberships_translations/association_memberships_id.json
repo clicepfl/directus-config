@@ -1,0 +1,43 @@
+{
+  "collection": "association_memberships_translations",
+  "field": "association_memberships_id",
+  "meta": {
+    "collection": "association_memberships_translations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "association_memberships_id",
+    "group": null,
+    "hidden": true,
+    "interface": null,
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 2,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "integer",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_memberships",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "association_memberships_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "association_memberships_translations"
+  },
+  "type": "integer"
+}

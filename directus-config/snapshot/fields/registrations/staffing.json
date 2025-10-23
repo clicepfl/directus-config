@@ -1,0 +1,31 @@
+{
+  "collection": "registrations",
+  "field": "staffing",
+  "meta": {
+    "collection": "registrations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "staffing",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": {
+      "start": "closed"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 13,
+    "special": [
+      "alias",
+      "group",
+      "no-data"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

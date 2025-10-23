@@ -1,0 +1,30 @@
+{
+  "collection": "std_cell",
+  "field": "translations",
+  "meta": {
+    "collection": "std_cell",
+    "conditions": null,
+    "display": "translations",
+    "display_options": {
+      "template": "{{title}}",
+      "userLanguage": true
+    },
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": true,
+    "sort": 7,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

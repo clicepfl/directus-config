@@ -1,0 +1,31 @@
+{
+  "collection": "icbd_activities",
+  "field": "hosts",
+  "meta": {
+    "collection": "icbd_activities",
+    "conditions": null,
+    "display": "related-values",
+    "display_options": {
+      "template": "{{icbd_speakers_id.first_name}} {{icbd_speakers_id.last_name}} ({{icbd_speakers_id.company}})"
+    },
+    "field": "hosts",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "template": "{{icbd_speakers_id.first_name}} {{icbd_speakers_id.last_name}} ({{icbd_speakers_id.company}})"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

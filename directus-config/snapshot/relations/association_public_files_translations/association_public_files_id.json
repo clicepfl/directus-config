@@ -1,0 +1,25 @@
+{
+  "collection": "association_public_files_translations",
+  "field": "association_public_files_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "association_public_files_translations",
+    "many_field": "association_public_files_id",
+    "one_allowed_collections": null,
+    "one_collection": "association_public_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "association_public_files",
+  "schema": {
+    "column": "association_public_files_id",
+    "constraint_name": "association_public_files_translations_asso__6f6277ed_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_public_files",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_public_files_translations"
+  }
+}

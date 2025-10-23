@@ -1,0 +1,25 @@
+{
+  "collection": "commission_memberships",
+  "field": "commission",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "commission_memberships",
+    "many_field": "commission",
+    "one_allowed_collections": null,
+    "one_collection": "commissions",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "commissions",
+  "schema": {
+    "column": "commission",
+    "constraint_name": "commission_memberships_commission_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "commissions",
+    "on_delete": "NO ACTION",
+    "on_update": "NO ACTION",
+    "table": "commission_memberships"
+  }
+}

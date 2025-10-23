@@ -1,0 +1,47 @@
+{
+  "collection": "members",
+  "field": "picture",
+  "meta": {
+    "collection": "members",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "picture",
+    "group": null,
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "9dcbb848-a25a-4e75-af0a-abbd1c4555ea"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 6,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "picture",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "members"
+  },
+  "type": "uuid"
+}

@@ -1,0 +1,25 @@
+{
+  "collection": "association_memberships",
+  "field": "member",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "association_memberships",
+    "many_field": "member",
+    "one_allowed_collections": null,
+    "one_collection": "members",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "members",
+  "schema": {
+    "column": "member",
+    "constraint_name": "association_memberships_member_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "members",
+    "on_delete": "NO ACTION",
+    "on_update": "NO ACTION",
+    "table": "association_memberships"
+  }
+}

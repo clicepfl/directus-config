@@ -1,0 +1,25 @@
+{
+  "collection": "association_public_files",
+  "field": "icon",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "association_public_files",
+    "many_field": "icon",
+    "one_allowed_collections": null,
+    "one_collection": "directus_files",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "directus_files",
+  "schema": {
+    "column": "icon",
+    "constraint_name": "association_public_files_icon_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_public_files"
+  }
+}

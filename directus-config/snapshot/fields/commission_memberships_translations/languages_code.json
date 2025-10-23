@@ -1,0 +1,43 @@
+{
+  "collection": "commission_memberships_translations",
+  "field": "languages_code",
+  "meta": {
+    "collection": "commission_memberships_translations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "languages_code",
+    "group": null,
+    "hidden": true,
+    "interface": null,
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 3,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "character varying",
+    "default_value": null,
+    "foreign_key_column": "code",
+    "foreign_key_table": "languages",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": 255,
+    "name": "languages_code",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "commission_memberships_translations"
+  },
+  "type": "string"
+}

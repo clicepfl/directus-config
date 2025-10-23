@@ -1,0 +1,25 @@
+{
+  "collection": "association_memberships_translations",
+  "field": "association_memberships_id",
+  "meta": {
+    "junction_field": "languages_code",
+    "many_collection": "association_memberships_translations",
+    "many_field": "association_memberships_id",
+    "one_allowed_collections": null,
+    "one_collection": "association_memberships",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "translations",
+    "sort_field": null
+  },
+  "related_collection": "association_memberships",
+  "schema": {
+    "column": "association_memberships_id",
+    "constraint_name": "association_memberships_translations_assoc__5d61d72d_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "association_memberships",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "association_memberships_translations"
+  }
+}
