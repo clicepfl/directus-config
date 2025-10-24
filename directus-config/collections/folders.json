@@ -5,9 +5,24 @@
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
+    "_syncId": "11cbd1f3-613b-4bbe-a526-78138120962f",
+    "name": "speakers",
+    "parent": "eea5fe90-8c59-435d-9906-660cce4d02da"
+  },
+  {
     "_syncId": "18e98463-e2a4-4c82-965f-b598cb9e6370",
     "name": "icbd",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
+  },
+  {
+    "_syncId": "1e9ea0a1-4524-408f-821a-26a98bcdd599",
+    "name": "public",
+    "parent": null
+  },
+  {
+    "_syncId": "22c40c3b-eac0-4dc5-9113-805a34fe6178",
+    "name": "items",
+    "parent": null
   },
   {
     "_syncId": "24a99ee1-4eee-48e1-9960-d51b5a105016",
@@ -20,9 +35,29 @@
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
+    "_syncId": "442937b6-049d-48b5-8db8-a4de1b5196f5",
+    "name": "channels",
+    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+  },
+  {
     "_syncId": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb",
     "name": "public",
     "parent": null
+  },
+  {
+    "_syncId": "57f253d3-751a-48d8-a998-c416f8d9fe91",
+    "name": "avatars",
+    "parent": null
+  },
+  {
+    "_syncId": "6ac86e02-9326-48eb-812d-bfd312658ce2",
+    "name": "subsonic",
+    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+  },
+  {
+    "_syncId": "760591bd-9fd2-4c51-bc65-37320adfef06",
+    "name": "sdf",
+    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
   },
   {
     "_syncId": "82caf9c9-995b-404f-ba7e-76f704a6dd3e",
@@ -35,6 +70,11 @@
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
+    "_syncId": "8d9afdbe-7e0e-4ecd-b2b5-9d2fb92b3a0c",
+    "name": "documents",
+    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+  },
+  {
     "_syncId": "9dcbb848-a25a-4e75-af0a-abbd1c4555ea",
     "name": "members",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
@@ -43,5 +83,15 @@
     "_syncId": "c1a3c999-6bf8-4ad9-bd41-62b7fa5394c8",
     "name": "subsonic",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
+  },
+  {
+    "_syncId": "d616a634-60b6-4794-81cd-53da4a114c0d",
+    "name": "phds",
+    "parent": "eea5fe90-8c59-435d-9906-660cce4d02da"
+  },
+  {
+    "_syncId": "eea5fe90-8c59-435d-9906-660cce4d02da",
+    "name": "icbd",
+    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
   }
 ]

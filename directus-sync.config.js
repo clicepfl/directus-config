@@ -5,4 +5,5 @@ module.exports = {
   sortJson: true,
   collections: true,
   split: true,
+  noSpecs: true,
 };

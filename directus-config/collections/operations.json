@@ -1,6 +1,6 @@
 [
   {
-    "_syncId": "07873579-153c-4ea3-b526-7ebf9f49e9c0",
+    "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "activities",
     "name": "Activities",
@@ -18,11 +18,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "b617ce7c-2697-453e-a765-79b056aa3cea",
+    "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
     "type": "item-read"
   },
   {
-    "_syncId": "42d5ba2f-6e25-4462-b7c8-3512a0c3ea03",
+    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "activities",
     "name": "Activities",
@@ -39,11 +39,11 @@
     "position_x": 21,
     "position_y": 17,
     "reject": null,
-    "resolve": "3bfc667c-ce55-40b2-bc41-b0901c37868e",
+    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
     "type": "item-read"
   },
   {
-    "_syncId": "f3df25ed-5608-4e22-a903-a9559adec29e",
+    "_syncId": "5ab58f88-3576-46cd-b140-f83147d2b992",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "activities_populated",
     "name": "Run Script",
@@ -53,11 +53,11 @@
     "position_x": 75,
     "position_y": 17,
     "reject": null,
-    "resolve": "c7869efd-7ec8-4503-9dc0-60d7deed331f",
+    "resolve": "56f961af-1a93-4e6e-8905-f572a1d425d2",
     "type": "exec"
   },
   {
-    "_syncId": "aceacd8a-4171-4b73-8177-f2e350ee4a28",
+    "_syncId": "702df538-b576-4f29-8439-b3fed05c0f3d",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "activity",
     "name": "activity",
@@ -71,11 +71,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "eae3c6b3-2654-4581-9515-f328b0dd64d7",
+    "resolve": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
     "type": "item-read"
   },
   {
-    "_syncId": "2fcd2999-67f8-42af-915b-f28fc455bda6",
+    "_syncId": "ad18cf60-d72c-46e7-96ff-d6438de43397",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "activity_ids",
     "name": "Activity ids",
@@ -85,11 +85,11 @@
     "position_x": 3,
     "position_y": 17,
     "reject": null,
-    "resolve": "42d5ba2f-6e25-4462-b7c8-3512a0c3ea03",
+    "resolve": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
     "type": "exec"
   },
   {
-    "_syncId": "012cc5c8-55d4-486f-9c02-10fa4b402636",
+    "_syncId": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "activity_registration",
     "name": "activity_registration",
@@ -103,11 +103,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "aceacd8a-4171-4b73-8177-f2e350ee4a28",
+    "resolve": "702df538-b576-4f29-8439-b3fed05c0f3d",
     "type": "item-read"
   },
   {
-    "_syncId": "7c0a05c0-0c90-466c-b0ec-87eda3b064a1",
+    "_syncId": "e651358b-6c57-408c-8729-978d0fa6eba2",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "activity_registrations",
     "name": "Activity registrations",
@@ -124,11 +124,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "a6644ff8-a414-41ad-93c3-431a718d904a",
+    "resolve": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
     "type": "item-read"
   },
   {
-    "_syncId": "b617ce7c-2697-453e-a765-79b056aa3cea",
+    "_syncId": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "can_retrieve_deposit",
     "name": "Can retrieve deposit",
@@ -138,11 +138,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "02cffb52-552c-481c-84b3-04373cb05892",
+    "resolve": "15906506-10e0-423a-8e0c-dd70436ef520",
     "type": "exec"
   },
   {
-    "_syncId": "bbba8953-cb3c-43bc-a114-72fd721a3bae",
+    "_syncId": "b55ec039-ec45-444a-84fd-baa2397137eb",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "can_send",
     "name": "Can send",
@@ -152,11 +152,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "0bea72b8-f11a-43d3-b8cf-b2a00c6374fc",
+    "resolve": "7609746a-d71f-47ef-9509-e76a1155b2a7",
     "type": "exec"
   },
   {
-    "_syncId": "16e19c57-0c75-430b-b71d-cc48f3683729",
+    "_syncId": "73f408ff-9732-479c-92fc-efce8738a46f",
     "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
     "key": "close",
     "name": "close",
@@ -174,7 +174,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "ba29e929-6db1-4983-b034-b651d451b757",
+    "_syncId": "ee33be1e-8718-4005-be5f-42cbe42b619d",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "condition_326ml",
     "name": "Condition",
@@ -190,11 +190,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "72c448d5-86b7-4f67-9f3c-d4e97426c44a",
+    "resolve": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
     "type": "condition"
   },
   {
-    "_syncId": "43edb559-d4f7-4331-aac7-847fe6272097",
+    "_syncId": "d982822f-6346-48a6-bd90-3b701f83d3de",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "condition_6ep4e",
     "name": "Condition",
@@ -219,11 +219,11 @@
     "position_x": 91,
     "position_y": 1,
     "reject": null,
-    "resolve": "2fcd2999-67f8-42af-915b-f28fc455bda6",
+    "resolve": "ad18cf60-d72c-46e7-96ff-d6438de43397",
     "type": "condition"
   },
   {
-    "_syncId": "b3c777c7-56d3-4601-b4a1-144d5a382927",
+    "_syncId": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "condition_hw",
     "name": "Condition",
@@ -239,11 +239,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "3be147d4-852e-40df-a025-775e04cfbc4b",
+    "resolve": "0a602f39-11f6-4418-a14a-e1605609b0c1",
     "type": "condition"
   },
   {
-    "_syncId": "fda9c1c7-0fa5-43b7-848d-5fd773451990",
+    "_syncId": "de952a1b-5fc7-4374-9ab8-f93504830612",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "condition_nynbu",
     "name": "Condition",
@@ -270,11 +270,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "554df351-dad2-42d5-a653-8337504dd386",
+    "resolve": "d9769944-bcef-4271-91b0-ba19af26ca2b",
     "type": "condition"
   },
   {
-    "_syncId": "0bea72b8-f11a-43d3-b8cf-b2a00c6374fc",
+    "_syncId": "7609746a-d71f-47ef-9509-e76a1155b2a7",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "condition_vgvop",
     "name": "Condition",
@@ -288,11 +288,11 @@
     "position_x": 3,
     "position_y": 17,
     "reject": null,
-    "resolve": "9b2462d9-d673-498c-8328-37323443ef59",
+    "resolve": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
     "type": "condition"
   },
   {
-    "_syncId": "e8fe86ed-37e5-4905-b06f-b6a021e3cdcf",
+    "_syncId": "275a999f-665a-4138-8784-672be28fef65",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "condition_vregu",
     "name": "Condition",
@@ -308,11 +308,11 @@
     "position_x": 21,
     "position_y": 17,
     "reject": null,
-    "resolve": "c9b04b3c-72e3-4ec6-83f1-d59197b12813",
+    "resolve": "bb197929-1d02-4ce6-962f-477bcdfa0872",
     "type": "condition"
   },
   {
-    "_syncId": "c9b04b3c-72e3-4ec6-83f1-d59197b12813",
+    "_syncId": "bb197929-1d02-4ce6-962f-477bcdfa0872",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "count_meals",
     "name": "Count meals",
@@ -322,11 +322,11 @@
     "position_x": 39,
     "position_y": 17,
     "reject": null,
-    "resolve": "f7334655-bbc9-4e27-afc4-689a608f6b5d",
+    "resolve": "985854c2-b787-4ccd-8c94-4f822daf4a91",
     "type": "exec"
   },
   {
-    "_syncId": "f3d2384a-deb7-41e7-a38b-acb014163f28",
+    "_syncId": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
     "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "count_vjtqe",
     "name": "Count registrations",
@@ -336,11 +336,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "3f9cc138-a480-499f-bb1b-223a56807a32",
+    "resolve": "6228ef21-6224-4391-b51d-984365c9e790",
     "type": "exec"
   },
   {
-    "_syncId": "6be2a650-aa3e-424e-a6b3-fed192ffbbb5",
+    "_syncId": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "cv_correction",
     "name": "CV Correction",
@@ -350,11 +350,11 @@
     "position_x": 21,
     "position_y": 33,
     "reject": null,
-    "resolve": "1035beeb-c9e5-4e9f-939f-49d59f8bb04e",
+    "resolve": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
     "type": "exec"
   },
   {
-    "_syncId": "c283ca74-4d4c-49d7-8284-08b1b929cc80",
+    "_syncId": "571d0635-9791-4779-9bf0-43a7e0aa0589",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "cv_correction_template",
     "name": "CV Correction Template",
@@ -364,11 +364,11 @@
     "position_x": 57,
     "position_y": 33,
     "reject": null,
-    "resolve": "f8be908b-31a6-40f6-b1ae-bf404b45a5cf",
+    "resolve": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
     "type": "exec"
   },
   {
-    "_syncId": "1035beeb-c9e5-4e9f-939f-49d59f8bb04e",
+    "_syncId": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "data",
     "name": "Data",
@@ -378,11 +378,11 @@
     "position_x": 39,
     "position_y": 33,
     "reject": null,
-    "resolve": "c283ca74-4d4c-49d7-8284-08b1b929cc80",
+    "resolve": "571d0635-9791-4779-9bf0-43a7e0aa0589",
     "type": "exec"
   },
   {
-    "_syncId": "a6644ff8-a414-41ad-93c3-431a718d904a",
+    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "event",
     "name": "Event",
@@ -395,11 +395,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "1cc5d111-676b-4eca-8ee0-4f3225193dc6",
+    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
     "type": "item-read"
   },
   {
-    "_syncId": "3e13ec03-942c-406b-9ee3-e40e7456613d",
+    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
     "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "event",
     "name": "Fetch event",
@@ -412,11 +412,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "f3d2384a-deb7-41e7-a38b-acb014163f28",
+    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
     "type": "item-read"
   },
   {
-    "_syncId": "d2a6284c-8272-4127-8fd0-c493190c5b96",
+    "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "event",
     "name": "Event",
@@ -429,11 +429,11 @@
     "position_x": 3,
     "position_y": 18,
     "reject": null,
-    "resolve": "e8fe86ed-37e5-4905-b06f-b6a021e3cdcf",
+    "resolve": "275a999f-665a-4138-8784-672be28fef65",
     "type": "item-read"
   },
   {
-    "_syncId": "332576ae-1ab9-48d8-b084-5e2d3c1f3439",
+    "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "event",
     "name": "Event",
@@ -446,11 +446,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "b3c777c7-56d3-4601-b4a1-144d5a382927",
+    "resolve": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
     "type": "item-read"
   },
   {
-    "_syncId": "29fcd5a3-d9d1-4eeb-874e-51c83be92009",
+    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "event",
     "name": "Event",
@@ -463,11 +463,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "ba29e929-6db1-4983-b034-b651d451b757",
+    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
     "type": "item-read"
   },
   {
-    "_syncId": "1f5202bf-ff85-4933-ab94-a048ff8895ce",
+    "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "event",
     "name": "Event",
@@ -480,11 +480,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "bbba8953-cb3c-43bc-a114-72fd721a3bae",
+    "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
     "type": "item-read"
   },
   {
-    "_syncId": "329b9b4b-19ad-4d5b-9552-98f2b8cdbeb8",
+    "_syncId": "9d5921b3-293c-4476-bf1e-11d926fb0570",
     "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
     "key": "event",
     "name": "event",
@@ -501,11 +501,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "92c6a61c-abb2-4b63-b1ed-eebaa2cb31a1",
+    "resolve": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
     "type": "item-read"
   },
   {
-    "_syncId": "0db25e46-81e1-4da6-a2d1-2854cd2335a4",
+    "_syncId": "d6bcbc4b-631e-4804-a01f-e15ffb179f10",
     "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
     "key": "fetch_registration",
     "name": "Fetch registration",
@@ -519,11 +519,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "b59a03bc-f2d3-457f-8005-406489262071",
+    "resolve": "0d327e03-7edc-4210-b806-8dbdb546a366",
     "type": "item-read"
   },
   {
-    "_syncId": "1cc5d111-676b-4eca-8ee0-4f3225193dc6",
+    "_syncId": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "is_complete",
     "name": "Is complete",
@@ -533,11 +533,11 @@
     "position_x": 73,
     "position_y": 1,
     "reject": null,
-    "resolve": "43edb559-d4f7-4331-aac7-847fe6272097",
+    "resolve": "d982822f-6346-48a6-bd90-3b701f83d3de",
     "type": "exec"
   },
   {
-    "_syncId": "92c6a61c-abb2-4b63-b1ed-eebaa2cb31a1",
+    "_syncId": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
     "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
     "key": "is_full",
     "name": "is_full",
@@ -554,11 +554,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "16e19c57-0c75-430b-b71d-cc48f3683729",
+    "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
     "type": "condition"
   },
   {
-    "_syncId": "bdfbef4d-c794-45b2-aafe-ebd0fea0628c",
+    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "is_full",
     "name": "Run Script",
@@ -568,11 +568,11 @@
     "position_x": 91,
     "position_y": 1,
     "reject": null,
-    "resolve": "2e3839c1-06ef-45bb-9243-f7cc9f5f238f",
+    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
     "type": "exec"
   },
   {
-    "_syncId": "b5a4dae7-26c4-4082-9b5a-838d898adbe3",
+    "_syncId": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
     "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
     "key": "is_update",
     "name": "Is update",
@@ -587,12 +587,29 @@
     },
     "position_x": 19,
     "position_y": 1,
-    "reject": "e11b9054-6f19-4505-b5eb-e24ca3e01614",
-    "resolve": "0db25e46-81e1-4da6-a2d1-2854cd2335a4",
+    "reject": "0181fca8-1365-4407-b185-72a2af57791d",
+    "resolve": "d6bcbc4b-631e-4804-a01f-e15ffb179f10",
     "type": "condition"
   },
   {
-    "_syncId": "cb9c8379-bac4-45f5-8538-cf0b382f13e5",
+    "_syncId": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
+    "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
+    "key": "item_read_alpha",
+    "name": "Read Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": "{{$trigger.body.keys}}",
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4a69daea-858b-478e-a879-f99ada596651",
     "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
     "key": "item_read_florn",
     "name": "Read Data",
@@ -605,11 +622,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "d35e8f9d-1655-411f-836a-479102a16b5f",
+    "resolve": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
     "type": "item-read"
   },
   {
-    "_syncId": "85b9a1b9-1098-4c5c-82cf-28bb03bcf2f8",
+    "_syncId": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "item_update_ez8bv",
     "name": "Update Data",
@@ -629,7 +646,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "b8986df4-e76d-4399-8354-962414231aa8",
+    "_syncId": "889a4969-1f6c-43bb-b8a8-407df5626728",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "item_update_fkeir_fxbvb_prbka",
     "name": "Update Data",
@@ -649,7 +666,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "02cffb52-552c-481c-84b3-04373cb05892",
+    "_syncId": "15906506-10e0-423a-8e0c-dd70436ef520",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "item_update_oylhg",
     "name": "Update Data",
@@ -669,7 +686,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "3192e2b6-5926-418f-81ea-1894a269cf3c",
+    "_syncId": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "item_update_oz10r",
     "name": "Update Data",
@@ -689,7 +706,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "f7334655-bbc9-4e27-afc4-689a608f6b5d",
+    "_syncId": "985854c2-b787-4ccd-8c94-4f822daf4a91",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "item_update_qsajm_sbmyv_pnyif",
     "name": "Update Data",
@@ -707,7 +724,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "3f9cc138-a480-499f-bb1b-223a56807a32",
+    "_syncId": "6228ef21-6224-4391-b51d-984365c9e790",
     "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "item_update_rz4iw_lnanl",
     "name": "Update Data",
@@ -727,7 +744,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "d51a73f5-79cb-4586-b30b-0fa866dc95b4",
+    "_syncId": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "item_update_wrcj6",
     "name": "Update Data",
@@ -746,7 +763,7 @@
     "type": "item-update"
   },
   {
-    "_syncId": "d35e8f9d-1655-411f-836a-479102a16b5f",
+    "_syncId": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
     "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
     "key": "key",
     "name": "Run Script",
@@ -756,11 +773,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "7b44409d-7d17-44e9-81f1-65f6b8813a09",
+    "resolve": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
     "type": "exec"
   },
   {
-    "_syncId": "6f324f23-5454-4d73-9bb4-fbf9ecc3af7d",
+    "_syncId": "b00d1b9f-14b4-421a-a442-61d4b65fafb3",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "log_a9wh0",
     "name": "Log to Console",
@@ -774,7 +791,24 @@
     "type": "log"
   },
   {
-    "_syncId": "9b2462d9-d673-498c-8328-37323443ef59",
+    "_syncId": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
+    "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
+    "key": "mail_1ur86",
+    "name": "Send Email",
+    "options": {
+      "body": "<html>\n\n<body style=\"font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs\">\n    <table\n        style=\"min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;\">\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 20rem; margin: 1rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/a2dea31b-4a53-4758-92f8-3845adc94112\"\n                        alt=\"hello world logo\">\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n\n                    <table\n                        style=\"background-color: white; width: 600px; padding: 1rem; border-radius: 0.5rem; box-shadow: 5px 5px 20px rgb(191, 191, 191);\">\n                        <tr>\n                            <td>\n                                <p style=\"color: gray; font-style: italic;\">Hi {{$trigger.first_name}},</p>\n                                <p>A friendly reminder that Hello World, our first event of the semester, is tomorrow (16th September)!</p>\n\n                                <p>Come at 6pm in the BC Hall with your team \"{{$trigger.team}}\" and your QR codes… and don’t forget to have fun!</p>\n                                <hr style=\"color: lightgray;\">\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center>\n                                    <p style=\"color: gray; font-style: italic;\">See you there, </p>\n                                    <p style=\"color: gray; font-style: italic;\">CLIC</p>\n                                </center>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center style=\"background: #7c0e9f; border-radius: 0.375rem;\">\n                                    <p style=\"padding-top:1rem; color: white;\">Follow us on our socials</p><a\n                                        href=\"https://t.me/clicepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/e2b444de-87a9-438b-b75e-a6864ba925b2?width=1920\"\n                                            alt=\"Telegram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://www.instagram.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/64785955-9d77-42d3-9046-a0f998fabd26?width=1920\"\n                                            alt=\"Instagram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://twitter.com/CLICepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/ef28026f-965c-4f1f-b7a9-eaafea804a07?width=1920\"\n                                            alt=\"X\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://github.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/f6cb71fa-e038-4629-b54e-d2fb40fe9666?width=1920\"\n                                            alt=\"Github\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"mailto:clic@epfl.ch\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/b8650fa0-061f-427f-a4a0-97febb99c103?width=1920\"\n                                            alt=\"Mail CLIC\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a>\n                                </center>\n                            </td>\n                        </tr>\n                    </table>\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 10rem; margin: 2rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/f5e0bd00-3f25-4d01-be19-4a7e17c66560\" alt=\"clic logo\">\n                </center>\n            </td>\n        </tr>\n    </table>\n</body>\n\n</html>",
+      "subject": "CLIC Reminder: Hello World",
+      "to": "{{$trigger.email}}",
+      "type": "wysiwyg"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
+    "_syncId": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "mail_hlcl6",
     "name": "Send Email",
@@ -794,11 +828,11 @@
     "position_x": 21,
     "position_y": 17,
     "reject": null,
-    "resolve": "3192e2b6-5926-418f-81ea-1894a269cf3c",
+    "resolve": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
     "type": "mail"
   },
   {
-    "_syncId": "554df351-dad2-42d5-a653-8337504dd386",
+    "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "mail_ofzwn",
     "name": "Send Email",
@@ -816,11 +850,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "85b9a1b9-1098-4c5c-82cf-28bb03bcf2f8",
+    "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
     "type": "mail"
   },
   {
-    "_syncId": "72c448d5-86b7-4f67-9f3c-d4e97426c44a",
+    "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "mail_ofzwn",
     "name": "Send Email",
@@ -843,7 +877,7 @@
     "type": "mail"
   },
   {
-    "_syncId": "54944b7f-3368-4c67-876d-5ffce0cb0376",
+    "_syncId": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "matching_registrations",
     "name": "matching_registrations",
@@ -870,11 +904,11 @@
     "position_x": 73,
     "position_y": 1,
     "reject": null,
-    "resolve": "bdfbef4d-c794-45b2-aafe-ebd0fea0628c",
+    "resolve": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "type": "item-read"
   },
   {
-    "_syncId": "2e3839c1-06ef-45bb-9243-f7cc9f5f238f",
+    "_syncId": "0ffc9ac6-005f-4131-a0af-ea2190763307",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "new_activity",
     "name": "new_activity",
@@ -884,11 +918,11 @@
     "position_x": 109,
     "position_y": 1,
     "reject": null,
-    "resolve": "d51a73f5-79cb-4586-b30b-0fa866dc95b4",
+    "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
     "type": "exec"
   },
   {
-    "_syncId": "c7869efd-7ec8-4503-9dc0-60d7deed331f",
+    "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "qrcode_url",
     "name": "QRCode URL",
@@ -898,11 +932,11 @@
     "position_x": 3,
     "position_y": 33,
     "reject": null,
-    "resolve": "6be2a650-aa3e-424e-a6b3-fed192ffbbb5",
+    "resolve": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
     "type": "exec"
   },
   {
-    "_syncId": "a1406dcc-8930-4232-a39e-20db4db5b791",
+    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "registration",
     "name": "Registration",
@@ -915,11 +949,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "7c0a05c0-0c90-466c-b0ec-87eda3b064a1",
+    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
     "type": "item-read"
   },
   {
-    "_syncId": "cae93410-a9e6-4b15-bbd7-40af4b401a77",
+    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "registration",
     "name": "registration",
@@ -932,11 +966,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "fda9c1c7-0fa5-43b7-848d-5fd773451990",
+    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
     "type": "item-read"
   },
   {
-    "_syncId": "a7970442-4d7e-4708-a10b-d5c7fbf0c6e3",
+    "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "registration",
     "name": "Registration",
@@ -950,11 +984,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "07873579-153c-4ea3-b526-7ebf9f49e9c0",
+    "resolve": "d037ab01-e936-4477-9895-c644060ce49c",
     "type": "item-read"
   },
   {
-    "_syncId": "c3dfdeab-d32c-4098-94c8-27fd8bc1c207",
+    "_syncId": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "registration",
     "name": "Registration",
@@ -968,11 +1002,11 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "c7f98aca-73cc-4f28-9cb1-084167f2c2c9",
+    "resolve": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
     "type": "item-read"
   },
   {
-    "_syncId": "35355e6f-a3ba-4164-8c27-0377467e4073",
+    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "registration",
     "name": "Registration",
@@ -985,11 +1019,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "1f5202bf-ff85-4933-ab94-a048ff8895ce",
+    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
     "type": "item-read"
   },
   {
-    "_syncId": "0f2f6646-d4e3-4729-95ad-9bfd6412ff29",
+    "_syncId": "a07ae0a2-4b49-468d-ba22-2a248b209301",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "registration_key",
     "name": "Registration key",
@@ -999,11 +1033,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "c3dfdeab-d32c-4098-94c8-27fd8bc1c207",
+    "resolve": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
     "type": "exec"
   },
   {
-    "_syncId": "c7f98aca-73cc-4f28-9cb1-084167f2c2c9",
+    "_syncId": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "registrations",
     "name": "Registrations",
@@ -1020,11 +1054,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "d2a6284c-8272-4127-8fd0-c493190c5b96",
+    "resolve": "340bc06c-947d-46f2-82d0-a8862d4a3563",
     "type": "item-read"
   },
   {
-    "_syncId": "f90adf41-fc9c-49b7-a5c8-1ca2a7b0ccaf",
+    "_syncId": "94fb122e-881f-49aa-96b9-025a8455cfd2",
     "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "registrations",
     "name": "Fetch registrations",
@@ -1041,11 +1075,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "3e13ec03-942c-406b-9ee3-e40e7456613d",
+    "resolve": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
     "type": "item-read"
   },
   {
-    "_syncId": "f8be908b-31a6-40f6-b1ae-bf404b45a5cf",
+    "_syncId": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "request_mbi47",
     "name": "Webhook / Request URL",
@@ -1063,11 +1097,11 @@
     "position_x": 75,
     "position_y": 33,
     "reject": null,
-    "resolve": "b8986df4-e76d-4399-8354-962414231aa8",
+    "resolve": "889a4969-1f6c-43bb-b8a8-407df5626728",
     "type": "request"
   },
   {
-    "_syncId": "3be147d4-852e-40df-a025-775e04cfbc4b",
+    "_syncId": "0a602f39-11f6-4418-a14a-e1605609b0c1",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "send_email_kxure",
     "name": "Send Email",
@@ -1087,11 +1121,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "0a5caf39-4b92-40dd-b57f-97c5af62780f",
+    "resolve": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
     "type": "mail"
   },
   {
-    "_syncId": "eae3c6b3-2654-4581-9515-f328b0dd64d7",
+    "_syncId": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "timeslot",
     "name": "timeslot",
@@ -1101,11 +1135,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "54944b7f-3368-4c67-876d-5ffce0cb0376",
+    "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
     "type": "exec"
   },
   {
-    "_syncId": "02825af7-5366-4d7e-ade8-0d268231fae0",
+    "_syncId": "1411b62c-1d8d-4f32-b194-34c239d4d6d3",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "translations",
     "name": "translations",
@@ -1122,11 +1156,11 @@
     "position_x": 57,
     "position_y": 17,
     "reject": null,
-    "resolve": "f3df25ed-5608-4e22-a903-a9559adec29e",
+    "resolve": "5ab58f88-3576-46cd-b140-f83147d2b992",
     "type": "item-read"
   },
   {
-    "_syncId": "3bfc667c-ce55-40b2-bc41-b0901c37868e",
+    "_syncId": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "translations_id",
     "name": "Translations id",
@@ -1136,11 +1170,11 @@
     "position_x": 39,
     "position_y": 17,
     "reject": null,
-    "resolve": "02825af7-5366-4d7e-ade8-0d268231fae0",
+    "resolve": "1411b62c-1d8d-4f32-b194-34c239d4d6d3",
     "type": "exec"
   },
   {
-    "_syncId": "c10505e7-8d6c-44d6-90c1-3e3c725694aa",
+    "_syncId": "b582d00d-1ff3-4423-a77d-162b03b3a743",
     "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
     "key": "trigger_90arx",
     "name": "Trigger Flow",
@@ -1157,7 +1191,23 @@
     "type": "trigger"
   },
   {
-    "_syncId": "476d6f96-2441-4698-8128-2c1df9610b5d",
+    "_syncId": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
+    "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
+    "key": "trigger_dkauf",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
+      "iterationMode": "parallel",
+      "payload": "{{$last}}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
+  },
+  {
+    "_syncId": "3c276f44-136c-40dc-8278-116319d7ce75",
     "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
     "key": "trigger_ehyqh",
     "name": "Trigger Flow",
@@ -1174,7 +1224,7 @@
     "type": "trigger"
   },
   {
-    "_syncId": "efe96730-8c6d-4500-9afc-3cf8fce09e87",
+    "_syncId": "fef5f568-8096-4f6e-b22a-466609fab749",
     "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
     "key": "trigger_js0o2",
     "name": "Trigger Flow",
@@ -1187,11 +1237,11 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "c10505e7-8d6c-44d6-90c1-3e3c725694aa",
+    "resolve": "b582d00d-1ff3-4423-a77d-162b03b3a743",
     "type": "trigger"
   },
   {
-    "_syncId": "b59a03bc-f2d3-457f-8005-406489262071",
+    "_syncId": "0d327e03-7edc-4210-b806-8dbdb546a366",
     "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
     "key": "trigger_o9drl",
     "name": "Trigger Flow",
@@ -1206,7 +1256,7 @@
     "type": "trigger"
   },
   {
-    "_syncId": "e11b9054-6f19-4505-b5eb-e24ca3e01614",
+    "_syncId": "0181fca8-1365-4407-b185-72a2af57791d",
     "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
     "key": "trigger_o9drl_bjfdv",
     "name": "Trigger Flow",
@@ -1221,7 +1271,7 @@
     "type": "trigger"
   },
   {
-    "_syncId": "7b44409d-7d17-44e9-81f1-65f6b8813a09",
+    "_syncId": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
     "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
     "key": "trigger_rmf4o",
     "name": "Trigger Flow",
@@ -1234,11 +1284,11 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "476d6f96-2441-4698-8128-2c1df9610b5d",
+    "resolve": "3c276f44-136c-40dc-8278-116319d7ce75",
     "type": "trigger"
   },
   {
-    "_syncId": "0a5caf39-4b92-40dd-b57f-97c5af62780f",
+    "_syncId": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "update_data_wwpfl",
     "name": "Update Data",

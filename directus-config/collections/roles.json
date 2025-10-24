@@ -5,5 +5,47 @@
     "icon": "verified",
     "name": "Administrator",
     "parent": null
+  },
+  {
+    "_syncId": "36fca0b8-59fe-47f1-81c2-7c12ee486912",
+    "description": null,
+    "icon": "supervised_user_circle",
+    "name": "Guest",
+    "parent": null
+  },
+  {
+    "_syncId": "6a975d78-eee1-410b-b04f-9fdce248493e",
+    "description": null,
+    "icon": "robot",
+    "name": "RoboCLIC",
+    "parent": null
+  },
+  {
+    "_syncId": "98e8baa5-7af8-4b35-9618-5b9d44438512",
+    "description": null,
+    "icon": "web",
+    "name": "Website",
+    "parent": null
+  },
+  {
+    "_syncId": "a0395519-a1f6-4cb9-962f-a5cc60f72b3d",
+    "description": null,
+    "icon": "supervised_user_circle",
+    "name": "Commission",
+    "parent": null
+  },
+  {
+    "_syncId": "e52bd062-6ebe-4b84-8784-af85eaa1135e",
+    "description": null,
+    "icon": "supervised_user_circle",
+    "name": "Committee",
+    "parent": null
+  },
+  {
+    "_syncId": "eb720759-4e38-4220-b10e-40732dc59315",
+    "description": null,
+    "icon": "supervised_user_circle",
+    "name": "Game*",
+    "parent": null
   }
 ]
