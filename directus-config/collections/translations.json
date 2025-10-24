@@ -144,12 +144,6 @@
     "value": "news"
   },
   {
-    "_syncId": "80051676-634a-402c-992d-11088ba7e5e0",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
     "_syncId": "81481db3-9f65-427e-8241-a00065be812e",
     "key": "contact",
     "language": "fr-FR",
@@ -160,12 +154,6 @@
     "key": "by",
     "language": "en-US",
     "value": "by"
-  },
-  {
-    "_syncId": "86e304e3-7298-42b2-b842-21f71d6a1e26",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
   },
   {
     "_syncId": "87f15517-3536-40f2-9219-95a7dd239575",
