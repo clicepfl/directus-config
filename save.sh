@@ -2,7 +2,9 @@
 BASEDIR=$(dirname "$0")
 source $BASEDIR/utils.sh
 
+pushd $BASEDIR
 npx directus-sync pull
+popd
 
 docker exec -u root -it $(directus_container) npx directus-typescript-gen --email clic@epfl.ch --password 1234 -h http://127.0.0.1:8055 -o /share/schema.d.ts
 mv -f $BASEDIR/schema.d.ts $BASEDIR/types/schema.d.ts
