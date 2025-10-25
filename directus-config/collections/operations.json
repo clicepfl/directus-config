@@ -382,8 +382,8 @@
     "type": "exec"
   },
   {
-    "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "event",
     "name": "Event",
     "options": {
@@ -392,44 +392,10 @@
         "{{registration.event}}"
       ]
     },
-    "position_x": 3,
-    "position_y": 18,
-    "reject": null,
-    "resolve": "275a999f-665a-4138-8784-672be28fef65",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
-    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$trigger.payload.event}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-    "key": "event",
-    "name": "Fetch event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$trigger.event}}"
-      ]
-    },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
+    "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
     "type": "item-read"
   },
   {
@@ -450,23 +416,6 @@
     "type": "item-read"
   },
   {
-    "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{registration.event}}"
-      ]
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
-    "type": "item-read"
-  },
-  {
     "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "event",
@@ -481,6 +430,40 @@
     "position_y": 1,
     "reject": null,
     "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.payload.event}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{registration.event}}"
+      ]
+    },
+    "position_x": 3,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "275a999f-665a-4138-8784-672be28fef65",
     "type": "item-read"
   },
   {
@@ -502,6 +485,23 @@
     "position_y": 1,
     "reject": null,
     "resolve": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "event",
+    "name": "Fetch event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.event}}"
+      ]
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
     "type": "item-read"
   },
   {
@@ -537,6 +537,20 @@
     "type": "exec"
   },
   {
+    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "is_full",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
+    },
+    "position_x": 91,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
+    "type": "exec"
+  },
+  {
     "_syncId": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
     "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
     "key": "is_full",
@@ -556,20 +570,6 @@
     "reject": null,
     "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
     "type": "condition"
-  },
-  {
-    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "is_full",
-    "name": "Run Script",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "type": "exec"
   },
   {
     "_syncId": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
@@ -936,20 +936,21 @@
     "type": "exec"
   },
   {
-    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "registration",
     "name": "Registration",
     "options": {
       "collection": "registrations",
       "key": [
-        "{{$trigger.key}}"
-      ]
+        "{{registration_key}}"
+      ],
+      "query": null
     },
-    "position_x": 19,
+    "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
+    "resolve": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
     "type": "item-read"
   },
   {
@@ -971,24 +972,6 @@
     "type": "item-read"
   },
   {
-    "_syncId": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{registration_key}}"
-      ],
-      "query": null
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
-    "type": "item-read"
-  },
-  {
     "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "registration",
@@ -1003,6 +986,23 @@
     "position_y": 1,
     "reject": null,
     "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
     "type": "item-read"
   },
   {
@@ -1043,12 +1043,15 @@
     "name": "Fetch registrations",
     "options": {
       "collection": "registrations",
+      "emitEvents": false,
+      "permissions": "$trigger",
       "query": {
         "filter": {
           "event": {
             "_eq": "{{$trigger.event}}"
           }
-        }
+        },
+        "limit": 4096
       }
     },
     "position_x": 19,
