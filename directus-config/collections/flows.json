@@ -6,7 +6,7 @@
     "description": null,
     "icon": "monetization_on",
     "name": "[ICBD] Update deposit retrievability",
-    "operation": "a7970442-4d7e-4708-a10b-d5c7fbf0c6e3",
+    "operation": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
     "options": {
       "return": "$last"
     },
@@ -20,7 +20,7 @@
     "description": "Closes even with limited slots once they are full",
     "icon": "tab_close",
     "name": "[G] Close full events",
-    "operation": "329b9b4b-19ad-4d5b-9552-98f2b8cdbeb8",
+    "operation": "9d5921b3-293c-4476-bf1e-11d926fb0570",
     "options": {},
     "status": "active",
     "trigger": "operation"
@@ -32,12 +32,30 @@
     "description": "Send email when all activity timeslots are assigned",
     "icon": "mark_email_read",
     "name": "[ICBD] Send confirmation email",
-    "operation": "a1406dcc-8930-4232-a39e-20db4db5b791",
+    "operation": "8f43479a-f524-4c52-ab0d-002ba60e5199",
     "options": {
       "return": "$last"
     },
     "status": "active",
     "trigger": "operation"
+  },
+  {
+    "_syncId": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
+    "accountability": "all",
+    "color": null,
+    "description": null,
+    "icon": "bolt",
+    "name": "[HW] Send reminder email to many",
+    "operation": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
+    "options": {
+      "async": true,
+      "collections": [
+        "registrations"
+      ],
+      "requireConfirmation": true
+    },
+    "status": "active",
+    "trigger": "manual"
   },
   {
     "_syncId": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
@@ -46,7 +64,7 @@
     "description": null,
     "icon": "lunch_dining",
     "name": "[FD] Count meals",
-    "operation": "0f2f6646-d4e3-4729-95ad-9bfd6412ff29",
+    "operation": "a07ae0a2-4b49-468d-ba22-2a248b209301",
     "options": {
       "collections": [
         "registrations"
@@ -67,7 +85,7 @@
     "description": null,
     "icon": "mark_email_unread",
     "name": "[FD] Send pre-registration mail",
-    "operation": "29fcd5a3-d9d1-4eeb-874e-51c83be92009",
+    "operation": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
     "options": {
       "collections": [
         "registrations"
@@ -87,8 +105,22 @@
     "description": "Updates the number of participants based on registrations and plus ones",
     "icon": "numbers",
     "name": "[G] Update registration count",
-    "operation": "f90adf41-fc9c-49b7-a5c8-1ca2a7b0ccaf",
+    "operation": "94fb122e-881f-49aa-96b9-025a8455cfd2",
     "options": {},
+    "status": "active",
+    "trigger": "operation"
+  },
+  {
+    "_syncId": "7c2abbef-afe1-425f-a08c-3013e360c95d",
+    "accountability": "all",
+    "color": null,
+    "description": null,
+    "icon": "bolt",
+    "name": "[HW] Send reminder email to one person",
+    "operation": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
+    "options": {
+      "return": "$last"
+    },
     "status": "active",
     "trigger": "operation"
   },
@@ -99,7 +131,7 @@
     "description": "[TRIGGER] Create or Update",
     "icon": "start",
     "name": "[G] CU Registration",
-    "operation": "b5a4dae7-26c4-4082-9b5a-838d898adbe3",
+    "operation": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
     "options": {
       "collections": [
         "registrations"
@@ -120,7 +152,7 @@
     "description": null,
     "icon": "mark_email_read",
     "name": "[HW] Send confirmation email",
-    "operation": "332576ae-1ab9-48d8-b084-5e2d3c1f3439",
+    "operation": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
     "options": {
       "collections": [
         "registrations"
@@ -140,7 +172,7 @@
     "description": null,
     "icon": "start",
     "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
-    "operation": "cb9c8379-bac4-45f5-8538-cf0b382f13e5",
+    "operation": "4a69daea-858b-478e-a879-f99ada596651",
     "options": {
       "collections": [
         "icbd_activities_registrations"
@@ -160,7 +192,7 @@
     "description": null,
     "icon": "start",
     "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
-    "operation": "efe96730-8c6d-4500-9afc-3cf8fce09e87",
+    "operation": "fef5f568-8096-4f6e-b22a-466609fab749",
     "options": {
       "collections": [
         "registrations"
@@ -180,7 +212,7 @@
     "description": null,
     "icon": "mark_email_read",
     "name": "[FD] Send confirmation email",
-    "operation": "35355e6f-a3ba-4164-8c27-0377467e4073",
+    "operation": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
     "options": {
       "collections": [
         "registrations"
@@ -200,7 +232,7 @@
     "description": "Send email when registration form is filled",
     "icon": "mail_lock",
     "name": "[ICBD] Send registration blocked email",
-    "operation": "cae93410-a9e6-4b15-bbd7-40af4b401a77",
+    "operation": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "options": {
       "collections": [
         "registrations"
@@ -220,7 +252,7 @@
     "description": "Updates activities timeslots to indicate whether they are full",
     "icon": "lock_reset",
     "name": "[ICBD] Update activity status",
-    "operation": "012cc5c8-55d4-486f-9c02-10fa4b402636",
+    "operation": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
     "options": {
       "collections": [
         "icbd_activities_registrations"

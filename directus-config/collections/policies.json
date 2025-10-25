@@ -30,5 +30,137 @@
         "sort": 1
       }
     ]
+  },
+  {
+    "_syncId": "02170d6b-60c9-452a-950e-5d66309f708c",
+    "admin_access": false,
+    "app_access": true,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "supervised_user_circle",
+    "ip_access": null,
+    "name": "Commission",
+    "roles": [
+      {
+        "role": "a0395519-a1f6-4cb9-962f-a5cc60f72b3d",
+        "sort": 1
+      },
+      {
+        "role": null,
+        "sort": 1
+      },
+      {
+        "role": null,
+        "sort": 1
+      },
+      {
+        "role": null,
+        "sort": 1
+      },
+      {
+        "role": "eb720759-4e38-4220-b10e-40732dc59315",
+        "sort": 2
+      },
+      {
+        "role": null,
+        "sort": null
+      }
+    ]
+  },
+  {
+    "_syncId": "38eb4687-38d1-4229-88d6-c29ba534476e",
+    "admin_access": false,
+    "app_access": false,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "robot",
+    "ip_access": null,
+    "name": "RoboCLIC",
+    "roles": [
+      {
+        "role": "6a975d78-eee1-410b-b04f-9fdce248493e",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "5442dac0-5f51-434d-90b1-285734ff8e49",
+    "admin_access": false,
+    "app_access": true,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "web",
+    "ip_access": null,
+    "name": "Website",
+    "roles": [
+      {
+        "role": "98e8baa5-7af8-4b35-9618-5b9d44438512",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "admin_access": false,
+    "app_access": false,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "airplane_ticket",
+    "ip_access": null,
+    "name": "Clicketing",
+    "roles": [
+      {
+        "role": null,
+        "sort": null
+      }
+    ]
+  },
+  {
+    "_syncId": "8d7efa31-b9a9-40cb-8797-7af785c1f680",
+    "admin_access": false,
+    "app_access": true,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "supervised_user_circle",
+    "ip_access": null,
+    "name": "Guest",
+    "roles": [
+      {
+        "role": "36fca0b8-59fe-47f1-81c2-7c12ee486912",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "admin_access": false,
+    "app_access": true,
+    "description": "Game* Website content",
+    "enforce_tfa": false,
+    "icon": "videogame_asset",
+    "ip_access": null,
+    "name": "Game*",
+    "roles": [
+      {
+        "role": "eb720759-4e38-4220-b10e-40732dc59315",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "admin_access": false,
+    "app_access": true,
+    "description": null,
+    "enforce_tfa": false,
+    "icon": "supervised_user_circle",
+    "ip_access": null,
+    "name": "Committee",
+    "roles": [
+      {
+        "role": "e52bd062-6ebe-4b84-8784-af85eaa1135e",
+        "sort": 1
+      }
+    ]
   }
 ]

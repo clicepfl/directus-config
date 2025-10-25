@@ -1,7 +1,7 @@
 [
   {
     "_syncId": "_sync_default_settings",
-    "accepted_terms": false,
+    "accepted_terms": true,
     "auth_login_attempts": 25,
     "auth_password_policy": null,
     "basemaps": null,
