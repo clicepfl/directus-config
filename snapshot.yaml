@@ -10,7 +10,7 @@ collections:
       archive_value: null
       collapse: open
       collection: ICBD
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: null
       hidden: false
@@ -82,7 +82,7 @@ collections:
       archive_value: null
       collapse: open
       collection: artists
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: subsonic
       hidden: false
@@ -395,7 +395,7 @@ collections:
       collapse: open
       collection: commissions
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: groups_3
@@ -490,7 +490,7 @@ collections:
       archive_value: null
       collapse: open
       collection: game_star
-      color: '#FFDA8A'
+      color: "#FFDA8A"
       display_template: null
       group: null
       hidden: false
@@ -514,7 +514,7 @@ collections:
       archive_value: null
       collapse: open
       collection: game_star_articles
-      color: '#FFDA8A'
+      color: "#FFDA8A"
       display_template: null
       group: game_star
       hidden: false
@@ -562,7 +562,7 @@ collections:
       archive_value: null
       collapse: open
       collection: game_star_events
-      color: '#FFDA8A'
+      color: "#FFDA8A"
       display_template: null
       group: game_star
       hidden: false
@@ -610,7 +610,7 @@ collections:
       archive_value: null
       collapse: open
       collection: game_star_projects
-      color: '#FFDA8A'
+      color: "#FFDA8A"
       display_template: null
       group: game_star
       hidden: false
@@ -658,7 +658,7 @@ collections:
       archive_value: null
       collapse: open
       collection: game_star_social_links
-      color: '#FFDA8A'
+      color: "#FFDA8A"
       display_template: null
       group: game_star
       hidden: false
@@ -706,7 +706,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -778,7 +778,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_activities_translations
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: icbd_activities
       hidden: true
@@ -802,7 +802,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_phds
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: null
       group: ICBD
       hidden: false
@@ -826,7 +826,7 @@ collections:
       archive_value: null
       collapse: open
       collection: icbd_speakers
-      color: '#FFA439'
+      color: "#FFA439"
       display_template: "{{first_name}}\_{{last_name}} ({{company}})"
       group: ICBD
       hidden: false
@@ -875,7 +875,7 @@ collections:
       collapse: open
       collection: languages
       color: null
-      display_template: '{{code}}'
+      display_template: "{{code}}"
       group: null
       hidden: false
       icon: language
@@ -923,7 +923,7 @@ collections:
       collapse: closed
       collection: news
       color: null
-      display_template: '{{slug}}'
+      display_template: "{{slug}}"
       group: null
       hidden: false
       icon: breaking_news_alt_1
@@ -1067,7 +1067,7 @@ collections:
       collapse: open
       collection: partners
       color: null
-      display_template: '{{name}}'
+      display_template: "{{name}}"
       group: null
       hidden: false
       icon: partner_exchange
@@ -1234,7 +1234,7 @@ collections:
       archive_value: null
       collapse: open
       collection: subsonic
-      color: '#FFFFFF'
+      color: "#FFFFFF"
       display_template: null
       group: null
       hidden: false
@@ -2470,7 +2470,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{icon.$thumbnail}}{{link}}'
+        template: "{{icon.$thumbnail}}{{link}}"
       readonly: false
       required: false
       sort: 9
@@ -2633,15 +2633,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#A2B5CD'
+          - color: "#A2B5CD"
             icon: card_membership
             text: Member
             value: member
@@ -2679,7 +2679,7 @@ fields:
       display: translations
       display_options:
         languageField: name
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -2705,7 +2705,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{slug}}'
+        template: "{{slug}}"
       field: pole
       group: null
       hidden: false
@@ -2713,7 +2713,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{slug}}'
+        template: "{{slug}}"
       readonly: false
       required: false
       sort: 4
@@ -3060,7 +3060,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -3126,7 +3126,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: mail
       group: null
       hidden: false
@@ -3401,7 +3401,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: attach_file
       field: link
       group: null
@@ -3484,7 +3484,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -4021,7 +4021,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -4105,7 +4105,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -4138,15 +4138,15 @@ fields:
       note: null
       options:
         choices:
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: groups
             text: Committee
             value: committee
-          - color: '#FFA439'
+          - color: "#FFA439"
             icon: partner_exchange
             text: Team
             value: team
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: card_membership
             text: Member
             value: member
@@ -4380,7 +4380,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -5679,7 +5679,7 @@ fields:
                   _eq: faculty_dinner
       display: formatted-json-value
       display_options:
-        format: '{{ name }}, {{ count }}'
+        format: "{{ name }}, {{ count }}"
       field: meals
       group: faculty_dinner
       hidden: false
@@ -5898,7 +5898,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}} - {{description}}'
+        template: "{{title}} - {{description}}"
         userLanguage: true
       field: translations
       group: null
@@ -5935,11 +5935,11 @@ fields:
       note: null
       options:
         choices:
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: check_circle
             text: Published
             value: published
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: draft_orders
             text: Draft
             value: draft
@@ -6329,7 +6329,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}} - {{description}}'
+        template: "{{title}} - {{description}}"
         userLanguage: true
       field: translations
       group: null
@@ -6362,11 +6362,11 @@ fields:
       note: null
       options:
         choices:
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: check_circle
             text: Published
             value: published
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: draft_orders
             text: Draft
             value: draft
@@ -6834,7 +6834,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}} - {{description}}'
+        template: "{{title}} - {{description}}"
         userLanguage: true
       field: translations
       group: null
@@ -6867,11 +6867,11 @@ fields:
       note: null
       options:
         choices:
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: check_circle
             text: Published
             value: published
-          - color: '#FFDA8A'
+          - color: "#FFDA8A"
             icon: draft_orders
             text: Draft
             value: draft
@@ -7785,7 +7785,7 @@ fields:
               type: boolean
             name: full
             type: boolean
-        template: '[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]'
+        template: "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
       readonly: false
       required: false
       sort: 9
@@ -8076,7 +8076,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.name}}'
+        template: "{{translations.name}}"
       readonly: false
       required: true
       sort: 2
@@ -8118,7 +8118,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{email}}'
+        template: "{{email}}"
       readonly: false
       required: true
       sort: 3
@@ -8942,7 +8942,7 @@ fields:
       display: formatted-value
       display_options:
         bold: true
-        color: '#A2B5CD'
+        color: "#A2B5CD"
         icon: numbers
       field: quantity
       group: null
@@ -9030,7 +9030,7 @@ fields:
       interface: presentation-divider
       note: null
       options:
-        color: '#2ECDA7'
+        color: "#2ECDA7"
         icon: local_shipping
         title: $t:need-to-order
       readonly: false
@@ -9117,7 +9117,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
@@ -9125,7 +9125,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -9272,8 +9272,8 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        background: '#3399FF'
-        color: '#FFFFFF'
+        background: "#3399FF"
+        color: "#FFFFFF"
         format: true
       field: place
       group: null
@@ -9283,19 +9283,19 @@ fields:
       options:
         allowOther: true
         choices:
-          - color: '#6644FF'
+          - color: "#6644FF"
             icon: shelves
             text: Shelve 1
             value: shelve-1
-          - color: '#3399FF'
+          - color: "#3399FF"
             icon: shelves
             text: Shelve 2
             value: shelve-2
-          - color: '#2ECDA7'
+          - color: "#2ECDA7"
             icon: scene
             text: Office
             value: office
-          - color: '#FFC23B'
+          - color: "#FFC23B"
             icon: tv_with_assistant
             text: Admin
             value: admin
@@ -9657,7 +9657,7 @@ fields:
       display: formatted-value
       display_options:
         border: true
-        color: '#3399FF'
+        color: "#3399FF"
       field: email
       group: null
       hidden: false
@@ -10013,7 +10013,7 @@ fields:
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{avatar.$thumbnail}} {{first_name}} {{last_name}}'
+        template: "{{avatar.$thumbnail}} {{first_name}} {{last_name}}"
       readonly: true
       required: false
       sort: 9
@@ -10130,7 +10130,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -10157,7 +10157,7 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{commissions_id.name}}'
+        template: "{{commissions_id.name}}"
       field: commissions
       group: null
       hidden: false
@@ -10166,7 +10166,7 @@ fields:
       options:
         enableCreate: false
         fields: []
-        template: '{{commissions_id.slug}}'
+        template: "{{commissions_id.slug}}"
       readonly: false
       required: false
       sort: 6
@@ -10248,7 +10248,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#E35169'
+        defaultColor: "#E35169"
       field: video_link
       group: null
       hidden: false
@@ -10878,7 +10878,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
         userLanguage: true
       field: translations
       group: null
@@ -11344,7 +11344,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{rank}}'
+        template: "{{rank}}"
       readonly: false
       required: true
       sort: 10
@@ -11426,7 +11426,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{translations.title}}'
+        template: "{{translations.title}}"
       readonly: false
       required: true
       sort: 2
@@ -12380,8 +12380,8 @@ fields:
                   _eq: true
       display: boolean
       display_options:
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: retreived_deposit
       group: icbd
       hidden: false
@@ -12425,8 +12425,8 @@ fields:
       display_options:
         colorOff: null
         colorOn: null
-        labelOff: 'No'
-        labelOn: 'Yes'
+        labelOff: "No"
+        labelOn: "Yes"
       field: can_retreive_deposit
       group: icbd
       hidden: false
@@ -12651,7 +12651,7 @@ fields:
       note: null
       options:
         enableCreate: false
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: true
       sort: 6
@@ -12716,7 +12716,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#F6F5F4'
+          - color: "#F6F5F4"
             name: default
       readonly: false
       required: false
@@ -12758,7 +12758,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#241F31'
+          - color: "#241F31"
             name: default
       readonly: false
       required: false
@@ -12840,7 +12840,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#232B79'
+          - color: "#232B79"
             name: default
       readonly: false
       required: false
@@ -12882,7 +12882,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#1A69D6'
+          - color: "#1A69D6"
             name: default
       readonly: false
       required: false
@@ -13151,7 +13151,7 @@ fields:
       conditions: null
       display: formatted-value
       display_options:
-        color: '#3399FF'
+        color: "#3399FF"
         icon: media_link
       field: link
       group: null
@@ -13393,14 +13393,14 @@ fields:
       conditions: null
       display: related-values
       display_options:
-        template: '{{name}}'
+        template: "{{name}}"
       field: commission
       group: null
       hidden: false
       interface: select-dropdown-m2o
       note: null
       options:
-        template: '{{name}}'
+        template: "{{name}}"
       readonly: false
       required: false
       sort: 5
@@ -13475,7 +13475,7 @@ fields:
       conditions: null
       display: translations
       display_options:
-        template: '{{title}}'
+        template: "{{title}}"
         userLanguage: true
       field: translations
       group: null
@@ -13614,7 +13614,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#18222F'
+        defaultColor: "#18222F"
       field: text_color
       group: style
       hidden: false
@@ -13622,7 +13622,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#18222F'
+          - color: "#18222F"
             name: default
       readonly: false
       required: false
@@ -13636,7 +13636,7 @@ fields:
       name: text_color
       table: std_cell
       data_type: character varying
-      default_value: '#18222F'
+      default_value: "#18222F"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -13657,7 +13657,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#EEEDEA'
+        defaultColor: "#EEEDEA"
       field: background_color
       group: style
       hidden: false
@@ -13665,7 +13665,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#EEEDEA'
+          - color: "#EEEDEA"
             name: default
       readonly: false
       required: false
@@ -13679,7 +13679,7 @@ fields:
       name: background_color
       table: std_cell
       data_type: character varying
-      default_value: '#EEEDEA'
+      default_value: "#EEEDEA"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
@@ -13700,7 +13700,7 @@ fields:
       conditions: null
       display: color
       display_options:
-        defaultColor: '#1A69D6'
+        defaultColor: "#1A69D6"
       field: button_color
       group: style
       hidden: false
@@ -13708,7 +13708,7 @@ fields:
       note: null
       options:
         presets:
-          - color: '#1A69D6'
+          - color: "#1A69D6"
             name: default
       readonly: false
       required: false
@@ -13722,7 +13722,7 @@ fields:
       name: button_color
       table: std_cell
       data_type: character varying
-      default_value: '#1A69D6'
+      default_value: "#1A69D6"
       max_length: 255
       numeric_precision: null
       numeric_scale: null
