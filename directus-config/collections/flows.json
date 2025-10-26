@@ -40,6 +40,26 @@
     "trigger": "operation"
   },
   {
+    "_syncId": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "accountability": "all",
+    "color": null,
+    "description": "Sends a confirmation email, potentially with QR-facture if the event is paid.",
+    "icon": "bolt",
+    "name": "[OTHER] Send confirmation email",
+    "operation": "0180bcf8-0bd5-407a-becc-409d138b677f",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
     "_syncId": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
     "accountability": "all",
     "color": null,
@@ -139,6 +159,26 @@
       "scope": [
         "items.update",
         "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "accountability": "all",
+    "color": null,
+    "description": "Sends a validation email with the ticket to an event",
+    "icon": "bolt",
+    "name": "[OTHER] Send validation email",
+    "operation": "4f7ad4ef-5995-41f5-ac25-cc5b30f75e52",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update"
       ],
       "type": "action"
     },

@@ -1,26 +1,5 @@
 [
   {
-    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activities",
-    "name": "Activities",
-    "options": {
-      "collection": "icbd_activities",
-      "query": {
-        "filter": {
-          "id": {
-            "_in": "{{$last}}"
-          }
-        }
-      }
-    },
-    "position_x": 21,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
-    "type": "item-read"
-  },
-  {
     "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "activities",
@@ -40,6 +19,27 @@
     "position_y": 1,
     "reject": null,
     "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activities",
+    "name": "Activities",
+    "options": {
+      "collection": "icbd_activities",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
     "type": "item-read"
   },
   {
@@ -223,6 +223,26 @@
     "type": "condition"
   },
   {
+    "_syncId": "d2984908-873f-4f7e-bd44-93564a4a0271",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "condition_8vly4",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "registration": {
+          "payment": {
+            "_neq": null
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "b9bf292e-558d-4427-9295-13564000df75",
+    "type": "condition"
+  },
+  {
     "_syncId": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "condition_hw",
@@ -309,6 +329,46 @@
     "position_y": 17,
     "reject": null,
     "resolve": "bb197929-1d02-4ce6-962f-477bcdfa0872",
+    "type": "condition"
+  },
+  {
+    "_syncId": "a23d260f-4426-405a-8d9b-9611f378cdec",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "condition_vx4p9",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "other"
+          }
+        }
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "bb2ed939-f05d-4d02-bf24-7886285ce693",
+    "type": "condition"
+  },
+  {
+    "_syncId": "946f0eab-853f-499e-8fce-df865e7a1b75",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "condition_vx4p9",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "other"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "2e33f74a-6b32-4653-9e88-15d1a22a8c81",
     "type": "condition"
   },
   {
@@ -399,6 +459,23 @@
     "type": "item-read"
   },
   {
+    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{registration.event}}"
+      ]
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
+    "type": "item-read"
+  },
+  {
     "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
     "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
     "key": "event",
@@ -416,37 +493,22 @@
     "type": "item-read"
   },
   {
-    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
     "key": "event",
-    "name": "Fetch event",
+    "name": "Read Data",
     "options": {
       "collection": "events",
-      "key": [
-        "{{$trigger.event}}"
-      ]
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
+      "emitEvents": false,
       "key": [
         "{{$trigger.payload.event}}"
-      ]
+      ],
+      "permissions": "$trigger"
     },
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
+    "resolve": "946f0eab-853f-499e-8fce-df865e7a1b75",
     "type": "item-read"
   },
   {
@@ -467,20 +529,20 @@
     "type": "item-read"
   },
   {
-    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "event",
-    "name": "Event",
+    "name": "Fetch event",
     "options": {
       "collection": "events",
       "key": [
-        "{{registration.event}}"
+        "{{$trigger.event}}"
       ]
     },
-    "position_x": 55,
+    "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
+    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
     "type": "item-read"
   },
   {
@@ -502,6 +564,42 @@
     "position_y": 1,
     "reject": null,
     "resolve": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.payload.event}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "event",
+    "name": "Read Data",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{registration.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "a23d260f-4426-405a-8d9b-9611f378cdec",
     "type": "item-read"
   },
   {
@@ -537,6 +635,20 @@
     "type": "exec"
   },
   {
+    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "is_full",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
+    },
+    "position_x": 91,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
+    "type": "exec"
+  },
+  {
     "_syncId": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
     "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
     "key": "is_full",
@@ -556,20 +668,6 @@
     "reject": null,
     "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
     "type": "condition"
-  },
-  {
-    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "is_full",
-    "name": "Run Script",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "type": "exec"
   },
   {
     "_syncId": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
@@ -808,6 +906,30 @@
     "type": "mail"
   },
   {
+    "_syncId": "b9bf292e-558d-4427-9295-13564000df75",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "mail_c7fl0",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
+        "registration": "{{registration}}"
+      },
+      "subject": "Confirmation for {{event.name}}",
+      "template": "other_event_ticket",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 18,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
     "_syncId": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "mail_hlcl6",
@@ -832,24 +954,49 @@
     "type": "mail"
   },
   {
-    "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
-    "key": "mail_ofzwn",
+    "_syncId": "fde2ac99-6b62-4f63-8f8e-a0e7a5c952cd",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "mail_mj05j",
     "name": "Send Email",
     "options": {
       "data": {
+        "event": "{{event}}",
         "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}",
         "registration": "{{$trigger.payload}}"
       },
-      "subject": "Your registration to IC Faculty Dinner",
-      "template": "faculty_dinner_preregistration",
+      "subject": "Your registration to {{event.name}}",
+      "template": "other_event_confirmation",
       "to": [
         "{{$trigger.payload.email}}"
       ],
       "type": "template"
     },
-    "position_x": 55,
-    "position_y": 1,
+    "position_x": 37,
+    "position_y": 17,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
+    "_syncId": "5c2028ca-2ccf-4345-a7d0-0706f144d2c8",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "mail_mj05j_ayyyh",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Registration Confirmation for {{event.name}}",
+      "template": "other_event_ticket",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 37,
+    "position_y": 33,
     "reject": null,
     "resolve": null,
     "type": "mail"
@@ -874,6 +1021,29 @@
     "position_y": 1,
     "reject": null,
     "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
+    "type": "mail"
+  },
+  {
+    "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "key": "mail_ofzwn",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Your registration to IC Faculty Dinner",
+      "template": "faculty_dinner_preregistration",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
     "type": "mail"
   },
   {
@@ -922,6 +1092,46 @@
     "type": "exec"
   },
   {
+    "_syncId": "bb2ed939-f05d-4d02-bf24-7886285ce693",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "payment_required",
+    "name": "Payment required",
+    "options": {
+      "filter": {
+        "event": {
+          "price": {
+            "_neq": 0
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "d2984908-873f-4f7e-bd44-93564a4a0271",
+    "type": "condition"
+  },
+  {
+    "_syncId": "2e33f74a-6b32-4653-9e88-15d1a22a8c81",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "payment_required",
+    "name": "Payment required",
+    "options": {
+      "filter": {
+        "event": {
+          "price": {
+            "_neq": 0
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 17,
+    "reject": "5c2028ca-2ccf-4345-a7d0-0706f144d2c8",
+    "resolve": "fde2ac99-6b62-4f63-8f8e-a0e7a5c952cd",
+    "type": "condition"
+  },
+  {
     "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "qrcode_url",
@@ -934,23 +1144,6 @@
     "reject": null,
     "resolve": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
     "type": "exec"
-  },
-  {
-    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.key}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
-    "type": "item-read"
   },
   {
     "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
@@ -968,6 +1161,42 @@
     "position_y": 1,
     "reject": null,
     "resolve": "d037ab01-e936-4477-9895-c644060ce49c",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4f7ad4ef-5995-41f5-ac25-cc5b30f75e52",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
     "type": "item-read"
   },
   {
@@ -1006,20 +1235,20 @@
     "type": "item-read"
   },
   {
-    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "registration",
     "name": "Registration",
     "options": {
       "collection": "registrations",
       "key": [
-        "{{$trigger.keys[0]}}"
+        "{{$trigger.key}}"
       ]
     },
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
+    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
     "type": "item-read"
   },
   {
