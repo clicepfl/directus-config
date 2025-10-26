@@ -3,6 +3,17 @@
 <body style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs">
     <table
         style="min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;">
+        {%if event.banner%}
+        <tr>
+            <td>
+                <center>
+                    <img style="width: 15rem; margin: 1rem;"
+                        src="https://clic.epfl.ch/directus/assets/{{event.banner}}"
+                        alt="{{event.name}} logo">
+                </center>
+            </td>
+        </tr>
+        {%endif%}
         <tr>
             <td>
                 <center>
