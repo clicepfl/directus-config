@@ -1,5 +1,12 @@
 [
   {
+    "_syncId": "_sync_default_admin_role",
+    "description": "$t:admin_description",
+    "icon": "verified",
+    "name": "Administrator",
+    "parent": null
+  },
+  {
     "_syncId": "36fca0b8-59fe-47f1-81c2-7c12ee486912",
     "description": null,
     "icon": "supervised_user_circle",
@@ -18,13 +25,6 @@
     "description": null,
     "icon": "web",
     "name": "Website",
-    "parent": null
-  },
-  {
-    "_syncId": "_sync_default_admin_role",
-    "description": "$t:admin_description",
-    "icon": "verified",
-    "name": "Administrator",
     "parent": null
   },
   {

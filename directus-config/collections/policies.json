@@ -1,5 +1,37 @@
 [
   {
+    "_syncId": "_sync_default_admin_policy",
+    "admin_access": true,
+    "app_access": true,
+    "description": "$t:admin_policy_description",
+    "enforce_tfa": false,
+    "icon": "verified",
+    "ip_access": null,
+    "name": "Administrator",
+    "roles": [
+      {
+        "role": "_sync_default_admin_role",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "_syncId": "_sync_default_public_policy",
+    "admin_access": false,
+    "app_access": false,
+    "description": "$t:public_description",
+    "enforce_tfa": false,
+    "icon": "public",
+    "ip_access": null,
+    "name": "$t:public_label",
+    "roles": [
+      {
+        "role": null,
+        "sort": 1
+      }
+    ]
+  },
+  {
     "_syncId": "02170d6b-60c9-452a-950e-5d66309f708c",
     "admin_access": false,
     "app_access": true,
@@ -95,38 +127,6 @@
     "roles": [
       {
         "role": "36fca0b8-59fe-47f1-81c2-7c12ee486912",
-        "sort": 1
-      }
-    ]
-  },
-  {
-    "_syncId": "_sync_default_admin_policy",
-    "admin_access": true,
-    "app_access": true,
-    "description": "$t:admin_policy_description",
-    "enforce_tfa": false,
-    "icon": "verified",
-    "ip_access": null,
-    "name": "Administrator",
-    "roles": [
-      {
-        "role": "_sync_default_admin_role",
-        "sort": 1
-      }
-    ]
-  },
-  {
-    "_syncId": "_sync_default_public_policy",
-    "admin_access": false,
-    "app_access": false,
-    "description": "$t:public_description",
-    "enforce_tfa": false,
-    "icon": "public",
-    "ip_access": null,
-    "name": "$t:public_label",
-    "roles": [
-      {
-        "role": null,
         "sort": 1
       }
     ]
