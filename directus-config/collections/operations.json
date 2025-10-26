@@ -414,6 +414,113 @@
     "type": "condition"
   },
   {
+    "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "event",
+    "name": "Read Data",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.payload.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "946f0eab-853f-499e-8fce-df865e7a1b75",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "2e33f74a-6b32-4653-9e88-15d1a22a8c81",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "payment_required",
+    "name": "Payment required",
+    "options": {
+      "filter": {
+        "event": {
+          "price": {
+            "_neq": 0
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 17,
+    "reject": "5c2028ca-2ccf-4345-a7d0-0706f144d2c8",
+    "resolve": "fde2ac99-6b62-4f63-8f8e-a0e7a5c952cd",
+    "type": "condition"
+  },
+  {
+    "_syncId": "946f0eab-853f-499e-8fce-df865e7a1b75",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "condition_vx4p9",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "other"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "2e33f74a-6b32-4653-9e88-15d1a22a8c81",
+    "type": "condition"
+  },
+  {
+    "_syncId": "fde2ac99-6b62-4f63-8f8e-a0e7a5c952cd",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "mail_mj05j",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Your registration to {{event.name}}",
+      "template": "other_event_confirmation",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 37,
+    "position_y": 17,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
+    "_syncId": "5c2028ca-2ccf-4345-a7d0-0706f144d2c8",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "key": "mail_mj05j_ayyyh",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Registration Confirmation for {{event.name}}",
+      "template": "other_event_ticket",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 37,
+    "position_y": 33,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
     "_syncId": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
     "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
     "key": "item_read_alpha",
@@ -784,6 +891,128 @@
     "reject": null,
     "resolve": null,
     "type": "trigger"
+  },
+  {
+    "_syncId": "4f7ad4ef-5995-41f5-ac25-cc5b30f75e52",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "bb2ed939-f05d-4d02-bf24-7886285ce693",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "payment_required",
+    "name": "Payment required",
+    "options": {
+      "filter": {
+        "event": {
+          "price": {
+            "_neq": 0
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "d2984908-873f-4f7e-bd44-93564a4a0271",
+    "type": "condition"
+  },
+  {
+    "_syncId": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "event",
+    "name": "Read Data",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{registration.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "a23d260f-4426-405a-8d9b-9611f378cdec",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "d2984908-873f-4f7e-bd44-93564a4a0271",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "condition_8vly4",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "registration": {
+          "payment": {
+            "_neq": null
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "b9bf292e-558d-4427-9295-13564000df75",
+    "type": "condition"
+  },
+  {
+    "_syncId": "a23d260f-4426-405a-8d9b-9611f378cdec",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "condition_vx4p9",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "other"
+          }
+        }
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "bb2ed939-f05d-4d02-bf24-7886285ce693",
+    "type": "condition"
+  },
+  {
+    "_syncId": "b9bf292e-558d-4427-9295-13564000df75",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "mail_c7fl0",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
+        "registration": "{{registration}}"
+      },
+      "subject": "Confirmation for {{event.name}}",
+      "template": "other_event_ticket",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 18,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
   },
   {
     "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
