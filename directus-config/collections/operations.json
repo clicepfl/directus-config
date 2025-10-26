@@ -1,5 +1,26 @@
 [
   {
+    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activities",
+    "name": "Activities",
+    "options": {
+      "collection": "icbd_activities",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
+    "type": "item-read"
+  },
+  {
     "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "activities",
@@ -19,27 +40,6 @@
     "position_y": 1,
     "reject": null,
     "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activities",
-    "name": "Activities",
-    "options": {
-      "collection": "icbd_activities",
-      "query": {
-        "filter": {
-          "id": {
-            "_in": "{{$last}}"
-          }
-        }
-      }
-    },
-    "position_x": 21,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
     "type": "item-read"
   },
   {
@@ -382,40 +382,6 @@
     "type": "exec"
   },
   {
-    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{registration.event}}"
-      ]
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-    "key": "event",
-    "name": "Fetch event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$trigger.event}}"
-      ]
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
-    "type": "item-read"
-  },
-  {
     "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "event",
@@ -450,6 +416,23 @@
     "type": "item-read"
   },
   {
+    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "event",
+    "name": "Fetch event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.event}}"
+      ]
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
+    "type": "item-read"
+  },
+  {
     "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "event",
@@ -481,6 +464,23 @@
     "position_y": 1,
     "reject": null,
     "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{registration.event}}"
+      ]
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
     "type": "item-read"
   },
   {
@@ -832,28 +832,6 @@
     "type": "mail"
   },
   {
-    "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "mail_ofzwn",
-    "name": "Send Email",
-    "options": {
-      "data": {
-        "registration": "{{registration}}"
-      },
-      "subject": "Your registration to ICBD",
-      "template": "icbd_registration_email",
-      "to": [
-        "{{registration.email}}"
-      ],
-      "type": "template"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
-    "type": "mail"
-  },
-  {
     "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "mail_ofzwn",
@@ -874,6 +852,28 @@
     "position_y": 1,
     "reject": null,
     "resolve": null,
+    "type": "mail"
+  },
+  {
+    "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "mail_ofzwn",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "registration": "{{registration}}"
+      },
+      "subject": "Your registration to ICBD",
+      "template": "icbd_registration_email",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
     "type": "mail"
   },
   {
@@ -953,23 +953,6 @@
     "type": "item-read"
   },
   {
-    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "registration",
-    "name": "registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
-    "type": "item-read"
-  },
-  {
     "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "registration",
@@ -1006,6 +989,23 @@
     "type": "item-read"
   },
   {
+    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "registration",
+    "name": "registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
+    "type": "item-read"
+  },
+  {
     "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "registration",
@@ -1037,27 +1037,6 @@
     "type": "exec"
   },
   {
-    "_syncId": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "registrations",
-    "name": "Registrations",
-    "options": {
-      "collection": "registrations",
-      "query": {
-        "filter": {
-          "event": {
-            "_eq": "{{registration.event}}"
-          }
-        }
-      }
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "340bc06c-947d-46f2-82d0-a8862d4a3563",
-    "type": "item-read"
-  },
-  {
     "_syncId": "94fb122e-881f-49aa-96b9-025a8455cfd2",
     "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "registrations",
@@ -1076,6 +1055,27 @@
     "position_y": 1,
     "reject": null,
     "resolve": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "registrations",
+    "name": "Registrations",
+    "options": {
+      "collection": "registrations",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{registration.event}}"
+          }
+        }
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "340bc06c-947d-46f2-82d0-a8862d4a3563",
     "type": "item-read"
   },
   {
