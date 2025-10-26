@@ -1,0 +1,33 @@
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  generate-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Download difftastic
+        run: wget https://github.com/Wilfred/difftastic/releases/download/0.65.0/difft-x86_64-unknown-linux-gnu.tar.gz
+      - name: Unpack difftastic
+        run: tar -xf difft-x86_64-unknown-linux-gnu.tar.gz
+      - name: Checkout origin
+        run: |
+          git fetch origin
+          git reset origin/${{ github.base_ref }}
+      - run: |
+          git -c diff.external=$PWD/difft diff >> diff.md
+
+          sed -Ei 's/^[0-9]+ +[0-9]+/# \0/g' diff.md
+          sed -Ei 's/^\.+ +[0-9]+/+ \0/g' diff.md
+          sed -Ei 's/^[0-9]+ +\.+/- \0/g' diff.md
+          echo diff.md
+          cat diff.md
+        shell: bash
+      - uses: actions/upload-artifact@v4
+        with:
+          name: diff
+          path: diff.md
