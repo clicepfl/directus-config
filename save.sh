@@ -4,6 +4,12 @@ source $BASEDIR/utils.sh
 
 pushd $BASEDIR
 npx directus-sync pull
+
+for file in directus-config/collections/*.json; do
+	tmp=$(mktemp sorting-XXX)
+	jq 'sort_by(._syncId)' $file > $tmp
+	mv $tmp $file
+done
 popd
 
 docker exec -u root -it $(directus_container) npx -y directus-typescript-gen --email clic@epfl.ch --password 1234 -h http://127.0.0.1:8055 -o /share/schema.d.ts

@@ -1,402 +1,18 @@
 [
   {
-    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activities",
-    "name": "Activities",
+    "_syncId": "0181fca8-1365-4407-b185-72a2af57791d",
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "key": "trigger_o9drl_bjfdv",
+    "name": "Trigger Flow",
     "options": {
-      "collection": "icbd_activities",
-      "query": {
-        "filter": {
-          "id": {
-            "_in": "{{$last}}"
-          }
-        }
-      }
-    },
-    "position_x": 21,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
-    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-    "key": "activities",
-    "name": "Activities",
-    "options": {
-      "collection": "icbd_activities_registrations",
-      "permissions": "$full",
-      "query": {
-        "filter": {
-          "registration": {
-            "_eq": "{{$trigger.key}}"
-          }
-        }
-      }
+      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+      "payload": "{{$trigger.payload}}"
     },
     "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "5ab58f88-3576-46cd-b140-f83147d2b992",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activities_populated",
-    "name": "Run Script",
-    "options": {
-      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => a.timeslot.start_time.localeCompare(b.timeslot.start_time));\n};\n"
-    },
-    "position_x": 75,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "56f961af-1a93-4e6e-8905-f572a1d425d2",
-    "type": "exec"
-  },
-  {
-    "_syncId": "702df538-b576-4f29-8439-b3fed05c0f3d",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "activity",
-    "name": "activity",
-    "options": {
-      "collection": "icbd_activities",
-      "key": [
-        "{{activity_registration.icbd_activity}}"
-      ],
-      "permissions": "$full"
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "ad18cf60-d72c-46e7-96ff-d6438de43397",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activity_ids",
-    "name": "Activity ids",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activity_registrations.map(e => e.icbd_activity)\n;\n}"
-    },
-    "position_x": 3,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
-    "type": "exec"
-  },
-  {
-    "_syncId": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "activity_registration",
-    "name": "activity_registration",
-    "options": {
-      "collection": "icbd_activities_registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ],
-      "permissions": "$full"
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "702df538-b576-4f29-8439-b3fed05c0f3d",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "e651358b-6c57-408c-8729-978d0fa6eba2",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activity_registrations",
-    "name": "Activity registrations",
-    "options": {
-      "collection": "icbd_activities_registrations",
-      "query": {
-        "filter": {
-          "registration": {
-            "_eq": "{{$trigger.key}}"
-          }
-        }
-      }
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
-    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-    "key": "can_retrieve_deposit",
-    "name": "Can retrieve deposit",
-    "options": {
-      "code": "module.exports = async function(data) {\n    return data.registration.checked_in && data.activities.every(a => a.attended);\n}"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "15906506-10e0-423a-8e0c-dd70436ef520",
-    "type": "exec"
-  },
-  {
-    "_syncId": "b55ec039-ec45-444a-84fd-baa2397137eb",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "can_send",
-    "name": "Can send",
-    "options": {
-      "code": "module.exports = async function(data) {\n\treturn data.event.type === \"faculty_dinner\" && data.registration.payment !== null && !data.registration.confirmation_email_sent;\n}"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "7609746a-d71f-47ef-9509-e76a1155b2a7",
-    "type": "exec"
-  },
-  {
-    "_syncId": "73f408ff-9732-479c-92fc-efce8738a46f",
-    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
-    "key": "close",
-    "name": "close",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$event.id}}"
-      ],
-      "payload": {}
-    },
-    "position_x": 55,
-    "position_y": 1,
+    "position_y": 16,
     "reject": null,
     "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "ee33be1e-8718-4005-be5f-42cbe42b619d",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
-    "key": "condition_326ml",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "event": {
-          "type": {
-            "_eq": "faculty_dinner"
-          }
-        }
-      }
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
-    "type": "condition"
-  },
-  {
-    "_syncId": "d982822f-6346-48a6-bd90-3b701f83d3de",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "condition_6ep4e",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "_and": [
-          {
-            "is_complete": {
-              "_eq": true
-            }
-          },
-          {
-            "event": {
-              "type": {
-                "_eq": "icbd"
-              }
-            }
-          }
-        ]
-      }
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "ad18cf60-d72c-46e7-96ff-d6438de43397",
-    "type": "condition"
-  },
-  {
-    "_syncId": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
-    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
-    "key": "condition_hw",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "event": {
-          "type": {
-            "_eq": "hello_world"
-          }
-        }
-      }
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0a602f39-11f6-4418-a14a-e1605609b0c1",
-    "type": "condition"
-  },
-  {
-    "_syncId": "de952a1b-5fc7-4374-9ab8-f93504830612",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "condition_nynbu",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "_and": [
-          {
-            "registration": {
-              "registration_email_sent": {
-                "_eq": false
-              }
-            }
-          },
-          {
-            "registration": {
-              "registration_complete": {
-                "_eq": true
-              }
-            }
-          }
-        ]
-      }
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "d9769944-bcef-4271-91b0-ba19af26ca2b",
-    "type": "condition"
-  },
-  {
-    "_syncId": "7609746a-d71f-47ef-9509-e76a1155b2a7",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "condition_vgvop",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "can_send": {
-          "_eq": true
-        }
-      }
-    },
-    "position_x": 3,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
-    "type": "condition"
-  },
-  {
-    "_syncId": "275a999f-665a-4138-8784-672be28fef65",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "condition_vregu",
-    "name": "Condition",
-    "options": {
-      "filter": {
-        "event": {
-          "type": {
-            "_eq": "faculty_dinner"
-          }
-        }
-      }
-    },
-    "position_x": 21,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "bb197929-1d02-4ce6-962f-477bcdfa0872",
-    "type": "condition"
-  },
-  {
-    "_syncId": "bb197929-1d02-4ce6-962f-477bcdfa0872",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "count_meals",
-    "name": "Count meals",
-    "options": {
-      "code": "module.exports = async function(data) {\n\treturn data.event.meals.map((meal, idx) => ({...meal, count: data.registrations.filter(o => o.meal == idx).length}))\n}"
-    },
-    "position_x": 39,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "985854c2-b787-4ccd-8c94-4f822daf4a91",
-    "type": "exec"
-  },
-  {
-    "_syncId": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-    "key": "count_vjtqe",
-    "name": "Count registrations",
-    "options": {
-      "code": "module.exports = async function(data) {\n    let count = 0;\n    count += data.registrations.length;\n    \n    for(let i = 0; i < data.registrations.length; i += 1) {\n        if(data.registrations[i].plusOnes) {\n            count += data.registrations[i].plusOnes;\n        }\n    }\n    \n    return {\n        \"registration_count\": count,\n        \"opened\": data.event.opened && !(typeof data.event.max_registrations === \"number\" && data.event.max_registrations <= count),\n    };\n}"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "6228ef21-6224-4391-b51d-984365c9e790",
-    "type": "exec"
-  },
-  {
-    "_syncId": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "cv_correction",
-    "name": "CV Correction",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activities.some(a => a !== null && a.type === \"cv_correction\");\n}"
-    },
-    "position_x": 21,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
-    "type": "exec"
-  },
-  {
-    "_syncId": "571d0635-9791-4779-9bf0-43a7e0aa0589",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "cv_correction_template",
-    "name": "CV Correction Template",
-    "options": {
-      "code": "module.exports = async function(data) {\n    return data.cv_correction ? \"\\\"cv_presentation\\\"\" : null;\n}"
-    },
-    "position_x": 57,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
-    "type": "exec"
-  },
-  {
-    "_syncId": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "data",
-    "name": "Data",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data;\n}"
-    },
-    "position_x": 39,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "571d0635-9791-4779-9bf0-43a7e0aa0589",
-    "type": "exec"
-  },
-  {
-    "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{registration.event}}"
-      ]
-    },
-    "position_x": 3,
-    "position_y": 18,
-    "reject": null,
-    "resolve": "275a999f-665a-4138-8784-672be28fef65",
-    "type": "item-read"
+    "type": "trigger"
   },
   {
     "_syncId": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
@@ -433,21 +49,174 @@
     "type": "item-read"
   },
   {
-    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "event",
     "name": "Event",
     "options": {
       "collection": "events",
       "key": [
-        "{{$trigger.payload.event}}"
+        "{{registration.event}}"
       ]
     },
-    "position_x": 19,
+    "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
+    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
     "type": "item-read"
+  },
+  {
+    "_syncId": "0a602f39-11f6-4418-a14a-e1605609b0c1",
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "key": "send_email_kxure",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{$trigger.key}}&size=1024",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Registration Confirmation for Hello World",
+      "template": "hello_world_confirmation",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
+    "type": "mail"
+  },
+  {
+    "_syncId": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "count_vjtqe",
+    "name": "Count registrations",
+    "options": {
+      "code": "module.exports = async function(data) {\n    let count = 0;\n    count += data.registrations.length;\n    \n    for(let i = 0; i < data.registrations.length; i += 1) {\n        if(data.registrations[i].plusOnes) {\n            count += data.registrations[i].plusOnes;\n        }\n    }\n    \n    return {\n        \"registration_count\": count,\n        \"opened\": data.event.opened && !(typeof data.event.max_registrations === \"number\" && data.event.max_registrations <= count),\n    };\n}"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "6228ef21-6224-4391-b51d-984365c9e790",
+    "type": "exec"
+  },
+  {
+    "_syncId": "0d327e03-7edc-4210-b806-8dbdb546a366",
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "key": "trigger_o9drl",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+      "payload": "{{$last}}"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
+  },
+  {
+    "_syncId": "0ffc9ac6-005f-4131-a0af-ea2190763307",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "new_activity",
+    "name": "new_activity",
+    "options": {
+      "code": "module.exports = async function(data) {\n    copy = JSON.parse(JSON.stringify(data.activity));\n    \n    copy.timeslots.find(t => t.start_time == data.activity_registration.start).full = data.is_full;\n    \n\treturn copy;\n}"
+    },
+    "position_x": 109,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
+    "type": "exec"
+  },
+  {
+    "_syncId": "1411b62c-1d8d-4f32-b194-34c239d4d6d3",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "translations",
+    "name": "translations",
+    "options": {
+      "collection": "icbd_activities_translations",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "position_x": 57,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "5ab58f88-3576-46cd-b140-f83147d2b992",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "15906506-10e0-423a-8e0c-dd70436ef520",
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "key": "item_update_oylhg",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "payload": {
+        "can_retreive_deposit": "{{$last}}"
+      }
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "matching_registrations",
+    "name": "matching_registrations",
+    "options": {
+      "collection": "icbd_activities_registrations",
+      "permissions": "$full",
+      "query": {
+        "filter": {
+          "_and": [
+            {
+              "icbd_activity": {
+                "_eq": "{{activity.id}}"
+              }
+            },
+            {
+              "start": {
+                "_eq": "{{timeslot.start_time}}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "cv_correction",
+    "name": "CV Correction",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activities.some(a => a !== null && a.type === \"cv_correction\");\n}"
+    },
+    "position_x": 21,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
+    "type": "exec"
   },
   {
     "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
@@ -467,8 +236,124 @@
     "type": "item-read"
   },
   {
-    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "275a999f-665a-4138-8784-672be28fef65",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "condition_vregu",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_dinner"
+          }
+        }
+      }
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "bb197929-1d02-4ce6-962f-477bcdfa0872",
+    "type": "condition"
+  },
+  {
+    "_syncId": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "item_update_oz10r",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{registration.id}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      }
+    },
+    "position_x": 39,
+    "position_y": 17,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{registration_key}}"
+      ],
+      "query": null
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "key": "update_data_wwpfl",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      }
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "registration",
+    "name": "registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "registrations",
+    "name": "Registrations",
+    "options": {
+      "collection": "registrations",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{registration.event}}"
+          }
+        }
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "340bc06c-947d-46f2-82d0-a8862d4a3563",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "event",
     "name": "Event",
     "options": {
@@ -477,11 +362,445 @@
         "{{registration.event}}"
       ]
     },
+    "position_x": 3,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "275a999f-665a-4138-8784-672be28fef65",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
+    "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
+    "key": "trigger_dkauf",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
+      "iterationMode": "parallel",
+      "payload": "{{$last}}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
+  },
+  {
+    "_syncId": "3c276f44-136c-40dc-8278-116319d7ce75",
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "key": "trigger_ehyqh",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+      "payload": {
+        "key": "{{key}}"
+      }
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
+  },
+  {
+    "_syncId": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "item_update_ez8bv",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{registration.id}}"
+      ],
+      "payload": {
+        "registration_email_sent": true
+      }
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4a69daea-858b-478e-a879-f99ada596651",
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "key": "item_read_florn",
+    "name": "Read Data",
+    "options": {
+      "collection": "icbd_activities_registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4ca0de06-11bb-4bd8-a121-f94c76ef5c88",
+    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
+    "key": "condition_hw",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "hello_world"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0a602f39-11f6-4418-a14a-e1605609b0c1",
+    "type": "condition"
+  },
+  {
+    "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "qrcode_url",
+    "name": "QRCode URL",
+    "options": {
+      "code": "module.exports = async function(data) {\n    return `https://clic.epfl.ch/clicketing/api/qrcode?value=${data.registration.id}&size=1024`\n}"
+    },
+    "position_x": 3,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
+    "type": "exec"
+  },
+  {
+    "_syncId": "571d0635-9791-4779-9bf0-43a7e0aa0589",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "cv_correction_template",
+    "name": "CV Correction Template",
+    "options": {
+      "code": "module.exports = async function(data) {\n    return data.cv_correction ? \"\\\"cv_presentation\\\"\" : null;\n}"
+    },
+    "position_x": 57,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
+    "type": "exec"
+  },
+  {
+    "_syncId": "5ab58f88-3576-46cd-b140-f83147d2b992",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activities_populated",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => a.timeslot.start_time.localeCompare(b.timeslot.start_time));\n};\n"
+    },
+    "position_x": 75,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "56f961af-1a93-4e6e-8905-f572a1d425d2",
+    "type": "exec"
+  },
+  {
+    "_syncId": "6228ef21-6224-4391-b51d-984365c9e790",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "item_update_rz4iw_lnanl",
+    "name": "Update Data",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.event}}"
+      ],
+      "payload": "{{$last}}",
+      "permissions": "$full",
+      "query": null
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
+    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "key": "is_full",
+    "name": "is_full",
+    "options": {
+      "filter": {
+        "event": {
+          "max_registrations": {
+            "_gte": "{{$event.registration_count}}",
+            "_null": false
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
+    "type": "condition"
+  },
+  {
+    "_syncId": "702df538-b576-4f29-8439-b3fed05c0f3d",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "activity",
+    "name": "activity",
+    "options": {
+      "collection": "icbd_activities",
+      "key": [
+        "{{activity_registration.icbd_activity}}"
+      ],
+      "permissions": "$full"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "73f408ff-9732-479c-92fc-efce8738a46f",
+    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+    "key": "close",
+    "name": "close",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$event.id}}"
+      ],
+      "payload": {}
+    },
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "7609746a-d71f-47ef-9509-e76a1155b2a7",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "condition_vgvop",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "can_send": {
+          "_eq": true
+        }
+      }
+    },
+    "position_x": 3,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
+    "type": "condition"
+  },
+  {
+    "_syncId": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "key": "key",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data[\"$last\"].registration;\n}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
+    "type": "exec"
+  },
+  {
+    "_syncId": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "mail_hlcl6",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
+        "registration": "{{registration}}"
+      },
+      "subject": "Confirmation for IC Faculty Dinner",
+      "template": "faculty_dinner_confirmation",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
+    "type": "mail"
+  },
+  {
+    "_syncId": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "request_mbi47",
+    "name": "Webhook / Request URL",
+    "options": {
+      "body": "{\n  \"template_name\": \"icbd_confirmation\",\n  \"ics_name\": {{ cv_correction_template }},\n  \"email_address\": \"{{ registration.email }}\",\n  \"subject\": \"ICBD registration confirmation\",\n  \"parameters\": {{ data }}\n}",
+      "headers": [
+        {
+          "header": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "https://clic.epfl.ch/mail-sender/send?secret=74dc0c2810fc14a65c571bc38e3d6fe63d9a41c9"
+    },
+    "position_x": 75,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "889a4969-1f6c-43bb-b8a8-407df5626728",
+    "type": "request"
+  },
+  {
+    "_syncId": "889a4969-1f6c-43bb-b8a8-407df5626728",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "item_update_fkeir_fxbvb_prbka",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{registration.id}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      }
+    },
+    "position_x": 3,
+    "position_y": 49,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
     "type": "item-read"
+  },
+  {
+    "_syncId": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
+    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
+    "key": "trigger_rmf4o",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+      "payload": {
+        "key": "{{key}}"
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "3c276f44-136c-40dc-8278-116319d7ce75",
+    "type": "trigger"
+  },
+  {
+    "_syncId": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "is_complete",
+    "name": "Is complete",
+    "options": {
+      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null);\n}"
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "d982822f-6346-48a6-bd90-3b701f83d3de",
+    "type": "exec"
+  },
+  {
+    "_syncId": "94fb122e-881f-49aa-96b9-025a8455cfd2",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "registrations",
+    "name": "Fetch registrations",
+    "options": {
+      "collection": "registrations",
+      "query": {
+        "filter": {
+          "event": {
+            "_eq": "{{$trigger.event}}"
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "985854c2-b787-4ccd-8c94-4f822daf4a91",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "item_update_qsajm_sbmyv_pnyif",
+    "name": "Update Data",
+    "options": {
+      "collection": "events",
+      "key": [],
+      "payload": {
+        "meals": "{{count_meals}}"
+      }
+    },
+    "position_x": 57,
+    "position_y": 17,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "key": "mail_ofzwn",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Your registration to IC Faculty Dinner",
+      "template": "faculty_dinner_preregistration",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
   },
   {
     "_syncId": "9d5921b3-293c-4476-bf1e-11d926fb0570",
@@ -505,57 +824,105 @@
     "type": "item-read"
   },
   {
-    "_syncId": "d6bcbc4b-631e-4804-a01f-e15ffb179f10",
-    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
-    "key": "fetch_registration",
-    "name": "Fetch registration",
+    "_syncId": "a07ae0a2-4b49-468d-ba22-2a248b209301",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "registration_key",
+    "name": "Registration key",
     "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ],
-      "query": null
+      "code": "module.exports = async function(data) {\n\treturn data[\"$trigger\"].key || data[\"$trigger\"].keys[0];\n}"
     },
-    "position_x": 37,
+    "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "0d327e03-7edc-4210-b806-8dbdb546a366",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "is_complete",
-    "name": "Is complete",
-    "options": {
-      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null);\n}"
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "d982822f-6346-48a6-bd90-3b701f83d3de",
+    "resolve": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
     "type": "exec"
   },
   {
-    "_syncId": "6c4b9e21-34ad-4080-b4b9-7083e56656b5",
-    "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
-    "key": "is_full",
-    "name": "is_full",
+    "_syncId": "ad18cf60-d72c-46e7-96ff-d6438de43397",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activity_ids",
+    "name": "Activity ids",
     "options": {
-      "filter": {
-        "event": {
-          "max_registrations": {
-            "_gte": "{{$event.registration_count}}",
-            "_null": false
-          }
-        }
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data.activity_registrations.map(e => e.icbd_activity)\n;\n}"
+    },
+    "position_x": 3,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
+    "type": "exec"
+  },
+  {
+    "_syncId": "b00d1b9f-14b4-421a-a442-61d4b65fafb3",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "log_a9wh0",
+    "name": "Log to Console",
+    "options": {
+      "message": "{{$last}}"
+    },
+    "position_x": 91,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "log"
+  },
+  {
+    "_syncId": "b55ec039-ec45-444a-84fd-baa2397137eb",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "can_send",
+    "name": "Can send",
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.event.type === \"faculty_dinner\" && data.registration.payment !== null && !data.registration.confirmation_email_sent;\n}"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "7609746a-d71f-47ef-9509-e76a1155b2a7",
+    "type": "exec"
+  },
+  {
+    "_syncId": "b582d00d-1ff3-4423-a77d-162b03b3a743",
+    "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
+    "key": "trigger_90arx",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+      "payload": {
+        "key": "{{$trigger.keys[0]}}"
       }
     },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
-    "type": "condition"
+    "resolve": null,
+    "type": "trigger"
+  },
+  {
+    "_syncId": "bb197929-1d02-4ce6-962f-477bcdfa0872",
+    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
+    "key": "count_meals",
+    "name": "Count meals",
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.event.meals.map((meal, idx) => ({...meal, count: data.registrations.filter(o => o.meal == idx).length}))\n}"
+    },
+    "position_x": 39,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "985854c2-b787-4ccd-8c94-4f822daf4a91",
+    "type": "exec"
+  },
+  {
+    "_syncId": "be2e40ba-8697-402a-bbf7-0b15cbb4db61",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "data",
+    "name": "Data",
+    "options": {
+      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn data;\n}"
+    },
+    "position_x": 39,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "571d0635-9791-4779-9bf0-43a7e0aa0589",
+    "type": "exec"
   },
   {
     "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
@@ -592,267 +959,111 @@
     "type": "condition"
   },
   {
-    "_syncId": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
-    "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
-    "key": "item_read_alpha",
-    "name": "Read Data",
-    "options": {
-      "collection": "registrations",
-      "emitEvents": false,
-      "key": "{{$trigger.body.keys}}",
-      "permissions": "$trigger"
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "4a69daea-858b-478e-a879-f99ada596651",
-    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
-    "key": "item_read_florn",
-    "name": "Read Data",
-    "options": {
-      "collection": "icbd_activities_registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "item_update_ez8bv",
-    "name": "Update Data",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{registration.id}}"
-      ],
-      "payload": {
-        "registration_email_sent": true
-      }
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "889a4969-1f6c-43bb-b8a8-407df5626728",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "item_update_fkeir_fxbvb_prbka",
-    "name": "Update Data",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{registration.id}}"
-      ],
-      "payload": {
-        "confirmation_email_sent": true
-      }
-    },
-    "position_x": 3,
-    "position_y": 49,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "15906506-10e0-423a-8e0c-dd70436ef520",
+    "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-    "key": "item_update_oylhg",
-    "name": "Update Data",
+    "key": "registration",
+    "name": "Registration",
     "options": {
       "collection": "registrations",
       "key": [
         "{{$trigger.key}}"
       ],
-      "payload": {
-        "can_retreive_deposit": "{{$last}}"
-      }
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "item_update_oz10r",
-    "name": "Update Data",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{registration.id}}"
-      ],
-      "payload": {
-        "confirmation_email_sent": true
-      }
-    },
-    "position_x": 39,
-    "position_y": 17,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "985854c2-b787-4ccd-8c94-4f822daf4a91",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "item_update_qsajm_sbmyv_pnyif",
-    "name": "Update Data",
-    "options": {
-      "collection": "events",
-      "key": [],
-      "payload": {
-        "meals": "{{count_meals}}"
-      }
-    },
-    "position_x": 57,
-    "position_y": 17,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "6228ef21-6224-4391-b51d-984365c9e790",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-    "key": "item_update_rz4iw_lnanl",
-    "name": "Update Data",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$trigger.event}}"
-      ],
-      "payload": "{{$last}}",
-      "permissions": "$full",
-      "query": null
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "item_update_wrcj6",
-    "name": "Update Data",
-    "options": {
-      "collection": "icbd_activities",
-      "key": [
-        "{{activity.id}}"
-      ],
-      "payload": "{{new_activity}}",
-      "permissions": "$full"
-    },
-    "position_x": 127,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
-  },
-  {
-    "_syncId": "7b15317e-2bb4-400a-9ffb-5a56f876425d",
-    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
-    "key": "key",
-    "name": "Run Script",
-    "options": {
-      "code": "module.exports = async function(data) {\n\treturn data[\"$last\"].registration;\n}"
-    },
-    "position_x": 37,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
-    "type": "exec"
-  },
-  {
-    "_syncId": "b00d1b9f-14b4-421a-a442-61d4b65fafb3",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "log_a9wh0",
-    "name": "Log to Console",
-    "options": {
-      "message": "{{$last}}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "log"
-  },
-  {
-    "_syncId": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
-    "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
-    "key": "mail_1ur86",
-    "name": "Send Email",
-    "options": {
-      "body": "<html>\n\n<body style=\"font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs\">\n    <table\n        style=\"min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;\">\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 20rem; margin: 1rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/a2dea31b-4a53-4758-92f8-3845adc94112\"\n                        alt=\"hello world logo\">\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n\n                    <table\n                        style=\"background-color: white; width: 600px; padding: 1rem; border-radius: 0.5rem; box-shadow: 5px 5px 20px rgb(191, 191, 191);\">\n                        <tr>\n                            <td>\n                                <p style=\"color: gray; font-style: italic;\">Hi {{$trigger.first_name}},</p>\n                                <p>A friendly reminder that Hello World, our first event of the semester, is tomorrow (16th September)!</p>\n\n                                <p>Come at 6pm in the BC Hall with your team \"{{$trigger.team}}\" and your QR codes… and don’t forget to have fun!</p>\n                                <hr style=\"color: lightgray;\">\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center>\n                                    <p style=\"color: gray; font-style: italic;\">See you there, </p>\n                                    <p style=\"color: gray; font-style: italic;\">CLIC</p>\n                                </center>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center style=\"background: #7c0e9f; border-radius: 0.375rem;\">\n                                    <p style=\"padding-top:1rem; color: white;\">Follow us on our socials</p><a\n                                        href=\"https://t.me/clicepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/e2b444de-87a9-438b-b75e-a6864ba925b2?width=1920\"\n                                            alt=\"Telegram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://www.instagram.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/64785955-9d77-42d3-9046-a0f998fabd26?width=1920\"\n                                            alt=\"Instagram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://twitter.com/CLICepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/ef28026f-965c-4f1f-b7a9-eaafea804a07?width=1920\"\n                                            alt=\"X\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://github.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/f6cb71fa-e038-4629-b54e-d2fb40fe9666?width=1920\"\n                                            alt=\"Github\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"mailto:clic@epfl.ch\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/b8650fa0-061f-427f-a4a0-97febb99c103?width=1920\"\n                                            alt=\"Mail CLIC\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a>\n                                </center>\n                            </td>\n                        </tr>\n                    </table>\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 10rem; margin: 2rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/f5e0bd00-3f25-4d01-be19-4a7e17c66560\" alt=\"clic logo\">\n                </center>\n            </td>\n        </tr>\n    </table>\n</body>\n\n</html>",
-      "subject": "CLIC Reminder: Hello World",
-      "to": "{{$trigger.email}}",
-      "type": "wysiwyg"
+      "permissions": ""
     },
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
-    "type": "mail"
+    "resolve": "d037ab01-e936-4477-9895-c644060ce49c",
+    "type": "item-read"
   },
   {
-    "_syncId": "83f22ec4-da67-464c-ad67-1f4e1aa096f7",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "mail_hlcl6",
-    "name": "Send Email",
+    "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "key": "activities",
+    "name": "Activities",
     "options": {
-      "data": {
-        "event": "{{event}}",
-        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{registration.id}}&size=1024",
-        "registration": "{{registration}}"
-      },
-      "subject": "Confirmation for IC Faculty Dinner",
-      "template": "faculty_dinner_confirmation",
-      "to": [
-        "{{registration.email}}"
-      ],
-      "type": "template"
+      "collection": "icbd_activities_registrations",
+      "permissions": "$full",
+      "query": {
+        "filter": {
+          "registration": {
+            "_eq": "{{$trigger.key}}"
+          }
+        }
+      }
     },
-    "position_x": 21,
-    "position_y": 17,
+    "position_x": 37,
+    "position_y": 1,
     "reject": null,
-    "resolve": "2877c761-ca70-4ed5-b6f9-84c3a1cf4695",
-    "type": "mail"
+    "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
+    "type": "item-read"
   },
   {
-    "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
-    "key": "mail_ofzwn",
-    "name": "Send Email",
+    "_syncId": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
+    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
+    "key": "can_retrieve_deposit",
+    "name": "Can retrieve deposit",
     "options": {
-      "data": {
-        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.key}}",
-        "registration": "{{$trigger.payload}}"
-      },
-      "subject": "Your registration to IC Faculty Dinner",
-      "template": "faculty_dinner_preregistration",
-      "to": [
-        "{{$trigger.payload.email}}"
-      ],
-      "type": "template"
+      "code": "module.exports = async function(data) {\n    return data.registration.checked_in && data.activities.every(a => a.attended);\n}"
     },
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
-    "type": "mail"
+    "resolve": "15906506-10e0-423a-8e0c-dd70436ef520",
+    "type": "exec"
+  },
+  {
+    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activities",
+    "name": "Activities",
+    "options": {
+      "collection": "icbd_activities",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "d6bcbc4b-631e-4804-a01f-e15ffb179f10",
+    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
+    "key": "fetch_registration",
+    "name": "Fetch registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "query": null
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0d327e03-7edc-4210-b806-8dbdb546a366",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "timeslot",
+    "name": "timeslot",
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.find(t => t.start_time == data.activity_registration.start);\n}"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
+    "type": "exec"
   },
   {
     "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
@@ -877,286 +1088,117 @@
     "type": "mail"
   },
   {
-    "_syncId": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "matching_registrations",
-    "name": "matching_registrations",
+    "_syncId": "d982822f-6346-48a6-bd90-3b701f83d3de",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "condition_6ep4e",
+    "name": "Condition",
     "options": {
-      "collection": "icbd_activities_registrations",
-      "permissions": "$full",
-      "query": {
-        "filter": {
-          "_and": [
-            {
-              "icbd_activity": {
-                "_eq": "{{activity.id}}"
-              }
-            },
-            {
-              "start": {
-                "_eq": "{{timeslot.start_time}}"
+      "filter": {
+        "_and": [
+          {
+            "is_complete": {
+              "_eq": true
+            }
+          },
+          {
+            "event": {
+              "type": {
+                "_eq": "icbd"
               }
             }
-          ]
-        }
+          }
+        ]
       }
     },
-    "position_x": 73,
+    "position_x": 91,
     "position_y": 1,
     "reject": null,
-    "resolve": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
-    "type": "item-read"
+    "resolve": "ad18cf60-d72c-46e7-96ff-d6438de43397",
+    "type": "condition"
   },
   {
-    "_syncId": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "new_activity",
-    "name": "new_activity",
+    "_syncId": "de952a1b-5fc7-4374-9ab8-f93504830612",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "condition_nynbu",
+    "name": "Condition",
     "options": {
-      "code": "module.exports = async function(data) {\n    copy = JSON.parse(JSON.stringify(data.activity));\n    \n    copy.timeslots.find(t => t.start_time == data.activity_registration.start).full = data.is_full;\n    \n\treturn copy;\n}"
-    },
-    "position_x": 109,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
-    "type": "exec"
-  },
-  {
-    "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "qrcode_url",
-    "name": "QRCode URL",
-    "options": {
-      "code": "module.exports = async function(data) {\n    return `https://clic.epfl.ch/clicketing/api/qrcode?value=${data.registration.id}&size=1024`\n}"
-    },
-    "position_x": 3,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
-    "type": "exec"
-  },
-  {
-    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.key}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
-    "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.key}}"
-      ],
-      "permissions": ""
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "d037ab01-e936-4477-9895-c644060ce49c",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{registration_key}}"
-      ],
-      "query": null
+      "filter": {
+        "_and": [
+          {
+            "registration": {
+              "registration_email_sent": {
+                "_eq": false
+              }
+            }
+          },
+          {
+            "registration": {
+              "registration_complete": {
+                "_eq": true
+              }
+            }
+          }
+        ]
+      }
     },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
-    "type": "item-read"
+    "resolve": "d9769944-bcef-4271-91b0-ba19af26ca2b",
+    "type": "condition"
   },
   {
-    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "registration",
-    "name": "registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "a07ae0a2-4b49-468d-ba22-2a248b209301",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "registration_key",
-    "name": "Registration key",
-    "options": {
-      "code": "module.exports = async function(data) {\n\treturn data[\"$trigger\"].key || data[\"$trigger\"].keys[0];\n}"
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "2936b8f7-a46f-4392-afd0-3d9974f4ad2d",
-    "type": "exec"
-  },
-  {
-    "_syncId": "94fb122e-881f-49aa-96b9-025a8455cfd2",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-    "key": "registrations",
-    "name": "Fetch registrations",
-    "options": {
-      "collection": "registrations",
-      "query": {
-        "filter": {
-          "event": {
-            "_eq": "{{$trigger.event}}"
-          }
-        }
-      }
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "33ad2b75-22bb-4cd4-9bcf-7d4885fb4955",
-    "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
-    "key": "registrations",
-    "name": "Registrations",
-    "options": {
-      "collection": "registrations",
-      "query": {
-        "filter": {
-          "event": {
-            "_eq": "{{registration.event}}"
-          }
-        }
-      }
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "340bc06c-947d-46f2-82d0-a8862d4a3563",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "87ee3581-9acd-4f5a-9757-8104c9b5afed",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "request_mbi47",
-    "name": "Webhook / Request URL",
-    "options": {
-      "body": "{\n  \"template_name\": \"icbd_confirmation\",\n  \"ics_name\": {{ cv_correction_template }},\n  \"email_address\": \"{{ registration.email }}\",\n  \"subject\": \"ICBD registration confirmation\",\n  \"parameters\": {{ data }}\n}",
-      "headers": [
-        {
-          "header": "Content-Type",
-          "value": "application/json"
-        }
-      ],
-      "method": "POST",
-      "url": "https://clic.epfl.ch/mail-sender/send?secret=74dc0c2810fc14a65c571bc38e3d6fe63d9a41c9"
-    },
-    "position_x": 75,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "889a4969-1f6c-43bb-b8a8-407df5626728",
-    "type": "request"
-  },
-  {
-    "_syncId": "0a602f39-11f6-4418-a14a-e1605609b0c1",
-    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
-    "key": "send_email_kxure",
+    "_syncId": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
+    "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
+    "key": "mail_1ur86",
     "name": "Send Email",
     "options": {
-      "data": {
-        "event": "{{event}}",
-        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{$trigger.key}}&size=1024",
-        "registration": "{{$trigger.payload}}"
-      },
-      "subject": "Registration Confirmation for Hello World",
-      "template": "hello_world_confirmation",
-      "to": [
-        "{{$trigger.payload.email}}"
-      ],
-      "type": "template"
+      "body": "<html>\n\n<body style=\"font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs\">\n    <table\n        style=\"min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;\">\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 20rem; margin: 1rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/a2dea31b-4a53-4758-92f8-3845adc94112\"\n                        alt=\"hello world logo\">\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n\n                    <table\n                        style=\"background-color: white; width: 600px; padding: 1rem; border-radius: 0.5rem; box-shadow: 5px 5px 20px rgb(191, 191, 191);\">\n                        <tr>\n                            <td>\n                                <p style=\"color: gray; font-style: italic;\">Hi {{$trigger.first_name}},</p>\n                                <p>A friendly reminder that Hello World, our first event of the semester, is tomorrow (16th September)!</p>\n\n                                <p>Come at 6pm in the BC Hall with your team \"{{$trigger.team}}\" and your QR codes… and don’t forget to have fun!</p>\n                                <hr style=\"color: lightgray;\">\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center>\n                                    <p style=\"color: gray; font-style: italic;\">See you there, </p>\n                                    <p style=\"color: gray; font-style: italic;\">CLIC</p>\n                                </center>\n                            </td>\n                        </tr>\n                        <tr>\n                            <td>\n                                <center style=\"background: #7c0e9f; border-radius: 0.375rem;\">\n                                    <p style=\"padding-top:1rem; color: white;\">Follow us on our socials</p><a\n                                        href=\"https://t.me/clicepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/e2b444de-87a9-438b-b75e-a6864ba925b2?width=1920\"\n                                            alt=\"Telegram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://www.instagram.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/64785955-9d77-42d3-9046-a0f998fabd26?width=1920\"\n                                            alt=\"Instagram\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://twitter.com/CLICepfl\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/ef28026f-965c-4f1f-b7a9-eaafea804a07?width=1920\"\n                                            alt=\"X\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"https://github.com/clicepfl/\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/f6cb71fa-e038-4629-b54e-d2fb40fe9666?width=1920\"\n                                            alt=\"Github\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a><a\n                                        href=\"mailto:clic@epfl.ch\"><img\n                                            src=\"https://clic.epfl.ch/directus/assets/b8650fa0-061f-427f-a4a0-97febb99c103?width=1920\"\n                                            alt=\"Mail CLIC\" style=\"height:2rem;margin:0 0.5rem 1rem 0.5rem\"></a>\n                                </center>\n                            </td>\n                        </tr>\n                    </table>\n                </center>\n            </td>\n        </tr>\n        <tr>\n            <td>\n                <center>\n                    <img style=\"width: 10rem; margin: 2rem;\"\n                        src=\"https://clic.epfl.ch/directus/assets/f5e0bd00-3f25-4d01-be19-4a7e17c66560\" alt=\"clic logo\">\n                </center>\n            </td>\n        </tr>\n    </table>\n</body>\n\n</html>",
+      "subject": "CLIC Reminder: Hello World",
+      "to": "{{$trigger.email}}",
+      "type": "wysiwyg"
     },
-    "position_x": 55,
+    "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
+    "resolve": null,
     "type": "mail"
   },
   {
-    "_syncId": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
+    "_syncId": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "timeslot",
-    "name": "timeslot",
+    "key": "item_update_wrcj6",
+    "name": "Update Data",
     "options": {
-      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.find(t => t.start_time == data.activity_registration.start);\n}"
+      "collection": "icbd_activities",
+      "key": [
+        "{{activity.id}}"
+      ],
+      "payload": "{{new_activity}}",
+      "permissions": "$full"
     },
-    "position_x": 55,
+    "position_x": 127,
     "position_y": 1,
     "reject": null,
-    "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
-    "type": "exec"
+    "resolve": null,
+    "type": "item-update"
   },
   {
-    "_syncId": "1411b62c-1d8d-4f32-b194-34c239d4d6d3",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "translations",
-    "name": "translations",
+    "_syncId": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
+    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
+    "key": "activity_registration",
+    "name": "activity_registration",
     "options": {
-      "collection": "icbd_activities_translations",
-      "query": {
-        "filter": {
-          "id": {
-            "_in": "{{$last}}"
-          }
-        }
-      }
+      "collection": "icbd_activities_registrations",
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "permissions": "$full"
     },
-    "position_x": 57,
-    "position_y": 17,
+    "position_x": 19,
+    "position_y": 1,
     "reject": null,
-    "resolve": "5ab58f88-3576-46cd-b140-f83147d2b992",
+    "resolve": "702df538-b576-4f29-8439-b3fed05c0f3d",
     "type": "item-read"
   },
   {
@@ -1174,54 +1216,79 @@
     "type": "exec"
   },
   {
-    "_syncId": "b582d00d-1ff3-4423-a77d-162b03b3a743",
-    "flow": "ad0d9b41-7409-414d-aa77-1baf45565dbd",
-    "key": "trigger_90arx",
-    "name": "Trigger Flow",
+    "_syncId": "e651358b-6c57-408c-8729-978d0fa6eba2",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activity_registrations",
+    "name": "Activity registrations",
     "options": {
-      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-      "payload": {
-        "key": "{{$trigger.keys[0]}}"
+      "collection": "icbd_activities_registrations",
+      "query": {
+        "filter": {
+          "registration": {
+            "_eq": "{{$trigger.key}}"
+          }
+        }
       }
     },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
-    "type": "trigger"
+    "resolve": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
+    "type": "item-read"
   },
   {
-    "_syncId": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
+    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{$trigger.payload.event}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "ee33be1e-8718-4005-be5f-42cbe42b619d",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
+    "key": "condition_326ml",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_dinner"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
+    "type": "condition"
+  },
+  {
+    "_syncId": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
     "flow": "4df2cfc1-5a97-45b8-a7ca-ef4e31a4d293",
-    "key": "trigger_dkauf",
-    "name": "Trigger Flow",
+    "key": "item_read_alpha",
+    "name": "Read Data",
     "options": {
-      "flow": "7c2abbef-afe1-425f-a08c-3013e360c95d",
-      "iterationMode": "parallel",
-      "payload": "{{$last}}"
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": "{{$trigger.body.keys}}",
+      "permissions": "$trigger"
     },
-    "position_x": 37,
+    "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
-    "type": "trigger"
-  },
-  {
-    "_syncId": "3c276f44-136c-40dc-8278-116319d7ce75",
-    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
-    "key": "trigger_ehyqh",
-    "name": "Trigger Flow",
-    "options": {
-      "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
-      "payload": {
-        "key": "{{key}}"
-      }
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "trigger"
+    "resolve": "393f4762-6950-4f91-bbcb-ab5fa1b13159",
+    "type": "item-read"
   },
   {
     "_syncId": "fef5f568-8096-4f6e-b22a-466609fab749",
@@ -1239,72 +1306,5 @@
     "reject": null,
     "resolve": "b582d00d-1ff3-4423-a77d-162b03b3a743",
     "type": "trigger"
-  },
-  {
-    "_syncId": "0d327e03-7edc-4210-b806-8dbdb546a366",
-    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
-    "key": "trigger_o9drl",
-    "name": "Trigger Flow",
-    "options": {
-      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-      "payload": "{{$last}}"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "trigger"
-  },
-  {
-    "_syncId": "0181fca8-1365-4407-b185-72a2af57791d",
-    "flow": "93c8399e-f2b9-4808-9904-e01dac447ef8",
-    "key": "trigger_o9drl_bjfdv",
-    "name": "Trigger Flow",
-    "options": {
-      "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
-      "payload": "{{$trigger.payload}}"
-    },
-    "position_x": 37,
-    "position_y": 16,
-    "reject": null,
-    "resolve": null,
-    "type": "trigger"
-  },
-  {
-    "_syncId": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
-    "flow": "a9a5e703-de12-4e18-9e71-987bd759ab88",
-    "key": "trigger_rmf4o",
-    "name": "Trigger Flow",
-    "options": {
-      "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-      "payload": {
-        "key": "{{key}}"
-      }
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "3c276f44-136c-40dc-8278-116319d7ce75",
-    "type": "trigger"
-  },
-  {
-    "_syncId": "2a6b54fd-c404-4b7d-a6d6-d28ac88ac601",
-    "flow": "9a85d36a-6cde-4a6a-8b35-dbe798226592",
-    "key": "update_data_wwpfl",
-    "name": "Update Data",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.key}}"
-      ],
-      "payload": {
-        "confirmation_email_sent": true
-      }
-    },
-    "position_x": 73,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "item-update"
   }
 ]
