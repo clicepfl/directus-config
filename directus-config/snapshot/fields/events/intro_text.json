@@ -1,35 +1,31 @@
 {
   "collection": "events",
-  "field": "banner",
+  "field": "intro_text",
   "meta": {
     "collection": "events",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "banner",
+    "field": "intro_text",
     "group": null,
     "hidden": false,
-    "interface": "file-image",
-    "note": null,
-    "options": {
-      "crop": false
-    },
+    "interface": "input-rich-text-md",
+    "note": "Appears at the top of the form",
+    "options": null,
     "readonly": false,
-    "required": false,
-    "sort": 15,
-    "special": [
-      "file"
-    ],
+    "required": true,
+    "sort": 12,
+    "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
-    "data_type": "uuid",
+    "data_type": "text",
     "default_value": null,
-    "foreign_key_column": "id",
-    "foreign_key_table": "directus_files",
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -38,10 +34,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "banner",
+    "name": "intro_text",
     "numeric_precision": null,
     "numeric_scale": null,
     "table": "events"
   },
-  "type": "uuid"
+  "type": "text"
 }

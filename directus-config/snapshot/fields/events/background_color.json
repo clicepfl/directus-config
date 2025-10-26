@@ -1,35 +1,33 @@
 {
   "collection": "events",
-  "field": "banner",
+  "field": "background_color",
   "meta": {
     "collection": "events",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "banner",
+    "field": "background_color",
     "group": null,
     "hidden": false,
-    "interface": "file-image",
+    "interface": "select-color",
     "note": null,
     "options": {
-      "crop": false
+      "presets": null
     },
     "readonly": false,
     "required": false,
-    "sort": 15,
-    "special": [
-      "file"
-    ],
+    "sort": 14,
+    "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
-    "data_type": "uuid",
-    "default_value": null,
-    "foreign_key_column": "id",
-    "foreign_key_table": "directus_files",
+    "data_type": "character varying",
+    "default_value": "#7A0C9F",
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -37,11 +35,11 @@
     "is_nullable": true,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": null,
-    "name": "banner",
+    "max_length": 255,
+    "name": "background_color",
     "numeric_precision": null,
     "numeric_scale": null,
     "table": "events"
   },
-  "type": "uuid"
+  "type": "string"
 }
