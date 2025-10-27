@@ -3,6 +3,17 @@
 <body style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs">
     <table
         style="min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;">
+        {%if event.banner%}
+        <tr>
+            <td>
+                <center>
+                    <img style="width: 15rem; margin: 1rem;"
+                        src="https://clic.epfl.ch/directus/assets/{{event.banner}}"
+                        alt="{{event.name}} logo">
+                </center>
+            </td>
+        </tr>
+        {%endif%}
         <tr>
             <td>
                 <center>
@@ -14,6 +25,7 @@
                                 <p style="color: gray; font-style: italic;">Hi {{ registration.first_name }},</p>
                                 <center>
                                     <h1>Thank you for registering for {{ event.name }} </h1>
+                                    <p>⚠️ In order to get your headset the day of the event you will have to bring an ID card with you and leave it at the entrance</p>
                                 </center>
                             </td>
                         </tr>
@@ -25,11 +37,6 @@
                                     alt="qr code">
                             </td>
                             <a href="{{ qrcode_url }}">--&gt; Click here if it does not render properly. &lt;--</a>
-                        </tr>
-                        <tr>
-                            <td>
-                                Please bring an ID card as a deposit for the headsets!
-                            </td>
                         </tr>
                         <tr>
                             <td>
