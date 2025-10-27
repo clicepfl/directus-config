@@ -19159,10 +19159,12 @@ export interface operations {
 export type Schema = {
   directus_sync_id_map: components["schemas"]["ItemsDirectusSyncIDMap"][];
   game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
+  ICBD: components["schemas"]["ItemsIcbd"][];
   ICBD_files: components["schemas"]["ItemsIcbdFiles"][];
   ICBD_translations: components["schemas"]["ItemsIcbdTranslations"][];
   languages: components["schemas"]["ItemsLanguages"][];
   artists: components["schemas"]["ItemsArtists"][];
+  association: components["schemas"]["ItemsAssociation"];
   association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
@@ -19187,6 +19189,7 @@ export type Schema = {
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
   game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
   game_star_translations: components["schemas"]["ItemsGameStarTranslations"][];
+  game_star: components["schemas"]["ItemsGameStar"][];
   icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
   icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
   icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
@@ -19201,9 +19204,11 @@ export type Schema = {
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
+  save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
+  subsonic: components["schemas"]["ItemsSubsonic"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
   events: components["schemas"]["ItemsEvents"][];
 };
