@@ -4460,6 +4460,7 @@ export interface components {
       recurrence?: string | null;
       text_color?: string | null;
       url?: string | null;
+      sort_order?: number | null;
       translations?:
         | (number | components["schemas"]["ItemsStdCellTranslations"])[]
         | null;
