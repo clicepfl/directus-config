@@ -3,6 +3,7 @@
  * Do not make direct changes to the file.
  */
 
+
 export interface paths {
   "/assets/{id}": {
     /**
@@ -842,45 +843,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsDirectusSyncIDMap"];
   };
-  "/items/icbd": {
-    /**
-     * List Items
-     * @description List the icbd items.
-     */
-    get: operations["readItemsIcbd"];
-    /**
-     * Create an Item
-     * @description Create a new icbd item.
-     */
-    post: operations["createItemsIcbd"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd items.
-     */
-    delete: operations["deleteItemsIcbd"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd items at the same time.
-     */
-    patch: operations["updateItemsIcbd"];
-  };
-  "/items/icbd/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbd"];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd item.
-     */
-    delete: operations["deleteSingleItemsIcbd"];
-    /**
-     * Update an Item
-     * @description Update an existing icbd item.
-     */
-    patch: operations["updateSingleItemsIcbd"];
-  };
   "/items/icbd_files": {
     /**
      * List Items
@@ -959,45 +921,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsIcbdTranslations"];
   };
-  "/items/icbd_activities": {
-    /**
-     * List Items
-     * @description List the icbd_activities items.
-     */
-    get: operations["readItemsIcbdActivities"];
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities item.
-     */
-    post: operations["createItemsIcbdActivities"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities items.
-     */
-    delete: operations["deleteItemsIcbdActivities"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities items at the same time.
-     */
-    patch: operations["updateItemsIcbdActivities"];
-  };
-  "/items/icbd_activities/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbdActivities"];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities item.
-     */
-    delete: operations["deleteSingleItemsIcbdActivities"];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities item.
-     */
-    patch: operations["updateSingleItemsIcbdActivities"];
-  };
   "/items/icbd_activities_icbd_speakers": {
     /**
      * List Items
@@ -1036,45 +959,6 @@ export interface paths {
      * @description Update an existing icbd_activities_icbd_speakers item.
      */
     patch: operations["updateSingleItemsIcbdActivitiesIcbdSpeakers"];
-  };
-  "/items/icbd_speakers": {
-    /**
-     * List Items
-     * @description List the icbd_speakers items.
-     */
-    get: operations["readItemsIcbdSpeakers"];
-    /**
-     * Create an Item
-     * @description Create a new icbd_speakers item.
-     */
-    post: operations["createItemsIcbdSpeakers"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_speakers items.
-     */
-    delete: operations["deleteItemsIcbdSpeakers"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_speakers items at the same time.
-     */
-    patch: operations["updateItemsIcbdSpeakers"];
-  };
-  "/items/icbd_speakers/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_speakers item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbdSpeakers"];
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_speakers item.
-     */
-    delete: operations["deleteSingleItemsIcbdSpeakers"];
-    /**
-     * Update an Item
-     * @description Update an existing icbd_speakers item.
-     */
-    patch: operations["updateSingleItemsIcbdSpeakers"];
   };
   "/items/icbd_activities_translations": {
     /**
@@ -1115,6 +999,84 @@ export interface paths {
      */
     patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
   };
+  "/items/icbd": {
+    /**
+     * List Items
+     * @description List the icbd items.
+     */
+    get: operations["readItemsIcbd"];
+    /**
+     * Create an Item
+     * @description Create a new icbd item.
+     */
+    post: operations["createItemsIcbd"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd items.
+     */
+    delete: operations["deleteItemsIcbd"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd items at the same time.
+     */
+    patch: operations["updateItemsIcbd"];
+  };
+  "/items/icbd/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbd"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd item.
+     */
+    delete: operations["deleteSingleItemsIcbd"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd item.
+     */
+    patch: operations["updateSingleItemsIcbd"];
+  };
+  "/items/icbd_speakers": {
+    /**
+     * List Items
+     * @description List the icbd_speakers items.
+     */
+    get: operations["readItemsIcbdSpeakers"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_speakers item.
+     */
+    post: operations["createItemsIcbdSpeakers"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_speakers items.
+     */
+    delete: operations["deleteItemsIcbdSpeakers"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_speakers items at the same time.
+     */
+    patch: operations["updateItemsIcbdSpeakers"];
+  };
+  "/items/icbd_speakers/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_speakers item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdSpeakers"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_speakers item.
+     */
+    delete: operations["deleteSingleItemsIcbdSpeakers"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_speakers item.
+     */
+    patch: operations["updateSingleItemsIcbdSpeakers"];
+  };
   "/items/icbd_phds": {
     /**
      * List Items
@@ -1153,6 +1115,45 @@ export interface paths {
      * @description Update an existing icbd_phds item.
      */
     patch: operations["updateSingleItemsIcbdPhds"];
+  };
+  "/items/icbd_activities": {
+    /**
+     * List Items
+     * @description List the icbd_activities items.
+     */
+    get: operations["readItemsIcbdActivities"];
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities item.
+     */
+    post: operations["createItemsIcbdActivities"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities items.
+     */
+    delete: operations["deleteItemsIcbdActivities"];
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivities"];
+  };
+  "/items/icbd_activities/{id}": {
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivities"];
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivities"];
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities item.
+     */
+    patch: operations["updateSingleItemsIcbdActivities"];
   };
   "/items/game_star_social_links": {
     /**
@@ -2919,20 +2920,20 @@ export interface components {
       hash?: string;
       diff?: {
         collections?: {
-          collection?: string;
-          diff?: Record<string, never>[];
-        }[];
+            collection?: string;
+            diff?: Record<string, never>[];
+          }[];
         fields?: {
-          collection?: string;
-          field?: string;
-          diff?: Record<string, never>[];
-        }[];
+            collection?: string;
+            field?: string;
+            diff?: Record<string, never>[];
+          }[];
         relations?: {
-          collection?: string;
-          field?: string;
-          related_collection?: string;
-          diff?: Record<string, never>[];
-        }[];
+            collection?: string;
+            field?: string;
+            related_collection?: string;
+            diff?: Record<string, never>[];
+          }[];
       };
     };
     Files: {
@@ -3075,9 +3076,9 @@ export interface components {
       /** @description $t:field_options.directus_roles.parent_note */
       parent?: string | components["schemas"]["Roles"] | null;
       /** @description $t:field_options.directus_roles.children_note */
-      children?: (string | components["schemas"]["Roles"])[] | null;
+      children?: ((string | components["schemas"]["Roles"])[]) | null;
       policies?: unknown;
-      users?: (string | components["schemas"]["Users"])[] | null;
+      users?: ((string | components["schemas"]["Users"])[]) | null;
     };
     Schema: {
       /** @example 1 */
@@ -3273,7 +3274,7 @@ export interface components {
        * @example https://directus.io
        */
       origin?: string;
-      revisions?: (number | components["schemas"]["Revisions"])[] | null;
+      revisions?: ((number | components["schemas"]["Revisions"])[]) | null;
     };
     Permissions: {
       /**
@@ -3559,7 +3560,7 @@ export interface components {
        * @example 63716273-0f29-4648-8a2a-2af2948f6f78
        */
       user_created?: string | components["schemas"]["Users"];
-      operations?: (string | components["schemas"]["Operations"])[] | null;
+      operations?: ((string | components["schemas"]["Operations"])[]) | null;
     };
     Operations: {
       /**
@@ -3835,44 +3836,38 @@ export interface components {
        * @description Array of allowed
        * @example null
        */
-      storage_asset_presets?:
-        | {
-            /** @description Key for the asset. Used in the assets endpoint. */
-            key?: string;
-            /**
-             * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
-             * @enum {string}
-             */
-            fit?: "cover" | "contain" | "inside" | "outside";
-            /** @description Width of the thumbnail. */
-            width?: number;
-            /** @description Height of the thumbnail. */
-            height?: number;
-            /** @description No image upscale */
-            withoutEnlargement?: boolean;
-            /** @description Quality of the compression used. */
-            quality?: number;
-            /**
-             * @description Reformat output image
-             * @enum {string}
-             */
-            format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
-            /** @description Additional transformations to apply */
-            transforms?:
-              | {
-                  /** @description The Sharp method name */
-                  method?: string;
-                  /** @description A list of arguments to pass to the Sharp method */
-                  arguments?:
-                    | {
-                        /** @description A JSON representation of the argument value */
-                        argument?: string;
-                      }[]
-                    | null;
-                }[]
-              | null;
-          }[]
-        | null;
+      storage_asset_presets?: (({
+          /** @description Key for the asset. Used in the assets endpoint. */
+          key?: string;
+          /**
+           * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
+           * @enum {string}
+           */
+          fit?: "cover" | "contain" | "inside" | "outside";
+          /** @description Width of the thumbnail. */
+          width?: number;
+          /** @description Height of the thumbnail. */
+          height?: number;
+          /** @description No image upscale */
+          withoutEnlargement?: boolean;
+          /** @description Quality of the compression used. */
+          quality?: number;
+          /**
+           * @description Reformat output image
+           * @enum {string}
+           */
+          format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
+          /** @description Additional transformations to apply */
+          transforms?: (({
+              /** @description The Sharp method name */
+              method?: string;
+              /** @description A list of arguments to pass to the Sharp method */
+              arguments?: {
+                  /** @description A JSON representation of the argument value */
+                  argument?: string;
+                }[] | null;
+            })[]) | null;
+        })[]) | null;
       custom_css?: string | null;
       /**
        * Format: uuid
@@ -3926,24 +3921,6 @@ export interface components {
       /** Format: timestamp */
       created_at?: string | null;
     };
-    ItemsIcbd: {
-      /** Format: date */
-      date: string;
-      /** Format: time */
-      end_time: string;
-      id?: number;
-      logo?: string | components["schemas"]["Files"] | null;
-      place?: string | null;
-      presentation_video?: string | null;
-      /** Format: time */
-      start_time: string;
-      partners_images?:
-        | (number | components["schemas"]["ItemsIcbdFiles"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsIcbdTranslations"])[]
-        | null;
-    };
     ItemsIcbdFiles: {
       icbd_id?: number | components["schemas"]["ItemsIcbd"] | null;
       directus_files_id?: string | components["schemas"]["Files"] | null;
@@ -3956,29 +3933,35 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       registration_instructions?: string | null;
     };
-    ItemsIcbdActivities: {
-      color?: string | null;
-      icon?: string | components["schemas"]["Files"] | null;
-      id?: number;
-      timeslots?: unknown;
-      type?: string | null;
-      hosts?:
-        | (number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]
-        | null;
-    };
     ItemsIcbdActivitiesIcbdSpeakers: {
-      icbd_activities_id?:
-        | number
-        | components["schemas"]["ItemsIcbdActivities"]
-        | null;
-      icbd_speakers_id?:
-        | number
-        | components["schemas"]["ItemsIcbdSpeakers"]
-        | null;
+      icbd_activities_id?: number | components["schemas"]["ItemsIcbdActivities"] | null;
+      icbd_speakers_id?: number | components["schemas"]["ItemsIcbdSpeakers"] | null;
       id?: number;
+    };
+    ItemsIcbdActivitiesTranslations: {
+      description?: string | null;
+      icbd_activities_id?: number | components["schemas"]["ItemsIcbdActivities"] | null;
+      id?: number;
+      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
+      name?: string | null;
+    };
+    ItemsIcbd: {
+      /** Format: date */
+      date: string;
+      /** Format: time */
+      end_time: string;
+      id?: number;
+      logo?: string | components["schemas"]["Files"] | null;
+      place?: string | null;
+      presentation_video?: string | null;
+      /** Format: time */
+      start_time: string;
+      slug?: string | null;
+      phds?: ((number | components["schemas"]["ItemsIcbdPhds"])[]) | null;
+      activities?: ((number | components["schemas"]["ItemsIcbdActivities"])[]) | null;
+      translations?: ((number | components["schemas"]["ItemsIcbdTranslations"])[]) | null;
+      partners_images?: ((number | components["schemas"]["ItemsIcbdFiles"])[]) | null;
+      speakers?: ((number | components["schemas"]["ItemsIcbdSpeakers"])[]) | null;
     };
     ItemsIcbdSpeakers: {
       company?: string | null;
@@ -3987,16 +3970,7 @@ export interface components {
       last_name?: string | null;
       linkedin?: string | null;
       picture?: string | components["schemas"]["Files"] | null;
-    };
-    ItemsIcbdActivitiesTranslations: {
-      description?: string | null;
-      icbd_activities_id?:
-        | number
-        | components["schemas"]["ItemsIcbdActivities"]
-        | null;
-      id?: number;
-      languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      name?: string | null;
+      icbd_id?: number | components["schemas"]["ItemsIcbd"] | null;
     };
     ItemsIcbdPhds: {
       first_name: string;
@@ -4004,6 +3978,17 @@ export interface components {
       laboratory?: string | null;
       last_name?: string | null;
       picture?: string | components["schemas"]["Files"] | null;
+      icbd_id?: number | components["schemas"]["ItemsIcbd"] | null;
+    };
+    ItemsIcbdActivities: {
+      color?: string | null;
+      icon?: string | components["schemas"]["Files"] | null;
+      id?: number;
+      timeslots?: unknown;
+      type?: string | null;
+      icbd_id?: number | components["schemas"]["ItemsIcbd"] | null;
+      hosts?: ((number | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"])[]) | null;
+      translations?: ((number | components["schemas"]["ItemsIcbdActivitiesTranslations"])[]) | null;
     };
     ItemsGameStarSocialLinks: {
       id?: number;
@@ -4014,16 +3999,10 @@ export interface components {
     ItemsIcbdActivitiesRegistrations: {
       attended?: boolean | null;
       id?: number;
-      registration?:
-        | string
-        | components["schemas"]["ItemsRegistrations"]
-        | null;
+      registration?: string | components["schemas"]["ItemsRegistrations"] | null;
       /** Format: time */
       start?: string | null;
-      icbd_activity?:
-        | number
-        | components["schemas"]["ItemsIcbdActivities"]
-        | null;
+      icbd_activity?: number | components["schemas"]["ItemsIcbdActivities"] | null;
     };
     ItemsLanguages: {
       code: string;
@@ -4047,30 +4026,16 @@ export interface components {
       name?: string | null;
       phone?: string | null;
       preview_image?: string | components["schemas"]["Files"] | null;
-      public_files?:
-        | number
-        | components["schemas"]["ItemsAssociationPublicFiles"]
-        | null;
-      partners?:
-        | (number | components["schemas"]["ItemsAssociationPartners"])[]
-        | null;
-      social_links?:
-        | (number | components["schemas"]["ItemsAssociationSocialLinks"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsAssociationTranslations"])[]
-        | null;
+      public_files?: number | components["schemas"]["ItemsAssociationPublicFiles"] | null;
+      partners?: ((number | components["schemas"]["ItemsAssociationPartners"])[]) | null;
+      social_links?: ((number | components["schemas"]["ItemsAssociationSocialLinks"])[]) | null;
+      translations?: ((number | components["schemas"]["ItemsAssociationTranslations"])[]) | null;
     };
     ItemsAssociationPublicFiles: {
       icon?: string | components["schemas"]["Files"] | null;
       id?: number;
       link?: string | null;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsAssociationPublicFilesTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsAssociationPublicFilesTranslations"])[]) | null;
     };
     ItemsMembers: {
       email?: string | null;
@@ -4088,38 +4053,22 @@ export interface components {
       level?: string | null;
       member: number | components["schemas"]["ItemsMembers"];
       pole?: number | components["schemas"]["ItemsAssociationPoles"] | null;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsAssociationMembershipsTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsAssociationMembershipsTranslations"])[]) | null;
     };
     ItemsAssociationPoles: {
       id?: number;
       mail?: string | null;
       slug: string;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsAssociationPolesTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsAssociationPolesTranslations"])[]) | null;
     };
     ItemsAssociationMembershipsTranslations: {
-      association_memberships_id?:
-        | number
-        | components["schemas"]["ItemsAssociationMemberships"]
-        | null;
+      association_memberships_id?: number | components["schemas"]["ItemsAssociationMemberships"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
     };
     ItemsAssociationPartners: {
-      association_id?:
-        | number
-        | components["schemas"]["ItemsAssociation"]
-        | null;
+      association_id?: number | components["schemas"]["ItemsAssociation"] | null;
       id?: number;
       partners_id?: number | components["schemas"]["ItemsPartners"] | null;
     };
@@ -4136,34 +4085,22 @@ export interface components {
       start?: string | null;
     };
     ItemsAssociationPolesTranslations: {
-      association_poles_id?:
-        | number
-        | components["schemas"]["ItemsAssociationPoles"]
-        | null;
+      association_poles_id?: number | components["schemas"]["ItemsAssociationPoles"] | null;
       description?: string | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       name?: string | null;
     };
     ItemsAssociationPublicFilesTranslations: {
-      association_public_files_id?:
-        | number
-        | components["schemas"]["ItemsAssociationPublicFiles"]
-        | null;
+      association_public_files_id?: number | components["schemas"]["ItemsAssociationPublicFiles"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       name?: string | null;
     };
     ItemsAssociationSocialLinks: {
-      association_id?:
-        | number
-        | components["schemas"]["ItemsAssociation"]
-        | null;
+      association_id?: number | components["schemas"]["ItemsAssociation"] | null;
       id?: number;
-      social_links_id?:
-        | number
-        | components["schemas"]["ItemsSocialLinks"]
-        | null;
+      social_links_id?: number | components["schemas"]["ItemsSocialLinks"] | null;
     };
     ItemsSocialLinks: {
       account_name?: string | null;
@@ -4173,10 +4110,7 @@ export interface components {
       media_name?: string | null;
     };
     ItemsAssociationTranslations: {
-      association_id?:
-        | number
-        | components["schemas"]["ItemsAssociation"]
-        | null;
+      association_id?: number | components["schemas"]["ItemsAssociation"] | null;
       banner?: string | components["schemas"]["Files"] | null;
       description?: string | null;
       id?: number;
@@ -4188,52 +4122,31 @@ export interface components {
       logo?: string | components["schemas"]["Files"] | null;
       name?: string | null;
       slug?: string | null;
-      partners?: (number | components["schemas"]["ItemsPartners"])[] | null;
-      social_links?:
-        | (number | components["schemas"]["ItemsCommissionsSocialLinks"])[]
-        | null;
-      translations?:
-        | (number | components["schemas"]["ItemsCommissionsTranslations"])[]
-        | null;
+      partners?: ((number | components["schemas"]["ItemsPartners"])[]) | null;
+      social_links?: ((number | components["schemas"]["ItemsCommissionsSocialLinks"])[]) | null;
+      translations?: ((number | components["schemas"]["ItemsCommissionsTranslations"])[]) | null;
     };
     ItemsCommissionMemberships: {
       commission: number | components["schemas"]["ItemsCommissions"];
       id?: number;
       level?: string | null;
       member: number | components["schemas"]["ItemsMembers"];
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsCommissionMembershipsTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsCommissionMembershipsTranslations"])[]) | null;
     };
     ItemsCommissionMembershipsTranslations: {
-      commission_memberships_id?:
-        | number
-        | components["schemas"]["ItemsCommissionMemberships"]
-        | null;
+      commission_memberships_id?: number | components["schemas"]["ItemsCommissionMemberships"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
     };
     ItemsCommissionsSocialLinks: {
-      commissions_id?:
-        | number
-        | components["schemas"]["ItemsCommissions"]
-        | null;
+      commissions_id?: number | components["schemas"]["ItemsCommissions"] | null;
       id?: number;
-      social_links_id?:
-        | number
-        | components["schemas"]["ItemsSocialLinks"]
-        | null;
+      social_links_id?: number | components["schemas"]["ItemsSocialLinks"] | null;
     };
     ItemsCommissionsTranslations: {
       banner?: string | components["schemas"]["Files"] | null;
-      commissions_id?:
-        | number
-        | components["schemas"]["ItemsCommissions"]
-        | null;
+      commissions_id?: number | components["schemas"]["ItemsCommissions"] | null;
       description?: string | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
@@ -4276,10 +4189,7 @@ export interface components {
       content?: string | null;
       cover_image?: string | components["schemas"]["Files"] | null;
       description?: string | null;
-      game_star_articles_id?:
-        | number
-        | components["schemas"]["ItemsGameStarArticles"]
-        | null;
+      game_star_articles_id?: number | components["schemas"]["ItemsGameStarArticles"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
@@ -4288,21 +4198,13 @@ export interface components {
       id?: number;
       slug?: string | null;
       status?: string | null;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsGameStarArticlesTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsGameStarArticlesTranslations"])[]) | null;
     };
     ItemsGameStarEventsTranslations: {
       content?: string | null;
       cover_image?: string | components["schemas"]["Files"] | null;
       description?: string | null;
-      game_star_events_id?:
-        | number
-        | components["schemas"]["ItemsGameStarEvents"]
-        | null;
+      game_star_events_id?: number | components["schemas"]["ItemsGameStarEvents"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
@@ -4315,18 +4217,13 @@ export interface components {
       /** Format: date-time */
       start?: string | null;
       status?: string | null;
-      translations?:
-        | (number | components["schemas"]["ItemsGameStarEventsTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsGameStarEventsTranslations"])[]) | null;
     };
     ItemsGameStarProjectsTranslations: {
       content?: string | null;
       cover_image?: string | components["schemas"]["Files"] | null;
       description?: string | null;
-      game_star_projects_id?:
-        | number
-        | components["schemas"]["ItemsGameStarProjects"]
-        | null;
+      game_star_projects_id?: number | components["schemas"]["ItemsGameStarProjects"] | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       title?: string | null;
@@ -4335,18 +4232,11 @@ export interface components {
       id?: number;
       slug?: string | null;
       status?: string | null;
-      translations?:
-        | (
-            | number
-            | components["schemas"]["ItemsGameStarProjectsTranslations"]
-          )[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsGameStarProjectsTranslations"])[]) | null;
     };
     ItemsGameStar: {
       id?: number;
-      translations?:
-        | (number | components["schemas"]["ItemsGameStarTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsGameStarTranslations"])[]) | null;
     };
     ItemsGameStarTranslations: {
       about_text?: string | null;
@@ -4409,19 +4299,12 @@ export interface components {
       status?: string;
       user_created?: string | components["schemas"]["Users"] | null;
       video_link?: string | null;
-      commissions?:
-        | (number | components["schemas"]["ItemsNewsCommissions"])[]
-        | null;
-      partners?: (number | components["schemas"]["ItemsNewsPartners"])[] | null;
-      translations?:
-        | (number | components["schemas"]["ItemsNewsTranslations"])[]
-        | null;
+      commissions?: ((number | components["schemas"]["ItemsNewsCommissions"])[]) | null;
+      partners?: ((number | components["schemas"]["ItemsNewsPartners"])[]) | null;
+      translations?: ((number | components["schemas"]["ItemsNewsTranslations"])[]) | null;
     };
     ItemsNewsCommissions: {
-      commissions_id?:
-        | number
-        | components["schemas"]["ItemsCommissions"]
-        | null;
+      commissions_id?: number | components["schemas"]["ItemsCommissions"] | null;
       id?: number;
       news_id?: number | components["schemas"]["ItemsNews"] | null;
     };
@@ -4444,42 +4327,29 @@ export interface components {
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
       /** @description Pluralized name of the category */
       name?: string | null;
-      partner_category_id?:
-        | number
-        | components["schemas"]["ItemsPartnerCategory"]
-        | null;
+      partner_category_id?: number | components["schemas"]["ItemsPartnerCategory"] | null;
     };
     ItemsPartnerCategory: {
       id?: number;
       /** @description 0 is the highest category (e.g. premium) */
       rank?: number | null;
-      translations?:
-        | (number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsPartnerCategoryTranslations"])[]) | null;
     };
     ItemsSavetheDate: {
       background_color?: string | null;
       button_color?: string | null;
       id?: number;
       image?: string | components["schemas"]["Files"] | null;
-      language_button_target?:
-        | string
-        | components["schemas"]["ItemsLanguages"]
-        | null;
+      language_button_target?: string | components["schemas"]["ItemsLanguages"] | null;
       text_color?: string | null;
       title_color?: string | null;
-      translations?:
-        | (number | components["schemas"]["ItemsSavetheDateTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsSavetheDateTranslations"])[]) | null;
     };
     ItemsSavetheDateTranslations: {
       description?: string | null;
       id?: number;
       languages_code?: string | components["schemas"]["ItemsLanguages"] | null;
-      save_the_date_id?:
-        | number
-        | components["schemas"]["ItemsSavetheDate"]
-        | null;
+      save_the_date_id?: number | components["schemas"]["ItemsSavetheDate"] | null;
       title?: string | null;
     };
     ItemsStdCell: {
@@ -4494,9 +4364,7 @@ export interface components {
       sort_order?: number | null;
       text_color?: string | null;
       url?: string | null;
-      translations?:
-        | (number | components["schemas"]["ItemsStdCellTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsStdCellTranslations"])[]) | null;
     };
     ItemsStdCellTranslations: {
       /** @description This will replace the date by this text. (optional) */
@@ -4513,9 +4381,7 @@ export interface components {
       id?: number;
       logo?: string | components["schemas"]["Files"] | null;
       map?: string | components["schemas"]["Files"] | null;
-      translations?:
-        | (number | components["schemas"]["ItemsSubsonicTranslations"])[]
-        | null;
+      translations?: ((number | components["schemas"]["ItemsSubsonicTranslations"])[]) | null;
     };
     ItemsSubsonicTranslations: {
       id?: number;
@@ -4588,6 +4454,7 @@ export type $defs = Record<string, never>;
 export type external = Record<string, never>;
 
 export interface operations {
+
   /**
    * Get an Asset
    * @description Image typed files can be dynamically resized and transformed to fit any need.
@@ -5685,7 +5552,7 @@ export interface operations {
             foreign_key_schema?: string | null;
           };
           /** @description The meta info. */
-          meta?: {
+          meta?: ({
             /**
              * @description Unique identifier for the field in the `directus_fields` collection.
              * @example 3
@@ -5751,13 +5618,7 @@ export interface operations {
              * @example null
              * @enum {string|null}
              */
-            width?:
-              | "half"
-              | "half-left"
-              | "half-right"
-              | "full"
-              | "fill"
-              | null;
+            width?: "half" | "half-left" | "half-right" | "full" | "fill" | null;
             /**
              * @description What field group this field is part of.
              * @example null
@@ -5773,7 +5634,7 @@ export interface operations {
              * @example
              */
             note?: string | null;
-          } | null;
+          }) | null;
         };
       };
     };
@@ -5933,7 +5794,7 @@ export interface operations {
             foreign_key_schema?: string | null;
           };
           /** @description The meta info. */
-          meta?: {
+          meta?: ({
             /**
              * @description Unique identifier for the field in the `directus_fields` collection.
              * @example 3
@@ -5999,13 +5860,7 @@ export interface operations {
              * @example null
              * @enum {string|null}
              */
-            width?:
-              | "half"
-              | "half-left"
-              | "half-right"
-              | "full"
-              | "fill"
-              | null;
+            width?: "half" | "half-left" | "half-right" | "full" | "fill" | null;
             /**
              * @description What field group this field is part of.
              * @example null
@@ -6021,7 +5876,7 @@ export interface operations {
              * @example
              */
             note?: string | null;
-          } | null;
+          }) | null;
         };
       };
     };
@@ -7371,15 +7226,15 @@ export interface operations {
           /** @description What the user searched for in search/filter in the header bar. */
           search?: string;
           filters?: {
-            /** @example aHKLAakdVghzD */
-            key?: string;
-            /** @example rating */
-            field?: string;
-            /** @example gte */
-            operator?: string;
-            /** @example 4.5 */
-            value?: number;
-          }[];
+              /** @example aHKLAakdVghzD */
+              key?: string;
+              /** @example rating */
+              field?: string;
+              /** @example gte */
+              operator?: string;
+              /** @example 4.5 */
+              value?: number;
+            }[];
           /** @description Name of the view type that is used. */
           layout?: string;
           /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
@@ -7453,15 +7308,15 @@ export interface operations {
             /** @description What the user searched for in search/filter in the header bar. */
             search?: string;
             filters?: {
-              /** @example aHKLAakdVghzD */
-              key?: string;
-              /** @example rating */
-              field?: string;
-              /** @example gte */
-              operator?: string;
-              /** @example 4.5 */
-              value?: number;
-            }[];
+                /** @example aHKLAakdVghzD */
+                key?: string;
+                /** @example rating */
+                field?: string;
+                /** @example gte */
+                operator?: string;
+                /** @example 4.5 */
+                value?: number;
+              }[];
             /** @description Name of the view type that is used. */
             layout?: string;
             /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
@@ -7561,13 +7416,13 @@ export interface operations {
           /** @description What the user searched for in search/filter in the header bar. */
           search_query?: string;
           filters?: {
-            /** @example rating */
-            field?: string;
-            /** @example gte */
-            operator?: string;
-            /** @example 4.5 */
-            value?: number;
-          }[];
+              /** @example rating */
+              field?: string;
+              /** @example gte */
+              operator?: string;
+              /** @example 4.5 */
+              value?: number;
+            }[];
           /** @description Name of the view type that is used. Defaults to tabular. */
           view_type?: string;
           /** @description View query that's saved per view type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
@@ -9098,9 +8953,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
+        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"][] | components["schemas"]["ItemsDirectusSyncIDMap"];
       };
     };
     responses: {
@@ -9146,9 +8999,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
+        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"][] | components["schemas"]["ItemsDirectusSyncIDMap"];
       };
     };
     responses: {
@@ -9246,193 +9097,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the icbd items.
-   */
-  readItemsIcbd: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbd"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd item.
-   */
-  createItemsIcbd: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbd"][]
-          | components["schemas"]["ItemsIcbd"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbd"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd items.
-   */
-  deleteItemsIcbd: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd items at the same time.
-   */
-  updateItemsIcbd: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbd"][]
-          | components["schemas"]["ItemsIcbd"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbd"][];
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd item by unique identifier.
-   */
-  readSingleItemsIcbd: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbd"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd item.
-   */
-  deleteSingleItemsIcbd: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd item.
-   */
-  updateSingleItemsIcbd: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbd"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbd"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the icbd_files items.
    */
   readItemsIcbdFiles: {
@@ -9472,9 +9136,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdFiles"][]
-          | components["schemas"]["ItemsIcbdFiles"];
+        "application/json": components["schemas"]["ItemsIcbdFiles"][] | components["schemas"]["ItemsIcbdFiles"];
       };
     };
     responses: {
@@ -9520,9 +9182,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdFiles"][]
-          | components["schemas"]["ItemsIcbdFiles"];
+        "application/json": components["schemas"]["ItemsIcbdFiles"][] | components["schemas"]["ItemsIcbdFiles"];
       };
     };
     responses: {
@@ -9659,9 +9319,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdTranslations"][]
-          | components["schemas"]["ItemsIcbdTranslations"];
+        "application/json": components["schemas"]["ItemsIcbdTranslations"][] | components["schemas"]["ItemsIcbdTranslations"];
       };
     };
     responses: {
@@ -9707,9 +9365,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdTranslations"][]
-          | components["schemas"]["ItemsIcbdTranslations"];
+        "application/json": components["schemas"]["ItemsIcbdTranslations"][] | components["schemas"]["ItemsIcbdTranslations"];
       };
     };
     responses: {
@@ -9807,193 +9463,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the icbd_activities items.
-   */
-  readItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_activities item.
-   */
-  createItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivities"][]
-          | components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_activities items.
-   */
-  deleteItemsIcbdActivities: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_activities items at the same time.
-   */
-  updateItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivities"][]
-          | components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"][];
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_activities item by unique identifier.
-   */
-  readSingleItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_activities item.
-   */
-  deleteSingleItemsIcbdActivities: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_activities item.
-   */
-  updateSingleItemsIcbdActivities: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbdActivities"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivities"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the icbd_activities_icbd_speakers items.
    */
   readItemsIcbdActivitiesIcbdSpeakers: {
@@ -10033,9 +9502,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
-          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][] | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
       };
     };
     responses: {
@@ -10081,9 +9548,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][]
-          | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][] | components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"];
       };
     };
     responses: {
@@ -10181,193 +9646,6 @@ export interface operations {
   };
   /**
    * List Items
-   * @description List the icbd_speakers items.
-   */
-  readItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdSpeakers"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new icbd_speakers item.
-   */
-  createItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdSpeakers"][]
-          | components["schemas"]["ItemsIcbdSpeakers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdSpeakers"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing icbd_speakers items.
-   */
-  deleteItemsIcbdSpeakers: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple icbd_speakers items at the same time.
-   */
-  updateItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdSpeakers"][]
-          | components["schemas"]["ItemsIcbdSpeakers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdSpeakers"][];
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single icbd_speakers item by unique identifier.
-   */
-  readSingleItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdSpeakers"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing icbd_speakers item.
-   */
-  deleteSingleItemsIcbdSpeakers: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing icbd_speakers item.
-   */
-  updateSingleItemsIcbdSpeakers: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbdSpeakers"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdSpeakers"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
    * @description List the icbd_activities_translations items.
    */
   readItemsIcbdActivitiesTranslations: {
@@ -10407,9 +9685,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"][] | components["schemas"]["ItemsIcbdActivitiesTranslations"];
       };
     };
     responses: {
@@ -10455,9 +9731,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"][]
-          | components["schemas"]["ItemsIcbdActivitiesTranslations"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesTranslations"][] | components["schemas"]["ItemsIcbdActivitiesTranslations"];
       };
     };
     responses: {
@@ -10555,6 +9829,372 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the icbd items.
+   */
+  readItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd item.
+   */
+  createItemsIcbd: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbd"][] | components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd items.
+   */
+  deleteItemsIcbd: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd items at the same time.
+   */
+  updateItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbd"][] | components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"][];
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd item by unique identifier.
+   */
+  readSingleItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd item.
+   */
+  deleteSingleItemsIcbd: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd item.
+   */
+  updateSingleItemsIcbd: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbd"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbd"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the icbd_speakers items.
+   */
+  readItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_speakers item.
+   */
+  createItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdSpeakers"][] | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_speakers items.
+   */
+  deleteItemsIcbdSpeakers: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_speakers items at the same time.
+   */
+  updateItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdSpeakers"][] | components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"][];
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_speakers item by unique identifier.
+   */
+  readSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_speakers item.
+   */
+  deleteSingleItemsIcbdSpeakers: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_speakers item.
+   */
+  updateSingleItemsIcbdSpeakers: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdSpeakers"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdSpeakers"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the icbd_phds items.
    */
   readItemsIcbdPhds: {
@@ -10594,9 +10234,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdPhds"][]
-          | components["schemas"]["ItemsIcbdPhds"];
+        "application/json": components["schemas"]["ItemsIcbdPhds"][] | components["schemas"]["ItemsIcbdPhds"];
       };
     };
     responses: {
@@ -10642,9 +10280,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdPhds"][]
-          | components["schemas"]["ItemsIcbdPhds"];
+        "application/json": components["schemas"]["ItemsIcbdPhds"][] | components["schemas"]["ItemsIcbdPhds"];
       };
     };
     responses: {
@@ -10742,6 +10378,189 @@ export interface operations {
   };
   /**
    * List Items
+   * @description List the icbd_activities items.
+   */
+  readItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new icbd_activities item.
+   */
+  createItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivities"][] | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing icbd_activities items.
+   */
+  deleteItemsIcbdActivities: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple icbd_activities items at the same time.
+   */
+  updateItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivities"][] | components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"][];
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single icbd_activities item by unique identifier.
+   */
+  readSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing icbd_activities item.
+   */
+  deleteSingleItemsIcbdActivities: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing icbd_activities item.
+   */
+  updateSingleItemsIcbdActivities: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivities"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivities"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
    * @description List the game_star_social_links items.
    */
   readItemsGameStarSocialLinks: {
@@ -10781,9 +10600,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarSocialLinks"][]
-          | components["schemas"]["ItemsGameStarSocialLinks"];
+        "application/json": components["schemas"]["ItemsGameStarSocialLinks"][] | components["schemas"]["ItemsGameStarSocialLinks"];
       };
     };
     responses: {
@@ -10829,9 +10646,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarSocialLinks"][]
-          | components["schemas"]["ItemsGameStarSocialLinks"];
+        "application/json": components["schemas"]["ItemsGameStarSocialLinks"][] | components["schemas"]["ItemsGameStarSocialLinks"];
       };
     };
     responses: {
@@ -10968,9 +10783,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesRegistrations"][] | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
       };
     };
     responses: {
@@ -11016,9 +10829,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+        "application/json": components["schemas"]["ItemsIcbdActivitiesRegistrations"][] | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
       };
     };
     responses: {
@@ -11155,9 +10966,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsLanguages"][]
-          | components["schemas"]["ItemsLanguages"];
+        "application/json": components["schemas"]["ItemsLanguages"][] | components["schemas"]["ItemsLanguages"];
       };
     };
     responses: {
@@ -11203,9 +11012,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsLanguages"][]
-          | components["schemas"]["ItemsLanguages"];
+        "application/json": components["schemas"]["ItemsLanguages"][] | components["schemas"]["ItemsLanguages"];
       };
     };
     responses: {
@@ -11342,9 +11149,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsArtists"][]
-          | components["schemas"]["ItemsArtists"];
+        "application/json": components["schemas"]["ItemsArtists"][] | components["schemas"]["ItemsArtists"];
       };
     };
     responses: {
@@ -11390,9 +11195,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsArtists"][]
-          | components["schemas"]["ItemsArtists"];
+        "application/json": components["schemas"]["ItemsArtists"][] | components["schemas"]["ItemsArtists"];
       };
     };
     responses: {
@@ -11529,9 +11332,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
+        "application/json": components["schemas"]["ItemsAssociation"][] | components["schemas"]["ItemsAssociation"];
       };
     };
     responses: {
@@ -11577,9 +11378,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociation"][]
-          | components["schemas"]["ItemsAssociation"];
+        "application/json": components["schemas"]["ItemsAssociation"][] | components["schemas"]["ItemsAssociation"];
       };
     };
     responses: {
@@ -11716,9 +11515,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
+        "application/json": components["schemas"]["ItemsAssociationPublicFiles"][] | components["schemas"]["ItemsAssociationPublicFiles"];
       };
     };
     responses: {
@@ -11764,9 +11561,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFiles"][]
-          | components["schemas"]["ItemsAssociationPublicFiles"];
+        "application/json": components["schemas"]["ItemsAssociationPublicFiles"][] | components["schemas"]["ItemsAssociationPublicFiles"];
       };
     };
     responses: {
@@ -11903,9 +11698,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsMembers"][]
-          | components["schemas"]["ItemsMembers"];
+        "application/json": components["schemas"]["ItemsMembers"][] | components["schemas"]["ItemsMembers"];
       };
     };
     responses: {
@@ -11951,9 +11744,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsMembers"][]
-          | components["schemas"]["ItemsMembers"];
+        "application/json": components["schemas"]["ItemsMembers"][] | components["schemas"]["ItemsMembers"];
       };
     };
     responses: {
@@ -12090,9 +11881,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationMemberships"][]
-          | components["schemas"]["ItemsAssociationMemberships"];
+        "application/json": components["schemas"]["ItemsAssociationMemberships"][] | components["schemas"]["ItemsAssociationMemberships"];
       };
     };
     responses: {
@@ -12138,9 +11927,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationMemberships"][]
-          | components["schemas"]["ItemsAssociationMemberships"];
+        "application/json": components["schemas"]["ItemsAssociationMemberships"][] | components["schemas"]["ItemsAssociationMemberships"];
       };
     };
     responses: {
@@ -12277,9 +12064,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPoles"][]
-          | components["schemas"]["ItemsAssociationPoles"];
+        "application/json": components["schemas"]["ItemsAssociationPoles"][] | components["schemas"]["ItemsAssociationPoles"];
       };
     };
     responses: {
@@ -12325,9 +12110,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPoles"][]
-          | components["schemas"]["ItemsAssociationPoles"];
+        "application/json": components["schemas"]["ItemsAssociationPoles"][] | components["schemas"]["ItemsAssociationPoles"];
       };
     };
     responses: {
@@ -12464,9 +12247,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
-          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationMembershipsTranslations"][] | components["schemas"]["ItemsAssociationMembershipsTranslations"];
       };
     };
     responses: {
@@ -12512,9 +12293,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationMembershipsTranslations"][]
-          | components["schemas"]["ItemsAssociationMembershipsTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationMembershipsTranslations"][] | components["schemas"]["ItemsAssociationMembershipsTranslations"];
       };
     };
     responses: {
@@ -12651,9 +12430,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPartners"][]
-          | components["schemas"]["ItemsAssociationPartners"];
+        "application/json": components["schemas"]["ItemsAssociationPartners"][] | components["schemas"]["ItemsAssociationPartners"];
       };
     };
     responses: {
@@ -12699,9 +12476,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPartners"][]
-          | components["schemas"]["ItemsAssociationPartners"];
+        "application/json": components["schemas"]["ItemsAssociationPartners"][] | components["schemas"]["ItemsAssociationPartners"];
       };
     };
     responses: {
@@ -12838,9 +12613,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartners"][]
-          | components["schemas"]["ItemsPartners"];
+        "application/json": components["schemas"]["ItemsPartners"][] | components["schemas"]["ItemsPartners"];
       };
     };
     responses: {
@@ -12886,9 +12659,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartners"][]
-          | components["schemas"]["ItemsPartners"];
+        "application/json": components["schemas"]["ItemsPartners"][] | components["schemas"]["ItemsPartners"];
       };
     };
     responses: {
@@ -13025,9 +12796,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPolesTranslations"][]
-          | components["schemas"]["ItemsAssociationPolesTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationPolesTranslations"][] | components["schemas"]["ItemsAssociationPolesTranslations"];
       };
     };
     responses: {
@@ -13073,9 +12842,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPolesTranslations"][]
-          | components["schemas"]["ItemsAssociationPolesTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationPolesTranslations"][] | components["schemas"]["ItemsAssociationPolesTranslations"];
       };
     };
     responses: {
@@ -13212,9 +12979,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationPublicFilesTranslations"][] | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
       };
     };
     responses: {
@@ -13260,9 +13025,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"][]
-          | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationPublicFilesTranslations"][] | components["schemas"]["ItemsAssociationPublicFilesTranslations"];
       };
     };
     responses: {
@@ -13399,9 +13162,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationSocialLinks"][]
-          | components["schemas"]["ItemsAssociationSocialLinks"];
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks"][] | components["schemas"]["ItemsAssociationSocialLinks"];
       };
     };
     responses: {
@@ -13447,9 +13208,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationSocialLinks"][]
-          | components["schemas"]["ItemsAssociationSocialLinks"];
+        "application/json": components["schemas"]["ItemsAssociationSocialLinks"][] | components["schemas"]["ItemsAssociationSocialLinks"];
       };
     };
     responses: {
@@ -13586,9 +13345,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSocialLinks"][]
-          | components["schemas"]["ItemsSocialLinks"];
+        "application/json": components["schemas"]["ItemsSocialLinks"][] | components["schemas"]["ItemsSocialLinks"];
       };
     };
     responses: {
@@ -13634,9 +13391,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSocialLinks"][]
-          | components["schemas"]["ItemsSocialLinks"];
+        "application/json": components["schemas"]["ItemsSocialLinks"][] | components["schemas"]["ItemsSocialLinks"];
       };
     };
     responses: {
@@ -13773,9 +13528,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationTranslations"][]
-          | components["schemas"]["ItemsAssociationTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationTranslations"][] | components["schemas"]["ItemsAssociationTranslations"];
       };
     };
     responses: {
@@ -13821,9 +13574,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsAssociationTranslations"][]
-          | components["schemas"]["ItemsAssociationTranslations"];
+        "application/json": components["schemas"]["ItemsAssociationTranslations"][] | components["schemas"]["ItemsAssociationTranslations"];
       };
     };
     responses: {
@@ -13960,9 +13711,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissions"][]
-          | components["schemas"]["ItemsCommissions"];
+        "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
       };
     };
     responses: {
@@ -14008,9 +13757,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissions"][]
-          | components["schemas"]["ItemsCommissions"];
+        "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
       };
     };
     responses: {
@@ -14147,9 +13894,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionMemberships"][]
-          | components["schemas"]["ItemsCommissionMemberships"];
+        "application/json": components["schemas"]["ItemsCommissionMemberships"][] | components["schemas"]["ItemsCommissionMemberships"];
       };
     };
     responses: {
@@ -14195,9 +13940,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionMemberships"][]
-          | components["schemas"]["ItemsCommissionMemberships"];
+        "application/json": components["schemas"]["ItemsCommissionMemberships"][] | components["schemas"]["ItemsCommissionMemberships"];
       };
     };
     responses: {
@@ -14334,9 +14077,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
-          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
+        "application/json": components["schemas"]["ItemsCommissionMembershipsTranslations"][] | components["schemas"]["ItemsCommissionMembershipsTranslations"];
       };
     };
     responses: {
@@ -14382,9 +14123,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionMembershipsTranslations"][]
-          | components["schemas"]["ItemsCommissionMembershipsTranslations"];
+        "application/json": components["schemas"]["ItemsCommissionMembershipsTranslations"][] | components["schemas"]["ItemsCommissionMembershipsTranslations"];
       };
     };
     responses: {
@@ -14521,9 +14260,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsSocialLinks"][]
-          | components["schemas"]["ItemsCommissionsSocialLinks"];
+        "application/json": components["schemas"]["ItemsCommissionsSocialLinks"][] | components["schemas"]["ItemsCommissionsSocialLinks"];
       };
     };
     responses: {
@@ -14569,9 +14306,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsSocialLinks"][]
-          | components["schemas"]["ItemsCommissionsSocialLinks"];
+        "application/json": components["schemas"]["ItemsCommissionsSocialLinks"][] | components["schemas"]["ItemsCommissionsSocialLinks"];
       };
     };
     responses: {
@@ -14708,9 +14443,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsTranslations"][]
-          | components["schemas"]["ItemsCommissionsTranslations"];
+        "application/json": components["schemas"]["ItemsCommissionsTranslations"][] | components["schemas"]["ItemsCommissionsTranslations"];
       };
     };
     responses: {
@@ -14756,9 +14489,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsCommissionsTranslations"][]
-          | components["schemas"]["ItemsCommissionsTranslations"];
+        "application/json": components["schemas"]["ItemsCommissionsTranslations"][] | components["schemas"]["ItemsCommissionsTranslations"];
       };
     };
     responses: {
@@ -14895,9 +14626,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
+        "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
       };
     };
     responses: {
@@ -14943,9 +14672,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
+        "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
       };
     };
     responses: {
@@ -15082,9 +14809,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarArticlesTranslations"][]
-          | components["schemas"]["ItemsGameStarArticlesTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarArticlesTranslations"][] | components["schemas"]["ItemsGameStarArticlesTranslations"];
       };
     };
     responses: {
@@ -15130,9 +14855,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarArticlesTranslations"][]
-          | components["schemas"]["ItemsGameStarArticlesTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarArticlesTranslations"][] | components["schemas"]["ItemsGameStarArticlesTranslations"];
       };
     };
     responses: {
@@ -15269,9 +14992,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarArticles"][]
-          | components["schemas"]["ItemsGameStarArticles"];
+        "application/json": components["schemas"]["ItemsGameStarArticles"][] | components["schemas"]["ItemsGameStarArticles"];
       };
     };
     responses: {
@@ -15317,9 +15038,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarArticles"][]
-          | components["schemas"]["ItemsGameStarArticles"];
+        "application/json": components["schemas"]["ItemsGameStarArticles"][] | components["schemas"]["ItemsGameStarArticles"];
       };
     };
     responses: {
@@ -15456,9 +15175,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEventsTranslations"][]
-          | components["schemas"]["ItemsGameStarEventsTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarEventsTranslations"][] | components["schemas"]["ItemsGameStarEventsTranslations"];
       };
     };
     responses: {
@@ -15504,9 +15221,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEventsTranslations"][]
-          | components["schemas"]["ItemsGameStarEventsTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarEventsTranslations"][] | components["schemas"]["ItemsGameStarEventsTranslations"];
       };
     };
     responses: {
@@ -15643,9 +15358,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEvents"][]
-          | components["schemas"]["ItemsGameStarEvents"];
+        "application/json": components["schemas"]["ItemsGameStarEvents"][] | components["schemas"]["ItemsGameStarEvents"];
       };
     };
     responses: {
@@ -15691,9 +15404,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarEvents"][]
-          | components["schemas"]["ItemsGameStarEvents"];
+        "application/json": components["schemas"]["ItemsGameStarEvents"][] | components["schemas"]["ItemsGameStarEvents"];
       };
     };
     responses: {
@@ -15830,9 +15541,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjectsTranslations"][]
-          | components["schemas"]["ItemsGameStarProjectsTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarProjectsTranslations"][] | components["schemas"]["ItemsGameStarProjectsTranslations"];
       };
     };
     responses: {
@@ -15878,9 +15587,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjectsTranslations"][]
-          | components["schemas"]["ItemsGameStarProjectsTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarProjectsTranslations"][] | components["schemas"]["ItemsGameStarProjectsTranslations"];
       };
     };
     responses: {
@@ -16017,9 +15724,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjects"][]
-          | components["schemas"]["ItemsGameStarProjects"];
+        "application/json": components["schemas"]["ItemsGameStarProjects"][] | components["schemas"]["ItemsGameStarProjects"];
       };
     };
     responses: {
@@ -16065,9 +15770,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarProjects"][]
-          | components["schemas"]["ItemsGameStarProjects"];
+        "application/json": components["schemas"]["ItemsGameStarProjects"][] | components["schemas"]["ItemsGameStarProjects"];
       };
     };
     responses: {
@@ -16204,9 +15907,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStar"][]
-          | components["schemas"]["ItemsGameStar"];
+        "application/json": components["schemas"]["ItemsGameStar"][] | components["schemas"]["ItemsGameStar"];
       };
     };
     responses: {
@@ -16252,9 +15953,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStar"][]
-          | components["schemas"]["ItemsGameStar"];
+        "application/json": components["schemas"]["ItemsGameStar"][] | components["schemas"]["ItemsGameStar"];
       };
     };
     responses: {
@@ -16391,9 +16090,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarTranslations"][]
-          | components["schemas"]["ItemsGameStarTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarTranslations"][] | components["schemas"]["ItemsGameStarTranslations"];
       };
     };
     responses: {
@@ -16439,9 +16136,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsGameStarTranslations"][]
-          | components["schemas"]["ItemsGameStarTranslations"];
+        "application/json": components["schemas"]["ItemsGameStarTranslations"][] | components["schemas"]["ItemsGameStarTranslations"];
       };
     };
     responses: {
@@ -16578,9 +16273,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+        "application/json": components["schemas"]["ItemsRegistrations"][] | components["schemas"]["ItemsRegistrations"];
       };
     };
     responses: {
@@ -16626,9 +16319,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsRegistrations"][]
-          | components["schemas"]["ItemsRegistrations"];
+        "application/json": components["schemas"]["ItemsRegistrations"][] | components["schemas"]["ItemsRegistrations"];
       };
     };
     responses: {
@@ -16765,9 +16456,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsInventory"][]
-          | components["schemas"]["ItemsInventory"];
+        "application/json": components["schemas"]["ItemsInventory"][] | components["schemas"]["ItemsInventory"];
       };
     };
     responses: {
@@ -16813,9 +16502,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsInventory"][]
-          | components["schemas"]["ItemsInventory"];
+        "application/json": components["schemas"]["ItemsInventory"][] | components["schemas"]["ItemsInventory"];
       };
     };
     responses: {
@@ -16952,9 +16639,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNews"][]
-          | components["schemas"]["ItemsNews"];
+        "application/json": components["schemas"]["ItemsNews"][] | components["schemas"]["ItemsNews"];
       };
     };
     responses: {
@@ -17000,9 +16685,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNews"][]
-          | components["schemas"]["ItemsNews"];
+        "application/json": components["schemas"]["ItemsNews"][] | components["schemas"]["ItemsNews"];
       };
     };
     responses: {
@@ -17139,9 +16822,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsCommissions"][]
-          | components["schemas"]["ItemsNewsCommissions"];
+        "application/json": components["schemas"]["ItemsNewsCommissions"][] | components["schemas"]["ItemsNewsCommissions"];
       };
     };
     responses: {
@@ -17187,9 +16868,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsCommissions"][]
-          | components["schemas"]["ItemsNewsCommissions"];
+        "application/json": components["schemas"]["ItemsNewsCommissions"][] | components["schemas"]["ItemsNewsCommissions"];
       };
     };
     responses: {
@@ -17326,9 +17005,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsPartners"][]
-          | components["schemas"]["ItemsNewsPartners"];
+        "application/json": components["schemas"]["ItemsNewsPartners"][] | components["schemas"]["ItemsNewsPartners"];
       };
     };
     responses: {
@@ -17374,9 +17051,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsPartners"][]
-          | components["schemas"]["ItemsNewsPartners"];
+        "application/json": components["schemas"]["ItemsNewsPartners"][] | components["schemas"]["ItemsNewsPartners"];
       };
     };
     responses: {
@@ -17513,9 +17188,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsTranslations"][]
-          | components["schemas"]["ItemsNewsTranslations"];
+        "application/json": components["schemas"]["ItemsNewsTranslations"][] | components["schemas"]["ItemsNewsTranslations"];
       };
     };
     responses: {
@@ -17561,9 +17234,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsNewsTranslations"][]
-          | components["schemas"]["ItemsNewsTranslations"];
+        "application/json": components["schemas"]["ItemsNewsTranslations"][] | components["schemas"]["ItemsNewsTranslations"];
       };
     };
     responses: {
@@ -17700,9 +17371,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
-          | components["schemas"]["ItemsPartnerCategoryTranslations"];
+        "application/json": components["schemas"]["ItemsPartnerCategoryTranslations"][] | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
@@ -17748,9 +17417,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartnerCategoryTranslations"][]
-          | components["schemas"]["ItemsPartnerCategoryTranslations"];
+        "application/json": components["schemas"]["ItemsPartnerCategoryTranslations"][] | components["schemas"]["ItemsPartnerCategoryTranslations"];
       };
     };
     responses: {
@@ -17887,9 +17554,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartnerCategory"][]
-          | components["schemas"]["ItemsPartnerCategory"];
+        "application/json": components["schemas"]["ItemsPartnerCategory"][] | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
@@ -17935,9 +17600,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsPartnerCategory"][]
-          | components["schemas"]["ItemsPartnerCategory"];
+        "application/json": components["schemas"]["ItemsPartnerCategory"][] | components["schemas"]["ItemsPartnerCategory"];
       };
     };
     responses: {
@@ -18074,9 +17737,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSavetheDate"][]
-          | components["schemas"]["ItemsSavetheDate"];
+        "application/json": components["schemas"]["ItemsSavetheDate"][] | components["schemas"]["ItemsSavetheDate"];
       };
     };
     responses: {
@@ -18122,9 +17783,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSavetheDate"][]
-          | components["schemas"]["ItemsSavetheDate"];
+        "application/json": components["schemas"]["ItemsSavetheDate"][] | components["schemas"]["ItemsSavetheDate"];
       };
     };
     responses: {
@@ -18261,9 +17920,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSavetheDateTranslations"][]
-          | components["schemas"]["ItemsSavetheDateTranslations"];
+        "application/json": components["schemas"]["ItemsSavetheDateTranslations"][] | components["schemas"]["ItemsSavetheDateTranslations"];
       };
     };
     responses: {
@@ -18309,9 +17966,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSavetheDateTranslations"][]
-          | components["schemas"]["ItemsSavetheDateTranslations"];
+        "application/json": components["schemas"]["ItemsSavetheDateTranslations"][] | components["schemas"]["ItemsSavetheDateTranslations"];
       };
     };
     responses: {
@@ -18448,9 +18103,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCell"][]
-          | components["schemas"]["ItemsStdCell"];
+        "application/json": components["schemas"]["ItemsStdCell"][] | components["schemas"]["ItemsStdCell"];
       };
     };
     responses: {
@@ -18496,9 +18149,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCell"][]
-          | components["schemas"]["ItemsStdCell"];
+        "application/json": components["schemas"]["ItemsStdCell"][] | components["schemas"]["ItemsStdCell"];
       };
     };
     responses: {
@@ -18635,9 +18286,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCellTranslations"][]
-          | components["schemas"]["ItemsStdCellTranslations"];
+        "application/json": components["schemas"]["ItemsStdCellTranslations"][] | components["schemas"]["ItemsStdCellTranslations"];
       };
     };
     responses: {
@@ -18683,9 +18332,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsStdCellTranslations"][]
-          | components["schemas"]["ItemsStdCellTranslations"];
+        "application/json": components["schemas"]["ItemsStdCellTranslations"][] | components["schemas"]["ItemsStdCellTranslations"];
       };
     };
     responses: {
@@ -18822,9 +18469,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
+        "application/json": components["schemas"]["ItemsSubsonic"][] | components["schemas"]["ItemsSubsonic"];
       };
     };
     responses: {
@@ -18870,9 +18515,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonic"][]
-          | components["schemas"]["ItemsSubsonic"];
+        "application/json": components["schemas"]["ItemsSubsonic"][] | components["schemas"]["ItemsSubsonic"];
       };
     };
     responses: {
@@ -19009,9 +18652,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonicTranslations"][]
-          | components["schemas"]["ItemsSubsonicTranslations"];
+        "application/json": components["schemas"]["ItemsSubsonicTranslations"][] | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
@@ -19057,9 +18698,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json":
-          | components["schemas"]["ItemsSubsonicTranslations"][]
-          | components["schemas"]["ItemsSubsonicTranslations"];
+        "application/json": components["schemas"]["ItemsSubsonicTranslations"][] | components["schemas"]["ItemsSubsonicTranslations"];
       };
     };
     responses: {
@@ -19157,21 +18796,21 @@ export interface operations {
   };
 }
 
+
 export type Schema = {
   directus_sync_id_map: components["schemas"]["ItemsDirectusSyncIDMap"][];
-  icbd: components["schemas"]["ItemsIcbd"][];
   icbd_files: components["schemas"]["ItemsIcbdFiles"][];
   icbd_translations: components["schemas"]["ItemsIcbdTranslations"][];
-  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
   icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
-  icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
   icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
+  icbd: components["schemas"]["ItemsIcbd"][];
+  icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
+  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
   game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
   icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
   languages: components["schemas"]["ItemsLanguages"][];
   artists: components["schemas"]["ItemsArtists"][];
-  association: components["schemas"]["ItemsAssociation"];
   association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
@@ -19189,6 +18828,7 @@ export type Schema = {
   commission_memberships_translations: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
   commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
   commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
+  events: components["schemas"]["ItemsEvents"][];
   game_star_articles_translations: components["schemas"]["ItemsGameStarArticlesTranslations"][];
   game_star_articles: components["schemas"]["ItemsGameStarArticles"][];
   game_star_events_translations: components["schemas"]["ItemsGameStarEventsTranslations"][];
@@ -19196,7 +18836,6 @@ export type Schema = {
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
   game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
   game_star_translations: components["schemas"]["ItemsGameStarTranslations"][];
-  game_star: components["schemas"]["ItemsGameStar"][];
   registrations: components["schemas"]["ItemsRegistrations"][];
   inventory: components["schemas"]["ItemsInventory"][];
   news: components["schemas"]["ItemsNews"][];
@@ -19205,11 +18844,8 @@ export type Schema = {
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
-  save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
-  subsonic: components["schemas"]["ItemsSubsonic"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
-  events: components["schemas"]["ItemsEvents"][];
 };

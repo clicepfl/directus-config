@@ -1,0 +1,25 @@
+{
+  "collection": "icbd_activities",
+  "field": "icbd_id",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "icbd_activities",
+    "many_field": "icbd_id",
+    "one_allowed_collections": null,
+    "one_collection": "icbd",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "activities",
+    "sort_field": null
+  },
+  "related_collection": "icbd",
+  "schema": {
+    "column": "icbd_id",
+    "constraint_name": "icbd_activities_icbd_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "icbd",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "icbd_activities"
+  }
+}
