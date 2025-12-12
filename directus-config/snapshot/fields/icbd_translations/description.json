@@ -1,8 +1,8 @@
 {
-  "collection": "ICBD_translations",
+  "collection": "icbd_translations",
   "field": "description",
   "meta": {
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -37,7 +37,7 @@
     "name": "description",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "ICBD_translations"
+    "table": "icbd_translations"
   },
   "type": "text"
 }

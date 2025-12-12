@@ -1,10 +1,10 @@
 {
-  "collection": "ICBD_files",
-  "field": "directus_files_id",
+  "collection": "icbd",
+  "field": "logo",
   "meta": {
-    "junction_field": "ICBD_id",
-    "many_collection": "ICBD_files",
-    "many_field": "directus_files_id",
+    "junction_field": null,
+    "many_collection": "icbd",
+    "many_field": "logo",
     "one_allowed_collections": null,
     "one_collection": "directus_files",
     "one_collection_field": null,
@@ -14,12 +14,12 @@
   },
   "related_collection": "directus_files",
   "schema": {
-    "column": "directus_files_id",
-    "constraint_name": "icbd_files_directus_files_id_foreign",
+    "column": "logo",
+    "constraint_name": "icbd_logo_foreign",
     "foreign_key_column": "id",
     "foreign_key_table": "directus_files",
-    "on_delete": "CASCADE",
+    "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "table": "ICBD_files"
+    "table": "icbd"
   }
 }

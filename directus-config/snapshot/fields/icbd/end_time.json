@@ -1,22 +1,20 @@
 {
-  "collection": "ICBD",
-  "field": "place",
+  "collection": "icbd",
+  "field": "end_time",
   "meta": {
-    "collection": "ICBD",
+    "collection": "icbd",
     "conditions": null,
-    "display": null,
+    "display": "datetime",
     "display_options": null,
-    "field": "place",
+    "field": "end_time",
     "group": null,
     "hidden": false,
-    "interface": "input",
+    "interface": "datetime",
     "note": null,
-    "options": {
-      "iconLeft": "pin_drop"
-    },
+    "options": null,
     "readonly": false,
     "required": false,
-    "sort": 8,
+    "sort": 6,
     "special": null,
     "translations": null,
     "validation": null,
@@ -24,7 +22,7 @@
     "width": "full"
   },
   "schema": {
-    "data_type": "character varying",
+    "data_type": "time without time zone",
     "default_value": null,
     "foreign_key_column": null,
     "foreign_key_table": null,
@@ -32,14 +30,14 @@
     "has_auto_increment": false,
     "is_generated": false,
     "is_indexed": false,
-    "is_nullable": true,
+    "is_nullable": false,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": 255,
-    "name": "place",
+    "max_length": null,
+    "name": "end_time",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "ICBD"
+    "table": "icbd"
   },
-  "type": "string"
+  "type": "time"
 }

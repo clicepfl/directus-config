@@ -1,18 +1,18 @@
 {
-  "collection": "ICBD_translations",
+  "collection": "icbd",
   "field": "id",
   "meta": {
-    "collection": "ICBD_translations",
+    "collection": "icbd",
     "conditions": null,
     "display": null,
     "display_options": null,
     "field": "id",
     "group": null,
     "hidden": true,
-    "interface": null,
+    "interface": "input",
     "note": null,
     "options": null,
-    "readonly": false,
+    "readonly": true,
     "required": false,
     "sort": 1,
     "special": null,
@@ -23,7 +23,7 @@
   },
   "schema": {
     "data_type": "integer",
-    "default_value": "nextval('\"ICBD_translations_id_seq\"'::regclass)",
+    "default_value": "nextval('icbd_id_seq'::regclass)",
     "foreign_key_column": null,
     "foreign_key_table": null,
     "generation_expression": null,
@@ -37,7 +37,7 @@
     "name": "id",
     "numeric_precision": 32,
     "numeric_scale": 0,
-    "table": "ICBD_translations"
+    "table": "icbd"
   },
   "type": "integer"
 }

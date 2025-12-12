@@ -1464,7 +1464,7 @@
   {
     "_syncId": "e900d88b-a616-48df-b03b-da3a7222033e",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -1500,7 +1500,7 @@
   {
     "_syncId": "4fd51b3e-dcb7-476e-8b0f-c918f68517be",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -1512,7 +1512,7 @@
   {
     "_syncId": "b116908f-d0ff-4c5e-9929-fe2a5fcc9925",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -1968,7 +1968,7 @@
   {
     "_syncId": "e82e2506-a0f1-4e72-9862-b2592697244c",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -2004,7 +2004,7 @@
   {
     "_syncId": "0838c140-4723-4120-aabf-6373c003d973",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -2016,7 +2016,7 @@
   {
     "_syncId": "1c7685a7-b396-43a3-9950-356760cf85ed",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -4738,7 +4738,7 @@
   {
     "_syncId": "032fa28f-8509-4e15-a082-ccbe2adfa027",
     "action": "create",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4750,7 +4750,7 @@
   {
     "_syncId": "b1623866-33c8-4a12-80c2-9aaa027f62ef",
     "action": "delete",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4762,7 +4762,7 @@
   {
     "_syncId": "1b21a2cf-4df5-4509-b03d-5a7743139bcd",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4774,7 +4774,7 @@
   {
     "_syncId": "68bdb242-ddd1-4599-9c49-95c2bfbc6f6a",
     "action": "share",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4786,7 +4786,7 @@
   {
     "_syncId": "283dec8e-0881-43c6-9a88-8b0c578f23f2",
     "action": "update",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4918,7 +4918,7 @@
   {
     "_syncId": "45f3b1c2-371e-45f1-8bda-8be164c5de0a",
     "action": "create",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -4930,7 +4930,7 @@
   {
     "_syncId": "a4ed6a19-7d44-4ea1-8944-d8357408de46",
     "action": "delete",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -4942,7 +4942,7 @@
   {
     "_syncId": "193502e0-80c0-4d11-a0be-1a6f506ce55b",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -4954,7 +4954,7 @@
   {
     "_syncId": "e9322eb5-0508-4468-903f-40774b9d4ec2",
     "action": "share",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -4966,7 +4966,7 @@
   {
     "_syncId": "1f9ee40f-b0f0-49b9-b662-8600dda30b67",
     "action": "update",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -4978,7 +4978,7 @@
   {
     "_syncId": "512c83c0-dc22-401d-af93-26c6d7b3f0a4",
     "action": "create",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -4990,7 +4990,7 @@
   {
     "_syncId": "3f44ccad-3dd1-4c80-b2ff-cad053123e52",
     "action": "delete",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -5002,7 +5002,7 @@
   {
     "_syncId": "4190ee75-351b-49c3-917c-eb3276ad1fe0",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -5014,7 +5014,7 @@
   {
     "_syncId": "5c188c61-1937-44ea-9246-9dfde7b21d0c",
     "action": "share",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -5026,7 +5026,7 @@
   {
     "_syncId": "8f284f14-2ba0-4e24-a1b0-0c80d1339d7e",
     "action": "update",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],

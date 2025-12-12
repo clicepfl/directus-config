@@ -1,22 +1,22 @@
 {
-  "collection": "ICBD",
-  "field": "presentation_video",
+  "collection": "icbd",
+  "field": "place",
   "meta": {
-    "collection": "ICBD",
+    "collection": "icbd",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "presentation_video",
+    "field": "place",
     "group": null,
     "hidden": false,
     "interface": "input",
     "note": null,
     "options": {
-      "iconLeft": "smart_display"
+      "iconLeft": "pin_drop"
     },
     "readonly": false,
     "required": false,
-    "sort": 3,
+    "sort": 8,
     "special": null,
     "translations": null,
     "validation": null,
@@ -36,10 +36,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "presentation_video",
+    "name": "place",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "ICBD"
+    "table": "icbd"
   },
   "type": "string"
 }

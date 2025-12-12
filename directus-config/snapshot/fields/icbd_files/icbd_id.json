@@ -1,12 +1,12 @@
 {
-  "collection": "ICBD_translations",
-  "field": "languages_code",
+  "collection": "icbd_files",
+  "field": "icbd_id",
   "meta": {
-    "collection": "ICBD_translations",
+    "collection": "icbd_files",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "languages_code",
+    "field": "icbd_id",
     "group": null,
     "hidden": true,
     "interface": null,
@@ -14,7 +14,7 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 3,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
@@ -22,10 +22,10 @@
     "width": "full"
   },
   "schema": {
-    "data_type": "character varying",
+    "data_type": "integer",
     "default_value": null,
-    "foreign_key_column": "code",
-    "foreign_key_table": "languages",
+    "foreign_key_column": "id",
+    "foreign_key_table": "icbd",
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -33,11 +33,11 @@
     "is_nullable": true,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": 255,
-    "name": "languages_code",
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "table": "ICBD_translations"
+    "max_length": null,
+    "name": "icbd_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "icbd_files"
   },
-  "type": "string"
+  "type": "integer"
 }
