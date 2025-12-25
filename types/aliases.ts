@@ -32,3 +32,5 @@ export type GameStarArticle = Schema["game_star_articles"][0];
 export type GameStarEvent = Schema["game_star_events"][0];
 export type GameStarProject = Schema["game_star_projects"][0];
 export type GameStarSocialLink = Schema["game_star_social_links"][0];
+export type Gallery = Schema["galleries"][0];
+
