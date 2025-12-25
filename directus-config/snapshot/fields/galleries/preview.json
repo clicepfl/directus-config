@@ -1,0 +1,47 @@
+{
+  "collection": "galleries",
+  "field": "preview",
+  "meta": {
+    "collection": "galleries",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "preview",
+    "group": null,
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 3,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "preview",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "galleries"
+  },
+  "type": "uuid"
+}
