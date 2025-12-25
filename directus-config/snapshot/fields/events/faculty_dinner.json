@@ -30,11 +30,7 @@
     "readonly": false,
     "required": false,
     "sort": 16,
-    "special": [
-      "alias",
-      "group",
-      "no-data"
-    ],
+    "special": ["alias", "group", "no-data"],
     "translations": null,
     "validation": null,
     "validation_message": null,

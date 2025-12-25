@@ -48,12 +48,8 @@
     "name": "[OTHER] Send confirmation email",
     "operation": "0180bcf8-0bd5-407a-becc-409d138b677f",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.create"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.create"],
       "type": "action"
     },
     "status": "active",
@@ -69,9 +65,7 @@
     "operation": "fd5f2c59-48d5-4e1a-8f2d-d7f1318ad5de",
     "options": {
       "async": true,
-      "collections": [
-        "registrations"
-      ],
+      "collections": ["registrations"],
       "requireConfirmation": true
     },
     "status": "active",
@@ -86,13 +80,8 @@
     "name": "[FD] Count meals",
     "operation": "a07ae0a2-4b49-468d-ba22-2a248b209301",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.create",
-        "items.update"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.create", "items.update"],
       "type": "action"
     },
     "status": "active",
@@ -107,12 +96,8 @@
     "name": "[FD] Send pre-registration mail",
     "operation": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.create"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.create"],
       "type": "action"
     },
     "status": "active",
@@ -153,13 +138,8 @@
     "name": "[G] CU Registration",
     "operation": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.update",
-        "items.create"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.update", "items.create"],
       "type": "action"
     },
     "status": "active",
@@ -174,12 +154,8 @@
     "name": "[OTHER] Send validation email",
     "operation": "4f7ad4ef-5995-41f5-ac25-cc5b30f75e52",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",
@@ -194,12 +170,8 @@
     "name": "[HW] Send confirmation email",
     "operation": "06abeb8d-adf8-497c-8ffb-1374d366fd84",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.create"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.create"],
       "type": "action"
     },
     "status": "active",
@@ -214,12 +186,8 @@
     "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
     "operation": "4a69daea-858b-478e-a879-f99ada596651",
     "options": {
-      "collections": [
-        "icbd_activities_registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["icbd_activities_registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",
@@ -234,12 +202,8 @@
     "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
     "operation": "fef5f568-8096-4f6e-b22a-466609fab749",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",
@@ -254,12 +218,8 @@
     "name": "[FD] Send confirmation email",
     "operation": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",
@@ -274,12 +234,8 @@
     "name": "[ICBD] Send registration blocked email",
     "operation": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "options": {
-      "collections": [
-        "registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",
@@ -294,12 +250,8 @@
     "name": "[ICBD] Update activity status",
     "operation": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
     "options": {
-      "collections": [
-        "icbd_activities_registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
+      "collections": ["icbd_activities_registrations"],
+      "scope": ["items.update"],
       "type": "action"
     },
     "status": "active",

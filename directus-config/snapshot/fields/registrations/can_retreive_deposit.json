@@ -26,9 +26,7 @@
     "readonly": true,
     "required": true,
     "sort": 1,
-    "special": [
-      "cast-boolean"
-    ],
+    "special": ["cast-boolean"],
     "translations": null,
     "validation": null,
     "validation_message": null,

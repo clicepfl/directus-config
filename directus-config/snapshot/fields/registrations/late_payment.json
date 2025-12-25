@@ -38,9 +38,7 @@
     "readonly": false,
     "required": false,
     "sort": 2,
-    "special": [
-      "cast-boolean"
-    ],
+    "special": ["cast-boolean"],
     "translations": null,
     "validation": null,
     "validation_message": null,

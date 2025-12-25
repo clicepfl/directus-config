@@ -18,9 +18,7 @@
     "readonly": false,
     "required": true,
     "sort": 4,
-    "special": [
-      "translations"
-    ],
+    "special": ["translations"],
     "translations": null,
     "validation": null,
     "validation_message": null,

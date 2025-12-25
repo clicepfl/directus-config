@@ -19104,7 +19104,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-<<<<<<< HEAD
   /**
    * List Items
    * @description List the galleries items.
@@ -19292,8 +19291,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-=======
->>>>>>> main
 }
 
 export type Schema = {
@@ -19307,12 +19304,7 @@ export type Schema = {
   icbd_activities_translations: components["schemas"]["ItemsIcbdActivitiesTranslations"][];
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][];
   game_star_social_links: components["schemas"]["ItemsGameStarSocialLinks"][];
-<<<<<<< HEAD
-  ICBD_files: components["schemas"]["ItemsIcbdFiles"][];
-  ICBD_translations: components["schemas"]["ItemsIcbdTranslations"][];
-=======
   icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
->>>>>>> main
   languages: components["schemas"]["ItemsLanguages"][];
   artists: components["schemas"]["ItemsArtists"][];
   association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
@@ -19340,14 +19332,7 @@ export type Schema = {
   game_star_projects_translations: components["schemas"]["ItemsGameStarProjectsTranslations"][];
   game_star_projects: components["schemas"]["ItemsGameStarProjects"][];
   game_star_translations: components["schemas"]["ItemsGameStarTranslations"][];
-<<<<<<< HEAD
-  icbd_activities: components["schemas"]["ItemsIcbdActivities"][];
-  icbd_activities_icbd_speakers: components["schemas"]["ItemsIcbdActivitiesIcbdSpeakers"][];
-  icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][];
-  icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
-=======
   game_star: components["schemas"]["ItemsGameStar"][];
->>>>>>> main
   registrations: components["schemas"]["ItemsRegistrations"][];
   inventory: components["schemas"]["ItemsInventory"][];
   news: components["schemas"]["ItemsNews"][];

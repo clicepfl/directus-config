@@ -14,12 +14,7 @@
     },
     "layout_query": {
       "tabular": {
-        "fields": [
-          "member",
-          "pole",
-          "translations",
-          "level"
-        ],
+        "fields": ["member", "pole", "translations", "level"],
         "page": 1
       }
     },
@@ -59,9 +54,7 @@
           "video_link"
         ],
         "page": 1,
-        "sort": [
-          "-date_created"
-        ]
+        "sort": ["-date_created"]
       }
     },
     "refresh_interval": null,
@@ -83,16 +76,9 @@
     },
     "layout_query": {
       "tabular": {
-        "fields": [
-          "media_name",
-          "account_name",
-          "link",
-          "logo"
-        ],
+        "fields": ["media_name", "account_name", "link", "logo"],
         "page": 1,
-        "sort": [
-          "media_name"
-        ]
+        "sort": ["media_name"]
       }
     },
     "refresh_interval": null,
@@ -118,11 +104,7 @@
     },
     "layout_query": {
       "tabular": {
-        "fields": [
-          "icon",
-          "translations",
-          "link"
-        ],
+        "fields": ["icon", "translations", "link"],
         "page": 1
       }
     },
@@ -148,20 +130,13 @@
     "layout_query": {
       "cards": {
         "page": 1,
-        "sort": [
-          "id"
-        ]
+        "sort": ["id"]
       },
       "map": {
         "limit": 1000
       },
       "tabular": {
-        "fields": [
-          "surname",
-          "name",
-          "email",
-          "sciper"
-        ],
+        "fields": ["surname", "name", "email", "sciper"],
         "page": 1
       }
     },
@@ -210,11 +185,7 @@
     },
     "layout_query": {
       "tabular": {
-        "fields": [
-          "translations",
-          "mail",
-          "slug"
-        ],
+        "fields": ["translations", "mail", "slug"],
         "page": 1
       }
     },
@@ -242,9 +213,7 @@
     "layout_query": {
       "cards": {
         "page": 1,
-        "sort": [
-          "-uploaded_on"
-        ]
+        "sort": ["-uploaded_on"]
       }
     },
     "refresh_interval": null,
@@ -272,17 +241,10 @@
     "layout_query": {
       "cards": {
         "page": 1,
-        "sort": [
-          "id"
-        ]
+        "sort": ["id"]
       },
       "tabular": {
-        "fields": [
-          "name",
-          "link",
-          "start",
-          "end"
-        ],
+        "fields": ["name", "link", "start", "end"],
         "page": 1
       }
     },
@@ -365,12 +327,7 @@
     },
     "layout_query": {
       "tabular": {
-        "fields": [
-          "status",
-          "slug",
-          "commissions",
-          "date_created"
-        ],
+        "fields": ["status", "slug", "commissions", "date_created"],
         "page": 1
       }
     },
