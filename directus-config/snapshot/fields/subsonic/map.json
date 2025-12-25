@@ -26,7 +26,9 @@
     "readonly": false,
     "required": false,
     "sort": 4,
-    "special": ["file"],
+    "special": [
+      "file"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,

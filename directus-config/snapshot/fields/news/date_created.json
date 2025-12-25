@@ -17,7 +17,9 @@
     "readonly": true,
     "required": false,
     "sort": 10,
-    "special": ["date-created"],
+    "special": [
+      "date-created"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,

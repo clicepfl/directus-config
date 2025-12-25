@@ -1,11 +1,5 @@
 [
   {
-    "_syncId": "00f21ee3-7cfc-4b2e-a112-afa69ba43dd9",
-    "key": "dateIndicator",
-    "language": "en-US",
-    "value": "on"
-  },
-  {
     "_syncId": "06282670-b775-44b3-8877-f9b931c6c6bf",
     "key": "gamestar.seeAllEvents",
     "language": "en-US",
@@ -24,18 +18,6 @@
     "value": "Pendant la poster session"
   },
   {
-    "_syncId": "0f0addd0-8c97-40f7-8a0c-90cc2af8e5fe",
-    "key": "commissions",
-    "language": "en-US",
-    "value": "commissions"
-  },
-  {
-    "_syncId": "1176d58b-ad6b-4735-b51c-318715fa5181",
-    "key": "by",
-    "language": "fr-FR",
-    "value": "par"
-  },
-  {
     "_syncId": "124b6318-e847-42c9-8d91-06fe54f159c7",
     "key": "icbd.phds",
     "language": "fr-FR",
@@ -46,12 +28,6 @@
     "key": "event",
     "language": "en-US",
     "value": "event"
-  },
-  {
-    "_syncId": "13edbc9e-384b-473e-93c4-75f369b18fa3",
-    "key": "digitec",
-    "language": "fr-FR",
-    "value": "Digitec"
   },
   {
     "_syncId": "1a100fa6-7d4c-409b-a23b-1df7edf1a6b3",
@@ -84,28 +60,10 @@
     "value": "à"
   },
   {
-    "_syncId": "2b547680-037e-4cad-945c-3901ff32d50f",
-    "key": "moreNews",
-    "language": "en-US",
-    "value": "more news"
-  },
-  {
     "_syncId": "2df5e34b-b4ac-4d58-820a-0f143ce2a565",
     "key": "home",
     "language": "fr-FR",
     "value": "accueil"
-  },
-  {
-    "_syncId": "2e39278e-2304-4832-978b-c875d60281a3",
-    "key": "relatedContent",
-    "language": "en-US",
-    "value": "related content"
-  },
-  {
-    "_syncId": "3160bd44-0e7d-4093-84c0-7158f89b122e",
-    "key": "moreNews",
-    "language": "fr-FR",
-    "value": "plus de news"
   },
   {
     "_syncId": "31daf520-cdc2-4042-8a1c-7e761bed2ff2",
@@ -150,22 +108,10 @@
     "value": "at"
   },
   {
-    "_syncId": "3cb794c4-889d-4ed4-9289-973229bc5add",
-    "key": "commissions",
-    "language": "fr-FR",
-    "value": "commissions"
-  },
-  {
     "_syncId": "3d06d7a4-52db-451d-b20b-cbbb1e3c5fc9",
     "key": "subsonic.map",
     "language": "fr-FR",
     "value": "plan du BC"
-  },
-  {
-    "_syncId": "496effbd-760b-4682-b3e3-a7e4b50b070b",
-    "key": "gallery",
-    "language": "fr-FR",
-    "value": "galerie"
   },
   {
     "_syncId": "4b060566-d582-4662-b3f3-4f3e672b2f4c",
@@ -186,12 +132,6 @@
     "value": "partners"
   },
   {
-    "_syncId": "51c00b14-7054-4791-8e41-cc44b72d8f25",
-    "key": "timeIndicator",
-    "language": "en-US",
-    "value": "at"
-  },
-  {
     "_syncId": "52a2db70-ecaa-4464-ad18-e6ee1751ee15",
     "key": "icbd.timetable",
     "language": "en-US",
@@ -210,12 +150,6 @@
     "value": "plus de news"
   },
   {
-    "_syncId": "567c0988-557f-44bb-bc30-b0b6df484fcc",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
     "_syncId": "5707c726-b363-4f27-ab31-5f75a99982ed",
     "key": "icbd.registration",
     "language": "en-US",
@@ -228,34 +162,10 @@
     "value": "association"
   },
   {
-    "_syncId": "57e653ba-b5af-4a34-b0d3-f134218bdcc2",
-    "key": "need-to-order",
-    "language": "fr-FR",
-    "value": "Besoin de commander ?"
-  },
-  {
-    "_syncId": "58c74786-45c1-442f-b979-d896200f1109",
-    "key": "pole",
-    "language": "en-US",
-    "value": "positions"
-  },
-  {
-    "_syncId": "5974cf94-0b2a-4d66-ab2b-1b8942a25691",
-    "key": "readMore",
-    "language": "en-US",
-    "value": "read more"
-  },
-  {
     "_syncId": "5ad7b8b4-9a81-41c4-9245-fe94152d762f",
     "key": "clicketing.error.forbidden",
     "language": "fr-FR",
     "value": "Accès interdit"
-  },
-  {
-    "_syncId": "5bc0f0e4-b55c-4c19-8b52-9318d4921d7f",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
   },
   {
     "_syncId": "60043237-e770-4694-b7d2-7166bf9f72e4",
@@ -282,28 +192,10 @@
     "value": "PhD students"
   },
   {
-    "_syncId": "6fbb28e0-2bb7-4cf6-a56d-ff8e83a94091",
-    "key": "slogan",
-    "language": "fr-FR",
-    "value": "Association des étudiant.e.s en Informatique et Systèmes de communication"
-  },
-  {
-    "_syncId": "707624fa-7e8a-4907-afcc-8c3e7a6c2a45",
-    "key": "partners",
-    "language": "fr-FR",
-    "value": "partenaires"
-  },
-  {
     "_syncId": "75549060-ee6d-40d4-a737-a8b24bf9934c",
     "key": "bob-cassettes",
     "language": "en-US",
     "value": "Bob cassettes"
-  },
-  {
-    "_syncId": "7b71cde4-3c5d-49ee-9429-62f36d71c1d2",
-    "key": "partners",
-    "language": "en-US",
-    "value": "partners"
   },
   {
     "_syncId": "7bd21d01-fbd8-4cb4-a1f6-2def10658d2f",
@@ -324,40 +216,10 @@
     "value": "commissions"
   },
   {
-    "_syncId": "8292ec90-751d-4b2a-9a1a-62ce6afc9d68",
-    "key": "news",
-    "language": "en-US",
-    "value": "news"
-  },
-  {
-    "_syncId": "84bd520c-2b43-4430-8b1f-7bff27b4986e",
-    "key": "readMore",
-    "language": "fr-FR",
-    "value": "lire plus"
-  },
-  {
-    "_syncId": "85f96c02-5bf5-49ea-84ac-acb3b002efb1",
-    "key": "contact",
-    "language": "fr-FR",
-    "value": "Nous contacter : "
-  },
-  {
     "_syncId": "8add9cd4-2f62-4356-ba34-cd0ee6df95b2",
     "key": "gamestar.upcomingEvents",
     "language": "fr-FR",
     "value": "Évènements à venir"
-  },
-  {
-    "_syncId": "8b1659f2-111c-480b-83cd-506d985565b7",
-    "key": "dateIndicator",
-    "language": "fr-FR",
-    "value": "le"
-  },
-  {
-    "_syncId": "8efb24ac-f219-4be2-ac33-75912e239b03",
-    "key": "coffee-filter",
-    "language": "en-US",
-    "value": "Coffee filter"
   },
   {
     "_syncId": "8f0da3bb-8bcd-468c-a9bd-308614076b95",
@@ -432,12 +294,6 @@
     "value": "La Silent Party de la CLIC"
   },
   {
-    "_syncId": "a6a56404-205d-4de8-9e28-4adaec5bcffa",
-    "key": "pole",
-    "language": "fr-FR",
-    "value": "pôles"
-  },
-  {
     "_syncId": "a73198ff-42ea-400d-9ccf-b924e48f04b6",
     "key": "home",
     "language": "en-US",
@@ -462,24 +318,6 @@
     "value": "lire plus"
   },
   {
-    "_syncId": "a821c59c-db72-4fcd-8a31-7594fcf4df70",
-    "key": "need-to-order",
-    "language": "en-US",
-    "value": "Need to order?"
-  },
-  {
-    "_syncId": "a83cdbeb-eb21-48a7-8ee9-1ebff1e5971a",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
-    "_syncId": "a943083e-9a2c-46ea-88bb-5d99a1cdd75f",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
-  },
-  {
     "_syncId": "acd0f216-d550-4cba-aefa-b482640790bc",
     "key": "save-the-date",
     "language": "fr-FR",
@@ -492,28 +330,10 @@
     "value": "partenaires"
   },
   {
-    "_syncId": "b10a6bf7-437e-4691-9ce2-4cc5880b9d26",
-    "key": "committee",
-    "language": "en-US",
-    "value": "committee"
-  },
-  {
     "_syncId": "b4a253cb-cd3c-48d0-b348-652e43ffdaec",
     "key": "icbd.alumni",
     "language": "en-US",
     "value": "Alumni & guests"
-  },
-  {
-    "_syncId": "b4d9fad0-10d1-43c9-a663-41c561c97937",
-    "key": "contact",
-    "language": "en-US",
-    "value": "Contact us : "
-  },
-  {
-    "_syncId": "b4fe3345-7389-45a9-a780-29f275e29442",
-    "key": "gallery",
-    "language": "en-US",
-    "value": "gallery"
   },
   {
     "_syncId": "b55bf023-44d7-4f4b-ab7a-cfb1a5620040",
@@ -540,12 +360,6 @@
     "value": "par"
   },
   {
-    "_syncId": "bad0f8fc-b200-4ea2-b826-7dacc8999e18",
-    "key": "commission",
-    "language": "en-US",
-    "value": "commission"
-  },
-  {
     "_syncId": "bb06a5a8-b1db-4bf5-89d3-e94eab1fe175",
     "key": "icbd.phds-description",
     "language": "en-US",
@@ -556,12 +370,6 @@
     "key": "readMore",
     "language": "en-US",
     "value": "read more"
-  },
-  {
-    "_syncId": "bde57808-b593-4a87-9742-2ba07aeec2a9",
-    "key": "committee",
-    "language": "fr-FR",
-    "value": "comité"
   },
   {
     "_syncId": "bf4a7cfc-ff0c-4014-b157-c9c5b267cd9e",
@@ -582,22 +390,10 @@
     "value": "commission"
   },
   {
-    "_syncId": "c26e7f95-498c-45fa-94fc-8229b63362af",
-    "key": "by",
-    "language": "en-US",
-    "value": "by"
-  },
-  {
     "_syncId": "c30e8298-18a5-41a3-8dad-3d736db5efe8",
     "key": "subsonic.date-and-place",
     "language": "en-US",
     "value": "The 15th November, in BC, at 18h30"
-  },
-  {
-    "_syncId": "c3f53921-e933-4cb6-a348-ac751a7cff75",
-    "key": "digitec",
-    "language": "en-US",
-    "value": "Digitec"
   },
   {
     "_syncId": "c5f757ee-a84d-4030-814a-9191ad7014a1",
@@ -636,18 +432,6 @@
     "value": "related content"
   },
   {
-    "_syncId": "d3559b5f-7f88-4650-82b7-6726cef4fddb",
-    "key": "bob-cassettes",
-    "language": "br-FR",
-    "value": "Cassettes Bob"
-  },
-  {
-    "_syncId": "d5dac8d2-9304-4c3a-ba33-5386f6515b22",
-    "key": "bob-cassettes",
-    "language": "en-US",
-    "value": "Bob cassettes"
-  },
-  {
     "_syncId": "d81b51a6-66ea-4e91-ace6-f2a50328030e",
     "key": "coffee-filter",
     "language": "fr-FR",
@@ -664,12 +448,6 @@
     "key": "commissions",
     "language": "fr-FR",
     "value": "commissions"
-  },
-  {
-    "_syncId": "da84c935-3eee-4b84-8ae4-30a3c09d59ef",
-    "key": "coffee-filter",
-    "language": "fr-FR",
-    "value": "Filtres café"
   },
   {
     "_syncId": "db7d3bac-fba2-4b64-8104-4a4fb89bb4b9",
@@ -696,12 +474,6 @@
     "value": "Save the Date"
   },
   {
-    "_syncId": "e60a295c-6f72-4f75-8dfc-97901bff349f",
-    "key": "news",
-    "language": "fr-FR",
-    "value": "news"
-  },
-  {
     "_syncId": "e7f2fadd-6a43-421a-b386-6411eb91cbe4",
     "key": "clicketing.error.forbidden",
     "language": "en-US",
@@ -709,12 +481,6 @@
   },
   {
     "_syncId": "e80b3044-68ff-4106-8ca7-b1f2c4ef3d30",
-    "key": "slogan",
-    "language": "en-US",
-    "value": "Association of students in Computer science and Communication systems"
-  },
-  {
-    "_syncId": "e8bbd1ac-d515-48e4-9e51-9b6324bcecc6",
     "key": "slogan",
     "language": "en-US",
     "value": "Association of students in Computer science and Communication systems"
@@ -748,18 +514,6 @@
     "key": "gallery",
     "language": "en-US",
     "value": "gallery"
-  },
-  {
-    "_syncId": "f0cc51a9-cc76-4c4b-b6ab-fe410c5f6c8b",
-    "key": "commission",
-    "language": "fr-FR",
-    "value": "commission"
-  },
-  {
-    "_syncId": "f0cd887c-36a3-47cf-aa9a-d4ef1bade61a",
-    "key": "timeIndicator",
-    "language": "fr-FR",
-    "value": "à"
   },
   {
     "_syncId": "f1078e62-eb58-4866-945b-9de21cc941fa",
@@ -820,11 +574,5 @@
     "key": "article",
     "language": "en-US",
     "value": "article"
-  },
-  {
-    "_syncId": "fdd01991-68bb-4bef-a47c-f495884a8bd4",
-    "key": "relatedContent",
-    "language": "fr-FR",
-    "value": "voir aussi ..."
   }
 ]

@@ -15,7 +15,9 @@
     "readonly": false,
     "required": false,
     "sort": 8,
-    "special": ["o2m"],
+    "special": [
+      "o2m"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,

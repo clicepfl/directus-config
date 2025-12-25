@@ -632,6 +632,66 @@ export interface paths {
      */
     patch: operations["updateOperation"];
   };
+  "/webhooks": {
+    /**
+     * List Webhooks
+     * @description Get all webhooks.
+     */
+    get: operations["getWebhooks"];
+    /**
+     * Create a Webhook
+     * @description Create a new webhook.
+     */
+    post: operations["createWebhook"];
+    /**
+     * Delete Multiple Webhooks
+     * @description Delete multiple existing webhooks.
+     */
+    delete: operations["deleteWebhooks"];
+    /**
+     * Update Multiple Webhooks
+     * @description Update multiple webhooks at the same time.
+     */
+    patch: operations["updateWebhooks"];
+  };
+  "/webhooks/{id}": {
+    /**
+     * Retrieve a Webhook
+     * @description Retrieve a single webhook by unique identifier.
+     */
+    get: operations["getWebhook"];
+    /**
+     * Delete a Webhook
+     * @description Delete an existing webhook
+     */
+    delete: operations["deleteWebhook"];
+    /**
+     * Update a Webhook
+     * @description Update an existing webhook
+     */
+    patch: operations["updateWebhook"];
+  };
+  "/extensions": {
+    /**
+     * List Extensions
+     * @description List the installed extensions and their configuration in the project.
+     */
+    get: operations["listExtensions"];
+  };
+  "/extensions/{name}": {
+    /**
+     * Update an Extension
+     * @description Update an existing extension.
+     */
+    patch: operations["updateExtensions"];
+  };
+  "/extensions/{bundle}/{name}": {
+    /**
+     * Update an Extension
+     * @description Update an existing extension.
+     */
+    patch: operations["updateExtensionBundle"];
+  };
   "/versions": {
     /**
      * List Content Versions
@@ -692,26 +752,56 @@ export interface paths {
      */
     post: operations["promoteContentVersion"];
   };
-  "/extensions": {
+  "/comments": {
     /**
-     * List Extensions
-     * @description List the installed extensions and their configuration in the project.
+     * List Comments
+     * @description List the comments.
      */
-    get: operations["listExtensions"];
+    get: operations["getComments"];
+    /**
+     * Create a Comment
+     * @description Create a new comment.
+     */
+    post: operations["createComment"];
+    /**
+     * Delete Multiple Comments
+     * @description Delete multiple existing comments.
+     */
+    delete: operations["deleteComments"];
+    /**
+     * Update Multiple Comments
+     * @description Update multiple comments at the same time.
+     */
+    patch: operations["updateComments"];
   };
-  "/extensions/{name}": {
+  "/comments/{id}": {
     /**
-     * Update an Extension
-     * @description Update an existing extension.
+     * Retrieve a Comment
+     * @description Retrieve a single comment by unique identifier.
      */
-    patch: operations["updateExtensions"];
+    get: operations["getComment"];
+    /**
+     * Delete a Comment
+     * @description Delete an existing comment.
+     */
+    delete: operations["deleteComment"];
+    /**
+     * Update a Comment
+     * @description Update an existing comment.
+     */
+    patch: operations["updateComment"];
   };
-  "/extensions/{bundle}/{name}": {
+  "/settings": {
     /**
-     * Update an Extension
-     * @description Update an existing extension.
+     * Retrieve Settings
+     * @description List the settings.
      */
-    patch: operations["updateExtensionBundle"];
+    get: operations["getSettings"];
+    /**
+     * Update Settings
+     * @description Update the settings
+     */
+    patch: operations["updateSetting"];
   };
   "/items/directus_sync_id_map": {
     /**
@@ -2819,45 +2909,6 @@ export interface paths {
      */
     patch: operations["updateSingleItemsSubsonicTranslations"];
   };
-  "/items/galleries": {
-    /**
-     * List Items
-     * @description List the galleries items.
-     */
-    get: operations["readItemsGalleries"];
-    /**
-     * Create an Item
-     * @description Create a new galleries item.
-     */
-    post: operations["createItemsGalleries"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing galleries items.
-     */
-    delete: operations["deleteItemsGalleries"];
-    /**
-     * Update Multiple Items
-     * @description Update multiple galleries items at the same time.
-     */
-    patch: operations["updateItemsGalleries"];
-  };
-  "/items/galleries/{id}": {
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single galleries item by unique identifier.
-     */
-    get: operations["readSingleItemsGalleries"];
-    /**
-     * Delete an Item
-     * @description Delete an existing galleries item.
-     */
-    delete: operations["deleteSingleItemsGalleries"];
-    /**
-     * Update an Item
-     * @description Update an existing galleries item.
-     */
-    patch: operations["updateSingleItemsGalleries"];
-  };
 }
 
 export type webhooks = Record<string, never>;
@@ -3569,6 +3620,59 @@ export interface components {
        */
       user_created?: string | components["schemas"]["Users"];
     };
+    Webhooks: {
+      /**
+       * @description The index of the webhook.
+       * @example 1
+       */
+      id?: number;
+      /**
+       * @description The name of the webhook.
+       * @example create articles
+       */
+      name?: string;
+      /**
+       * @description Method used in the webhook.
+       * @example POST
+       */
+      method?: string;
+      /**
+       * @description The url of the webhook.
+       * @example null
+       */
+      url?: string | null;
+      /**
+       * @description The status of the webhook.
+       * @example inactive
+       */
+      status?: string;
+      /**
+       * @description If yes, send the content of what was done
+       * @example true
+       */
+      data?: boolean;
+      /**
+       * @description The actions that triggers this webhook.
+       * @example null
+       */
+      actions?: string[] | null;
+      collections?: string[];
+      headers?: unknown;
+      was_active_before_deprecation?: boolean;
+      migrated_flow?: string | components["schemas"]["Flows"] | null;
+    };
+    Extensions: {
+      enabled?: boolean;
+      /** Format: uuid */
+      id?: string;
+      folder?: string;
+      source?: string;
+      /**
+       * @description Name of the bundle the extension is in.
+       * @example directus-extension-my-bundle
+       */
+      bundle?: string | null;
+    };
     Versions: {
       /**
        * @description Primary key of the Content Version.
@@ -3626,25 +3730,49 @@ export interface components {
        */
       delta?: Record<string, never>;
     };
-    Extensions: {
-      enabled?: boolean;
-      /** Format: uuid */
-      id?: string;
-      folder?: string;
-      source?: string;
+    Comments: {
       /**
-       * @description Name of the bundle the extension is in.
-       * @example directus-extension-my-bundle
+       * @description Unique identifier for this single collection preset.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
        */
-      bundle?: string | null;
-    };
-    ItemsDirectusSyncIDMap: {
-      id?: number;
-      table: string;
-      sync_id: string;
-      local_id: string;
-      /** Format: timestamp */
-      created_at?: string | null;
+      id?: string;
+      /**
+       * @description The collection of the item the Comment is created for.
+       * @example articles
+       */
+      collection?: string | components["schemas"]["Collections"];
+      /**
+       * @description The item the Comment is created for.
+       * @example 123
+       */
+      item?: string;
+      /**
+       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
+       * @example This is a comment
+       */
+      comment?: string;
+      /**
+       * Format: date-time
+       * @description When the Comment was created.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_created?: string | null;
+      /**
+       * Format: date-time
+       * @description When the Comment was updated.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_updated?: string | null;
+      /**
+       * @description User that created the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_created?: string | components["schemas"]["Users"];
+      /**
+       * @description User that updated the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_updated?: string | components["schemas"]["Users"];
     };
     Settings: {
       /**
@@ -3790,90 +3918,13 @@ export interface components {
       /** @description $t:fields.directus_settings.mcp_system_prompt_note */
       mcp_system_prompt?: string | null;
     };
-    Webhooks: {
-      /**
-       * @description The index of the webhook.
-       * @example 1
-       */
+    ItemsDirectusSyncIDMap: {
       id?: number;
-      /**
-       * @description The name of the webhook.
-       * @example create articles
-       */
-      name?: string;
-      /**
-       * @description Method used in the webhook.
-       * @example POST
-       */
-      method?: string;
-      /**
-       * @description The url of the webhook.
-       * @example null
-       */
-      url?: string | null;
-      /**
-       * @description The status of the webhook.
-       * @example inactive
-       */
-      status?: string;
-      /**
-       * @description If yes, send the content of what was done
-       * @example true
-       */
-      data?: boolean;
-      /**
-       * @description The actions that triggers this webhook.
-       * @example null
-       */
-      actions?: string[] | null;
-      collections?: string[];
-      headers?: unknown;
-      was_active_before_deprecation?: boolean;
-      migrated_flow?: string | components["schemas"]["Flows"] | null;
-    };
-    Comments: {
-      /**
-       * @description Unique identifier for this single collection preset.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      id?: string;
-      /**
-       * @description The collection of the item the Comment is created for.
-       * @example articles
-       */
-      collection?: string | components["schemas"]["Collections"];
-      /**
-       * @description The item the Comment is created for.
-       * @example 123
-       */
-      item?: string;
-      /**
-       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
-       * @example This is a comment
-       */
-      comment?: string;
-      /**
-       * Format: date-time
-       * @description When the Comment was created.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_created?: string | null;
-      /**
-       * Format: date-time
-       * @description When the Comment was updated.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_updated?: string | null;
-      /**
-       * @description User that created the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_created?: string | components["schemas"]["Users"];
-      /**
-       * @description User that updated the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_updated?: string | components["schemas"]["Users"];
+      table: string;
+      sync_id: string;
+      local_id: string;
+      /** Format: timestamp */
+      created_at?: string | null;
     };
     ItemsIcbd: {
       /** Format: date */
@@ -8117,601 +8168,6 @@ export interface operations {
     };
   };
   /**
-   * List Content Versions
-   * @description Get all Content Versions.
-   */
-  getContentVersions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        meta?: components["parameters"]["Meta"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Versions"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Create Multiple Content Versions
-   * @description Create multiple new Content Versions.
-   */
-  createContentVersion: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["Versions"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Versions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete Multiple Content Versions
-   * @description Delete multiple existing Content Versions.
-   */
-  deleteContentVersions: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Content Versions
-   * @description Update multiple Content Versions at the same time.
-   */
-  updateContentVersions: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: components["schemas"]["Versions"];
-          keys?: string[];
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Versions"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Retrieve a Content Version
-   * @description Retrieve a single Content Version by unique identifier.
-   */
-  getContentVersion: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Versions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete a Content Version
-   * @description Delete an existing Content Version.
-   */
-  deleteContentVersion: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update a Content Version
-   * @description Update an existing Content Version.
-   */
-  updateContentVersion: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["Versions"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Versions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Save to a Content Version
-   * @description Save item changes to an existing Content Version.
-   */
-  saveContentVersion: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": Record<string, never>;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": Record<string, never>;
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Compare a Content Version
-   * @description Compare an existing Content Version with the main version of the item.
-   */
-  compareContentVersion: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: Record<string, never>;
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Promote a Content Version
-   * @description Pass the current hash of the main version of the item (obtained from the `compare` endpoint) along with an optional array of field names of which the values are to be promoted (by default, all fields are selected).
-   */
-  promoteContentVersion: {
-    parameters: {
-      path: {
-        id: components["parameters"]["UUId"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /** @description Hash of the main version of the item to be promoted. */
-          mainHash?: string;
-          /** @description Optional array of field names of which the values are to be promoted. */
-          fields?: string;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": Record<string, never>;
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Extensions
-   * @description List the installed extensions and their configuration in the project.
-   */
-  listExtensions: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update an Extension
-   * @description Update an existing extension.
-   */
-  updateExtensions: {
-    parameters: {
-      path: {
-        name: string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
-          meta?: {
-            /**
-             * @description Whether or not the extension is enabled.
-             * @example true
-             */
-            enabled?: boolean;
-          };
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Extension
-   * @description Update an existing extension.
-   */
-  updateExtensionBundle: {
-    parameters: {
-      path: {
-        bundle: string;
-        name: string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
-          meta?: {
-            /**
-             * @description Whether or not the extension is enabled.
-             * @example true
-             */
-            enabled?: boolean;
-          };
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * List Items
-   * @description List the directus_sync_id_map items.
-   */
-  readItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new directus_sync_id_map item.
-   */
-  createItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing directus_sync_id_map items.
-   */
-  deleteItemsDirectusSyncIDMap: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple directus_sync_id_map items at the same time.
-   */
-  updateItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single directus_sync_id_map item by unique identifier.
-   */
-  readSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing directus_sync_id_map item.
-   */
-  deleteSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing directus_sync_id_map item.
-   */
-  updateSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Retrieve Settings
-   * @description List the settings.
-   */
-  getSettings: {
-    parameters: {
-      query?: {
-        limit?: components["parameters"]["Limit"];
-        offset?: components["parameters"]["Offset"];
-        meta?: components["parameters"]["Meta"];
-        page?: components["parameters"]["Page"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update Settings
-   * @description Update the settings
-   */
-  updateSetting: {
-    requestBody?: {
-      content: {
-        "application/json": Record<string, never>;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
    * List Webhooks
    * @description Get all webhooks.
    */
@@ -8991,6 +8447,365 @@ export interface operations {
     };
   };
   /**
+   * List Extensions
+   * @description List the installed extensions and their configuration in the project.
+   */
+  listExtensions: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update an Extension
+   * @description Update an existing extension.
+   */
+  updateExtensions: {
+    parameters: {
+      path: {
+        name: string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
+          meta?: {
+            /**
+             * @description Whether or not the extension is enabled.
+             * @example true
+             */
+            enabled?: boolean;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Extension
+   * @description Update an existing extension.
+   */
+  updateExtensionBundle: {
+    parameters: {
+      path: {
+        bundle: string;
+        name: string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
+          meta?: {
+            /**
+             * @description Whether or not the extension is enabled.
+             * @example true
+             */
+            enabled?: boolean;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Content Versions
+   * @description Get all Content Versions.
+   */
+  getContentVersions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Versions"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Create Multiple Content Versions
+   * @description Create multiple new Content Versions.
+   */
+  createContentVersion: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["Versions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Versions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete Multiple Content Versions
+   * @description Delete multiple existing Content Versions.
+   */
+  deleteContentVersions: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Content Versions
+   * @description Update multiple Content Versions at the same time.
+   */
+  updateContentVersions: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: components["schemas"]["Versions"];
+          keys?: string[];
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Versions"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Retrieve a Content Version
+   * @description Retrieve a single Content Version by unique identifier.
+   */
+  getContentVersion: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Versions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete a Content Version
+   * @description Delete an existing Content Version.
+   */
+  deleteContentVersion: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update a Content Version
+   * @description Update an existing Content Version.
+   */
+  updateContentVersion: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["Versions"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Versions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Save to a Content Version
+   * @description Save item changes to an existing Content Version.
+   */
+  saveContentVersion: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": Record<string, never>;
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Compare a Content Version
+   * @description Compare an existing Content Version with the main version of the item.
+   */
+  compareContentVersion: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: Record<string, never>;
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Promote a Content Version
+   * @description Pass the current hash of the main version of the item (obtained from the `compare` endpoint) along with an optional array of field names of which the values are to be promoted (by default, all fields are selected).
+   */
+  promoteContentVersion: {
+    parameters: {
+      path: {
+        id: components["parameters"]["UUId"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /** @description Hash of the main version of the item to be promoted. */
+          mainHash?: string;
+          /** @description Optional array of field names of which the values are to be promoted. */
+          fields?: string;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": Record<string, never>;
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
    * List Comments
    * @description List the comments.
    */
@@ -9186,6 +9001,242 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["Comments"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Retrieve Settings
+   * @description List the settings.
+   */
+  getSettings: {
+    parameters: {
+      query?: {
+        limit?: components["parameters"]["Limit"];
+        offset?: components["parameters"]["Offset"];
+        meta?: components["parameters"]["Meta"];
+        page?: components["parameters"]["Page"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update Settings
+   * @description Update the settings
+   */
+  updateSetting: {
+    requestBody?: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * List Items
+   * @description List the directus_sync_id_map items.
+   */
+  readItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Create an Item
+   * @description Create a new directus_sync_id_map item.
+   */
+  createItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        meta?: components["parameters"]["Meta"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Delete Multiple Items
+   * @description Delete multiple existing directus_sync_id_map items.
+   */
+  deleteItemsDirectusSyncIDMap: {
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  /**
+   * Update Multiple Items
+   * @description Update multiple directus_sync_id_map items at the same time.
+   */
+  updateItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        limit?: components["parameters"]["Limit"];
+        meta?: components["parameters"]["Meta"];
+        offset?: components["parameters"]["Offset"];
+        sort?: components["parameters"]["Sort"];
+        filter?: components["parameters"]["Filter"];
+        search?: components["parameters"]["Search"];
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+    };
+  };
+  /**
+   * Retrieve an Item
+   * @description Retrieve a single directus_sync_id_map item by unique identifier.
+   */
+  readSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+        version?: components["parameters"]["Version"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Delete an Item
+   * @description Delete an existing directus_sync_id_map item.
+   */
+  deleteSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  /**
+   * Update an Item
+   * @description Update an existing directus_sync_id_map item.
+   */
+  updateSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        fields?: components["parameters"]["Fields"];
+        meta?: components["parameters"]["Meta"];
+      };
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
           };
         };
       };
@@ -19104,193 +19155,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  /**
-   * List Items
-   * @description List the galleries items.
-   */
-  readItemsGalleries: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGalleries"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Create an Item
-   * @description Create a new galleries item.
-   */
-  createItemsGalleries: {
-    parameters: {
-      query?: {
-        meta?: components["parameters"]["Meta"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGalleries"][]
-          | components["schemas"]["ItemsGalleries"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGalleries"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Delete Multiple Items
-   * @description Delete multiple existing galleries items.
-   */
-  deleteItemsGalleries: {
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  /**
-   * Update Multiple Items
-   * @description Update multiple galleries items at the same time.
-   */
-  updateItemsGalleries: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        limit?: components["parameters"]["Limit"];
-        meta?: components["parameters"]["Meta"];
-        offset?: components["parameters"]["Offset"];
-        sort?: components["parameters"]["Sort"];
-        filter?: components["parameters"]["Filter"];
-        search?: components["parameters"]["Search"];
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsGalleries"][]
-          | components["schemas"]["ItemsGalleries"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGalleries"][];
-          };
-        };
-      };
-    };
-  };
-  /**
-   * Retrieve an Item
-   * @description Retrieve a single galleries item by unique identifier.
-   */
-  readSingleItemsGalleries: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-        version?: components["parameters"]["Version"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGalleries"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Delete an Item
-   * @description Delete an existing galleries item.
-   */
-  deleteSingleItemsGalleries: {
-    parameters: {
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  /**
-   * Update an Item
-   * @description Update an existing galleries item.
-   */
-  updateSingleItemsGalleries: {
-    parameters: {
-      query?: {
-        fields?: components["parameters"]["Fields"];
-        meta?: components["parameters"]["Meta"];
-      };
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsGalleries"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsGalleries"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
 }
 
 export type Schema = {
@@ -19325,7 +19189,6 @@ export type Schema = {
   commission_memberships_translations: components["schemas"]["ItemsCommissionMembershipsTranslations"][];
   commissions_social_links: components["schemas"]["ItemsCommissionsSocialLinks"][];
   commissions_translations: components["schemas"]["ItemsCommissionsTranslations"][];
-  events: components["schemas"]["ItemsEvents"][];
   game_star_articles_translations: components["schemas"]["ItemsGameStarArticlesTranslations"][];
   game_star_articles: components["schemas"]["ItemsGameStarArticles"][];
   game_star_events_translations: components["schemas"]["ItemsGameStarEventsTranslations"][];
@@ -19349,5 +19212,4 @@ export type Schema = {
   subsonic: components["schemas"]["ItemsSubsonic"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
   events: components["schemas"]["ItemsEvents"][];
-  galleries: components["schemas"]["ItemsGalleries"][];
 };
