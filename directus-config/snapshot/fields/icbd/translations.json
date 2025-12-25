@@ -1,22 +1,24 @@
 {
-  "collection": "ICBD",
-  "field": "partners_images",
+  "collection": "icbd",
+  "field": "translations",
   "meta": {
-    "collection": "ICBD",
+    "collection": "icbd",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "partners_images",
+    "field": "translations",
     "group": null,
     "hidden": false,
-    "interface": "files",
+    "interface": "translations",
     "note": null,
-    "options": null,
+    "options": {
+      "defaultOpenSplitView": true
+    },
     "readonly": false,
-    "required": false,
-    "sort": 10,
+    "required": true,
+    "sort": 9,
     "special": [
-      "files"
+      "translations"
     ],
     "translations": null,
     "validation": null,

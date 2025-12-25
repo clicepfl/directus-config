@@ -1,12 +1,12 @@
 {
-  "collection": "ICBD_files",
-  "field": "ICBD_id",
+  "collection": "icbd_translations",
+  "field": "icbd_id",
   "meta": {
-    "collection": "ICBD_files",
+    "collection": "icbd_translations",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "ICBD_id",
+    "field": "icbd_id",
     "group": null,
     "hidden": true,
     "interface": null,
@@ -25,7 +25,7 @@
     "data_type": "integer",
     "default_value": null,
     "foreign_key_column": "id",
-    "foreign_key_table": "ICBD",
+    "foreign_key_table": "icbd",
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -34,10 +34,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "ICBD_id",
+    "name": "icbd_id",
     "numeric_precision": 32,
     "numeric_scale": 0,
-    "table": "ICBD_files"
+    "table": "icbd_translations"
   },
   "type": "integer"
 }

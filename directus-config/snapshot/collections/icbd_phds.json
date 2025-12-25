@@ -9,7 +9,7 @@
     "collection": "icbd_phds",
     "color": "#FFA439",
     "display_template": null,
-    "group": "ICBD",
+    "group": "icbd",
     "hidden": false,
     "icon": "school",
     "item_duplication_fields": null,

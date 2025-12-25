@@ -1,22 +1,20 @@
 {
-  "collection": "std_cell",
-  "field": "url",
+  "collection": "icbd",
+  "field": "end_time",
   "meta": {
-    "collection": "std_cell",
+    "collection": "icbd",
     "conditions": null,
-    "display": null,
+    "display": "datetime",
     "display_options": null,
-    "field": "url",
+    "field": "end_time",
     "group": null,
     "hidden": false,
-    "interface": "input",
+    "interface": "datetime",
     "note": null,
-    "options": {
-      "iconLeft": "link"
-    },
+    "options": null,
     "readonly": false,
     "required": false,
-    "sort": 7,
+    "sort": 6,
     "special": null,
     "translations": null,
     "validation": null,
@@ -24,22 +22,22 @@
     "width": "full"
   },
   "schema": {
-    "data_type": "character varying",
-    "default_value": "https://clic.epfl.ch",
+    "data_type": "time without time zone",
+    "default_value": null,
     "foreign_key_column": null,
     "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
     "is_indexed": false,
-    "is_nullable": true,
+    "is_nullable": false,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": 255,
-    "name": "url",
+    "max_length": null,
+    "name": "end_time",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "std_cell"
+    "table": "icbd"
   },
-  "type": "string"
+  "type": "time"
 }

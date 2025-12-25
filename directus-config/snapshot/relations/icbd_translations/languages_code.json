@@ -1,9 +1,9 @@
 {
-  "collection": "ICBD_translations",
+  "collection": "icbd_translations",
   "field": "languages_code",
   "meta": {
-    "junction_field": "ICBD_id",
-    "many_collection": "ICBD_translations",
+    "junction_field": "icbd_id",
+    "many_collection": "icbd_translations",
     "many_field": "languages_code",
     "one_allowed_collections": null,
     "one_collection": "languages",
@@ -20,6 +20,6 @@
     "foreign_key_table": "languages",
     "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "table": "ICBD_translations"
+    "table": "icbd_translations"
   }
 }
