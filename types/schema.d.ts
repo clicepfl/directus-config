@@ -19307,6 +19307,7 @@ export type Schema = {
   icbd_activities_registrations: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
   languages: components["schemas"]["ItemsLanguages"][];
   artists: components["schemas"]["ItemsArtists"][];
+  association: components["schemas"]["ItemsAssociation"];
   association_public_files: components["schemas"]["ItemsAssociationPublicFiles"][];
   members: components["schemas"]["ItemsMembers"][];
   association_memberships: components["schemas"]["ItemsAssociationMemberships"][];
@@ -19341,9 +19342,12 @@ export type Schema = {
   news_translations: components["schemas"]["ItemsNewsTranslations"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
+  save_the_date: components["schemas"]["ItemsSavetheDate"][];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];
   std_cell: components["schemas"]["ItemsStdCell"][];
   std_cell_translations: components["schemas"]["ItemsStdCellTranslations"][];
+  subsonic: components["schemas"]["ItemsSubsonic"][];
   subsonic_translations: components["schemas"]["ItemsSubsonicTranslations"][];
+  events: components["schemas"]["ItemsEvents"][];
   galleries: components["schemas"]["ItemsGalleries"][];
 };
