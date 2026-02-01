@@ -14,12 +14,12 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 6,
+    "sort": 7,
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
     "data_type": "time without time zone",
