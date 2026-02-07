@@ -1318,6 +1318,18 @@
     "validation": {}
   },
   {
+    "_syncId": "d52f3485-971d-4ecb-aef1-9e1c44670c6a",
+    "action": "read",
+    "collection": "galleries",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "5442dac0-5f51-434d-90b1-285734ff8e49",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "219b7e90-d626-4abf-8dca-56d1a3380b21",
     "action": "read",
     "collection": "game_star_articles_translations",
