@@ -1,5 +1,17 @@
 [
   {
+    "_syncId": "0f1b2f19-8d9e-44bc-b2df-70bd29dc5ecb",
+    "action": "read",
+    "collection": "artists",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "acccdad0-5e58-46a6-b3f6-4c0bba96f1c5",
     "action": "read",
     "collection": "directus_files",
