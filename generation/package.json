@@ -1,0 +1,17 @@
+{
+  "name": "directus-generation",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Lumycea",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "gen": "node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "openapi-typescript": "^7.10.1"
+  }
+}
