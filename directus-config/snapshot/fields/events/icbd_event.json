@@ -3,7 +3,21 @@
   "field": "icbd_event",
   "meta": {
     "collection": "events",
-    "conditions": null,
+    "conditions": [
+      {
+        "name": "must_be_set",
+        "required": true,
+        "rule": {
+          "_and": [
+            {
+              "type": {
+                "_eq": "icbd"
+              }
+            }
+          ]
+        }
+      }
+    ],
     "display": null,
     "display_options": null,
     "field": "icbd_event",
