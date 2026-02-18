@@ -1,0 +1,43 @@
+{
+  "collection": "events",
+  "field": "icbd",
+  "meta": {
+    "collection": "events",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "display",
+        "rule": {
+          "_and": [
+            {
+              "type": {
+                "_eq": "icbd"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": null,
+    "display_options": null,
+    "field": "icbd",
+    "group": null,
+    "hidden": true,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 18,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}
