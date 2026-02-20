@@ -100,6 +100,39 @@
     "search": null
   },
   {
+    "_syncId": "53d8d242-32fa-4780-a562-e3dd80e3c061",
+    "bookmark": null,
+    "collection": "icbd_speakers",
+    "color": null,
+    "filter": null,
+    "icon": "bookmark",
+    "layout": null,
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "company": 160,
+          "first_name": 160,
+          "last_name": 160,
+          "linkedin": 238.5
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "first_name",
+          "last_name",
+          "company",
+          "linkedin"
+        ],
+        "page": 1
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
     "_syncId": "5afd05a1-afa2-4a04-a79e-b8990d67a164",
     "bookmark": null,
     "collection": "association_public_files",
@@ -124,6 +157,78 @@
           "link"
         ],
         "page": 1
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
+    "_syncId": "5b686fd2-265c-426f-ad16-92b2e2ab1030",
+    "bookmark": null,
+    "collection": "registrations",
+    "color": null,
+    "filter": null,
+    "icon": "campaign",
+    "layout": "tabular",
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "checked_in": 126,
+          "email": 160,
+          "event.name": 119.5,
+          "family_name": 160,
+          "first_name": 160,
+          "payment": 128.5
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "event.name",
+          "checked_in",
+          "payment",
+          "first_name",
+          "family_name",
+          "email"
+        ]
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
+    "_syncId": "662fe798-b2b2-4de4-8a29-107248a7b1b5",
+    "bookmark": null,
+    "collection": "icbd_activities_registrations",
+    "color": null,
+    "filter": null,
+    "icon": "bookmark",
+    "layout": "tabular",
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "attended": 109.5,
+          "icbd_activity.type": 160,
+          "registration.email": 160,
+          "registration.family_name": 160,
+          "registration.first_name": 160,
+          "start": 99.5
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "attended",
+          "start",
+          "registration.first_name",
+          "registration.family_name",
+          "registration.email",
+          "icbd_activity.type"
+        ]
       }
     },
     "refresh_interval": null,
@@ -163,6 +268,36 @@
           "sciper"
         ],
         "page": 1
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
+    "_syncId": "6d1df857-1785-41f9-8799-45889a30d8ca",
+    "bookmark": null,
+    "collection": "icbd_phds",
+    "color": null,
+    "filter": null,
+    "icon": "bookmark",
+    "layout": null,
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "first_name": 160,
+          "laboratory": 210.5,
+          "last_name": 160
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "first_name",
+          "last_name",
+          "laboratory"
+        ]
       }
     },
     "refresh_interval": null,
@@ -291,6 +426,42 @@
     "search": null
   },
   {
+    "_syncId": "b84eef13-7045-494f-b68e-35a2ae6e2b0f",
+    "bookmark": null,
+    "collection": "icbd_activities",
+    "color": null,
+    "filter": null,
+    "icon": "bookmark",
+    "layout": null,
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "hosts": 99.5,
+          "hosts.icbd_speakers_id.last_name": 150,
+          "icbd_id.slug": 67.5,
+          "icon": 58,
+          "timeslots": 294.5,
+          "translations.name": 525.5
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "icbd_id.slug",
+          "icon",
+          "translations.name",
+          "timeslots",
+          "hosts",
+          "hosts.icbd_speakers_id.last_name"
+        ]
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
     "_syncId": "be0ba22d-2336-4263-b5bc-c10b66944dc5",
     "bookmark": null,
     "collection": "commissions",
@@ -370,6 +541,36 @@
           "slug",
           "commissions",
           "date_created"
+        ],
+        "page": 1
+      }
+    },
+    "refresh_interval": null,
+    "role": null,
+    "search": null
+  },
+  {
+    "_syncId": "e7ff9990-a579-4804-97f6-05056fd57a2e",
+    "bookmark": null,
+    "collection": "icbd",
+    "color": null,
+    "filter": null,
+    "icon": "bookmark",
+    "layout": null,
+    "layout_options": {
+      "tabular": {
+        "widths": {
+          "date": 247.5,
+          "presentation_video": 223.5,
+          "slug": 160
+        }
+      }
+    },
+    "layout_query": {
+      "tabular": {
+        "fields": [
+          "slug",
+          "date"
         ],
         "page": 1
       }
