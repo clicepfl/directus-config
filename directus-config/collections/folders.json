@@ -10,14 +10,9 @@
     "parent": "eea5fe90-8c59-435d-9906-660cce4d02da"
   },
   {
-    "_syncId": "18e98463-e2a4-4c82-965f-b598cb9e6370",
-    "name": "icbd",
+    "_syncId": "18e307e7-0e24-4e53-80a9-1820dc16d818",
+    "name": "galleries",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
-  },
-  {
-    "_syncId": "1e9ea0a1-4524-408f-821a-26a98bcdd599",
-    "name": "public",
-    "parent": null
   },
   {
     "_syncId": "22c40c3b-eac0-4dc5-9113-805a34fe6178",
@@ -30,14 +25,14 @@
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
-    "_syncId": "2fd1d075-83a4-40b7-902e-b46a0d861dfe",
-    "name": "gallery",
+    "_syncId": "442937b6-049d-48b5-8db8-a4de1b5196f5",
+    "name": "channels",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
-    "_syncId": "442937b6-049d-48b5-8db8-a4de1b5196f5",
-    "name": "channels",
-    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+    "_syncId": "47b38062-1f94-4ee9-8d01-0a1c653ec4e0",
+    "name": "save-the-date",
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
     "_syncId": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb",
@@ -52,12 +47,12 @@
   {
     "_syncId": "6ac86e02-9326-48eb-812d-bfd312658ce2",
     "name": "subsonic",
-    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
     "_syncId": "760591bd-9fd2-4c51-bc65-37320adfef06",
     "name": "sdf",
-    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
     "_syncId": "82caf9c9-995b-404f-ba7e-76f704a6dd3e",
@@ -72,16 +67,16 @@
   {
     "_syncId": "8d9afdbe-7e0e-4ecd-b2b5-9d2fb92b3a0c",
     "name": "documents",
-    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
+  },
+  {
+    "_syncId": "9374056c-7a01-4d66-a8db-d5dbe55747fa",
+    "name": "events",
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
     "_syncId": "9dcbb848-a25a-4e75-af0a-abbd1c4555ea",
     "name": "members",
-    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
-  },
-  {
-    "_syncId": "c1a3c999-6bf8-4ad9-bd41-62b7fa5394c8",
-    "name": "subsonic",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   },
   {
@@ -92,6 +87,6 @@
   {
     "_syncId": "eea5fe90-8c59-435d-9906-660cce4d02da",
     "name": "icbd",
-    "parent": "1e9ea0a1-4524-408f-821a-26a98bcdd599"
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
   }
 ]
