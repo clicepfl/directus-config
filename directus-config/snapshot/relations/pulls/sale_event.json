@@ -1,0 +1,25 @@
+{
+  "collection": "pulls",
+  "field": "sale_event",
+  "meta": {
+    "junction_field": "pulls_id",
+    "many_collection": "pulls",
+    "many_field": "sale_event",
+    "one_allowed_collections": [],
+    "one_collection": "events",
+    "one_collection_field": "collection",
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "events",
+  "schema": {
+    "column": "sale_event",
+    "constraint_name": "pulls_sale_event_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "events",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "pulls"
+  }
+}

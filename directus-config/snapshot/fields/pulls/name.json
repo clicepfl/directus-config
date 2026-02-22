@@ -1,49 +1,25 @@
 {
-  "collection": "events",
-  "field": "type",
+  "collection": "pulls",
+  "field": "name",
   "meta": {
-    "collection": "events",
+    "collection": "pulls",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "type",
+    "field": "name",
     "group": null,
     "hidden": false,
-    "interface": "select-dropdown",
+    "interface": "input",
     "note": null,
-    "options": {
-      "choices": [
-        {
-          "text": "Faculty dinner",
-          "value": "faculty_dinner"
-        },
-        {
-          "text": "icbd",
-          "value": "icbd"
-        },
-        {
-          "text": "Hello world",
-          "value": "hello_world"
-        },
-        {
-          "text": "Other",
-          "value": "other"
-        },
-        {
-          "icon": "add_shopping_cart",
-          "text": "Pulls de Fac",
-          "value": "pull_fac"
-        }
-      ]
-    },
+    "options": null,
     "readonly": false,
     "required": true,
-    "sort": 7,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "half"
+    "width": "full"
   },
   "schema": {
     "data_type": "character varying",
@@ -58,10 +34,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "type",
+    "name": "name",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "events"
+    "table": "pulls"
   },
   "type": "string"
 }
