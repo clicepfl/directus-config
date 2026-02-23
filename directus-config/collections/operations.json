@@ -1,5 +1,26 @@
 [
   {
+    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "activities",
+    "name": "Activities",
+    "options": {
+      "collection": "icbd_activities",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$last}}"
+          }
+        }
+      }
+    },
+    "position_x": 21,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
+    "type": "item-read"
+  },
+  {
     "_syncId": "d037ab01-e936-4477-9895-c644060ce49c",
     "flow": "0cd31a50-331b-4cc3-8ce2-fc12ba8634d2",
     "key": "activities",
@@ -19,27 +40,6 @@
     "position_y": 1,
     "reject": null,
     "resolve": "d2e8a292-88d9-49e2-bfbe-0aea650a9407",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "d4dd601e-b032-4d76-b1d9-c894f81b64d6",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "activities",
-    "name": "Activities",
-    "options": {
-      "collection": "icbd_activities",
-      "query": {
-        "filter": {
-          "id": {
-            "_in": "{{$last}}"
-          }
-        }
-      }
-    },
-    "position_x": 21,
-    "position_y": 17,
-    "reject": null,
-    "resolve": "e59f4679-f6cc-4e0e-b7bf-4da7eb5e2f77",
     "type": "item-read"
   },
   {
@@ -71,7 +71,7 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
+    "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
     "type": "item-read"
   },
   {
@@ -442,22 +442,56 @@
     "type": "exec"
   },
   {
-    "_syncId": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
-    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{registration.event}}"
+      ]
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
+    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
     "key": "event",
     "name": "Read Data",
     "options": {
       "collection": "events",
       "emitEvents": false,
       "key": [
-        "{{registration.event}}"
+        "{{$trigger.payload.event}}"
       ],
       "permissions": "$trigger"
     },
-    "position_x": 37,
+    "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "a23d260f-4426-405a-8d9b-9611f378cdec",
+    "resolve": "946f0eab-853f-499e-8fce-df865e7a1b75",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "key": [
+        "{{registration.event}}"
+      ]
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
     "type": "item-read"
   },
   {
@@ -482,39 +516,39 @@
     "type": "item-read"
   },
   {
-    "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
-    "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
+    "_syncId": "68dd5e2e-70d2-4499-8091-0aa471f2cd99",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
     "key": "event",
     "name": "Read Data",
     "options": {
       "collection": "events",
       "emitEvents": false,
       "key": [
-        "{{$trigger.payload.event}}"
+        "{{registration.event}}"
       ],
       "permissions": "$trigger"
     },
-    "position_x": 19,
+    "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "946f0eab-853f-499e-8fce-df865e7a1b75",
+    "resolve": "a23d260f-4426-405a-8d9b-9611f378cdec",
     "type": "item-read"
   },
   {
-    "_syncId": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
     "key": "event",
-    "name": "Event",
+    "name": "Fetch event",
     "options": {
       "collection": "events",
       "key": [
-        "{{registration.event}}"
+        "{{$trigger.event}}"
       ]
     },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "b55ec039-ec45-444a-84fd-baa2397137eb",
+    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
     "type": "item-read"
   },
   {
@@ -535,40 +569,6 @@
     "type": "item-read"
   },
   {
-    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
-    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{$trigger.payload.event}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "0a58b6c8-bcb0-428c-9167-4f180efb9bdf",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
-    "key": "event",
-    "name": "Event",
-    "options": {
-      "collection": "events",
-      "key": [
-        "{{registration.event}}"
-      ]
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "911d7c91-d0b8-426b-a158-ec4fdf22a367",
-    "type": "item-read"
-  },
-  {
     "_syncId": "340bc06c-947d-46f2-82d0-a8862d4a3563",
     "flow": "5dabf92a-fba4-44ba-ba31-03d5a55ffc13",
     "key": "event",
@@ -586,20 +586,20 @@
     "type": "item-read"
   },
   {
-    "_syncId": "09e288c7-ba9e-43eb-b02d-d3ad03000505",
-    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
+    "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "event",
-    "name": "Fetch event",
+    "name": "Event",
     "options": {
       "collection": "events",
       "key": [
-        "{{$trigger.event}}"
+        "{{$trigger.payload.event}}"
       ]
     },
-    "position_x": 37,
+    "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "0cf461e8-1943-4c6f-ab06-e936879c71cc",
+    "resolve": "ee33be1e-8718-4005-be5f-42cbe42b619d",
     "type": "item-read"
   },
   {
@@ -654,20 +654,6 @@
     "reject": null,
     "resolve": "73f408ff-9732-479c-92fc-efce8738a46f",
     "type": "condition"
-  },
-  {
-    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "is_full",
-    "name": "Run Script",
-    "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "type": "exec"
   },
   {
     "_syncId": "bfbc41e0-1914-426a-aa9e-d912aaf54974",
@@ -848,13 +834,16 @@
     "name": "Update Data",
     "options": {
       "collection": "icbd_activities",
+      "emitEvents": false,
       "key": [
         "{{activity.id}}"
       ],
-      "payload": "{{new_activity}}",
+      "payload": {
+        "timeslots": "{{ timeslots }}"
+      },
       "permissions": "$full"
     },
-    "position_x": 127,
+    "position_x": 91,
     "position_y": 1,
     "reject": null,
     "resolve": null,
@@ -873,20 +862,6 @@
     "reject": null,
     "resolve": "8fb5d4df-5776-4bef-9098-abf6a4b4add2",
     "type": "exec"
-  },
-  {
-    "_syncId": "b00d1b9f-14b4-421a-a442-61d4b65fafb3",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "log_a9wh0",
-    "name": "Log to Console",
-    "options": {
-      "message": "{{$last}}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "log"
   },
   {
     "_syncId": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
@@ -1002,6 +977,28 @@
     "type": "mail"
   },
   {
+    "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "key": "mail_ofzwn",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "registration": "{{registration}}"
+      },
+      "subject": "Your registration to ICBD",
+      "template": "icbd_registration_email",
+      "to": [
+        "{{registration.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
+    "type": "mail"
+  },
+  {
     "_syncId": "9b337a34-9cf8-4cd6-b688-2b267a04d76e",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "mail_ofzwn",
@@ -1025,34 +1022,13 @@
     "type": "mail"
   },
   {
-    "_syncId": "d9769944-bcef-4271-91b0-ba19af26ca2b",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
-    "key": "mail_ofzwn",
-    "name": "Send Email",
-    "options": {
-      "data": {
-        "registration": "{{registration}}"
-      },
-      "subject": "Your registration to ICBD",
-      "template": "icbd_registration_email",
-      "to": [
-        "{{registration.email}}"
-      ],
-      "type": "template"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "486a60ce-ad9d-4b9c-94bd-a576600685b4",
-    "type": "mail"
-  },
-  {
     "_syncId": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "matching_registrations",
     "name": "matching_registrations",
     "options": {
       "collection": "icbd_activities_registrations",
+      "emitEvents": false,
       "permissions": "$full",
       "query": {
         "filter": {
@@ -1061,55 +1037,16 @@
               "icbd_activity": {
                 "_eq": "{{activity.id}}"
               }
-            },
-            {
-              "start": {
-                "_eq": "{{timeslot.start_time}}"
-              }
             }
           ]
         }
       }
     },
-    "position_x": 73,
+    "position_x": 55,
     "position_y": 1,
     "reject": null,
     "resolve": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "type": "item-read"
-  },
-  {
-    "_syncId": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "new_activity",
-    "name": "new_activity",
-    "options": {
-      "code": "module.exports = async function(data) {\n    copy = JSON.parse(JSON.stringify(data.activity));\n    \n    copy.timeslots.find(t => t.start_time == data.activity_registration.start).full = data.is_full;\n    \n\treturn copy;\n}"
-    },
-    "position_x": 109,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
-    "type": "exec"
-  },
-  {
-    "_syncId": "bb2ed939-f05d-4d02-bf24-7886285ce693",
-    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
-    "key": "payment_required",
-    "name": "Payment required",
-    "options": {
-      "filter": {
-        "event": {
-          "price": {
-            "_neq": 0
-          }
-        }
-      }
-    },
-    "position_x": 19,
-    "position_y": 18,
-    "reject": null,
-    "resolve": "d2984908-873f-4f7e-bd44-93564a4a0271",
-    "type": "condition"
   },
   {
     "_syncId": "2e33f74a-6b32-4653-9e88-15d1a22a8c81",
@@ -1132,6 +1069,26 @@
     "type": "condition"
   },
   {
+    "_syncId": "bb2ed939-f05d-4d02-bf24-7886285ce693",
+    "flow": "974bb3ab-5db4-48b3-88c8-16b80b94f5cc",
+    "key": "payment_required",
+    "name": "Payment required",
+    "options": {
+      "filter": {
+        "event": {
+          "price": {
+            "_neq": 0
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 18,
+    "reject": null,
+    "resolve": "d2984908-873f-4f7e-bd44-93564a4a0271",
+    "type": "condition"
+  },
+  {
     "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
     "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "qrcode_url",
@@ -1144,23 +1101,6 @@
     "reject": null,
     "resolve": "1c462359-b85a-4f1e-9e4c-8184cc1cdae0",
     "type": "exec"
-  },
-  {
-    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
-    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
-    "key": "registration",
-    "name": "Registration",
-    "options": {
-      "collection": "registrations",
-      "key": [
-        "{{$trigger.keys[0]}}"
-      ]
-    },
-    "position_x": 19,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
-    "type": "item-read"
   },
   {
     "_syncId": "c8bb9791-0c7c-4756-8745-a299f2cb0d09",
@@ -1181,20 +1121,20 @@
     "type": "item-read"
   },
   {
-    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
-    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
+    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
+    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "registration",
-    "name": "Registration",
+    "name": "registration",
     "options": {
       "collection": "registrations",
       "key": [
-        "{{$trigger.key}}"
+        "{{$trigger.keys[0]}}"
       ]
     },
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
+    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
     "type": "item-read"
   },
   {
@@ -1235,10 +1175,27 @@
     "type": "item-read"
   },
   {
-    "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
-    "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
+    "_syncId": "8f43479a-f524-4c52-ab0d-002ba60e5199",
+    "flow": "2eb347c0-164e-4a8b-a6f1-e4d66472389b",
     "key": "registration",
-    "name": "registration",
+    "name": "Registration",
+    "options": {
+      "collection": "registrations",
+      "key": [
+        "{{$trigger.key}}"
+      ]
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "e651358b-6c57-408c-8729-978d0fa6eba2",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "49a0bb71-2b59-4c53-a27f-8e061ca4eeca",
+    "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
+    "key": "registration",
+    "name": "Registration",
     "options": {
       "collection": "registrations",
       "key": [
@@ -1248,7 +1205,7 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "de952a1b-5fc7-4374-9ab8-f93504830612",
+    "resolve": "243a2be3-5cc0-431a-a3bd-290a25d2b46b",
     "type": "item-read"
   },
   {
@@ -1357,17 +1314,17 @@
     "type": "mail"
   },
   {
-    "_syncId": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
+    "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "timeslot",
-    "name": "timeslot",
+    "key": "timeslots",
+    "name": "Compute fullness",
     "options": {
-      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.find(t => t.start_time == data.activity_registration.start);\n}"
+      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.map((t) => {\n      let assigned = data.matching_registrations.filter(\n        (r) => r.start === t.start_time\n      ).length;\n\n      return { ...t, full: t.max_attendees <= assigned };\n    });\n}"
     },
-    "position_x": 55,
+    "position_x": 73,
     "position_y": 1,
     "reject": null,
-    "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
+    "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
     "type": "exec"
   },
   {
