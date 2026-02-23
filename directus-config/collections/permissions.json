@@ -2050,6 +2050,18 @@
     "validation": null
   },
   {
+    "_syncId": "2a0c7e0f-794e-478f-85a8-abf3cba072a5",
+    "action": "read",
+    "collection": "pulls",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e217379a-cb26-411a-94cb-bdd753ac97d2",
     "action": "create",
     "collection": "registrations",

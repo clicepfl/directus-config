@@ -1,0 +1,25 @@
+{
+  "collection": "registrations",
+  "field": "color",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "registrations",
+    "many_field": "color",
+    "one_allowed_collections": null,
+    "one_collection": "pulls",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "pulls",
+  "schema": {
+    "column": "color",
+    "constraint_name": "registrations_color_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "pulls",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "registrations"
+  }
+}
