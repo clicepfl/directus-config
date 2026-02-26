@@ -6132,6 +6132,7 @@ export interface components {
       email?: string | null;
       allergies?: string | null;
       preferences?: unknown;
+      order_complete?: boolean;
     };
     ItemsMembers: {
       link?: string | null;

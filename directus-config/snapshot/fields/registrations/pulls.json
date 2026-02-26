@@ -1,0 +1,29 @@
+{
+  "collection": "registrations",
+  "field": "pulls",
+  "meta": {
+    "collection": "registrations",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "pulls",
+    "group": "additional_infos",
+    "hidden": false,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 4,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}
