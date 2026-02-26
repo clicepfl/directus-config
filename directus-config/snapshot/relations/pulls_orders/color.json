@@ -1,9 +1,9 @@
 {
-  "collection": "registrations",
+  "collection": "pulls_orders",
   "field": "color",
   "meta": {
     "junction_field": null,
-    "many_collection": "registrations",
+    "many_collection": "pulls_orders",
     "many_field": "color",
     "one_allowed_collections": null,
     "one_collection": "pulls",
@@ -15,11 +15,11 @@
   "related_collection": "pulls",
   "schema": {
     "column": "color",
-    "constraint_name": "registrations_color_foreign",
+    "constraint_name": "pulls_orders_color_foreign",
     "foreign_key_column": "id",
     "foreign_key_table": "pulls",
     "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "table": "registrations"
+    "table": "pulls_orders"
   }
 }

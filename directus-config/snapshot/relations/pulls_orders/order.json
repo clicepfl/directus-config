@@ -1,0 +1,25 @@
+{
+  "collection": "pulls_orders",
+  "field": "order",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "pulls_orders",
+    "many_field": "order",
+    "one_allowed_collections": null,
+    "one_collection": "registrations",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "registrations",
+  "schema": {
+    "column": "order",
+    "constraint_name": "pulls_orders_order_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "registrations",
+    "on_delete": "NO ACTION",
+    "on_update": "NO ACTION",
+    "table": "pulls_orders"
+  }
+}
