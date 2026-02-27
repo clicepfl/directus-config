@@ -1,0 +1,9 @@
+on: push
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check for duplicates
+        run: bash check.sh
