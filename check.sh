@@ -26,4 +26,8 @@ if [ "$permissions_duplicates" != "1" ]; then
 	ret=1
 fi
 
+if [ "$ret" == "0" ]; then
+	echo "No errors found!"
+fi
+
 exit $ret
