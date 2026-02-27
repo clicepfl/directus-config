@@ -12,18 +12,6 @@
     "validation": null
   },
   {
-    "_syncId": "0e4f2b2b-beee-481d-a01c-fd704637f34c",
-    "action": "read",
-    "collection": "artists",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "8e92654a-2bbf-4812-ac1c-04f162d36df9",
     "action": "read",
     "collection": "association_memberships_translations",
@@ -270,18 +258,6 @@
         }
       ]
     },
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "c2ff3006-4ba6-4033-b360-6b3ffc3bd529",
-    "action": "read",
-    "collection": "directus_files",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
     "policy": "_sync_default_public_policy",
     "presets": null,
     "validation": null

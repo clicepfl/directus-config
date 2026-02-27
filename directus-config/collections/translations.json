@@ -1,129 +1,9 @@
 [
   {
-    "_syncId": "06282670-b775-44b3-8877-f9b931c6c6bf",
-    "key": "gamestar.seeAllEvents",
+    "_syncId": "fc3dfdeb-6a8f-4058-86df-e5edb784d1e2",
+    "key": "article",
     "language": "en-US",
-    "value": "See all events"
-  },
-  {
-    "_syncId": "087b8196-4e4f-4815-bddc-2d131e7606dc",
-    "key": "clicketing.error.internal",
-    "language": "en-US",
-    "value": "An internal error occurred"
-  },
-  {
-    "_syncId": "098e6e76-cdd5-4201-a97a-194a83e3fa2a",
-    "key": "icbd.phds-description",
-    "language": "fr-FR",
-    "value": "Pendant la poster session"
-  },
-  {
-    "_syncId": "124b6318-e847-42c9-8d91-06fe54f159c7",
-    "key": "icbd.phds",
-    "language": "fr-FR",
-    "value": "Doctorant·e·s"
-  },
-  {
-    "_syncId": "12899c5a-6244-4a63-9315-763e7bebf0ec",
-    "key": "event",
-    "language": "en-US",
-    "value": "event"
-  },
-  {
-    "_syncId": "1a100fa6-7d4c-409b-a23b-1df7edf1a6b3",
-    "key": "news",
-    "language": "en-US",
-    "value": "news"
-  },
-  {
-    "_syncId": "2045b4dc-7808-49bd-9b23-f6673aca8570",
-    "key": "clicketing.error.already_registered",
-    "language": "fr-FR",
-    "value": "Vous êtes déjà inscrit"
-  },
-  {
-    "_syncId": "213e6e4e-bec2-4125-a670-35443f6624b2",
-    "key": "digitec",
-    "language": "en-US",
-    "value": "Digitec"
-  },
-  {
-    "_syncId": "2282dffd-9d0b-47d7-a516-7d0d9c7889a2",
-    "key": "relatedContent",
-    "language": "fr-FR",
-    "value": "voir aussi ..."
-  },
-  {
-    "_syncId": "251f69cb-a45d-4193-b2d3-b249912116f0",
-    "key": "by",
-    "language": "en-US",
-    "value": "by"
-  },
-  {
-    "_syncId": "25e0984e-252f-4ed6-92af-1f89a7412777",
-    "key": "monthly",
-    "language": "en-US",
-    "value": "Every month, the first is"
-  },
-  {
-    "_syncId": "2b404b54-2edd-4b87-b741-83390dbc6cb9",
-    "key": "timeIndicator",
-    "language": "fr-FR",
-    "value": "à"
-  },
-  {
-    "_syncId": "2c5b4ac1-b4d9-4d45-bcd6-8212321540d0",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
-  },
-  {
-    "_syncId": "2d3e7c96-849f-40d8-85fb-3065caa201a0",
-    "key": "dateIndicator",
-    "language": "en-US",
-    "value": "on"
-  },
-  {
-    "_syncId": "2df5e34b-b4ac-4d58-820a-0f143ce2a565",
-    "key": "home",
-    "language": "fr-FR",
-    "value": "accueil"
-  },
-  {
-    "_syncId": "31daf520-cdc2-4042-8a1c-7e761bed2ff2",
-    "key": "monthly",
-    "language": "fr-FR",
-    "value": "Tous les mois, commençant le"
-  },
-  {
-    "_syncId": "347be709-718d-4d1e-a2ed-e3a5e3ce2ccc",
-    "key": "gamestar.seeAllEvents",
-    "language": "fr-FR",
-    "value": "Voir tous les évènements"
-  },
-  {
-    "_syncId": "349d78b6-b425-4203-8561-b80aaea95be8",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
-    "_syncId": "35b4ebdf-900d-4957-b79d-1681bbaf504b",
-    "key": "bob-cassettes",
-    "language": "en-US",
-    "value": "Bob cassettes"
-  },
-  {
-    "_syncId": "372da503-543b-4a28-b7a0-da9da23ba7b0",
-    "key": "by",
-    "language": "en-US",
-    "value": "by"
-  },
-  {
-    "_syncId": "396e304a-d0ff-4591-a8a9-a0127aa8481a",
-    "key": "event",
-    "language": "fr-FR",
-    "value": "évènement"
+    "value": "article"
   },
   {
     "_syncId": "3a1b65e2-5c70-4007-a7f3-69d6e2455583",
@@ -132,520 +12,10 @@
     "value": "article"
   },
   {
-    "_syncId": "3b8e701a-b012-45ce-a5b5-bb15c83625c8",
-    "key": "timeIndicator",
+    "_syncId": "f3b5d136-dfb9-441a-ba64-139c20588a45",
+    "key": "artits",
     "language": "en-US",
-    "value": "at"
-  },
-  {
-    "_syncId": "3cdc2372-2ae7-441e-9648-51acb6f17f15",
-    "key": "news",
-    "language": "en-US",
-    "value": "news"
-  },
-  {
-    "_syncId": "3d06d7a4-52db-451d-b20b-cbbb1e3c5fc9",
-    "key": "subsonic.map",
-    "language": "fr-FR",
-    "value": "plan du BC"
-  },
-  {
-    "_syncId": "4651a767-0b25-4821-9c34-40c47c2fdd9e",
-    "key": "contact",
-    "language": "fr-FR",
-    "value": "Nous contacter : "
-  },
-  {
-    "_syncId": "46bcfeec-a37a-4863-8358-9a05ea04d617",
-    "key": "gallery",
-    "language": "fr-FR",
-    "value": "galerie"
-  },
-  {
-    "_syncId": "48cd4a3b-b9f3-42f4-a9d0-688d4f1f2c64",
-    "key": "contact",
-    "language": "en-US",
-    "value": "Contact us : "
-  },
-  {
-    "_syncId": "4b060566-d582-4662-b3f3-4f3e672b2f4c",
-    "key": "gamestar.comingSoon",
-    "language": "fr-FR",
-    "value": "Bientôt disponible"
-  },
-  {
-    "_syncId": "4c079ed2-0942-4249-a519-7ae3a184a18e",
-    "key": "icbd.registration",
-    "language": "fr-FR",
-    "value": "Inscription"
-  },
-  {
-    "_syncId": "4dc2f3f2-a90a-48d1-b79a-54abe3f80e0c",
-    "key": "partners",
-    "language": "en-US",
-    "value": "partners"
-  },
-  {
-    "_syncId": "52a2db70-ecaa-4464-ad18-e6ee1751ee15",
-    "key": "icbd.timetable",
-    "language": "en-US",
-    "value": "Timetable"
-  },
-  {
-    "_syncId": "5354af94-7800-4ec3-b101-3bdb69615423",
-    "key": "need-to-order",
-    "language": "en-US",
-    "value": "Need to order?"
-  },
-  {
-    "_syncId": "53b7e875-421a-488c-ba8f-876340013a18",
-    "key": "moreNews",
-    "language": "fr-FR",
-    "value": "plus de news"
-  },
-  {
-    "_syncId": "5707c726-b363-4f27-ab31-5f75a99982ed",
-    "key": "icbd.registration",
-    "language": "en-US",
-    "value": "Registration"
-  },
-  {
-    "_syncId": "577549fb-d07a-42f0-bf9d-fb83d01ac378",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
-  },
-  {
-    "_syncId": "5ad7b8b4-9a81-41c4-9245-fe94152d762f",
-    "key": "clicketing.error.forbidden",
-    "language": "fr-FR",
-    "value": "Accès interdit"
-  },
-  {
-    "_syncId": "60043237-e770-4694-b7d2-7166bf9f72e4",
-    "key": "contact",
-    "language": "en-US",
-    "value": "Contact us : "
-  },
-  {
-    "_syncId": "64f1788a-0bdf-4eb6-b404-726cccf99bd7",
-    "key": "icbd.timetable",
-    "language": "fr-FR",
-    "value": "Programme"
-  },
-  {
-    "_syncId": "67c23554-031c-4d86-82b2-cababee7702c",
-    "key": "association",
-    "language": "en-US",
-    "value": "association"
-  },
-  {
-    "_syncId": "6d5a1cbf-f443-4c98-bcec-95ff114fea66",
-    "key": "project",
-    "language": "fr-FR",
-    "value": "projet"
-  },
-  {
-    "_syncId": "6ee482dd-174b-422a-bb1f-dc94e0e57a29",
-    "key": "partners",
-    "language": "en-US",
-    "value": "partners"
-  },
-  {
-    "_syncId": "6f1884cc-c8c0-4821-998c-a0fd135ef369",
-    "key": "icbd.phds",
-    "language": "en-US",
-    "value": "PhD students"
-  },
-  {
-    "_syncId": "70aa79ef-52d1-4b25-927f-c0927be9e1fe",
-    "key": "digitec",
-    "language": "fr-FR",
-    "value": "Digitec"
-  },
-  {
-    "_syncId": "7327e50a-a32d-4384-8f86-b0d6dd82e2ae",
-    "key": "timeIndicator",
-    "language": "fr-FR",
-    "value": "à"
-  },
-  {
-    "_syncId": "746ae2d0-654d-45ed-b557-bd60363c0120",
-    "key": "commission",
-    "language": "fr-FR",
-    "value": "commission"
-  },
-  {
-    "_syncId": "75549060-ee6d-40d4-a737-a8b24bf9934c",
-    "key": "bob-cassettes",
-    "language": "en-US",
-    "value": "Bob cassettes"
-  },
-  {
-    "_syncId": "76110916-5036-4f81-bbaa-003d2b73b653",
-    "key": "bob-cassettes",
-    "language": "br-FR",
-    "value": "Cassettes Bob"
-  },
-  {
-    "_syncId": "7bd21d01-fbd8-4cb4-a1f6-2def10658d2f",
-    "key": "translated-version",
-    "language": "fr-FR",
-    "value": "English version here"
-  },
-  {
-    "_syncId": "7cae26ca-b131-4d35-a7e9-4fc915a112cc",
-    "key": "from",
-    "language": "en-US",
-    "value": "From"
-  },
-  {
-    "_syncId": "7ff5afd9-2541-445f-98fc-f355ee88a122",
-    "key": "commissions",
-    "language": "en-US",
-    "value": "commissions"
-  },
-  {
-    "_syncId": "85e3e5df-9a4f-4f2f-b324-6596b1e6b35e",
-    "key": "commission",
-    "language": "en-US",
-    "value": "commission"
-  },
-  {
-    "_syncId": "8a931a79-0db1-447d-af12-158a747691b6",
-    "key": "committee",
-    "language": "fr-FR",
-    "value": "comité"
-  },
-  {
-    "_syncId": "8add9cd4-2f62-4356-ba34-cd0ee6df95b2",
-    "key": "gamestar.upcomingEvents",
-    "language": "fr-FR",
-    "value": "Évènements à venir"
-  },
-  {
-    "_syncId": "8f0da3bb-8bcd-468c-a9bd-308614076b95",
-    "key": "committee",
-    "language": "fr-FR",
-    "value": "comité"
-  },
-  {
-    "_syncId": "903032e9-83c6-4e9b-8c37-f0521b3bef5d",
-    "key": "dateIndicator",
-    "language": "fr-FR",
-    "value": "le"
-  },
-  {
-    "_syncId": "916000ab-c58a-42c2-872f-0d99c9e8b771",
-    "key": "project",
-    "language": "en-US",
-    "value": "project"
-  },
-  {
-    "_syncId": "92632691-5db8-44e4-8a2a-4c88cf5abde7",
-    "key": "moreNews",
-    "language": "fr-FR",
-    "value": "plus de news"
-  },
-  {
-    "_syncId": "96f25abd-1f29-44a9-8986-8260ef5817f6",
-    "key": "clicketing.error.already_registered",
-    "language": "en-US",
-    "value": "You are already registered"
-  },
-  {
-    "_syncId": "970483d0-039c-4d2b-8a87-cc9160eb4b6c",
-    "key": "moreNews",
-    "language": "en-US",
-    "value": "more news"
-  },
-  {
-    "_syncId": "9a5fb75b-0416-4349-b31a-6736e7a65063",
-    "key": "weekly",
-    "language": "en-US",
-    "value": "Every"
-  },
-  {
-    "_syncId": "9b4ffc79-2a14-4314-89c7-fc79e7872020",
-    "key": "follow-us",
-    "language": "en-US",
-    "value": "Follow us on our socials"
-  },
-  {
-    "_syncId": "9b62f059-8bff-4776-b73c-2ceaf68c4ff1",
-    "key": "icbd.alumni-description",
-    "language": "en-US",
-    "value": "Alumni and guests present at the event"
-  },
-  {
-    "_syncId": "9c783d96-4ef0-4f8c-9532-c73093f901f0",
-    "key": "coffee-filter",
-    "language": "fr-FR",
-    "value": "Filtres café"
-  },
-  {
-    "_syncId": "9ca99e6a-1673-49ed-b5b5-b7a1a6826d57",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
-    "_syncId": "9cc92f04-2d48-4489-ae2a-cc27ddc883ad",
-    "key": "icbd-end-of-event",
-    "language": "fr-FR",
-    "value": "Fin de l'événement :"
-  },
-  {
-    "_syncId": "9ec9fdf4-e383-446a-a027-598d2da1bbf7",
-    "key": "commission",
-    "language": "fr-FR",
-    "value": "commission"
-  },
-  {
-    "_syncId": "9fdda0d0-a360-41ff-9729-e2056adbca48",
-    "key": "digitec",
-    "language": "fr-FR",
-    "value": "Digitec"
-  },
-  {
-    "_syncId": "a08e154f-2ef0-474b-a190-dee8c1cf97b8",
-    "key": "subsonic.date-and-place",
-    "language": "fr-FR",
-    "value": "Le 15 novembre, au BC, à partir de 18h30"
-  },
-  {
-    "_syncId": "a0a0de2a-5314-4e48-ba37-9af2f08fe970",
-    "key": "dateIndicator",
-    "language": "en-US",
-    "value": "on"
-  },
-  {
-    "_syncId": "a6386311-4c4a-4876-a950-73370eb9f031",
-    "key": "subsonic.catchphrase",
-    "language": "fr-FR",
-    "value": "La Silent Party de la CLIC"
-  },
-  {
-    "_syncId": "a73198ff-42ea-400d-9ccf-b924e48f04b6",
-    "key": "home",
-    "language": "en-US",
-    "value": "home"
-  },
-  {
-    "_syncId": "a7693973-2cef-4cdb-80e5-f4c9a6941abd",
-    "key": "pole",
-    "language": "en-US",
-    "value": "positions"
-  },
-  {
-    "_syncId": "a7ba0216-3b95-4a91-84cb-7c502c90cad5",
-    "key": "weekly",
-    "language": "fr-FR",
-    "value": "Tous les"
-  },
-  {
-    "_syncId": "a7d74e8f-a2f4-4931-8d46-14fb9b197f94",
-    "key": "readMore",
-    "language": "fr-FR",
-    "value": "lire plus"
-  },
-  {
-    "_syncId": "a8e05130-5755-41ad-8495-a550d2a2bb95",
-    "key": "gallery",
-    "language": "fr-FR",
-    "value": "galerie"
-  },
-  {
-    "_syncId": "a9bb9870-568b-4e94-87b4-d6e5ea66fbda",
-    "key": "news",
-    "language": "fr-FR",
-    "value": "news"
-  },
-  {
-    "_syncId": "acd0f216-d550-4cba-aefa-b482640790bc",
-    "key": "save-the-date",
-    "language": "fr-FR",
-    "value": "Save the Date"
-  },
-  {
-    "_syncId": "afbc89c5-cdc1-4fcb-ab60-e28b7dae9984",
-    "key": "partners",
-    "language": "fr-FR",
-    "value": "partenaires"
-  },
-  {
-    "_syncId": "afe1a705-3de7-489b-9ab5-f567c2cba4e8",
-    "key": "slogan",
-    "language": "en-US",
-    "value": "Association of students in Computer science and Communication systems"
-  },
-  {
-    "_syncId": "b03291cd-6745-49a8-a8bc-cc1d8644c371",
-    "key": "commissions",
-    "language": "fr-FR",
-    "value": "commissions"
-  },
-  {
-    "_syncId": "b4a253cb-cd3c-48d0-b348-652e43ffdaec",
-    "key": "icbd.alumni",
-    "language": "en-US",
-    "value": "Alumni & guests"
-  },
-  {
-    "_syncId": "b55bf023-44d7-4f4b-ab7a-cfb1a5620040",
-    "key": "slogan",
-    "language": "fr-FR",
-    "value": "Association des étudiant.e.s en Informatique et Systèmes de communication"
-  },
-  {
-    "_syncId": "b724e101-f04f-4545-908d-2c8074f332d5",
-    "key": "coffee-filter",
-    "language": "en-US",
-    "value": "Coffee filter"
-  },
-  {
-    "_syncId": "b88ff0ee-7805-4ef5-9d69-beb20dad6bc7",
-    "key": "news",
-    "language": "fr-FR",
-    "value": "news"
-  },
-  {
-    "_syncId": "ba78e6e8-935d-4fed-ae0e-f4c67ffd0dbc",
-    "key": "by",
-    "language": "fr-FR",
-    "value": "par"
-  },
-  {
-    "_syncId": "bb06a5a8-b1db-4bf5-89d3-e94eab1fe175",
-    "key": "icbd.phds-description",
-    "language": "en-US",
-    "value": "During the poster session"
-  },
-  {
-    "_syncId": "bc2b4d48-915d-4108-b3a3-508df32f2d46",
-    "key": "committee",
-    "language": "en-US",
-    "value": "committee"
-  },
-  {
-    "_syncId": "bc54631d-8744-417d-860e-3671450a87bf",
-    "key": "readMore",
-    "language": "en-US",
-    "value": "read more"
-  },
-  {
-    "_syncId": "be7ed8db-2d80-41fa-aa39-5f4a01463fed",
-    "key": "relatedContent",
-    "language": "fr-FR",
-    "value": "voir aussi ..."
-  },
-  {
-    "_syncId": "bf4a7cfc-ff0c-4014-b157-c9c5b267cd9e",
-    "key": "bob-cassettes",
-    "language": "br-FR",
-    "value": "Cassettes Bob"
-  },
-  {
-    "_syncId": "c0ae67c5-670a-4cb2-a5cd-207e67ab50e0",
-    "key": "icbd.alumni-description",
-    "language": "fr-FR",
-    "value": "Alumni et invité·e·s présent·e·s à ICBD"
-  },
-  {
-    "_syncId": "c1ba6d6f-09d9-4cc4-a8c4-701e0a18e521",
-    "key": "commission",
-    "language": "en-US",
-    "value": "commission"
-  },
-  {
-    "_syncId": "c250bfc0-dda8-4089-8961-00e470b4bb86",
-    "key": "timeIndicator",
-    "language": "en-US",
-    "value": "at"
-  },
-  {
-    "_syncId": "c269efad-c3aa-4e15-abe3-20f0e1de5e93",
-    "key": "coffee-filter",
-    "language": "en-US",
-    "value": "Coffee filter"
-  },
-  {
-    "_syncId": "c26f4fb1-fa45-4302-b72b-f8ad6aa86976",
-    "key": "need-to-order",
-    "language": "en-US",
-    "value": "Need to order?"
-  },
-  {
-    "_syncId": "c30e8298-18a5-41a3-8dad-3d736db5efe8",
-    "key": "subsonic.date-and-place",
-    "language": "en-US",
-    "value": "The 15th November, in BC, at 18h30"
-  },
-  {
-    "_syncId": "c5f757ee-a84d-4030-814a-9191ad7014a1",
-    "key": "from",
-    "language": "fr-FR",
-    "value": "À partir du"
-  },
-  {
-    "_syncId": "c83bfcf2-31aa-408a-af63-02025ae47cd0",
-    "key": "pole",
-    "language": "fr-FR",
-    "value": "pôles"
-  },
-  {
-    "_syncId": "c8678469-d953-450f-b81d-032fcd1e2435",
-    "key": "icbd.activities",
-    "language": "fr-FR",
-    "value": "Activités"
-  },
-  {
-    "_syncId": "caece9ff-636a-4214-89a6-3f02488db981",
-    "key": "follow-us",
-    "language": "fr-FR",
-    "value": "Suivez-nous sur nos réseaux"
-  },
-  {
-    "_syncId": "cc45deb2-a94f-4391-bec6-567a12ed5ea8",
-    "key": "moreNews",
-    "language": "en-US",
-    "value": "more news"
-  },
-  {
-    "_syncId": "cc980a5b-7d79-47c8-971f-39ed99b1bff1",
-    "key": "relatedContent",
-    "language": "en-US",
-    "value": "related content"
-  },
-  {
-    "_syncId": "cfe9c05d-8374-496e-855d-4b5af0ba77f6",
-    "key": "need-to-order",
-    "language": "fr-FR",
-    "value": "Besoin de commander ?"
-  },
-  {
-    "_syncId": "d11ad487-5438-4ffa-a6af-3b067c3a39d6",
-    "key": "relatedContent",
-    "language": "en-US",
-    "value": "related content"
-  },
-  {
-    "_syncId": "d3542b96-d6f5-484f-b6cd-5fa71cedd6b0",
-    "key": "association",
-    "language": "fr-FR",
-    "value": "association"
-  },
-  {
-    "_syncId": "d51dfacd-33ba-4ca4-9201-1523842267e2",
-    "key": "partners",
-    "language": "fr-FR",
-    "value": "partenaires"
-  },
-  {
-    "_syncId": "d81b51a6-66ea-4e91-ace6-f2a50328030e",
-    "key": "coffee-filter",
-    "language": "fr-FR",
-    "value": "Filtres café"
+    "value": "Artists"
   },
   {
     "_syncId": "d9b40ed2-64bc-4741-8463-a8faa8c59e56",
@@ -654,40 +24,52 @@
     "value": "Artistes"
   },
   {
-    "_syncId": "da3dc954-846b-462a-a0a5-352aa13b42dd",
-    "key": "commissions",
+    "_syncId": "2c5b4ac1-b4d9-4d45-bcd6-8212321540d0",
+    "key": "association",
+    "language": "en-US",
+    "value": "association"
+  },
+  {
+    "_syncId": "349d78b6-b425-4203-8561-b80aaea95be8",
+    "key": "association",
     "language": "fr-FR",
-    "value": "commissions"
+    "value": "association"
   },
   {
-    "_syncId": "db7d3bac-fba2-4b64-8104-4a4fb89bb4b9",
-    "key": "pole",
+    "_syncId": "76110916-5036-4f81-bbaa-003d2b73b653",
+    "key": "bob-cassettes",
+    "language": "br-FR",
+    "value": "Cassettes Bob"
+  },
+  {
+    "_syncId": "35b4ebdf-900d-4957-b79d-1681bbaf504b",
+    "key": "bob-cassettes",
+    "language": "en-US",
+    "value": "Bob cassettes"
+  },
+  {
+    "_syncId": "251f69cb-a45d-4193-b2d3-b249912116f0",
+    "key": "by",
+    "language": "en-US",
+    "value": "by"
+  },
+  {
+    "_syncId": "ba78e6e8-935d-4fed-ae0e-f4c67ffd0dbc",
+    "key": "by",
     "language": "fr-FR",
-    "value": "pôles"
+    "value": "par"
   },
   {
-    "_syncId": "dcbede23-82e5-42d8-a6f6-639e0d90e1ee",
-    "key": "icbd-end-of-event",
+    "_syncId": "96f25abd-1f29-44a9-8986-8260ef5817f6",
+    "key": "clicketing.error.already_registered",
     "language": "en-US",
-    "value": "End of the event:"
+    "value": "You are already registered"
   },
   {
-    "_syncId": "de70d66c-558d-4ed9-9386-d8e7da9724d6",
-    "key": "commissions",
-    "language": "en-US",
-    "value": "commissions"
-  },
-  {
-    "_syncId": "e34ebe3a-b896-4507-a3ea-87ddcd1c0f4f",
-    "key": "subsonic.map",
-    "language": "en-US",
-    "value": "BC plan"
-  },
-  {
-    "_syncId": "e46a19e4-b8dc-41c0-ab6a-bc69d378fa69",
-    "key": "save-the-date",
-    "language": "en-US",
-    "value": "Save the Date"
+    "_syncId": "2045b4dc-7808-49bd-9b23-f6673aca8570",
+    "key": "clicketing.error.already_registered",
+    "language": "fr-FR",
+    "value": "Vous êtes déjà inscrit"
   },
   {
     "_syncId": "e7f2fadd-6a43-421a-b386-6411eb91cbe4",
@@ -696,46 +78,16 @@
     "value": "Forbidden access"
   },
   {
-    "_syncId": "e80b3044-68ff-4106-8ca7-b1f2c4ef3d30",
-    "key": "slogan",
+    "_syncId": "5ad7b8b4-9a81-41c4-9245-fe94152d762f",
+    "key": "clicketing.error.forbidden",
+    "language": "fr-FR",
+    "value": "Accès interdit"
+  },
+  {
+    "_syncId": "087b8196-4e4f-4815-bddc-2d131e7606dc",
+    "key": "clicketing.error.internal",
     "language": "en-US",
-    "value": "Association of students in Computer science and Communication systems"
-  },
-  {
-    "_syncId": "ea1a6136-c0ec-4cf0-a494-c07e23d831a1",
-    "key": "gallery",
-    "language": "fr-FR",
-    "value": "galerie"
-  },
-  {
-    "_syncId": "eada1dd9-0b9b-41fa-bc9f-fb8a38ae650d",
-    "key": "readMore",
-    "language": "fr-FR",
-    "value": "lire plus"
-  },
-  {
-    "_syncId": "eae2fb6a-88b9-4bec-acbb-ab20496eb6d9",
-    "key": "gamestar.upcomingEvents",
-    "language": "en-US",
-    "value": "Upcoming events"
-  },
-  {
-    "_syncId": "eb4f707a-f8b6-4a33-bc26-c0b4fba52ec9",
-    "key": "committee",
-    "language": "en-US",
-    "value": "committee"
-  },
-  {
-    "_syncId": "eeb1e4cd-c1a4-433b-b71c-6be165c72070",
-    "key": "by",
-    "language": "fr-FR",
-    "value": "par"
-  },
-  {
-    "_syncId": "eeb99a06-060c-46c7-9bcf-2ef19d549e72",
-    "key": "slogan",
-    "language": "fr-FR",
-    "value": "Association des étudiant.e.s en Informatique et Systèmes de communication"
+    "value": "An internal error occurred"
   },
   {
     "_syncId": "eed00cb4-9f8b-418c-abff-001b04777174",
@@ -744,58 +96,136 @@
     "value": "Une erreur interne est survenue"
   },
   {
+    "_syncId": "b724e101-f04f-4545-908d-2c8074f332d5",
+    "key": "coffee-filter",
+    "language": "en-US",
+    "value": "Coffee filter"
+  },
+  {
+    "_syncId": "9c783d96-4ef0-4f8c-9532-c73093f901f0",
+    "key": "coffee-filter",
+    "language": "fr-FR",
+    "value": "Filtres café"
+  },
+  {
+    "_syncId": "85e3e5df-9a4f-4f2f-b324-6596b1e6b35e",
+    "key": "commission",
+    "language": "en-US",
+    "value": "commission"
+  },
+  {
+    "_syncId": "746ae2d0-654d-45ed-b557-bd60363c0120",
+    "key": "commission",
+    "language": "fr-FR",
+    "value": "commission"
+  },
+  {
+    "_syncId": "7ff5afd9-2541-445f-98fc-f355ee88a122",
+    "key": "commissions",
+    "language": "en-US",
+    "value": "commissions"
+  },
+  {
+    "_syncId": "b03291cd-6745-49a8-a8bc-cc1d8644c371",
+    "key": "commissions",
+    "language": "fr-FR",
+    "value": "commissions"
+  },
+  {
+    "_syncId": "bc2b4d48-915d-4108-b3a3-508df32f2d46",
+    "key": "committee",
+    "language": "en-US",
+    "value": "committee"
+  },
+  {
+    "_syncId": "8a931a79-0db1-447d-af12-158a747691b6",
+    "key": "committee",
+    "language": "fr-FR",
+    "value": "comité"
+  },
+  {
+    "_syncId": "48cd4a3b-b9f3-42f4-a9d0-688d4f1f2c64",
+    "key": "contact",
+    "language": "en-US",
+    "value": "Contact us : "
+  },
+  {
+    "_syncId": "4651a767-0b25-4821-9c34-40c47c2fdd9e",
+    "key": "contact",
+    "language": "fr-FR",
+    "value": "Nous contacter : "
+  },
+  {
+    "_syncId": "2d3e7c96-849f-40d8-85fb-3065caa201a0",
+    "key": "dateIndicator",
+    "language": "en-US",
+    "value": "on"
+  },
+  {
+    "_syncId": "903032e9-83c6-4e9b-8c37-f0521b3bef5d",
+    "key": "dateIndicator",
+    "language": "fr-FR",
+    "value": "le"
+  },
+  {
+    "_syncId": "213e6e4e-bec2-4125-a670-35443f6624b2",
+    "key": "digitec",
+    "language": "en-US",
+    "value": "Digitec"
+  },
+  {
+    "_syncId": "70aa79ef-52d1-4b25-927f-c0927be9e1fe",
+    "key": "digitec",
+    "language": "fr-FR",
+    "value": "Digitec"
+  },
+  {
+    "_syncId": "12899c5a-6244-4a63-9315-763e7bebf0ec",
+    "key": "event",
+    "language": "en-US",
+    "value": "event"
+  },
+  {
+    "_syncId": "396e304a-d0ff-4591-a8a9-a0127aa8481a",
+    "key": "event",
+    "language": "fr-FR",
+    "value": "évènement"
+  },
+  {
+    "_syncId": "9b4ffc79-2a14-4314-89c7-fc79e7872020",
+    "key": "follow-us",
+    "language": "en-US",
+    "value": "Follow us on our socials"
+  },
+  {
+    "_syncId": "caece9ff-636a-4214-89a6-3f02488db981",
+    "key": "follow-us",
+    "language": "fr-FR",
+    "value": "Suivez-nous sur nos réseaux"
+  },
+  {
+    "_syncId": "7cae26ca-b131-4d35-a7e9-4fc915a112cc",
+    "key": "from",
+    "language": "en-US",
+    "value": "From"
+  },
+  {
+    "_syncId": "c5f757ee-a84d-4030-814a-9191ad7014a1",
+    "key": "from",
+    "language": "fr-FR",
+    "value": "À partir du"
+  },
+  {
     "_syncId": "ef45aa76-fa2f-474e-a43b-f108e84b3057",
     "key": "gallery",
     "language": "en-US",
     "value": "gallery"
   },
   {
-    "_syncId": "f1078e62-eb58-4866-945b-9de21cc941fa",
-    "key": "subsonic.catchphrase",
-    "language": "en-US",
-    "value": "The CLIC Silent Party"
-  },
-  {
-    "_syncId": "f1439a64-5a1c-4090-911b-048a3125c663",
-    "key": "pole",
-    "language": "en-US",
-    "value": "positions"
-  },
-  {
-    "_syncId": "f1ce4179-482f-445f-8a4e-170ce38b40aa",
-    "key": "icbd.alumni",
+    "_syncId": "46bcfeec-a37a-4863-8358-9a05ea04d617",
+    "key": "gallery",
     "language": "fr-FR",
-    "value": "Alumni & invité·e·s"
-  },
-  {
-    "_syncId": "f30c74c0-5d5a-477c-8ffa-012ce516c6da",
-    "key": "digitec",
-    "language": "en-US",
-    "value": "Digitec"
-  },
-  {
-    "_syncId": "f3862d35-1261-4006-b348-1222d539464b",
-    "key": "translated-version",
-    "language": "en-US",
-    "value": "Version française ici"
-  },
-  {
-    "_syncId": "f3a6ac7e-d6ee-4e2c-939e-fcf667529e02",
-    "key": "icbd.activities",
-    "language": "en-US",
-    "value": "Activities"
-  },
-  {
-    "_syncId": "f3b5d136-dfb9-441a-ba64-139c20588a45",
-    "key": "artits",
-    "language": "en-US",
-    "value": "Artists"
-  },
-  {
-    "_syncId": "f9641cc7-e22c-44d7-b6f5-12990f5ac8c1",
-    "key": "contact",
-    "language": "fr-FR",
-    "value": "Nous contacter : "
+    "value": "galerie"
   },
   {
     "_syncId": "f9886e88-f45f-426a-9a36-210d10de72c6",
@@ -804,33 +234,345 @@
     "value": "Coming soon"
   },
   {
-    "_syncId": "f98d76c3-be04-468b-b623-d4ed476f3da7",
-    "key": "dateIndicator",
+    "_syncId": "4b060566-d582-4662-b3f3-4f3e672b2f4c",
+    "key": "gamestar.comingSoon",
     "language": "fr-FR",
-    "value": "le"
+    "value": "Bientôt disponible"
   },
   {
-    "_syncId": "fa451d0e-e470-4515-92e9-0252808243b1",
+    "_syncId": "06282670-b775-44b3-8877-f9b931c6c6bf",
+    "key": "gamestar.seeAllEvents",
+    "language": "en-US",
+    "value": "See all events"
+  },
+  {
+    "_syncId": "347be709-718d-4d1e-a2ed-e3a5e3ce2ccc",
+    "key": "gamestar.seeAllEvents",
+    "language": "fr-FR",
+    "value": "Voir tous les évènements"
+  },
+  {
+    "_syncId": "eae2fb6a-88b9-4bec-acbb-ab20496eb6d9",
+    "key": "gamestar.upcomingEvents",
+    "language": "en-US",
+    "value": "Upcoming events"
+  },
+  {
+    "_syncId": "8add9cd4-2f62-4356-ba34-cd0ee6df95b2",
+    "key": "gamestar.upcomingEvents",
+    "language": "fr-FR",
+    "value": "Évènements à venir"
+  },
+  {
+    "_syncId": "a73198ff-42ea-400d-9ccf-b924e48f04b6",
+    "key": "home",
+    "language": "en-US",
+    "value": "home"
+  },
+  {
+    "_syncId": "2df5e34b-b4ac-4d58-820a-0f143ce2a565",
+    "key": "home",
+    "language": "fr-FR",
+    "value": "accueil"
+  },
+  {
+    "_syncId": "dcbede23-82e5-42d8-a6f6-639e0d90e1ee",
+    "key": "icbd-end-of-event",
+    "language": "en-US",
+    "value": "End of the event:"
+  },
+  {
+    "_syncId": "9cc92f04-2d48-4489-ae2a-cc27ddc883ad",
+    "key": "icbd-end-of-event",
+    "language": "fr-FR",
+    "value": "Fin de l'événement :"
+  },
+  {
+    "_syncId": "f3a6ac7e-d6ee-4e2c-939e-fcf667529e02",
+    "key": "icbd.activities",
+    "language": "en-US",
+    "value": "Activities"
+  },
+  {
+    "_syncId": "c8678469-d953-450f-b81d-032fcd1e2435",
+    "key": "icbd.activities",
+    "language": "fr-FR",
+    "value": "Activités"
+  },
+  {
+    "_syncId": "b4a253cb-cd3c-48d0-b348-652e43ffdaec",
+    "key": "icbd.alumni",
+    "language": "en-US",
+    "value": "Alumni & guests"
+  },
+  {
+    "_syncId": "f1ce4179-482f-445f-8a4e-170ce38b40aa",
+    "key": "icbd.alumni",
+    "language": "fr-FR",
+    "value": "Alumni & invité·e·s"
+  },
+  {
+    "_syncId": "9b62f059-8bff-4776-b73c-2ceaf68c4ff1",
+    "key": "icbd.alumni-description",
+    "language": "en-US",
+    "value": "Alumni and guests present at the event"
+  },
+  {
+    "_syncId": "c0ae67c5-670a-4cb2-a5cd-207e67ab50e0",
+    "key": "icbd.alumni-description",
+    "language": "fr-FR",
+    "value": "Alumni et invité·e·s présent·e·s à ICBD"
+  },
+  {
+    "_syncId": "6f1884cc-c8c0-4821-998c-a0fd135ef369",
+    "key": "icbd.phds",
+    "language": "en-US",
+    "value": "PhD students"
+  },
+  {
+    "_syncId": "124b6318-e847-42c9-8d91-06fe54f159c7",
+    "key": "icbd.phds",
+    "language": "fr-FR",
+    "value": "Doctorant·e·s"
+  },
+  {
+    "_syncId": "bb06a5a8-b1db-4bf5-89d3-e94eab1fe175",
+    "key": "icbd.phds-description",
+    "language": "en-US",
+    "value": "During the poster session"
+  },
+  {
+    "_syncId": "098e6e76-cdd5-4201-a97a-194a83e3fa2a",
+    "key": "icbd.phds-description",
+    "language": "fr-FR",
+    "value": "Pendant la poster session"
+  },
+  {
+    "_syncId": "5707c726-b363-4f27-ab31-5f75a99982ed",
+    "key": "icbd.registration",
+    "language": "en-US",
+    "value": "Registration"
+  },
+  {
+    "_syncId": "4c079ed2-0942-4249-a519-7ae3a184a18e",
+    "key": "icbd.registration",
+    "language": "fr-FR",
+    "value": "Inscription"
+  },
+  {
+    "_syncId": "52a2db70-ecaa-4464-ad18-e6ee1751ee15",
+    "key": "icbd.timetable",
+    "language": "en-US",
+    "value": "Timetable"
+  },
+  {
+    "_syncId": "64f1788a-0bdf-4eb6-b404-726cccf99bd7",
+    "key": "icbd.timetable",
+    "language": "fr-FR",
+    "value": "Programme"
+  },
+  {
+    "_syncId": "25e0984e-252f-4ed6-92af-1f89a7412777",
+    "key": "monthly",
+    "language": "en-US",
+    "value": "Every month, the first is"
+  },
+  {
+    "_syncId": "31daf520-cdc2-4042-8a1c-7e761bed2ff2",
+    "key": "monthly",
+    "language": "fr-FR",
+    "value": "Tous les mois, commençant le"
+  },
+  {
+    "_syncId": "970483d0-039c-4d2b-8a87-cc9160eb4b6c",
+    "key": "moreNews",
+    "language": "en-US",
+    "value": "more news"
+  },
+  {
+    "_syncId": "53b7e875-421a-488c-ba8f-876340013a18",
+    "key": "moreNews",
+    "language": "fr-FR",
+    "value": "plus de news"
+  },
+  {
+    "_syncId": "5354af94-7800-4ec3-b101-3bdb69615423",
+    "key": "need-to-order",
+    "language": "en-US",
+    "value": "Need to order?"
+  },
+  {
+    "_syncId": "cfe9c05d-8374-496e-855d-4b5af0ba77f6",
     "key": "need-to-order",
     "language": "fr-FR",
     "value": "Besoin de commander ?"
   },
   {
-    "_syncId": "fa79f44d-389c-450a-80b9-1304c6f2d03c",
-    "key": "gallery",
+    "_syncId": "1a100fa6-7d4c-409b-a23b-1df7edf1a6b3",
+    "key": "news",
     "language": "en-US",
-    "value": "gallery"
+    "value": "news"
   },
   {
-    "_syncId": "fc3dfdeb-6a8f-4058-86df-e5edb784d1e2",
-    "key": "article",
-    "language": "en-US",
-    "value": "article"
+    "_syncId": "a9bb9870-568b-4e94-87b4-d6e5ea66fbda",
+    "key": "news",
+    "language": "fr-FR",
+    "value": "news"
   },
   {
-    "_syncId": "fd5773d3-1e57-4668-a462-eee791278c70",
+    "_syncId": "4dc2f3f2-a90a-48d1-b79a-54abe3f80e0c",
+    "key": "partners",
+    "language": "en-US",
+    "value": "partners"
+  },
+  {
+    "_syncId": "afbc89c5-cdc1-4fcb-ab60-e28b7dae9984",
+    "key": "partners",
+    "language": "fr-FR",
+    "value": "partenaires"
+  },
+  {
+    "_syncId": "a7693973-2cef-4cdb-80e5-f4c9a6941abd",
+    "key": "pole",
+    "language": "en-US",
+    "value": "positions"
+  },
+  {
+    "_syncId": "c83bfcf2-31aa-408a-af63-02025ae47cd0",
+    "key": "pole",
+    "language": "fr-FR",
+    "value": "pôles"
+  },
+  {
+    "_syncId": "916000ab-c58a-42c2-872f-0d99c9e8b771",
+    "key": "project",
+    "language": "en-US",
+    "value": "project"
+  },
+  {
+    "_syncId": "6d5a1cbf-f443-4c98-bcec-95ff114fea66",
+    "key": "project",
+    "language": "fr-FR",
+    "value": "projet"
+  },
+  {
+    "_syncId": "bc54631d-8744-417d-860e-3671450a87bf",
     "key": "readMore",
     "language": "en-US",
     "value": "read more"
+  },
+  {
+    "_syncId": "a7d74e8f-a2f4-4931-8d46-14fb9b197f94",
+    "key": "readMore",
+    "language": "fr-FR",
+    "value": "lire plus"
+  },
+  {
+    "_syncId": "cc980a5b-7d79-47c8-971f-39ed99b1bff1",
+    "key": "relatedContent",
+    "language": "en-US",
+    "value": "related content"
+  },
+  {
+    "_syncId": "2282dffd-9d0b-47d7-a516-7d0d9c7889a2",
+    "key": "relatedContent",
+    "language": "fr-FR",
+    "value": "voir aussi ..."
+  },
+  {
+    "_syncId": "e46a19e4-b8dc-41c0-ab6a-bc69d378fa69",
+    "key": "save-the-date",
+    "language": "en-US",
+    "value": "Save the Date"
+  },
+  {
+    "_syncId": "acd0f216-d550-4cba-aefa-b482640790bc",
+    "key": "save-the-date",
+    "language": "fr-FR",
+    "value": "Save the Date"
+  },
+  {
+    "_syncId": "afe1a705-3de7-489b-9ab5-f567c2cba4e8",
+    "key": "slogan",
+    "language": "en-US",
+    "value": "Association of students in Computer science and Communication systems"
+  },
+  {
+    "_syncId": "b55bf023-44d7-4f4b-ab7a-cfb1a5620040",
+    "key": "slogan",
+    "language": "fr-FR",
+    "value": "Association des étudiant.e.s en Informatique et Systèmes de communication"
+  },
+  {
+    "_syncId": "f1078e62-eb58-4866-945b-9de21cc941fa",
+    "key": "subsonic.catchphrase",
+    "language": "en-US",
+    "value": "The CLIC Silent Party"
+  },
+  {
+    "_syncId": "a6386311-4c4a-4876-a950-73370eb9f031",
+    "key": "subsonic.catchphrase",
+    "language": "fr-FR",
+    "value": "La Silent Party de la CLIC"
+  },
+  {
+    "_syncId": "c30e8298-18a5-41a3-8dad-3d736db5efe8",
+    "key": "subsonic.date-and-place",
+    "language": "en-US",
+    "value": "The 15th November, in BC, at 18h30"
+  },
+  {
+    "_syncId": "a08e154f-2ef0-474b-a190-dee8c1cf97b8",
+    "key": "subsonic.date-and-place",
+    "language": "fr-FR",
+    "value": "Le 15 novembre, au BC, à partir de 18h30"
+  },
+  {
+    "_syncId": "e34ebe3a-b896-4507-a3ea-87ddcd1c0f4f",
+    "key": "subsonic.map",
+    "language": "en-US",
+    "value": "BC plan"
+  },
+  {
+    "_syncId": "3d06d7a4-52db-451d-b20b-cbbb1e3c5fc9",
+    "key": "subsonic.map",
+    "language": "fr-FR",
+    "value": "plan du BC"
+  },
+  {
+    "_syncId": "3b8e701a-b012-45ce-a5b5-bb15c83625c8",
+    "key": "timeIndicator",
+    "language": "en-US",
+    "value": "at"
+  },
+  {
+    "_syncId": "2b404b54-2edd-4b87-b741-83390dbc6cb9",
+    "key": "timeIndicator",
+    "language": "fr-FR",
+    "value": "à"
+  },
+  {
+    "_syncId": "f3862d35-1261-4006-b348-1222d539464b",
+    "key": "translated-version",
+    "language": "en-US",
+    "value": "Version française ici"
+  },
+  {
+    "_syncId": "7bd21d01-fbd8-4cb4-a1f6-2def10658d2f",
+    "key": "translated-version",
+    "language": "fr-FR",
+    "value": "English version here"
+  },
+  {
+    "_syncId": "9a5fb75b-0416-4349-b31a-6736e7a65063",
+    "key": "weekly",
+    "language": "en-US",
+    "value": "Every"
+  },
+  {
+    "_syncId": "a7ba0216-3b95-4a91-84cb-7c502c90cad5",
+    "key": "weekly",
+    "language": "fr-FR",
+    "value": "Tous les"
   }
 ]
