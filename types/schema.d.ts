@@ -6688,6 +6688,7 @@ export interface components {
       front_image?: (string | components["schemas"]["Files"]) | null;
       back_image?: (string | components["schemas"]["Files"]) | null;
       sale_event?: (number | components["schemas"]["ItemsEvents"]) | null;
+      name?: string | null;
     };
     ItemsPullsOrders: {
       id?: number;
