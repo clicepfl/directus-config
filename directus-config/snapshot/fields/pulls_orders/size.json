@@ -1,48 +1,25 @@
 {
-  "collection": "events",
-  "field": "type",
+  "collection": "pulls_orders",
+  "field": "size",
   "meta": {
-    "collection": "events",
+    "collection": "pulls_orders",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "type",
+    "field": "size",
     "group": null,
     "hidden": false,
-    "interface": "select-dropdown",
+    "interface": "input",
     "note": null,
-    "options": {
-      "choices": [
-        {
-          "text": "Faculty dinner",
-          "value": "faculty_dinner"
-        },
-        {
-          "text": "icbd",
-          "value": "icbd"
-        },
-        {
-          "text": "Hello world",
-          "value": "hello_world"
-        },
-        {
-          "text": "Pulls de fac sale",
-          "value": "pulls_fac"
-        },
-        {
-          "text": "Other",
-          "value": "other"
-        }
-      ]
-    },
+    "options": null,
     "readonly": false,
-    "required": true,
-    "sort": 7,
+    "required": false,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "half"
+    "width": "full"
   },
   "schema": {
     "data_type": "character varying",
@@ -57,10 +34,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "type",
+    "name": "size",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "events"
+    "table": "pulls_orders"
   },
   "type": "string"
 }
