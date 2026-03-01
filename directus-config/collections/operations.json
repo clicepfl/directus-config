@@ -1281,7 +1281,7 @@
         }
       ],
       "method": "POST",
-      "url": "https://clic.epfl.ch/mail-sender/send?secret=74dc0c2810fc14a65c571bc38e3d6fe63d9a41c9"
+      "url": "https://clic.epfl.ch/mail-sender/send?secret={{$env.MAIL_SENDER_SECRET}}"
     },
     "position_x": 75,
     "position_y": 33,
