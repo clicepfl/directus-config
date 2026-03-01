@@ -1,0 +1,47 @@
+{
+  "collection": "pulls",
+  "field": "front_image",
+  "meta": {
+    "collection": "pulls",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "front_image",
+    "group": null,
+    "hidden": false,
+    "interface": "file-image",
+    "note": null,
+    "options": {
+      "folder": null
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 2,
+    "special": [
+      "file"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "directus_files",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "front_image",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "pulls"
+  },
+  "type": "uuid"
+}
