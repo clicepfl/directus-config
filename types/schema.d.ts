@@ -6536,6 +6536,7 @@ export interface components {
       allergies?: string | null;
       preferences?: unknown;
       order_complete?: boolean | null;
+      number_purchased?: number | null;
     };
     ItemsNewsPartners: {
       id?: number;
