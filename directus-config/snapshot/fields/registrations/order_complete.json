@@ -7,7 +7,7 @@
     "display": null,
     "display_options": null,
     "field": "order_complete",
-    "group": "pulls_fac",
+    "group": "clothes",
     "hidden": false,
     "interface": "boolean",
     "note": null,

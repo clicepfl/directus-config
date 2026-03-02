@@ -1,8 +1,8 @@
 {
-  "collection": "pulls",
+  "collection": "clothes",
   "field": "sale_event",
   "meta": {
-    "collection": "pulls",
+    "collection": "clothes",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -41,7 +41,7 @@
     "name": "sale_event",
     "numeric_precision": 32,
     "numeric_scale": 0,
-    "table": "pulls"
+    "table": "clothes"
   },
   "type": "integer"
 }

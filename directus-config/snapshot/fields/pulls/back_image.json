@@ -1,8 +1,8 @@
 {
-  "collection": "pulls",
+  "collection": "clothes",
   "field": "back_image",
   "meta": {
-    "collection": "pulls",
+    "collection": "clothes",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -39,7 +39,7 @@
     "name": "back_image",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "pulls"
+    "table": "clothes"
   },
   "type": "uuid"
 }

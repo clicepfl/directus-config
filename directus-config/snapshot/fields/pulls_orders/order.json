@@ -1,8 +1,8 @@
 {
-  "collection": "pulls_orders",
+  "collection": "clothes_orders",
   "field": "order",
   "meta": {
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -41,7 +41,7 @@
     "name": "order",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "pulls_orders"
+    "table": "clothes_orders"
   },
   "type": "uuid"
 }

@@ -4903,7 +4903,7 @@ export interface paths {
     patch: operations["updateSingleItemsIcbdActivitiesTranslations"];
     trace?: never;
   };
-  "/items/pulls": {
+  "/items/clothes": {
     parameters: {
       query?: never;
       header?: never;
@@ -4912,30 +4912,30 @@ export interface paths {
     };
     /**
      * List Items
-     * @description List the pulls items.
+     * @description List the clothes items.
      */
-    get: operations["readItemsPulls"];
+    get: operations["readItemsClothes"];
     put?: never;
     /**
      * Create an Item
-     * @description Create a new pulls item.
+     * @description Create a new clothes item.
      */
-    post: operations["createItemsPulls"];
+    post: operations["createItemsClothes"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing pulls items.
+     * @description Delete multiple existing clothes items.
      */
-    delete: operations["deleteItemsPulls"];
+    delete: operations["deleteItemsClothes"];
     options?: never;
     head?: never;
     /**
      * Update Multiple Items
-     * @description Update multiple pulls items at the same time.
+     * @description Update multiple clothes items at the same time.
      */
-    patch: operations["updateItemsPulls"];
+    patch: operations["updateItemsClothes"];
     trace?: never;
   };
-  "/items/pulls/{id}": {
+  "/items/clothes/{id}": {
     parameters: {
       query?: never;
       header?: never;
@@ -4944,26 +4944,26 @@ export interface paths {
     };
     /**
      * Retrieve an Item
-     * @description Retrieve a single pulls item by unique identifier.
+     * @description Retrieve a single clothes item by unique identifier.
      */
-    get: operations["readSingleItemsPulls"];
+    get: operations["readSingleItemsClothes"];
     put?: never;
     post?: never;
     /**
      * Delete an Item
-     * @description Delete an existing pulls item.
+     * @description Delete an existing clothes item.
      */
-    delete: operations["deleteSingleItemsPulls"];
+    delete: operations["deleteSingleItemsClothes"];
     options?: never;
     head?: never;
     /**
      * Update an Item
-     * @description Update an existing pulls item.
+     * @description Update an existing clothes item.
      */
-    patch: operations["updateSingleItemsPulls"];
+    patch: operations["updateSingleItemsClothes"];
     trace?: never;
   };
-  "/items/pulls_orders": {
+  "/items/clothes_orders": {
     parameters: {
       query?: never;
       header?: never;
@@ -4972,30 +4972,30 @@ export interface paths {
     };
     /**
      * List Items
-     * @description List the pulls_orders items.
+     * @description List the clothes_orders items.
      */
-    get: operations["readItemsPullsOrders"];
+    get: operations["readItemsClothesOrders"];
     put?: never;
     /**
      * Create an Item
-     * @description Create a new pulls_orders item.
+     * @description Create a new clothes_orders item.
      */
-    post: operations["createItemsPullsOrders"];
+    post: operations["createItemsClothesOrders"];
     /**
      * Delete Multiple Items
-     * @description Delete multiple existing pulls_orders items.
+     * @description Delete multiple existing clothes_orders items.
      */
-    delete: operations["deleteItemsPullsOrders"];
+    delete: operations["deleteItemsClothesOrders"];
     options?: never;
     head?: never;
     /**
      * Update Multiple Items
-     * @description Update multiple pulls_orders items at the same time.
+     * @description Update multiple clothes_orders items at the same time.
      */
-    patch: operations["updateItemsPullsOrders"];
+    patch: operations["updateItemsClothesOrders"];
     trace?: never;
   };
-  "/items/pulls_orders/{id}": {
+  "/items/clothes_orders/{id}": {
     parameters: {
       query?: never;
       header?: never;
@@ -5004,23 +5004,23 @@ export interface paths {
     };
     /**
      * Retrieve an Item
-     * @description Retrieve a single pulls_orders item by unique identifier.
+     * @description Retrieve a single clothes_orders item by unique identifier.
      */
-    get: operations["readSingleItemsPullsOrders"];
+    get: operations["readSingleItemsClothesOrders"];
     put?: never;
     post?: never;
     /**
      * Delete an Item
-     * @description Delete an existing pulls_orders item.
+     * @description Delete an existing clothes_orders item.
      */
-    delete: operations["deleteSingleItemsPullsOrders"];
+    delete: operations["deleteSingleItemsClothesOrders"];
     options?: never;
     head?: never;
     /**
      * Update an Item
-     * @description Update an existing pulls_orders item.
+     * @description Update an existing clothes_orders item.
      */
-    patch: operations["updateSingleItemsPullsOrders"];
+    patch: operations["updateSingleItemsClothesOrders"];
     trace?: never;
   };
 }
@@ -6683,18 +6683,18 @@ export interface components {
         | (number | components["schemas"]["ItemsIcbdActivities"])
         | null;
     };
-    ItemsPulls: {
+    ItemsClothes: {
       id?: number;
       front_image?: (string | components["schemas"]["Files"]) | null;
       back_image?: (string | components["schemas"]["Files"]) | null;
       sale_event?: (number | components["schemas"]["ItemsEvents"]) | null;
       name?: string | null;
     };
-    ItemsPullsOrders: {
+    ItemsClothesOrders: {
       id?: number;
       size?: string | null;
       order?: (string | components["schemas"]["ItemsRegistrations"]) | null;
-      color?: (number | components["schemas"]["ItemsPulls"]) | null;
+      color?: (number | components["schemas"]["ItemsClothes"]) | null;
     };
   };
   responses: {
@@ -24359,7 +24359,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  readItemsPulls: {
+  readItemsClothes: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24390,7 +24390,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPulls"][];
+            data?: components["schemas"]["ItemsClothes"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -24398,7 +24398,7 @@ export interface operations {
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  createItemsPulls: {
+  createItemsClothes: {
     parameters: {
       query?: {
         /** @description What metadata to return in the response. */
@@ -24411,8 +24411,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsPulls"][]
-          | components["schemas"]["ItemsPulls"];
+          | components["schemas"]["ItemsClothes"][]
+          | components["schemas"]["ItemsClothes"];
       };
     };
     responses: {
@@ -24423,14 +24423,14 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPulls"][];
+            data?: components["schemas"]["ItemsClothes"][];
           };
         };
       };
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  deleteItemsPulls: {
+  deleteItemsClothes: {
     parameters: {
       query?: never;
       header?: never;
@@ -24449,7 +24449,7 @@ export interface operations {
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  updateItemsPulls: {
+  updateItemsClothes: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24474,8 +24474,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsPulls"][]
-          | components["schemas"]["ItemsPulls"];
+          | components["schemas"]["ItemsClothes"][]
+          | components["schemas"]["ItemsClothes"];
       };
     };
     responses: {
@@ -24486,13 +24486,13 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPulls"][];
+            data?: components["schemas"]["ItemsClothes"][];
           };
         };
       };
     };
   };
-  readSingleItemsPulls: {
+  readSingleItemsClothes: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24518,7 +24518,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPulls"];
+            data?: components["schemas"]["ItemsClothes"];
           };
         };
       };
@@ -24526,7 +24526,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  deleteSingleItemsPulls: {
+  deleteSingleItemsClothes: {
     parameters: {
       query?: never;
       header?: never;
@@ -24549,7 +24549,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  updateSingleItemsPulls: {
+  updateSingleItemsClothes: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24566,7 +24566,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsPulls"];
+        "application/json": components["schemas"]["ItemsClothes"];
       };
     };
     responses: {
@@ -24577,7 +24577,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPulls"];
+            data?: components["schemas"]["ItemsClothes"];
           };
         };
       };
@@ -24585,7 +24585,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  readItemsPullsOrders: {
+  readItemsClothesOrders: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24616,7 +24616,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPullsOrders"][];
+            data?: components["schemas"]["ItemsClothesOrders"][];
             meta?: components["schemas"]["x-metadata"];
           };
         };
@@ -24624,7 +24624,7 @@ export interface operations {
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  createItemsPullsOrders: {
+  createItemsClothesOrders: {
     parameters: {
       query?: {
         /** @description What metadata to return in the response. */
@@ -24637,8 +24637,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsPullsOrders"][]
-          | components["schemas"]["ItemsPullsOrders"];
+          | components["schemas"]["ItemsClothesOrders"][]
+          | components["schemas"]["ItemsClothesOrders"];
       };
     };
     responses: {
@@ -24649,14 +24649,14 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPullsOrders"][];
+            data?: components["schemas"]["ItemsClothesOrders"][];
           };
         };
       };
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  deleteItemsPullsOrders: {
+  deleteItemsClothesOrders: {
     parameters: {
       query?: never;
       header?: never;
@@ -24675,7 +24675,7 @@ export interface operations {
       401: components["responses"]["UnauthorizedError"];
     };
   };
-  updateItemsPullsOrders: {
+  updateItemsClothesOrders: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24700,8 +24700,8 @@ export interface operations {
     requestBody?: {
       content: {
         "application/json":
-          | components["schemas"]["ItemsPullsOrders"][]
-          | components["schemas"]["ItemsPullsOrders"];
+          | components["schemas"]["ItemsClothesOrders"][]
+          | components["schemas"]["ItemsClothesOrders"];
       };
     };
     responses: {
@@ -24712,13 +24712,13 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPullsOrders"][];
+            data?: components["schemas"]["ItemsClothesOrders"][];
           };
         };
       };
     };
   };
-  readSingleItemsPullsOrders: {
+  readSingleItemsClothesOrders: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24744,7 +24744,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPullsOrders"];
+            data?: components["schemas"]["ItemsClothesOrders"];
           };
         };
       };
@@ -24752,7 +24752,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  deleteSingleItemsPullsOrders: {
+  deleteSingleItemsClothesOrders: {
     parameters: {
       query?: never;
       header?: never;
@@ -24775,7 +24775,7 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  updateSingleItemsPullsOrders: {
+  updateSingleItemsClothesOrders: {
     parameters: {
       query?: {
         /** @description Control what fields are being returned in the object. */
@@ -24792,7 +24792,7 @@ export interface operations {
     };
     requestBody?: {
       content: {
-        "application/json": components["schemas"]["ItemsPullsOrders"];
+        "application/json": components["schemas"]["ItemsClothesOrders"];
       };
     };
     responses: {
@@ -24803,7 +24803,7 @@ export interface operations {
         };
         content: {
           "application/json": {
-            data?: components["schemas"]["ItemsPullsOrders"];
+            data?: components["schemas"]["ItemsClothesOrders"];
           };
         };
       };
@@ -24860,8 +24860,8 @@ export type Schema = {
   partner_category: components["schemas"]["ItemsPartnerCategory"][];
   partner_category_translations: components["schemas"]["ItemsPartnerCategoryTranslations"][];
   partners: components["schemas"]["ItemsPartners"][];
-  pulls: components["schemas"]["ItemsPulls"][];
-  pulls_orders: components["schemas"]["ItemsPullsOrders"][];
+  clothes: components["schemas"]["ItemsClothes"][];
+  clothes_orders: components["schemas"]["ItemsClothesOrders"][];
   registrations: components["schemas"]["ItemsRegistrations"][];
   save_the_date: components["schemas"]["ItemsSavetheDate"];
   save_the_date_translations: components["schemas"]["ItemsSavetheDateTranslations"][];

@@ -1,8 +1,8 @@
 {
-  "collection": "pulls",
+  "collection": "clothes",
   "field": "name",
   "meta": {
-    "collection": "pulls",
+    "collection": "clothes",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -37,7 +37,7 @@
     "name": "name",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "pulls"
+    "table": "clothes"
   },
   "type": "string"
 }

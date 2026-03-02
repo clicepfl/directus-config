@@ -1,8 +1,8 @@
 {
-  "collection": "pulls_orders",
+  "collection": "clothes_orders",
   "field": "color",
   "meta": {
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "conditions": null,
     "display": null,
     "display_options": null,
@@ -29,7 +29,7 @@
     "data_type": "integer",
     "default_value": null,
     "foreign_key_column": "id",
-    "foreign_key_table": "pulls",
+    "foreign_key_table": "clothes",
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -41,7 +41,7 @@
     "name": "color",
     "numeric_precision": 32,
     "numeric_scale": 0,
-    "table": "pulls_orders"
+    "table": "clothes_orders"
   },
   "type": "integer"
 }
