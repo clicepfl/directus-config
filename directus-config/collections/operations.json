@@ -938,6 +938,28 @@
     "type": "item-update"
   },
   {
+    "_syncId": "9cc7e057-eab2-48ee-b8a0-1cf35e7be9e1",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "item_update_uur9w",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "permissions": "$trigger"
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
     "_syncId": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
     "key": "item_update_wrcj6",
@@ -980,6 +1002,7 @@
     "name": "Send Email",
     "options": {
       "data": {
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{order.id}}&size=1024",
         "registration": "{{ order }}"
       },
       "subject": "IC faculty sweater: order confirmation",
@@ -992,7 +1015,7 @@
     "position_x": 55,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
+    "resolve": "9cc7e057-eab2-48ee-b8a0-1cf35e7be9e1",
     "type": "mail"
   },
   {
@@ -1019,6 +1042,7 @@
     "name": "Send Email",
     "options": {
       "data": {
+        "event": "{{ event }}",
         "order": "{{ order_contents }}",
         "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.keys[0]}}",
         "registration": "{{order}}"
