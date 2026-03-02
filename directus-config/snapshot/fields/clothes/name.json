@@ -1,35 +1,31 @@
 {
-  "collection": "pulls_orders",
-  "field": "order",
+  "collection": "clothes",
+  "field": "name",
   "meta": {
-    "collection": "pulls_orders",
+    "collection": "clothes",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "order",
+    "field": "name",
     "group": null,
     "hidden": false,
-    "interface": "select-dropdown-m2o",
+    "interface": "input",
     "note": null,
-    "options": {
-      "enableLink": true
-    },
+    "options": null,
     "readonly": false,
     "required": true,
-    "sort": 4,
-    "special": [
-      "m2o"
-    ],
+    "sort": 2,
+    "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
     "width": "full"
   },
   "schema": {
-    "data_type": "uuid",
+    "data_type": "character varying",
     "default_value": null,
-    "foreign_key_column": "id",
-    "foreign_key_table": "registrations",
+    "foreign_key_column": null,
+    "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -37,11 +33,11 @@
     "is_nullable": true,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": null,
-    "name": "order",
+    "max_length": 255,
+    "name": "name",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "pulls_orders"
+    "table": "clothes"
   },
-  "type": "uuid"
+  "type": "string"
 }

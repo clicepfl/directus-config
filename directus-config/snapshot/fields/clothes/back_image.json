@@ -1,12 +1,12 @@
 {
-  "collection": "pulls",
-  "field": "front_image",
+  "collection": "clothes",
+  "field": "back_image",
   "meta": {
-    "collection": "pulls",
+    "collection": "clothes",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "front_image",
+    "field": "back_image",
     "group": null,
     "hidden": false,
     "interface": "file-image",
@@ -16,7 +16,7 @@
     },
     "readonly": false,
     "required": false,
-    "sort": 3,
+    "sort": 4,
     "special": [
       "file"
     ],
@@ -38,10 +38,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "front_image",
+    "name": "back_image",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "pulls"
+    "table": "clothes"
   },
   "type": "uuid"
 }

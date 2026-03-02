@@ -1,12 +1,12 @@
 {
-  "collection": "pulls_orders",
+  "collection": "clothes_orders",
   "meta": {
     "accountability": "all",
     "archive_app_filter": true,
     "archive_field": null,
     "archive_value": null,
     "collapse": "open",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "color": null,
     "display_template": null,
     "group": "registrations",
@@ -23,6 +23,6 @@
     "versioning": false
   },
   "schema": {
-    "name": "pulls_orders"
+    "name": "clothes_orders"
   }
 }

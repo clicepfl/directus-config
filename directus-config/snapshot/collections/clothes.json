@@ -1,12 +1,12 @@
 {
-  "collection": "pulls",
+  "collection": "clothes",
   "meta": {
     "accountability": "all",
     "archive_app_filter": true,
     "archive_field": null,
     "archive_value": null,
     "collapse": "open",
-    "collection": "pulls",
+    "collection": "clothes",
     "color": "#2ECDA7",
     "display_template": null,
     "group": null,
@@ -23,6 +23,6 @@
     "versioning": false
   },
   "schema": {
-    "name": "pulls"
+    "name": "clothes"
   }
 }

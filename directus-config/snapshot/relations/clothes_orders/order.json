@@ -1,9 +1,9 @@
 {
-  "collection": "pulls_orders",
+  "collection": "clothes_orders",
   "field": "order",
   "meta": {
     "junction_field": null,
-    "many_collection": "pulls_orders",
+    "many_collection": "clothes_orders",
     "many_field": "order",
     "one_allowed_collections": null,
     "one_collection": "registrations",
@@ -15,11 +15,11 @@
   "related_collection": "registrations",
   "schema": {
     "column": "order",
-    "constraint_name": "pulls_orders_order_foreign",
+    "constraint_name": "clothes_orders_order_foreign",
     "foreign_key_column": "id",
     "foreign_key_table": "registrations",
     "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "table": "pulls_orders"
+    "table": "clothes_orders"
   }
 }

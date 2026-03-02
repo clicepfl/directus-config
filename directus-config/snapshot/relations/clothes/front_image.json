@@ -1,9 +1,9 @@
 {
-  "collection": "pulls",
+  "collection": "clothes",
   "field": "front_image",
   "meta": {
     "junction_field": null,
-    "many_collection": "pulls",
+    "many_collection": "clothes",
     "many_field": "front_image",
     "one_allowed_collections": null,
     "one_collection": "directus_files",
@@ -15,11 +15,11 @@
   "related_collection": "directus_files",
   "schema": {
     "column": "front_image",
-    "constraint_name": "pulls_front_image_foreign",
+    "constraint_name": "clothes_front_image_foreign",
     "foreign_key_column": "id",
     "foreign_key_table": "directus_files",
     "on_delete": "SET NULL",
     "on_update": "NO ACTION",
-    "table": "pulls"
+    "table": "clothes"
   }
 }

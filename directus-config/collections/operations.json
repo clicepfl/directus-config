@@ -271,7 +271,7 @@
       "filter": {
         "event": {
           "type": {
-            "_eq": "pulls_fac"
+            "_eq": "faculty_clothes_sale"
           }
         }
       }
@@ -1006,7 +1006,7 @@
         "registration": "{{ order }}"
       },
       "subject": "IC faculty sweater: order confirmation",
-      "template": "pulls_fac_confirmed",
+      "template": "faculty_clothes_sale_confirmed",
       "to": [
         "{{order.email}}"
       ],
@@ -1048,7 +1048,7 @@
         "registration": "{{order}}"
       },
       "subject": "Thank you for your IC faculty sweater order!",
-      "template": "pulls_fac_placed",
+      "template": "faculty_clothes_sale_placed",
       "to": [
         "{{order.email}}"
       ],
@@ -1270,7 +1270,7 @@
     "key": "order_contents",
     "name": "Order contents",
     "options": {
-      "code": "module.exports = async function(data) {\n  const { order_contents_raw = [], pulls = [] } = data;\n  const idToName = new Map(pulls.map(p => [p.id, p.name]));\n  return order_contents_raw.map(item => ({\n    size: item.size,\n    color: idToName.get(item.color) ?? \"Unknown color\"\n  }));\n}"
+      "code": "module.exports = async function(data) {\n  const { order_contents_raw = [], clothes = [] } = data;\n  const idToName = new Map(clothes.map(p => [p.id, p.name]));\n  return order_contents_raw.map(item => ({\n    size: item.size,\n    color: idToName.get(item.color) ?? \"Unknown color\"\n  }));\n}"
     },
     "position_x": 55,
     "position_y": 33,
@@ -1284,7 +1284,7 @@
     "key": "order_contents_raw",
     "name": "Read Data",
     "options": {
-      "collection": "pulls_orders",
+      "collection": "clothes_orders",
       "emitEvents": false,
       "permissions": "$trigger",
       "query": {
@@ -1344,10 +1344,10 @@
   {
     "_syncId": "f8041459-0445-47c2-97cf-442cee13c28a",
     "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
-    "key": "pulls",
-    "name": "Pulls",
+    "key": "clothes",
+    "name": "Clothes",
     "options": {
-      "collection": "pulls",
+      "collection": "clothes",
       "emitEvents": false,
       "permissions": "$trigger",
       "query": {

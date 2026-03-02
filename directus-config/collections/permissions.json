@@ -2052,7 +2052,7 @@
   {
     "_syncId": "5eba4ee8-f6f2-49cc-ae78-1996cf7bfe0d",
     "action": "create",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2064,7 +2064,7 @@
   {
     "_syncId": "fb531ee5-c0e5-4b39-9e8f-1cd7a2e90c84",
     "action": "delete",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2076,7 +2076,7 @@
   {
     "_syncId": "528bb714-6644-4d5f-a067-e8746d865f3d",
     "action": "read",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2088,7 +2088,7 @@
   {
     "_syncId": "bfe41ae0-925a-4d24-b4a0-6835cea98209",
     "action": "share",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2100,7 +2100,7 @@
   {
     "_syncId": "e7f3cf32-b8e6-4662-a2d8-1d7bd3eeab10",
     "action": "update",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2112,7 +2112,7 @@
   {
     "_syncId": "46cfad05-b4f2-421e-90f0-49ea461b3819",
     "action": "read",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -6214,7 +6214,7 @@
   {
     "_syncId": "c0d521ae-2025-4bd0-b40b-18b3cc426532",
     "action": "create",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -6226,7 +6226,7 @@
   {
     "_syncId": "fa3f6150-32f5-40dd-a516-4dbe920928bd",
     "action": "delete",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -6238,7 +6238,7 @@
   {
     "_syncId": "25063074-4f02-4ed8-b091-623097beb123",
     "action": "read",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -6250,7 +6250,7 @@
   {
     "_syncId": "f13b0994-016c-4620-b29a-fd2b091f45ca",
     "action": "share",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -6262,7 +6262,7 @@
   {
     "_syncId": "a08e1bba-2575-4530-bbe2-56a8ae480393",
     "action": "update",
-    "collection": "pulls_orders",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -6274,7 +6274,7 @@
   {
     "_syncId": "e0854579-b557-434c-882d-7dc9cb3877ce",
     "action": "create",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -6286,7 +6286,7 @@
   {
     "_syncId": "64db095e-95fd-4642-b379-23fc2a8795c2",
     "action": "delete",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -6298,7 +6298,7 @@
   {
     "_syncId": "e4262e88-fcb9-439d-a367-df91917c4028",
     "action": "read",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -6310,7 +6310,7 @@
   {
     "_syncId": "a009e7a4-6550-42ab-b3b1-9d592b38c146",
     "action": "share",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -6322,7 +6322,7 @@
   {
     "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
     "action": "update",
-    "collection": "pulls",
+    "collection": "clothes",
     "fields": [
       "*"
     ],
