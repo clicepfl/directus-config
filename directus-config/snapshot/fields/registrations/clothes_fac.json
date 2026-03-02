@@ -1,12 +1,12 @@
 {
   "collection": "registrations",
-  "field": "faculty_clothes_sale",
+  "field": "clothes_fac",
   "meta": {
     "collection": "registrations",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "faculty_clothes_sale",
+    "field": "clothes_fac",
     "group": "additional_infos",
     "hidden": false,
     "interface": "group-raw",
