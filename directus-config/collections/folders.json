@@ -10,6 +10,11 @@
     "parent": "eea5fe90-8c59-435d-9906-660cce4d02da"
   },
   {
+    "_syncId": "165ca8eb-3d8b-4765-b3a5-294d79d4bd72",
+    "name": "sweaters",
+    "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
+  },
+  {
     "_syncId": "18e307e7-0e24-4e53-80a9-1820dc16d818",
     "name": "galleries",
     "parent": "48e39cd0-878d-4850-a6d5-5f903bd0c2fb"
