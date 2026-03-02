@@ -6216,9 +6216,6 @@
     "action": "create",
     "collection": "pulls_orders",
     "fields": [
-    "action": "create",
-    "collection": "pulls_orders",
-    "fields": [
       "*"
     ],
     "permissions": null,
@@ -6321,12 +6318,6 @@
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": null
-  },
-  {
-    "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
-    "action": "update",
-    "collection": "pulls",
-    "fields": [
   },
   {
     "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
