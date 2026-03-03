@@ -174,6 +174,49 @@
     "type": "item-update"
   },
   {
+    "_syncId": "f8041459-0445-47c2-97cf-442cee13c28a",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "clothes",
+    "name": "Clothes",
+    "options": {
+      "collection": "clothes",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "sale_event": {
+            "_eq": "{{order.event}}"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "94a2aa6f-6eee-4237-b368-52d6335a5c08",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "2fae799f-f084-4ed3-a850-f88546bc2a68",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "condition_0fdid",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_clothes_sale"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "4bf3a4ae-8c7c-4da4-a9aa-8ab5903bf778",
+    "type": "condition"
+  },
+  {
     "_syncId": "ee33be1e-8718-4005-be5f-42cbe42b619d",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "condition_326ml",
@@ -582,6 +625,25 @@
     "position_y": 17,
     "reject": null,
     "resolve": "05cdb8ec-815d-4e6e-90b8-3cfd44df0b69",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "3076f715-a8d5-4072-a71d-d5ddef11c0e8",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{order.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "2fae799f-f084-4ed3-a850-f88546bc2a68",
     "type": "item-read"
   },
   {
@@ -1261,7 +1323,7 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "4bf3a4ae-8c7c-4da4-a9aa-8ab5903bf778",
+    "resolve": "3076f715-a8d5-4072-a71d-d5ddef11c0e8",
     "type": "item-read"
   },
   {
@@ -1340,29 +1402,6 @@
     "reject": null,
     "resolve": "d2984908-873f-4f7e-bd44-93564a4a0271",
     "type": "condition"
-  },
-  {
-    "_syncId": "f8041459-0445-47c2-97cf-442cee13c28a",
-    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
-    "key": "clothes",
-    "name": "Clothes",
-    "options": {
-      "collection": "clothes",
-      "emitEvents": false,
-      "permissions": "$trigger",
-      "query": {
-        "filter": {
-          "sale_event": {
-            "_eq": "{{order.event}}"
-          }
-        }
-      }
-    },
-    "position_x": 37,
-    "position_y": 33,
-    "reject": null,
-    "resolve": "94a2aa6f-6eee-4237-b368-52d6335a5c08",
-    "type": "item-read"
   },
   {
     "_syncId": "56f961af-1a93-4e6e-8905-f572a1d425d2",
