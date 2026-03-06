@@ -48,7 +48,7 @@
     "key": "activities_populated",
     "name": "Run Script",
     "options": {
-      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => a.timeslot.start_time.localeCompare(b.timeslot.start_time));\n};\n"
+      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => {\n    const timeA = a.timeslot?.start_time;\n    const timeB = b.timeslot?.start_time;\n    if (timeA && timeB) return timeA.localeCompare(timeB);\n    if (timeA && !timeB) return -1;\n    if (!timeA && timeB) return 1;\n    return 0;\n  });\n};\n"
     },
     "position_x": 75,
     "position_y": 17,
@@ -776,7 +776,7 @@
     "key": "is_complete",
     "name": "Is complete",
     "options": {
-      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null);\n}"
+      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null || a.waitlist);\n}"
     },
     "position_x": 73,
     "position_y": 1,

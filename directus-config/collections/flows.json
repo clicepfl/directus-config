@@ -231,7 +231,7 @@
     "color": "#FF9D2D",
     "description": null,
     "icon": "start",
-    "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
+    "name": "[ICBD] [TRIGGER] Activity registration update",
     "operation": "4a69daea-858b-478e-a879-f99ada596651",
     "options": {
       "collections": [
@@ -251,7 +251,7 @@
     "color": "#FF9D2D",
     "description": null,
     "icon": "start",
-    "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
+    "name": "[ICBD] [TRIGGER] Registration update",
     "operation": "fef5f568-8096-4f6e-b22a-466609fab749",
     "options": {
       "collections": [

@@ -6512,6 +6512,7 @@ export interface components {
         | null;
       /** Format: time */
       start?: string | null;
+      waitlist?: boolean | null;
     };
     ItemsIcbdActivitiesTranslations: {
       description?: string | null;
