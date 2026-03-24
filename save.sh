@@ -11,8 +11,8 @@ sort() {
 pushd $BASEDIR
 npx directus-sync pull
 
-sort '.flow, .position_x, .position_y' directus-config/collections/operations.json
-sort '.policy' directus-config/collections/permissions.json
+sort '.flow, .position_x, .position_y, ._syncId' directus-config/collections/operations.json
+sort '.policy, .action, ._syncId' directus-config/collections/permissions.json
 
 pushd generation
 npm i
