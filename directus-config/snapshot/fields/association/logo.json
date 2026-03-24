@@ -12,7 +12,8 @@
     "interface": "file-image",
     "note": null,
     "options": {
-      "crop": false
+      "crop": false,
+      "folder": "82caf9c9-995b-404f-ba7e-76f704a6dd3e"
     },
     "readonly": false,
     "required": false,

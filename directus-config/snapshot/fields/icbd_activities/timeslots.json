@@ -4,9 +4,10 @@
   "meta": {
     "collection": "icbd_activities",
     "conditions": null,
-    "display": "labels",
+    "display": "formatted-json-value",
     "display_options": {
-      "choices": null
+      "choices": null,
+      "format": "[{{ room }}] - {{ start_time }} : {{ end_time }} [{{ full }}]"
     },
     "field": "timeslots",
     "group": null,

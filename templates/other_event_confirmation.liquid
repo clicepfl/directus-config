@@ -3,6 +3,17 @@
 <body style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs">
     <table
         style="min-width: 100%; min-height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; background-color: whitesmoke;">
+        {%if event.banner%}
+        <tr>
+            <td>
+                <center>
+                    <img style="width: 600px; border-radius: 0.5rem;"
+                        src="https://clic.epfl.ch/directus/assets/37b841c9-0411-4226-98ab-0747f32597d5"
+                        alt="{{event.name}} logo">
+                </center>
+            </td>
+        </tr>
+        {%endif%}
         <tr>
             <td>
                 <center>
@@ -14,6 +25,9 @@
                                 <p style="color: gray; font-style: italic;">Hi {{ registration.first_name }},</p>
                                 <center>
                                     <h1>Thank you for registering for {{ event.name }} !</h1>
+                                    <p>
+                                    ⚠️ Your spot is only guaranteed after payment. Tickets go fast, so pay quickly to secure yours.
+                                    </p>
                                 </center>
                                 <hr style="color: lightgray;">
                             </td>
@@ -22,21 +36,14 @@
                             <td>
                                 <p>You can validate your inscription by paying your place at the CLIC office in INM 177,
                                     by
-                                    cash or camipro. <br><br>
-                                    Or by bank transfer using the following QR-code (use this link if it doesn't load:
-                                    <a
-                                        href="{{ qrbill_url }}">click
-                                        here</a>).
+                                    cash or camipro. Our office's opening times: 3rd-13th November (excluding weekends) from 11am to 2pm. <br><br>
                                 </p>
-                                <img width="550px"
-                                    src="{{ qrbill_url }}"
-                                    alt="qr code">
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <center>
-                                    <p style="color: gray; font-style: italic;">See you there!</p>
+                                    <p style="color: gray; font-style: italic;">Looking forward to vibing with you 💙💛❤️</p>
                                 </center>
                             </td>
                         </tr>

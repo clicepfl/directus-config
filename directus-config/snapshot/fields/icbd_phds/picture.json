@@ -11,7 +11,9 @@
     "hidden": false,
     "interface": "file-image",
     "note": null,
-    "options": null,
+    "options": {
+      "folder": "d616a634-60b6-4794-81cd-53da4a114c0d"
+    },
     "readonly": false,
     "required": false,
     "sort": 2,

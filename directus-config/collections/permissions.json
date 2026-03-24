@@ -1225,7 +1225,7 @@
   {
     "_syncId": "4fd51b3e-dcb7-476e-8b0f-c918f68517be",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -1453,7 +1453,7 @@
   {
     "_syncId": "b116908f-d0ff-4c5e-9929-fe2a5fcc9925",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -1571,6 +1571,18 @@
     "validation": {}
   },
   {
+    "_syncId": "d52f3485-971d-4ecb-aef1-9e1c44670c6a",
+    "action": "read",
+    "collection": "galleries",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "5442dac0-5f51-434d-90b1-285734ff8e49",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e6178577-7611-4f26-a735-cf97acc2ada0",
     "action": "read",
     "collection": "commissions",
@@ -1585,7 +1597,7 @@
   {
     "_syncId": "e900d88b-a616-48df-b03b-da3a7222033e",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -1633,7 +1645,7 @@
   {
     "_syncId": "0838c140-4723-4120-aabf-6373c003d973",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -1669,7 +1681,7 @@
   {
     "_syncId": "1c7685a7-b396-43a3-9950-356760cf85ed",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -1727,6 +1739,18 @@
     "validation": null
   },
   {
+    "_syncId": "46cfad05-b4f2-421e-90f0-49ea461b3819",
+    "action": "read",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "485eeb97-3a9f-459c-9214-1c279722c9f6",
     "action": "read",
     "collection": "registrations",
@@ -1742,6 +1766,30 @@
     "_syncId": "4d60ddcf-f1ca-44e8-b452-c31c82a943c1",
     "action": "read",
     "collection": "icbd_phds",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "528bb714-6644-4d5f-a067-e8746d865f3d",
+    "action": "read",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "5eba4ee8-f6f2-49cc-ae78-1996cf7bfe0d",
+    "action": "create",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -1919,6 +1967,18 @@
     "validation": null
   },
   {
+    "_syncId": "bfe41ae0-925a-4d24-b4a0-6835cea98209",
+    "action": "share",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "d4bfea2c-4f5b-4954-bf1a-e271feb46a97",
     "action": "read",
     "collection": "icbd_activities_translations",
@@ -1955,9 +2015,21 @@
     "validation": null
   },
   {
+    "_syncId": "e7f3cf32-b8e6-4662-a2d8-1d7bd3eeab10",
+    "action": "update",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e82e2506-a0f1-4e72-9862-b2592697244c",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -1994,6 +2066,18 @@
     "_syncId": "f8b84d1e-c0b9-4caa-be5b-6f55f5108833",
     "action": "delete",
     "collection": "icbd_activities",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fb531ee5-c0e5-4b39-9e8f-1cd7a2e90c84",
+    "action": "delete",
+    "collection": "clothes_orders",
     "fields": [
       "*"
     ],
@@ -2648,6 +2732,18 @@
     "validation": null
   },
   {
+    "_syncId": "0f1b2f19-8d9e-44bc-b2df-70bd29dc5ecb",
+    "action": "read",
+    "collection": "artists",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "35082efc-61f9-4590-88fa-8f713f59b8e1",
     "action": "read",
     "collection": "directus_folders",
@@ -3153,7 +3249,7 @@
   {
     "_syncId": "032fa28f-8509-4e15-a082-ccbe2adfa027",
     "action": "create",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -3259,6 +3355,18 @@
     "validation": {}
   },
   {
+    "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
+    "action": "update",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "0b2d0252-2ce1-48c0-86ef-acad59abaf03",
     "action": "share",
     "collection": "association_partners",
@@ -3349,7 +3457,7 @@
   {
     "_syncId": "193502e0-80c0-4d11-a0be-1a6f506ce55b",
     "action": "read",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -3397,7 +3505,7 @@
   {
     "_syncId": "1b21a2cf-4df5-4509-b03d-5a7743139bcd",
     "action": "read",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -3445,7 +3553,7 @@
   {
     "_syncId": "1f9ee40f-b0f0-49b9-b662-8600dda30b67",
     "action": "update",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -3489,6 +3597,18 @@
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": {}
+  },
+  {
+    "_syncId": "25063074-4f02-4ed8-b091-623097beb123",
+    "action": "read",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
   },
   {
     "_syncId": "25644a07-50ef-44f9-a705-fa14902cfac2",
@@ -3577,7 +3697,7 @@
   {
     "_syncId": "283dec8e-0881-43c6-9a88-8b0c578f23f2",
     "action": "update",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -3806,7 +3926,7 @@
   {
     "_syncId": "3f44ccad-3dd1-4c80-b2ff-cad053123e52",
     "action": "delete",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -3842,7 +3962,7 @@
   {
     "_syncId": "4190ee75-351b-49c3-917c-eb3276ad1fe0",
     "action": "read",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -3878,7 +3998,7 @@
   {
     "_syncId": "45f3b1c2-371e-45f1-8bda-8be164c5de0a",
     "action": "create",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -3926,7 +4046,7 @@
   {
     "_syncId": "512c83c0-dc22-401d-af93-26c6d7b3f0a4",
     "action": "create",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -4058,7 +4178,7 @@
   {
     "_syncId": "5c188c61-1937-44ea-9246-9dfde7b21d0c",
     "action": "share",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -4212,6 +4332,18 @@
     "validation": null
   },
   {
+    "_syncId": "64db095e-95fd-4642-b379-23fc2a8795c2",
+    "action": "delete",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "6634a07b-af14-45c5-93ed-9b5b2aa43136",
     "action": "read",
     "collection": "icbd_speakers",
@@ -4274,7 +4406,7 @@
   {
     "_syncId": "68bdb242-ddd1-4599-9c49-95c2bfbc6f6a",
     "action": "share",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -4790,7 +4922,7 @@
   {
     "_syncId": "8f284f14-2ba0-4e24-a1b0-0c80d1339d7e",
     "action": "update",
-    "collection": "ICBD",
+    "collection": "icbd",
     "fields": [
       "*"
     ],
@@ -4992,6 +5124,30 @@
     "validation": null
   },
   {
+    "_syncId": "a009e7a4-6550-42ab-b3b1-9d592b38c146",
+    "action": "share",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a08e1bba-2575-4530-bbe2-56a8ae480393",
+    "action": "update",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "a0e6371a-aec6-4cd9-ab2f-867135c44584",
     "action": "create",
     "collection": "icbd_activities",
@@ -5042,7 +5198,7 @@
   {
     "_syncId": "a4ed6a19-7d44-4ea1-8944-d8357408de46",
     "action": "delete",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -5258,7 +5414,7 @@
   {
     "_syncId": "b1623866-33c8-4a12-80c2-9aaa027f62ef",
     "action": "delete",
-    "collection": "ICBD_files",
+    "collection": "icbd_files",
     "fields": [
       "*"
     ],
@@ -5438,6 +5594,18 @@
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": {}
+  },
+  {
+    "_syncId": "c0d521ae-2025-4bd0-b40b-18b3cc426532",
+    "action": "create",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
   },
   {
     "_syncId": "c181e346-6824-4557-a2d0-32d0a58bd889",
@@ -5750,6 +5918,18 @@
     "validation": {}
   },
   {
+    "_syncId": "e0854579-b557-434c-882d-7dc9cb3877ce",
+    "action": "create",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e3956105-6b7f-4a7a-9f78-68e7f6bc3ae3",
     "action": "update",
     "collection": "commissions",
@@ -5787,6 +5967,18 @@
         "_eq": "$CURRENT_USER"
       }
     },
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e4262e88-fcb9-439d-a367-df91917c4028",
+    "action": "read",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": null
@@ -5842,7 +6034,7 @@
   {
     "_syncId": "e9322eb5-0508-4468-903f-40774b9d4ec2",
     "action": "share",
-    "collection": "ICBD_translations",
+    "collection": "icbd_translations",
     "fields": [
       "*"
     ],
@@ -5972,6 +6164,18 @@
     "validation": {}
   },
   {
+    "_syncId": "f13b0994-016c-4620-b29a-fd2b091f45ca",
+    "action": "share",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "f36e3de5-7dfc-495a-afb6-f639dcd57216",
     "action": "share",
     "collection": "association_translations",
@@ -6066,6 +6270,18 @@
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": {}
+  },
+  {
+    "_syncId": "fa3f6150-32f5-40dd-a516-4dbe920928bd",
+    "action": "delete",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
   },
   {
     "_syncId": "fad2d154-038a-4c7c-9c4a-4b62d2ab9a11",

@@ -18,12 +18,16 @@
           "value": "faculty_dinner"
         },
         {
-          "text": "ICBD",
+          "text": "icbd",
           "value": "icbd"
         },
         {
           "text": "Hello world",
           "value": "hello_world"
+        },
+        {
+          "text": "Clothes sale",
+          "value": "faculty_clothes_sale"
         },
         {
           "text": "Other",

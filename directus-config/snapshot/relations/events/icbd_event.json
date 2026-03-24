@@ -1,0 +1,25 @@
+{
+  "collection": "events",
+  "field": "icbd_event",
+  "meta": {
+    "junction_field": null,
+    "many_collection": "events",
+    "many_field": "icbd_event",
+    "one_allowed_collections": null,
+    "one_collection": "icbd",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "icbd",
+  "schema": {
+    "column": "icbd_event",
+    "constraint_name": "events_icbd_event_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "icbd",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "events"
+  }
+}

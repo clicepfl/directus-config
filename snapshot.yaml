@@ -2,14 +2,14 @@ version: 1
 directus: 11.1.2
 vendor: postgres
 collections:
-  - collection: ICBD
+  - collection: icbd
     meta:
       accountability: all
       archive_app_filter: true
       archive_field: null
       archive_value: null
       collapse: open
-      collection: ICBD
+      collection: icbd
       color: "#FFA439"
       display_template: null
       group: null
@@ -18,25 +18,25 @@ collections:
       item_duplication_fields: null
       note: null
       preview_url: null
-      singleton: true
+      singleton: false
       sort: 12
       sort_field: null
       translations: null
       unarchive_value: null
       versioning: false
     schema:
-      name: ICBD
-  - collection: ICBD_files
+      name: icbd
+  - collection: icbd_files
     meta:
       accountability: all
       archive_app_filter: true
       archive_field: null
       archive_value: null
       collapse: open
-      collection: ICBD_files
+      collection: icbd_files
       color: null
       display_template: null
-      group: ICBD
+      group: icbd
       hidden: true
       icon: import_export
       item_duplication_fields: null
@@ -49,18 +49,18 @@ collections:
       unarchive_value: null
       versioning: false
     schema:
-      name: ICBD_files
-  - collection: ICBD_translations
+      name: icbd_files
+  - collection: icbd_translations
     meta:
       accountability: all
       archive_app_filter: true
       archive_field: null
       archive_value: null
       collapse: open
-      collection: ICBD_translations
+      collection: icbd_translations
       color: null
       display_template: null
-      group: ICBD
+      group: icbd
       hidden: true
       icon: import_export
       item_duplication_fields: null
@@ -73,7 +73,7 @@ collections:
       unarchive_value: null
       versioning: false
     schema:
-      name: ICBD_translations
+      name: icbd_translations
   - collection: artists
     meta:
       accountability: all
@@ -708,7 +708,7 @@ collections:
       collection: icbd_activities
       color: "#FFA439"
       display_template: null
-      group: ICBD
+      group: icbd
       hidden: false
       icon: patient_list
       item_duplication_fields: null
@@ -804,7 +804,7 @@ collections:
       collection: icbd_phds
       color: "#FFA439"
       display_template: null
-      group: ICBD
+      group: icbd
       hidden: false
       icon: school
       item_duplication_fields: null
@@ -828,7 +828,7 @@ collections:
       collection: icbd_speakers
       color: "#FFA439"
       display_template: "{{first_name}}\_{{last_name}} ({{company}})"
-      group: ICBD
+      group: icbd
       hidden: false
       icon: co_present
       item_duplication_fields: null
@@ -1275,11 +1275,11 @@ collections:
     schema:
       name: subsonic_translations
 fields:
-  - collection: ICBD
+  - collection: icbd
     field: id
     type: integer
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1299,9 +1299,9 @@ fields:
       width: full
     schema:
       name: id
-      table: ICBD
+      table: icbd
       data_type: integer
-      default_value: nextval('"ICBD_id_seq"'::regclass)
+      default_value: nextval('"icbd_id_seq"'::regclass)
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
@@ -1314,11 +1314,11 @@ fields:
       has_auto_increment: true
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: logo
     type: uuid
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1339,7 +1339,7 @@ fields:
       width: full
     schema:
       name: logo
-      table: ICBD
+      table: icbd
       data_type: uuid
       default_value: null
       max_length: null
@@ -1354,11 +1354,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
-  - collection: ICBD
+  - collection: icbd
     field: presentation_video
     type: string
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1379,7 +1379,7 @@ fields:
       width: full
     schema:
       name: presentation_video
-      table: ICBD
+      table: icbd
       data_type: character varying
       default_value: null
       max_length: 255
@@ -1394,11 +1394,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: date
     type: date
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: datetime
       display_options: null
@@ -1418,7 +1418,7 @@ fields:
       width: full
     schema:
       name: date
-      table: ICBD
+      table: icbd
       data_type: date
       default_value: null
       max_length: null
@@ -1433,11 +1433,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: start_time
     type: time
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: datetime
       display_options: null
@@ -1457,7 +1457,7 @@ fields:
       width: full
     schema:
       name: start_time
-      table: ICBD
+      table: icbd
       data_type: time without time zone
       default_value: null
       max_length: null
@@ -1472,11 +1472,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: end_time
     type: time
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: datetime
       display_options: null
@@ -1496,7 +1496,7 @@ fields:
       width: full
     schema:
       name: end_time
-      table: ICBD
+      table: icbd
       data_type: time without time zone
       default_value: null
       max_length: null
@@ -1511,11 +1511,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: place
     type: string
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1536,7 +1536,7 @@ fields:
       width: full
     schema:
       name: place
-      table: ICBD
+      table: icbd
       data_type: character varying
       default_value: null
       max_length: 255
@@ -1551,11 +1551,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD
+  - collection: icbd
     field: translations
     type: alias
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1575,11 +1575,11 @@ fields:
       validation: null
       validation_message: null
       width: full
-  - collection: ICBD
+  - collection: icbd
     field: partners_images
     type: alias
     meta:
-      collection: ICBD
+      collection: icbd
       conditions: null
       display: null
       display_options: null
@@ -1598,11 +1598,11 @@ fields:
       validation: null
       validation_message: null
       width: full
-  - collection: ICBD_files
+  - collection: icbd_files
     field: id
     type: integer
     meta:
-      collection: ICBD_files
+      collection: icbd_files
       conditions: null
       display: null
       display_options: null
@@ -1622,9 +1622,9 @@ fields:
       width: full
     schema:
       name: id
-      table: ICBD_files
+      table: icbd_files
       data_type: integer
-      default_value: nextval('"ICBD_files_id_seq"'::regclass)
+      default_value: nextval('"icbd_files_id_seq"'::regclass)
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
@@ -1637,15 +1637,15 @@ fields:
       has_auto_increment: true
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD_files
-    field: ICBD_id
+  - collection: icbd_files
+    field: icbd_id
     type: integer
     meta:
-      collection: ICBD_files
+      collection: icbd_files
       conditions: null
       display: null
       display_options: null
-      field: ICBD_id
+      field: icbd_id
       group: null
       hidden: true
       interface: null
@@ -1660,8 +1660,8 @@ fields:
       validation_message: null
       width: full
     schema:
-      name: ICBD_id
-      table: ICBD_files
+      name: icbd_id
+      table: icbd_files
       data_type: integer
       default_value: null
       max_length: null
@@ -1674,13 +1674,13 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: ICBD
+      foreign_key_table: icbd
       foreign_key_column: id
-  - collection: ICBD_files
+  - collection: icbd_files
     field: directus_files_id
     type: uuid
     meta:
-      collection: ICBD_files
+      collection: icbd_files
       conditions: null
       display: null
       display_options: null
@@ -1700,7 +1700,7 @@ fields:
       width: full
     schema:
       name: directus_files_id
-      table: ICBD_files
+      table: icbd_files
       data_type: uuid
       default_value: null
       max_length: null
@@ -1715,11 +1715,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: directus_files
       foreign_key_column: id
-  - collection: ICBD_translations
+  - collection: icbd_translations
     field: id
     type: integer
     meta:
-      collection: ICBD_translations
+      collection: icbd_translations
       conditions: null
       display: null
       display_options: null
@@ -1739,9 +1739,9 @@ fields:
       width: full
     schema:
       name: id
-      table: ICBD_translations
+      table: icbd_translations
       data_type: integer
-      default_value: nextval('"ICBD_translations_id_seq"'::regclass)
+      default_value: nextval('"icbd_translations_id_seq"'::regclass)
       max_length: null
       numeric_precision: 32
       numeric_scale: 0
@@ -1754,15 +1754,15 @@ fields:
       has_auto_increment: true
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD_translations
-    field: ICBD_id
+  - collection: icbd_translations
+    field: icbd_id
     type: integer
     meta:
-      collection: ICBD_translations
+      collection: icbd_translations
       conditions: null
       display: null
       display_options: null
-      field: ICBD_id
+      field: icbd_id
       group: null
       hidden: true
       interface: null
@@ -1777,8 +1777,8 @@ fields:
       validation_message: null
       width: full
     schema:
-      name: ICBD_id
-      table: ICBD_translations
+      name: icbd_id
+      table: icbd_translations
       data_type: integer
       default_value: null
       max_length: null
@@ -1791,13 +1791,13 @@ fields:
       is_generated: false
       generation_expression: null
       has_auto_increment: false
-      foreign_key_table: ICBD
+      foreign_key_table: icbd
       foreign_key_column: id
-  - collection: ICBD_translations
+  - collection: icbd_translations
     field: languages_code
     type: string
     meta:
-      collection: ICBD_translations
+      collection: icbd_translations
       conditions: null
       display: null
       display_options: null
@@ -1817,7 +1817,7 @@ fields:
       width: full
     schema:
       name: languages_code
-      table: ICBD_translations
+      table: icbd_translations
       data_type: character varying
       default_value: null
       max_length: 255
@@ -1832,11 +1832,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: languages
       foreign_key_column: code
-  - collection: ICBD_translations
+  - collection: icbd_translations
     field: description
     type: text
     meta:
-      collection: ICBD_translations
+      collection: icbd_translations
       conditions: null
       display: null
       display_options: null
@@ -1856,7 +1856,7 @@ fields:
       width: full
     schema:
       name: description
-      table: ICBD_translations
+      table: icbd_translations
       data_type: text
       default_value: null
       max_length: null
@@ -1871,11 +1871,11 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
-  - collection: ICBD_translations
+  - collection: icbd_translations
     field: registration_instructions
     type: text
     meta:
-      collection: ICBD_translations
+      collection: icbd_translations
       conditions: null
       display: null
       display_options: null
@@ -1895,7 +1895,7 @@ fields:
       width: full
     schema:
       name: registration_instructions
-      table: ICBD_translations
+      table: icbd_translations
       data_type: text
       default_value: null
       max_length: null
@@ -5012,7 +5012,7 @@ fields:
         choices:
           - text: Faculty dinner
             value: faculty_dinner
-          - text: ICBD
+          - text: icbd
             value: icbd
           - text: Hello world
             value: hello_world
@@ -14359,12 +14359,12 @@ fields:
       foreign_key_table: null
       foreign_key_column: null
 relations:
-  - collection: ICBD
+  - collection: icbd
     field: logo
     related_collection: directus_files
     meta:
       junction_field: null
-      many_collection: ICBD
+      many_collection: icbd
       many_field: logo
       one_allowed_collections: null
       one_collection: directus_files
@@ -14373,19 +14373,19 @@ relations:
       one_field: null
       sort_field: null
     schema:
-      table: ICBD
+      table: icbd
       column: logo
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: icbd_logo_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: ICBD_files
+  - collection: icbd_files
     field: directus_files_id
     related_collection: directus_files
     meta:
-      junction_field: ICBD_id
-      many_collection: ICBD_files
+      junction_field: icbd_id
+      many_collection: icbd_files
       many_field: directus_files_id
       one_allowed_collections: null
       one_collection: directus_files
@@ -14394,40 +14394,40 @@ relations:
       one_field: null
       sort_field: null
     schema:
-      table: ICBD_files
+      table: icbd_files
       column: directus_files_id
       foreign_key_table: directus_files
       foreign_key_column: id
       constraint_name: icbd_files_directus_files_id_foreign
       on_update: NO ACTION
       on_delete: CASCADE
-  - collection: ICBD_files
-    field: ICBD_id
-    related_collection: ICBD
+  - collection: icbd_files
+    field: icbd_id
+    related_collection: icbd
     meta:
       junction_field: directus_files_id
-      many_collection: ICBD_files
-      many_field: ICBD_id
+      many_collection: icbd_files
+      many_field: icbd_id
       one_allowed_collections: null
-      one_collection: ICBD
+      one_collection: icbd
       one_collection_field: null
       one_deselect_action: delete
       one_field: partners_images
       sort_field: null
     schema:
-      table: ICBD_files
-      column: ICBD_id
-      foreign_key_table: ICBD
+      table: icbd_files
+      column: icbd_id
+      foreign_key_table: icbd
       foreign_key_column: id
       constraint_name: icbd_files_icbd_id_foreign
       on_update: NO ACTION
       on_delete: CASCADE
-  - collection: ICBD_translations
+  - collection: icbd_translations
     field: languages_code
     related_collection: languages
     meta:
-      junction_field: ICBD_id
-      many_collection: ICBD_translations
+      junction_field: icbd_id
+      many_collection: icbd_translations
       many_field: languages_code
       one_allowed_collections: null
       one_collection: languages
@@ -14436,30 +14436,30 @@ relations:
       one_field: null
       sort_field: null
     schema:
-      table: ICBD_translations
+      table: icbd_translations
       column: languages_code
       foreign_key_table: languages
       foreign_key_column: code
       constraint_name: icbd_translations_languages_code_foreign
       on_update: NO ACTION
       on_delete: SET NULL
-  - collection: ICBD_translations
-    field: ICBD_id
-    related_collection: ICBD
+  - collection: icbd_translations
+    field: icbd_id
+    related_collection: icbd
     meta:
       junction_field: languages_code
-      many_collection: ICBD_translations
-      many_field: ICBD_id
+      many_collection: icbd_translations
+      many_field: icbd_id
       one_allowed_collections: null
-      one_collection: ICBD
+      one_collection: icbd
       one_collection_field: null
       one_deselect_action: nullify
       one_field: translations
       sort_field: null
     schema:
-      table: ICBD_translations
-      column: ICBD_id
-      foreign_key_table: ICBD
+      table: icbd_translations
+      column: icbd_id
+      foreign_key_table: icbd
       foreign_key_column: id
       constraint_name: icbd_translations_icbd_id_foreign
       on_update: NO ACTION

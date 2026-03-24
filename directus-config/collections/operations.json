@@ -340,7 +340,7 @@
     "key": "is_complete",
     "name": "Is complete",
     "options": {
-      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null);\n}"
+      "code": "module.exports = async function(data) {\n    return data.registration.payment !== null && !data.registration.confirmation_email_sent && data.activity_registrations.every(a => a.start !== null || a.waitlist);\n}"
     },
     "position_x": 73,
     "position_y": 1,
@@ -354,7 +354,7 @@
     "key": "activities_populated",
     "name": "Run Script",
     "options": {
-      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => a.timeslot.start_time.localeCompare(b.timeslot.start_time));\n};\n"
+      "code": "module.exports = async function (data) {\n  return data.activities.map((a) => {\n    reg = data.activity_registrations.find((r) => r.icbd_activity === a.id);\n    slot = a.timeslots.find((t) => t.start_time === reg.start);\n    trans = data.translations\n      .filter((t) => t.languages_code === \"en-US\")\n      .find((t) => a.translations.indexOf(t.id) !== -1);\n    return { ...a, translation: trans, timeslot: slot };\n  }).sort((a, b) => {\n    const timeA = a.timeslot?.start_time;\n    const timeB = b.timeslot?.start_time;\n    if (timeA && timeB) return timeA.localeCompare(timeB);\n    if (timeA && !timeB) return -1;\n    if (!timeA && timeB) return 1;\n    return 0;\n  });\n};\n"
     },
     "position_x": 75,
     "position_y": 17,
@@ -376,7 +376,7 @@
         }
       ],
       "method": "POST",
-      "url": "https://clic.epfl.ch/mail-sender/send?secret=74dc0c2810fc14a65c571bc38e3d6fe63d9a41c9"
+      "url": "https://clic.epfl.ch/mail-sender/send?secret={{$env.MAIL_SENDER_SECRET}}"
     },
     "position_x": 75,
     "position_y": 33,
@@ -412,6 +412,196 @@
     "reject": null,
     "resolve": "ad18cf60-d72c-46e7-96ff-d6438de43397",
     "type": "condition"
+  },
+  {
+    "_syncId": "d81a7e12-0339-4f70-8cce-99b5dcd63921",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "order",
+    "name": "Order",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": "{{$trigger.keys[0]}}",
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "42293cc3-8861-4043-b738-69da14940d11",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "cb968434-91cc-4152-a02b-60e9e527a010",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "event",
+    "name": "Read Event",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{order.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "05cdb8ec-815d-4e6e-90b8-3cfd44df0b69",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "c9cff727-2270-4031-9ff0-a26eb26d6a68",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "order_contents_raw",
+    "name": "Read Data",
+    "options": {
+      "collection": "clothes_orders",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "order": {
+            "_eq": "{{$trigger.keys[0]}}"
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "f8041459-0445-47c2-97cf-442cee13c28a",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "a95928a7-52fa-4d68-b977-275396f90b52",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "item_update_rzw00",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 49,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "42293cc3-8861-4043-b738-69da14940d11",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "condition_vd7pv",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "$trigger": {
+          "payload": {
+            "order_complete": {
+              "_eq": true
+            }
+          }
+        },
+        "order": {
+          "confirmation_email_sent": {
+            "_eq": false
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "cb968434-91cc-4152-a02b-60e9e527a010",
+    "type": "condition"
+  },
+  {
+    "_syncId": "05cdb8ec-815d-4e6e-90b8-3cfd44df0b69",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "condition_kg36f",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_clothes_sale"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "c9cff727-2270-4031-9ff0-a26eb26d6a68",
+    "type": "condition"
+  },
+  {
+    "_syncId": "f8041459-0445-47c2-97cf-442cee13c28a",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "clothes",
+    "name": "Clothes",
+    "options": {
+      "collection": "clothes",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "sale_event": {
+            "_eq": "{{order.event}}"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "94a2aa6f-6eee-4237-b368-52d6335a5c08",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "94a2aa6f-6eee-4237-b368-52d6335a5c08",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "order_contents",
+    "name": "Order contents",
+    "options": {
+      "code": "module.exports = async function(data) {\n  const { order_contents_raw = [], clothes = [] } = data;\n  const idToName = new Map(clothes.map(p => [p.id, p.name]));\n  return order_contents_raw.map(item => ({\n    size: item.size,\n    color: idToName.get(item.color) ?? \"Unknown color\"\n  }));\n}"
+    },
+    "position_x": 55,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "3325262b-c407-4754-911d-cbde13455267",
+    "type": "exec"
+  },
+  {
+    "_syncId": "3325262b-c407-4754-911d-cbde13455267",
+    "flow": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "key": "mail_94yyo",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{ event }}",
+        "order": "{{ order_contents }}",
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.keys[0]}}",
+        "registration": "{{order}}"
+      },
+      "subject": "Thank you for your IC faculty sweater order!",
+      "template": "faculty_clothes_sale_placed",
+      "to": [
+        "{{order.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 73,
+    "position_y": 33,
+    "reject": null,
+    "resolve": "a95928a7-52fa-4d68-b977-275396f90b52",
+    "type": "mail"
   },
   {
     "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
@@ -742,12 +932,15 @@
     "name": "Fetch registrations",
     "options": {
       "collection": "registrations",
+      "emitEvents": false,
+      "permissions": "$trigger",
       "query": {
         "filter": {
           "event": {
             "_eq": "{{$trigger.event}}"
           }
-        }
+        },
+        "limit": 4096
       }
     },
     "position_x": 19,
@@ -1427,22 +1620,8 @@
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
-    "type": "item-read"
-  },
-  {
-    "_syncId": "d8ea3c6f-a344-4b0e-8145-68423792c0ad",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "timeslot",
-    "name": "timeslot",
-    "options": {
-      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.find(t => t.start_time == data.activity_registration.start);\n}"
-    },
-    "position_x": 55,
-    "position_y": 1,
-    "reject": null,
     "resolve": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
-    "type": "exec"
+    "type": "item-read"
   },
   {
     "_syncId": "1756a6a2-dc5c-4f38-b21b-0f7c36f93671",
@@ -1451,6 +1630,7 @@
     "name": "matching_registrations",
     "options": {
       "collection": "icbd_activities_registrations",
+      "emitEvents": false,
       "permissions": "$full",
       "query": {
         "filter": {
@@ -1459,59 +1639,26 @@
               "icbd_activity": {
                 "_eq": "{{activity.id}}"
               }
-            },
-            {
-              "start": {
-                "_eq": "{{timeslot.start_time}}"
-              }
             }
           ]
         }
       }
     },
-    "position_x": 73,
+    "position_x": 55,
     "position_y": 1,
     "reject": null,
     "resolve": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "type": "item-read"
   },
   {
-    "_syncId": "b00d1b9f-14b4-421a-a442-61d4b65fafb3",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "log_a9wh0",
-    "name": "Log to Console",
-    "options": {
-      "message": "{{$last}}"
-    },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": null,
-    "type": "log"
-  },
-  {
     "_syncId": "bf95ba44-07c8-41f8-8c5e-ef25350e0375",
     "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "is_full",
-    "name": "Run Script",
+    "key": "timeslots",
+    "name": "Compute fullness",
     "options": {
-      "code": "module.exports = async function(data) {\n\t// Do something...\n\treturn typeof data.timeslot.max_attendees === \"number\" && data.timeslot.max_attendees <= data.matching_registrations.length;\n}"
+      "code": "module.exports = async function(data) {\n\treturn data.activity.timeslots.map((t) => {\n      let assigned = data.matching_registrations.filter(\n        (r) => r.start === t.start_time\n      ).length;\n\n      return { ...t, full: t.max_attendees <= assigned };\n    });\n}"
     },
-    "position_x": 91,
-    "position_y": 1,
-    "reject": null,
-    "resolve": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "type": "exec"
-  },
-  {
-    "_syncId": "0ffc9ac6-005f-4131-a0af-ea2190763307",
-    "flow": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "key": "new_activity",
-    "name": "new_activity",
-    "options": {
-      "code": "module.exports = async function(data) {\n    copy = JSON.parse(JSON.stringify(data.activity));\n    \n    copy.timeslots.find(t => t.start_time == data.activity_registration.start).full = data.is_full;\n    \n\treturn copy;\n}"
-    },
-    "position_x": 109,
+    "position_x": 73,
     "position_y": 1,
     "reject": null,
     "resolve": "e4ff4105-d960-4053-80b8-39d8b24ed3fe",
@@ -1524,13 +1671,141 @@
     "name": "Update Data",
     "options": {
       "collection": "icbd_activities",
+      "emitEvents": false,
       "key": [
         "{{activity.id}}"
       ],
-      "payload": "{{new_activity}}",
+      "payload": {
+        "timeslots": "{{ timeslots }}"
+      },
       "permissions": "$full"
     },
-    "position_x": 127,
+    "position_x": 91,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
+    "_syncId": "417a8e20-a6ed-4cb2-a197-ec754d51bc7e",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "order",
+    "name": "Order",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "3076f715-a8d5-4072-a71d-d5ddef11c0e8",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "3076f715-a8d5-4072-a71d-d5ddef11c0e8",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "event",
+    "name": "Event",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{order.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "2fae799f-f084-4ed3-a850-f88546bc2a68",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4bf3a4ae-8c7c-4da4-a9aa-8ab5903bf778",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "condition_tpsla",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "$trigger": {
+          "payload": {
+            "payment": {
+              "_neq": null
+            }
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "0eaa8029-7836-493f-897d-3287e672ed23",
+    "type": "condition"
+  },
+  {
+    "_syncId": "2fae799f-f084-4ed3-a850-f88546bc2a68",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "condition_0fdid",
+    "name": "Condition",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "faculty_clothes_sale"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 17,
+    "reject": null,
+    "resolve": "4bf3a4ae-8c7c-4da4-a9aa-8ab5903bf778",
+    "type": "condition"
+  },
+  {
+    "_syncId": "0eaa8029-7836-493f-897d-3287e672ed23",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "mail_0nilu",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "qrcode_url": "https://clic.epfl.ch/clicketing/api/qrcode?value={{order.id}}&size=1024",
+        "registration": "{{ order }}"
+      },
+      "subject": "IC faculty sweater: order confirmation",
+      "template": "faculty_clothes_sale_confirmed",
+      "to": [
+        "{{order.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "9cc7e057-eab2-48ee-b8a0-1cf35e7be9e1",
+    "type": "mail"
+  },
+  {
+    "_syncId": "9cc7e057-eab2-48ee-b8a0-1cf35e7be9e1",
+    "flow": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "key": "item_update_uur9w",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.keys[0]}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "permissions": "$trigger"
+    },
+    "position_x": 73,
     "position_y": 1,
     "reject": null,
     "resolve": null,

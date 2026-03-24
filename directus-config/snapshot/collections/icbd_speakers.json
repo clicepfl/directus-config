@@ -9,7 +9,7 @@
     "collection": "icbd_speakers",
     "color": "#FFA439",
     "display_template": "{{first_name}} {{last_name}} ({{company}})",
-    "group": "ICBD",
+    "group": "icbd",
     "hidden": false,
     "icon": "co_present",
     "item_duplication_fields": null,
