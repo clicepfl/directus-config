@@ -1,25 +1,26 @@
-import { Schema } from "../types/schema.js";
+import { Schema } from "./types/schema.js";
 import { registerFlow } from "./registry.js";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
 type IdOf<T> = T extends { id?: unknown } ? T["id"] : never;
+export type SchemaKey = keyof Schema;
 export type EventType = "create" | "update" | "delete";
 
-export type CreateEvent<K extends keyof Schema> = {
+export type CreateEvent<K extends SchemaKey> = {
   event: `${K}.items.create`;
   payload: Flatten<Schema[K]>;
   key: IdOf<Flatten<Schema[K]>>;
   collection: K;
 };
 
-export type UpdateEvent<K extends keyof Schema> = {
+export type UpdateEvent<K extends SchemaKey> = {
   event: `${K}.items.update`;
   payload: Flatten<Schema[K]>;
   key: string[];
   collection: K;
 };
 
-export type DeleteEvent<K extends keyof Schema> = {
+export type DeleteEvent<K extends SchemaKey> = {
   event: `${K}.items.delete`;
   payload: string[];
   key: string[];
@@ -27,7 +28,7 @@ export type DeleteEvent<K extends keyof Schema> = {
 };
 
 export type Event<
-  K extends keyof Schema,
+  K extends SchemaKey,
   T extends EventType,
 > = T extends "create"
   ? CreateEvent<K>
@@ -35,7 +36,7 @@ export type Event<
     ? UpdateEvent<K>
     : DeleteEvent<K>;
 
-export type EventHandler<K extends keyof Schema, T extends EventType> = (
+export type EventHandler<K extends SchemaKey, T extends EventType> = (
   event: Event<K, T>,
 ) => Promise<void>;
 

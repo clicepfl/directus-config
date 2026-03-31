@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import { Event } from "./types.js";
+import { Event } from "./events.js";
 import { flows } from "./registry.js";
 import { readdirSync, stat } from "fs";
 import { join } from "path";
