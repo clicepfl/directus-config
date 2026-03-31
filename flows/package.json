@@ -6,7 +6,7 @@
     "typescript": "^6.0.2"
   },
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node dist/main.js\""
+    "dev": "tsc-watch --preserveWatchOutput --onSuccess \"node dist/main.js\""
   },
   "type": "module"
 }

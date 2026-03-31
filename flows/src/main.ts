@@ -1,7 +1,7 @@
 import { createServer } from "http";
 import { Event } from "./events.js";
 import { flows } from "./registry.js";
-import { readdirSync, stat } from "fs";
+import { readdirSync } from "fs";
 import { join } from "path";
 
 // Import all files from the `dist` directory to run all `registerFlows` calls.

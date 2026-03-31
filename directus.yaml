@@ -1,4 +1,12 @@
 services:
+  flows:
+    image: node:22-alpine
+    working_dir: /app/flows
+    hostname: flows
+    volumes:
+      - ${PWD}:/app
+    entrypoint: npm run dev
+
   # Directus service
   directus:
     labels:
