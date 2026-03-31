@@ -37,9 +37,9 @@ export type Event<
 
 export type EventHandler<K extends keyof Schema, T extends EventType> = (
   event: Event<K, T>,
-) => void;
+) => Promise<void>;
 
-function myHandler(e: Event<"artists" | "association", "create" | "update">) {
+async function myHandler(e: Event<"artists" | "association", "create" | "update">) {
   console.log("smth happened");
 }
 

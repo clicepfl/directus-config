@@ -46,7 +46,7 @@ const server = createServer((req, res) => {
   req.on("data", (chunk) => {
     body += chunk.toString();
   });
-  req.on("end", () => {
+  req.on("end", async () => {
     try {
       const event: Event<any, any> = JSON.parse(body);
       const statuses = [];
@@ -54,7 +54,7 @@ const server = createServer((req, res) => {
       if (event.event in flows) {
         for (const flow of flows[event.event]) {
           try {
-            flow.handler(event);
+            await flow.handler(event);
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);
