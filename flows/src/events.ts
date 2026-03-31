@@ -27,10 +27,7 @@ export type DeleteEvent<K extends SchemaKey> = {
   collection: K;
 };
 
-export type Event<
-  K extends SchemaKey,
-  T extends EventType,
-> = T extends "create"
+export type Event<K extends SchemaKey, T extends EventType> = T extends "create"
   ? CreateEvent<K>
   : T extends "update"
     ? UpdateEvent<K>
@@ -40,10 +37,8 @@ export type EventHandler<K extends SchemaKey, T extends EventType> = (
   event: Event<K, T>,
 ) => Promise<void>;
 
-async function myHandler(
-  e: Event<"artists" | "association", "create" | "update">,
-) {
-  console.log("smth happened");
+async function myHandler(e: Event<"artists", "create" | "update">) {
+  console.log(`Artist ${e.payload.name}`);
 }
 
 const myFlow = {
@@ -52,5 +47,3 @@ const myFlow = {
 };
 registerFlow("artists.items.create", myFlow);
 registerFlow("artists.items.update", myFlow);
-registerFlow("association.items.create", myFlow);
-registerFlow("association.items.update", myFlow);
