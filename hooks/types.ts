@@ -1,8 +1,9 @@
-import { Schema } from "../types/schema";
+import { Schema } from "../types/schema.js";
+import { registerFlow } from "./registry.js";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
 type IdOf<T> = T extends { id?: unknown } ? T["id"] : never;
-type EventType = "create" | "update" | "delete";
+export type EventType = "create" | "update" | "delete";
 
 export type CreateEvent<K extends keyof Schema> = {
   event: `${K}.items.create`;
@@ -38,18 +39,15 @@ export type EventHandler<K extends keyof Schema, T extends EventType> = (
   event: Event<K, T>,
 ) => void;
 
-function registerFlow<K extends keyof Schema, T extends EventType>(
-  name: `${K}.items.${T}`,
-  handler: EventHandler<K, T>,
-) {
-  // smth
-}
-
 function myHandler(e: Event<"artists" | "association", "create" | "update">) {
   console.log("smth happened");
 }
 
-registerFlow("artists.items.create", myHandler);
-registerFlow("artists.items.update", myHandler);
-registerFlow("association.items.create", myHandler);
-registerFlow("association.items.update", myHandler);
+const myFlow = {
+  name: "My flow",
+  handler: myHandler,
+};
+registerFlow("artists.items.create", myFlow);
+registerFlow("artists.items.update", myFlow);
+registerFlow("association.items.create", myFlow);
+registerFlow("association.items.update", myFlow);
