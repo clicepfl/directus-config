@@ -2,11 +2,11 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY hooks/package.json hooks/package-lock.json ./
+COPY flows/package.json flows/package-lock.json ./
 RUN npm ci --frozen
 
-COPY hooks/tsconfig.json  ./
-COPY hooks/src ./src
+COPY flows/tsconfig.json  ./
+COPY flows/src ./src
 RUN rm src/types
 COPY types ./src/types
 
