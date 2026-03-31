@@ -1,4 +1,4 @@
-import { Schema, components } from "./schema";
+import { Schema, components } from "./schema.js";
 
 // A few useful aliases to Directus' generated Typescript definitions.
 
