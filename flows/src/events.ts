@@ -1,3 +1,11 @@
+import {
+  ReadItemOutput,
+  ReadSingletonOutput,
+  RegularCollections,
+  SingletonCollections,
+  UnpackList,
+  UpdateItemOutput,
+} from "@directus/sdk";
 import { Schema } from "./types/schema.js";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
@@ -9,18 +17,20 @@ type IdOf<T> = T extends { id?: number }
 export type SchemaKey = keyof Schema;
 export type EventType = "create" | "update" | "delete";
 
-export type CreateEvent<K extends SchemaKey> = {
+export type CreateEvent<K extends SchemaKey, Item = UnpackList<Schema[K]>> = {
   event: `${K}.items.create`;
   payload: Flatten<Schema[K]>;
   key: IdOf<Flatten<Schema[K]>>;
   collection: K;
+  update: (payload: Item) => Promise<UpdateItemOutput<Schema, K, {}>>;
 };
 
-export type UpdateEvent<K extends SchemaKey> = {
+export type UpdateEvent<K extends SchemaKey, Item = UnpackList<Schema[K]>> = {
   event: `${K}.items.update`;
   payload: Flatten<Schema[K]>;
   keys: string[];
   collection: K;
+  update: (payload: Item) => Promise<UpdateItemOutput<Schema, K, {}>[]>;
 };
 
 export type DeleteEvent<K extends SchemaKey> = {

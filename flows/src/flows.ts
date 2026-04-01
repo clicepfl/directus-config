@@ -1,4 +1,4 @@
-import { readItem, readItems } from "@directus/sdk";
+import { readItem, readItems, readSingleton, updateItem } from "@directus/sdk";
 import { DirectusEvent } from "./events.js";
 import { HandlerOpts, registerFlow } from "./registry.js";
 
@@ -10,11 +10,8 @@ const myFlow = {
   ) => {
     if (e.event === "artists.items.create") {
       console.log(await directus.request(readItem("artists", e.key)));
-      mailer.sendMail({
-        to: "lucie.mermod@epfl.ch",
-        subject: "New artist",
-        text: `New artist just dropped: ${e.payload.name} :OOO`,
-      });
+      const res = await e.update({ link: "https://yay.org" });
+      console.log(res);
     } else {
       console.log(
         await directus.request(

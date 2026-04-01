@@ -2,7 +2,13 @@ import { createServer } from "http";
 import { flows, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
-import { createDirectus, rest, staticToken } from "@directus/sdk";
+import {
+  createDirectus,
+  rest,
+  staticToken,
+  updateItem,
+  updateItems,
+} from "@directus/sdk";
 import { DirectusEvent } from "./events.js";
 import { createTransport } from "nodemailer";
 
@@ -100,13 +106,35 @@ const server = createServer(async (req, res) => {
   });
   req.on("end", async () => {
     try {
-      const event: DirectusEvent<any, any> = JSON.parse(body);
+      const event: any = JSON.parse(body);
       const statuses = [];
 
-      if (event.event in flows) {
-        for (const flow of flows[event.event]) {
+      let devent;
+
+      if (event.event.endsWith(".create")) {
+        devent = {
+          ...event,
+          async update(payload: any) {
+            return await directus.request(
+              updateItem(event.collection, event.key, payload),
+            );
+          },
+        };
+      } else if (event.event.endsWith(".update")) {
+        devent = {
+          ...event,
+          async update(payload: any) {
+            return await directus.request(
+              updateItems(event.collection, event.keys, payload),
+            );
+          },
+        };
+      }
+
+      if (devent.event in flows) {
+        for (const flow of flows[devent.event]) {
           try {
-            await flow.handler(event, { directus, mailer });
+            await flow.handler(devent, { directus, mailer });
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);
@@ -115,7 +143,7 @@ const server = createServer(async (req, res) => {
       }
 
       console.log(
-        `[EVENT ${event.event}] ${statuses.length > 0 ? `\n${statuses.map((s) => "  " + s).join("\n")}` : "No registered handler"}`,
+        `[EVENT ${devent.event}] ${statuses.length > 0 ? `\n${statuses.map((s) => "  " + s).join("\n")}` : "No registered handler"}`,
       );
       res.writeHead(200, "OK");
       res.end();
