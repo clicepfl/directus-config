@@ -3,6 +3,13 @@ import { Event } from "./events.js";
 import { flows } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
+import { createDirectus, rest, staticToken } from "@directus/sdk";
+
+const ENVS = {
+  port: parseInt(process.env["PORT"] || "3000"),
+  directusUrl: process.env["DIRECTUS_URL"]!,
+  directusToken: process.env["DIRECTUS_TOKEN"],
+};
 
 // Import all files from the `dist` directory to run all `registerFlows` calls.
 const files = readdirSync("./dist", { recursive: true }).filter((f) =>
@@ -14,6 +21,11 @@ for (const file of files) {
 
 // Server entry point.
 const server = createServer((req, res) => {
+  let directus = createDirectus(ENVS.directusUrl).with(rest());
+  if (ENVS.directusToken) {
+    directus = directus.with(staticToken(ENVS.directusToken));
+  }
+
   let endWith = (code: number, message: string) => {
     console.log(`[${req.method} ${req.url}] ${code} ${message}`);
     res.writeHead(code, message);
@@ -54,7 +66,7 @@ const server = createServer((req, res) => {
       if (event.event in flows) {
         for (const flow of flows[event.event]) {
           try {
-            await flow.handler(event);
+            await flow.handler(event, directus);
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);
@@ -73,9 +85,8 @@ const server = createServer((req, res) => {
   });
 });
 
-const port = process.env["PORT"] || 3000;
-server.listen(process.env["PORT"] || 3000, () => {
-  console.log(`Server listening on port ${port}`);
+server.listen(ENVS.port, () => {
+  console.log(`Server listening on port ${ENVS.port}`);
   console.log("Registered handlers:");
 
   for (const event of Object.keys(flows)) {

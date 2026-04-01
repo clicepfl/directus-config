@@ -1,8 +1,20 @@
 import { Schema } from "./types/schema.js";
 import { registerFlow } from "./registry.js";
+import {
+  createDirectus,
+  DirectusClient,
+  readItem,
+  readItems,
+  rest,
+  RestClient,
+} from "@directus/sdk";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
-type IdOf<T> = T extends { id?: unknown } ? T["id"] : never;
+type IdOf<T> = T extends { id?: number }
+  ? number
+  : T extends { id?: string }
+    ? string
+    : never;
 export type SchemaKey = keyof Schema;
 export type EventType = "create" | "update" | "delete";
 
@@ -16,14 +28,14 @@ export type CreateEvent<K extends SchemaKey> = {
 export type UpdateEvent<K extends SchemaKey> = {
   event: `${K}.items.update`;
   payload: Flatten<Schema[K]>;
-  key: string[];
+  keys: string[];
   collection: K;
 };
 
 export type DeleteEvent<K extends SchemaKey> = {
   event: `${K}.items.delete`;
   payload: string[];
-  key: string[];
+  keys: string[];
   collection: K;
 };
 
@@ -33,14 +45,24 @@ export type Event<K extends SchemaKey, T extends EventType> = T extends "create"
     ? UpdateEvent<K>
     : DeleteEvent<K>;
 
-export type EventHandler<K extends SchemaKey, T extends EventType> = (
-  event: Event<K, T>,
-) => Promise<void>;
+export type Directus = DirectusClient<Schema> & RestClient<Schema>;
 
-async function myHandler(e: Event<"artists", "create" | "update">) {
-  console.log(`Artist ${e.payload.name}`);
+async function myHandler(
+  e: Event<"artists", "create" | "update">,
+  directus: Directus,
+) {
+  if (e.event === "artists.items.create") {
+    console.log(await directus.request(readItem("artists", e.key)));
+  } else {
+    console.log(
+      await directus.request(
+        readItems("artists", {
+          filter: { id: { _in: e.keys.map(parseInt) } },
+        }),
+      ),
+    );
+  }
 }
-
 const myFlow = {
   name: "My flow",
   handler: myHandler,

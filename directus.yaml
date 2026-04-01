@@ -3,9 +3,13 @@ services:
     image: node:22-alpine
     working_dir: /app/flows
     hostname: flows
+    user: ${UID:-1000}
     volumes:
       - ${PWD}:/app
     entrypoint: sh -c "npm i && npm run dev"
+    environment:
+      DIRECTUS_URL: http://directus:8055
+      DIRECTUS_TOKEN: 00000000-0000-0000-0000-000000000000
 
   # Directus service
   directus:

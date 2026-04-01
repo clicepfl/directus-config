@@ -8,5 +8,8 @@
   "scripts": {
     "dev": "tsc-watch --preserveWatchOutput --onSuccess \"node dist/main.js\""
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@directus/sdk": "^21.2.2"
+  }
 }

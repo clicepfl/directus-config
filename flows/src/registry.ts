@@ -1,9 +1,14 @@
-import { EventHandler, EventType, SchemaKey } from "./events.js";
+import { Directus, EventType, Event, SchemaKey } from "./events.js";
 
+export type EventHandler<K extends SchemaKey, T extends EventType> = (
+  event: Event<K, T>,
+  directus: Directus,
+) => Promise<void>;
 interface Flow<K extends SchemaKey, T extends EventType> {
   name: String;
   handler: EventHandler<K, T>;
 }
+
 export const flows: { [name: string]: Flow<any, any>[] } = {};
 
 export function registerFlow<K extends SchemaKey, T extends EventType>(
