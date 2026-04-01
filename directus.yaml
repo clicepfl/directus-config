@@ -5,7 +5,7 @@ services:
     hostname: flows
     volumes:
       - ${PWD}:/app
-    entrypoint: npm run dev
+    entrypoint: sh -c "npm i && npm run dev"
 
   # Directus service
   directus:
