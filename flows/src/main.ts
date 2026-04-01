@@ -1,9 +1,9 @@
 import { createServer } from "http";
-import { Event } from "./events.js";
 import { flows } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import { createDirectus, rest, staticToken } from "@directus/sdk";
+import { DirectusEvent } from "./events.js";
 
 const ENVS = {
   port: parseInt(process.env["PORT"] || "3000"),
@@ -60,13 +60,13 @@ const server = createServer((req, res) => {
   });
   req.on("end", async () => {
     try {
-      const event: Event<any, any> = JSON.parse(body);
+      const event: DirectusEvent<any, any> = JSON.parse(body);
       const statuses = [];
 
       if (event.event in flows) {
         for (const flow of flows[event.event]) {
           try {
-            await flow.handler(event, directus);
+            await flow.handler(event, { directus });
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);

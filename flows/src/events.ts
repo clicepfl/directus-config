@@ -1,13 +1,4 @@
 import { Schema } from "./types/schema.js";
-import { registerFlow } from "./registry.js";
-import {
-  createDirectus,
-  DirectusClient,
-  readItem,
-  readItems,
-  rest,
-  RestClient,
-} from "@directus/sdk";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
 type IdOf<T> = T extends { id?: number }
@@ -39,33 +30,11 @@ export type DeleteEvent<K extends SchemaKey> = {
   collection: K;
 };
 
-export type Event<K extends SchemaKey, T extends EventType> = T extends "create"
+export type DirectusEvent<
+  K extends SchemaKey,
+  T extends EventType,
+> = T extends "create"
   ? CreateEvent<K>
   : T extends "update"
     ? UpdateEvent<K>
     : DeleteEvent<K>;
-
-export type Directus = DirectusClient<Schema> & RestClient<Schema>;
-
-async function myHandler(
-  e: Event<"artists", "create" | "update">,
-  directus: Directus,
-) {
-  if (e.event === "artists.items.create") {
-    console.log(await directus.request(readItem("artists", e.key)));
-  } else {
-    console.log(
-      await directus.request(
-        readItems("artists", {
-          filter: { id: { _in: e.keys.map(parseInt) } },
-        }),
-      ),
-    );
-  }
-}
-const myFlow = {
-  name: "My flow",
-  handler: myHandler,
-};
-registerFlow("artists.items.create", myFlow);
-registerFlow("artists.items.update", myFlow);
