@@ -1,14 +1,33 @@
 import { createServer } from "http";
-import { flows } from "./registry.js";
+import { flows, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import { createDirectus, rest, staticToken } from "@directus/sdk";
 import { DirectusEvent } from "./events.js";
+import { createTransport } from "nodemailer";
 
+function getEnvNullable(name: string): string | null {
+  return typeof process.env[name] === "string" ? process.env[name] : null;
+}
+function getEnv(name: string): string {
+  if (!(name in process.env)) {
+    throw Error(`Missing env ${name}`);
+  }
+
+  return getEnvNullable(name)!;
+}
 const ENVS = {
-  port: parseInt(process.env["PORT"] || "3000"),
-  directusUrl: process.env["DIRECTUS_URL"]!,
-  directusToken: process.env["DIRECTUS_TOKEN"],
+  port: parseInt(getEnvNullable("PORT") || "3000"),
+  directusUrl: getEnv("DIRECTUS_URL")!,
+  directusToken: getEnvNullable("DIRECTUS_TOKEN"),
+  smtp: {
+    host: getEnv("SMTP_HOST"),
+    port: parseInt(getEnv("SMTP_PORT")),
+    secure: getEnv("SMTP_SECURE") !== "false",
+    user: getEnv("SMTP_USER"),
+    password: getEnv("SMTP_PASSWORD"),
+    from: getEnv("SMTP_FROM"),
+  },
 };
 
 // Import all files from the `dist` directory to run all `registerFlows` calls.
@@ -19,13 +38,34 @@ for (const file of files) {
   import(join(process.cwd(), "dist", file.toString()));
 }
 
-// Server entry point.
-const server = createServer((req, res) => {
-  let directus = createDirectus(ENVS.directusUrl).with(rest());
-  if (ENVS.directusToken) {
-    directus = directus.with(staticToken(ENVS.directusToken));
-  }
+let directus = createDirectus(ENVS.directusUrl).with(rest());
+if (ENVS.directusToken) {
+  directus = directus.with(staticToken(ENVS.directusToken));
+}
 
+const nodemailer = createTransport({
+  host: ENVS.smtp.host,
+  port: ENVS.smtp.port,
+  secure: ENVS.smtp.secure, // use STARTTLS (upgrade connection to TLS after connecting)
+  auth: {
+    user: ENVS.smtp.user,
+    pass: ENVS.smtp.password,
+  },
+});
+if (!(await nodemailer.verify())) {
+  throw new Error("Unable to connect to mail server");
+}
+
+const mailer: Mailer = {
+  sendMail: async (opts) => {
+    let o = { from: ENVS.smtp.from, ...opts };
+    console.log(o);
+    return nodemailer.sendMail(o);
+  },
+};
+
+// Server entry point.
+const server = createServer(async (req, res) => {
   let endWith = (code: number, message: string) => {
     console.log(`[${req.method} ${req.url}] ${code} ${message}`);
     res.writeHead(code, message);
@@ -66,7 +106,7 @@ const server = createServer((req, res) => {
       if (event.event in flows) {
         for (const flow of flows[event.event]) {
           try {
-            await flow.handler(event, { directus });
+            await flow.handler(event, { directus, mailer });
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);

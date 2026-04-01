@@ -11,6 +11,13 @@ services:
       DIRECTUS_URL: http://directus:8055
       DIRECTUS_TOKEN: 00000000-0000-0000-0000-000000000000
 
+      SMTP_HOST: mail.epfl.ch
+      SMTP_PORT: "587"
+      SMTP_USER: it.clic
+      SMTP_PASSWORD: ${SMTP_IT_PASSWORD}
+      SMTP_SECURE: "false"
+      SMTP_FROM: CLIC <it.clic@epfl.ch>
+
   # Directus service
   directus:
     labels:

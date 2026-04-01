@@ -6,10 +6,15 @@ const myFlow = {
   name: "My flow",
   handler: async (
     e: DirectusEvent<"artists", "create" | "update">,
-    { directus }: HandlerOpts,
+    { directus, mailer }: HandlerOpts,
   ) => {
     if (e.event === "artists.items.create") {
       console.log(await directus.request(readItem("artists", e.key)));
+      mailer.sendMail({
+        to: "lucie.mermod@epfl.ch",
+        subject: "New artist",
+        text: `New artist just dropped: ${e.payload.name} :OOO`,
+      });
     } else {
       console.log(
         await directus.request(
