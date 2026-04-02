@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import { flows, Mailer } from "./registry.js";
+import { Directus, flows, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import {
@@ -32,8 +32,13 @@ function getEnv(name: string): string {
 }
 const ENVS = {
   port: parseInt(getEnvNullable("PORT") || "3000"),
+
   directusUrl: getEnv("DIRECTUS_URL")!,
   directusToken: getEnvNullable("DIRECTUS_TOKEN"),
+  directus_agent_base:
+    getEnvNullable(" DIRECTUS_AGENT_BASE") || "directus-flows-",
+  directus_agent_ttl: parseInt(getEnvNullable(" DIRECTUS_AGENT_TTL") || "5"),
+
   smtp: {
     host: getEnv("SMTP_HOST"),
     port: parseInt(getEnv("SMTP_PORT")),
@@ -52,9 +57,33 @@ for (const file of files) {
   import(join(process.cwd(), "dist", file.toString()));
 }
 
-let directus = createDirectus(ENVS.directusUrl).with(rest());
-if (ENVS.directusToken) {
-  directus = directus.with(staticToken(ENVS.directusToken));
+const DIRECTUS_AGENT_BASE = "directus-flows-";
+const DIRECTUS_AGENT_TTL = 5;
+function makeDirectus(incomingAgent: string): Directus | null {
+  let agent = `${DIRECTUS_AGENT_BASE}${DIRECTUS_AGENT_TTL}`;
+
+  let m = incomingAgent.match(`${DIRECTUS_AGENT_BASE}(\\d+)`);
+  if (m) {
+    const ttl = parseInt(m[1]);
+    if (ttl <= 0) {
+      return null;
+    }
+    agent = `${DIRECTUS_AGENT_BASE}${ttl - 1}`;
+  }
+
+  let directus = createDirectus(ENVS.directusUrl).with(
+    rest({
+      onRequest: (r) => {
+        r.headers = { ...(r.headers || {}), "User-Agent": agent };
+        return r;
+      },
+    }),
+  );
+  if (ENVS.directusToken) {
+    directus = directus.with(staticToken(ENVS.directusToken));
+  }
+
+  return directus;
 }
 
 const nodemailer = createTransport({
@@ -73,7 +102,6 @@ if (!(await nodemailer.verify())) {
 const mailer: Mailer = {
   sendMail: async (opts) => {
     let o = { from: ENVS.smtp.from, ...opts };
-    console.log(o);
     return nodemailer.sendMail(o);
   },
 };
@@ -115,7 +143,11 @@ const server = createServer(async (req, res) => {
   req.on("end", async () => {
     try {
       const message: DirectusMessage = JSON.parse(body);
-      console.log(message);
+      const directus = makeDirectus(message.accountability.userAgent);
+      if (!directus) {
+        endWith(429, "Too Many Requests");
+        return;
+      }
 
       const statuses = [];
       let methods;
@@ -185,7 +217,7 @@ const server = createServer(async (req, res) => {
       res.end();
     } catch (error) {
       console.error(error);
-      endWith(415, "Unsupported Media Type");
+      endWith(422, "Unprocessable Content");
     }
   });
 });
