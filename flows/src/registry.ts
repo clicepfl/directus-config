@@ -1,5 +1,5 @@
 import { DirectusClient, RestClient } from "@directus/sdk";
-import { EventType, DirectusEvent, SchemaKey } from "./events.js";
+import { EventType, DirectusEvent, SchemaKey, Directus } from "./directus.js";
 import { Schema } from "./types/schema.js";
 import { SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
 
@@ -12,7 +12,6 @@ interface Flow<K extends SchemaKey, T extends EventType> {
   handler: EventHandler<K, T>;
 }
 
-export type Directus = DirectusClient<Schema> & RestClient<Schema>;
 export type HandlerOpts = {
   directus: Directus;
   mailer: Mailer;

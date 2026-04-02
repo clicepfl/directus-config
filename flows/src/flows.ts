@@ -1,5 +1,5 @@
 import { readItem, updateSingleton } from "@directus/sdk";
-import { DirectusEvent } from "./events.js";
+import { DirectusEvent } from "./directus.js";
 import { HandlerOpts, registerFlow } from "./registry.js";
 
 const myFlow = {

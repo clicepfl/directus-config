@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import { Directus, flows, Mailer } from "./registry.js";
+import { flows, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import {
@@ -15,39 +15,12 @@ import {
 import {
   DirectusEvent,
   DirectusMessage,
+  makeDirectus,
   RawCreateEvent,
   RawUpdateEvent,
-} from "./events.js";
+} from "./directus.js";
 import { createTransport } from "nodemailer";
-
-function getEnvNullable(name: string): string | null {
-  return typeof process.env[name] === "string" ? process.env[name] : null;
-}
-function getEnv(name: string): string {
-  if (!(name in process.env)) {
-    throw Error(`Missing env ${name}`);
-  }
-
-  return getEnvNullable(name)!;
-}
-const ENVS = {
-  port: parseInt(getEnvNullable("PORT") || "3000"),
-
-  directusUrl: getEnv("DIRECTUS_URL")!,
-  directusToken: getEnvNullable("DIRECTUS_TOKEN"),
-  directus_agent_base:
-    getEnvNullable(" DIRECTUS_AGENT_BASE") || "directus-flows-",
-  directus_agent_ttl: parseInt(getEnvNullable(" DIRECTUS_AGENT_TTL") || "5"),
-
-  smtp: {
-    host: getEnv("SMTP_HOST"),
-    port: parseInt(getEnv("SMTP_PORT")),
-    secure: getEnv("SMTP_SECURE") !== "false",
-    user: getEnv("SMTP_USER"),
-    password: getEnv("SMTP_PASSWORD"),
-    from: getEnv("SMTP_FROM"),
-  },
-};
+import { ENVS } from "./env.js";
 
 // Import all files from the `dist` directory to run all `registerFlows` calls.
 const files = readdirSync("./dist", { recursive: true }).filter((f) =>
@@ -55,35 +28,6 @@ const files = readdirSync("./dist", { recursive: true }).filter((f) =>
 );
 for (const file of files) {
   import(join(process.cwd(), "dist", file.toString()));
-}
-
-const DIRECTUS_AGENT_BASE = "directus-flows-";
-const DIRECTUS_AGENT_TTL = 5;
-function makeDirectus(incomingAgent: string): Directus | null {
-  let agent = `${DIRECTUS_AGENT_BASE}${DIRECTUS_AGENT_TTL}`;
-
-  let m = incomingAgent.match(`${DIRECTUS_AGENT_BASE}(\\d+)`);
-  if (m) {
-    const ttl = parseInt(m[1]);
-    if (ttl <= 0) {
-      return null;
-    }
-    agent = `${DIRECTUS_AGENT_BASE}${ttl - 1}`;
-  }
-
-  let directus = createDirectus(ENVS.directusUrl).with(
-    rest({
-      onRequest: (r) => {
-        r.headers = { ...(r.headers || {}), "User-Agent": agent };
-        return r;
-      },
-    }),
-  );
-  if (ENVS.directusToken) {
-    directus = directus.with(staticToken(ENVS.directusToken));
-  }
-
-  return directus;
 }
 
 const nodemailer = createTransport({
@@ -99,10 +43,11 @@ if (!(await nodemailer.verify())) {
   throw new Error("Unable to connect to mail server");
 }
 
+// Construct the `Mailer` instance used by the flow. Using a wrapper allows to globally control some options of the mailer.
 const mailer: Mailer = {
   sendMail: async (opts) => {
-    let o = { from: ENVS.smtp.from, ...opts };
-    return nodemailer.sendMail(o);
+    // Use `env.STMP_FROM` as default.
+    return nodemailer.sendMail({ from: ENVS.smtp.from, ...opts });
   },
 };
 
@@ -143,15 +88,19 @@ const server = createServer(async (req, res) => {
   req.on("end", async () => {
     try {
       const message: DirectusMessage = JSON.parse(body);
+
+      // Creates the directus handler, and returns an error if null (i.e. TTL is 0).
       const directus = makeDirectus(message.accountability.userAgent);
       if (!directus) {
         endWith(429, "Too Many Requests");
         return;
       }
 
+      // Status of the different flows for this event.
       const statuses = [];
-      let methods;
 
+      // Creates the functions to fetch/update the entries affected by the event.
+      let methods: any;
       if (message.payload.event.endsWith(".create")) {
         let create = message.payload as RawCreateEvent<any, any>;
         methods = {
@@ -224,8 +173,8 @@ const server = createServer(async (req, res) => {
 
 server.listen(ENVS.port, () => {
   console.log(`Server listening on port ${ENVS.port}`);
-  console.log("Registered handlers:");
 
+  console.log("Registered handlers:");
   for (const event of Object.keys(flows)) {
     console.log(`  ${event}: ${flows[event].map((f) => f.name).join(", ")}`);
   }

@@ -1,12 +1,18 @@
 import {
+  createDirectus,
+  DirectusClient,
   ReadItemOutput,
   ReadSingletonOutput,
   RegularCollections,
+  rest,
+  RestClient,
   SingletonCollections,
+  staticToken,
   UnpackList,
   UpdateItemOutput,
 } from "@directus/sdk";
 import { Schema } from "./types/schema.js";
+import { ENVS } from "./env.js";
 
 type Flatten<T> = T extends any[] ? T[number] : T;
 type IdOf<T> = T extends { id?: number }
@@ -116,3 +122,33 @@ export type DirectusMessage = {
     session: string;
   };
 };
+
+export type Directus = DirectusClient<Schema> & RestClient<Schema>;
+
+/** Construct a `Directus` instance with an updated TTL, or null if TTL is 0. In that case, the event should not be processed. */
+export function makeDirectus(incomingAgent: string): Directus | null {
+  let agent = `${ENVS.directusAgentBase}${ENVS.directusAgentTtl}`;
+
+  let m = incomingAgent.match(`${ENVS.directusAgentBase}(\\d+)`);
+  if (m) {
+    const ttl = parseInt(m[1]);
+    if (ttl <= 0) {
+      return null;
+    }
+    agent = `${ENVS.directusAgentBase}${ttl - 1}`;
+  }
+
+  let directus = createDirectus(ENVS.directusUrl).with(
+    rest({
+      onRequest: (r) => {
+        r.headers = { ...(r.headers || {}), "User-Agent": agent };
+        return r;
+      },
+    }),
+  );
+  if (ENVS.directusToken) {
+    directus = directus.with(staticToken(ENVS.directusToken));
+  }
+
+  return directus;
+}
