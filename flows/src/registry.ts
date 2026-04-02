@@ -2,7 +2,6 @@ import { DirectusClient, RestClient } from "@directus/sdk";
 import { EventType, DirectusEvent, SchemaKey } from "./events.js";
 import { Schema } from "./types/schema.js";
 import { SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
-import SMTPTransport from "nodemailer/lib/smtp-transport/index.js";
 
 type EventHandler<K extends SchemaKey, T extends EventType> = (
   event: DirectusEvent<K, T>,

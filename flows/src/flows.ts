@@ -1,10 +1,4 @@
-import {
-  readItem,
-  readItems,
-  readSingleton,
-  updateItem,
-  updateSingleton,
-} from "@directus/sdk";
+import { readItem, updateSingleton } from "@directus/sdk";
 import { DirectusEvent } from "./events.js";
 import { HandlerOpts, registerFlow } from "./registry.js";
 
