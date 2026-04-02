@@ -1,4 +1,10 @@
-import { readItem, readItems, readSingleton, updateItem } from "@directus/sdk";
+import {
+  readItem,
+  readItems,
+  readSingleton,
+  updateItem,
+  updateSingleton,
+} from "@directus/sdk";
 import { DirectusEvent } from "./events.js";
 import { HandlerOpts, registerFlow } from "./registry.js";
 
@@ -13,15 +19,24 @@ const myFlow = {
       const res = await e.update({ link: "https://yay.org" });
       console.log(res);
     } else {
-      console.log(
-        await directus.request(
-          readItems("artists", {
-            filter: { id: { _in: e.keys.map(parseInt) } },
-          }),
-        ),
-      );
+      let artists = await e.fetch();
+      console.log(artists);
+    }
+  },
+};
+
+const myFlow3 = {
+  name: "My flow3",
+  handler: async (
+    e: DirectusEvent<"association", "update">,
+    { directus, mailer }: HandlerOpts,
+  ) => {
+    if (e.payload.name !== "clic") {
+      await directus.request(updateSingleton("association", { name: "clic" }));
+      console.log(await e.fetch());
     }
   },
 };
 registerFlow("artists.items.create", myFlow);
 registerFlow("artists.items.update", myFlow);
+registerFlow("association.items.update", myFlow3);

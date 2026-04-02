@@ -4,12 +4,20 @@ import { readdirSync } from "fs";
 import { join } from "path";
 import {
   createDirectus,
+  readItems,
+  readSingleton,
   rest,
   staticToken,
   updateItem,
   updateItems,
+  updateSingleton,
 } from "@directus/sdk";
-import { DirectusEvent } from "./events.js";
+import {
+  DirectusEvent,
+  DirectusMessage,
+  RawCreateEvent,
+  RawUpdateEvent,
+} from "./events.js";
 import { createTransport } from "nodemailer";
 
 function getEnvNullable(name: string): string | null {
@@ -106,35 +114,63 @@ const server = createServer(async (req, res) => {
   });
   req.on("end", async () => {
     try {
-      const event: any = JSON.parse(body);
+      const message: DirectusMessage = JSON.parse(body);
+      console.log(message);
+
       const statuses = [];
+      let methods;
 
-      let devent;
-
-      if (event.event.endsWith(".create")) {
-        devent = {
-          ...event,
+      if (message.payload.event.endsWith(".create")) {
+        let create = message.payload as RawCreateEvent<any, any>;
+        methods = {
           async update(payload: any) {
             return await directus.request(
-              updateItem(event.collection, event.key, payload),
+              updateItem(message.payload.collection, create.key, payload),
             );
           },
         };
-      } else if (event.event.endsWith(".update")) {
-        devent = {
-          ...event,
-          async update(payload: any) {
-            return await directus.request(
-              updateItems(event.collection, event.keys, payload),
-            );
-          },
-        };
+      } else if (message.payload.event.endsWith(".update")) {
+        let update = message.payload as RawUpdateEvent<any>;
+        if ("keys" in update) {
+          methods = {
+            ...message,
+            async fetch() {
+              return await directus.request(
+                readItems(update.collection, {
+                  filter: { id: { _in: update.keys } },
+                }),
+              );
+            },
+            async update(payload: any) {
+              return await directus.request(
+                updateItems(update.collection, update.keys, payload),
+              );
+            },
+          };
+        } else {
+          methods = {
+            ...message,
+            async fetch() {
+              return await directus.request(readSingleton(update.collection));
+            },
+            async update(payload: any) {
+              return await directus.request(
+                updateSingleton(update.collection, payload),
+              );
+            },
+          };
+        }
       }
 
-      if (devent.event in flows) {
-        for (const flow of flows[devent.event]) {
+      const event: DirectusEvent<any, any> = {
+        ...message.payload,
+        ...methods,
+      } as DirectusEvent<any, any>;
+
+      if (event.event in flows) {
+        for (const flow of flows[event.event]) {
           try {
-            await flow.handler(devent, { directus, mailer });
+            await flow.handler(event, { directus, mailer });
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);
@@ -143,11 +179,12 @@ const server = createServer(async (req, res) => {
       }
 
       console.log(
-        `[EVENT ${devent.event}] ${statuses.length > 0 ? `\n${statuses.map((s) => "  " + s).join("\n")}` : "No registered handler"}`,
+        `[EVENT ${event.event}] ${statuses.length > 0 ? `\n${statuses.map((s) => "  " + s).join("\n")}` : "No registered handler"}`,
       );
       res.writeHead(200, "OK");
       res.end();
     } catch (error) {
+      console.error(error);
       endWith(415, "Unsupported Media Type");
     }
   });
