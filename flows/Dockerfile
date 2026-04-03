@@ -1,3 +1,5 @@
+# Must be built with the whole repository as context to be able to access the Directus' schema.
+
 FROM node:22-alpine
 
 WORKDIR /app
