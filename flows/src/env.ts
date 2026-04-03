@@ -22,8 +22,8 @@ export const ENVS = {
 
   smtp: {
     host: getEnv("SMTP_HOST"),
-    port: parseInt(getEnv("SMTP_PORT")),
-    secure: getEnv("SMTP_SECURE") !== "false",
+    port: parseInt(getEnvNullable("SMTP_PORT") || "587"),
+    secure: getEnvNullable("SMTP_SECURE") !== "false",
     user: getEnv("SMTP_USER"),
     password: getEnv("SMTP_PASSWORD"),
     from: getEnv("SMTP_FROM"),
