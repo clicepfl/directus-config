@@ -5,14 +5,14 @@ import { SendMailOptions, SentMessageInfo, Transporter } from "nodemailer";
 
 type EventHandler<K extends SchemaKey, T extends EventType> = (
   event: DirectusEvent<K, T>,
-  opts: HandlerOpts,
+  utils: HandlerUtils,
 ) => Promise<void>;
 interface Flow<K extends SchemaKey, T extends EventType> {
   name: String;
   handler: EventHandler<K, T>;
 }
 
-export type HandlerOpts = {
+export type HandlerUtils = {
   directus: Directus;
   mailer: Mailer;
 };

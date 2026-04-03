@@ -1,12 +1,12 @@
 import { readItem, updateSingleton } from "@directus/sdk";
 import { DirectusEvent } from "./directus.js";
-import { HandlerOpts, registerFlow } from "./registry.js";
+import { HandlerUtils, registerFlow } from "./registry.js";
 
 const myFlow = {
   name: "My flow",
   handler: async (
     e: DirectusEvent<"artists", "create" | "update">,
-    { directus, mailer }: HandlerOpts,
+    { directus, mailer }: HandlerUtils,
   ) => {
     if (e.event === "artists.items.create") {
       console.log(await directus.request(readItem("artists", e.key)));
@@ -23,7 +23,7 @@ const myFlow3 = {
   name: "My flow3",
   handler: async (
     e: DirectusEvent<"association", "update">,
-    { directus, mailer }: HandlerOpts,
+    { directus, mailer }: HandlerUtils,
   ) => {
     if (e.payload.name !== "clic") {
       await directus.request(updateSingleton("association", { name: "clic" }));
