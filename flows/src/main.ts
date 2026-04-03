@@ -3,11 +3,8 @@ import { flows, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import {
-  createDirectus,
   readItems,
   readSingleton,
-  rest,
-  staticToken,
   updateItem,
   updateItems,
   updateSingleton,
@@ -22,12 +19,12 @@ import {
 import { createTransport } from "nodemailer";
 import { ENVS } from "./env.js";
 
-// Import all files from the `dist` directory to run all `registerFlows` calls.
-const files = readdirSync("./dist", { recursive: true }).filter((f) =>
+// Import all files from the `dist/flows/` directory to run all `registerFlows` calls.
+const files = readdirSync("./dist/flows/", { recursive: true }).filter((f) =>
   f.toString().endsWith(".js"),
 );
 for (const file of files) {
-  import(join(process.cwd(), "dist", file.toString()));
+  import(join(process.cwd(), "./dist/flows/", file.toString()));
 }
 
 const nodemailer = createTransport({

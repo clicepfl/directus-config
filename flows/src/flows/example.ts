@@ -1,6 +1,6 @@
 import { readItem, updateSingleton } from "@directus/sdk";
-import { DirectusEvent } from "./directus.js";
-import { HandlerUtils, registerFlow } from "./registry.js";
+import { DirectusEvent } from "../directus.js";
+import { HandlerUtils, registerFlow } from "../registry.js";
 
 const myFlow = {
   name: "My flow",
