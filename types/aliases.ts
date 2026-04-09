@@ -1,11 +1,11 @@
-import { Schema, components } from "./schema";
+import { Schema, components } from "./schema.js";
 
 // A few useful aliases to Directus' generated Typescript definitions.
 
 export type Association = components["schemas"]["ItemsAssociation"];
 export type Subsonic = components["schemas"]["ItemsSubsonic"];
 export type GameStar = components["schemas"]["ItemsGameStar"];
-export type SaveTheDate =  components["schemas"]["ItemsSavetheDate"];
+export type SaveTheDate = components["schemas"]["ItemsSavetheDate"];
 
 export type AssociationMembership = Schema["association_memberships"][0];
 export type AssociationPartner = Schema["association_partners"][0];
@@ -25,10 +25,12 @@ export type ICBD = Schema["icbd"][0];
 export type ICBDSpeaker = Schema["icbd_speakers"][0];
 export type ICBDActivity = Schema["icbd_activities"][0];
 export type ICBDPhd = Schema["icbd_phds"][0];
-export type ICBDSpeakerActivityRelation = Schema["icbd_activities_icbd_speakers"][0];
+export type ICBDSpeakerActivityRelation =
+  Schema["icbd_activities_icbd_speakers"][0];
 export type Registration = Schema["registrations"][0];
 export type Event = Schema["events"][0];
-export type ICBDActivityRegistration = Schema["icbd_activities_registrations"][0];
+export type ICBDActivityRegistration =
+  Schema["icbd_activities_registrations"][0];
 export type GameStarArticle = Schema["game_star_articles"][0];
 export type GameStarEvent = Schema["game_star_events"][0];
 export type GameStarProject = Schema["game_star_projects"][0];
@@ -36,3 +38,11 @@ export type GameStarSocialLink = Schema["game_star_social_links"][0];
 export type Gallery = Schema["galleries"][0];
 export type Clothes = Schema["clothes"][0];
 
+export type ICBDActivityTimeslot = {
+  room: string;
+  start_time: string;
+  end_time: string;
+  custom_name: string;
+  max_attendees: number;
+  full: boolean;
+};
