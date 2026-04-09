@@ -27,6 +27,7 @@ An issue that may arise from updating Directus from within a flow is that it cou
 
 | Name                  | Default value       | Required | Description                                                                                          |
 | --------------------- | ------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `LOG_LEVEL`           | info                | No       | Level of lots to display                                                                             |
 | `PORT`                | 3000                | No       | Port on which the server will listen                                                                 |
 | `DIRECTUS_URL`        |                     | Yes      | URL to access the Directus instance issuing the events.                                              |
 | `DIRECTUS_TOKEN`      |                     | No       | Access token to interact with Directus. If not specified, access is done through the `public` role.  |

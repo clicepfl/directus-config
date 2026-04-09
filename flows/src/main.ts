@@ -18,6 +18,9 @@ import {
 } from "./directus.js";
 import { createTransport } from "nodemailer";
 import { ENVS } from "./env.js";
+import createLogger from "./logger.js";
+
+const logger = createLogger("global");
 
 // Import all files from the `dist/flows/` directory to run all `registerFlows` calls.
 const files = readdirSync("./dist/flows/", { recursive: true }).filter((f) =>
@@ -51,7 +54,6 @@ const mailer: Mailer = {
 // Server entry point.
 const server = createServer(async (req, res) => {
   let endWith = (code: number, message: string) => {
-    console.log(`[${req.method} ${req.url}] ${code} ${message}`);
     res.writeHead(code, message);
     res.end();
   };
@@ -148,7 +150,11 @@ const server = createServer(async (req, res) => {
       if (event.event in flows) {
         for (const flow of flows[event.event]) {
           try {
-            await flow.handler(event, { directus, mailer });
+            await flow.handler(event, {
+              directus,
+              mailer,
+              logger: createLogger(flow.name),
+            });
             statuses.push(`${flow.name}: OK`);
           } catch (e) {
             statuses.push(`${flow.name}: ERR ${e}`);
@@ -156,23 +162,23 @@ const server = createServer(async (req, res) => {
         }
       }
 
-      console.log(
+      logger.info(
         `[EVENT ${event.event}] ${statuses.length > 0 ? `\n${statuses.map((s) => "  " + s).join("\n")}` : "No registered handler"}`,
       );
       res.writeHead(200, "OK");
       res.end();
     } catch (error) {
-      console.error(error);
+      logger.error(error);
       endWith(422, "Unprocessable Content");
     }
   });
 });
 
 server.listen(ENVS.port, () => {
-  console.log(`Server listening on port ${ENVS.port}`);
+  logger.info(`Server listening on port ${ENVS.port}`);
 
-  console.log("Registered handlers:");
+  logger.info("Registered handlers:");
   for (const event of Object.keys(flows)) {
-    console.log(`  ${event}: ${flows[event].map((f) => f.name).join(", ")}`);
+    logger.info(`  ${event}: ${flows[event].map((f) => f.name).join(", ")}`);
   }
 });

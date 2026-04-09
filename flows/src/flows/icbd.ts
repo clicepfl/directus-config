@@ -10,7 +10,7 @@ const updateActivityStatus = {
       "icbd_activities_registrations",
       "create" | "update" | "delete"
     >,
-    { directus }: HandlerUtils,
+    { directus, logger }: HandlerUtils,
   ) => {
     let activities: ICBDActivity[] = [];
     switch (e.event) {
@@ -36,7 +36,7 @@ const updateActivityStatus = {
     }
     activities = activities.filter((a) => a.timeslots !== null);
 
-    console.log(
+    logger.info(
       "Updating activities",
       activities.map((a) => a.id),
     );
@@ -56,7 +56,7 @@ const updateActivityStatus = {
         const full = t.max_attendees <= assigned;
 
         if (full !== t.full) {
-          console.log(
+          logger.info(
             `Updating fullness of ${activity.id} (${t.start_time}) to ${full}`,
           );
         }

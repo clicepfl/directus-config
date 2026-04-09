@@ -12,6 +12,8 @@ function getEnv(name: string): string {
 }
 
 export const ENVS = {
+  logLevel: getEnvNullable("LOG_LEVEL") || "info",
+
   port: parseInt(getEnvNullable("PORT") || "3000"),
 
   directusUrl: getEnv("DIRECTUS_URL")!,
