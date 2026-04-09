@@ -1610,7 +1610,7 @@
     "key": "request_sklql",
     "name": "Webhook / Request URL",
     "options": {
-      "body": "{{$last}}",
+      "body": "{\"payload\": {{$last}}, \"accountability\": {{$accountability}}}",
       "headers": [
         {
           "header": "Content-Type",
