@@ -383,26 +383,6 @@
     "trigger": "event"
   },
   {
-    "_syncId": "d2ba770b-1958-4b19-bcd3-82193aac3a3d",
-    "accountability": "all",
-    "color": "#FF9D2D",
-    "description": "Updates activities timeslots to indicate whether they are full",
-    "icon": "lock_reset",
-    "name": "[ICBD] Update activity status",
-    "operation": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
-    "options": {
-      "collections": [
-        "icbd_activities_registrations"
-      ],
-      "scope": [
-        "items.update"
-      ],
-      "type": "action"
-    },
-    "status": "active",
-    "trigger": "event"
-  },
-  {
     "_syncId": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
     "accountability": "all",
     "color": "#E35169",
