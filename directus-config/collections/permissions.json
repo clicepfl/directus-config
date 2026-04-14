@@ -12,6 +12,198 @@
     "validation": null
   },
   {
+    "_syncId": "91992dc0-bb47-4d73-9104-5c5a7d728db0",
+    "action": "read",
+    "collection": "artists",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "2d6af089-7a6b-42e4-bd78-ddf92b4ee37c",
+    "action": "read",
+    "collection": "association_memberships_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "865bd194-2d2f-4845-b9b2-b1d4b6c14701",
+    "action": "read",
+    "collection": "association_memberships",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "34d2d9ee-976d-4473-8cf8-cbffc16dbd09",
+    "action": "read",
+    "collection": "association_partners",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "f82684e9-5af7-4047-b6b3-d8a59a17d2a2",
+    "action": "read",
+    "collection": "association_poles_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4bb8106b-004f-4f22-b6ab-7a079862dbc4",
+    "action": "read",
+    "collection": "association_poles",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "b937c704-514e-4fbf-bf41-99ed97574790",
+    "action": "read",
+    "collection": "association_public_files_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "c518923f-adde-407a-983d-a3c1541232fe",
+    "action": "read",
+    "collection": "association_public_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "b57d2921-3ee5-46ca-b25f-03ee465a6cec",
+    "action": "read",
+    "collection": "association_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "d6b6c506-72ef-49e3-b06c-fff5fd19a338",
+    "action": "read",
+    "collection": "association_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "32cbc893-e1b1-4b4a-8eba-b9054ebf1c59",
+    "action": "read",
+    "collection": "association",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "5ddbdf18-c182-49bc-8631-eb88a859eb49",
+    "action": "read",
+    "collection": "commission_memberships_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "2ce68aab-aa21-472a-8520-c5d8a4d94d4c",
+    "action": "read",
+    "collection": "commission_memberships",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "c05f4da0-fab8-48b7-8e85-66b3954267d1",
+    "action": "read",
+    "collection": "commissions_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "5a284439-a5a4-4104-bf54-e9754476c2ef",
+    "action": "read",
+    "collection": "commissions_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "1b823496-d583-48c3-b377-a478f30469f8",
+    "action": "read",
+    "collection": "commissions",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "acccdad0-5e58-46a6-b3f6-4c0bba96f1c5",
     "action": "read",
     "collection": "directus_files",
@@ -83,9 +275,453 @@
     "validation": null
   },
   {
+    "_syncId": "1499ddcb-b50f-42d7-9f3f-d415d97bd5b3",
+    "action": "read",
+    "collection": "directus_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "35082efc-61f9-4590-88fa-8f713f59b8e1",
     "action": "read",
     "collection": "directus_folders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "41c3c508-7006-4748-a88c-18182ef55a5f",
+    "action": "read",
+    "collection": "directus_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "8f03994a-2b83-4a7f-b55a-1268b954dd44",
+    "action": "read",
+    "collection": "events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "1e08893c-2ecc-4b47-ad1f-a60502ad6da8",
+    "action": "read",
+    "collection": "galleries",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "db857d11-3e6a-4d7f-ac8f-7d54c92a6a75",
+    "action": "read",
+    "collection": "game_star_articles_members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "0b32368e-36d8-476d-85e3-e8667aa33c8c",
+    "action": "read",
+    "collection": "game_star_articles_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "26ad4c45-3f1a-491e-94c5-0319933f6e3d",
+    "action": "read",
+    "collection": "game_star_articles",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "197643ab-a322-44ae-9c1a-1a835e1b15ac",
+    "action": "read",
+    "collection": "game_star_events_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "8b73aa4a-8e0f-4e95-b8b8-8d00136467e2",
+    "action": "read",
+    "collection": "game_star_events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "65eabe46-6930-436e-aa8f-97481dfcc5ce",
+    "action": "read",
+    "collection": "game_star_projects_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4cdff615-c061-4bb8-925d-8258ea601d4a",
+    "action": "read",
+    "collection": "game_star_projects",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4e91bf1b-4ad8-458a-8bbc-8b288fdff866",
+    "action": "read",
+    "collection": "game_star_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "7951a39f-ae4f-4ebb-98db-0317ab652a08",
+    "action": "read",
+    "collection": "game_star_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4968467d-074d-44e5-8aa4-a06279bf10ca",
+    "action": "read",
+    "collection": "game_star",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ccd4f702-288c-420c-b73a-cc8562b967aa",
+    "action": "read",
+    "collection": "icbd_activities_icbd_speakers",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "3c6cd40b-388f-456a-8424-760180ee192c",
+    "action": "read",
+    "collection": "icbd_activities_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "49e62ff2-6d5a-45bf-af5d-64db2debf760",
+    "action": "read",
+    "collection": "icbd_activities",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "566da98f-59df-4256-8711-2407caa3d433",
+    "action": "read",
+    "collection": "ICBD_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "427b3f51-0841-4a6b-8597-48355d49887f",
+    "action": "read",
+    "collection": "icbd_phds",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "49571be8-e95f-41a1-b71d-247ac6e54805",
+    "action": "read",
+    "collection": "icbd_speakers",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "9e11e6a1-f2da-4db1-8c42-08597b7e1287",
+    "action": "read",
+    "collection": "ICBD_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "108371ea-32f9-43e8-aabb-492c24523ad7",
+    "action": "read",
+    "collection": "ICBD",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "028b97ea-53c7-4509-bc8f-2b35a80c039e",
+    "action": "read",
+    "collection": "languages",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fa6efdbf-5207-4bce-ab10-706c933ce5ac",
+    "action": "read",
+    "collection": "members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4d6b4563-a2c4-4a2a-a28d-4503669b1dc4",
+    "action": "read",
+    "collection": "news_commissions",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "b4847391-6b0f-4c59-aba8-ed4b2794fe2c",
+    "action": "read",
+    "collection": "news_partners",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "aa82f043-ff74-4650-8032-25b9d44ab06f",
+    "action": "read",
+    "collection": "news_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "969d9a90-15a4-425d-8414-ce5f78b36759",
+    "action": "read",
+    "collection": "news",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "eff9fcca-3815-4067-8feb-39ea4ee85498",
+    "action": "read",
+    "collection": "partner_category_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "012dc5ba-0e10-4c2d-bd1e-c2ddc4ac2470",
+    "action": "read",
+    "collection": "partner_category",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "77a9e602-bf4d-4717-af6c-24c4212984f8",
+    "action": "read",
+    "collection": "partners",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "60c0848a-d0c8-4446-a694-1bbd45657513",
+    "action": "read",
+    "collection": "save_the_date_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ec5f2c58-26f3-4bdd-8b48-0c0657eee3ac",
+    "action": "read",
+    "collection": "save_the_date",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "dbd10b62-cb53-44ec-bd70-a1d85a97a2dc",
+    "action": "read",
+    "collection": "social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fca5673d-6065-431f-9807-62678407056b",
+    "action": "read",
+    "collection": "std_cell_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "381372a4-fb8f-457b-96b8-d1bcef71941a",
+    "action": "read",
+    "collection": "std_cell",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "9cb26c3d-21ed-4810-9622-dc26e9f5f09f",
+    "action": "read",
+    "collection": "subsonic",
     "fields": [
       "*"
     ],
@@ -1738,6 +2374,78 @@
     "validation": null
   },
   {
+    "_syncId": "5eba4ee8-f6f2-49cc-ae78-1996cf7bfe0d",
+    "action": "create",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fb531ee5-c0e5-4b39-9e8f-1cd7a2e90c84",
+    "action": "delete",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "528bb714-6644-4d5f-a067-e8746d865f3d",
+    "action": "read",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "bfe41ae0-925a-4d24-b4a0-6835cea98209",
+    "action": "share",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e7f3cf32-b8e6-4662-a2d8-1d7bd3eeab10",
+    "action": "update",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "46cfad05-b4f2-421e-90f0-49ea461b3819",
+    "action": "read",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "7ac3fbfa-79c1-4593-8224-a7e46941a2a7",
     "action": "create",
     "collection": "events",
@@ -2041,78 +2749,6 @@
     "_syncId": "1c7685a7-b396-43a3-9950-356760cf85ed",
     "action": "read",
     "collection": "icbd",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "5eba4ee8-f6f2-49cc-ae78-1996cf7bfe0d",
-    "action": "create",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "fb531ee5-c0e5-4b39-9e8f-1cd7a2e90c84",
-    "action": "delete",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "528bb714-6644-4d5f-a067-e8746d865f3d",
-    "action": "read",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "bfe41ae0-925a-4d24-b4a0-6835cea98209",
-    "action": "share",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "e7f3cf32-b8e6-4662-a2d8-1d7bd3eeab10",
-    "action": "update",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "46cfad05-b4f2-421e-90f0-49ea461b3819",
-    "action": "read",
-    "collection": "clothes",
     "fields": [
       "*"
     ],
@@ -3905,6 +4541,126 @@
     "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
     "presets": null,
     "validation": {}
+  },
+  {
+    "_syncId": "c0d521ae-2025-4bd0-b40b-18b3cc426532",
+    "action": "create",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fa3f6150-32f5-40dd-a516-4dbe920928bd",
+    "action": "delete",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "25063074-4f02-4ed8-b091-623097beb123",
+    "action": "read",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "f13b0994-016c-4620-b29a-fd2b091f45ca",
+    "action": "share",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a08e1bba-2575-4530-bbe2-56a8ae480393",
+    "action": "update",
+    "collection": "clothes_orders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e0854579-b557-434c-882d-7dc9cb3877ce",
+    "action": "create",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "64db095e-95fd-4642-b379-23fc2a8795c2",
+    "action": "delete",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e4262e88-fcb9-439d-a367-df91917c4028",
+    "action": "read",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a009e7a4-6550-42ab-b3b1-9d592b38c146",
+    "action": "share",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
+    "action": "update",
+    "collection": "clothes",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
+    "presets": null,
+    "validation": null
   },
   {
     "_syncId": "3e261a2a-ec8c-4c6d-b57a-455ae74f8e33",
@@ -6203,126 +6959,6 @@
     "_syncId": "ea9c3c21-6db4-4073-9cb0-c34e9c63a5fd",
     "action": "update",
     "collection": "subsonic",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "c0d521ae-2025-4bd0-b40b-18b3cc426532",
-    "action": "create",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "fa3f6150-32f5-40dd-a516-4dbe920928bd",
-    "action": "delete",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "25063074-4f02-4ed8-b091-623097beb123",
-    "action": "read",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "f13b0994-016c-4620-b29a-fd2b091f45ca",
-    "action": "share",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "a08e1bba-2575-4530-bbe2-56a8ae480393",
-    "action": "update",
-    "collection": "clothes_orders",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "e0854579-b557-434c-882d-7dc9cb3877ce",
-    "action": "create",
-    "collection": "clothes",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "64db095e-95fd-4642-b379-23fc2a8795c2",
-    "action": "delete",
-    "collection": "clothes",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "e4262e88-fcb9-439d-a367-df91917c4028",
-    "action": "read",
-    "collection": "clothes",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "a009e7a4-6550-42ab-b3b1-9d592b38c146",
-    "action": "share",
-    "collection": "clothes",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "e6d9b371-2ccb-40f6-b607-7d900c3364b0",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "0a1ab5d8-6bdb-4a02-a460-672ad87ebe09",
-    "action": "update",
-    "collection": "clothes",
     "fields": [
       "*"
     ],
