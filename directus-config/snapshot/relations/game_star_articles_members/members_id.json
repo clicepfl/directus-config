@@ -1,0 +1,25 @@
+{
+  "collection": "game_star_articles_members",
+  "field": "members_id",
+  "meta": {
+    "junction_field": "game_star_articles_id",
+    "many_collection": "game_star_articles_members",
+    "many_field": "members_id",
+    "one_allowed_collections": null,
+    "one_collection": "members",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": null,
+    "sort_field": null
+  },
+  "related_collection": "members",
+  "schema": {
+    "column": "members_id",
+    "constraint_name": "game_star_articles_members_members_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "members",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "game_star_articles_members"
+  }
+}
