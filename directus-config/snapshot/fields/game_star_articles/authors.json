@@ -1,27 +1,24 @@
 {
   "collection": "game_star_articles",
-  "field": "translations",
+  "field": "authors",
   "meta": {
     "collection": "game_star_articles",
     "conditions": null,
-    "display": "translations",
-    "display_options": {
-      "template": "{{title}} - {{description}}",
-      "userLanguage": true
-    },
-    "field": "translations",
+    "display": null,
+    "display_options": null,
+    "field": "authors",
     "group": null,
     "hidden": false,
-    "interface": "translations",
+    "interface": "list-m2m",
     "note": null,
     "options": {
-      "defaultOpenSplitView": true
+      "enableCreate": false
     },
     "readonly": false,
-    "required": true,
-    "sort": 4,
+    "required": false,
+    "sort": 2,
     "special": [
-      "translations"
+      "m2m"
     ],
     "translations": null,
     "validation": null,

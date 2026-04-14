@@ -1,35 +1,31 @@
 {
-  "collection": "game_star_articles_translations",
-  "field": "cover_image",
+  "collection": "game_star_articles_members",
+  "field": "game_star_articles_id",
   "meta": {
-    "collection": "game_star_articles_translations",
+    "collection": "game_star_articles_members",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "cover_image",
+    "field": "game_star_articles_id",
     "group": null,
-    "hidden": false,
-    "interface": "file-image",
+    "hidden": true,
+    "interface": null,
     "note": null,
-    "options": {
-      "crop": false
-    },
+    "options": null,
     "readonly": false,
     "required": false,
-    "sort": 7,
-    "special": [
-      "file"
-    ],
+    "sort": 2,
+    "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
     "width": "full"
   },
   "schema": {
-    "data_type": "uuid",
+    "data_type": "integer",
     "default_value": null,
     "foreign_key_column": "id",
-    "foreign_key_table": "directus_files",
+    "foreign_key_table": "game_star_articles",
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
@@ -38,10 +34,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "cover_image",
-    "numeric_precision": null,
-    "numeric_scale": null,
-    "table": "game_star_articles_translations"
+    "name": "game_star_articles_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "game_star_articles_members"
   },
-  "type": "uuid"
+  "type": "integer"
 }
