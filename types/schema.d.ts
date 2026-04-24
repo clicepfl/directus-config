@@ -1279,126 +1279,6 @@ export interface paths {
     patch: operations["updateOperation"];
     trace?: never;
   };
-  "/webhooks": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Webhooks
-     * @description Get all webhooks.
-     */
-    get: operations["getWebhooks"];
-    put?: never;
-    /**
-     * Create a Webhook
-     * @description Create a new webhook.
-     */
-    post: operations["createWebhook"];
-    /**
-     * Delete Multiple Webhooks
-     * @description Delete multiple existing webhooks.
-     */
-    delete: operations["deleteWebhooks"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Webhooks
-     * @description Update multiple webhooks at the same time.
-     */
-    patch: operations["updateWebhooks"];
-    trace?: never;
-  };
-  "/webhooks/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve a Webhook
-     * @description Retrieve a single webhook by unique identifier.
-     */
-    get: operations["getWebhook"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete a Webhook
-     * @description Delete an existing webhook
-     */
-    delete: operations["deleteWebhook"];
-    options?: never;
-    head?: never;
-    /**
-     * Update a Webhook
-     * @description Update an existing webhook
-     */
-    patch: operations["updateWebhook"];
-    trace?: never;
-  };
-  "/extensions": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Extensions
-     * @description List the installed extensions and their configuration in the project.
-     */
-    get: operations["listExtensions"];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  "/extensions/{name}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /**
-     * Update an Extension
-     * @description Update an existing extension.
-     */
-    patch: operations["updateExtensions"];
-    trace?: never;
-  };
-  "/extensions/{bundle}/{name}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    get?: never;
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    /**
-     * Update an Extension
-     * @description Update an existing extension.
-     */
-    patch: operations["updateExtensionBundle"];
-    trace?: never;
-  };
   "/versions": {
     parameters: {
       query?: never;
@@ -1519,7 +1399,7 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
-  "/comments": {
+  "/extensions": {
     parameters: {
       query?: never;
       header?: never;
@@ -1527,80 +1407,56 @@ export interface paths {
       cookie?: never;
     };
     /**
-     * List Comments
-     * @description List the comments.
+     * List Extensions
+     * @description List the installed extensions and their configuration in the project.
      */
-    get: operations["getComments"];
-    put?: never;
-    /**
-     * Create a Comment
-     * @description Create a new comment.
-     */
-    post: operations["createComment"];
-    /**
-     * Delete Multiple Comments
-     * @description Delete multiple existing comments.
-     */
-    delete: operations["deleteComments"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Comments
-     * @description Update multiple comments at the same time.
-     */
-    patch: operations["updateComments"];
-    trace?: never;
-  };
-  "/comments/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve a Comment
-     * @description Retrieve a single comment by unique identifier.
-     */
-    get: operations["getComment"];
+    get: operations["listExtensions"];
     put?: never;
     post?: never;
-    /**
-     * Delete a Comment
-     * @description Delete an existing comment.
-     */
-    delete: operations["deleteComment"];
+    delete?: never;
     options?: never;
     head?: never;
-    /**
-     * Update a Comment
-     * @description Update an existing comment.
-     */
-    patch: operations["updateComment"];
+    patch?: never;
     trace?: never;
   };
-  "/settings": {
+  "/extensions/{name}": {
     parameters: {
       query?: never;
       header?: never;
       path?: never;
       cookie?: never;
     };
-    /**
-     * Retrieve Settings
-     * @description List the settings.
-     */
-    get: operations["getSettings"];
+    get?: never;
     put?: never;
     post?: never;
     delete?: never;
     options?: never;
     head?: never;
     /**
-     * Update Settings
-     * @description Update the settings
+     * Update an Extension
+     * @description Update an existing extension.
      */
-    patch: operations["updateSetting"];
+    patch: operations["updateExtensions"];
+    trace?: never;
+  };
+  "/extensions/{bundle}/{name}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Update an Extension
+     * @description Update an existing extension.
+     */
+    patch: operations["updateExtensionBundle"];
     trace?: never;
   };
   "/items/directus_sync_id_map": {
@@ -1663,6 +1519,150 @@ export interface paths {
     patch: operations["updateSingleItemsDirectusSyncIDMap"];
     trace?: never;
   };
+  "/settings": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve Settings
+     * @description List the settings.
+     */
+    get: operations["getSettings"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    /**
+     * Update Settings
+     * @description Update the settings
+     */
+    patch: operations["updateSetting"];
+    trace?: never;
+  };
+  "/webhooks": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Webhooks
+     * @description Get all webhooks.
+     */
+    get: operations["getWebhooks"];
+    put?: never;
+    /**
+     * Create a Webhook
+     * @description Create a new webhook.
+     */
+    post: operations["createWebhook"];
+    /**
+     * Delete Multiple Webhooks
+     * @description Delete multiple existing webhooks.
+     */
+    delete: operations["deleteWebhooks"];
+    options?: never;
+    head?: never;
+    /**
+     * Update Multiple Webhooks
+     * @description Update multiple webhooks at the same time.
+     */
+    patch: operations["updateWebhooks"];
+    trace?: never;
+  };
+  "/webhooks/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve a Webhook
+     * @description Retrieve a single webhook by unique identifier.
+     */
+    get: operations["getWebhook"];
+    put?: never;
+    post?: never;
+    /**
+     * Delete a Webhook
+     * @description Delete an existing webhook
+     */
+    delete: operations["deleteWebhook"];
+    options?: never;
+    head?: never;
+    /**
+     * Update a Webhook
+     * @description Update an existing webhook
+     */
+    patch: operations["updateWebhook"];
+    trace?: never;
+  };
+  "/comments": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Comments
+     * @description List the comments.
+     */
+    get: operations["getComments"];
+    put?: never;
+    /**
+     * Create a Comment
+     * @description Create a new comment.
+     */
+    post: operations["createComment"];
+    /**
+     * Delete Multiple Comments
+     * @description Delete multiple existing comments.
+     */
+    delete: operations["deleteComments"];
+    options?: never;
+    head?: never;
+    /**
+     * Update Multiple Comments
+     * @description Update multiple comments at the same time.
+     */
+    patch: operations["updateComments"];
+    trace?: never;
+  };
+  "/comments/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve a Comment
+     * @description Retrieve a single comment by unique identifier.
+     */
+    get: operations["getComment"];
+    put?: never;
+    post?: never;
+    /**
+     * Delete a Comment
+     * @description Delete an existing comment.
+     */
+    delete: operations["deleteComment"];
+    options?: never;
+    head?: never;
+    /**
+     * Update a Comment
+     * @description Update an existing comment.
+     */
+    patch: operations["updateComment"];
+    trace?: never;
+  };
   "/items/game_star_social_links": {
     parameters: {
       query?: never;
@@ -1721,66 +1721,6 @@ export interface paths {
      * @description Update an existing game_star_social_links item.
      */
     patch: operations["updateSingleItemsGameStarSocialLinks"];
-    trace?: never;
-  };
-  "/items/events": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Items
-     * @description List the events items.
-     */
-    get: operations["readItemsEvents"];
-    put?: never;
-    /**
-     * Create an Item
-     * @description Create a new events item.
-     */
-    post: operations["createItemsEvents"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing events items.
-     */
-    delete: operations["deleteItemsEvents"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Items
-     * @description Update multiple events items at the same time.
-     */
-    patch: operations["updateItemsEvents"];
-    trace?: never;
-  };
-  "/items/events/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single events item by unique identifier.
-     */
-    get: operations["readSingleItemsEvents"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete an Item
-     * @description Delete an existing events item.
-     */
-    delete: operations["deleteSingleItemsEvents"];
-    options?: never;
-    head?: never;
-    /**
-     * Update an Item
-     * @description Update an existing events item.
-     */
-    patch: operations["updateSingleItemsEvents"];
     trace?: never;
   };
   "/items/artists": {
@@ -2741,6 +2681,66 @@ export interface paths {
      * @description Update an existing clothes item.
      */
     patch: operations["updateSingleItemsClothes"];
+    trace?: never;
+  };
+  "/items/events": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Items
+     * @description List the events items.
+     */
+    get: operations["readItemsEvents"];
+    put?: never;
+    /**
+     * Create an Item
+     * @description Create a new events item.
+     */
+    post: operations["createItemsEvents"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing events items.
+     */
+    delete: operations["deleteItemsEvents"];
+    options?: never;
+    head?: never;
+    /**
+     * Update Multiple Items
+     * @description Update multiple events items at the same time.
+     */
+    patch: operations["updateItemsEvents"];
+    trace?: never;
+  };
+  "/items/events/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single events item by unique identifier.
+     */
+    get: operations["readSingleItemsEvents"];
+    put?: never;
+    post?: never;
+    /**
+     * Delete an Item
+     * @description Delete an existing events item.
+     */
+    delete: operations["deleteSingleItemsEvents"];
+    options?: never;
+    head?: never;
+    /**
+     * Update an Item
+     * @description Update an existing events item.
+     */
+    patch: operations["updateSingleItemsEvents"];
     trace?: never;
   };
   "/items/clothes_orders": {
@@ -3943,6 +3943,66 @@ export interface paths {
     patch: operations["updateSingleItemsIcbdSpeakers"];
     trace?: never;
   };
+  "/items/icbd_activities_registrations": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Items
+     * @description List the icbd_activities_registrations items.
+     */
+    get: operations["readItemsIcbdActivitiesRegistrations"];
+    put?: never;
+    /**
+     * Create an Item
+     * @description Create a new icbd_activities_registrations item.
+     */
+    post: operations["createItemsIcbdActivitiesRegistrations"];
+    /**
+     * Delete Multiple Items
+     * @description Delete multiple existing icbd_activities_registrations items.
+     */
+    delete: operations["deleteItemsIcbdActivitiesRegistrations"];
+    options?: never;
+    head?: never;
+    /**
+     * Update Multiple Items
+     * @description Update multiple icbd_activities_registrations items at the same time.
+     */
+    patch: operations["updateItemsIcbdActivitiesRegistrations"];
+    trace?: never;
+  };
+  "/items/icbd_activities_registrations/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve an Item
+     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
+     */
+    get: operations["readSingleItemsIcbdActivitiesRegistrations"];
+    put?: never;
+    post?: never;
+    /**
+     * Delete an Item
+     * @description Delete an existing icbd_activities_registrations item.
+     */
+    delete: operations["deleteSingleItemsIcbdActivitiesRegistrations"];
+    options?: never;
+    head?: never;
+    /**
+     * Update an Item
+     * @description Update an existing icbd_activities_registrations item.
+     */
+    patch: operations["updateSingleItemsIcbdActivitiesRegistrations"];
+    trace?: never;
+  };
   "/items/icbd_activities_translations": {
     parameters: {
       query?: never;
@@ -4963,66 +5023,6 @@ export interface paths {
     patch: operations["updateSingleItemsSubsonicTranslations"];
     trace?: never;
   };
-  "/items/icbd_activities_registrations": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Items
-     * @description List the icbd_activities_registrations items.
-     */
-    get: operations["readItemsIcbdActivitiesRegistrations"];
-    put?: never;
-    /**
-     * Create an Item
-     * @description Create a new icbd_activities_registrations item.
-     */
-    post: operations["createItemsIcbdActivitiesRegistrations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icbd_activities_registrations items.
-     */
-    delete: operations["deleteItemsIcbdActivitiesRegistrations"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Items
-     * @description Update multiple icbd_activities_registrations items at the same time.
-     */
-    patch: operations["updateItemsIcbdActivitiesRegistrations"];
-    trace?: never;
-  };
-  "/items/icbd_activities_registrations/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icbd_activities_registrations item by unique identifier.
-     */
-    get: operations["readSingleItemsIcbdActivitiesRegistrations"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete an Item
-     * @description Delete an existing icbd_activities_registrations item.
-     */
-    delete: operations["deleteSingleItemsIcbdActivitiesRegistrations"];
-    options?: never;
-    head?: never;
-    /**
-     * Update an Item
-     * @description Update an existing icbd_activities_registrations item.
-     */
-    patch: operations["updateSingleItemsIcbdActivitiesRegistrations"];
-    trace?: never;
-  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -5731,59 +5731,6 @@ export interface components {
        */
       user_created?: string | components["schemas"]["Users"];
     };
-    Webhooks: {
-      /**
-       * @description The index of the webhook.
-       * @example 1
-       */
-      id?: number;
-      /**
-       * @description The name of the webhook.
-       * @example create articles
-       */
-      name?: string;
-      /**
-       * @description Method used in the webhook.
-       * @example POST
-       */
-      method?: string;
-      /**
-       * @description The url of the webhook.
-       * @example null
-       */
-      url?: string | null;
-      /**
-       * @description The status of the webhook.
-       * @example inactive
-       */
-      status?: string;
-      /**
-       * @description If yes, send the content of what was done
-       * @example true
-       */
-      data?: boolean;
-      /**
-       * @description The actions that triggers this webhook.
-       * @example null
-       */
-      actions?: string[] | null;
-      collections?: string[];
-      headers?: unknown;
-      was_active_before_deprecation?: boolean;
-      migrated_flow?: (string | components["schemas"]["Flows"]) | null;
-    };
-    Extensions: {
-      enabled?: boolean;
-      /** Format: uuid */
-      id?: string;
-      folder?: string;
-      source?: string;
-      /**
-       * @description Name of the bundle the extension is in.
-       * @example directus-extension-my-bundle
-       */
-      bundle?: string | null;
-    };
     Versions: {
       /**
        * @description Primary key of the Content Version.
@@ -5841,49 +5788,25 @@ export interface components {
        */
       delta?: Record<string, never>;
     };
-    Comments: {
-      /**
-       * @description Unique identifier for this single collection preset.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
+    Extensions: {
+      enabled?: boolean;
+      /** Format: uuid */
       id?: string;
+      folder?: string;
+      source?: string;
       /**
-       * @description The collection of the item the Comment is created for.
-       * @example articles
+       * @description Name of the bundle the extension is in.
+       * @example directus-extension-my-bundle
        */
-      collection?: string | components["schemas"]["Collections"];
-      /**
-       * @description The item the Comment is created for.
-       * @example 123
-       */
-      item?: string;
-      /**
-       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
-       * @example This is a comment
-       */
-      comment?: string;
-      /**
-       * Format: date-time
-       * @description When the Comment was created.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_created?: string | null;
-      /**
-       * Format: date-time
-       * @description When the Comment was updated.
-       * @example 2024-01-23T12:34:56Z
-       */
-      date_updated?: string | null;
-      /**
-       * @description User that created the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_created?: string | components["schemas"]["Users"];
-      /**
-       * @description User that updated the Comment.
-       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
-       */
-      user_updated?: string | components["schemas"]["Users"];
+      bundle?: string | null;
+    };
+    ItemsDirectusSyncIDMap: {
+      id?: number;
+      table: string;
+      sync_id: string;
+      local_id: string;
+      /** Format: timestamp */
+      created_at?: string | null;
     };
     Settings: {
       /**
@@ -6031,54 +5954,96 @@ export interface components {
       /** @description $t:fields.directus_settings.mcp_system_prompt_note */
       mcp_system_prompt?: string | null;
     };
-    ItemsDirectusSyncIDMap: {
+    Webhooks: {
+      /**
+       * @description The index of the webhook.
+       * @example 1
+       */
       id?: number;
-      table: string;
-      sync_id: string;
-      local_id: string;
-      /** Format: timestamp */
-      created_at?: string | null;
+      /**
+       * @description The name of the webhook.
+       * @example create articles
+       */
+      name?: string;
+      /**
+       * @description Method used in the webhook.
+       * @example POST
+       */
+      method?: string;
+      /**
+       * @description The url of the webhook.
+       * @example null
+       */
+      url?: string | null;
+      /**
+       * @description The status of the webhook.
+       * @example inactive
+       */
+      status?: string;
+      /**
+       * @description If yes, send the content of what was done
+       * @example true
+       */
+      data?: boolean;
+      /**
+       * @description The actions that triggers this webhook.
+       * @example null
+       */
+      actions?: string[] | null;
+      collections?: string[];
+      headers?: unknown;
+      was_active_before_deprecation?: boolean;
+      migrated_flow?: (string | components["schemas"]["Flows"]) | null;
+    };
+    Comments: {
+      /**
+       * @description Unique identifier for this single collection preset.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      id?: string;
+      /**
+       * @description The collection of the item the Comment is created for.
+       * @example articles
+       */
+      collection?: string | components["schemas"]["Collections"];
+      /**
+       * @description The item the Comment is created for.
+       * @example 123
+       */
+      item?: string;
+      /**
+       * @description User comment. This will store the comments that show up in the right sidebar of the item edit page in the admin app.
+       * @example This is a comment
+       */
+      comment?: string;
+      /**
+       * Format: date-time
+       * @description When the Comment was created.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_created?: string | null;
+      /**
+       * Format: date-time
+       * @description When the Comment was updated.
+       * @example 2024-01-23T12:34:56Z
+       */
+      date_updated?: string | null;
+      /**
+       * @description User that created the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_created?: string | components["schemas"]["Users"];
+      /**
+       * @description User that updated the Comment.
+       * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
+       */
+      user_updated?: string | components["schemas"]["Users"];
     };
     ItemsGameStarSocialLinks: {
       id?: number;
       social_account?: string | null;
       social_link?: string | null;
       social_type?: string | null;
-    };
-    ItemsEvents: {
-      /**
-       * Format: uuid
-       * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
-       */
-      admin_secret?: string | null;
-      background_color?: string | null;
-      banner?: (string | components["schemas"]["Files"]) | null;
-      /** @description Appears under: Your registration to Event is successful ! */
-      confirmation_text?: string | null;
-      /** Format: date-time */
-      from?: string | null;
-      icbd_event?: (number | components["schemas"]["ItemsIcbd"]) | null;
-      id?: number;
-      /** @description Appears at the top of the form */
-      intro_text?: string | null;
-      max_registrations?: number | null;
-      meals?: unknown;
-      name?: string | null;
-      opened?: boolean | null;
-      price?: number | null;
-      registration_count?: number;
-      /** @description Unique url name of the event, e.g. "icbd-2025" */
-      slug?: string | null;
-      staffingShiftSize?: number | null;
-      staffingTypes?: unknown;
-      /** Format: date-time */
-      staffing_from?: string | null;
-      /** Format: date-time */
-      staffing_to?: string | null;
-      /** Format: date-time */
-      to?: string | null;
-      type?: string | null;
-      location?: string | null;
     };
     ItemsArtists: {
       /** Format: time */
@@ -6245,6 +6210,41 @@ export interface components {
       id?: number;
       name?: string | null;
       sale_event?: (number | components["schemas"]["ItemsEvents"]) | null;
+    };
+    ItemsEvents: {
+      /**
+       * Format: uuid
+       * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+       */
+      admin_secret?: string | null;
+      background_color?: string | null;
+      banner?: (string | components["schemas"]["Files"]) | null;
+      /** @description Appears under: Your registration to Event is successful ! */
+      confirmation_text?: string | null;
+      /** Format: date-time */
+      from?: string | null;
+      icbd_event?: (number | components["schemas"]["ItemsIcbd"]) | null;
+      id?: number;
+      /** @description Appears at the top of the form */
+      intro_text?: string | null;
+      location?: string | null;
+      max_registrations?: number | null;
+      meals?: unknown;
+      name?: string | null;
+      opened?: boolean | null;
+      price?: number | null;
+      registration_count?: number;
+      /** @description Unique url name of the event, e.g. "icbd-2025" */
+      slug?: string | null;
+      staffingShiftSize?: number | null;
+      staffingTypes?: unknown;
+      /** Format: date-time */
+      staffing_from?: string | null;
+      /** Format: date-time */
+      staffing_to?: string | null;
+      /** Format: date-time */
+      to?: string | null;
+      type?: string | null;
     };
     ItemsClothesOrders: {
       color?: (number | components["schemas"]["ItemsClothes"]) | null;
@@ -6502,6 +6502,19 @@ export interface components {
       linkedin?: string | null;
       picture?: (string | components["schemas"]["Files"]) | null;
     };
+    ItemsIcbdActivitiesRegistrations: {
+      attended?: boolean | null;
+      icbd_activity?:
+        | (number | components["schemas"]["ItemsIcbdActivities"])
+        | null;
+      id?: number;
+      registration?:
+        | (string | components["schemas"]["ItemsRegistrations"])
+        | null;
+      /** Format: time */
+      start?: string | null;
+      waitlist?: boolean | null;
+    };
     ItemsIcbdActivitiesTranslations: {
       description?: string | null;
       icbd_activities_id?:
@@ -6685,19 +6698,6 @@ export interface components {
         | (string | components["schemas"]["ItemsLanguages"])
         | null;
       subsonic_id?: (number | components["schemas"]["ItemsSubsonic"]) | null;
-    };
-    ItemsIcbdActivitiesRegistrations: {
-      attended?: boolean | null;
-      icbd_activity?:
-        | (number | components["schemas"]["ItemsIcbdActivities"])
-        | null;
-      id?: number;
-      registration?:
-        | (string | components["schemas"]["ItemsRegistrations"])
-        | null;
-      /** Format: time */
-      start?: string | null;
-      waitlist?: boolean | null;
     };
   };
   responses: {
@@ -10886,424 +10886,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  getWebhooks: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Webhooks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  createWebhook: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /**
-           * @description The name of the webhook.
-           * @example create articles
-           */
-          name?: string;
-          /**
-           * @description Method used in the webhook.
-           * @example POST
-           */
-          method?: string;
-          /**
-           * @description The url of the webhook.
-           * @example null
-           */
-          url?: string;
-          /**
-           * @description The status of the webhook.
-           * @example active
-           */
-          status?: string;
-          /**
-           * @description If yes, send the content of what was done
-           * @example true
-           */
-          data?: boolean;
-          /**
-           * @description The actions that triggers this webhook.
-           * @example null
-           */
-          actions?: unknown;
-          /**
-           * @description The collections that triggers this webhook.
-           * @example null
-           */
-          "system-collections"?: unknown;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Roles"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteWebhooks: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateWebhooks: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          data?: {
-            /**
-             * @description The name of the webhook.
-             * @example create articles
-             */
-            name?: string;
-            /**
-             * @description Method used in the webhook.
-             * @example POST
-             */
-            method?: string;
-            /**
-             * @description The url of the webhook.
-             * @example null
-             */
-            url?: string;
-            /**
-             * @description The status of the webhook.
-             * @example active
-             */
-            status?: string;
-            /**
-             * @description If yes, send the content of what was done
-             * @example true
-             */
-            data?: boolean;
-            /**
-             * @description The actions that triggers this webhook.
-             * @example null
-             */
-            actions?: unknown;
-            /**
-             * @description The collections that triggers this webhook.
-             * @example null
-             */
-            "system-collections"?: unknown;
-          };
-          keys?: string[];
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Webhooks"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  getWebhook: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Unique identifier for the object. */
-        id: components["parameters"]["UUId"];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Webhooks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteWebhook: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Unique identifier for the object. */
-        id: components["parameters"]["UUId"];
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateWebhook: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path: {
-        /** @description Unique identifier for the object. */
-        id: components["parameters"]["UUId"];
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /**
-           * @description The name of the webhook.
-           * @example create articles
-           */
-          name?: string;
-          /**
-           * @description Method used in the webhook.
-           * @example POST
-           */
-          method?: string;
-          /**
-           * @description The url of the webhook.
-           * @example null
-           */
-          url?: string;
-          /**
-           * @description The status of the webhook.
-           * @example active
-           */
-          status?: string;
-          /**
-           * @description If yes, send the content of what was done
-           * @example true
-           */
-          data?: boolean;
-          /**
-           * @description The actions that triggers this webhook.
-           * @example null
-           */
-          actions?: unknown;
-          /**
-           * @description The collections that triggers this webhook.
-           * @example null
-           */
-          "system-collections"?: unknown;
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Roles"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  listExtensions: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateExtensions: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
-          meta?: {
-            /**
-             * @description Whether or not the extension is enabled.
-             * @example true
-             */
-            enabled?: boolean;
-          };
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateExtensionBundle: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        bundle: string;
-        name: string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": {
-          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
-          meta?: {
-            /**
-             * @description Whether or not the extension is enabled.
-             * @example true
-             */
-            enabled?: boolean;
-          };
-        };
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Extensions"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
   getContentVersions: {
     parameters: {
       query?: {
@@ -11623,6 +11205,711 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  listExtensions: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateExtensions: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
+          meta?: {
+            /**
+             * @description Whether or not the extension is enabled.
+             * @example true
+             */
+            enabled?: boolean;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateExtensionBundle: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        bundle: string;
+        name: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /** @description Directus metadata for the extension. Where the configuration for the extension in the current project is stored. */
+          meta?: {
+            /**
+             * @description Whether or not the extension is enabled.
+             * @example true
+             */
+            enabled?: boolean;
+          };
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Extensions"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  readItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  createItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  deleteItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+    };
+  };
+  readSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+        version?: components["parameters"]["Version"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  getSettings: {
+    parameters: {
+      query?: {
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description Cursor for use in pagination. Often used in combination with limit. */
+        page?: components["parameters"]["Page"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateSetting: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": Record<string, never>;
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Settings"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  getWebhooks: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Webhooks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  createWebhook: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description The name of the webhook.
+           * @example create articles
+           */
+          name?: string;
+          /**
+           * @description Method used in the webhook.
+           * @example POST
+           */
+          method?: string;
+          /**
+           * @description The url of the webhook.
+           * @example null
+           */
+          url?: string;
+          /**
+           * @description The status of the webhook.
+           * @example active
+           */
+          status?: string;
+          /**
+           * @description If yes, send the content of what was done
+           * @example true
+           */
+          data?: boolean;
+          /**
+           * @description The actions that triggers this webhook.
+           * @example null
+           */
+          actions?: unknown;
+          /**
+           * @description The collections that triggers this webhook.
+           * @example null
+           */
+          "system-collections"?: unknown;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Roles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteWebhooks: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateWebhooks: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          data?: {
+            /**
+             * @description The name of the webhook.
+             * @example create articles
+             */
+            name?: string;
+            /**
+             * @description Method used in the webhook.
+             * @example POST
+             */
+            method?: string;
+            /**
+             * @description The url of the webhook.
+             * @example null
+             */
+            url?: string;
+            /**
+             * @description The status of the webhook.
+             * @example active
+             */
+            status?: string;
+            /**
+             * @description If yes, send the content of what was done
+             * @example true
+             */
+            data?: boolean;
+            /**
+             * @description The actions that triggers this webhook.
+             * @example null
+             */
+            actions?: unknown;
+            /**
+             * @description The collections that triggers this webhook.
+             * @example null
+             */
+            "system-collections"?: unknown;
+          };
+          keys?: string[];
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Webhooks"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  getWebhook: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Unique identifier for the object. */
+        id: components["parameters"]["UUId"];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Webhooks"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteWebhook: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Unique identifier for the object. */
+        id: components["parameters"]["UUId"];
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateWebhook: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path: {
+        /** @description Unique identifier for the object. */
+        id: components["parameters"]["UUId"];
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": {
+          /**
+           * @description The name of the webhook.
+           * @example create articles
+           */
+          name?: string;
+          /**
+           * @description Method used in the webhook.
+           * @example POST
+           */
+          method?: string;
+          /**
+           * @description The url of the webhook.
+           * @example null
+           */
+          url?: string;
+          /**
+           * @description The status of the webhook.
+           * @example active
+           */
+          status?: string;
+          /**
+           * @description If yes, send the content of what was done
+           * @example true
+           */
+          data?: boolean;
+          /**
+           * @description The actions that triggers this webhook.
+           * @example null
+           */
+          actions?: unknown;
+          /**
+           * @description The collections that triggers this webhook.
+           * @example null
+           */
+          "system-collections"?: unknown;
+        };
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["Roles"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
   getComments: {
     parameters: {
       query?: {
@@ -11871,293 +12158,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  getSettings: {
-    parameters: {
-      query?: {
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description Cursor for use in pagination. Often used in combination with limit. */
-        page?: components["parameters"]["Page"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSetting: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": Record<string, never>;
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["Settings"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  readItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-    };
-  };
-  readSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
   readItemsGameStarSocialLinks: {
     parameters: {
       query?: {
@@ -12377,232 +12377,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsGameStarSocialLinks"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  readItemsEvents: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsEvents: {
-    parameters: {
-      query?: {
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsEvents: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsEvents: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsEvents"][]
-          | components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"][];
-          };
-        };
-      };
-    };
-  };
-  readSingleItemsEvents: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsEvents: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsEvents: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsEvents"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsEvents"];
           };
         };
       };
@@ -16219,6 +15993,232 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsClothes"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  readItemsEvents: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  createItemsEvents: {
+    parameters: {
+      query?: {
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  deleteItemsEvents: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateItemsEvents: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsEvents"][]
+          | components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"][];
+          };
+        };
+      };
+    };
+  };
+  readSingleItemsEvents: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+        version?: components["parameters"]["Version"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteSingleItemsEvents: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateSingleItemsEvents: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsEvents"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsEvents"];
           };
         };
       };
@@ -20746,6 +20746,232 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  readItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  createItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  deleteItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description A limit on the number of objects that are returned. */
+        limit?: components["parameters"]["Limit"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description How many items to skip when fetching data. */
+        offset?: components["parameters"]["Offset"];
+        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+        sort?: components["parameters"]["Sort"];
+        /** @description Select items in collection by given conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query in one of their fields. */
+        search?: components["parameters"]["Search"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
+          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
+          };
+        };
+      };
+    };
+  };
+  readSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+        version?: components["parameters"]["Version"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateSingleItemsIcbdActivitiesRegistrations: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are being returned in the object. */
+        fields?: components["parameters"]["Fields"];
+        /** @description What metadata to return in the response. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
   readItemsIcbdActivitiesTranslations: {
     parameters: {
       query?: {
@@ -24581,232 +24807,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["ItemsSubsonicTranslations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  readItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description A limit on the number of objects that are returned. */
-        limit?: components["parameters"]["Limit"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description How many items to skip when fetching data. */
-        offset?: components["parameters"]["Offset"];
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        sort?: components["parameters"]["Sort"];
-        /** @description Select items in collection by given conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        search?: components["parameters"]["Search"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"][]
-          | components["schemas"]["ItemsIcbdActivitiesRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"][];
-          };
-        };
-      };
-    };
-  };
-  readSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsIcbdActivitiesRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are being returned in the object. */
-        fields?: components["parameters"]["Fields"];
-        /** @description What metadata to return in the response. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcbdActivitiesRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcbdActivitiesRegistrations"];
           };
         };
       };
