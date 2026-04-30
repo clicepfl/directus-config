@@ -75,7 +75,7 @@
     "_syncId": "347be709-718d-4d1e-a2ed-e3a5e3ce2ccc",
     "key": "gamestar.seeAllEvents",
     "language": "fr-FR",
-    "value": "Voir tous les évènements"
+    "value": "Voir tous les événements"
   },
   {
     "_syncId": "349d78b6-b425-4203-8561-b80aaea95be8",
@@ -93,7 +93,7 @@
     "_syncId": "396e304a-d0ff-4591-a8a9-a0127aa8481a",
     "key": "event",
     "language": "fr-FR",
-    "value": "évènement"
+    "value": "événement"
   },
   {
     "_syncId": "3a1b65e2-5c70-4007-a7f3-69d6e2455583",
@@ -114,6 +114,18 @@
     "value": "plan du BC"
   },
   {
+    "_syncId": "3da98758-bf5c-498f-a990-418a9f2a4d23",
+    "key": "anonymous",
+    "language": "fr-FR",
+    "value": "anonyme"
+  },
+  {
+    "_syncId": "48c0eb1d-aeee-44fe-91d5-ea45de2acf51",
+    "key": "and",
+    "language": "en-US",
+    "value": "and"
+  },
+  {
     "_syncId": "4b060566-d582-4662-b3f3-4f3e672b2f4c",
     "key": "gamestar.comingSoon",
     "language": "fr-FR",
@@ -124,6 +136,12 @@
     "key": "icbd.registration",
     "language": "fr-FR",
     "value": "Inscription"
+  },
+  {
+    "_syncId": "4da638fa-571e-4804-acd1-08c5e1beb954",
+    "key": "anonymous",
+    "language": "en-US",
+    "value": "anonymous"
   },
   {
     "_syncId": "4dc2f3f2-a90a-48d1-b79a-54abe3f80e0c",
@@ -210,6 +228,12 @@
     "value": "From"
   },
   {
+    "_syncId": "7d5bfd44-637c-4b46-8054-261c0bc87a18",
+    "key": "and",
+    "language": "fr-FR",
+    "value": "et"
+  },
+  {
     "_syncId": "7ff5afd9-2541-445f-98fc-f355ee88a122",
     "key": "commissions",
     "language": "en-US",
@@ -219,7 +243,7 @@
     "_syncId": "8add9cd4-2f62-4356-ba34-cd0ee6df95b2",
     "key": "gamestar.upcomingEvents",
     "language": "fr-FR",
-    "value": "Évènements à venir"
+    "value": "Événements à venir"
   },
   {
     "_syncId": "8f0da3bb-8bcd-468c-a9bd-308614076b95",
