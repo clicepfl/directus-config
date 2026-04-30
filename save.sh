@@ -2,8 +2,17 @@
 BASEDIR=$(dirname "$0")
 source $BASEDIR/utils.sh
 
+sort() {
+	tmp=$(mktemp sorting-XXX)
+	jq "sort_by($1, ._syncId)" $2 > $tmp
+	mv $tmp $2
+}
+
 pushd $BASEDIR
 npx directus-sync pull
+
+sort '.flow, .position_x, .position_y, ._syncId' directus-config/collections/operations.json
+sort '.policy, .action, ._syncId' directus-config/collections/permissions.json
 
 pushd generation
 npm i
