@@ -1463,6 +1463,18 @@
     "validation": null
   },
   {
+    "_syncId": "b589fad3-1e0f-40da-bae7-d29848a5ea27",
+    "action": "read",
+    "collection": "game_star_articles_members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "5442dac0-5f51-434d-90b1-285734ff8e49",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "ba44f00e-5934-4210-ab50-34b35991c8fc",
     "action": "read",
     "collection": "news_partners",
