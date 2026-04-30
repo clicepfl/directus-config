@@ -2935,6 +2935,18 @@
     "validation": null
   },
   {
+    "_syncId": "ffa0e468-bf5a-413b-92a6-b44f9f48d6ca",
+    "action": "create",
+    "collection": "game_star_articles_members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "1ad3e5f5-8550-46c2-ad1e-682d04f8cb07",
     "action": "delete",
     "collection": "game_star_events_translations",
@@ -3010,6 +3022,18 @@
     "_syncId": "c75cd888-efc4-4785-bdfe-d3dbce93c8d6",
     "action": "delete",
     "collection": "game_star_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e7aa6e2b-a6f6-4a5e-b7f1-11b9e7791c44",
+    "action": "delete",
+    "collection": "game_star_articles_members",
     "fields": [
       "*"
     ],
@@ -3103,6 +3127,18 @@
     "validation": null
   },
   {
+    "_syncId": "77453ffc-77d4-4ee9-9411-4796ae763047",
+    "action": "read",
+    "collection": "game_star_articles_members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "9355d5c1-e3de-4823-bc4b-4ffba5563341",
     "action": "read",
     "collection": "game_star_articles_translations",
@@ -3142,6 +3178,18 @@
     "_syncId": "f2a4ca28-4b8a-4eff-95b9-49bdf637fe55",
     "action": "read",
     "collection": "game_star_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "2c389c25-2d4e-443e-8e55-87fcdc5ada8f",
+    "action": "update",
+    "collection": "game_star_articles_members",
     "fields": [
       "*"
     ],
