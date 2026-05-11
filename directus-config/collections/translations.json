@@ -1,5 +1,11 @@
 [
   {
+    "_syncId": "009fde68-c6b9-4bd9-b7c2-39317fa7e9fa",
+    "key": "about",
+    "language": "en-US",
+    "value": "about"
+  },
+  {
     "_syncId": "06282670-b775-44b3-8877-f9b931c6c6bf",
     "key": "gamestar.seeAllEvents",
     "language": "en-US",
@@ -412,6 +418,12 @@
     "key": "commission",
     "language": "en-US",
     "value": "commission"
+  },
+  {
+    "_syncId": "c2d97e68-cc09-4fde-b871-0261d421eb5f",
+    "key": "about",
+    "language": "fr-FR",
+    "value": "à propos"
   },
   {
     "_syncId": "c30e8298-18a5-41a3-8dad-3d736db5efe8",
