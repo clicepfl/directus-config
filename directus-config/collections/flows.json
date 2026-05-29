@@ -40,6 +40,26 @@
     "trigger": "operation"
   },
   {
+    "_syncId": "36aad668-c920-4804-9cde-be8f0e89a947",
+    "accountability": "all",
+    "color": "#E35169",
+    "description": "Send the email confirming the order and requesting payment",
+    "icon": "mark_email_unread",
+    "name": "[FSO] Send order confirmation email",
+    "operation": "d81a7e12-0339-4f70-8cce-99b5dcd63921",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
     "_syncId": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
     "accountability": "all",
     "color": null,
@@ -211,7 +231,7 @@
     "color": "#FF9D2D",
     "description": null,
     "icon": "start",
-    "name": "[ICBD] [TRIGGER] Confirmation email from activity registration update",
+    "name": "[ICBD] [TRIGGER] Activity registration update",
     "operation": "4a69daea-858b-478e-a879-f99ada596651",
     "options": {
       "collections": [
@@ -231,7 +251,7 @@
     "color": "#FF9D2D",
     "description": null,
     "icon": "start",
-    "name": "[ICBD] [TRIGGER] Confirmation email from registration update",
+    "name": "[ICBD] [TRIGGER] Registration update",
     "operation": "fef5f568-8096-4f6e-b22a-466609fab749",
     "options": {
       "collections": [
@@ -296,6 +316,26 @@
     "options": {
       "collections": [
         "icbd_activities_registrations"
+      ],
+      "scope": [
+        "items.update"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
+    "_syncId": "d408862a-d0fe-465a-817c-2ad99fdbe21b",
+    "accountability": "all",
+    "color": "#E35169",
+    "description": "Send the email confirming payment reception",
+    "icon": "mark_email_read",
+    "name": "[FSO] Send payment confirmation",
+    "operation": "417a8e20-a6ed-4cb2-a197-ec754d51bc7e",
+    "options": {
+      "collections": [
+        "registrations"
       ],
       "scope": [
         "items.update"

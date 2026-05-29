@@ -26,6 +26,10 @@
           "value": "hello_world"
         },
         {
+          "text": "Clothes sale",
+          "value": "faculty_clothes_sale"
+        },
+        {
           "text": "Other",
           "value": "other"
         },

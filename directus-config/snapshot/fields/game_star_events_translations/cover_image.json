@@ -15,7 +15,7 @@
       "crop": false
     },
     "readonly": false,
-    "required": true,
+    "required": false,
     "sort": 7,
     "special": [
       "file"

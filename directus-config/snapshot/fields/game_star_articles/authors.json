@@ -1,0 +1,29 @@
+{
+  "collection": "game_star_articles",
+  "field": "authors",
+  "meta": {
+    "collection": "game_star_articles",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "authors",
+    "group": null,
+    "hidden": false,
+    "interface": "list-m2m",
+    "note": null,
+    "options": {
+      "enableCreate": false
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 2,
+    "special": [
+      "m2m"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

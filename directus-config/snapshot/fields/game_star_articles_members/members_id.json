@@ -1,0 +1,43 @@
+{
+  "collection": "game_star_articles_members",
+  "field": "members_id",
+  "meta": {
+    "collection": "game_star_articles_members",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "members_id",
+    "group": null,
+    "hidden": true,
+    "interface": null,
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 3,
+    "special": null,
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "integer",
+    "default_value": null,
+    "foreign_key_column": "id",
+    "foreign_key_table": "members",
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "members_id",
+    "numeric_precision": 32,
+    "numeric_scale": 0,
+    "table": "game_star_articles_members"
+  },
+  "type": "integer"
+}

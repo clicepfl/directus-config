@@ -1,3 +1,8 @@
+if ! command -v jq > /dev/null; then
+	echo 'Missing `jq` executable, please make sure it is available in your PATH'
+	exit 1
+fi
+
 find_container() {
     label=$1
     ids=$(docker ps --filter label=org.clic.type=$label -q)

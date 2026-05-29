@@ -1,0 +1,32 @@
+{
+  "collection": "game_star_games",
+  "field": "translations",
+  "meta": {
+    "collection": "game_star_games",
+    "conditions": null,
+    "display": "translations",
+    "display_options": {
+      "template": "{{description}}",
+      "userLanguage": true
+    },
+    "field": "translations",
+    "group": null,
+    "hidden": false,
+    "interface": "translations",
+    "note": null,
+    "options": {
+      "defaultOpenSplitView": true
+    },
+    "readonly": false,
+    "required": true,
+    "sort": 6,
+    "special": [
+      "translations"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

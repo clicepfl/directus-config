@@ -30,8 +30,11 @@ export type Registration = Schema["registrations"][0];
 export type Event = Schema["events"][0];
 export type ICBDActivityRegistration = Schema["icbd_activities_registrations"][0];
 export type GameStarArticle = Schema["game_star_articles"][0];
+export type GameStarArticleMember = Schema["game_star_articles_members"][0];
 export type GameStarEvent = Schema["game_star_events"][0];
 export type GameStarProject = Schema["game_star_projects"][0];
+export type GameStarGame = Schema["game_star_games"][0];
 export type GameStarSocialLink = Schema["game_star_social_links"][0];
 export type Gallery = Schema["galleries"][0];
+export type Clothes = Schema["clothes"][0];
 
