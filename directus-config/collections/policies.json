@@ -44,21 +44,6 @@
     "name": "Commission",
     "roles": [
       {
-        "role": null,
-        "sort": 1,
-        "user": null
-      },
-      {
-        "role": null,
-        "sort": 1,
-        "user": null
-      },
-      {
-        "role": null,
-        "sort": 1,
-        "user": null
-      },
-      {
         "role": "a0395519-a1f6-4cb9-962f-a5cc60f72b3d",
         "sort": 1,
         "user": null
@@ -66,11 +51,6 @@
       {
         "role": "eb720759-4e38-4220-b10e-40732dc59315",
         "sort": 2,
-        "user": null
-      },
-      {
-        "role": null,
-        "sort": null,
         "user": null
       }
     ]
@@ -118,13 +98,7 @@
     "icon": "airplane_ticket",
     "ip_access": null,
     "name": "Clicketing",
-    "roles": [
-      {
-        "role": null,
-        "sort": null,
-        "user": null
-      }
-    ]
+    "roles": []
   },
   {
     "_syncId": "8d7efa31-b9a9-40cb-8797-7af785c1f680",
