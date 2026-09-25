@@ -2780,9 +2780,33 @@
     "validation": null
   },
   {
+    "_syncId": "32fc75b0-2e61-459d-b298-fceb4831e901",
+    "action": "read",
+    "collection": "icelan_sponsors",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "35082efc-61f9-4590-88fa-8f713f59b8e1",
     "action": "read",
     "collection": "directus_folders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ac6ebd24-7d82-4b22-8732-8a5178cc5235",
+    "action": "read",
+    "collection": "icelan",
     "fields": [
       "*"
     ],
@@ -2858,6 +2882,42 @@
         }
       ]
     },
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ad4545cb-0a48-49f2-83df-879f951f5d22",
+    "action": "read",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "da94446b-8d86-4763-ae19-b8f8b23c3274",
+    "action": "read",
+    "collection": "icelan_collabs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e07a16cf-d1e9-4772-a7dd-27665d0e796c",
+    "action": "read",
+    "collection": "icelan_faqs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
     "policy": "_sync_default_public_policy",
     "presets": null,
     "validation": null
