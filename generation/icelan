@@ -26747,7 +26747,7 @@ export type Schema = {
   icbd_phds: components["schemas"]["ItemsIcbdPhds"][],
   icbd_speakers: components["schemas"]["ItemsIcbdSpeakers"][],
   icbd_translations: components["schemas"]["ItemsIcbdTranslations"][],
-  icelan: components["schemas"]["ItemsIcelan"],
+  icelan: components["schemas"]["ItemsIcelan"][],
   icelan_animations: components["schemas"]["ItemsIcelanAnimations"][],
   icelan_collabs: components["schemas"]["ItemsIcelanCollabs"][],
   icelan_faqs: components["schemas"]["ItemsIcelanFaqs"][],
