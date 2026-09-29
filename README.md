@@ -25,6 +25,19 @@ If you wish to change the schema or update/add flows, you can do it on your loca
 
 You may also want to update the sample data: the files are automatically saved in `uploads/`, and you can generate a dump of Directus' database using `sh save-data.sh`, which will write into `new-dump.sql`. Then, copy the relevant insertions in the `dump.sql` (take care of the order, to avoid constraint error during populate).
 
+#### Adding a new singleton
+Make sure to add the singleton collection to the comma seperated list in `save.sh`:
+```sh
+# -snip-
+npm run gen \
+       http://localhost/directus/server/specs/oas \
+       00000000-0000-0000-0000-000000000000 \
+       singleton0,singleton1,singleton2,<YOUR_NEW_SINGLETON_HERE> \
+       ../types/schema.d.ts
+# -snip-
+```
+And then update the schema by running that script, it should now be considered as a singleton collection in the types.
+
 ## Setting up Directus in a new repository
 
 If you wish to integrate Directus into a new project, you need to:
