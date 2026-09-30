@@ -19,7 +19,7 @@ npm i
 npm run gen \
 	http://localhost/directus/server/specs/oas \
 	00000000-0000-0000-0000-000000000000 \
-	association,subsonic,save_the_date,game_star \
+	association,subsonic,save_the_date,game_star,icelan \
 	../types/schema.d.ts
 popd
 

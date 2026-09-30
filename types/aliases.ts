@@ -4,8 +4,8 @@ import { Schema, components } from "./schema";
 
 export type Association = components["schemas"]["ItemsAssociation"];
 export type Subsonic = components["schemas"]["ItemsSubsonic"];
-export type GameStar = components["schemas"]["ItemsGameStar"];
 export type SaveTheDate = components["schemas"]["ItemsSavetheDate"];
+export type GameStar = components["schemas"]["ItemsGameStar"];
 export type Icelan = components["schemas"]["ItemsIcelan"];
 
 export type AssociationMembership = Schema["association_memberships"][0];
