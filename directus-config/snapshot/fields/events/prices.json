@@ -1,0 +1,46 @@
+{
+  "collection": "events",
+  "field": "prices",
+  "meta": {
+    "collection": "events",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "display",
+        "rule": {
+          "_and": [
+            {
+              "price_model": {
+                "_in": [
+                  "one_price",
+                  "two_prices"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": null,
+    "display_options": null,
+    "field": "prices",
+    "group": null,
+    "hidden": true,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "sort": 8,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}
