@@ -1,20 +1,39 @@
 {
-  "collection": "registrations",
-  "field": "section",
+  "collection": "events",
+  "field": "first_price",
   "meta": {
-    "collection": "registrations",
-    "conditions": null,
+    "collection": "events",
+    "conditions": [
+      {
+        "name": "must_set",
+        "required": true,
+        "rule": {
+          "_and": [
+            {
+              "price_model": {
+                "_in": [
+                  "one_price",
+                  "two_prices"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
     "display": null,
     "display_options": null,
-    "field": "section",
-    "group": null,
+    "field": "first_price",
+    "group": "prices",
     "hidden": false,
     "interface": "input",
     "note": null,
-    "options": null,
+    "options": {
+      "iconLeft": "attach_money"
+    },
     "readonly": false,
     "required": false,
-    "sort": 9,
+    "sort": 1,
     "special": null,
     "translations": null,
     "validation": null,
@@ -34,10 +53,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "section",
+    "name": "first_price",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "registrations"
+    "table": "events"
   },
   "type": "string"
 }

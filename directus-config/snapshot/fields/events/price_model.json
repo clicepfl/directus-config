@@ -1,20 +1,38 @@
 {
-  "collection": "registrations",
-  "field": "section",
+  "collection": "events",
+  "field": "price_model",
   "meta": {
-    "collection": "registrations",
+    "collection": "events",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "section",
+    "field": "price_model",
     "group": null,
     "hidden": false,
-    "interface": "input",
+    "interface": "select-dropdown",
     "note": null,
-    "options": null,
+    "options": {
+      "choices": [
+        {
+          "icon": "money_off",
+          "text": "Free",
+          "value": "free"
+        },
+        {
+          "icon": "attach_money",
+          "text": "One price",
+          "value": "one_price"
+        },
+        {
+          "icon": "monetization_on",
+          "text": "Int/Ext prices",
+          "value": "two_prices"
+        }
+      ]
+    },
     "readonly": false,
-    "required": false,
-    "sort": 9,
+    "required": true,
+    "sort": 6,
     "special": null,
     "translations": null,
     "validation": null,
@@ -34,10 +52,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "section",
+    "name": "price_model",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "registrations"
+    "table": "events"
   },
   "type": "string"
 }

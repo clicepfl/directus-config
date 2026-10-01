@@ -1,18 +1,20 @@
 {
   "collection": "events",
-  "field": "faculty_dinner",
+  "field": "prices",
   "meta": {
     "collection": "events",
     "conditions": [
       {
         "hidden": false,
         "name": "display",
-        "options": {},
         "rule": {
           "_and": [
             {
-              "type": {
-                "_eq": "faculty_dinner"
+              "price_model": {
+                "_in": [
+                  "one_price",
+                  "two_prices"
+                ]
               }
             }
           ]
@@ -21,7 +23,7 @@
     ],
     "display": null,
     "display_options": null,
-    "field": "faculty_dinner",
+    "field": "prices",
     "group": null,
     "hidden": true,
     "interface": "group-raw",
@@ -29,11 +31,11 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 18,
+    "sort": 8,
     "special": [
       "alias",
-      "group",
-      "no-data"
+      "no-data",
+      "group"
     ],
     "translations": null,
     "validation": null,

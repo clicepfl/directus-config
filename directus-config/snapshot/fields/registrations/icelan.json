@@ -1,12 +1,12 @@
 {
   "collection": "registrations",
-  "field": "faculty_dinner",
+  "field": "icelan",
   "meta": {
     "collection": "registrations",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "faculty_dinner",
+    "field": "icelan",
     "group": "additional_infos",
     "hidden": false,
     "interface": "group-raw",
@@ -14,11 +14,11 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 3,
+    "sort": 1,
     "special": [
       "alias",
-      "group",
-      "no-data"
+      "no-data",
+      "group"
     ],
     "translations": null,
     "validation": null,

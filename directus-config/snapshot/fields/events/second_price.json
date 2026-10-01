@@ -1,20 +1,37 @@
 {
-  "collection": "registrations",
-  "field": "section",
+  "collection": "events",
+  "field": "second_price",
   "meta": {
-    "collection": "registrations",
-    "conditions": null,
+    "collection": "events",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "display and must_set",
+        "required": true,
+        "rule": {
+          "_and": [
+            {
+              "price_model": {
+                "_eq": "two_prices"
+              }
+            }
+          ]
+        }
+      }
+    ],
     "display": null,
     "display_options": null,
-    "field": "section",
-    "group": null,
-    "hidden": false,
+    "field": "second_price",
+    "group": "prices",
+    "hidden": true,
     "interface": "input",
     "note": null,
-    "options": null,
+    "options": {
+      "iconLeft": "attach_money"
+    },
     "readonly": false,
     "required": false,
-    "sort": 9,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
@@ -34,10 +51,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
-    "name": "section",
+    "name": "second_price",
     "numeric_precision": null,
     "numeric_scale": null,
-    "table": "registrations"
+    "table": "events"
   },
   "type": "string"
 }
