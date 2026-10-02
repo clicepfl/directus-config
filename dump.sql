@@ -51,9 +51,9 @@ INSERT INTO public.association_poles (id, slug, mail) VALUES (1, 'presidency', '
 INSERT INTO public.association_poles (id, slug, mail) VALUES (2, 'it', 'it.clic@epfl.ch') ON CONFLICT DO NOTHING;
 
 
-INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (1, 'John', 'Doe', NULL, NULL, NULL, 'eb4d7ae6-bb29-458d-a3ef-0b8470f16931', 0) ON CONFLICT DO NOTHING;
-INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (2, 'Jack', 'Cooper', NULL, NULL, NULL, '525d475c-24a0-45cb-947f-c70eca52c3b6', 0) ON CONFLICT DO NOTHING;
-INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (3, 'Tai', 'Lastimosa', NULL, NULL, NULL, 'df7992b2-955e-4b18-b0d5-45d58da4e373', 0) ON CONFLICT DO NOTHING;
+INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (1, 'John', 'Doe', NULL, NULL, 'https://people.epfl.cc/John.Doe', 'eb4d7ae6-bb29-458d-a3ef-0b8470f16931', 0) ON CONFLICT DO NOTHING;
+INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (2, 'Jack', 'Cooper', NULL, NULL, 'http://localhost/donuts', '525d475c-24a0-45cb-947f-c70eca52c3b6', 0) ON CONFLICT DO NOTHING;
+INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (3, 'Tai', 'Lastimosa', NULL, NULL, 'https://example.org/', 'df7992b2-955e-4b18-b0d5-45d58da4e373', 0) ON CONFLICT DO NOTHING;
 INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (4, 'Droz', '(6-4)', NULL, NULL, NULL, '77eb9ef9-3549-4788-a9aa-5d567cc3fd9f', 0) ON CONFLICT DO NOTHING;
 INSERT INTO public.members (id, name, surname, email, sciper, link, picture, poll_count) VALUES (5, 'Davis', '(6-4)', NULL, NULL, NULL, 'c44d5d98-9bbc-4351-975c-88b1f8b67d9c', 0) ON CONFLICT DO NOTHING;
 
