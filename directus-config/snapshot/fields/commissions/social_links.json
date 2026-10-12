@@ -14,7 +14,7 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 9,
+    "sort": 8,
     "special": [
       "m2m"
     ],

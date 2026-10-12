@@ -19,12 +19,12 @@
     },
     "readonly": false,
     "required": true,
-    "sort": 2,
+    "sort": 4,
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "half"
+    "width": "full"
   },
   "schema": {
     "data_type": "character varying",

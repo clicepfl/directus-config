@@ -7,7 +7,7 @@
     "display": null,
     "display_options": null,
     "field": "meal",
-    "group": "faculty_dinner",
+    "group": "food",
     "hidden": false,
     "interface": "input",
     "note": null,

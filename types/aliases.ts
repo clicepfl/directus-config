@@ -42,5 +42,6 @@ export type IcelanSponsor = Schema["icelan_sponsors"][0];
 export type IcelanCollab = Schema["icelan_collabs"][0];
 export type IcelanFaq = Schema["icelan_faqs"][0];
 export type IcelanAnimation = Schema["icelan_animations"][0];
+export type IcelanTournoi = Schema["icelan_tournois"][0];
 export type Gallery = Schema["galleries"][0];
 export type Clothes = Schema["clothes"][0];

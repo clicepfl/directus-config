@@ -1,0 +1,31 @@
+{
+  "collection": "commissions",
+  "field": "billing",
+  "meta": {
+    "collection": "commissions",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "billing",
+    "group": null,
+    "hidden": false,
+    "interface": "group-detail",
+    "note": null,
+    "options": {
+      "start": "closed"
+    },
+    "readonly": false,
+    "required": false,
+    "sort": 9,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}
