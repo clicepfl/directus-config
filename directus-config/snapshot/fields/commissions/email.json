@@ -19,13 +19,17 @@
     },
     "readonly": false,
     "required": true,
+<<<<<<< HEAD
     "searchable": true,
     "sort": 2,
+=======
+    "sort": 4,
+>>>>>>> e2261da (ICeLAN form + start of commision billing)
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "half"
+    "width": "full"
   },
   "schema": {
     "data_type": "character varying",

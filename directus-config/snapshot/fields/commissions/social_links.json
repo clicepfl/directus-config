@@ -14,8 +14,12 @@
     "options": null,
     "readonly": false,
     "required": false,
+<<<<<<< HEAD
     "searchable": true,
     "sort": 9,
+=======
+    "sort": 8,
+>>>>>>> e2261da (ICeLAN form + start of commision billing)
     "special": [
       "m2m"
     ],

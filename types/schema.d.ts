@@ -2803,66 +2803,6 @@ export interface paths {
         patch: operations["updateSingleItemsClothesOrders"];
         trace?: never;
     };
-    "/items/commissions": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Items
-         * @description List the commissions items.
-         */
-        get: operations["readItemsCommissions"];
-        put?: never;
-        /**
-         * Create an Item
-         * @description Create a new commissions item.
-         */
-        post: operations["createItemsCommissions"];
-        /**
-         * Delete Multiple Items
-         * @description Delete multiple existing commissions items.
-         */
-        delete: operations["deleteItemsCommissions"];
-        options?: never;
-        head?: never;
-        /**
-         * Update Multiple Items
-         * @description Update multiple commissions items at the same time.
-         */
-        patch: operations["updateItemsCommissions"];
-        trace?: never;
-    };
-    "/items/commissions/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve an Item
-         * @description Retrieve a single commissions item by unique identifier.
-         */
-        get: operations["readSingleItemsCommissions"];
-        put?: never;
-        post?: never;
-        /**
-         * Delete an Item
-         * @description Delete an existing commissions item.
-         */
-        delete: operations["deleteSingleItemsCommissions"];
-        options?: never;
-        head?: never;
-        /**
-         * Update an Item
-         * @description Update an existing commissions item.
-         */
-        patch: operations["updateSingleItemsCommissions"];
-        trace?: never;
-    };
     "/items/commission_memberships": {
         parameters: {
             query?: never;
@@ -3463,7 +3403,7 @@ export interface paths {
         patch: operations["updateSingleItemsGameStar"];
         trace?: never;
     };
-    "/items/events": {
+    "/items/commissions": {
         parameters: {
             query?: never;
             header?: never;
@@ -3472,30 +3412,30 @@ export interface paths {
         };
         /**
          * List Items
-         * @description List the events items.
+         * @description List the commissions items.
          */
-        get: operations["readItemsEvents"];
+        get: operations["readItemsCommissions"];
         put?: never;
         /**
          * Create an Item
-         * @description Create a new events item.
+         * @description Create a new commissions item.
          */
-        post: operations["createItemsEvents"];
+        post: operations["createItemsCommissions"];
         /**
          * Delete Multiple Items
-         * @description Delete multiple existing events items.
+         * @description Delete multiple existing commissions items.
          */
-        delete: operations["deleteItemsEvents"];
+        delete: operations["deleteItemsCommissions"];
         options?: never;
         head?: never;
         /**
          * Update Multiple Items
-         * @description Update multiple events items at the same time.
+         * @description Update multiple commissions items at the same time.
          */
-        patch: operations["updateItemsEvents"];
+        patch: operations["updateItemsCommissions"];
         trace?: never;
     };
-    "/items/events/{id}": {
+    "/items/commissions/{id}": {
         parameters: {
             query?: never;
             header?: never;
@@ -3504,23 +3444,23 @@ export interface paths {
         };
         /**
          * Retrieve an Item
-         * @description Retrieve a single events item by unique identifier.
+         * @description Retrieve a single commissions item by unique identifier.
          */
-        get: operations["readSingleItemsEvents"];
+        get: operations["readSingleItemsCommissions"];
         put?: never;
         post?: never;
         /**
          * Delete an Item
-         * @description Delete an existing events item.
+         * @description Delete an existing commissions item.
          */
-        delete: operations["deleteSingleItemsEvents"];
+        delete: operations["deleteSingleItemsCommissions"];
         options?: never;
         head?: never;
         /**
          * Update an Item
-         * @description Update an existing events item.
+         * @description Update an existing commissions item.
          */
-        patch: operations["updateSingleItemsEvents"];
+        patch: operations["updateSingleItemsCommissions"];
         trace?: never;
     };
     "/items/game_star_events": {
@@ -3641,6 +3581,66 @@ export interface paths {
          * @description Update an existing registrations item.
          */
         patch: operations["updateSingleItemsRegistrations"];
+        trace?: never;
+    };
+    "/items/events": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Items
+         * @description List the events items.
+         */
+        get: operations["readItemsEvents"];
+        put?: never;
+        /**
+         * Create an Item
+         * @description Create a new events item.
+         */
+        post: operations["createItemsEvents"];
+        /**
+         * Delete Multiple Items
+         * @description Delete multiple existing events items.
+         */
+        delete: operations["deleteItemsEvents"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Multiple Items
+         * @description Update multiple events items at the same time.
+         */
+        patch: operations["updateItemsEvents"];
+        trace?: never;
+    };
+    "/items/events/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve an Item
+         * @description Retrieve a single events item by unique identifier.
+         */
+        get: operations["readSingleItemsEvents"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete an Item
+         * @description Delete an existing events item.
+         */
+        delete: operations["deleteSingleItemsEvents"];
+        options?: never;
+        head?: never;
+        /**
+         * Update an Item
+         * @description Update an existing events item.
+         */
+        patch: operations["updateSingleItemsEvents"];
         trace?: never;
     };
     "/items/game_star_translations": {
@@ -5503,6 +5503,126 @@ export interface paths {
         patch: operations["updateSingleItemsIcelanSponsors"];
         trace?: never;
     };
+    "/items/icelan_tournois_registrations": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Items
+         * @description List the icelan_tournois_registrations items.
+         */
+        get: operations["readItemsIcelanTournoisRegistrations"];
+        put?: never;
+        /**
+         * Create an Item
+         * @description Create a new icelan_tournois_registrations item.
+         */
+        post: operations["createItemsIcelanTournoisRegistrations"];
+        /**
+         * Delete Multiple Items
+         * @description Delete multiple existing icelan_tournois_registrations items.
+         */
+        delete: operations["deleteItemsIcelanTournoisRegistrations"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Multiple Items
+         * @description Update multiple icelan_tournois_registrations items at the same time.
+         */
+        patch: operations["updateItemsIcelanTournoisRegistrations"];
+        trace?: never;
+    };
+    "/items/icelan_tournois_registrations/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve an Item
+         * @description Retrieve a single icelan_tournois_registrations item by unique identifier.
+         */
+        get: operations["readSingleItemsIcelanTournoisRegistrations"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete an Item
+         * @description Delete an existing icelan_tournois_registrations item.
+         */
+        delete: operations["deleteSingleItemsIcelanTournoisRegistrations"];
+        options?: never;
+        head?: never;
+        /**
+         * Update an Item
+         * @description Update an existing icelan_tournois_registrations item.
+         */
+        patch: operations["updateSingleItemsIcelanTournoisRegistrations"];
+        trace?: never;
+    };
+    "/items/icelan_tournois": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Items
+         * @description List the icelan_tournois items.
+         */
+        get: operations["readItemsIcelanTournois"];
+        put?: never;
+        /**
+         * Create an Item
+         * @description Create a new icelan_tournois item.
+         */
+        post: operations["createItemsIcelanTournois"];
+        /**
+         * Delete Multiple Items
+         * @description Delete multiple existing icelan_tournois items.
+         */
+        delete: operations["deleteItemsIcelanTournois"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Multiple Items
+         * @description Update multiple icelan_tournois items at the same time.
+         */
+        patch: operations["updateItemsIcelanTournois"];
+        trace?: never;
+    };
+    "/items/icelan_tournois/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve an Item
+         * @description Retrieve a single icelan_tournois item by unique identifier.
+         */
+        get: operations["readSingleItemsIcelanTournois"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete an Item
+         * @description Delete an existing icelan_tournois item.
+         */
+        delete: operations["deleteSingleItemsIcelanTournois"];
+        options?: never;
+        head?: never;
+        /**
+         * Update an Item
+         * @description Update an existing icelan_tournois item.
+         */
+        patch: operations["updateSingleItemsIcelanTournois"];
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -6649,16 +6769,6 @@ export interface components {
             order?: (string | components["schemas"]["ItemsRegistrations"]) | null;
             size?: string | null;
         };
-        ItemsCommissions: {
-            email?: string | null;
-            id?: number;
-            logo?: (string | components["schemas"]["Files"]) | null;
-            name?: string | null;
-            slug?: string | null;
-            partners?: (number[] | components["schemas"]["ItemsPartners"][]) | null;
-            social_links?: (number[] | components["schemas"]["ItemsCommissionsSocialLinks"][]) | null;
-            translations?: (number[] | components["schemas"]["ItemsCommissionsTranslations"][]) | null;
-        };
         ItemsCommissionMemberships: {
             commission: number | components["schemas"]["ItemsCommissions"];
             id?: number;
@@ -6739,42 +6849,20 @@ export interface components {
             id?: number;
             translations?: (number[] | components["schemas"]["ItemsGameStarTranslations"][]) | null;
         };
-        ItemsEvents: {
-            /**
-             * Format: uuid
-             * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
-             */
-            admin_secret?: string | null;
-            background_color?: string | null;
-            banner?: (string | components["schemas"]["Files"]) | null;
-            /** @description Appears under: Your registration to Event is successful ! */
-            confirmation_text?: string | null;
-            /** Format: date-time */
-            from?: string | null;
-            icbd_event?: (number | components["schemas"]["ItemsIcbd"]) | null;
+        ItemsCommissions: {
+            email?: string | null;
             id?: number;
-            /** @description Appears at the top of the form */
-            intro_text?: string | null;
-            location?: string | null;
-            max_registrations?: number | null;
-            meals?: unknown;
+            logo?: (string | components["schemas"]["Files"]) | null;
             name?: string | null;
-            opened?: boolean | null;
-            registration_count?: number;
-            /** @description Unique url name of the event, e.g. "icbd-2025" */
             slug?: string | null;
-            staffingShiftSize?: number | null;
-            staffingTypes?: unknown;
-            /** Format: date-time */
-            staffing_from?: string | null;
-            /** Format: date-time */
-            staffing_to?: string | null;
-            /** Format: date-time */
-            to?: string | null;
-            type?: string | null;
-            price_model?: string | null;
-            first_price?: string | null;
-            second_price?: string | null;
+            street?: string | null;
+            bank_account?: string | null;
+            postal_code?: number | null;
+            country_code?: string | null;
+            town?: string | null;
+            translations?: (number[] | components["schemas"]["ItemsCommissionsTranslations"][]) | null;
+            partners?: (number[] | components["schemas"]["ItemsPartners"][]) | null;
+            social_links?: (number[] | components["schemas"]["ItemsCommissionsSocialLinks"][]) | null;
         };
         ItemsGameStarEvents: {
             /** Format: date-time */
@@ -6818,6 +6906,48 @@ export interface components {
             year?: string | null;
             pseudonym?: string | null;
             discord_username?: string | null;
+            student?: boolean | null;
+            donation?: number | null;
+            price_to_pay?: string | null;
+        };
+        ItemsEvents: {
+            /**
+             * Format: uuid
+             * @description Admin panel at https://clic.epfl.ch/clicketing/$slug/$password
+             */
+            admin_secret?: string | null;
+            background_color?: string | null;
+            banner?: (string | components["schemas"]["Files"]) | null;
+            /** @description Appears under: Your registration to Event is successful ! */
+            confirmation_text?: string | null;
+            /** Format: date-time */
+            from?: string | null;
+            icbd_event?: (number | components["schemas"]["ItemsIcbd"]) | null;
+            id?: number;
+            /** @description Appears at the top of the form */
+            intro_text?: string | null;
+            location?: string | null;
+            max_registrations?: number | null;
+            meals?: unknown;
+            name?: string | null;
+            opened?: boolean | null;
+            registration_count?: number;
+            /** @description Unique url name of the event, e.g. "icbd-2025" */
+            slug?: string | null;
+            staffingShiftSize?: number | null;
+            staffingTypes?: unknown;
+            /** Format: date-time */
+            staffing_from?: string | null;
+            /** Format: date-time */
+            staffing_to?: string | null;
+            /** Format: date-time */
+            to?: string | null;
+            type?: string | null;
+            /** @description Must be 'one_price' for clothes sales */
+            price_model?: string | null;
+            first_price?: number | null;
+            second_price?: number | null;
+            organiser?: (number | components["schemas"]["ItemsCommissions"]) | null;
         };
         ItemsGameStarTranslations: {
             about_text?: string | null;
@@ -7055,6 +7185,16 @@ export interface components {
             id?: number;
             logo: string | components["schemas"]["Files"];
             name: string;
+        };
+        ItemsIcelanTournoisRegistrations: {
+            id?: number;
+            icelan_tournois_id?: (number | components["schemas"]["ItemsIcelanTournois"]) | null;
+            registrations_id?: (string | components["schemas"]["ItemsRegistrations"]) | null;
+        };
+        ItemsIcelanTournois: {
+            id?: number;
+            name?: string | null;
+            interested_players?: (number[] | components["schemas"]["ItemsIcelanTournoisRegistrations"][]) | null;
         };
     };
     responses: {
@@ -16717,228 +16857,6 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    readItemsCommissions: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["ItemsCommissions"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    createItemsCommissions: {
-        parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["ItemsCommissions"][];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    deleteItemsCommissions: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateItemsCommissions: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["ItemsCommissions"][];
-                    };
-                };
-            };
-        };
-    };
-    readSingleItemsCommissions: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-                version?: components["parameters"]["Version"];
-            };
-            header?: never;
-            path: {
-                /** @description Index of the item. */
-                id: number | string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["ItemsCommissions"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteSingleItemsCommissions: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Index of the item. */
-                id: number | string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateSingleItemsCommissions: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Index of the item. */
-                id: number | string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ItemsCommissions"];
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["ItemsCommissions"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
     readItemsCommissionMemberships: {
         parameters: {
             query?: {
@@ -19159,7 +19077,7 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    readItemsEvents: {
+    readItemsCommissions: {
         parameters: {
             query?: {
                 /** @description Control what fields are being returned in the object. */
@@ -19190,7 +19108,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        data?: components["schemas"]["ItemsEvents"][];
+                        data?: components["schemas"]["ItemsCommissions"][];
                         meta?: components["schemas"]["x-metadata"];
                     };
                 };
@@ -19198,7 +19116,7 @@ export interface operations {
             401: components["responses"]["UnauthorizedError"];
         };
     };
-    createItemsEvents: {
+    createItemsCommissions: {
         parameters: {
             query?: {
                 /** @description What metadata to return in the response. */
@@ -19210,7 +19128,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
+                "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
             };
         };
         responses: {
@@ -19221,14 +19139,14 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        data?: components["schemas"]["ItemsEvents"][];
+                        data?: components["schemas"]["ItemsCommissions"][];
                     };
                 };
             };
             401: components["responses"]["UnauthorizedError"];
         };
     };
-    deleteItemsEvents: {
+    deleteItemsCommissions: {
         parameters: {
             query?: never;
             header?: never;
@@ -19247,7 +19165,7 @@ export interface operations {
             401: components["responses"]["UnauthorizedError"];
         };
     };
-    updateItemsEvents: {
+    updateItemsCommissions: {
         parameters: {
             query?: {
                 /** @description Control what fields are being returned in the object. */
@@ -19271,7 +19189,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
+                "application/json": components["schemas"]["ItemsCommissions"][] | components["schemas"]["ItemsCommissions"];
             };
         };
         responses: {
@@ -19282,13 +19200,13 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        data?: components["schemas"]["ItemsEvents"][];
+                        data?: components["schemas"]["ItemsCommissions"][];
                     };
                 };
             };
         };
     };
-    readSingleItemsEvents: {
+    readSingleItemsCommissions: {
         parameters: {
             query?: {
                 /** @description Control what fields are being returned in the object. */
@@ -19314,7 +19232,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        data?: components["schemas"]["ItemsEvents"];
+                        data?: components["schemas"]["ItemsCommissions"];
                     };
                 };
             };
@@ -19322,7 +19240,7 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    deleteSingleItemsEvents: {
+    deleteSingleItemsCommissions: {
         parameters: {
             query?: never;
             header?: never;
@@ -19345,7 +19263,7 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    updateSingleItemsEvents: {
+    updateSingleItemsCommissions: {
         parameters: {
             query?: {
                 /** @description Control what fields are being returned in the object. */
@@ -19362,7 +19280,7 @@ export interface operations {
         };
         requestBody?: {
             content: {
-                "application/json": components["schemas"]["ItemsEvents"];
+                "application/json": components["schemas"]["ItemsCommissions"];
             };
         };
         responses: {
@@ -19373,7 +19291,7 @@ export interface operations {
                 };
                 content: {
                     "application/json": {
-                        data?: components["schemas"]["ItemsEvents"];
+                        data?: components["schemas"]["ItemsCommissions"];
                     };
                 };
             };
@@ -19818,6 +19736,228 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["ItemsRegistrations"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    readItemsEvents: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsEvents"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    createItemsEvents: {
+        parameters: {
+            query?: {
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsEvents"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deleteItemsEvents: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateItemsEvents: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsEvents"][] | components["schemas"]["ItemsEvents"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsEvents"][];
+                    };
+                };
+            };
+        };
+    };
+    readSingleItemsEvents: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsEvents"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteSingleItemsEvents: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateSingleItemsEvents: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsEvents"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsEvents"];
                     };
                 };
             };
@@ -26707,6 +26847,450 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
+    readItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    createItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: {
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournoisRegistrations"][] | components["schemas"]["ItemsIcelanTournoisRegistrations"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deleteItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournoisRegistrations"][] | components["schemas"]["ItemsIcelanTournoisRegistrations"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
+                    };
+                };
+            };
+        };
+    };
+    readSingleItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournoisRegistrations"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteSingleItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateSingleItemsIcelanTournoisRegistrations: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournoisRegistrations"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournoisRegistrations"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    readItemsIcelanTournois: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournois"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    createItemsIcelanTournois: {
+        parameters: {
+            query?: {
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournois"][] | components["schemas"]["ItemsIcelanTournois"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournois"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deleteItemsIcelanTournois: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateItemsIcelanTournois: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description A limit on the number of objects that are returned. */
+                limit?: components["parameters"]["Limit"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description How many items to skip when fetching data. */
+                offset?: components["parameters"]["Offset"];
+                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                sort?: components["parameters"]["Sort"];
+                /** @description Select items in collection by given conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query in one of their fields. */
+                search?: components["parameters"]["Search"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournois"][] | components["schemas"]["ItemsIcelanTournois"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournois"][];
+                    };
+                };
+            };
+        };
+    };
+    readSingleItemsIcelanTournois: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournois"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteSingleItemsIcelanTournois: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateSingleItemsIcelanTournois: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are being returned in the object. */
+                fields?: components["parameters"]["Fields"];
+                /** @description What metadata to return in the response. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path: {
+                /** @description Index of the item. */
+                id: number | string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ItemsIcelanTournois"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["ItemsIcelanTournois"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
 }
 
 export type Schema = {
@@ -26756,6 +27340,8 @@ export type Schema = {
   icelan_collabs: components["schemas"]["ItemsIcelanCollabs"][],
   icelan_faqs: components["schemas"]["ItemsIcelanFaqs"][],
   icelan_sponsors: components["schemas"]["ItemsIcelanSponsors"][],
+  icelan_tournois: components["schemas"]["ItemsIcelanTournois"][],
+  icelan_tournois_registrations: components["schemas"]["ItemsIcelanTournoisRegistrations"][],
   inventory: components["schemas"]["ItemsInventory"][],
   languages: components["schemas"]["ItemsLanguages"][],
   members: components["schemas"]["ItemsMembers"][],

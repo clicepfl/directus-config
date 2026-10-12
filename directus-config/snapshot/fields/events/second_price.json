@@ -6,7 +6,7 @@
     "conditions": [
       {
         "hidden": false,
-        "name": "display and must_set",
+        "name": "must_set & display",
         "required": true,
         "rule": {
           "_and": [
@@ -26,9 +26,7 @@
     "hidden": true,
     "interface": "input",
     "note": null,
-    "options": {
-      "iconLeft": "attach_money"
-    },
+    "options": null,
     "readonly": false,
     "required": false,
     "sort": 2,
@@ -39,7 +37,7 @@
     "width": "half"
   },
   "schema": {
-    "data_type": "character varying",
+    "data_type": "integer",
     "default_value": null,
     "foreign_key_column": null,
     "foreign_key_table": null,
@@ -50,11 +48,11 @@
     "is_nullable": true,
     "is_primary_key": false,
     "is_unique": false,
-    "max_length": 255,
+    "max_length": null,
     "name": "second_price",
-    "numeric_precision": null,
-    "numeric_scale": null,
+    "numeric_precision": 32,
+    "numeric_scale": 0,
     "table": "events"
   },
-  "type": "string"
+  "type": "integer"
 }

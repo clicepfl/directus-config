@@ -12,7 +12,10 @@
           "_and": [
             {
               "type": {
-                "_eq": "faculty_dinner"
+                "_in": [
+                  "faculty_dinner",
+                  "icelan"
+                ]
               }
             }
           ]
@@ -24,7 +27,7 @@
       "format": "{{ name }}, {{ count }}"
     },
     "field": "meals",
-    "group": "faculty_dinner",
+    "group": "food",
     "hidden": false,
     "interface": "list",
     "note": null,
