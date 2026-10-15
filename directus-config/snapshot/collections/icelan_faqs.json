@@ -17,7 +17,7 @@
     "preview_url": null,
     "singleton": false,
     "sort": 3,
-    "sort_field": null,
+    "sort_field": "order",
     "translations": null,
     "unarchive_value": null,
     "versioning": false
