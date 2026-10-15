@@ -300,7 +300,7 @@ INSERT INTO public.events (id, type, "from", "to", opened, name, price, max_regi
 INSERT INTO public.galleries (id, name, date, preview, link) VALUES (1, 'Souper de Fiak', '2025-11-21', '76874434-6ebe-498c-a486-a004dba43793', 'https://clic.epfl.ch/nextcloud/') ON CONFLICT DO NOTHING;
 INSERT INTO public.galleries (id, name, date, preview, link) VALUES (2, 'OGJ', '2026-03-13', '0a054f79-b726-4b22-8a72-0c369fa94ed4', 'http://clic.epfl.ch') ON CONFLICT DO NOTHING;
 
-INSERT INTO public.icelan (id, "start", "end") VALUES (1, '2026-12-05T12:00:00', '2026-12-06T12:00:00') ON CONFLICT DO NOTHING;
+INSERT INTO public.icelan ("end", id, start, waiting_list_length) VALUES ('2026-12-06 12:00:00', 1, '2026-12-05 12:00:00', 0) ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_sponsors (id, logo, name) VALUES (1, '37b9ad32-c872-43c5-89f7-901fd5adcd86', 'Rivella') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_collabs (id, name, website, logo) VALUES (1, 'CLIC', 'https://clic.epfl.ch', '76c2e55a-6348-457f-a335-cf60e91b2950') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_faqs (id, question, answer) VALUES (1, 'Quoi ?', 'Coubeh !') ON CONFLICT DO NOTHING;
