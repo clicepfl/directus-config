@@ -1498,6 +1498,56 @@
     "type": "exec"
   },
   {
+    "_syncId": "ad965917-4133-4221-8911-385c0416f91a",
+    "flow": "c6c287c9-65fd-4faf-bcce-36224e211ebd",
+    "key": "icelan_waiting_list",
+    "name": "Fetch waiting list",
+    "options": {
+      "collection": "icelan_waiting_list",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "limit": 4096
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "e4afb8c4-974a-463a-8af7-2f363a0796a0",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "e4afb8c4-974a-463a-8af7-2f363a0796a0",
+    "flow": "c6c287c9-65fd-4faf-bcce-36224e211ebd",
+    "key": "count_amount",
+    "name": "Count amount",
+    "options": {
+      "code": "module.exports = async function(data) {\n    let count = 0;\n    count = data.icelan_waiting_list.length;\n    return {\n        \"waiting_list_length\": count,\n    };\n}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "d5698ec1-f47e-4600-bc84-3bba4e24e52e",
+    "type": "exec"
+  },
+  {
+    "_syncId": "d5698ec1-f47e-4600-bc84-3bba4e24e52e",
+    "flow": "c6c287c9-65fd-4faf-bcce-36224e211ebd",
+    "key": "item_update_rzf8p",
+    "name": "Update Data",
+    "options": {
+      "collection": "icelan",
+      "emitEvents": false,
+      "payload": "{{$last}}",
+      "permissions": "$full"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
     "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "registration",

@@ -286,6 +286,27 @@
     "trigger": "event"
   },
   {
+    "_syncId": "c6c287c9-65fd-4faf-bcce-36224e211ebd",
+    "accountability": "all",
+    "color": "#3399FF",
+    "description": null,
+    "icon": "numbers",
+    "name": "[ICeLAN] Update waiting list count",
+    "operation": "ad965917-4133-4221-8911-385c0416f91a",
+    "options": {
+      "collections": [
+        "icelan_waiting_list"
+      ],
+      "scope": [
+        "items.create",
+        "items.delete"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
     "_syncId": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "accountability": "all",
     "color": "#FF9D2D",
