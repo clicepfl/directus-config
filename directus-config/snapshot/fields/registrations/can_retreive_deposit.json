@@ -25,6 +25,7 @@
     },
     "readonly": true,
     "required": true,
+    "searchable": true,
     "sort": 1,
     "special": [
       "cast-boolean"
