@@ -2887,33 +2887,9 @@
     "validation": null
   },
   {
-    "_syncId": "ad4545cb-0a48-49f2-83df-879f951f5d22",
-    "action": "read",
-    "collection": "icelan_animations",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "da94446b-8d86-4763-ae19-b8f8b23c3274",
     "action": "read",
     "collection": "icelan_collabs",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "e07a16cf-d1e9-4772-a7dd-27665d0e796c",
-    "action": "read",
-    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],

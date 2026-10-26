@@ -38,6 +38,7 @@
     },
     "readonly": true,
     "required": true,
+    "searchable": true,
     "sort": 2,
     "special": [
       "cast-boolean"
