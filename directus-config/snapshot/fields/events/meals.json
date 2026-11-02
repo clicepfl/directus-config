@@ -12,10 +12,7 @@
           "_and": [
             {
               "type": {
-                "_in": [
-                  "faculty_dinner",
-                  "icelan"
-                ]
+                "_eq": "faculty_dinner"
               }
             }
           ]

@@ -11,7 +11,9 @@
     "hidden": false,
     "interface": "boolean",
     "note": null,
-    "options": null,
+    "options": {
+      "label": "Opened"
+    },
     "readonly": false,
     "required": true,
     "searchable": true,
