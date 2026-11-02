@@ -90,7 +90,7 @@ export interface paths {
         put?: never;
         /**
          * Request a Password Reset
-         * @description Request a reset password email to be send.
+         * @description Request that a password reset email be sent. This does not apply to users authenticated through external providers (OAuth, SAML, LDAP, etc.).
          */
         post: operations["passwordRequest"];
         delete?: never;
@@ -259,46 +259,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/utils/hash/generate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Hash a string
-         * @description Generate a hash for a given string.
-         */
-        post: operations["hash-generate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/utils/hash/verify": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Hash a string
-         * @description Generate a hash for a given string.
-         */
-        post: operations["hash-verify"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/utils/sort/{collection}": {
         parameters: {
             query?: never;
@@ -313,6 +273,26 @@ export interface paths {
          * @description Re-sort items in collection based on start and to value of item
          */
         post: operations["sort"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/utils/import": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Import Multiple Collections
+         * @description Import flat data for multiple related collections in a single request. Relations are resolved from the schema so collections are imported in dependency order and primary keys (and the foreign keys referencing them) are remapped. The payload is uploaded as a JSON file (`multipart/form-data`).
+         */
+        post: operations["importBatch"];
         delete?: never;
         options?: never;
         head?: never;
@@ -519,78 +499,6 @@ export interface paths {
         patch: operations["updatePermission"];
         trace?: never;
     };
-    "/fields": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List All Fields
-         * @description Returns a list of the fields available in the project.
-         */
-        get: operations["getFields"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/fields/{collection}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Fields in Collection
-         * @description Returns a list of the fields available in the given collection.
-         */
-        get: operations["getCollectionFields"];
-        put?: never;
-        /**
-         * Create Field in Collection
-         * @description Create a new field in a given collection.
-         */
-        post: operations["createField"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/fields/{collection}/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve a Field
-         * @description Retrieves the details of a single field in a given collection.
-         */
-        get: operations["getCollectionField"];
-        put?: never;
-        post?: never;
-        /**
-         * Delete a Field
-         * @description Delete an existing field.
-         */
-        delete: operations["deleteField"];
-        options?: never;
-        head?: never;
-        /**
-         * Update a Field
-         * @description Update an existing field.
-         */
-        patch: operations["updateField"];
-        trace?: never;
-    };
     "/files": {
         parameters: {
             query?: never;
@@ -703,66 +611,6 @@ export interface paths {
         patch: operations["updateCollection"];
         trace?: never;
     };
-    "/folders": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Folders
-         * @description List the folders.
-         */
-        get: operations["getFolders"];
-        put?: never;
-        /**
-         * Create a Folder
-         * @description Create a new folder.
-         */
-        post: operations["createFolder"];
-        /**
-         * Delete Multiple Folders
-         * @description Delete multiple existing folders.
-         */
-        delete: operations["deleteFolders"];
-        options?: never;
-        head?: never;
-        /**
-         * Update Multiple Folders
-         * @description Update multiple folders at the same time.
-         */
-        patch: operations["updateFolders"];
-        trace?: never;
-    };
-    "/folders/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve a Folder
-         * @description Retrieve a single folder by unique identifier.
-         */
-        get: operations["getFolder"];
-        put?: never;
-        post?: never;
-        /**
-         * Delete a Folder
-         * @description Delete an existing folder
-         */
-        delete: operations["deleteFolder"];
-        options?: never;
-        head?: never;
-        /**
-         * Update a Folder
-         * @description Update an existing folder
-         */
-        patch: operations["updateFolder"];
-        trace?: never;
-    };
     "/users": {
         parameters: {
             query?: never;
@@ -821,6 +669,26 @@ export interface paths {
          * @description Update an existing user
          */
         patch: operations["updateUser"];
+        trace?: never;
+    };
+    "/users/{id}/tfa/disable": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Disable 2FA for User
+         * @description Disables two-factor authentication for a specific user. Requires admin access.
+         */
+        post: operations["disableUserTfa"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
         trace?: never;
     };
     "/users/invite": {
@@ -887,7 +755,7 @@ export interface paths {
         patch: operations["updateMe"];
         trace?: never;
     };
-    "/users/me/track/page": {
+    "/users/me/tfa/disable": {
         parameters: {
             query?: never;
             header?: never;
@@ -896,15 +764,15 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        post?: never;
+        /**
+         * Disable 2FA
+         * @description Disables two-factor authentication for the currently authenticated user.
+         */
+        post: operations["meTfaDisable"];
         delete?: never;
         options?: never;
         head?: never;
-        /**
-         * Update Last Page
-         * @description Updates the last used page field of the currently authenticated user. This is used internally to be able to open the Directus admin app from the last page you used.
-         */
-        patch: operations["updateLastUsedPageMe"];
+        patch?: never;
         trace?: never;
     };
     "/users/me/tfa/enable": {
@@ -927,7 +795,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/me/tfa/disable": {
+    "/users/me/tfa/generate": {
         parameters: {
             query?: never;
             header?: never;
@@ -937,10 +805,70 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Disable 2FA
-         * @description Disables two-factor authentication for the currently authenticated user.
+         * Generate 2FA Secret
+         * @description Generates a TOTP secret and OTPauth URI for the currently authenticated user.
          */
-        post: operations["meTfaDisable"];
+        post: operations["meTfaGenerate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/me/track/page": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Last Page
+         * @description Updates the last used page field of the currently authenticated user. This is used internally to be able to open the Directus admin app from the last page you used.
+         */
+        patch: operations["updateLastUsedPageMe"];
+        trace?: never;
+    };
+    "/users/register": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Register a New User
+         * @description Register a new user with the configured self-registration settings.
+         */
+        post: operations["registerUser"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/users/register/verify-email": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Verify Registration Email
+         * @description Verifies the email address for a newly registered user via the token from the verification email.
+         */
+        get: operations["registerUserVerifyEmail"];
+        put?: never;
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -1065,6 +993,138 @@ export interface paths {
          * @description Update an existing preset.
          */
         patch: operations["updatePreset"];
+        trace?: never;
+    };
+    "/fields": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List All Fields
+         * @description Returns a list of the fields available in the project.
+         */
+        get: operations["getFields"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/fields/{collection}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Fields in Collection
+         * @description Returns a list of the fields available in the given collection.
+         */
+        get: operations["getCollectionFields"];
+        put?: never;
+        /**
+         * Create Field in Collection
+         * @description Create a new field in a given collection.
+         */
+        post: operations["createField"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/fields/{collection}/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a Field
+         * @description Retrieves the details of a single field in a given collection.
+         */
+        get: operations["getCollectionField"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete a Field
+         * @description Delete an existing field.
+         */
+        delete: operations["deleteField"];
+        options?: never;
+        head?: never;
+        /**
+         * Update a Field
+         * @description Update an existing field.
+         */
+        patch: operations["updateField"];
+        trace?: never;
+    };
+    "/folders": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List Folders
+         * @description List the folders.
+         */
+        get: operations["getFolders"];
+        put?: never;
+        /**
+         * Create a Folder
+         * @description Create a new folder.
+         */
+        post: operations["createFolder"];
+        /**
+         * Delete Multiple Folders
+         * @description Delete multiple existing folders.
+         */
+        delete: operations["deleteFolders"];
+        options?: never;
+        head?: never;
+        /**
+         * Update Multiple Folders
+         * @description Update multiple folders at the same time.
+         */
+        patch: operations["updateFolders"];
+        trace?: never;
+    };
+    "/folders/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve a Folder
+         * @description Retrieve a single folder by unique identifier.
+         */
+        get: operations["getFolder"];
+        put?: never;
+        post?: never;
+        /**
+         * Delete a Folder
+         * @description Delete an existing folder
+         */
+        delete: operations["deleteFolder"];
+        options?: never;
+        head?: never;
+        /**
+         * Update a Folder
+         * @description Update an existing folder
+         */
+        patch: operations["updateFolder"];
         trace?: never;
     };
     "/relations": {
@@ -1517,90 +1577,6 @@ export interface paths {
          * @description Update an existing directus_sync_id_map item.
          */
         patch: operations["updateSingleItemsDirectusSyncIDMap"];
-        trace?: never;
-    };
-    "/settings": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve Settings
-         * @description List the settings.
-         */
-        get: operations["getSettings"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        /**
-         * Update Settings
-         * @description Update the settings
-         */
-        patch: operations["updateSetting"];
-        trace?: never;
-    };
-    "/webhooks": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * List Webhooks
-         * @description Get all webhooks.
-         */
-        get: operations["getWebhooks"];
-        put?: never;
-        /**
-         * Create a Webhook
-         * @description Create a new webhook.
-         */
-        post: operations["createWebhook"];
-        /**
-         * Delete Multiple Webhooks
-         * @description Delete multiple existing webhooks.
-         */
-        delete: operations["deleteWebhooks"];
-        options?: never;
-        head?: never;
-        /**
-         * Update Multiple Webhooks
-         * @description Update multiple webhooks at the same time.
-         */
-        patch: operations["updateWebhooks"];
-        trace?: never;
-    };
-    "/webhooks/{id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Retrieve a Webhook
-         * @description Retrieve a single webhook by unique identifier.
-         */
-        get: operations["getWebhook"];
-        put?: never;
-        post?: never;
-        /**
-         * Delete a Webhook
-         * @description Delete an existing webhook
-         */
-        delete: operations["deleteWebhook"];
-        options?: never;
-        head?: never;
-        /**
-         * Update a Webhook
-         * @description Update an existing webhook
-         */
-        patch: operations["updateWebhook"];
         trace?: never;
     };
     "/comments": {
@@ -5623,6 +5599,30 @@ export interface paths {
         patch: operations["updateSingleItemsSubsonicTranslations"];
         trace?: never;
     };
+    "/settings": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Retrieve Settings
+         * @description List the settings.
+         */
+        get: operations["getSettings"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Update Settings
+         * @description Update the settings
+         */
+        patch: operations["updateSetting"];
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -5645,6 +5645,14 @@ export interface components {
                     related_collection?: string;
                     diff?: Record<string, never>[];
                 }[];
+            };
+        };
+        Error: {
+            message: string;
+            extensions: {
+                code: string;
+            } & {
+                [key: string]: unknown;
             };
         };
         Files: {
@@ -5762,6 +5770,123 @@ export interface components {
              * @example null
              */
             parent?: (string | components["schemas"]["Folders"]) | null;
+            /**
+             * @description The type of folder. One of `files` (file library) or `flows`.
+             * @default files
+             * @example files
+             * @enum {string}
+             */
+            type: "files" | "flows";
+        };
+        Query: {
+            /**
+             * @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`).
+             * @example [
+             *       "title",
+             *       "author.name",
+             *       "*.*"
+             *     ]
+             */
+            fields?: string[];
+            /**
+             * @description Select items in the collection that match the given filter conditions.
+             * @example {
+             *       "title": {
+             *         "_eq": "Hello"
+             *       }
+             *     }
+             */
+            filter?: Record<string, never>;
+            /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+            search?: string;
+            /**
+             * @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`).
+             * @example [
+             *       "-date_created"
+             *     ]
+             */
+            sort?: string[];
+            /**
+             * @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items.
+             * @example 50
+             */
+            limit?: number;
+            /**
+             * @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided.
+             * @example 100
+             */
+            offset?: number;
+            /**
+             * @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided.
+             * @example 2
+             */
+            page?: number;
+            /**
+             * @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`.
+             * @example *
+             */
+            meta?: string | ("total_count" | "filter_count")[];
+            /**
+             * @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field.
+             * @example {
+             *       "count": [
+             *         "*"
+             *       ]
+             *     }
+             */
+            aggregate?: {
+                count?: string | string[];
+                countDistinct?: string | string[];
+                sum?: string | string[];
+                sumDistinct?: string | string[];
+                avg?: string | string[];
+                avgDistinct?: string | string[];
+                min?: string | string[];
+                max?: string | string[];
+            };
+            /**
+             * @description Group the returned items by the given field(s).
+             * @example [
+             *       "status"
+             *     ]
+             */
+            groupBy?: string[];
+            /**
+             * @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset.
+             * @example {
+             *       "related_articles": {
+             *         "_limit": 3
+             *       }
+             *     }
+             */
+            deep?: Record<string, never>;
+            /**
+             * @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period.
+             * @example {
+             *       "author_name": "author.name"
+             *     }
+             */
+            alias?: Record<string, never>;
+            /**
+             * @description Saves the API response to a file.
+             * @enum {string}
+             */
+            export?: "csv" | "csv_utf8" | "json" | "xml" | "yaml";
+            /**
+             * @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version.
+             * @example site-redesign-2027
+             */
+            version?: string;
+            /**
+             * @description When used with `version`, returns the raw revision data instead of the merged item data.
+             * @default false
+             */
+            versionRaw: boolean;
+            /**
+             * @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected.
+             * @default true
+             */
+            backlink: boolean;
         };
         Roles: {
             /**
@@ -5894,48 +6019,6 @@ export interface components {
             text_direction?: string;
             policies?: unknown;
         };
-        Query: {
-            /**
-             * @description Control what fields are being returned in the object.
-             * @example [
-             *       "*",
-             *       "*.*"
-             *     ]
-             */
-            fields?: string[];
-            /**
-             * @example {
-             *       "<field>": {
-             *         "<operator>": "<value>"
-             *       }
-             *     }
-             */
-            filter?: Record<string, never>;
-            /** @description Filter by items that contain the given search query in one of their fields. */
-            search?: string;
-            /**
-             * @description How to sort the returned items.
-             * @example [
-             *       "-date_created"
-             *     ]
-             */
-            sort?: string[];
-            /** @description Set the maximum number of items that will be returned */
-            limit?: number;
-            /** @description How many items to skip when fetching data. */
-            offset?: number;
-            /** @description Cursor for use in pagination. Often used in combination with limit. */
-            page?: number;
-            /**
-             * @description Deep allows you to set any of the other query parameters on a nested relational dataset.
-             * @example {
-             *       "related_articles": {
-             *         "_limit": 3
-             *       }
-             *     }
-             */
-            deep?: Record<string, never>;
-        };
         "x-metadata": {
             /** @description Returns the total item count of the collection you're querying. */
             total_count?: number;
@@ -5981,7 +6064,7 @@ export interface components {
             item?: string;
             /**
              * @description Origin of the request when the action took place.
-             * @example https://directus.io
+             * @example https://directus.com
              */
             origin?: string;
             revisions?: (number[] | components["schemas"]["Revisions"][]) | null;
@@ -6013,35 +6096,6 @@ export interface components {
             fields?: string[] | null;
             policy?: unknown;
         };
-        Fields: {
-            id?: number;
-            /**
-             * @description Unique name of the collection this field is in.
-             * @example about_us
-             */
-            collection?: string;
-            /**
-             * @description Unique name of the field. Field name is unique within the collection.
-             * @example id
-             */
-            field?: string;
-            special?: string[] | null;
-            interface?: string | null;
-            options?: unknown;
-            display?: string | null;
-            display_options?: unknown;
-            readonly?: boolean;
-            hidden?: boolean;
-            sort?: number | null;
-            width?: string | null;
-            translations?: unknown;
-            note?: string | null;
-            conditions?: unknown;
-            required?: boolean | null;
-            group?: (number | components["schemas"]["Fields"]) | null;
-            validation?: unknown;
-            validation_message?: string | null;
-        };
         Collections: {
             /**
              * @description The collection key.
@@ -6053,6 +6107,7 @@ export interface components {
             display_template?: string | null;
             hidden?: boolean;
             singleton?: boolean;
+            /** @description $t:field_options.directus_collections.collection_naming_translations_note */
             translations?: unknown;
             archive_field?: string | null;
             archive_app_filter?: boolean;
@@ -6067,6 +6122,9 @@ export interface components {
             collapse?: string;
             preview_url?: string | null;
             versioning?: boolean;
+            status?: string;
+            /** Format: float */
+            autosave_revision_interval?: number | null;
         };
         Presets: {
             /**
@@ -6123,6 +6181,36 @@ export interface components {
             filter?: unknown;
             icon?: string | null;
             color?: string | null;
+        };
+        Fields: {
+            id?: number;
+            /**
+             * @description Unique name of the collection this field is in.
+             * @example about_us
+             */
+            collection?: string;
+            /**
+             * @description Unique name of the field. Field name is unique within the collection.
+             * @example id
+             */
+            field?: string;
+            special?: string[] | null;
+            interface?: string | null;
+            options?: unknown;
+            display?: string | null;
+            display_options?: unknown;
+            readonly?: boolean;
+            hidden?: boolean;
+            sort?: number | null;
+            width?: string | null;
+            translations?: unknown;
+            note?: string | null;
+            conditions?: unknown;
+            required?: boolean | null;
+            group?: (number | components["schemas"]["Fields"]) | null;
+            validation?: unknown;
+            validation_message?: string | null;
+            searchable?: boolean;
         };
         Relations: {
             /**
@@ -6270,6 +6358,11 @@ export interface components {
              * @example 63716273-0f29-4648-8a2a-2af2948f6f78
              */
             user_created?: string | components["schemas"]["Users"];
+            /**
+             * @description The UUID of the folder containing the flow.
+             * @example 0cf0e03d-4364-45df-b77b-ca61f61869d2
+             */
+            folder?: (string | components["schemas"]["Folders"]) | null;
             operations?: (string[] | components["schemas"]["Operations"][]) | null;
         };
         Operations: {
@@ -6407,185 +6500,6 @@ export interface components {
             local_id: string;
             /** Format: timestamp */
             created_at?: string | null;
-        };
-        Settings: {
-            /**
-             * @description Unique identifier for the setting.
-             * @example 1
-             */
-            id?: number;
-            /**
-             * @description The name of the project.
-             * @example Directus
-             */
-            project_name?: string;
-            /**
-             * @description The url of the project.
-             * @example null
-             */
-            project_url?: string | null;
-            /**
-             * @description The brand color of the project.
-             * @example null
-             */
-            project_color?: string | null;
-            /**
-             * @description The logo of the project.
-             * @example null
-             */
-            project_logo?: string | null;
-            /**
-             * @description The foreground of the project.
-             * @example null
-             */
-            public_foreground?: string | null;
-            /**
-             * @description The background of the project.
-             * @example null
-             */
-            public_background?: {
-                id?: string;
-                type?: string;
-            } | null;
-            /**
-             * @description Note rendered on the public pages of the app.
-             * @example null
-             */
-            public_note?: string | null;
-            /**
-             * @description Allowed authentication login attempts before the user's status is set to blocked.
-             * @example 25
-             */
-            auth_login_attempts?: number;
-            /** @description Authentication password policy. */
-            auth_password_policy?: string | null;
-            /**
-             * @description What transformations are allowed in the assets endpoint.
-             * @example all
-             * @enum {string|null}
-             */
-            storage_asset_transform?: "all" | "none" | "presets" | null;
-            /**
-             * @description Array of allowed
-             * @example null
-             */
-            storage_asset_presets?: {
-                /** @description Key for the asset. Used in the assets endpoint. */
-                key?: string;
-                /**
-                 * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
-                 * @enum {string}
-                 */
-                fit?: "cover" | "contain" | "inside" | "outside";
-                /** @description Width of the thumbnail. */
-                width?: number;
-                /** @description Height of the thumbnail. */
-                height?: number;
-                /** @description No image upscale */
-                withoutEnlargement?: boolean;
-                /** @description Quality of the compression used. */
-                quality?: number;
-                /**
-                 * @description Reformat output image
-                 * @enum {string}
-                 */
-                format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
-                /** @description Additional transformations to apply */
-                transforms?: {
-                    /** @description The Sharp method name */
-                    method?: string;
-                    /** @description A list of arguments to pass to the Sharp method */
-                    arguments?: {
-                        /** @description A JSON representation of the argument value */
-                        argument?: string;
-                    }[] | null;
-                }[] | null;
-            }[] | null;
-            custom_css?: string | null;
-            /**
-             * Format: uuid
-             * @description Default folder to place files
-             */
-            storage_default_folder?: string;
-            basemaps?: unknown;
-            mapbox_key?: string | null;
-            module_bar?: unknown;
-            project_descriptor?: string | null;
-            default_language?: string;
-            custom_aspect_ratios?: unknown;
-            /** @description $t:field_options.directus_settings.project_favicon_note */
-            public_favicon?: (string | components["schemas"]["Files"]) | null;
-            default_appearance?: string;
-            default_theme_light?: string | null;
-            theme_light_overrides?: unknown;
-            default_theme_dark?: string | null;
-            theme_dark_overrides?: unknown;
-            report_error_url?: string | null;
-            report_bug_url?: string | null;
-            report_feature_url?: string | null;
-            /** @description $t:fields.directus_settings.public_registration_note */
-            public_registration?: boolean;
-            /** @description $t:fields.directus_settings.public_registration_verify_email_note */
-            public_registration_verify_email?: boolean;
-            /** @description $t:fields.directus_settings.public_registration_role_note */
-            public_registration_role?: (string | components["schemas"]["Roles"]) | null;
-            /** @description $t:fields.directus_settings.public_registration_email_filter_note */
-            public_registration_email_filter?: unknown;
-            visual_editor_urls?: unknown;
-            accepted_terms?: boolean | null;
-            /** Format: uuid */
-            project_id?: string | null;
-            /** @description $t:fields.directus_settings.mcp_enabled_note */
-            mcp_enabled?: boolean;
-            /** @description $t:fields.directus_settings.mcp_allow_deletes_note */
-            mcp_allow_deletes?: boolean;
-            /** @description $t:fields.directus_settings.mcp_prompts_collection_note */
-            mcp_prompts_collection?: string | null;
-            /** @description $t:fields.directus_settings.mcp_system_prompt_enabled_note */
-            mcp_system_prompt_enabled?: boolean;
-            /** @description $t:fields.directus_settings.mcp_system_prompt_note */
-            mcp_system_prompt?: string | null;
-        };
-        Webhooks: {
-            /**
-             * @description The index of the webhook.
-             * @example 1
-             */
-            id?: number;
-            /**
-             * @description The name of the webhook.
-             * @example create articles
-             */
-            name?: string;
-            /**
-             * @description Method used in the webhook.
-             * @example POST
-             */
-            method?: string;
-            /**
-             * @description The url of the webhook.
-             * @example null
-             */
-            url?: string | null;
-            /**
-             * @description The status of the webhook.
-             * @example inactive
-             */
-            status?: string;
-            /**
-             * @description If yes, send the content of what was done
-             * @example true
-             */
-            data?: boolean;
-            /**
-             * @description The actions that triggers this webhook.
-             * @example null
-             */
-            actions?: string[] | null;
-            collections?: string[];
-            headers?: unknown;
-            was_active_before_deprecation?: boolean;
-            migrated_flow?: (string | components["schemas"]["Flows"]) | null;
         };
         Comments: {
             /**
@@ -7197,8 +7111,212 @@ export interface components {
             languages_code?: (string | components["schemas"]["ItemsLanguages"]) | null;
             subsonic_id?: (number | components["schemas"]["ItemsSubsonic"]) | null;
         };
+        Settings: {
+            /**
+             * @description Unique identifier for the setting.
+             * @example 1
+             */
+            id?: number;
+            /**
+             * @description The name of the project.
+             * @example Directus
+             */
+            project_name?: string;
+            /**
+             * @description The url of the project.
+             * @example null
+             */
+            project_url?: string | null;
+            /**
+             * @description The brand color of the project.
+             * @example null
+             */
+            project_color?: string | null;
+            /**
+             * @description The logo of the project.
+             * @example null
+             */
+            project_logo?: string | null;
+            /**
+             * @description The foreground of the project.
+             * @example null
+             */
+            public_foreground?: string | null;
+            /**
+             * @description The background of the project.
+             * @example null
+             */
+            public_background?: {
+                id?: string;
+                type?: string;
+            } | null;
+            /**
+             * @description Note rendered on the public pages of the app.
+             * @example null
+             */
+            public_note?: string | null;
+            /**
+             * @description Allowed authentication login attempts before the user's status is set to blocked.
+             * @example 25
+             */
+            auth_login_attempts?: number;
+            /** @description Authentication password policy. */
+            auth_password_policy?: string | null;
+            /**
+             * @description What transformations are allowed in the assets endpoint.
+             * @example all
+             * @enum {string|null}
+             */
+            storage_asset_transform?: "all" | "none" | "presets" | null;
+            /**
+             * @description Array of allowed
+             * @example null
+             */
+            storage_asset_presets?: {
+                /** @description Key for the asset. Used in the assets endpoint. */
+                key?: string;
+                /**
+                 * @description Whether to crop the thumbnail to match the size, or maintain the aspect ratio.
+                 * @enum {string}
+                 */
+                fit?: "cover" | "contain" | "inside" | "outside";
+                /** @description Width of the thumbnail. */
+                width?: number;
+                /** @description Height of the thumbnail. */
+                height?: number;
+                /** @description No image upscale */
+                withoutEnlargement?: boolean;
+                /** @description Quality of the compression used. */
+                quality?: number;
+                /**
+                 * @description Reformat output image
+                 * @enum {string}
+                 */
+                format?: "" | "jpeg" | "png" | "webp" | "tiff" | "avif";
+                /** @description Additional transformations to apply */
+                transforms?: {
+                    /** @description The Sharp method name */
+                    method?: string;
+                    /** @description A list of arguments to pass to the Sharp method */
+                    arguments?: {
+                        /** @description A JSON representation of the argument value */
+                        argument?: string;
+                    }[] | null;
+                }[] | null;
+            }[] | null;
+            custom_css?: string | null;
+            /**
+             * Format: uuid
+             * @description Default folder to place files
+             */
+            storage_default_folder?: string;
+            basemaps?: unknown;
+            mapbox_key?: string | null;
+            module_bar?: unknown;
+            project_descriptor?: string | null;
+            default_language?: string;
+            custom_aspect_ratios?: unknown;
+            /** @description $t:field_options.directus_settings.project_favicon_note */
+            public_favicon?: (string | components["schemas"]["Files"]) | null;
+            default_appearance?: string;
+            default_theme_light?: string | null;
+            theme_light_overrides?: unknown;
+            default_theme_dark?: string | null;
+            theme_dark_overrides?: unknown;
+            report_error_url?: string | null;
+            report_bug_url?: string | null;
+            report_feature_url?: string | null;
+            /** @description $t:fields.directus_settings.public_registration_note */
+            public_registration?: boolean;
+            /** @description $t:fields.directus_settings.public_registration_verify_email_note */
+            public_registration_verify_email?: boolean;
+            /** @description $t:fields.directus_settings.public_registration_role_note */
+            public_registration_role?: (string | components["schemas"]["Roles"]) | null;
+            /** @description $t:fields.directus_settings.public_registration_email_filter_note */
+            public_registration_email_filter?: unknown;
+            visual_editor_urls?: unknown;
+            /** Format: uuid */
+            project_id?: string | null;
+            /** @description $t:fields.directus_settings.mcp_enabled_note */
+            mcp_enabled?: boolean;
+            /** @description $t:fields.directus_settings.mcp_allow_deletes_note */
+            mcp_allow_deletes?: boolean;
+            /** @description $t:fields.directus_settings.mcp_prompts_collection_note */
+            mcp_prompts_collection?: string | null;
+            /** @description $t:fields.directus_settings.mcp_system_prompt_enabled_note */
+            mcp_system_prompt_enabled?: boolean;
+            /** @description $t:fields.directus_settings.mcp_system_prompt_note */
+            mcp_system_prompt?: string | null;
+            project_owner?: string | null;
+            project_usage?: string | null;
+            org_name?: string | null;
+            product_updates?: boolean | null;
+            project_status?: string | null;
+            ai_openai_api_key?: string | null;
+            ai_anthropic_api_key?: string | null;
+            /** @description $t:fields.directus_settings.ai_system_prompt_note */
+            ai_system_prompt?: string | null;
+            ai_google_api_key?: string | null;
+            ai_openai_compatible_api_key?: string | null;
+            ai_openai_compatible_base_url?: string | null;
+            ai_openai_compatible_name?: string | null;
+            ai_openai_compatible_models?: unknown;
+            ai_openai_compatible_headers?: unknown;
+            ai_openai_allowed_models?: unknown;
+            ai_anthropic_allowed_models?: unknown;
+            ai_google_allowed_models?: unknown;
+            /** @description $t:fields.directus_settings.collaborative_editing_note */
+            collaborative_editing_enabled?: boolean;
+            /** @description $t:fields.directus_settings.ai_translation_default_model_note */
+            ai_translation_default_model?: string | null;
+            /** @description $t:fields.directus_settings.ai_translation_glossary_note */
+            ai_translation_glossary?: unknown;
+            /** @description $t:fields.directus_settings.ai_translation_style_guide_note */
+            ai_translation_style_guide?: string | null;
+            license_key?: string | null;
+            license_token?: string | null;
+            /** @description $t:fields.directus_settings.mcp_oauth_enabled_note */
+            mcp_oauth_enabled?: boolean;
+            /** @description Allow MCP clients to register automatically using the OAuth 2.0 Dynamic Client Registration protocol (RFC 7591). */
+            mcp_oauth_dcr_enabled?: boolean;
+            /** @description Allow MCP clients to identify themselves using an HTTPS URL that hosts their metadata (IETF draft-oauth-client-id-metadata-document). */
+            mcp_oauth_cimd_enabled?: boolean;
+            /** @description $t:default_save_action_note */
+            default_save_action?: string;
+            /** @description $t:fields.directus_settings.preview_base_url_note */
+            preview_base_url?: string | null;
+        };
     };
     responses: {
+        /** @description Error: Bad request. */
+        BadRequestError: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    errors?: components["schemas"]["Error"][];
+                };
+            };
+        };
+        /** @description Error: Forbidden. */
+        ForbiddenError: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    errors?: components["schemas"]["Error"][];
+                };
+            };
+        };
+        /** @description No content */
+        NoContentResponse: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content?: never;
+        };
         /** @description Error: Not found. */
         NotFoundError: {
             headers: {
@@ -7206,26 +7324,38 @@ export interface components {
             };
             content: {
                 "application/json": {
-                    error?: {
-                        /** Format: int64 */
-                        code?: number;
-                        message?: string;
-                    };
+                    errors?: components["schemas"]["Error"][];
                 };
             };
         };
-        /** @description Error: Unauthorized request */
+        /** @description Redirect to another location */
+        RedirectResponse: {
+            headers: {
+                /** @description URL the client is redirected to. */
+                Location?: string;
+                [name: string]: unknown;
+            };
+            content?: never;
+        };
+        /** @description Error: Too many requests. */
+        TooManyRequestsError: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    errors?: components["schemas"]["Error"][];
+                };
+            };
+        };
+        /** @description Error: Unauthorized request. */
         UnauthorizedError: {
             headers: {
                 [name: string]: unknown;
             };
             content: {
                 "application/json": {
-                    error?: {
-                        /** Format: int64 */
-                        code?: number;
-                        message?: string;
-                    };
+                    errors?: components["schemas"]["Error"][];
                 };
             };
         };
@@ -7237,26 +7367,38 @@ export interface components {
         UUId: string;
         /** @description Collection of which you want to retrieve the items from. */
         Collection: string;
-        /** @description Filter by items that contain the given search query in one of their fields. */
-        Search: string;
-        /** @description Cursor for use in pagination. Often used in combination with limit. */
-        Page: number;
-        /** @description How many items to skip when fetching data. */
-        Offset: number;
-        /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-        Sort: string[];
-        /** @description What metadata to return in the response. */
-        Meta: string;
-        /** @description A limit on the number of objects that are returned. */
-        Limit: number;
-        /** @description Select items in collection by given conditions. */
-        Filter: string;
-        /** @description Control what fields are being returned in the object. */
+        /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+        Aggregate: string;
+        /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+        Alias: string;
+        /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+        Backlink: boolean;
+        /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+        Deep: string;
+        /** @description Saves the API response to a file. */
+        Export: "csv" | "csv_utf8" | "json" | "xml" | "yaml";
+        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
         Fields: string[];
-        /** @description Saves the API response to a file. Accepts one of "csv", "json", "xml", "yaml". */
-        Export: "csv" | "json" | "xml" | "yaml";
+        /** @description Select items in the collection that match the given filter conditions. */
+        Filter: string;
+        /** @description Group the returned items by the given field(s). */
+        GroupBy: string[];
+        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+        Limit: number;
+        /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+        Meta: string | ("total_count" | "filter_count")[];
+        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+        Offset: number;
+        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+        Page: number;
+        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+        Search: string;
+        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+        Sort: string[];
         /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
         Version: string;
+        /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+        VersionRaw: boolean;
     };
     requestBodies: never;
     headers: never;
@@ -7542,8 +7684,12 @@ export interface operations {
     schemaSnapshot: {
         parameters: {
             query?: {
-                /** @description Saves the API response to a file. Accepts one of "csv", "json", "xml", "yaml". */
+                /** @description Saves the API response to a file. */
                 export?: components["parameters"]["Export"];
+                /** @description Restrict the snapshot to these collections (produces a partial snapshot, version 2). Mutually exclusive with `excludeCollections`. */
+                includeCollections?: string[];
+                /** @description Exclude these collections from the snapshot (produces a partial snapshot, version 2). Mutually exclusive with `includeCollections`. */
+                excludeCollections?: string[];
             };
             header?: never;
             path?: never;
@@ -7585,13 +7731,7 @@ export interface operations {
             };
         };
         responses: {
-            /** @description Successful request */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
+            204: components["responses"]["NoContentResponse"];
             403: components["responses"]["UnauthorizedError"];
         };
     };
@@ -7600,6 +7740,8 @@ export interface operations {
             query?: {
                 /** @description Bypass version and database vendor restrictions. */
                 force?: boolean;
+                /** @description `mirror` (default) returns all operations. `merge` yields an additive diff, excluding deletions so existing collections, fields, and relations are never removed. */
+                mode?: "merge" | "mirror";
             };
             header?: never;
             path?: never;
@@ -7640,10 +7782,7 @@ export interface operations {
     };
     serverInfo: {
         parameters: {
-            query: {
-                /** @description The first time you create a project, the provided token will be saved and required for subsequent project installs. It can also be found and configured in `/config/__api.json` on your server. */
-                super_admin_token: number;
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -7685,68 +7824,6 @@ export interface operations {
             };
         };
     };
-    "hash-generate": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description String to hash. */
-                    string: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example $argon2i$v=19$m=4096,t=3,p=1$pOyIa/zmRAjCVLb2f7kOyg$DasoO6LzMM+6iKfzCDq6JbsYsZWLSm33p7i9NxL9mDc */
-                        data?: string;
-                    };
-                };
-            };
-        };
-    };
-    "hash-verify": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description String to hash. */
-                    string: string;
-                    /** @description Hash you want to verify against. */
-                    hash: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        /** @example true */
-                        data?: boolean;
-                    };
-                };
-            };
-        };
-    };
     sort: {
         parameters: {
             query?: never;
@@ -7777,9 +7854,106 @@ export interface operations {
             };
         };
     };
+    importBatch: {
+        parameters: {
+            query?: {
+                /** @description `add` (default) inserts new items and remaps conflicting primary keys, `merge` upserts items. */
+                mode?: "add" | "merge";
+                /** @description When true, no data is persisted; the computed id mappings are still returned. */
+                dryRun?: boolean;
+                /** @description Only valid with `mode=merge`. Deletes any existing records in the imported collections whose primary key is absent from the import, mirroring the payload. Destructive. */
+                dangerouslyAllowDelete?: boolean;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                /**
+                 * @example [
+                 *       {
+                 *         "collection": "authors",
+                 *         "items": [
+                 *           {
+                 *             "id": "123",
+                 *             "name": "Lorem Ipsum"
+                 *           }
+                 *         ]
+                 *       },
+                 *       {
+                 *         "collection": "articles",
+                 *         "items": [
+                 *           {
+                 *             "id": "123",
+                 *             "title": "Hello World",
+                 *             "author": "123"
+                 *           }
+                 *         ]
+                 *       }
+                 *     ]
+                 */
+                "multipart/form-data": {
+                    /**
+                     * Format: binary
+                     * @description A JSON file containing an array of `{ collection, items }` objects.
+                     */
+                    file?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: {
+                            /** @description Whether the changes were committed. `false` for a dry run. */
+                            applied?: boolean;
+                            /** @enum {string} */
+                            mode?: "add" | "merge";
+                            /** @description Per-collection summary of the changes made. */
+                            collections?: {
+                                [key: string]: {
+                                    /** @description Primary keys of pre-existing records that were matched and updated. */
+                                    existing?: string[];
+                                    /** @description Primary keys of newly created records. */
+                                    new?: string[];
+                                    /** @description Primary keys of records that were deleted (only when `dangerouslyAllowDelete` is set). */
+                                    deleted?: string[];
+                                    /** @description Provided primary key -> new primary key, for records whose key was remapped. */
+                                    mapped?: Record<string, never>;
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+            400: components["responses"]["BadRequestError"];
+            401: components["responses"]["UnauthorizedError"];
+            403: components["responses"]["ForbiddenError"];
+            /** @description Error: The import could not be planned, e.g. the requested collections form an unresolvable (non-nullable) relational cycle. */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        errors?: components["schemas"]["Error"][];
+                    };
+                };
+            };
+        };
+    };
     import: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description When true, the upload is received and the import is processed asynchronously in the background. The endpoint responds once the upload has been received. */
+                background?: boolean;
+            };
             header?: never;
             path: {
                 /** @description Collection identifier */
@@ -7796,8 +7970,15 @@ export interface operations {
             };
         };
         responses: {
-            /** @description Successful request */
+            /** @description Successful request (synchronous import completed, or background upload accepted) */
             200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description The uploaded file exceeds `IMPORT_MAX_FILE_SIZE` */
+            413: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -7819,12 +8000,13 @@ export interface operations {
             content: {
                 "application/json": {
                     /**
-                     * @description What file format to save the export to. One of csv, xml, json
+                     * @description What file format to save the export to.
                      * @enum {string}
                      */
-                    format: "csv" | "xml" | "json";
+                    format: "csv" | "csv_utf8" | "xml" | "json" | "yaml";
                     query: components["schemas"]["Query"];
-                    file: components["schemas"]["Files"];
+                    /** @description Optional file metadata to apply to the created file. */
+                    file?: components["schemas"]["Files"];
                 };
             };
         };
@@ -7885,20 +8067,34 @@ export interface operations {
     getActivities: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -7925,10 +8121,8 @@ export interface operations {
     getActivity: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -7957,22 +8151,30 @@ export interface operations {
     getPermissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -7998,10 +8200,7 @@ export interface operations {
     };
     createPermission: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -8103,20 +8302,20 @@ export interface operations {
     updatePermissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -8193,7 +8392,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Permissions"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -8227,10 +8425,8 @@ export interface operations {
     getPermission: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -8282,8 +8478,8 @@ export interface operations {
     updatePermission: {
         parameters: {
             query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
             };
             header?: never;
             path: {
@@ -8356,14 +8552,1698 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    getFields: {
+    getFiles: {
         parameters: {
             query?: {
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
                 sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Files"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    createFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Files"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deleteFiles: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateFiles: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data?: {
+                        data?: string;
+                    };
+                    keys?: string[];
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Files"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getFile: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Files"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deleteFile: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateFile: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "multipart/data": {
+                    /**
+                     * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+                     * @example User Avatar
+                     */
+                    title?: string;
+                    /** @description Preferred filename when file is downloaded. */
+                    filename_download?: string;
+                    /** @description Description for the file. */
+                    description?: string | null;
+                    /**
+                     * @description Virtual folder where this file resides in.
+                     * @example null
+                     */
+                    folder?: (string | components["schemas"]["Folders"]) | null;
+                    /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+                    tags?: string[] | null;
+                    /**
+                     * Format: binary
+                     * @description File contents.
+                     */
+                    file: unknown;
+                };
+                "application/json": {
+                    /**
+                     * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
+                     * @example User Avatar
+                     */
+                    title?: string;
+                    /** @description Preferred filename when file is downloaded. */
+                    filename_download?: string;
+                    /** @description Description for the file. */
+                    description?: string | null;
+                    /**
+                     * @description Virtual folder where this file resides in.
+                     * @example null
+                     */
+                    folder?: (string | components["schemas"]["Folders"]) | null;
+                    /** @description Tags for the file. Is automatically populated based on Exif data for images. */
+                    tags?: string[] | null;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Files"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getCollections: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Collections"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    createCollection: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description Unique name of the collection.
+                     * @example my_collection
+                     */
+                    collection: string;
+                    /** @description The fields contained in this collection. See the fields reference for more information. Each individual field requires field, type, and interface to be provided. */
+                    fields?: Record<string, never>[];
+                    /** @description Database schema for the collection. Required unless `meta` is provided; a collection with no `schema` exists only as an alias/group collection. */
+                    schema?: {
+                        /**
+                         * @description The collection key.
+                         * @example customers
+                         */
+                        name?: string;
+                        /**
+                         * @description Database schema (pg only).
+                         * @example public
+                         */
+                        schema?: string;
+                        /**
+                         * @description Comment as saved in the database.
+                         * @example null
+                         */
+                        comment?: string | null;
+                    };
+                    /** @description Metadata of the collection. Required unless `schema` is provided. */
+                    meta?: {
+                        /**
+                         * @description Name of a Google Material Design Icon that's assigned to this collection.
+                         * @example people
+                         */
+                        icon?: string | null;
+                        /**
+                         * @description A note describing the collection.
+                         * @example null
+                         */
+                        note?: string | null;
+                        /**
+                         * @description Text representation of how items from this collection are shown across the system.
+                         * @example null
+                         */
+                        display_template?: string | null;
+                        /**
+                         * @description Whether or not the collection is hidden from the navigation in the admin app.
+                         * @example false
+                         */
+                        hidden?: boolean;
+                        /**
+                         * @description Whether or not the collection is treated as a single object.
+                         * @example false
+                         */
+                        singleton?: boolean;
+                        /**
+                         * @description Key value pairs of how to show this collection's name in different languages in the admin app.
+                         * @example null
+                         */
+                        translation?: string | null;
+                        /**
+                         * @description Whether or not Content Versioning is enabled for this collection.
+                         * @example false
+                         */
+                        versioning?: boolean;
+                        /**
+                         * @description What field holds the archive value.
+                         * @example null
+                         */
+                        archive_field?: string | null;
+                        /**
+                         * @description What value to use for "archived" items.
+                         * @example null
+                         */
+                        archive_app_filter?: string | null;
+                        /**
+                         * @description What value to use to "unarchive" items.
+                         * @example null
+                         */
+                        archive_value?: string | null;
+                        /**
+                         * @description Whether or not to show the "archived" filter.
+                         * @example null
+                         */
+                        unarchive_value?: string | null;
+                        /**
+                         * @description The sort field in the collection.
+                         * @example null
+                         */
+                        sort_field?: string | null;
+                    };
+                } | unknown | unknown;
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Collections"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    getCollection: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier of the collection. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Collections"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteCollection: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier of the collection. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateCollection: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier of the collection. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description Metadata of the collection. */
+                    meta?: {
+                        /**
+                         * @description Name of a Google Material Design Icon that's assigned to this collection.
+                         * @example people
+                         */
+                        icon?: string | null;
+                        /**
+                         * @description Choose the color for the icon assigned to this collection.
+                         * @example #6644ff
+                         */
+                        color?: string | null;
+                        /**
+                         * @description A note describing the collection.
+                         * @example null
+                         */
+                        note?: string | null;
+                        /**
+                         * @description Text representation of how items from this collection are shown across the system.
+                         * @example null
+                         */
+                        display_template?: string | null;
+                        /**
+                         * @description Whether or not the collection is hidden from the navigation in the admin app.
+                         * @example false
+                         */
+                        hidden?: boolean;
+                        /**
+                         * @description Whether or not the collection is treated as a single object.
+                         * @example false
+                         */
+                        singleton?: boolean;
+                        /**
+                         * @description Key value pairs of how to show this collection's name in different languages in the admin app.
+                         * @example null
+                         */
+                        translation?: string | null;
+                        /**
+                         * @description Whether or not Content Versioning is enabled for this collection.
+                         * @example false
+                         */
+                        versioning?: boolean;
+                        /**
+                         * @description What field holds the archive value.
+                         * @example null
+                         */
+                        archive_field?: string | null;
+                        /**
+                         * @description What value to use for "archived" items.
+                         * @example null
+                         */
+                        archive_app_filter?: string | null;
+                        /**
+                         * @description What value to use to "unarchive" items.
+                         * @example null
+                         */
+                        archive_value?: string | null;
+                        /**
+                         * @description Whether or not to show the "archived" filter.
+                         * @example null
+                         */
+                        unarchive_value?: string | null;
+                        /**
+                         * @description The sort field in the collection.
+                         * @example null
+                         */
+                        sort_field?: string | null;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Collections"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    getUsers: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    createUser: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Users"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteUsers: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateUsers: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    data?: components["schemas"]["Users"];
+                    keys?: string[];
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getUser: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteUser: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateUser: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Users"];
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: Record<string, never>;
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    disableUserTfa: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            403: components["responses"]["ForbiddenError"];
+        };
+    };
+    invite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description Email address or array of email addresses of the to-be-invited user(s). */
+                    email?: string;
+                };
+            };
+        };
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    acceptInvite: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description Accept invite token.
+                     * @example eyJh...KmUk
+                     */
+                    token?: string;
+                    /**
+                     * Format: password
+                     * @description Password of the user.
+                     * @example d1r3ctu5
+                     */
+                    password?: string;
+                };
+            };
+        };
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    getMe: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateMe: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Users"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    meTfaDisable: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    meTfaEnable: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description The secret from the tfa/generate endpoint.
+                     * @example JBSWY3DPEHPK3PXP
+                     */
+                    secret: string;
+                    /**
+                     * @description One-time-password from the user's authenticator app.
+                     * @example 123456
+                     */
+                    otp: string;
+                };
+            };
+        };
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            400: components["responses"]["BadRequestError"];
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    meTfaGenerate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * Format: password
+                     * @description The user's current password. Required when using the default authentication provider.
+                     * @example password
+                     */
+                    password?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: {
+                            /**
+                             * @description Base32-encoded TOTP secret to store in the authenticator app.
+                             * @example JBSWY3DPEHPK3PXP
+                             */
+                            secret?: string;
+                            /**
+                             * @description OTPauth URI for QR code generation.
+                             * @example otpauth://totp/Directus:admin%40example.com?secret=JBSWY3DPEHPK3PXP&issuer=Directus
+                             */
+                            otpauth_url?: string;
+                        };
+                    };
+                };
+            };
+            400: components["responses"]["BadRequestError"];
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateLastUsedPageMe: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description Path of the page you used last. */
+                    last_page?: string;
+                };
+            };
+        };
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    registerUser: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * Format: email
+                     * @description Email address of the new user.
+                     * @example user@example.com
+                     */
+                    email: string;
+                    /**
+                     * Format: password
+                     * @description Password for the new user.
+                     * @example password
+                     */
+                    password: string;
+                    /**
+                     * @description First name of the new user.
+                     * @example Jane
+                     */
+                    first_name?: string;
+                    /**
+                     * @description Last name of the new user.
+                     * @example Doe
+                     */
+                    last_name?: string;
+                    /**
+                     * Format: uri
+                     * @description Custom URL for the email verification link.
+                     * @example https://example.com/verify
+                     */
+                    verification_url?: string;
+                };
+            };
+        };
+        responses: {
+            204: components["responses"]["NoContentResponse"];
+            400: components["responses"]["BadRequestError"];
+            403: components["responses"]["ForbiddenError"];
+            429: components["responses"]["TooManyRequestsError"];
+        };
+    };
+    registerUserVerifyEmail: {
+        parameters: {
+            query: {
+                /** @description Email verification token. */
+                token: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            302: components["responses"]["RedirectResponse"];
+            400: components["responses"]["BadRequestError"];
+            403: components["responses"]["ForbiddenError"];
+        };
+    };
+    getRoles: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Roles"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    createRole: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description Description of the role. */
+                    description?: string;
+                    /** @description Whether or not this role enforces the use of 2FA. */
+                    enforce_tfa?: boolean;
+                    /** @description ID used with external services in SCIM. */
+                    external_id?: string;
+                    /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+                    ip_access?: string[];
+                    /** @description Custom override for the admin app module bar navigation. */
+                    module_listing?: string;
+                    /**
+                     * @description Name of the role.
+                     * @example Interns
+                     */
+                    name?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Roles"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteRoles: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updateRoles: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    keys?: string[];
+                    data?: {
+                        /** @description Description of the role. */
+                        description?: string;
+                        /** @description Whether or not this role enforces the use of 2FA. */
+                        enforce_tfa?: boolean;
+                        /** @description ID used with external services in SCIM. */
+                        external_id?: string;
+                        /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+                        ip_access?: string[];
+                        /** @description Custom override for the admin app module bar navigation. */
+                        module_listing?: string;
+                        /**
+                         * @description Name of the role.
+                         * @example Interns
+                         */
+                        name?: string;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Roles"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getRole: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Roles"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    deleteRole: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateRole: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /** @description Description of the role. */
+                    description?: string;
+                    /** @description Whether or not this role enforces the use of 2FA. */
+                    enforce_tfa?: boolean;
+                    /** @description ID used with external services in SCIM. */
+                    external_id?: string;
+                    /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
+                    ip_access?: string[];
+                    /** @description Custom override for the admin app module bar navigation. */
+                    module_listing?: string;
+                    /** @description Name of the role. */
+                    name?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Roles"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    getPresets: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Presets"][];
+                        meta?: components["schemas"]["x-metadata"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    createPreset: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description What collection this collection preset is used for.
+                     * @example articles
+                     */
+                    collection: string;
+                    /**
+                     * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
+                     * @example Highly rated articles
+                     */
+                    title?: string;
+                    /**
+                     * @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role.
+                     * @example null
+                     */
+                    role?: string;
+                    /** @description What the user searched for in search/filter in the header bar. */
+                    search?: string;
+                    filters?: {
+                        /** @example aHKLAakdVghzD */
+                        key?: string;
+                        /** @example rating */
+                        field?: string;
+                        /** @example gte */
+                        operator?: string;
+                        /** @example 4.5 */
+                        value?: number;
+                    }[];
+                    /** @description Name of the view type that is used. */
+                    layout?: string;
+                    /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
+                    layout_query?: string;
+                    /** @description Options of the views. The properties in here are controlled by the layout. */
+                    layout_options?: string;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Presets"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deletePresets: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updatePresets: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    keys?: string[];
+                    data?: {
+                        /**
+                         * @description What collection this collection preset is used for.
+                         * @example articles
+                         */
+                        collection: string;
+                        /**
+                         * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
+                         * @example Highly rated articles
+                         */
+                        title?: string;
+                        /**
+                         * @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role.
+                         * @example null
+                         */
+                        role?: string;
+                        /** @description What the user searched for in search/filter in the header bar. */
+                        search?: string;
+                        filters?: {
+                            /** @example aHKLAakdVghzD */
+                            key?: string;
+                            /** @example rating */
+                            field?: string;
+                            /** @example gte */
+                            operator?: string;
+                            /** @example 4.5 */
+                            value?: number;
+                        }[];
+                        /** @description Name of the view type that is used. */
+                        layout?: string;
+                        /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
+                        layout_query?: string;
+                        /** @description Options of the views. The properties in here are controlled by the layout. */
+                        layout_options?: string;
+                    };
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Presets"][];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getPreset: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Index */
+                id: components["parameters"]["Id"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Presets"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    deletePreset: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Index */
+                id: components["parameters"]["Id"];
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    updatePreset: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path: {
+                /** @description Index */
+                id: components["parameters"]["Id"];
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    /**
+                     * @description What collection this collection preset is used for.
+                     * @example articles
+                     */
+                    collection: string;
+                    /**
+                     * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
+                     * @example Highly rated articles
+                     */
+                    title?: string;
+                    /** @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role. */
+                    role?: number;
+                    /** @description What the user searched for in search/filter in the header bar. */
+                    search_query?: string;
+                    filters?: {
+                        /** @example rating */
+                        field?: string;
+                        /** @example gte */
+                        operator?: string;
+                        /** @example 4.5 */
+                        value?: number;
+                    }[];
+                    /** @description Name of the view type that is used. Defaults to tabular. */
+                    view_type?: string;
+                    /** @description View query that's saved per view type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
+                    view_query?: string;
+                    /** @description Options of the views. The properties in here are controlled by the layout. */
+                    view_options?: string;
+                    /** @description Key value pair of language-translation. Can be used to translate the bookmark title in multiple languages. */
+                    translation?: Record<string, never>;
+                };
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Presets"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+        };
+    };
+    getFields: {
+        parameters: {
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -8387,10 +10267,7 @@ export interface operations {
     };
     getCollectionFields: {
         parameters: {
-            query?: {
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-            };
+            query?: never;
             header?: never;
             path: {
                 /** @description Unique identifier of the collection the item resides in. */
@@ -8859,569 +10736,36 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    getFiles: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Files"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    createFile: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    data?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Files"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    deleteFiles: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateFiles: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    data?: {
-                        data?: string;
-                    };
-                    keys?: string[];
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Files"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getFile: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Files"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    deleteFile: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateFile: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "multipart/data": {
-                    /**
-                     * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-                     * @example User Avatar
-                     */
-                    title?: string;
-                    /** @description Preferred filename when file is downloaded. */
-                    filename_download?: string;
-                    /** @description Description for the file. */
-                    description?: string | null;
-                    /**
-                     * @description Virtual folder where this file resides in.
-                     * @example null
-                     */
-                    folder?: (string | components["schemas"]["Folders"]) | null;
-                    /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-                    tags?: string[] | null;
-                    /**
-                     * Format: binary
-                     * @description File contents.
-                     */
-                    file: unknown;
-                };
-                "application/json": {
-                    /**
-                     * @description Title for the file. Is extracted from the filename on upload, but can be edited by the user.
-                     * @example User Avatar
-                     */
-                    title?: string;
-                    /** @description Preferred filename when file is downloaded. */
-                    filename_download?: string;
-                    /** @description Description for the file. */
-                    description?: string | null;
-                    /**
-                     * @description Virtual folder where this file resides in.
-                     * @example null
-                     */
-                    folder?: (string | components["schemas"]["Folders"]) | null;
-                    /** @description Tags for the file. Is automatically populated based on Exif data for images. */
-                    tags?: string[] | null;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Files"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getCollections: {
-        parameters: {
-            query?: {
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Collections"][];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    createCollection: {
-        parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description Unique name of the collection.
-                     * @example my_collection
-                     */
-                    collection: string;
-                    /** @description The fields contained in this collection. See the fields reference for more information. Each individual field requires field, type, and interface to be provided. */
-                    fields: Record<string, never>[];
-                    /**
-                     * @description Name of a Google Material Design Icon that's assigned to this collection.
-                     * @example people
-                     */
-                    icon?: string | null;
-                    /**
-                     * @description A note describing the collection.
-                     * @example null
-                     */
-                    note?: string | null;
-                    /**
-                     * @description Text representation of how items from this collection are shown across the system.
-                     * @example null
-                     */
-                    display_template?: string | null;
-                    /**
-                     * @description Whether or not the collection is hidden from the navigation in the admin app.
-                     * @example false
-                     */
-                    hidden?: boolean;
-                    /**
-                     * @description Whether or not the collection is treated as a single object.
-                     * @example false
-                     */
-                    singleton?: boolean;
-                    /**
-                     * @description Key value pairs of how to show this collection's name in different languages in the admin app.
-                     * @example null
-                     */
-                    translation?: string | null;
-                    /**
-                     * @description Whether or not Content Versioning is enabled for this collection.
-                     * @example false
-                     */
-                    versioning?: boolean;
-                    /**
-                     * @description What field holds the archive value.
-                     * @example null
-                     */
-                    archive_field?: string | null;
-                    /**
-                     * @description What value to use for "archived" items.
-                     * @example null
-                     */
-                    archive_app_filter?: string | null;
-                    /**
-                     * @description What value to use to "unarchive" items.
-                     * @example null
-                     */
-                    archive_value?: string | null;
-                    /**
-                     * @description Whether or not to show the "archived" filter.
-                     * @example null
-                     */
-                    unarchive_value?: string | null;
-                    /**
-                     * @description The sort field in the collection.
-                     * @example null
-                     */
-                    sort_field?: string | null;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Collections"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    getCollection: {
-        parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier of the collection. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Collections"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteCollection: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier of the collection. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateCollection: {
-        parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier of the collection. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description Metadata of the collection. */
-                    meta?: {
-                        /**
-                         * @description Name of a Google Material Design Icon that's assigned to this collection.
-                         * @example people
-                         */
-                        icon?: string | null;
-                        /**
-                         * @description Choose the color for the icon assigned to this collection.
-                         * @example #6644ff
-                         */
-                        color?: string | null;
-                        /**
-                         * @description A note describing the collection.
-                         * @example null
-                         */
-                        note?: string | null;
-                        /**
-                         * @description Text representation of how items from this collection are shown across the system.
-                         * @example null
-                         */
-                        display_template?: string | null;
-                        /**
-                         * @description Whether or not the collection is hidden from the navigation in the admin app.
-                         * @example false
-                         */
-                        hidden?: boolean;
-                        /**
-                         * @description Whether or not the collection is treated as a single object.
-                         * @example false
-                         */
-                        singleton?: boolean;
-                        /**
-                         * @description Key value pairs of how to show this collection's name in different languages in the admin app.
-                         * @example null
-                         */
-                        translation?: string | null;
-                        /**
-                         * @description Whether or not Content Versioning is enabled for this collection.
-                         * @example false
-                         */
-                        versioning?: boolean;
-                        /**
-                         * @description What field holds the archive value.
-                         * @example null
-                         */
-                        archive_field?: string | null;
-                        /**
-                         * @description What value to use for "archived" items.
-                         * @example null
-                         */
-                        archive_app_filter?: string | null;
-                        /**
-                         * @description What value to use to "unarchive" items.
-                         * @example null
-                         */
-                        archive_value?: string | null;
-                        /**
-                         * @description Whether or not to show the "archived" filter.
-                         * @example null
-                         */
-                        unarchive_value?: string | null;
-                        /**
-                         * @description The sort field in the collection.
-                         * @example null
-                         */
-                        sort_field?: string | null;
-                    };
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Collections"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
     getFolders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
-                /** @description What metadata to return in the response. */
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
                 meta?: components["parameters"]["Meta"];
             };
             header?: never;
@@ -9449,10 +10793,8 @@ export interface operations {
     createFolder: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -9509,20 +10851,20 @@ export interface operations {
     updateFolders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -9553,7 +10895,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Folders"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -9563,10 +10904,8 @@ export interface operations {
     getFolder: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -9618,10 +10957,8 @@ export interface operations {
     updateFolder: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -9659,1045 +10996,9 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    getUsers: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    createUser: {
-        parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["Users"];
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteUsers: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateUsers: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    data?: components["schemas"]["Users"];
-                    keys?: string[];
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getUser: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteUser: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateUser: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["Users"];
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: Record<string, never>;
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    invite: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description Email address or array of email addresses of the to-be-invited user(s). */
-                    email?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    acceptInvite: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description Accept invite token.
-                     * @example eyJh...KmUk
-                     */
-                    token?: string;
-                    /**
-                     * Format: password
-                     * @description Password of the user.
-                     * @example d1r3ctu5
-                     */
-                    password?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    getMe: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateMe: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Users"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateLastUsedPageMe: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description Path of the page you used last. */
-                    last_page?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    meTfaEnable: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    meTfaDisable: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    getRoles: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    createRole: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description Description of the role. */
-                    description?: string;
-                    /** @description Whether or not this role enforces the use of 2FA. */
-                    enforce_tfa?: boolean;
-                    /** @description ID used with external services in SCIM. */
-                    external_id?: string;
-                    /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-                    ip_access?: string[];
-                    /** @description Custom override for the admin app module bar navigation. */
-                    module_listing?: string;
-                    /**
-                     * @description Name of the role.
-                     * @example Interns
-                     */
-                    name?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteRoles: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateRoles: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    keys?: string[];
-                    data?: {
-                        /** @description Description of the role. */
-                        description?: string;
-                        /** @description Whether or not this role enforces the use of 2FA. */
-                        enforce_tfa?: boolean;
-                        /** @description ID used with external services in SCIM. */
-                        external_id?: string;
-                        /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-                        ip_access?: string[];
-                        /** @description Custom override for the admin app module bar navigation. */
-                        module_listing?: string;
-                        /**
-                         * @description Name of the role.
-                         * @example Interns
-                         */
-                        name?: string;
-                    };
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getRole: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteRole: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateRole: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /** @description Description of the role. */
-                    description?: string;
-                    /** @description Whether or not this role enforces the use of 2FA. */
-                    enforce_tfa?: boolean;
-                    /** @description ID used with external services in SCIM. */
-                    external_id?: string;
-                    /** @description Array of IP addresses that are allowed to connect to the API as a user of this role. */
-                    ip_access?: string[];
-                    /** @description Custom override for the admin app module bar navigation. */
-                    module_listing?: string;
-                    /** @description Name of the role. */
-                    name?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    getPresets: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Presets"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    createPreset: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description What collection this collection preset is used for.
-                     * @example articles
-                     */
-                    collection: string;
-                    /**
-                     * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
-                     * @example Highly rated articles
-                     */
-                    title?: string;
-                    /**
-                     * @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role.
-                     * @example null
-                     */
-                    role?: string;
-                    /** @description What the user searched for in search/filter in the header bar. */
-                    search?: string;
-                    filters?: {
-                        /** @example aHKLAakdVghzD */
-                        key?: string;
-                        /** @example rating */
-                        field?: string;
-                        /** @example gte */
-                        operator?: string;
-                        /** @example 4.5 */
-                        value?: number;
-                    }[];
-                    /** @description Name of the view type that is used. */
-                    layout?: string;
-                    /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
-                    layout_query?: string;
-                    /** @description Options of the views. The properties in here are controlled by the layout. */
-                    layout_options?: string;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Presets"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    deletePresets: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updatePresets: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    keys?: string[];
-                    data?: {
-                        /**
-                         * @description What collection this collection preset is used for.
-                         * @example articles
-                         */
-                        collection: string;
-                        /**
-                         * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
-                         * @example Highly rated articles
-                         */
-                        title?: string;
-                        /**
-                         * @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role.
-                         * @example null
-                         */
-                        role?: string;
-                        /** @description What the user searched for in search/filter in the header bar. */
-                        search?: string;
-                        filters?: {
-                            /** @example aHKLAakdVghzD */
-                            key?: string;
-                            /** @example rating */
-                            field?: string;
-                            /** @example gte */
-                            operator?: string;
-                            /** @example 4.5 */
-                            value?: number;
-                        }[];
-                        /** @description Name of the view type that is used. */
-                        layout?: string;
-                        /** @description Layout query that's saved per layout type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
-                        layout_query?: string;
-                        /** @description Options of the views. The properties in here are controlled by the layout. */
-                        layout_options?: string;
-                    };
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Presets"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getPreset: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Index */
-                id: components["parameters"]["Id"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Presets"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    deletePreset: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Index */
-                id: components["parameters"]["Id"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updatePreset: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Index */
-                id: components["parameters"]["Id"];
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description What collection this collection preset is used for.
-                     * @example articles
-                     */
-                    collection: string;
-                    /**
-                     * @description Name for the bookmark. If this is set, the collection preset will be considered to be a bookmark.
-                     * @example Highly rated articles
-                     */
-                    title?: string;
-                    /** @description The unique identifier of a role in the platform. If user is null, this will be used to apply the collection preset or bookmark for all users in the role. */
-                    role?: number;
-                    /** @description What the user searched for in search/filter in the header bar. */
-                    search_query?: string;
-                    filters?: {
-                        /** @example rating */
-                        field?: string;
-                        /** @example gte */
-                        operator?: string;
-                        /** @example 4.5 */
-                        value?: number;
-                    }[];
-                    /** @description Name of the view type that is used. Defaults to tabular. */
-                    view_type?: string;
-                    /** @description View query that's saved per view type. Controls what data is fetched on load. These follow the same format as the JS SDK parameters. */
-                    view_query?: string;
-                    /** @description Options of the views. The properties in here are controlled by the layout. */
-                    view_options?: string;
-                    /** @description Key value pair of language-translation. Can be used to translate the bookmark title in multiple languages. */
-                    translation?: Record<string, never>;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Presets"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
     getRelations: {
         parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -10721,12 +11022,7 @@ export interface operations {
     };
     createRelation: {
         parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -10777,12 +11073,7 @@ export interface operations {
     };
     getRelation: {
         parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path: {
                 /** @description Index */
@@ -10832,12 +11123,7 @@ export interface operations {
     };
     updateRelation: {
         parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path: {
                 /** @description Index */
@@ -10883,22 +11169,34 @@ export interface operations {
     getRevisions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
                 page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -10925,10 +11223,8 @@ export interface operations {
     getRevision: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -10956,7 +11252,36 @@ export interface operations {
     };
     getFlows: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
+            };
             header?: never;
             path?: never;
             cookie?: never;
@@ -10982,10 +11307,8 @@ export interface operations {
     createFlow: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -11034,20 +11357,20 @@ export interface operations {
     updateFlows: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -11070,7 +11393,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Flows"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -11130,10 +11452,8 @@ export interface operations {
     updateFlow: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -11165,7 +11485,36 @@ export interface operations {
     };
     getOperations: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+                /** @description Select items in the collection that match the given filter conditions. */
+                filter?: components["parameters"]["Filter"];
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+                search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
+            };
             header?: never;
             path?: never;
             cookie?: never;
@@ -11191,10 +11540,8 @@ export interface operations {
     createOperation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -11243,20 +11590,20 @@ export interface operations {
     updateOperations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -11279,7 +11626,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Operations"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -11339,10 +11685,8 @@ export interface operations {
     updateOperation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -11375,20 +11719,34 @@ export interface operations {
     getContentVersions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -11415,10 +11773,8 @@ export interface operations {
     createContentVersion: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -11467,20 +11823,20 @@ export interface operations {
     updateContentVersions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -11503,7 +11859,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Versions"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -11513,10 +11868,8 @@ export interface operations {
     getContentVersion: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -11568,10 +11921,8 @@ export interface operations {
     updateContentVersion: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -11796,20 +12147,36 @@ export interface operations {
     readItemsDirectusSyncIDMap: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -11834,10 +12201,7 @@ export interface operations {
     };
     createItemsDirectusSyncIDMap: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -11884,20 +12248,20 @@ export interface operations {
     updateItemsDirectusSyncIDMap: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -11920,17 +12284,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsDirectusSyncIDMap: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -11982,10 +12347,8 @@ export interface operations {
     updateSingleItemsDirectusSyncIDMap: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -12015,401 +12378,36 @@ export interface operations {
             404: components["responses"]["NotFoundError"];
         };
     };
-    getSettings: {
-        parameters: {
-            query?: {
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Settings"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateSetting: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": Record<string, never>;
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Settings"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    getWebhooks: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Webhooks"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    createWebhook: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description The name of the webhook.
-                     * @example create articles
-                     */
-                    name?: string;
-                    /**
-                     * @description Method used in the webhook.
-                     * @example POST
-                     */
-                    method?: string;
-                    /**
-                     * @description The url of the webhook.
-                     * @example null
-                     */
-                    url?: string;
-                    /**
-                     * @description The status of the webhook.
-                     * @example active
-                     */
-                    status?: string;
-                    /**
-                     * @description If yes, send the content of what was done
-                     * @example true
-                     */
-                    data?: boolean;
-                    /**
-                     * @description The actions that triggers this webhook.
-                     * @example null
-                     */
-                    actions?: unknown;
-                    /**
-                     * @description The collections that triggers this webhook.
-                     * @example null
-                     */
-                    "system-collections"?: unknown;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteWebhooks: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    updateWebhooks: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
-                filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
-                search?: components["parameters"]["Search"];
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    data?: {
-                        /**
-                         * @description The name of the webhook.
-                         * @example create articles
-                         */
-                        name?: string;
-                        /**
-                         * @description Method used in the webhook.
-                         * @example POST
-                         */
-                        method?: string;
-                        /**
-                         * @description The url of the webhook.
-                         * @example null
-                         */
-                        url?: string;
-                        /**
-                         * @description The status of the webhook.
-                         * @example active
-                         */
-                        status?: string;
-                        /**
-                         * @description If yes, send the content of what was done
-                         * @example true
-                         */
-                        data?: boolean;
-                        /**
-                         * @description The actions that triggers this webhook.
-                         * @example null
-                         */
-                        actions?: unknown;
-                        /**
-                         * @description The collections that triggers this webhook.
-                         * @example null
-                         */
-                        "system-collections"?: unknown;
-                    };
-                    keys?: string[];
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Webhooks"][];
-                        meta?: components["schemas"]["x-metadata"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-        };
-    };
-    getWebhook: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Webhooks"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    deleteWebhook: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
-    updateWebhook: {
-        parameters: {
-            query?: {
-                /** @description Control what fields are being returned in the object. */
-                fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
-            header?: never;
-            path: {
-                /** @description Unique identifier for the object. */
-                id: components["parameters"]["UUId"];
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    /**
-                     * @description The name of the webhook.
-                     * @example create articles
-                     */
-                    name?: string;
-                    /**
-                     * @description Method used in the webhook.
-                     * @example POST
-                     */
-                    method?: string;
-                    /**
-                     * @description The url of the webhook.
-                     * @example null
-                     */
-                    url?: string;
-                    /**
-                     * @description The status of the webhook.
-                     * @example active
-                     */
-                    status?: string;
-                    /**
-                     * @description If yes, send the content of what was done
-                     * @example true
-                     */
-                    data?: boolean;
-                    /**
-                     * @description The actions that triggers this webhook.
-                     * @example null
-                     */
-                    actions?: unknown;
-                    /**
-                     * @description The collections that triggers this webhook.
-                     * @example null
-                     */
-                    "system-collections"?: unknown;
-                };
-            };
-        };
-        responses: {
-            /** @description Successful request */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        data?: components["schemas"]["Roles"];
-                    };
-                };
-            };
-            401: components["responses"]["UnauthorizedError"];
-            404: components["responses"]["NotFoundError"];
-        };
-    };
     getComments: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description Cursor for use in pagination. Often used in combination with limit. */
-                page?: components["parameters"]["Page"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
-                /** @description What metadata to return in the response. */
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
                 meta?: components["parameters"]["Meta"];
             };
             header?: never;
@@ -12436,10 +12434,8 @@ export interface operations {
     createComment: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -12497,20 +12493,20 @@ export interface operations {
     updateComments: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -12543,7 +12539,6 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["Comments"][];
-                        meta?: components["schemas"]["x-metadata"];
                     };
                 };
             };
@@ -12553,13 +12548,14 @@ export interface operations {
     getComment: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
-            path?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
             cookie?: never;
         };
         requestBody?: never;
@@ -12582,7 +12578,10 @@ export interface operations {
         parameters: {
             query?: never;
             header?: never;
-            path?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
             cookie?: never;
         };
         requestBody?: never;
@@ -12600,13 +12599,14 @@ export interface operations {
     updateComment: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
-            path?: never;
+            path: {
+                /** @description Unique identifier for the object. */
+                id: components["parameters"]["UUId"];
+            };
             cookie?: never;
         };
         requestBody?: {
@@ -12643,20 +12643,36 @@ export interface operations {
     readItemsGameStarSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -12681,10 +12697,7 @@ export interface operations {
     };
     createItemsGameStarSocialLinks: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -12731,20 +12744,20 @@ export interface operations {
     updateItemsGameStarSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -12767,17 +12780,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -12829,10 +12843,8 @@ export interface operations {
     updateSingleItemsGameStarSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -12865,20 +12877,36 @@ export interface operations {
     readItemsIcelan: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -12903,10 +12931,7 @@ export interface operations {
     };
     createItemsIcelan: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -12953,20 +12978,20 @@ export interface operations {
     updateItemsIcelan: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -12989,17 +13014,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelan: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -13051,10 +13077,8 @@ export interface operations {
     updateSingleItemsIcelan: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -13087,20 +13111,36 @@ export interface operations {
     readItemsIcelanAnimations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -13125,10 +13165,7 @@ export interface operations {
     };
     createItemsIcelanAnimations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -13175,20 +13212,20 @@ export interface operations {
     updateItemsIcelanAnimations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -13211,17 +13248,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanAnimations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -13273,10 +13311,8 @@ export interface operations {
     updateSingleItemsIcelanAnimations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -13309,20 +13345,36 @@ export interface operations {
     readItemsIcelanFaqs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -13347,10 +13399,7 @@ export interface operations {
     };
     createItemsIcelanFaqs: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -13397,20 +13446,20 @@ export interface operations {
     updateItemsIcelanFaqs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -13433,17 +13482,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanFaqs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -13495,10 +13545,8 @@ export interface operations {
     updateSingleItemsIcelanFaqs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -13531,20 +13579,36 @@ export interface operations {
     readItemsArtists: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -13569,10 +13633,7 @@ export interface operations {
     };
     createItemsArtists: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -13619,20 +13680,20 @@ export interface operations {
     updateItemsArtists: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -13655,17 +13716,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsArtists: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -13717,10 +13779,8 @@ export interface operations {
     updateSingleItemsArtists: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -13753,20 +13813,36 @@ export interface operations {
     readItemsAssociation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -13791,10 +13867,7 @@ export interface operations {
     };
     createItemsAssociation: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -13841,20 +13914,20 @@ export interface operations {
     updateItemsAssociation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -13877,17 +13950,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -13939,10 +14013,8 @@ export interface operations {
     updateSingleItemsAssociation: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -13975,20 +14047,36 @@ export interface operations {
     readItemsAssociationPublicFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -14013,10 +14101,7 @@ export interface operations {
     };
     createItemsAssociationPublicFiles: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -14063,20 +14148,20 @@ export interface operations {
     updateItemsAssociationPublicFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -14099,17 +14184,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationPublicFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -14161,10 +14247,8 @@ export interface operations {
     updateSingleItemsAssociationPublicFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -14197,20 +14281,36 @@ export interface operations {
     readItemsMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -14235,10 +14335,7 @@ export interface operations {
     };
     createItemsMembers: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -14285,20 +14382,20 @@ export interface operations {
     updateItemsMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -14321,17 +14418,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -14383,10 +14481,8 @@ export interface operations {
     updateSingleItemsMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -14419,20 +14515,36 @@ export interface operations {
     readItemsAssociationMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -14457,10 +14569,7 @@ export interface operations {
     };
     createItemsAssociationMemberships: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -14507,20 +14616,20 @@ export interface operations {
     updateItemsAssociationMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -14543,17 +14652,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -14605,10 +14715,8 @@ export interface operations {
     updateSingleItemsAssociationMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -14641,20 +14749,36 @@ export interface operations {
     readItemsAssociationPoles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -14679,10 +14803,7 @@ export interface operations {
     };
     createItemsAssociationPoles: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -14729,20 +14850,20 @@ export interface operations {
     updateItemsAssociationPoles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -14765,17 +14886,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationPoles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -14827,10 +14949,8 @@ export interface operations {
     updateSingleItemsAssociationPoles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -14863,20 +14983,36 @@ export interface operations {
     readItemsAssociationMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -14901,10 +15037,7 @@ export interface operations {
     };
     createItemsAssociationMembershipsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -14951,20 +15084,20 @@ export interface operations {
     updateItemsAssociationMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -14987,17 +15120,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -15049,10 +15183,8 @@ export interface operations {
     updateSingleItemsAssociationMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -15085,20 +15217,36 @@ export interface operations {
     readItemsLanguages: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -15123,10 +15271,7 @@ export interface operations {
     };
     createItemsLanguages: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -15173,20 +15318,20 @@ export interface operations {
     updateItemsLanguages: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -15209,17 +15354,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsLanguages: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -15271,10 +15417,8 @@ export interface operations {
     updateSingleItemsLanguages: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -15307,20 +15451,36 @@ export interface operations {
     readItemsAssociationPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -15345,10 +15505,7 @@ export interface operations {
     };
     createItemsAssociationPartners: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -15395,20 +15552,20 @@ export interface operations {
     updateItemsAssociationPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -15431,17 +15588,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -15493,10 +15651,8 @@ export interface operations {
     updateSingleItemsAssociationPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -15529,20 +15685,36 @@ export interface operations {
     readItemsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -15567,10 +15739,7 @@ export interface operations {
     };
     createItemsPartners: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -15617,20 +15786,20 @@ export interface operations {
     updateItemsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -15653,17 +15822,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -15715,10 +15885,8 @@ export interface operations {
     updateSingleItemsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -15751,20 +15919,36 @@ export interface operations {
     readItemsAssociationPolesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -15789,10 +15973,7 @@ export interface operations {
     };
     createItemsAssociationPolesTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -15839,20 +16020,20 @@ export interface operations {
     updateItemsAssociationPolesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -15875,17 +16056,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationPolesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -15937,10 +16119,8 @@ export interface operations {
     updateSingleItemsAssociationPolesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -15973,20 +16153,36 @@ export interface operations {
     readItemsAssociationPublicFilesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -16011,10 +16207,7 @@ export interface operations {
     };
     createItemsAssociationPublicFilesTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -16061,20 +16254,20 @@ export interface operations {
     updateItemsAssociationPublicFilesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -16097,17 +16290,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationPublicFilesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -16159,10 +16353,8 @@ export interface operations {
     updateSingleItemsAssociationPublicFilesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -16195,20 +16387,36 @@ export interface operations {
     readItemsAssociationSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -16233,10 +16441,7 @@ export interface operations {
     };
     createItemsAssociationSocialLinks: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -16283,20 +16488,20 @@ export interface operations {
     updateItemsAssociationSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -16319,17 +16524,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -16381,10 +16587,8 @@ export interface operations {
     updateSingleItemsAssociationSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -16417,20 +16621,36 @@ export interface operations {
     readItemsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -16455,10 +16675,7 @@ export interface operations {
     };
     createItemsSocialLinks: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -16505,20 +16722,20 @@ export interface operations {
     updateItemsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -16541,17 +16758,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -16603,10 +16821,8 @@ export interface operations {
     updateSingleItemsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -16639,20 +16855,36 @@ export interface operations {
     readItemsAssociationTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -16677,10 +16909,7 @@ export interface operations {
     };
     createItemsAssociationTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -16727,20 +16956,20 @@ export interface operations {
     updateItemsAssociationTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -16763,17 +16992,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsAssociationTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -16825,10 +17055,8 @@ export interface operations {
     updateSingleItemsAssociationTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -16861,20 +17089,36 @@ export interface operations {
     readItemsClothes: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -16899,10 +17143,7 @@ export interface operations {
     };
     createItemsClothes: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -16949,20 +17190,20 @@ export interface operations {
     updateItemsClothes: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -16985,17 +17226,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsClothes: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -17047,10 +17289,8 @@ export interface operations {
     updateSingleItemsClothes: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -17083,20 +17323,36 @@ export interface operations {
     readItemsEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -17121,10 +17377,7 @@ export interface operations {
     };
     createItemsEvents: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -17171,20 +17424,20 @@ export interface operations {
     updateItemsEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -17207,17 +17460,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -17269,10 +17523,8 @@ export interface operations {
     updateSingleItemsEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -17305,20 +17557,36 @@ export interface operations {
     readItemsClothesOrders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -17343,10 +17611,7 @@ export interface operations {
     };
     createItemsClothesOrders: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -17393,20 +17658,20 @@ export interface operations {
     updateItemsClothesOrders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -17429,17 +17694,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsClothesOrders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -17491,10 +17757,8 @@ export interface operations {
     updateSingleItemsClothesOrders: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -17527,20 +17791,36 @@ export interface operations {
     readItemsRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -17565,10 +17845,7 @@ export interface operations {
     };
     createItemsRegistrations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -17615,20 +17892,20 @@ export interface operations {
     updateItemsRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -17651,17 +17928,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -17713,10 +17991,8 @@ export interface operations {
     updateSingleItemsRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -17749,20 +18025,36 @@ export interface operations {
     readItemsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -17787,10 +18079,7 @@ export interface operations {
     };
     createItemsCommissions: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -17837,20 +18126,20 @@ export interface operations {
     updateItemsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -17873,17 +18162,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -17935,10 +18225,8 @@ export interface operations {
     updateSingleItemsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -17971,20 +18259,36 @@ export interface operations {
     readItemsCommissionMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -18009,10 +18313,7 @@ export interface operations {
     };
     createItemsCommissionMemberships: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -18059,20 +18360,20 @@ export interface operations {
     updateItemsCommissionMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -18095,17 +18396,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsCommissionMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -18157,10 +18459,8 @@ export interface operations {
     updateSingleItemsCommissionMemberships: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -18193,20 +18493,36 @@ export interface operations {
     readItemsCommissionMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -18231,10 +18547,7 @@ export interface operations {
     };
     createItemsCommissionMembershipsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -18281,20 +18594,20 @@ export interface operations {
     updateItemsCommissionMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -18317,17 +18630,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsCommissionMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -18379,10 +18693,8 @@ export interface operations {
     updateSingleItemsCommissionMembershipsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -18415,20 +18727,36 @@ export interface operations {
     readItemsCommissionsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -18453,10 +18781,7 @@ export interface operations {
     };
     createItemsCommissionsSocialLinks: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -18503,20 +18828,20 @@ export interface operations {
     updateItemsCommissionsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -18539,17 +18864,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsCommissionsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -18601,10 +18927,8 @@ export interface operations {
     updateSingleItemsCommissionsSocialLinks: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -18637,20 +18961,36 @@ export interface operations {
     readItemsCommissionsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -18675,10 +19015,7 @@ export interface operations {
     };
     createItemsCommissionsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -18725,20 +19062,20 @@ export interface operations {
     updateItemsCommissionsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -18761,17 +19098,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsCommissionsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -18823,10 +19161,8 @@ export interface operations {
     updateSingleItemsCommissionsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -18859,20 +19195,36 @@ export interface operations {
     readItemsIcbd: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -18897,10 +19249,7 @@ export interface operations {
     };
     createItemsIcbd: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -18947,20 +19296,20 @@ export interface operations {
     updateItemsIcbd: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -18983,17 +19332,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbd: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -19045,10 +19395,8 @@ export interface operations {
     updateSingleItemsIcbd: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -19081,20 +19429,36 @@ export interface operations {
     readItemsGalleries: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -19119,10 +19483,7 @@ export interface operations {
     };
     createItemsGalleries: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -19169,20 +19530,20 @@ export interface operations {
     updateItemsGalleries: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -19205,17 +19566,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGalleries: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -19267,10 +19629,8 @@ export interface operations {
     updateSingleItemsGalleries: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -19303,20 +19663,36 @@ export interface operations {
     readItemsGameStarArticles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -19341,10 +19717,7 @@ export interface operations {
     };
     createItemsGameStarArticles: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -19391,20 +19764,20 @@ export interface operations {
     updateItemsGameStarArticles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -19427,17 +19800,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarArticles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -19489,10 +19863,8 @@ export interface operations {
     updateSingleItemsGameStarArticles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -19525,20 +19897,36 @@ export interface operations {
     readItemsGameStarArticlesMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -19563,10 +19951,7 @@ export interface operations {
     };
     createItemsGameStarArticlesMembers: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -19613,20 +19998,20 @@ export interface operations {
     updateItemsGameStarArticlesMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -19649,17 +20034,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarArticlesMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -19711,10 +20097,8 @@ export interface operations {
     updateSingleItemsGameStarArticlesMembers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -19747,20 +20131,36 @@ export interface operations {
     readItemsGameStarArticlesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -19785,10 +20185,7 @@ export interface operations {
     };
     createItemsGameStarArticlesTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -19835,20 +20232,20 @@ export interface operations {
     updateItemsGameStarArticlesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -19871,17 +20268,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarArticlesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -19933,10 +20331,8 @@ export interface operations {
     updateSingleItemsGameStarArticlesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -19969,20 +20365,36 @@ export interface operations {
     readItemsGameStarEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -20007,10 +20419,7 @@ export interface operations {
     };
     createItemsGameStarEvents: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -20057,20 +20466,20 @@ export interface operations {
     updateItemsGameStarEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -20093,17 +20502,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -20155,10 +20565,8 @@ export interface operations {
     updateSingleItemsGameStarEvents: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -20191,20 +20599,36 @@ export interface operations {
     readItemsGameStarEventsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -20229,10 +20653,7 @@ export interface operations {
     };
     createItemsGameStarEventsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -20279,20 +20700,20 @@ export interface operations {
     updateItemsGameStarEventsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -20315,17 +20736,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarEventsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -20377,10 +20799,8 @@ export interface operations {
     updateSingleItemsGameStarEventsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -20413,20 +20833,36 @@ export interface operations {
     readItemsGameStarGames: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -20451,10 +20887,7 @@ export interface operations {
     };
     createItemsGameStarGames: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -20501,20 +20934,20 @@ export interface operations {
     updateItemsGameStarGames: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -20537,17 +20970,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarGames: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -20599,10 +21033,8 @@ export interface operations {
     updateSingleItemsGameStarGames: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -20635,20 +21067,36 @@ export interface operations {
     readItemsGameStarGamesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -20673,10 +21121,7 @@ export interface operations {
     };
     createItemsGameStarGamesTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -20723,20 +21168,20 @@ export interface operations {
     updateItemsGameStarGamesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -20759,17 +21204,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarGamesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -20821,10 +21267,8 @@ export interface operations {
     updateSingleItemsGameStarGamesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -20857,20 +21301,36 @@ export interface operations {
     readItemsGameStarProjects: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -20895,10 +21355,7 @@ export interface operations {
     };
     createItemsGameStarProjects: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -20945,20 +21402,20 @@ export interface operations {
     updateItemsGameStarProjects: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -20981,17 +21438,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarProjects: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -21043,10 +21501,8 @@ export interface operations {
     updateSingleItemsGameStarProjects: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -21079,20 +21535,36 @@ export interface operations {
     readItemsGameStarProjectsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -21117,10 +21589,7 @@ export interface operations {
     };
     createItemsGameStarProjectsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -21167,20 +21636,20 @@ export interface operations {
     updateItemsGameStarProjectsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -21203,17 +21672,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarProjectsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -21265,10 +21735,8 @@ export interface operations {
     updateSingleItemsGameStarProjectsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -21301,20 +21769,36 @@ export interface operations {
     readItemsGameStar: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -21339,10 +21823,7 @@ export interface operations {
     };
     createItemsGameStar: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -21389,20 +21870,20 @@ export interface operations {
     updateItemsGameStar: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -21425,17 +21906,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStar: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -21487,10 +21969,8 @@ export interface operations {
     updateSingleItemsGameStar: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -21523,20 +22003,36 @@ export interface operations {
     readItemsGameStarTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -21561,10 +22057,7 @@ export interface operations {
     };
     createItemsGameStarTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -21611,20 +22104,20 @@ export interface operations {
     updateItemsGameStarTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -21647,17 +22140,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsGameStarTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -21709,10 +22203,8 @@ export interface operations {
     updateSingleItemsGameStarTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -21745,20 +22237,36 @@ export interface operations {
     readItemsIcbdActivities: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -21783,10 +22291,7 @@ export interface operations {
     };
     createItemsIcbdActivities: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -21833,20 +22338,20 @@ export interface operations {
     updateItemsIcbdActivities: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -21869,17 +22374,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdActivities: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -21931,10 +22437,8 @@ export interface operations {
     updateSingleItemsIcbdActivities: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -21967,20 +22471,36 @@ export interface operations {
     readItemsIcbdActivitiesIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -22005,10 +22525,7 @@ export interface operations {
     };
     createItemsIcbdActivitiesIcbdSpeakers: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -22055,20 +22572,20 @@ export interface operations {
     updateItemsIcbdActivitiesIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -22091,17 +22608,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdActivitiesIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -22153,10 +22671,8 @@ export interface operations {
     updateSingleItemsIcbdActivitiesIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -22189,20 +22705,36 @@ export interface operations {
     readItemsIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -22227,10 +22759,7 @@ export interface operations {
     };
     createItemsIcbdSpeakers: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -22277,20 +22806,20 @@ export interface operations {
     updateItemsIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -22313,17 +22842,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -22375,10 +22905,8 @@ export interface operations {
     updateSingleItemsIcbdSpeakers: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -22411,20 +22939,36 @@ export interface operations {
     readItemsIcbdActivitiesRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -22449,10 +22993,7 @@ export interface operations {
     };
     createItemsIcbdActivitiesRegistrations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -22499,20 +23040,20 @@ export interface operations {
     updateItemsIcbdActivitiesRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -22535,17 +23076,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdActivitiesRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -22597,10 +23139,8 @@ export interface operations {
     updateSingleItemsIcbdActivitiesRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -22633,20 +23173,36 @@ export interface operations {
     readItemsIcbdActivitiesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -22671,10 +23227,7 @@ export interface operations {
     };
     createItemsIcbdActivitiesTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -22721,20 +23274,20 @@ export interface operations {
     updateItemsIcbdActivitiesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -22757,17 +23310,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdActivitiesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -22819,10 +23373,8 @@ export interface operations {
     updateSingleItemsIcbdActivitiesTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -22855,20 +23407,36 @@ export interface operations {
     readItemsIcbdFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -22893,10 +23461,7 @@ export interface operations {
     };
     createItemsIcbdFiles: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -22943,20 +23508,20 @@ export interface operations {
     updateItemsIcbdFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -22979,17 +23544,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -23041,10 +23607,8 @@ export interface operations {
     updateSingleItemsIcbdFiles: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -23077,20 +23641,36 @@ export interface operations {
     readItemsIcbdPhds: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -23115,10 +23695,7 @@ export interface operations {
     };
     createItemsIcbdPhds: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -23165,20 +23742,20 @@ export interface operations {
     updateItemsIcbdPhds: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -23201,17 +23778,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdPhds: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -23263,10 +23841,8 @@ export interface operations {
     updateSingleItemsIcbdPhds: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -23299,20 +23875,36 @@ export interface operations {
     readItemsIcbdTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -23337,10 +23929,7 @@ export interface operations {
     };
     createItemsIcbdTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -23387,20 +23976,20 @@ export interface operations {
     updateItemsIcbdTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -23423,17 +24012,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcbdTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -23485,10 +24075,8 @@ export interface operations {
     updateSingleItemsIcbdTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -23521,20 +24109,36 @@ export interface operations {
     readItemsIcelanCollabs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -23559,10 +24163,7 @@ export interface operations {
     };
     createItemsIcelanCollabs: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -23609,20 +24210,20 @@ export interface operations {
     updateItemsIcelanCollabs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -23645,17 +24246,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanCollabs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -23707,10 +24309,8 @@ export interface operations {
     updateSingleItemsIcelanCollabs: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -23743,20 +24343,36 @@ export interface operations {
     readItemsIcelanSponsors: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -23781,10 +24397,7 @@ export interface operations {
     };
     createItemsIcelanSponsors: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -23831,20 +24444,20 @@ export interface operations {
     updateItemsIcelanSponsors: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -23867,17 +24480,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanSponsors: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -23929,10 +24543,8 @@ export interface operations {
     updateSingleItemsIcelanSponsors: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -23965,20 +24577,36 @@ export interface operations {
     readItemsIcelanTournois: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -24003,10 +24631,7 @@ export interface operations {
     };
     createItemsIcelanTournois: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -24053,20 +24678,20 @@ export interface operations {
     updateItemsIcelanTournois: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -24089,17 +24714,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanTournois: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -24151,10 +24777,8 @@ export interface operations {
     updateSingleItemsIcelanTournois: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -24187,20 +24811,36 @@ export interface operations {
     readItemsIcelanTournoisRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -24225,10 +24865,7 @@ export interface operations {
     };
     createItemsIcelanTournoisRegistrations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -24275,20 +24912,20 @@ export interface operations {
     updateItemsIcelanTournoisRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -24311,17 +24948,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsIcelanTournoisRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -24373,10 +25011,8 @@ export interface operations {
     updateSingleItemsIcelanTournoisRegistrations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -24409,20 +25045,36 @@ export interface operations {
     readItemsInventory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -24447,10 +25099,7 @@ export interface operations {
     };
     createItemsInventory: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -24497,20 +25146,20 @@ export interface operations {
     updateItemsInventory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -24533,17 +25182,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsInventory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -24595,10 +25245,8 @@ export interface operations {
     updateSingleItemsInventory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -24631,20 +25279,36 @@ export interface operations {
     readItemsNews: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -24669,10 +25333,7 @@ export interface operations {
     };
     createItemsNews: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -24719,20 +25380,20 @@ export interface operations {
     updateItemsNews: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -24755,17 +25416,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsNews: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -24817,10 +25479,8 @@ export interface operations {
     updateSingleItemsNews: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -24853,20 +25513,36 @@ export interface operations {
     readItemsNewsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -24891,10 +25567,7 @@ export interface operations {
     };
     createItemsNewsCommissions: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -24941,20 +25614,20 @@ export interface operations {
     updateItemsNewsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -24977,17 +25650,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsNewsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -25039,10 +25713,8 @@ export interface operations {
     updateSingleItemsNewsCommissions: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -25075,20 +25747,36 @@ export interface operations {
     readItemsNewsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -25113,10 +25801,7 @@ export interface operations {
     };
     createItemsNewsPartners: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -25163,20 +25848,20 @@ export interface operations {
     updateItemsNewsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -25199,17 +25884,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsNewsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -25261,10 +25947,8 @@ export interface operations {
     updateSingleItemsNewsPartners: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -25297,20 +25981,36 @@ export interface operations {
     readItemsNewsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -25335,10 +26035,7 @@ export interface operations {
     };
     createItemsNewsTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -25385,20 +26082,20 @@ export interface operations {
     updateItemsNewsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -25421,17 +26118,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsNewsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -25483,10 +26181,8 @@ export interface operations {
     updateSingleItemsNewsTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -25519,20 +26215,36 @@ export interface operations {
     readItemsPartnerCategoryTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -25557,10 +26269,7 @@ export interface operations {
     };
     createItemsPartnerCategoryTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -25607,20 +26316,20 @@ export interface operations {
     updateItemsPartnerCategoryTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -25643,17 +26352,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsPartnerCategoryTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -25705,10 +26415,8 @@ export interface operations {
     updateSingleItemsPartnerCategoryTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -25741,20 +26449,36 @@ export interface operations {
     readItemsPartnerCategory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -25779,10 +26503,7 @@ export interface operations {
     };
     createItemsPartnerCategory: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -25829,20 +26550,20 @@ export interface operations {
     updateItemsPartnerCategory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -25865,17 +26586,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsPartnerCategory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -25927,10 +26649,8 @@ export interface operations {
     updateSingleItemsPartnerCategory: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -25963,20 +26683,36 @@ export interface operations {
     readItemsSavetheDate: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -26001,10 +26737,7 @@ export interface operations {
     };
     createItemsSavetheDate: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -26051,20 +26784,20 @@ export interface operations {
     updateItemsSavetheDate: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -26087,17 +26820,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsSavetheDate: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -26149,10 +26883,8 @@ export interface operations {
     updateSingleItemsSavetheDate: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -26185,20 +26917,36 @@ export interface operations {
     readItemsSavetheDateTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -26223,10 +26971,7 @@ export interface operations {
     };
     createItemsSavetheDateTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -26273,20 +27018,20 @@ export interface operations {
     updateItemsSavetheDateTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -26309,17 +27054,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsSavetheDateTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -26371,10 +27117,8 @@ export interface operations {
     updateSingleItemsSavetheDateTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -26407,20 +27151,36 @@ export interface operations {
     readItemsStdCell: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -26445,10 +27205,7 @@ export interface operations {
     };
     createItemsStdCell: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -26495,20 +27252,20 @@ export interface operations {
     updateItemsStdCell: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -26531,17 +27288,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsStdCell: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -26593,10 +27351,8 @@ export interface operations {
     updateSingleItemsStdCell: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -26629,20 +27385,36 @@ export interface operations {
     readItemsStdCellTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -26667,10 +27439,7 @@ export interface operations {
     };
     createItemsStdCellTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -26717,20 +27486,20 @@ export interface operations {
     updateItemsStdCellTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -26753,17 +27522,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsStdCellTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -26815,10 +27585,8 @@ export interface operations {
     updateSingleItemsStdCellTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -26851,20 +27619,36 @@ export interface operations {
     readItemsSubsonic: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -26889,10 +27673,7 @@ export interface operations {
     };
     createItemsSubsonic: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -26939,20 +27720,20 @@ export interface operations {
     updateItemsSubsonic: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -26975,17 +27756,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsSubsonic: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -27037,10 +27819,8 @@ export interface operations {
     updateSingleItemsSubsonic: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -27073,20 +27853,36 @@ export interface operations {
     readItemsSubsonicTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
+                /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+                aggregate?: components["parameters"]["Aggregate"];
+                /** @description Group the returned items by the given field(s). */
+                groupBy?: components["parameters"]["GroupBy"];
+                /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+                deep?: components["parameters"]["Deep"];
+                /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+                alias?: components["parameters"]["Alias"];
+                /** @description Saves the API response to a file. */
+                export?: components["parameters"]["Export"];
+                /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+                version?: components["parameters"]["Version"];
+                /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+                backlink?: components["parameters"]["Backlink"];
+                /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path?: never;
@@ -27111,10 +27907,7 @@ export interface operations {
     };
     createItemsSubsonicTranslations: {
         parameters: {
-            query?: {
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-            };
+            query?: never;
             header?: never;
             path?: never;
             cookie?: never;
@@ -27161,20 +27954,20 @@ export interface operations {
     updateItemsSubsonicTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description A limit on the number of objects that are returned. */
-                limit?: components["parameters"]["Limit"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
-                /** @description How many items to skip when fetching data. */
-                offset?: components["parameters"]["Offset"];
-                /** @description How to sort the returned items. `sort` is a CSV of fields used to sort the fetched items. Sorting defaults to ascending (ASC) order but a minus sign (` - `) can be used to reverse this to descending (DESC) order. Fields are prioritized by their order in the CSV. You can also use a ` ? ` to sort randomly. */
-                sort?: components["parameters"]["Sort"];
-                /** @description Select items in collection by given conditions. */
+                /** @description Select items in the collection that match the given filter conditions. */
                 filter?: components["parameters"]["Filter"];
-                /** @description Filter by items that contain the given search query in one of their fields. */
+                /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
                 search?: components["parameters"]["Search"];
+                /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+                sort?: components["parameters"]["Sort"];
+                /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+                limit?: components["parameters"]["Limit"];
+                /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+                offset?: components["parameters"]["Offset"];
+                /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+                page?: components["parameters"]["Page"];
             };
             header?: never;
             path?: never;
@@ -27197,17 +27990,18 @@ export interface operations {
                     };
                 };
             };
+            401: components["responses"]["UnauthorizedError"];
         };
     };
     readSingleItemsSubsonicTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
                 /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
                 version?: components["parameters"]["Version"];
+                /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+                versionRaw?: components["parameters"]["VersionRaw"];
             };
             header?: never;
             path: {
@@ -27259,10 +28053,8 @@ export interface operations {
     updateSingleItemsSubsonicTranslations: {
         parameters: {
             query?: {
-                /** @description Control what fields are being returned in the object. */
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
                 fields?: components["parameters"]["Fields"];
-                /** @description What metadata to return in the response. */
-                meta?: components["parameters"]["Meta"];
             };
             header?: never;
             path: {
@@ -27285,6 +28077,61 @@ export interface operations {
                 content: {
                     "application/json": {
                         data?: components["schemas"]["ItemsSubsonicTranslations"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    getSettings: {
+        parameters: {
+            query?: {
+                /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+                fields?: components["parameters"]["Fields"];
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Settings"];
+                    };
+                };
+            };
+            401: components["responses"]["UnauthorizedError"];
+            404: components["responses"]["NotFoundError"];
+        };
+    };
+    updateSetting: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": Record<string, never>;
+            };
+        };
+        responses: {
+            /** @description Successful request */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data?: components["schemas"]["Settings"];
                     };
                 };
             };
