@@ -8,9 +8,10 @@ export interface paths {
     };
     /**
      * Get an Asset
-     * @description Image typed files can be dynamically resized and transformed to fit any need.
+     * @description Image typed files can be dynamically resized and transformed to fit any need. test test test meow
      */
     get: operations["getAsset"];
+    thing?: never;
     put?: never;
     post?: never;
     delete?: never;
