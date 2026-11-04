@@ -294,13 +294,21 @@ INSERT INTO public.icbd_activities_translations (id, icbd_activities_id, languag
 INSERT INTO public.icbd_phds (id, icbd_id, first_name, last_name, laboratory, picture) VALUES (1, 1, 'Alex', 'Ipsum', 'DSCL', 'df7992b2-955e-4b18-b0d5-45d58da4e373') ON CONFLICT DO NOTHING;
 INSERT INTO public.icbd_phds (id, icbd_id, first_name, last_name, laboratory, picture) VALUES (2, 1, 'Cécile', 'Alphonse', 'Hopper', '525d475c-24a0-45cb-947f-c70eca52c3b6') ON CONFLICT DO NOTHING;
 
-INSERT INTO public.events (id, type, "from", "to", opened, name, price, max_registrations, registration_count, staffing_from, staffing_to, "staffingTypes", "staffingShiftSize", meals, slug, admin_secret, intro_text, location, confirmation_text, icbd_event) VALUES (1, 'icbd', '2025-02-22 12:00:00', '2025-02-23 12:00:00', true, 'ICBD 2024', 10, NULL, 18, NULL, NULL, NULL, 30, NULL, 'icbd-2025', 'c2b2c9d0-9de5-4f3b-a908-0296b996c431', 'mmm yes capitalism', 'BC hall', 'yippee !!', '1') ON CONFLICT DO NOTHING;
-INSERT INTO public.events (id, type, "from", "to", opened, name, price, max_registrations, registration_count, staffing_from, staffing_to, "staffingTypes", "staffingShiftSize", meals, slug, admin_secret, intro_text, location, confirmation_text) VALUES (2, 'faculty_dinner', '2025-04-03 19:00:00', '2025-04-03 21:00:00', false, 'Faculty Dinner 2025', 10, 300, 0, NULL, NULL, NULL, 30, '[{"name":"Omnivore","count":0,"description":"## Entrée\n\nSalade mêlée\n\n## Plat principal\n\nDahl de lentille au lait de coco\nBrochette de Poulet Tandoori\nLégumes de saison - Naan bread\n\n## Dessert\n\nGâteau au Chocolat\nCrème chantilly vanillé\n"}, {"name": "Végétarien", "count": null, "description": "## Entrée\n\nSalade mêlée\n\n## Plat principal\n\nDahl de lentille au lait de coco\nBrochette de Tofu BIO Suisse\nLégumes de saison - Naan bread\n\n## Dessert\n\nGâteau au Chocolat\nCrème chantilly vanillé\n"}]', 'faculty-dinner-2025', '138ab66a-7cf3-45a8-a1aa-10e6bf2c2dd5', 'miam jaime manger', 'BC Hall', 'mm lasagana') ON CONFLICT DO NOTHING;
 
 INSERT INTO public.galleries (id, name, date, preview, link) VALUES (1, 'Souper de Fiak', '2025-11-21', '76874434-6ebe-498c-a486-a004dba43793', 'https://clic.epfl.ch/nextcloud/') ON CONFLICT DO NOTHING;
 INSERT INTO public.galleries (id, name, date, preview, link) VALUES (2, 'OGJ', '2026-03-13', '0a054f79-b726-4b22-8a72-0c369fa94ed4', 'http://clic.epfl.ch') ON CONFLICT DO NOTHING;
 
-INSERT INTO public.icelan (id, "start", "end") VALUES (1, '2026-12-05T12:00:00', '2026-12-06T12:00:00') ON CONFLICT DO NOTHING;
+INSERT INTO public.events (admin_secret, background_color, banner, confirmation_text, first_price, "from", icbd_event, id, intro_text, location, max_registrations, meals, name, opened, organiser, price_model, registration_count, second_price, slug, "staffingShiftSize", "staffingTypes", staffing_from, staffing_to, "to", type) VALUES ('11d13c7b-e129-4ffe-8a68-08eca3be41d6', '#000000', '2cf29857-7d6c-4710-9284-e1aae31942e5', 'Un mail de confirmation vous sera envoyé sous peu.', 15, '2026-12-05 09:00:00', NULL, 3, 'ICeLAN revient cette année pour sa septième édition ! Nous revenons en force pour vous proposer de nombreux tournois et activités. L''événement aura lieu du 5 au 6 décembre, dans le bâtiment BC de l''EPFL. Les places sont limitées, alors inscris-toi vite ! \
+\
+Rappel des informations :
+- **Quand ?** Du 5 décembre 9h au 6 décembre 10h.
+- **Où ?** Dans le Hall du Bâtiment BC de l''EPFL.
+- **Combien ?** L''inscription coûte CHF 20.-, à payer par QR facture ou durant nos permanences en cash. Utilise ton adresse mail étudiante pour bénéficier du prix étudiant à CHF 15 !
+
+\
+Une question ? Une remarque ? Regarde notre [FAQ](https://icelan.ch/informations) ou bien envoie-nous un mail à [gamestar.clic@epfl.ch](mailto:gamestar.clic@epfl.ch) !', 'Hall BC', 100, NULL, 'ICeLAN', true, 1, 'two_prices', 2, 20, 'icelan-2026', 30, NULL, NULL, NULL, '2026-12-06 10:00:00', 'icelan') ON CONFLICT DO NOTHING;
+
+INSERT INTO public.icelan ("end", id, start) VALUES ('2026-12-06 12:00:00', 1, '2026-12-05 12:00:00') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_sponsors (id, logo, name) VALUES (1, '37b9ad32-c872-43c5-89f7-901fd5adcd86', 'Rivella') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_collabs (id, name, website, logo) VALUES (1, 'CLIC', 'https://clic.epfl.ch', '76c2e55a-6348-457f-a335-cf60e91b2950') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_faqs (id, question, answer) VALUES (1, 'Quoi ?', 'Coubeh !') ON CONFLICT DO NOTHING;
@@ -309,3 +317,9 @@ INSERT INTO public.icelan_animations (id, animation) VALUES (1, 'Skibbidy rizz')
 INSERT INTO public.icelan_animations (id, animation) VALUES (2, 'Battle d''aura') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_animations (id, animation) VALUES (3, 'Vanner Adrien') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_animations (id, animation) VALUES (4, 'Rizzer Tim') ON CONFLICT DO NOTHING;
+
+INSERT INTO public.icelan_tournois (id, name) VALUES (1, 'League of Legends') ON CONFLICT DO NOTHING;
+INSERT INTO public.icelan_tournois (id, name) VALUES (2, 'Valorant') ON CONFLICT DO NOTHING;
+
+INSERT INTO public.registrations (allergies, availability, can_retreive_deposit, checked_in, comments, confirmation_email_sent, discord_username, donation, email, event, family_name, first_name, guest, handicaped, id, is_staff, late_payment, meal, number_purchased, order_complete, payment, "plusOnes", "plusOnesCheckedIn", preferences, price_to_pay, pseudonym, registration_complete, registration_email_sent, retreived_deposit, section, student, team, year) VALUES ('Fruits à coque, fruits de mer, poisson, oeufs, lait, blé, soja, graines, sel, eau', NULL, false, false, 'UwU, 6-7, Quoi-coubeh', false, 'HaccFight', 230945, 'alyx.cornu@gmail.com', 3, 'Cornu', 'Alyx', false, true, 'b06418df-6162-401a-907c-f570b2533974', false, false, NULL, NULL, false, NULL, 0, 0, NULL, 'first_price', 'HaccFight', false, false, false, '', true, NULL, '') ON CONFLICT DO NOTHING;
+INSERT INTO public.registrations (allergies, availability, can_retreive_deposit, checked_in, comments, confirmation_email_sent, discord_username, donation, email, event, family_name, first_name, guest, handicaped, id, is_staff, late_payment, meal, number_purchased, order_complete, payment, "plusOnes", "plusOnesCheckedIn", preferences, price_to_pay, pseudonym, registration_complete, registration_email_sent, retreived_deposit, section, student, team, year) VALUES ('', NULL, false, false, '', false, 'HackFight', NULL, 'alyx.cornu@epfl.ch', 3, 'Cornu', 'Alyx', false, false, 'c49e2c0d-5fe2-4b23-bf2e-df7eeddd56bc', false, false, NULL, NULL, false, NULL, 0, 0, NULL, 'second_price', 'HackFight', false, false, false, '', true, NULL, '') ON CONFLICT DO NOTHING;

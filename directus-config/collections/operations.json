@@ -1408,6 +1408,68 @@
     "type": "trigger"
   },
   {
+    "_syncId": "59eda146-219c-421e-bc97-7b3f9ac1bf1d",
+    "flow": "b2ed3a1f-19c1-4214-8a54-8f5cf7033cb4",
+    "key": "event",
+    "name": "Get event",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.payload.event}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "b542a02e-66c0-4c86-8f89-1f5666272aa9",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "b542a02e-66c0-4c86-8f89-1f5666272aa9",
+    "flow": "b2ed3a1f-19c1-4214-8a54-8f5cf7033cb4",
+    "key": "check_if_icelan",
+    "name": "Check if icelan",
+    "options": {
+      "filter": {
+        "event": {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "43e1431a-702b-4ca4-b156-1900ea7056d6",
+    "type": "condition"
+  },
+  {
+    "_syncId": "43e1431a-702b-4ca4-b156-1900ea7056d6",
+    "flow": "b2ed3a1f-19c1-4214-8a54-8f5cf7033cb4",
+    "key": "mail_bq786",
+    "name": "Send Email",
+    "options": {
+      "data": {
+        "event": "{{event}}",
+        "registration": "{{$trigger.payload}}"
+      },
+      "subject": "Confirmation d'inscription ICeLAN",
+      "template": "icelan_registration_confirmation_email",
+      "to": [
+        "{{$trigger.payload.email}}"
+      ],
+      "type": "template"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "mail"
+  },
+  {
     "_syncId": "7609746a-d71f-47ef-9509-e76a1155b2a7",
     "flow": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "key": "condition_vgvop",

@@ -1,23 +1,36 @@
 {
   "collection": "events",
-  "field": "price",
+  "field": "second_price",
   "meta": {
     "collection": "events",
-    "conditions": null,
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "must_set & display",
+        "required": true,
+        "rule": {
+          "_and": [
+            {
+              "price_model": {
+                "_eq": "two_prices"
+              }
+            }
+          ]
+        }
+      }
+    ],
     "display": null,
     "display_options": null,
-    "field": "price",
-    "group": null,
-    "hidden": false,
+    "field": "second_price",
+    "group": "prices",
+    "hidden": true,
     "interface": "input",
     "note": null,
-    "options": {
-      "iconLeft": "attach_money"
-    },
+    "options": null,
     "readonly": false,
-    "required": true,
+    "required": false,
     "searchable": true,
-    "sort": 4,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
@@ -26,7 +39,7 @@
   },
   "schema": {
     "data_type": "integer",
-    "default_value": 0,
+    "default_value": null,
     "foreign_key_column": null,
     "foreign_key_table": null,
     "generation_expression": null,
@@ -37,7 +50,7 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "price",
+    "name": "second_price",
     "numeric_precision": 32,
     "numeric_scale": 0,
     "table": "events"
