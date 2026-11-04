@@ -1519,66 +1519,6 @@ export interface paths {
     patch: operations["updateExtensionBundle"];
     trace?: never;
   };
-  "/comments": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Comments
-     * @description List the comments.
-     */
-    get: operations["getComments"];
-    put?: never;
-    /**
-     * Create a Comment
-     * @description Create a new comment.
-     */
-    post: operations["createComment"];
-    /**
-     * Delete Multiple Comments
-     * @description Delete multiple existing comments.
-     */
-    delete: operations["deleteComments"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Comments
-     * @description Update multiple comments at the same time.
-     */
-    patch: operations["updateComments"];
-    trace?: never;
-  };
-  "/comments/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve a Comment
-     * @description Retrieve a single comment by unique identifier.
-     */
-    get: operations["getComment"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete a Comment
-     * @description Delete an existing comment.
-     */
-    delete: operations["deleteComment"];
-    options?: never;
-    head?: never;
-    /**
-     * Update a Comment
-     * @description Update an existing comment.
-     */
-    patch: operations["updateComment"];
-    trace?: never;
-  };
   "/items/directus_sync_id_map": {
     parameters: {
       query?: never;
@@ -1637,6 +1577,66 @@ export interface paths {
      * @description Update an existing directus_sync_id_map item.
      */
     patch: operations["updateSingleItemsDirectusSyncIDMap"];
+    trace?: never;
+  };
+  "/comments": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * List Comments
+     * @description List the comments.
+     */
+    get: operations["getComments"];
+    put?: never;
+    /**
+     * Create a Comment
+     * @description Create a new comment.
+     */
+    post: operations["createComment"];
+    /**
+     * Delete Multiple Comments
+     * @description Delete multiple existing comments.
+     */
+    delete: operations["deleteComments"];
+    options?: never;
+    head?: never;
+    /**
+     * Update Multiple Comments
+     * @description Update multiple comments at the same time.
+     */
+    patch: operations["updateComments"];
+    trace?: never;
+  };
+  "/comments/{id}": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * Retrieve a Comment
+     * @description Retrieve a single comment by unique identifier.
+     */
+    get: operations["getComment"];
+    put?: never;
+    post?: never;
+    /**
+     * Delete a Comment
+     * @description Delete an existing comment.
+     */
+    delete: operations["deleteComment"];
+    options?: never;
+    head?: never;
+    /**
+     * Update a Comment
+     * @description Update an existing comment.
+     */
+    patch: operations["updateComment"];
     trace?: never;
   };
   "/settings": {
@@ -4723,126 +4723,6 @@ export interface paths {
     patch: operations["updateSingleItemsIcelanSponsors"];
     trace?: never;
   };
-  "/items/icelan_tournois": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Items
-     * @description List the icelan_tournois items.
-     */
-    get: operations["readItemsIcelanTournois"];
-    put?: never;
-    /**
-     * Create an Item
-     * @description Create a new icelan_tournois item.
-     */
-    post: operations["createItemsIcelanTournois"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icelan_tournois items.
-     */
-    delete: operations["deleteItemsIcelanTournois"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Items
-     * @description Update multiple icelan_tournois items at the same time.
-     */
-    patch: operations["updateItemsIcelanTournois"];
-    trace?: never;
-  };
-  "/items/icelan_tournois/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icelan_tournois item by unique identifier.
-     */
-    get: operations["readSingleItemsIcelanTournois"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete an Item
-     * @description Delete an existing icelan_tournois item.
-     */
-    delete: operations["deleteSingleItemsIcelanTournois"];
-    options?: never;
-    head?: never;
-    /**
-     * Update an Item
-     * @description Update an existing icelan_tournois item.
-     */
-    patch: operations["updateSingleItemsIcelanTournois"];
-    trace?: never;
-  };
-  "/items/icelan_tournois_registrations": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * List Items
-     * @description List the icelan_tournois_registrations items.
-     */
-    get: operations["readItemsIcelanTournoisRegistrations"];
-    put?: never;
-    /**
-     * Create an Item
-     * @description Create a new icelan_tournois_registrations item.
-     */
-    post: operations["createItemsIcelanTournoisRegistrations"];
-    /**
-     * Delete Multiple Items
-     * @description Delete multiple existing icelan_tournois_registrations items.
-     */
-    delete: operations["deleteItemsIcelanTournoisRegistrations"];
-    options?: never;
-    head?: never;
-    /**
-     * Update Multiple Items
-     * @description Update multiple icelan_tournois_registrations items at the same time.
-     */
-    patch: operations["updateItemsIcelanTournoisRegistrations"];
-    trace?: never;
-  };
-  "/items/icelan_tournois_registrations/{id}": {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * Retrieve an Item
-     * @description Retrieve a single icelan_tournois_registrations item by unique identifier.
-     */
-    get: operations["readSingleItemsIcelanTournoisRegistrations"];
-    put?: never;
-    post?: never;
-    /**
-     * Delete an Item
-     * @description Delete an existing icelan_tournois_registrations item.
-     */
-    delete: operations["deleteSingleItemsIcelanTournoisRegistrations"];
-    options?: never;
-    head?: never;
-    /**
-     * Update an Item
-     * @description Update an existing icelan_tournois_registrations item.
-     */
-    patch: operations["updateSingleItemsIcelanTournoisRegistrations"];
-    trace?: never;
-  };
   "/items/inventory": {
     parameters: {
       query?: never;
@@ -6493,6 +6373,14 @@ export interface components {
        */
       bundle?: string | null;
     };
+    ItemsDirectusSyncIDMap: {
+      id?: number;
+      table: string;
+      sync_id: string;
+      local_id: string;
+      /** Format: timestamp */
+      created_at?: string | null;
+    };
     Comments: {
       /**
        * @description Unique identifier for this single collection preset.
@@ -6536,14 +6424,6 @@ export interface components {
        * @example 81dfa7e0-56d2-471f-b96a-1cf8a62bdf28
        */
       user_updated?: string | components["schemas"]["Users"];
-    };
-    ItemsDirectusSyncIDMap: {
-      id?: number;
-      table: string;
-      sync_id: string;
-      local_id: string;
-      /** Format: timestamp */
-      created_at?: string | null;
     };
     Settings: {
       /**
@@ -6672,8 +6552,7 @@ export interface components {
       public_registration_verify_email?: boolean;
       /** @description $t:fields.directus_settings.public_registration_role_note */
       public_registration_role?:
-        | (string | components["schemas"]["Roles"])
-        | null;
+        (string | components["schemas"]["Roles"]) | null;
       /** @description $t:fields.directus_settings.public_registration_email_filter_note */
       public_registration_email_filter?: unknown;
       visual_editor_urls?: unknown;
@@ -6735,8 +6614,10 @@ export interface components {
       social_type?: string | null;
     };
     ItemsIcelan: {
+      animations?: unknown;
       /** Format: date-time */
       end: string;
+      faqs?: unknown;
       id?: number;
       /** Format: date-time */
       start: string;
@@ -6769,11 +6650,9 @@ export interface components {
       phone?: string | null;
       preview_image?: (string | components["schemas"]["Files"]) | null;
       public_files?:
-        | (number | components["schemas"]["ItemsAssociationPublicFiles"])
-        | null;
+        (number | components["schemas"]["ItemsAssociationPublicFiles"]) | null;
       partners?:
-        | (number[] | components["schemas"]["ItemsAssociationPartners"][])
-        | null;
+        (number[] | components["schemas"]["ItemsAssociationPartners"][]) | null;
       social_links?:
         | (number[] | components["schemas"]["ItemsAssociationSocialLinks"][])
         | null;
@@ -6828,12 +6707,10 @@ export interface components {
     };
     ItemsAssociationMembershipsTranslations: {
       association_memberships_id?:
-        | (number | components["schemas"]["ItemsAssociationMemberships"])
-        | null;
+        (number | components["schemas"]["ItemsAssociationMemberships"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       title?: string | null;
     };
     ItemsLanguages: {
@@ -6842,15 +6719,13 @@ export interface components {
     };
     ItemsAssociationPartners: {
       association_id?:
-        | (number | components["schemas"]["ItemsAssociation"])
-        | null;
+        (number | components["schemas"]["ItemsAssociation"]) | null;
       id?: number;
       partners_id?: (number | components["schemas"]["ItemsPartners"]) | null;
     };
     ItemsPartners: {
       category?:
-        | (number | components["schemas"]["ItemsPartnerCategory"])
-        | null;
+        (number | components["schemas"]["ItemsPartnerCategory"]) | null;
       commission?: (number | components["schemas"]["ItemsCommissions"]) | null;
       /** Format: date */
       end?: string | null;
@@ -6863,33 +6738,27 @@ export interface components {
     };
     ItemsAssociationPolesTranslations: {
       association_poles_id?:
-        | (number | components["schemas"]["ItemsAssociationPoles"])
-        | null;
+        (number | components["schemas"]["ItemsAssociationPoles"]) | null;
       description?: string | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       name?: string | null;
     };
     ItemsAssociationPublicFilesTranslations: {
       association_public_files_id?:
-        | (number | components["schemas"]["ItemsAssociationPublicFiles"])
-        | null;
+        (number | components["schemas"]["ItemsAssociationPublicFiles"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       name?: string | null;
     };
     ItemsAssociationSocialLinks: {
       association_id?:
-        | (number | components["schemas"]["ItemsAssociation"])
-        | null;
+        (number | components["schemas"]["ItemsAssociation"]) | null;
       id?: number;
       social_links_id?:
-        | (number | components["schemas"]["ItemsSocialLinks"])
-        | null;
+        (number | components["schemas"]["ItemsSocialLinks"]) | null;
     };
     ItemsSocialLinks: {
       account_name?: string | null;
@@ -6900,14 +6769,12 @@ export interface components {
     };
     ItemsAssociationTranslations: {
       association_id?:
-        | (number | components["schemas"]["ItemsAssociation"])
-        | null;
+        (number | components["schemas"]["ItemsAssociation"]) | null;
       banner?: (string | components["schemas"]["Files"]) | null;
       description?: string | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
     };
     ItemsClothes: {
       back_image?: (string | components["schemas"]["Files"]) | null;
@@ -6926,7 +6793,6 @@ export interface components {
       banner?: (string | components["schemas"]["Files"]) | null;
       /** @description Appears under: Your registration to Event is successful ! */
       confirmation_text?: string | null;
-      first_price?: number | null;
       /** Format: date-time */
       from?: string | null;
       icbd_event?: (number | components["schemas"]["ItemsIcbd"]) | null;
@@ -6938,11 +6804,8 @@ export interface components {
       meals?: unknown;
       name?: string | null;
       opened?: boolean | null;
-      organiser?: (number | components["schemas"]["ItemsCommissions"]) | null;
-      /** @description Must be 'one_price' for clothes sales */
-      price_model?: string | null;
+      price?: number | null;
       registration_count?: number;
-      second_price?: number | null;
       /** @description Unique url name of the event, e.g. "icbd-2025" */
       slug?: string | null;
       staffingShiftSize?: number | null;
@@ -6968,14 +6831,11 @@ export interface components {
       checked_in?: boolean | null;
       comments?: string | null;
       confirmation_email_sent?: boolean | null;
-      discord_username?: string | null;
-      donation?: number | null;
       email?: string | null;
       event?: (number | components["schemas"]["ItemsEvents"]) | null;
       family_name?: string | null;
       first_name?: string | null;
       guest?: boolean | null;
-      handicaped?: boolean | null;
       /** Format: uuid */
       id: string;
       is_staff?: boolean | null;
@@ -6987,27 +6847,19 @@ export interface components {
       plusOnes?: number | null;
       plusOnesCheckedIn?: number | null;
       preferences?: unknown;
-      price_to_pay?: string | null;
-      pseudonym?: string | null;
       registration_complete?: boolean | null;
       registration_email_sent?: boolean | null;
       retreived_deposit?: boolean | null;
       section?: string | null;
-      student?: boolean | null;
       team?: string | null;
       year?: string | null;
     };
     ItemsCommissions: {
-      bank_account?: string | null;
-      country_code?: string | null;
       email?: string | null;
       id?: number;
       logo?: (string | components["schemas"]["Files"]) | null;
       name?: string | null;
-      postal_code?: number | null;
       slug?: string | null;
-      street?: string | null;
-      town?: string | null;
       partners?: (number[] | components["schemas"]["ItemsPartners"][]) | null;
       social_links?:
         | (number[] | components["schemas"]["ItemsCommissionsSocialLinks"][])
@@ -7030,33 +6882,27 @@ export interface components {
     };
     ItemsCommissionMembershipsTranslations: {
       commission_memberships_id?:
-        | (number | components["schemas"]["ItemsCommissionMemberships"])
-        | null;
+        (number | components["schemas"]["ItemsCommissionMemberships"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       title?: string | null;
     };
     ItemsCommissionsSocialLinks: {
       commissions_id?:
-        | (number | components["schemas"]["ItemsCommissions"])
-        | null;
+        (number | components["schemas"]["ItemsCommissions"]) | null;
       id?: number;
       social_links_id?:
-        | (number | components["schemas"]["ItemsSocialLinks"])
-        | null;
+        (number | components["schemas"]["ItemsSocialLinks"]) | null;
     };
     ItemsCommissionsTranslations: {
       banner?: (string | components["schemas"]["Files"]) | null;
       commissions_id?:
-        | (number | components["schemas"]["ItemsCommissions"])
-        | null;
+        (number | components["schemas"]["ItemsCommissions"]) | null;
       description?: string | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       small_description?: string | null;
     };
     ItemsIcbd: {
@@ -7072,18 +6918,14 @@ export interface components {
       /** Format: time */
       start_time: string;
       activities?:
-        | (number[] | components["schemas"]["ItemsIcbdActivities"][])
-        | null;
+        (number[] | components["schemas"]["ItemsIcbdActivities"][]) | null;
       partners_images?:
-        | (number[] | components["schemas"]["ItemsIcbdFiles"][])
-        | null;
+        (number[] | components["schemas"]["ItemsIcbdFiles"][]) | null;
       phds?: (number[] | components["schemas"]["ItemsIcbdPhds"][]) | null;
       speakers?:
-        | (number[] | components["schemas"]["ItemsIcbdSpeakers"][])
-        | null;
+        (number[] | components["schemas"]["ItemsIcbdSpeakers"][]) | null;
       translations?:
-        | (number[] | components["schemas"]["ItemsIcbdTranslations"][])
-        | null;
+        (number[] | components["schemas"]["ItemsIcbdTranslations"][]) | null;
     };
     ItemsGalleries: {
       /** Format: date */
@@ -7109,8 +6951,7 @@ export interface components {
     };
     ItemsGameStarArticlesMembers: {
       game_star_articles_id?:
-        | (number | components["schemas"]["ItemsGameStarArticles"])
-        | null;
+        (number | components["schemas"]["ItemsGameStarArticles"]) | null;
       id?: number;
       members_id?: (number | components["schemas"]["ItemsMembers"]) | null;
     };
@@ -7118,12 +6959,10 @@ export interface components {
       content?: string | null;
       description?: string | null;
       game_star_articles_id?:
-        | (number | components["schemas"]["ItemsGameStarArticles"])
-        | null;
+        (number | components["schemas"]["ItemsGameStarArticles"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       title?: string | null;
     };
     ItemsGameStarEvents: {
@@ -7146,12 +6985,10 @@ export interface components {
       content?: string | null;
       description?: string | null;
       game_star_events_id?:
-        | (number | components["schemas"]["ItemsGameStarEvents"])
-        | null;
+        (number | components["schemas"]["ItemsGameStarEvents"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       title?: string | null;
     };
     ItemsGameStarGames: {
@@ -7169,12 +7006,10 @@ export interface components {
       content?: string | null;
       description?: string | null;
       game_star_games_id?:
-        | (number | components["schemas"]["ItemsGameStarGames"])
-        | null;
+        (number | components["schemas"]["ItemsGameStarGames"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
     };
     ItemsGameStarProjects: {
       id?: number;
@@ -7192,12 +7027,10 @@ export interface components {
       content?: string | null;
       description?: string | null;
       game_star_projects_id?:
-        | (number | components["schemas"]["ItemsGameStarProjects"])
-        | null;
+        (number | components["schemas"]["ItemsGameStarProjects"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       title?: string | null;
     };
     ItemsGameStar: {
@@ -7211,8 +7044,7 @@ export interface components {
       game_star_id?: (number | components["schemas"]["ItemsGameStar"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
     };
     ItemsIcbdActivities: {
       color?: string | null;
@@ -7236,11 +7068,9 @@ export interface components {
     };
     ItemsIcbdActivitiesIcbdSpeakers: {
       icbd_activities_id?:
-        | (number | components["schemas"]["ItemsIcbdActivities"])
-        | null;
+        (number | components["schemas"]["ItemsIcbdActivities"]) | null;
       icbd_speakers_id?:
-        | (number | components["schemas"]["ItemsIcbdSpeakers"])
-        | null;
+        (number | components["schemas"]["ItemsIcbdSpeakers"]) | null;
       id?: number;
     };
     ItemsIcbdSpeakers: {
@@ -7255,12 +7085,10 @@ export interface components {
     ItemsIcbdActivitiesRegistrations: {
       attended?: boolean | null;
       icbd_activity?:
-        | (number | components["schemas"]["ItemsIcbdActivities"])
-        | null;
+        (number | components["schemas"]["ItemsIcbdActivities"]) | null;
       id?: number;
       registration?:
-        | (string | components["schemas"]["ItemsRegistrations"])
-        | null;
+        (string | components["schemas"]["ItemsRegistrations"]) | null;
       /** Format: time */
       start?: string | null;
       waitlist?: boolean | null;
@@ -7268,12 +7096,10 @@ export interface components {
     ItemsIcbdActivitiesTranslations: {
       description?: string | null;
       icbd_activities_id?:
-        | (number | components["schemas"]["ItemsIcbdActivities"])
-        | null;
+        (number | components["schemas"]["ItemsIcbdActivities"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       name?: string | null;
     };
     ItemsIcbdFiles: {
@@ -7294,8 +7120,7 @@ export interface components {
       icbd_id?: (number | components["schemas"]["ItemsIcbd"]) | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       registration_instructions?: string | null;
     };
     ItemsIcelanCollabs: {
@@ -7308,25 +7133,6 @@ export interface components {
       id?: number;
       logo: string | components["schemas"]["Files"];
       name: string;
-    };
-    ItemsIcelanTournois: {
-      id?: number;
-      name?: string | null;
-      interested_players?:
-        | (
-            | number[]
-            | components["schemas"]["ItemsIcelanTournoisRegistrations"][]
-          )
-        | null;
-    };
-    ItemsIcelanTournoisRegistrations: {
-      icelan_tournois_id?:
-        | (number | components["schemas"]["ItemsIcelanTournois"])
-        | null;
-      id?: number;
-      registrations_id?:
-        | (string | components["schemas"]["ItemsRegistrations"])
-        | null;
     };
     ItemsInventory: {
       column?: number | null;
@@ -7355,19 +7161,15 @@ export interface components {
       user_created?: (string | components["schemas"]["Users"]) | null;
       video_link?: string | null;
       commissions?:
-        | (number[] | components["schemas"]["ItemsNewsCommissions"][])
-        | null;
+        (number[] | components["schemas"]["ItemsNewsCommissions"][]) | null;
       partners?:
-        | (number[] | components["schemas"]["ItemsNewsPartners"][])
-        | null;
+        (number[] | components["schemas"]["ItemsNewsPartners"][]) | null;
       translations?:
-        | (number[] | components["schemas"]["ItemsNewsTranslations"][])
-        | null;
+        (number[] | components["schemas"]["ItemsNewsTranslations"][]) | null;
     };
     ItemsNewsCommissions: {
       commissions_id?:
-        | (number | components["schemas"]["ItemsCommissions"])
-        | null;
+        (number | components["schemas"]["ItemsCommissions"]) | null;
       id?: number;
       news_id?: (number | components["schemas"]["ItemsNews"]) | null;
     };
@@ -7382,21 +7184,18 @@ export interface components {
       description: string;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       news_id?: (number | components["schemas"]["ItemsNews"]) | null;
       title: string;
     };
     ItemsPartnerCategoryTranslations: {
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       /** @description Pluralized name of the category */
       name?: string | null;
       partner_category_id?:
-        | (number | components["schemas"]["ItemsPartnerCategory"])
-        | null;
+        (number | components["schemas"]["ItemsPartnerCategory"]) | null;
     };
     ItemsPartnerCategory: {
       id?: number;
@@ -7415,8 +7214,7 @@ export interface components {
       id?: number;
       image?: (string | components["schemas"]["Files"]) | null;
       language_button_target?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       text_color?: string | null;
       title_color?: string | null;
       translations?:
@@ -7427,11 +7225,9 @@ export interface components {
       description?: string | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       save_the_date_id?:
-        | (number | components["schemas"]["ItemsSavetheDate"])
-        | null;
+        (number | components["schemas"]["ItemsSavetheDate"]) | null;
       title?: string | null;
     };
     ItemsStdCell: {
@@ -7447,8 +7243,7 @@ export interface components {
       text_color?: string | null;
       url?: string | null;
       translations?:
-        | (number[] | components["schemas"]["ItemsStdCellTranslations"][])
-        | null;
+        (number[] | components["schemas"]["ItemsStdCellTranslations"][]) | null;
     };
     ItemsStdCellTranslations: {
       /** @description This will replace the date by this text. (optional) */
@@ -7457,8 +7252,7 @@ export interface components {
       detail_button_title?: string | null;
       id?: number;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       std_cell_id?: (number | components["schemas"]["ItemsStdCell"]) | null;
       title: string;
     };
@@ -7475,8 +7269,7 @@ export interface components {
       id?: number;
       info?: string | null;
       languages_code?:
-        | (string | components["schemas"]["ItemsLanguages"])
-        | null;
+        (string | components["schemas"]["ItemsLanguages"]) | null;
       subsonic_id?: (number | components["schemas"]["ItemsSubsonic"]) | null;
     };
   };
@@ -10647,12 +10440,7 @@ export interface operations {
              * @enum {string|null}
              */
             width?:
-              | "half"
-              | "half-left"
-              | "half-right"
-              | "full"
-              | "fill"
-              | null;
+              "half" | "half-left" | "half-right" | "full" | "fill" | null;
             /**
              * @description What field group this field is part of.
              * @example null
@@ -10903,12 +10691,7 @@ export interface operations {
              * @enum {string|null}
              */
             width?:
-              | "half"
-              | "half-left"
-              | "half-right"
-              | "full"
-              | "fill"
-              | null;
+              "half" | "half-left" | "half-right" | "full" | "fill" | null;
             /**
              * @description What field group this field is part of.
              * @example null
@@ -12352,6 +12135,244 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
+  readItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+        fields?: components["parameters"]["Fields"];
+        /** @description Select items in the collection that match the given filter conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+        search?: components["parameters"]["Search"];
+        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+        sort?: components["parameters"]["Sort"];
+        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+        limit?: components["parameters"]["Limit"];
+        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+        offset?: components["parameters"]["Offset"];
+        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+        page?: components["parameters"]["Page"];
+        /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
+        aggregate?: components["parameters"]["Aggregate"];
+        /** @description Group the returned items by the given field(s). */
+        groupBy?: components["parameters"]["GroupBy"];
+        /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
+        deep?: components["parameters"]["Deep"];
+        /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
+        alias?: components["parameters"]["Alias"];
+        /** @description Saves the API response to a file. */
+        export?: components["parameters"]["Export"];
+        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+        version?: components["parameters"]["Version"];
+        /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
+        backlink?: components["parameters"]["Backlink"];
+        /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
+        meta?: components["parameters"]["Meta"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+            meta?: components["schemas"]["x-metadata"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  createItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  deleteItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  updateItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+        fields?: components["parameters"]["Fields"];
+        /** @description Select items in the collection that match the given filter conditions. */
+        filter?: components["parameters"]["Filter"];
+        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
+        search?: components["parameters"]["Search"];
+        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
+        sort?: components["parameters"]["Sort"];
+        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
+        limit?: components["parameters"]["Limit"];
+        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
+        offset?: components["parameters"]["Offset"];
+        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
+        page?: components["parameters"]["Page"];
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json":
+          | components["schemas"]["ItemsDirectusSyncIDMap"][]
+          | components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+    };
+  };
+  readSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+        fields?: components["parameters"]["Fields"];
+        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
+        version?: components["parameters"]["Version"];
+        /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
+        versionRaw?: components["parameters"]["VersionRaw"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  deleteSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
+  updateSingleItemsDirectusSyncIDMap: {
+    parameters: {
+      query?: {
+        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
+        fields?: components["parameters"]["Fields"];
+      };
+      header?: never;
+      path: {
+        /** @description Index of the item. */
+        id: number | string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
+      };
+    };
+    responses: {
+      /** @description Successful request */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
+          };
+        };
+      };
+      401: components["responses"]["UnauthorizedError"];
+      404: components["responses"]["NotFoundError"];
+    };
+  };
   getComments: {
     parameters: {
       query?: {
@@ -12607,244 +12628,6 @@ export interface operations {
         content: {
           "application/json": {
             data?: components["schemas"]["Comments"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  readItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-        /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
-        aggregate?: components["parameters"]["Aggregate"];
-        /** @description Group the returned items by the given field(s). */
-        groupBy?: components["parameters"]["GroupBy"];
-        /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
-        deep?: components["parameters"]["Deep"];
-        /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
-        alias?: components["parameters"]["Alias"];
-        /** @description Saves the API response to a file. */
-        export?: components["parameters"]["Export"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
-        backlink?: components["parameters"]["Backlink"];
-        /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsDirectusSyncIDMap"][]
-          | components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  readSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
-        versionRaw?: components["parameters"]["VersionRaw"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsDirectusSyncIDMap: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsDirectusSyncIDMap"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsDirectusSyncIDMap"];
           };
         };
       };
@@ -25045,482 +24828,6 @@ export interface operations {
       404: components["responses"]["NotFoundError"];
     };
   };
-  readItemsIcelanTournois: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-        /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
-        aggregate?: components["parameters"]["Aggregate"];
-        /** @description Group the returned items by the given field(s). */
-        groupBy?: components["parameters"]["GroupBy"];
-        /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
-        deep?: components["parameters"]["Deep"];
-        /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
-        alias?: components["parameters"]["Alias"];
-        /** @description Saves the API response to a file. */
-        export?: components["parameters"]["Export"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
-        backlink?: components["parameters"]["Backlink"];
-        /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournois"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsIcelanTournois: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcelanTournois"][]
-          | components["schemas"]["ItemsIcelanTournois"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournois"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsIcelanTournois: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsIcelanTournois: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcelanTournois"][]
-          | components["schemas"]["ItemsIcelanTournois"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournois"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  readSingleItemsIcelanTournois: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
-        versionRaw?: components["parameters"]["VersionRaw"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournois"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsIcelanTournois: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsIcelanTournois: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcelanTournois"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournois"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  readItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-        /** @description Perform calculations on a set of values. Each key is an aggregate function name, and each value is the field(s) to apply it to. `count` also accepts `*` to count all items regardless of field. */
-        aggregate?: components["parameters"]["Aggregate"];
-        /** @description Group the returned items by the given field(s). */
-        groupBy?: components["parameters"]["GroupBy"];
-        /** @description Set any other query parameter, except `fields` and `deep` itself, on a nested relational dataset. */
-        deep?: components["parameters"]["Deep"];
-        /** @description Rename fields on the fly, so the same field can be requested multiple times under different paths, filters, or aggregations. The alias must reference a same-collection field or field function; it cannot contain a period. */
-        alias?: components["parameters"]["Alias"];
-        /** @description Saves the API response to a file. */
-        export?: components["parameters"]["Export"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description Toggle whether reverse-relational fields are included when expanding a `*.*` wildcard. Explicitly specified field names are not affected. */
-        backlink?: components["parameters"]["Backlink"];
-        /** @description What metadata to return. `*` is shorthand for both `total_count` and `filter_count`. */
-        meta?: components["parameters"]["Meta"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
-            meta?: components["schemas"]["x-metadata"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  createItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcelanTournoisRegistrations"][]
-          | components["schemas"]["ItemsIcelanTournoisRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  deleteItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  updateItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Select items in the collection that match the given filter conditions. */
-        filter?: components["parameters"]["Filter"];
-        /** @description Filter by items that contain the given search query. Matches case-insensitively against `string`/`text` fields; relational fields are not searched. If the value parses as a number or UUID, numeric and UUID fields are also matched exactly. */
-        search?: components["parameters"]["Search"];
-        /** @description How to sort the returned items. Prefix a field with `-` for descending order. Supports dot notation for related fields and field functions (`year(date_created)`). */
-        sort?: components["parameters"]["Sort"];
-        /** @description Set the maximum number of items that will be returned. Defaults to 100. `-1` returns all items. */
-        limit?: components["parameters"]["Limit"];
-        /** @description How many items to skip when fetching data. Can be used for pagination. Overridden by `page` if both are provided. */
-        offset?: components["parameters"]["Offset"];
-        /** @description An alternative to `offset`. Pages through results in `limit`-sized increments starting at page `1`. Overrides `offset` if both are provided. */
-        page?: components["parameters"]["Page"];
-      };
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json":
-          | components["schemas"]["ItemsIcelanTournoisRegistrations"][]
-          | components["schemas"]["ItemsIcelanTournoisRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-    };
-  };
-  readSingleItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-        /** @description Retrieve an item's state from a specific Content Version. The value corresponds to the "key" of the Content Version. */
-        version?: components["parameters"]["Version"];
-        /** @description When used with `version`, returns the raw revision data instead of the merged item data. */
-        versionRaw?: components["parameters"]["VersionRaw"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournoisRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  deleteSingleItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: never;
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: never;
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content?: never;
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
-  updateSingleItemsIcelanTournoisRegistrations: {
-    parameters: {
-      query?: {
-        /** @description Control what fields are returned in the response. Supports dot notation for related fields, wildcards (`*`, `*.*`), Many-to-Any (M2A) collection-scoping (`field:collection.field`), and field functions (`year(date_published)`). */
-        fields?: components["parameters"]["Fields"];
-      };
-      header?: never;
-      path: {
-        /** @description Index of the item. */
-        id: number | string;
-      };
-      cookie?: never;
-    };
-    requestBody?: {
-      content: {
-        "application/json": components["schemas"]["ItemsIcelanTournoisRegistrations"];
-      };
-    };
-    responses: {
-      /** @description Successful request */
-      200: {
-        headers: {
-          [name: string]: unknown;
-        };
-        content: {
-          "application/json": {
-            data?: components["schemas"]["ItemsIcelanTournoisRegistrations"];
-          };
-        };
-      };
-      401: components["responses"]["UnauthorizedError"];
-      404: components["responses"]["NotFoundError"];
-    };
-  };
   readItemsInventory: {
     parameters: {
       query?: {
@@ -28664,8 +27971,6 @@ export type Schema = {
   icelan_collabs: components["schemas"]["ItemsIcelanCollabs"][];
   icelan_faqs: components["schemas"]["ItemsIcelanFaqs"][];
   icelan_sponsors: components["schemas"]["ItemsIcelanSponsors"][];
-  icelan_tournois: components["schemas"]["ItemsIcelanTournois"][];
-  icelan_tournois_registrations: components["schemas"]["ItemsIcelanTournoisRegistrations"][];
   inventory: components["schemas"]["ItemsInventory"][];
   languages: components["schemas"]["ItemsLanguages"][];
   members: components["schemas"]["ItemsMembers"][];

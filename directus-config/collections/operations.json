@@ -80,13 +80,12 @@
     "name": "event",
     "options": {
       "collection": "events",
-      "query": {
-        "filter": {
-          "event": {
-            "_eq": "{{$trigger.id}}"
-          }
-        }
-      }
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.event}}"
+      ],
+      "permissions": "$trigger",
+      "query": null
     },
     "position_x": 19,
     "position_y": 1,
@@ -103,8 +102,7 @@
       "filter": {
         "event": {
           "max_registrations": {
-            "_gte": "{{$event.registration_count}}",
-            "_null": false
+            "_lte": "{{event.registration_count}}"
           }
         }
       }
@@ -122,10 +120,14 @@
     "name": "close",
     "options": {
       "collection": "events",
+      "emitEvents": false,
       "key": [
-        "{{$event.id}}"
+        "{{$trigger.event}}"
       ],
-      "payload": {}
+      "payload": {
+        "opened": false
+      },
+      "permissions": "$trigger"
     },
     "position_x": 55,
     "position_y": 1,
@@ -972,7 +974,7 @@
     "key": "count_vjtqe",
     "name": "Count registrations",
     "options": {
-      "code": "module.exports = async function(data) {\n    let count = 0;\n    count += data.registrations.length;\n    \n    for(let i = 0; i < data.registrations.length; i += 1) {\n        if(data.registrations[i].plusOnes) {\n            count += data.registrations[i].plusOnes;\n        }\n    }\n    \n    return {\n        \"registration_count\": count,\n        \"opened\": data.event.opened && !(typeof data.event.max_registrations === \"number\" && data.event.max_registrations <= count),\n    };\n}"
+      "code": "module.exports = async function(data) {\n    let count = 0;\n    count += data.registrations.length;\n    \n    for(let i = 0; i < data.registrations.length; i += 1) {\n        if(data.registrations[i].plusOnes) {\n            count += data.registrations[i].plusOnes;\n        }\n    }\n    \n    return {\n        \"registration_count\": count,\n    };\n}"
     },
     "position_x": 55,
     "position_y": 1,
@@ -997,8 +999,26 @@
     "position_x": 73,
     "position_y": 1,
     "reject": null,
-    "resolve": null,
+    "resolve": "1e1356d5-7e85-4230-a0ed-223abacce302",
     "type": "item-update"
+  },
+  {
+    "_syncId": "1e1356d5-7e85-4230-a0ed-223abacce302",
+    "flow": "6cf86bff-9bfb-4707-9166-411d7b60f564",
+    "key": "trigger_2a8tp",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "260b7a9d-fe71-4bc6-b54b-0a7ef5c9b8ee",
+      "iterationMode": "parallel",
+      "payload": {
+        "event": "{{$trigger.event}}"
+      }
+    },
+    "position_x": 91,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
   },
   {
     "_syncId": "e43c3bf4-fc72-4acd-9d03-3c28baa8f842",
