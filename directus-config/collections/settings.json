@@ -35,6 +35,7 @@
     "custom_aspect_ratios": null,
     "custom_css": null,
     "default_appearance": "auto",
+    "default_exports_folder": null,
     "default_language": "en-US",
     "default_save_action": "save-and-quit",
     "default_theme_dark": null,
