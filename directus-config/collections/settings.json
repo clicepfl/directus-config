@@ -1,23 +1,11 @@
 [
   {
     "_syncId": "_sync_default_settings",
-    "ai_anthropic_allowed_models": [
-      "claude-haiku-4-5",
-      "claude-sonnet-4-6"
-    ],
+    "ai_anthropic_allowed_models": [],
     "ai_anthropic_api_key": null,
-    "ai_google_allowed_models": [
-      "gemini-3-pro-preview",
-      "gemini-3-flash-preview",
-      "gemini-2.5-pro",
-      "gemini-2.5-flash"
-    ],
+    "ai_google_allowed_models": [],
     "ai_google_api_key": null,
-    "ai_openai_allowed_models": [
-      "gpt-5.4-nano",
-      "gpt-5.4-mini",
-      "gpt-5.4"
-    ],
+    "ai_openai_allowed_models": [],
     "ai_openai_api_key": null,
     "ai_openai_compatible_api_key": null,
     "ai_openai_compatible_base_url": null,
@@ -40,8 +28,6 @@
     "default_save_action": "save-and-quit",
     "default_theme_dark": null,
     "default_theme_light": null,
-    "license_key": null,
-    "license_token": null,
     "mapbox_key": null,
     "mcp_allow_deletes": false,
     "mcp_enabled": false,
@@ -57,7 +43,7 @@
     "product_updates": null,
     "project_color": "#6644FF",
     "project_descriptor": null,
-    "project_name": "Directus",
+    "project_name": "DiRAWRctus",
     "project_owner": null,
     "project_status": null,
     "project_usage": null,
