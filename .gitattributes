@@ -1,0 +1,4 @@
+# unset diff (to reduce clutter) and merge (to avoid conflicts)
+types/schema.d.ts -diff -merge
+# set linguist-generated (github specific) to not be included in statistics and be collapsed in diffs
+types/schema.d.ts linguist-generated
