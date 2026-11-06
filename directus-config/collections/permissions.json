@@ -3403,6 +3403,18 @@
     "validation": null
   },
   {
+    "_syncId": "efa2ea1b-60e6-4ab1-a0c4-d2f0cc027da9",
+    "action": "create",
+    "collection": "icelan_participants",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "f77422ea-ddbd-4764-b24a-ae1e7e1783ea",
     "action": "create",
     "collection": "icelan_tournois",
@@ -3502,6 +3514,18 @@
     "_syncId": "374c3b8d-e806-4c6d-a7a5-250dee56bea9",
     "action": "delete",
     "collection": "game_star_games_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4f4a8f57-ad13-4972-988c-f804c4b8c221",
+    "action": "delete",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
@@ -3742,6 +3766,18 @@
     "_syncId": "528a0862-1dde-4d68-a2b6-a196dd32077a",
     "action": "read",
     "collection": "game_star_events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "6087b146-651d-428a-81db-7207456360fd",
+    "action": "read",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
@@ -4090,6 +4126,18 @@
     "_syncId": "e3aa44e0-c317-457b-8f9d-3d9d83e8fa62",
     "action": "update",
     "collection": "game_star_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ed214627-a6bc-4262-8fba-b4b8429aeccf",
+    "action": "update",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],

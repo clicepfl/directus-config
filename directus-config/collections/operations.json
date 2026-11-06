@@ -612,6 +612,118 @@
     "type": "mail"
   },
   {
+    "_syncId": "61673d39-68f9-41af-a61d-2ef099dabd54",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "clear_icelan_participants",
+    "name": "Clear ICeLAN Participants",
+    "options": {
+      "collection": "icelan_participants",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {}
+      }
+    },
+    "position_x": 4,
+    "position_y": 19,
+    "reject": null,
+    "resolve": "95838b48-0ad3-42e2-a67e-f75c63526c88",
+    "type": "item-delete"
+  },
+  {
+    "_syncId": "3db23a54-f3a4-4be5-91c4-c1b60ac9b702",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "create_participants",
+    "name": "Create Participants",
+    "options": {
+      "collection": "icelan_participants",
+      "emitEvents": false,
+      "payload": "{{participants}}",
+      "permissions": "$trigger"
+    },
+    "position_x": 4,
+    "position_y": 36,
+    "reject": null,
+    "resolve": null,
+    "type": "item-create"
+  },
+  {
+    "_syncId": "58e29df3-d47e-4f3c-a6c6-3ace8f5f93f1",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "icelan",
+    "name": "Read ICeLAN",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.body.keys[0]}}"
+      ],
+      "permissions": "$trigger"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "40c56465-c03a-4939-bc45-a6858bec0732",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "95838b48-0ad3-42e2-a67e-f75c63526c88",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "registrations",
+    "name": "Registrations",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "event": {
+            "id": "{{$trigger.body.keys[0]}}"
+          }
+        },
+        "limit": -1,
+        "sort": "registration_date"
+      }
+    },
+    "position_x": 22,
+    "position_y": 19,
+    "reject": null,
+    "resolve": "c9f2c7c9-e259-4bcc-ad00-cd056cd28b13",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "40c56465-c03a-4939-bc45-a6858bec0732",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "is_icelan",
+    "name": "Is ICeLAN",
+    "options": {
+      "filter": {
+        "icelan": {
+          "type": "icelan"
+        }
+      }
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "61673d39-68f9-41af-a61d-2ef099dabd54",
+    "type": "condition"
+  },
+  {
+    "_syncId": "c9f2c7c9-e259-4bcc-ad00-cd056cd28b13",
+    "flow": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "key": "participants",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function (data) {\n    return data.registrations\n        .filter((v) => v.priority !== \"low\")\n        .sort((a, b) =>\n              a.priority !== b.priority\n              ? a.priority === \"high\"\n              ? -1\n              : 1\n              : a.registration_date.localeCompare(b.registration_date))\n        .map((r) => ({\n            source_registration: r.id,\n            first_name: r.first_name,\n            family_name: r.family_name,\n            email: r.email,\n            icelan_username: r.pseudonym,\n            discord_username: r.discord_username\n        }))\n        .slice(0, data.icelan.max_registrations);\n};"
+    },
+    "position_x": 40,
+    "position_y": 19,
+    "reject": null,
+    "resolve": "3db23a54-f3a4-4be5-91c4-c1b60ac9b702",
+    "type": "exec"
+  },
+  {
     "_syncId": "0180bcf8-0bd5-407a-becc-409d138b677f",
     "flow": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
     "key": "event",

@@ -64,6 +64,27 @@
     "trigger": "event"
   },
   {
+    "_syncId": "373cbe26-2047-45e8-9b70-43263fc24fe1",
+    "accountability": "all",
+    "color": "#3399FF",
+    "description": null,
+    "folder": null,
+    "icon": "check_circle",
+    "name": "[ICeLAN] Selection",
+    "operation": "58e29df3-d47e-4f3c-a6c6-3ace8f5f93f1",
+    "options": {
+      "collections": [
+        "events"
+      ],
+      "confirmationDescription": "Are you sure you want to execute this flow? All current data about ICeLAN participants will be erased.",
+      "error_on_reject": true,
+      "location": "collection",
+      "requireConfirmation": true
+    },
+    "status": "active",
+    "trigger": "manual"
+  },
+  {
     "_syncId": "48c5e220-ea71-485a-b86f-dbe5b7bebd18",
     "accountability": "all",
     "color": null,
