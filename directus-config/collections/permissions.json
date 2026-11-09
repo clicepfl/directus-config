@@ -3887,7 +3887,7 @@
       "_and": [
         {
           "name": {
-            "_contains": "[Icelan]"
+            "_contains": "[ICeLAN]"
           }
         }
       ]
