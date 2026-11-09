@@ -3271,6 +3271,24 @@
     "validation": null
   },
   {
+    "_syncId": "5a71505a-182b-44b2-9633-79c1a92f3b96",
+    "action": "create",
+    "collection": "events",
+    "fields": null,
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    }
+  },
+  {
     "_syncId": "6a263585-934a-497f-b8fd-14e7f3ef543b",
     "action": "create",
     "collection": "game_star_projects",
@@ -3511,6 +3529,26 @@
     "validation": null
   },
   {
+    "_syncId": "54f3be7a-ea75-4e87-b9a9-6f17ec2290c7",
+    "action": "delete",
+    "collection": "registrations",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "6253fa9b-9f2a-4e3e-bab4-c1837386fa4a",
     "action": "delete",
     "collection": "game_star_events",
@@ -3554,6 +3592,24 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "99ec864d-87a2-4653-9aaa-e0b2571ff633",
+    "action": "delete",
+    "collection": "events",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3703,6 +3759,18 @@
     "validation": null
   },
   {
+    "_syncId": "2f9ad41a-8bd0-496d-9732-4c68f535f3c0",
+    "action": "read",
+    "collection": "directus_dashboards",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "41c83f7c-ad87-4e3b-9d6e-45927e7d8dfe",
     "action": "read",
     "collection": "game_star_articles",
@@ -3742,6 +3810,18 @@
     "_syncId": "528a0862-1dde-4d68-a2b6-a196dd32077a",
     "action": "read",
     "collection": "game_star_events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "5ef18e63-f3ea-4de5-9299-1a9cf4675215",
+    "action": "read",
+    "collection": "directus_panels",
     "fields": [
       "*"
     ],
@@ -3799,9 +3879,39 @@
     "validation": null
   },
   {
+    "_syncId": "7b5eb2c6-ae1c-4a27-bcda-7dfbeca0f5d9",
+    "action": "read",
+    "collection": "directus_flows",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "name": {
+            "_contains": "[Icelan]"
+          }
+        }
+      ]
+    },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "9355d5c1-e3de-4823-bc4b-4ffba5563341",
     "action": "read",
     "collection": "game_star_articles_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "947059e3-1e58-4290-ae09-1e8ef816a61a",
+    "action": "read",
+    "collection": "registrations",
     "fields": [
       "*"
     ],
@@ -3850,6 +3960,18 @@
     "_syncId": "d0e918e1-a291-4444-9c47-78a1ea1b9a84",
     "action": "read",
     "collection": "icelan_collabs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "d2bb4779-d7a5-4604-914e-819e68b39274",
+    "action": "read",
+    "collection": "events",
     "fields": [
       "*"
     ],
@@ -3919,6 +4041,26 @@
     "validation": null
   },
   {
+    "_syncId": "3cd80645-5d70-4f13-9dfe-c65f5fa512e1",
+    "action": "update",
+    "collection": "registrations",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "492a7cb9-61d3-420b-99aa-5a7a6c13eec7",
     "action": "update",
     "collection": "game_star_projects_translations",
@@ -3962,6 +4104,24 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "83a1f3db-4ab4-4e2c-a081-1cb04f7f2a35",
+    "action": "update",
+    "collection": "events",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
