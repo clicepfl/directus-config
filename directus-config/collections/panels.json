@@ -1,1 +1,90 @@
-[]
+[
+  {
+    "_syncId": "0475f1c5-9a6c-4a64-b3aa-ecd5fff430c4",
+    "color": "#3399FF",
+    "dashboard": "3ef0f57a-964c-46b0-bcb5-dda0075e39e6",
+    "height": 4,
+    "icon": "group",
+    "name": "Inscriptions",
+    "note": null,
+    "options": {
+      "collection": "registrations",
+      "field": "id",
+      "filter": {
+        "_and": [
+          {
+            "event": {
+              "type": {
+                "_eq": "icelan"
+              }
+            }
+          }
+        ]
+      },
+      "function": "count",
+      "prefix": "Total: ",
+      "sortField": "id",
+      "textAlign": "start"
+    },
+    "position_x": 2,
+    "position_y": 3,
+    "show_header": true,
+    "type": "metric",
+    "width": 26
+  },
+  {
+    "_syncId": "660db160-37b1-4448-aff4-27b1fe6ae141",
+    "color": "#3399FF",
+    "dashboard": "3ef0f57a-964c-46b0-bcb5-dda0075e39e6",
+    "height": 16,
+    "icon": "trophy",
+    "name": "Tournois",
+    "note": null,
+    "options": {
+      "collection": "icelan_tournois_registrations",
+      "function": "count",
+      "showDataLabel": false,
+      "xAxis": "icelan_tournois_id",
+      "xAxisDisplayField": "name",
+      "yAxis": "registrations_id"
+    },
+    "position_x": 2,
+    "position_y": 25,
+    "show_header": true,
+    "type": "bar-chart",
+    "width": 26
+  },
+  {
+    "_syncId": "8ed1b98f-e3d9-43c6-ba68-ad149394e5f7",
+    "color": null,
+    "dashboard": "3ef0f57a-964c-46b0-bcb5-dda0075e39e6",
+    "height": 16,
+    "icon": null,
+    "name": null,
+    "note": null,
+    "options": {
+      "collection": "registrations",
+      "dateField": "registration_date",
+      "filter": {
+        "_and": [
+          {
+            "event": {
+              "type": {
+                "_eq": "icelan"
+              }
+            }
+          }
+        ]
+      },
+      "function": "count",
+      "min": 0,
+      "range": "auto",
+      "valueField": "id"
+    },
+    "position_x": 2,
+    "position_y": 8,
+    "show_header": false,
+    "type": "time-series",
+    "width": 26
+  }
+]

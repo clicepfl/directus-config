@@ -85,7 +85,13 @@
         "{{$trigger.event}}"
       ],
       "permissions": "$trigger",
-      "query": null
+      "query": {
+        "filter": {
+          "type": {
+            "_neq": "icelan"
+          }
+        }
+      }
     },
     "position_x": 19,
     "position_y": 1,
