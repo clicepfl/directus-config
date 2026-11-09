@@ -838,7 +838,9 @@
     "options": {
       "collection": "registrations",
       "emitEvents": false,
-      "key": "{{$trigger.body.keys}}",
+      "key": [
+        "{{$trigger.body.keys}}"
+      ],
       "permissions": "$trigger"
     },
     "position_x": 19,
@@ -1698,6 +1700,63 @@
     "type": "exec"
   },
   {
+    "_syncId": "77308c01-4680-4bce-b436-34a5599a2117",
+    "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+    "key": "check_if_email_not_already_sent",
+    "name": "Check if email not already sent",
+    "options": {
+      "filter": {
+        "$trigger": {
+          "confirmation_email_sent": false
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "52ee8827-5198-4886-bc71-5307f04a59c1",
+    "type": "condition"
+  },
+  {
+    "_syncId": "52ee8827-5198-4886-bc71-5307f04a59c1",
+    "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+    "key": "mail_oile1",
+    "name": "Send Email",
+    "options": {
+      "to": [
+        "{{$trigger.email}}"
+      ],
+      "type": "markdown"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "55ef26f0-7f9b-471b-ba7f-a9f29095d213",
+    "type": "mail"
+  },
+  {
+    "_syncId": "55ef26f0-7f9b-471b-ba7f-a9f29095d213",
+    "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+    "key": "item_update_5ncel",
+    "name": "Update Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.id}}"
+      ],
+      "payload": {
+        "confirmation_email_sent": true
+      },
+      "permissions": "$trigger"
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "item-update"
+  },
+  {
     "_syncId": "30c91a96-c497-455a-9b88-07d3288a01b0",
     "flow": "d1849102-ba01-4a47-bd0c-9bfe125cda3a",
     "key": "registration",
@@ -1786,6 +1845,83 @@
     "reject": null,
     "resolve": null,
     "type": "item-update"
+  },
+  {
+    "_syncId": "31658442-331c-42fd-86ba-b2c9f1793c18",
+    "flow": "d25f6527-d14a-4f0c-bf6b-908f374be710",
+    "key": "participants",
+    "name": "Read Participants",
+    "options": {
+      "collection": "icelan_participants",
+      "emitEvents": false,
+      "key": [],
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{$trigger.body.keys}}"
+          }
+        }
+      }
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "4ff0974c-3cd4-4685-ba8f-4a01a62c589e",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "4ff0974c-3cd4-4685-ba8f-4a01a62c589e",
+    "flow": "d25f6527-d14a-4f0c-bf6b-908f374be710",
+    "key": "registrations_ids",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function(data) {\n\treturn data.participants.map(v=>v.source_registration);\n}"
+    },
+    "position_x": 37,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "2c50869b-3acd-412f-bb8f-9405a4ce54ed",
+    "type": "exec"
+  },
+  {
+    "_syncId": "2c50869b-3acd-412f-bb8f-9405a4ce54ed",
+    "flow": "d25f6527-d14a-4f0c-bf6b-908f374be710",
+    "key": "registrations",
+    "name": "Read Data",
+    "options": {
+      "collection": "registrations",
+      "emitEvents": false,
+      "permissions": "$trigger",
+      "query": {
+        "filter": {
+          "id": {
+            "_in": "{{registrations_ids}}"
+          }
+        }
+      }
+    },
+    "position_x": 55,
+    "position_y": 1,
+    "reject": null,
+    "resolve": "a8cd4dc7-5d09-4f3e-a40b-81404bef84e7",
+    "type": "item-read"
+  },
+  {
+    "_syncId": "a8cd4dc7-5d09-4f3e-a40b-81404bef84e7",
+    "flow": "d25f6527-d14a-4f0c-bf6b-908f374be710",
+    "key": "trigger_o6y1h",
+    "name": "Trigger Flow",
+    "options": {
+      "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+      "iterationMode": "parallel",
+      "payload": "{{$last}}"
+    },
+    "position_x": 73,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "trigger"
   },
   {
     "_syncId": "e5551dae-8ba2-4711-aa47-1ffe2f9a267e",
