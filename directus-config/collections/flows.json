@@ -281,6 +281,27 @@
     "trigger": "event"
   },
   {
+    "_syncId": "b2ed3a1f-19c1-4214-8a54-8f5cf7033cb4",
+    "accountability": "all",
+    "color": "#3399FF",
+    "description": "Sends registration confirmation email.",
+    "folder": null,
+    "icon": "outgoing_mail",
+    "name": "[ICeLAN] Send registration confirmation mail",
+    "operation": "59eda146-219c-421e-bc97-7b3f9ac1bf1d",
+    "options": {
+      "collections": [
+        "registrations"
+      ],
+      "scope": [
+        "items.create"
+      ],
+      "type": "action"
+    },
+    "status": "active",
+    "trigger": "event"
+  },
+  {
     "_syncId": "bd181b20-151d-451e-9e1d-8b01bb197fab",
     "accountability": "all",
     "color": "#2ECDA7",

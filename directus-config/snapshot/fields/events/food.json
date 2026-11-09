@@ -1,13 +1,12 @@
 {
   "collection": "events",
-  "field": "faculty_dinner",
+  "field": "food",
   "meta": {
     "collection": "events",
     "conditions": [
       {
         "hidden": false,
         "name": "display",
-        "options": {},
         "rule": {
           "_and": [
             {
@@ -21,7 +20,7 @@
     ],
     "display": null,
     "display_options": null,
-    "field": "faculty_dinner",
+    "field": "food",
     "group": null,
     "hidden": true,
     "interface": "group-raw",
@@ -30,11 +29,11 @@
     "readonly": false,
     "required": false,
     "searchable": true,
-    "sort": 17,
+    "sort": 19,
     "special": [
       "alias",
-      "group",
-      "no-data"
+      "no-data",
+      "group"
     ],
     "translations": null,
     "validation": null,

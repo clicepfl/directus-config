@@ -38,7 +38,7 @@
     "readonly": false,
     "required": false,
     "searchable": true,
-    "sort": 2,
+    "sort": 1,
     "special": [
       "cast-boolean"
     ],

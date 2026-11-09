@@ -1703,6 +1703,18 @@
     "validation": null
   },
   {
+    "_syncId": "985435f7-37c0-4284-ad56-1247e482af0e",
+    "action": "create",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "98f884c1-7893-4f0e-9eab-6be8ace11139",
     "action": "create",
     "collection": "icbd_activities_translations",
@@ -1754,6 +1766,18 @@
     "_syncId": "6c33056c-09ef-4a51-a32a-a6c6c69be974",
     "action": "delete",
     "collection": "icbd_activities_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "80726de2-7a55-41b6-a0ef-4a0d06559046",
+    "action": "delete",
+    "collection": "icelan_tournois_registrations",
     "fields": [
       "*"
     ],
@@ -1823,6 +1847,30 @@
     "validation": null
   },
   {
+    "_syncId": "022c1fa3-18db-4066-87d6-954d0d3dce3a",
+    "action": "read",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "031a8d9a-cab0-43ac-a019-0148cc3ed581",
+    "action": "read",
+    "collection": "icelan_faqs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "0838c140-4723-4120-aabf-6373c003d973",
     "action": "read",
     "collection": "icbd_translations",
@@ -1838,6 +1886,18 @@
     "_syncId": "1c7685a7-b396-43a3-9950-356760cf85ed",
     "action": "read",
     "collection": "icbd",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "295c95b8-0c24-4714-819a-dbb1236da7b8",
+    "action": "read",
+    "collection": "icelan_tournois_registrations",
     "fields": [
       "*"
     ],
@@ -1931,6 +1991,18 @@
     "validation": null
   },
   {
+    "_syncId": "8c7bee5f-6e77-49ab-a8dc-a57a7d11e643",
+    "action": "read",
+    "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "b1bd7433-d623-4566-900b-a022e7080ae8",
     "action": "read",
     "collection": "icbd_activities_icbd_speakers",
@@ -1946,6 +2018,18 @@
     "_syncId": "d4bfea2c-4f5b-4954-bf1a-e271feb46a97",
     "action": "read",
     "collection": "icbd_activities_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "db13baf6-f235-4f67-bdb3-9df396d753aa",
+    "action": "read",
+    "collection": "icelan",
     "fields": [
       "*"
     ],
@@ -1982,6 +2066,18 @@
     "_syncId": "199f198e-45f8-4227-9991-17738879daac",
     "action": "share",
     "collection": "icbd_activities",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "6c8e884e-091c-4f3a-8f1c-62bbd5af73be",
+    "action": "share",
+    "collection": "icelan_tournois_registrations",
     "fields": [
       "*"
     ],
@@ -2090,6 +2186,18 @@
     "_syncId": "675c3a06-6eb7-4cbc-a7a2-29c4e2d503c2",
     "action": "update",
     "collection": "icbd_activities",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "803d0833-3fe6-4a7e-bf87-0ffb31c9112d",
+    "action": "update",
+    "collection": "icelan_tournois_registrations",
     "fields": [
       "*"
     ],
@@ -2768,6 +2876,42 @@
     "validation": {}
   },
   {
+    "_syncId": "1de14293-1923-43cd-a534-d00de823f8a2",
+    "action": "create",
+    "collection": "registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "8ebb70f6-1e37-4be5-a40c-2960c7678e7f",
+    "action": "create",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "0aeaac93-268e-4fff-8c1a-b148644e45aa",
+    "action": "read",
+    "collection": "icbd_activities_icbd_speakers",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "0f1b2f19-8d9e-44bc-b2df-70bd29dc5ecb",
     "action": "read",
     "collection": "artists",
@@ -2795,6 +2939,114 @@
     "_syncId": "35082efc-61f9-4590-88fa-8f713f59b8e1",
     "action": "read",
     "collection": "directus_folders",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "354ecef1-33bb-498e-89c5-d29a401dd091",
+    "action": "read",
+    "collection": "icbd_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "41e2c5fb-1a9d-4612-ac23-1c523dddbe78",
+    "action": "read",
+    "collection": "icbd_phds",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "50ee7404-f361-4e77-862e-8ade4f964c42",
+    "action": "read",
+    "collection": "icbd",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "5b3deb46-8da0-46ba-9f6e-b59432e4064d",
+    "action": "read",
+    "collection": "events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "6a6bbfd8-2e2a-4ce6-bac8-17161503cca7",
+    "action": "read",
+    "collection": "icbd_activities",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "83255de3-082d-490b-890f-c35a4dfca989",
+    "action": "read",
+    "collection": "icbd_speakers",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "8837fd45-d8a3-4fce-bb97-f6b74308563a",
+    "action": "read",
+    "collection": "icbd_files",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "8ad4a3f9-9c15-4c1e-9562-393fd6b93d4a",
+    "action": "read",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a3a8e209-6bf7-42f6-a322-bb30104b7c3f",
+    "action": "read",
+    "collection": "icbd_activities_translations",
     "fields": [
       "*"
     ],
@@ -2887,6 +3139,54 @@
     "validation": null
   },
   {
+    "_syncId": "ad4545cb-0a48-49f2-83df-879f951f5d22",
+    "action": "read",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "b6fc7064-a317-4467-8fb6-b35e20f20688",
+    "action": "read",
+    "collection": "registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "c1977b77-4c39-4629-af3b-e4442772d6e4",
+    "action": "read",
+    "collection": "icbd_activities_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "c2acd8f4-7cc2-4947-ba99-bf4139e9d656",
+    "action": "read",
+    "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "da94446b-8d86-4763-ae19-b8f8b23c3274",
     "action": "read",
     "collection": "icelan_collabs",
@@ -2899,9 +3199,45 @@
     "validation": null
   },
   {
+    "_syncId": "e07a16cf-d1e9-4772-a7dd-27665d0e796c",
+    "action": "read",
+    "collection": "icelan_faqs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "116af2fe-7531-4b9e-8898-f4bd40f32757",
+    "action": "create",
+    "collection": "icelan_collabs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "19e265af-9660-41ce-bdfe-8733f1096336",
     "action": "create",
     "collection": "game_star_events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "4f0768f9-ef48-4f94-a867-beb0db8ab910",
+    "action": "create",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -2947,6 +3283,18 @@
     "validation": null
   },
   {
+    "_syncId": "6ae4b3dc-eb86-4701-9cb0-b6d2a7210662",
+    "action": "create",
+    "collection": "icelan",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "79c72aa0-9c86-4fb6-8bc7-132bc8bd5b49",
     "action": "create",
     "collection": "game_star_articles",
@@ -2983,9 +3331,33 @@
     "validation": null
   },
   {
+    "_syncId": "9c304a1a-6b26-4ac4-8b92-8411cbd7a288",
+    "action": "create",
+    "collection": "icelan_sponsors",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "a6d288c3-dc39-46bd-b3bc-3f5b56b2ed70",
     "action": "create",
     "collection": "game_star_games_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ac38f65b-7e1d-47d9-877f-08b80004dc52",
+    "action": "create",
+    "collection": "icelan_animations",
     "fields": [
       "*"
     ],
@@ -3019,9 +3391,57 @@
     "validation": null
   },
   {
+    "_syncId": "e5c3363b-0e79-490a-b31a-1eec945572c7",
+    "action": "create",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "f77422ea-ddbd-4764-b24a-ae1e7e1783ea",
+    "action": "create",
+    "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "ffa0e468-bf5a-413b-92a6-b44f9f48d6ca",
     "action": "create",
     "collection": "game_star_articles_members",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "11b111bc-ab61-4f3b-8e80-37837aaeae0e",
+    "action": "delete",
+    "collection": "icelan",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "11c328c5-8cb1-4a40-b1e8-6e8559ce713a",
+    "action": "delete",
+    "collection": "icelan_animations",
     "fields": [
       "*"
     ],
@@ -3046,6 +3466,18 @@
     "_syncId": "1ad3e5f5-8550-46c2-ad1e-682d04f8cb07",
     "action": "delete",
     "collection": "game_star_events_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "23c845a2-8058-431d-8b28-c7a4a61d5637",
+    "action": "delete",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -3103,9 +3535,33 @@
     "validation": null
   },
   {
+    "_syncId": "85ad653b-c0dd-4316-8501-8c55c6928b57",
+    "action": "delete",
+    "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "8daab1d1-157e-49de-8208-c862ad29bc9f",
     "action": "delete",
     "collection": "game_star_projects",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a4b445be-f70d-4568-9266-b66cf7350c41",
+    "action": "delete",
+    "collection": "icelan_collabs",
     "fields": [
       "*"
     ],
@@ -3139,6 +3595,18 @@
     "validation": null
   },
   {
+    "_syncId": "db0c92d7-1679-45e9-9c7b-343889276c76",
+    "action": "delete",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e7aa6e2b-a6f6-4a5e-b7f1-11b9e7791c44",
     "action": "delete",
     "collection": "game_star_articles_members",
@@ -3154,6 +3622,18 @@
     "_syncId": "e8b21bee-e38b-4cca-9ca7-fbdf0402545a",
     "action": "delete",
     "collection": "game_star_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e9334407-9c07-405f-8dbe-06fab2a84f27",
+    "action": "delete",
+    "collection": "icelan_sponsors",
     "fields": [
       "*"
     ],
@@ -3211,9 +3691,33 @@
     "validation": null
   },
   {
+    "_syncId": "26a44fbc-c2ec-4bee-84f2-58ab9522b1fd",
+    "action": "read",
+    "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "41c83f7c-ad87-4e3b-9d6e-45927e7d8dfe",
     "action": "read",
     "collection": "game_star_articles",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "476bd2d4-f9cd-4f0d-8242-bd519289849a",
+    "action": "read",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -3238,6 +3742,30 @@
     "_syncId": "528a0862-1dde-4d68-a2b6-a196dd32077a",
     "action": "read",
     "collection": "game_star_events",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "69dd0f86-1db3-43f0-9de8-bd9d527ef2b4",
+    "action": "read",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "72747163-58e6-463f-87f4-f4cf1c7553d4",
+    "action": "read",
+    "collection": "icelan_sponsors",
     "fields": [
       "*"
     ],
@@ -3283,9 +3811,45 @@
     "validation": null
   },
   {
+    "_syncId": "a4efe35e-30be-4b94-b580-ef047d2d98be",
+    "action": "read",
+    "collection": "icelan",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "ac1160f8-8c92-4c82-8ac2-c2883d9bf89a",
+    "action": "read",
+    "collection": "icelan_tournois_registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "cc8543fd-f375-430f-84dc-703642d8aacd",
     "action": "read",
     "collection": "game_star_projects",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "d0e918e1-a291-4444-9c47-78a1ea1b9a84",
+    "action": "read",
+    "collection": "icelan_collabs",
     "fields": [
       "*"
     ],
@@ -3310,6 +3874,18 @@
     "_syncId": "f2a4ca28-4b8a-4eff-95b9-49bdf637fe55",
     "action": "read",
     "collection": "game_star_translations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "111586f5-0a08-4224-8f5c-0a237fb9af03",
+    "action": "update",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -3379,6 +3955,18 @@
     "validation": null
   },
   {
+    "_syncId": "7ff56401-d182-4708-a6ea-9e797d5f0898",
+    "action": "update",
+    "collection": "icelan_sponsors",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "8d366cf6-b7b9-4a45-b218-b8c4f9a361ef",
     "action": "update",
     "collection": "game_star_events",
@@ -3394,6 +3982,18 @@
     "_syncId": "94031a95-f5de-4b3b-8694-037f9de63806",
     "action": "update",
     "collection": "game_star",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "97b2e0c0-94d6-4d83-a74a-4966767e13d8",
+    "action": "update",
+    "collection": "icelan_tournois",
     "fields": [
       "*"
     ],
@@ -3427,6 +4027,18 @@
     "validation": null
   },
   {
+    "_syncId": "c15c0b01-8c1f-44da-965f-620b01677437",
+    "action": "update",
+    "collection": "icelan_collabs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "c184e1b0-ddf7-4209-88e0-325b2280a1c4",
     "action": "update",
     "collection": "game_star_games",
@@ -3451,9 +4063,45 @@
     "validation": null
   },
   {
+    "_syncId": "dcd20c62-2243-46d9-abf7-a2286e8f56e2",
+    "action": "update",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "e057ef40-277c-4c0c-8bbb-2539596990eb",
+    "action": "update",
+    "collection": "icelan",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "e3aa44e0-c317-457b-8f9d-3d9d83e8fa62",
     "action": "update",
     "collection": "game_star_social_links",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fb4d7553-5d60-462e-bbbc-3f612dc00030",
+    "action": "update",
+    "collection": "icelan_tournois_registrations",
     "fields": [
       "*"
     ],

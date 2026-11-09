@@ -15,7 +15,7 @@
     "readonly": false,
     "required": false,
     "searchable": true,
-    "sort": 2,
+    "sort": 4,
     "special": [
       "alias",
       "group",

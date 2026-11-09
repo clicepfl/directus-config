@@ -1,32 +1,34 @@
 {
-  "collection": "events",
-  "field": "price",
+  "collection": "registrations",
+  "field": "student",
   "meta": {
-    "collection": "events",
+    "collection": "registrations",
     "conditions": null,
     "display": null,
     "display_options": null,
-    "field": "price",
-    "group": null,
+    "field": "student",
+    "group": "icelan",
     "hidden": false,
-    "interface": "input",
+    "interface": "boolean",
     "note": null,
     "options": {
-      "iconLeft": "attach_money"
+      "label": "Student"
     },
     "readonly": false,
-    "required": true,
+    "required": false,
     "searchable": true,
-    "sort": 4,
-    "special": null,
+    "sort": 3,
+    "special": [
+      "cast-boolean"
+    ],
     "translations": null,
     "validation": null,
     "validation_message": null,
     "width": "half"
   },
   "schema": {
-    "data_type": "integer",
-    "default_value": 0,
+    "data_type": "boolean",
+    "default_value": true,
     "foreign_key_column": null,
     "foreign_key_table": null,
     "generation_expression": null,
@@ -37,10 +39,10 @@
     "is_primary_key": false,
     "is_unique": false,
     "max_length": null,
-    "name": "price",
-    "numeric_precision": 32,
-    "numeric_scale": 0,
-    "table": "events"
+    "name": "student",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "registrations"
   },
-  "type": "integer"
+  "type": "boolean"
 }

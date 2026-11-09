@@ -24,7 +24,7 @@
       "format": "{{ name }}, {{ count }}"
     },
     "field": "meals",
-    "group": "faculty_dinner",
+    "group": "food",
     "hidden": false,
     "interface": "list",
     "note": null,

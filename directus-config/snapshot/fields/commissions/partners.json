@@ -15,7 +15,7 @@
     "readonly": false,
     "required": false,
     "searchable": true,
-    "sort": 8,
+    "sort": 7,
     "special": [
       "o2m"
     ],
