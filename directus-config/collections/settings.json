@@ -27,6 +27,8 @@
     "default_save_action": "save-and-quit",
     "default_theme_dark": null,
     "default_theme_light": null,
+    "license_key": null,
+    "license_token": null,
     "mapbox_key": null,
     "mcp_allow_deletes": false,
     "mcp_enabled": false,
