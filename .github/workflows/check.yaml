@@ -17,6 +17,6 @@ jobs:
       - name: Check for duplicates
         run: bash check.sh
       - name: Check that license key has not been pushed
-        run: ! cat directus-config/collections/settings.json | jq '.[0] | has("license_key")'
+        run: ! cat directus-config/collections/settings.json | jq -e '.[0] | has("license_key")'
       - name: Check that license token has not been pushed
-        run: ! cat directus-config/collections/settings.json | jq '.[0] | has("license_token")'
+        run: ! cat directus-config/collections/settings.json | jq -e '.[0] | has("license_token")'
