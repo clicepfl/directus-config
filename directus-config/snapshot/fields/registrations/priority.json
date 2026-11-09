@@ -12,13 +12,17 @@
     "interface": "select-dropdown",
     "note": null,
     "options": {
-      "allowNone": true,
       "choices": [
         {
           "color": "#3399FF",
           "icon": "arrow_circle_up",
           "text": "High",
           "value": "high"
+        },
+        {
+          "color": "#3399FF",
+          "text": "Normal",
+          "value": "normal"
         },
         {
           "color": "#3399FF",
@@ -29,7 +33,7 @@
       ]
     },
     "readonly": false,
-    "required": false,
+    "required": true,
     "searchable": true,
     "sort": 6,
     "special": null,
@@ -40,14 +44,14 @@
   },
   "schema": {
     "data_type": "character varying",
-    "default_value": null,
+    "default_value": "normal",
     "foreign_key_column": null,
     "foreign_key_table": null,
     "generation_expression": null,
     "has_auto_increment": false,
     "is_generated": false,
     "is_indexed": false,
-    "is_nullable": true,
+    "is_nullable": false,
     "is_primary_key": false,
     "is_unique": false,
     "max_length": 255,
