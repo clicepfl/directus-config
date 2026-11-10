@@ -8,6 +8,7 @@ services:
       - ${PWD}:/app
     entrypoint: sh -c "npm i && npm run dev"
     environment:
+      # Connection through docker's virtual network
       DIRECTUS_URL: http://directus:8055
       DIRECTUS_TOKEN: 00000000-0000-0000-0000-000000000000
 
