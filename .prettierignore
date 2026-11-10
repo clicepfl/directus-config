@@ -1,2 +1,2 @@
 directus-config
-hooks/dist
+**/dist
