@@ -1,7 +1,5 @@
 import { createServer } from "http";
 import { buildFlowRegistry, Mailer } from "./registry.js";
-import { readdirSync } from "fs";
-import { join } from "path";
 import {
   readItems,
   readSingleton,
