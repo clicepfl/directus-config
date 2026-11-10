@@ -3274,7 +3274,37 @@
     "_syncId": "5a71505a-182b-44b2-9633-79c1a92f3b96",
     "action": "create",
     "collection": "events",
-    "fields": null,
+    "fields": [
+      "id",
+      "name",
+      "slug",
+      "from",
+      "to",
+      "type",
+      "first_price",
+      "second_price",
+      "prices",
+      "price_model",
+      "max_registrations",
+      "registration_count",
+      "opened",
+      "admin_secret",
+      "intro_text",
+      "confirmation_text",
+      "organiser",
+      "location",
+      "background_color",
+      "banner",
+      "meals",
+      "food",
+      "staffing_from",
+      "staffing_to",
+      "staffingShiftSize",
+      "staffingTypes",
+      "staffing",
+      "icbd_event",
+      "icbd"
+    ],
     "permissions": null,
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
@@ -3915,7 +3945,17 @@
     "fields": [
       "*"
     ],
-    "permissions": null,
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3975,7 +4015,15 @@
     "fields": [
       "*"
     ],
-    "permissions": null,
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -4044,7 +4092,50 @@
     "_syncId": "3cd80645-5d70-4f13-9dfe-c65f5fa512e1",
     "action": "update",
     "collection": "registrations",
-    "fields": null,
+    "fields": [
+      "id",
+      "registration_date",
+      "email",
+      "event",
+      "checked_in",
+      "first_name",
+      "family_name",
+      "comments",
+      "year",
+      "payment",
+      "section",
+      "confirmation_email_sent",
+      "price_to_pay",
+      "number_purchased",
+      "food",
+      "meal",
+      "allergies",
+      "icelan",
+      "pseudonym",
+      "discord_username",
+      "student",
+      "handicaped",
+      "donation",
+      "priority",
+      "icbd",
+      "can_retreive_deposit",
+      "retreived_deposit",
+      "registration_email_sent",
+      "registration_complete",
+      "faculty_dinner",
+      "late_payment",
+      "guest",
+      "plusOnes",
+      "plusOnesCheckedIn",
+      "hello_world",
+      "team",
+      "clothes_fac",
+      "additional_infos",
+      "is_staff",
+      "preferences",
+      "availability",
+      "staffing"
+    ],
     "permissions": {
       "_and": [
         {
@@ -4112,7 +4203,37 @@
     "_syncId": "83a1f3db-4ab4-4e2c-a081-1cb04f7f2a35",
     "action": "update",
     "collection": "events",
-    "fields": null,
+    "fields": [
+      "id",
+      "name",
+      "slug",
+      "from",
+      "to",
+      "type",
+      "price_model",
+      "first_price",
+      "second_price",
+      "prices",
+      "max_registrations",
+      "registration_count",
+      "opened",
+      "admin_secret",
+      "intro_text",
+      "confirmation_text",
+      "organiser",
+      "location",
+      "background_color",
+      "banner",
+      "meals",
+      "food",
+      "staffing_from",
+      "staffing_to",
+      "staffingShiftSize",
+      "staffingTypes",
+      "staffing",
+      "icbd_event",
+      "icbd"
+    ],
     "permissions": {
       "_and": [
         {
