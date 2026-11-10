@@ -11,10 +11,13 @@
     "hidden": false,
     "interface": "boolean",
     "note": null,
-    "options": null,
+    "options": {
+      "label": "Opened"
+    },
     "readonly": false,
     "required": true,
-    "sort": 8,
+    "searchable": true,
+    "sort": 11,
     "special": [
       "cast-boolean"
     ],

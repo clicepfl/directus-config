@@ -14,7 +14,8 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 4,
+    "searchable": true,
+    "sort": 6,
     "special": [
       "alias",
       "no-data",

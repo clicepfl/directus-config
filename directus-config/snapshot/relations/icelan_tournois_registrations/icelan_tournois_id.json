@@ -1,0 +1,25 @@
+{
+  "collection": "icelan_tournois_registrations",
+  "field": "icelan_tournois_id",
+  "meta": {
+    "junction_field": "registrations_id",
+    "many_collection": "icelan_tournois_registrations",
+    "many_field": "icelan_tournois_id",
+    "one_allowed_collections": null,
+    "one_collection": "icelan_tournois",
+    "one_collection_field": null,
+    "one_deselect_action": "nullify",
+    "one_field": "interested_players",
+    "sort_field": null
+  },
+  "related_collection": "icelan_tournois",
+  "schema": {
+    "column": "icelan_tournois_id",
+    "constraint_name": "icelan_tournois_registrations_icelan_tournois_id_foreign",
+    "foreign_key_column": "id",
+    "foreign_key_table": "icelan_tournois",
+    "on_delete": "SET NULL",
+    "on_update": "NO ACTION",
+    "table": "icelan_tournois_registrations"
+  }
+}

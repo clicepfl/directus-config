@@ -28,7 +28,8 @@
     "options": null,
     "readonly": false,
     "required": false,
-    "sort": 19,
+    "searchable": true,
+    "sort": 21,
     "special": [
       "alias",
       "no-data",

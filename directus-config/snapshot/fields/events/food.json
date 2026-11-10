@@ -1,0 +1,44 @@
+{
+  "collection": "events",
+  "field": "food",
+  "meta": {
+    "collection": "events",
+    "conditions": [
+      {
+        "hidden": false,
+        "name": "display",
+        "rule": {
+          "_and": [
+            {
+              "type": {
+                "_eq": "faculty_dinner"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "display": null,
+    "display_options": null,
+    "field": "food",
+    "group": null,
+    "hidden": true,
+    "interface": "group-raw",
+    "note": null,
+    "options": null,
+    "readonly": false,
+    "required": false,
+    "searchable": true,
+    "sort": 19,
+    "special": [
+      "alias",
+      "no-data",
+      "group"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "type": "alias"
+}

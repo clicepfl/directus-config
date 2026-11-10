@@ -14,12 +14,13 @@
     "options": null,
     "readonly": false,
     "required": true,
-    "sort": 4,
+    "searchable": true,
+    "sort": 2,
     "special": null,
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
     "data_type": "character varying",

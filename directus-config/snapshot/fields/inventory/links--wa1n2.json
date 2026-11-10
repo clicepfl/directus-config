@@ -35,6 +35,7 @@
     },
     "readonly": false,
     "required": false,
+    "searchable": true,
     "sort": 12,
     "special": [
       "alias",

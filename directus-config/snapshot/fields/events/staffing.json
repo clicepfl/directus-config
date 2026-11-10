@@ -16,7 +16,8 @@
     },
     "readonly": false,
     "required": false,
-    "sort": 18,
+    "searchable": true,
+    "sort": 20,
     "special": [
       "alias",
       "group",

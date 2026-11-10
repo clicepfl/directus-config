@@ -1,0 +1,22 @@
+on:
+  push: 
+    branches:
+      - main
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Check for duplicates
+        run: bash check.sh
+      - name: Check that license key has not been pushed
+        run: cat directus-config/collections/settings.json | jq -e '.[0] | has("license_key") == false'
+      - name: Check that license token has not been pushed
+        run: cat directus-config/collections/settings.json | jq -e '.[0] | has("license_token") == false'

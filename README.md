@@ -25,6 +25,28 @@ If you wish to change the schema or update/add flows, you can do it on your loca
 
 You may also want to update the sample data: the files are automatically saved in `uploads/`, and you can generate a dump of Directus' database using `sh save-data.sh`, which will write into `new-dump.sql`. Then, copy the relevant insertions in the `dump.sql` (take care of the order, to avoid constraint error during populate).
 
+#### Adding a new singleton
+Make sure to add the singleton collection to the comma seperated list in `save.sh`:
+```sh
+# -snip-
+npm run gen \
+       http://localhost/directus/server/specs/oas \
+       00000000-0000-0000-0000-000000000000 \
+       singleton0,singleton1,singleton2,<YOUR_NEW_SINGLETON_HERE> \
+       ../types/schema.d.ts
+# -snip-
+```
+And then update the schema by running that script, it should now be considered as a singleton collection in the types.
+
+### `schema.d.ts`
+
+The [`schema.d.ts`](types/schema.d.ts) is generated automatically from the OpenAPI specification yielded by the Directus instance (available on `/server/specs/oas`). While this file is fully regenerated after each pull of the config (using `save.sh`) and would be cleaner to ignore in the repository, this poses some problems with the CI:
+
+Since it's generated from the OpenAPI specs, it means that it can only be generated from a running Directus instance. Hence to get it in the CI for typechecking, we either need to:
+- Start and populate a Directus instance in the CI itself only to generate the schema, making the CI considerably slower and more complex. Since this is needed for typechecking, this would not slow down the CI of `directus-config` but of every project using it (`website`, `clicketing`, ...).
+- Load a schema from the production instance. While this technically works (merging into the `website/main` requires the change to be on prod), it means that the CI will fail until the Directus PR is merged.
+Due to this constraints, it has been decided to track the `schema.d.ts` for simplicity, at the detriment of cleanness. This file should be ignored in PRs and such; the only thing to check would be that it was properly generated but this can be assumed.
+
 ## Setting up Directus in a new repository
 
 If you wish to integrate Directus into a new project, you need to:

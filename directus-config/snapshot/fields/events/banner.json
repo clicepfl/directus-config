@@ -17,14 +17,15 @@
     },
     "readonly": false,
     "required": false,
-    "sort": 16,
+    "searchable": true,
+    "sort": 18,
     "special": [
       "file"
     ],
     "translations": null,
     "validation": null,
     "validation_message": null,
-    "width": "full"
+    "width": "half"
   },
   "schema": {
     "data_type": "uuid",
