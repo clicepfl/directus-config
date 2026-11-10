@@ -3,7 +3,7 @@
     "rootDir": "src",
     "outDir": "dist",
     "types": ["node"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "module": "esnext",
+    "moduleResolution": "bundler"
   }
 }
