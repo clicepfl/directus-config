@@ -1,6 +1,6 @@
 import { readItem, readItems, updateItem } from "@directus/sdk";
 import { DirectusEvent } from "../directus.js";
-import { HandlerUtils, registerFlow } from "../registry.js";
+import { HandlerUtils, makeFlow } from "../registry.js";
 import { ICBDActivity, ICBDActivityTimeslot } from "../types/aliases.js";
 
 const updateActivityStatus = {
@@ -73,15 +73,8 @@ const updateActivityStatus = {
   },
 };
 
-registerFlow(
-  "icbd_activities_registrations.items.create",
-  updateActivityStatus,
-);
-registerFlow(
-  "icbd_activities_registrations.items.update",
-  updateActivityStatus,
-);
-registerFlow(
-  "icbd_activities_registrations.items.delete",
-  updateActivityStatus,
-);
+export default [
+  makeFlow("icbd_activities_registrations.items.delete", updateActivityStatus),
+  makeFlow("icbd_activities_registrations.items.update", updateActivityStatus),
+  makeFlow("icbd_activities_registrations.items.delete", updateActivityStatus),
+];

@@ -6,7 +6,11 @@ This folder contains a NodeJS webserver that is able to process database updates
 
 The webserver consists of a single route on `/` that waits for `POST` requests with the body described by the [`DirectusMessage`](src/directus.ts) type. There is no authentication on this route, as it's meant to be available only in the Directus' instance dedicated Docker stack. Directus contains a single flow that is triggered by any change in the database (create, update or delete) and that simply calls this webserver and forwards the trigger's data.
 
-When the webserver receives a message, it dispatches to all `Flow`s registered to this particular event (see the [`registerFlow`](src/registry.ts) function). `Flow`s are basically handler functions, taking as parameter the event and some extra utilities. For convenience, Typescript definitions for all the events are available in [src/directus.ts](src/directus.ts). All files registering flows should be placed within the [`src/flows`](src/flows) directus, or in subfolders.
+When the webserver receives a message, it dispatches to all `Flow`s registered to this particular event (see the [`makeFlow`](src/registry.ts) function). `Flow`s are basically handler functions, taking as parameter the event and some extra utilities. For convenience, Typescript definitions for all the events are available in [src/directus.ts](src/directus.ts).
+
+### Registering a flow
+
+All files within the [`src/flows`](src/flows) directory or its subfolders need a default export of an array of `FlowEntry`s. These entries are built using the [`makeFlow`](src/registry.ts) function. These files are automatically discovered and loaded on server boot.
 
 ### Utilities
 

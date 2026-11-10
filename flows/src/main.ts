@@ -1,5 +1,5 @@
 import { createServer } from "http";
-import { flows, Mailer } from "./registry.js";
+import { buildFlowRegistry, Mailer } from "./registry.js";
 import { readdirSync } from "fs";
 import { join } from "path";
 import {
@@ -20,15 +20,9 @@ import { createTransport } from "nodemailer";
 import { ENVS } from "./env.js";
 import createLogger from "./logger.js";
 
-const logger = createLogger("global");
+const flows = await buildFlowRegistry();
 
-// Import all files from the `dist/flows/` directory to run all `registerFlows` calls.
-const files = readdirSync("./dist/flows/", { recursive: true }).filter((f) =>
-  f.toString().endsWith(".js"),
-);
-for (const file of files) {
-  import(join(process.cwd(), "./dist/flows/", file.toString()));
-}
+const logger = createLogger("global");
 
 const nodemailer = createTransport({
   host: ENVS.smtp.host,
@@ -174,7 +168,7 @@ const server = createServer(async (req, res) => {
   });
 });
 
-server.listen(ENVS.port, () => {
+server.listen(ENVS.port, async () => {
   logger.info(`Server listening on port ${ENVS.port}`);
 
   logger.info("Registered handlers:");
