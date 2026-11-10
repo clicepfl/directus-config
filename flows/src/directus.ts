@@ -11,7 +11,7 @@ import {
   UnpackList,
   UpdateItemOutput,
 } from "@directus/sdk";
-import { Schema } from "./types/schema.js";
+import { Schema } from "./types/schema.d.js";
 import { ENVS } from "./env.js";
 
 type Flatten<T> = T extends any[] ? T[number] : T;

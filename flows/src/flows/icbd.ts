@@ -74,7 +74,7 @@ const updateActivityStatus = {
 };
 
 export default [
-  makeFlow("icbd_activities_registrations.items.delete", updateActivityStatus),
+  makeFlow("icbd_activities_registrations.items.create", updateActivityStatus),
   makeFlow("icbd_activities_registrations.items.update", updateActivityStatus),
   makeFlow("icbd_activities_registrations.items.delete", updateActivityStatus),
 ];
