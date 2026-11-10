@@ -336,6 +336,7 @@ INSERT INTO public.registrations (allergies, availability, can_retreive_deposit,
 INSERT INTO public.icelan_tournois_registrations (icelan_tournois_id, id, registrations_id) VALUES (1, 1, '03479e51-3226-4c34-8f96-351027bad92e') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_tournois_registrations (icelan_tournois_id, id, registrations_id) VALUES (2, 2, '03479e51-3226-4c34-8f96-351027bad92e') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_tournois_registrations (icelan_tournois_id, id, registrations_id) VALUES (1, 3, 'e824ce79-2769-4371-bfd8-e34aeb6bae5c') ON CONFLICT DO NOTHING;
+
 INSERT INTO public.icelan_tournois_registrations (icelan_tournois_id, id, registrations_id) VALUES (2, 4, 'e824ce79-2769-4371-bfd8-e34aeb6bae5c') ON CONFLICT DO NOTHING;
 
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (30, 'Alyx', 'Cornu', 'alyx.cornu@epfl.ch', 'HackFight', 'HackFight', '03479e51-3226-4c34-8f96-351027bad92e') ON CONFLICT DO NOTHING;
@@ -343,3 +344,4 @@ INSERT INTO public.icelan_participants (id, first_name, family_name, email, icel
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (32, 'Alyx', 'Cornu', 'alyx.cornu@gmail.com', 'HaccFight', 'HaccFight', 'e824ce79-2769-4371-bfd8-e34aeb6bae5c') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (33, 'A', 'A', 'A', 'A', 'A', 'd829af63-f55d-4c82-99f5-e382765f4a63') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (34, 'D', 'D', 'D', 'D', 'D', '7ee5cfce-d573-453c-a94f-ff2adadedbe8') ON CONFLICT DO NOTHING;
+

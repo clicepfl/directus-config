@@ -3271,6 +3271,54 @@
     "validation": null
   },
   {
+    "_syncId": "5a71505a-182b-44b2-9633-79c1a92f3b96",
+    "action": "create",
+    "collection": "events",
+    "fields": [
+      "id",
+      "name",
+      "slug",
+      "from",
+      "to",
+      "type",
+      "first_price",
+      "second_price",
+      "prices",
+      "price_model",
+      "max_registrations",
+      "registration_count",
+      "opened",
+      "admin_secret",
+      "intro_text",
+      "confirmation_text",
+      "organiser",
+      "location",
+      "background_color",
+      "banner",
+      "meals",
+      "food",
+      "staffing_from",
+      "staffing_to",
+      "staffingShiftSize",
+      "staffingTypes",
+      "staffing",
+      "icbd_event",
+      "icbd"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    }
+  },
+  {
     "_syncId": "6a263585-934a-497f-b8fd-14e7f3ef543b",
     "action": "create",
     "collection": "game_star_projects",
@@ -3403,18 +3451,6 @@
     "validation": null
   },
   {
-    "_syncId": "efa2ea1b-60e6-4ab1-a0c4-d2f0cc027da9",
-    "action": "create",
-    "collection": "icelan_participants",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "f77422ea-ddbd-4764-b24a-ae1e7e1783ea",
     "action": "create",
     "collection": "icelan_tournois",
@@ -3523,13 +3559,21 @@
     "validation": null
   },
   {
-    "_syncId": "4f4a8f57-ad13-4972-988c-f804c4b8c221",
+    "_syncId": "54f3be7a-ea75-4e87-b9a9-6f17ec2290c7",
     "action": "delete",
-    "collection": "icelan_participants",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
+    "collection": "registrations",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3578,6 +3622,24 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "99ec864d-87a2-4653-9aaa-e0b2571ff633",
+    "action": "delete",
+    "collection": "events",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3727,6 +3789,18 @@
     "validation": null
   },
   {
+    "_syncId": "2f9ad41a-8bd0-496d-9732-4c68f535f3c0",
+    "action": "read",
+    "collection": "directus_dashboards",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "41c83f7c-ad87-4e3b-9d6e-45927e7d8dfe",
     "action": "read",
     "collection": "game_star_articles",
@@ -3775,9 +3849,9 @@
     "validation": null
   },
   {
-    "_syncId": "6087b146-651d-428a-81db-7207456360fd",
+    "_syncId": "5ef18e63-f3ea-4de5-9299-1a9cf4675215",
     "action": "read",
-    "collection": "icelan_participants",
+    "collection": "directus_panels",
     "fields": [
       "*"
     ],
@@ -3835,6 +3909,24 @@
     "validation": null
   },
   {
+    "_syncId": "7b5eb2c6-ae1c-4a27-bcda-7dfbeca0f5d9",
+    "action": "read",
+    "collection": "directus_flows",
+    "fields": null,
+    "permissions": {
+      "_and": [
+        {
+          "name": {
+            "_contains": "[ICeLAN]"
+          }
+        }
+      ]
+    },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "9355d5c1-e3de-4823-bc4b-4ffba5563341",
     "action": "read",
     "collection": "game_star_articles_translations",
@@ -3842,6 +3934,28 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "947059e3-1e58-4290-ae09-1e8ef816a61a",
+    "action": "read",
+    "collection": "registrations",
+    "fields": [
+      "*"
+    ],
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3890,6 +4004,26 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "d2bb4779-d7a5-4604-914e-819e68b39274",
+    "action": "read",
+    "collection": "events",
+    "fields": [
+      "*"
+    ],
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -3955,6 +4089,69 @@
     "validation": null
   },
   {
+    "_syncId": "3cd80645-5d70-4f13-9dfe-c65f5fa512e1",
+    "action": "update",
+    "collection": "registrations",
+    "fields": [
+      "id",
+      "registration_date",
+      "email",
+      "event",
+      "checked_in",
+      "first_name",
+      "family_name",
+      "comments",
+      "year",
+      "payment",
+      "section",
+      "confirmation_email_sent",
+      "price_to_pay",
+      "number_purchased",
+      "food",
+      "meal",
+      "allergies",
+      "icelan",
+      "pseudonym",
+      "discord_username",
+      "student",
+      "handicaped",
+      "donation",
+      "priority",
+      "icbd",
+      "can_retreive_deposit",
+      "retreived_deposit",
+      "registration_email_sent",
+      "registration_complete",
+      "faculty_dinner",
+      "late_payment",
+      "guest",
+      "plusOnes",
+      "plusOnesCheckedIn",
+      "hello_world",
+      "team",
+      "clothes_fac",
+      "additional_infos",
+      "is_staff",
+      "preferences",
+      "availability",
+      "staffing"
+    ],
+    "permissions": {
+      "_and": [
+        {
+          "event": {
+            "type": {
+              "_eq": "icelan"
+            }
+          }
+        }
+      ]
+    },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "492a7cb9-61d3-420b-99aa-5a7a6c13eec7",
     "action": "update",
     "collection": "game_star_projects_translations",
@@ -3998,6 +4195,54 @@
       "*"
     ],
     "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "83a1f3db-4ab4-4e2c-a081-1cb04f7f2a35",
+    "action": "update",
+    "collection": "events",
+    "fields": [
+      "id",
+      "name",
+      "slug",
+      "from",
+      "to",
+      "type",
+      "price_model",
+      "first_price",
+      "second_price",
+      "prices",
+      "max_registrations",
+      "registration_count",
+      "opened",
+      "admin_secret",
+      "intro_text",
+      "confirmation_text",
+      "organiser",
+      "location",
+      "background_color",
+      "banner",
+      "meals",
+      "food",
+      "staffing_from",
+      "staffing_to",
+      "staffingShiftSize",
+      "staffingTypes",
+      "staffing",
+      "icbd_event",
+      "icbd"
+    ],
+    "permissions": {
+      "_and": [
+        {
+          "type": {
+            "_eq": "icelan"
+          }
+        }
+      ]
+    },
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -4126,18 +4371,6 @@
     "_syncId": "e3aa44e0-c317-457b-8f9d-3d9d83e8fa62",
     "action": "update",
     "collection": "game_star_social_links",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "ed214627-a6bc-4262-8fba-b4b8429aeccf",
-    "action": "update",
-    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
