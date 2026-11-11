@@ -874,6 +874,28 @@
     "type": "item-update"
   },
   {
+    "_syncId": "090b7ffc-cd42-47f8-8d7a-5334db4d108a",
+    "flow": "60212b34-cb7a-4278-b484-98cff4d84933",
+    "key": "request_sklql",
+    "name": "Webhook / Request URL",
+    "options": {
+      "body": "{\"payload\": {{$last}}, \"accountability\": {{$accountability}}}",
+      "headers": [
+        {
+          "header": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "method": "POST",
+      "url": "http://flows:3000"
+    },
+    "position_x": 19,
+    "position_y": 1,
+    "reject": null,
+    "resolve": null,
+    "type": "request"
+  },
+  {
     "_syncId": "ed83b9a5-3cef-42c2-bb3d-63cf19062047",
     "flow": "6c94bf7c-3939-4eca-8b5f-e199bd9022c3",
     "key": "event",
