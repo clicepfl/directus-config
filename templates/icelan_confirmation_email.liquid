@@ -1,0 +1,31 @@
+<html>
+<body>
+    <div style="font-family:Arial, Helvetica, sans-serif;">
+        <div style="color:white;background-color:black;width:100%;display:flex;align-items:center;">
+            <a href="https://icelan.ch">
+                <img src="https://clic.epfl.ch/directus/assets/06b39fde-f2a3-4d4c-9fff-2871394b32eb" height="100" style="margin:2em"/>
+            </a>
+            <h1>ICeLAN - Confirmation</h1>
+        </div>
+
+        <p>Bonjour {{ registration.first_name }},<br/>
+        <br/>
+        Ta place à ICeLAN est confirmée ! :D<br/>
+        <br/>
+        Tu peux payer par <strong>transfer bancaire</strong> via le QR code ou passer à nos permanences avant l'événement pour payer en cash !
+        </p>
+        <h2>Payement</h2>
+        <center>
+            <img width="550px" src="{{ qrbill_url }}" alt="QR facture" style="max-width: 100%; height: auto; margin: 1rem 0;">
+        </center>
+        <p>(si la QR facture ne s'affiche pas, <a href="{{ qrbill_url }}">clique ici.</a>)</p>
+        {% if registration.donation > 0 %}
+        <h2>Donation</h2>
+        <p>Votre don de {{registration.donation}} CHF sera réglé sur place lors de l'événement.</p>
+        {% endif %}
+        
+        <p>Bonne journée,</p>
+        <img src="https://clic.epfl.ch/directus/assets/fba6d3ca-81be-4e9c-bca6-3bf47ed57715" height=50/>
+    </div>
+</body>
+</html>
