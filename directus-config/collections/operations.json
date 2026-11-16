@@ -1700,6 +1700,20 @@
     "type": "exec"
   },
   {
+    "_syncId": "fbc2ca7c-1ca4-427b-803a-52483e1228e0",
+    "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+    "key": "price",
+    "name": "Run Script",
+    "options": {
+      "code": "module.exports = async function(data) {\n    if (data.$trigger.price_to_pay == \"first_price\") {\n        return data.event.first_price;\n    } else if (data.$trigger.price_to_pay == \"second_price\") {\n        return data.event.second_price;\n    }\n    return null;\n}"
+    },
+    "position_x": 4,
+    "position_y": 19,
+    "reject": null,
+    "resolve": "52ee8827-5198-4886-bc71-5307f04a59c1",
+    "type": "exec"
+  },
+  {
     "_syncId": "77308c01-4680-4bce-b436-34a5599a2117",
     "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
     "key": "check_if_email_not_already_sent",
@@ -1714,7 +1728,7 @@
     "position_x": 19,
     "position_y": 1,
     "reject": null,
-    "resolve": "52ee8827-5198-4886-bc71-5307f04a59c1",
+    "resolve": "db25ba96-a250-4e80-9d3a-d53f727ea7f1",
     "type": "condition"
   },
   {
@@ -1723,16 +1737,42 @@
     "key": "mail_oile1",
     "name": "Send Email",
     "options": {
+      "data": {
+        "price": "{{price}}",
+        "qrbill_url": "https://clic.epfl.ch/clicketing/api/qrbill?uid={{$trigger.id}}",
+        "registration": "{{$trigger}}"
+      },
+      "subject": "ICeLAN - Confirmation",
+      "template": "icelan_confirmation_email",
       "to": [
         "{{$trigger.email}}"
       ],
-      "type": "markdown"
+      "type": "template"
+    },
+    "position_x": 22,
+    "position_y": 19,
+    "reject": null,
+    "resolve": "55ef26f0-7f9b-471b-ba7f-a9f29095d213",
+    "type": "mail"
+  },
+  {
+    "_syncId": "db25ba96-a250-4e80-9d3a-d53f727ea7f1",
+    "flow": "be6b267a-9609-44ee-8981-6eb65c1f22c1",
+    "key": "event",
+    "name": "Read Data",
+    "options": {
+      "collection": "events",
+      "emitEvents": false,
+      "key": [
+        "{{$trigger.event}}"
+      ],
+      "permissions": "$trigger"
     },
     "position_x": 37,
     "position_y": 1,
     "reject": null,
-    "resolve": "55ef26f0-7f9b-471b-ba7f-a9f29095d213",
-    "type": "mail"
+    "resolve": "fbc2ca7c-1ca4-427b-803a-52483e1228e0",
+    "type": "item-read"
   },
   {
     "_syncId": "55ef26f0-7f9b-471b-ba7f-a9f29095d213",
@@ -1750,8 +1790,8 @@
       },
       "permissions": "$trigger"
     },
-    "position_x": 55,
-    "position_y": 1,
+    "position_x": 40,
+    "position_y": 19,
     "reject": null,
     "resolve": null,
     "type": "item-update"
