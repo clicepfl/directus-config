@@ -46,3 +46,12 @@ export type IcelanTournoi = Schema["icelan_tournois"][0];
 export type IcelanParticipant = Schema["icelan_participants"][0];
 export type Gallery = Schema["galleries"][0];
 export type Clothes = Schema["clothes"][0];
+
+export type ICBDActivityTimeslot = {
+  room: string;
+  start_time: string;
+  end_time: string;
+  custom_name: string;
+  max_attendees: number;
+  full: boolean;
+};
