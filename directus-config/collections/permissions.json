@@ -2924,18 +2924,6 @@
     "validation": null
   },
   {
-    "_syncId": "32fc75b0-2e61-459d-b298-fceb4831e901",
-    "action": "read",
-    "collection": "icelan_sponsors",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "35082efc-61f9-4590-88fa-8f713f59b8e1",
     "action": "read",
     "collection": "directus_folders",
@@ -3044,6 +3032,18 @@
     "validation": null
   },
   {
+    "_syncId": "98c12611-fe81-44c0-8246-43cce10b05f4",
+    "action": "read",
+    "collection": "commissions",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "a3a8e209-6bf7-42f6-a322-bb30104b7c3f",
     "action": "read",
     "collection": "icbd_activities_translations",
@@ -3139,18 +3139,6 @@
     "validation": null
   },
   {
-    "_syncId": "ad4545cb-0a48-49f2-83df-879f951f5d22",
-    "action": "read",
-    "collection": "icelan_animations",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "b6fc7064-a317-4467-8fb6-b35e20f20688",
     "action": "read",
     "collection": "registrations",
@@ -3187,26 +3175,14 @@
     "validation": null
   },
   {
-    "_syncId": "da94446b-8d86-4763-ae19-b8f8b23c3274",
-    "action": "read",
-    "collection": "icelan_collabs",
+    "_syncId": "0081082c-a854-4b97-830a-6085e1bba199",
+    "action": "create",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
     "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "e07a16cf-d1e9-4772-a7dd-27665d0e796c",
-    "action": "read",
-    "collection": "icelan_faqs",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
   },
@@ -3615,6 +3591,18 @@
     "validation": null
   },
   {
+    "_syncId": "860dad54-4a2a-4c66-9682-18d13ad42663",
+    "action": "delete",
+    "collection": "icelan_participants",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "8daab1d1-157e-49de-8208-c862ad29bc9f",
     "action": "delete",
     "collection": "game_star_projects",
@@ -3922,6 +3910,18 @@
         }
       ]
     },
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "919681d0-20a2-4105-9a9b-aa582cf739b5",
+    "action": "read",
+    "collection": "icelan_participants",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
     "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
     "presets": null,
     "validation": null
@@ -4347,6 +4347,18 @@
     "_syncId": "dcd20c62-2243-46d9-abf7-a2286e8f56e2",
     "action": "update",
     "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "b4a65686-320b-4a32-85f0-aa255327369a",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "dda349a9-f7cc-4015-b606-decd80b4a23f",
+    "action": "update",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
