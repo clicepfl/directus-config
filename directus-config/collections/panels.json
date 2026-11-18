@@ -78,7 +78,7 @@
       },
       "function": "count",
       "min": 0,
-      "range": "auto",
+      "missingData": "ignore",
       "valueField": "id"
     },
     "position_x": 2,
