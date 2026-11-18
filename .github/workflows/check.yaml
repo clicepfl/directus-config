@@ -1,3 +1,5 @@
+name: Check for duplicates & license key
+
 on:
   push: 
     branches:
