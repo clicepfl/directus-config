@@ -1847,6 +1847,18 @@
     "validation": null
   },
   {
+    "_syncId": "00f22d4e-05e9-41a8-ad1d-3f0109a79063",
+    "action": "read",
+    "collection": "commissions",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "022c1fa3-18db-4066-87d6-954d0d3dce3a",
     "action": "read",
     "collection": "icelan_animations",
