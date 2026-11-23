@@ -1859,30 +1859,6 @@
     "validation": null
   },
   {
-    "_syncId": "022c1fa3-18db-4066-87d6-954d0d3dce3a",
-    "action": "read",
-    "collection": "icelan_animations",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "031a8d9a-cab0-43ac-a019-0148cc3ed581",
-    "action": "read",
-    "collection": "icelan_faqs",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "8663ed90-7664-44a2-ad96-0d35bcaf7539",
-    "presets": null,
-    "validation": null
-  },
-  {
     "_syncId": "0838c140-4723-4120-aabf-6373c003d973",
     "action": "read",
     "collection": "icbd_translations",
@@ -2888,21 +2864,9 @@
     "validation": {}
   },
   {
-    "_syncId": "1de14293-1923-43cd-a534-d00de823f8a2",
-    "action": "create",
-    "collection": "registrations",
-    "fields": [
-      "*"
-    ],
-    "permissions": null,
-    "policy": "_sync_default_public_policy",
-    "presets": null,
-    "validation": null
-  },
-  {
-    "_syncId": "8ebb70f6-1e37-4be5-a40c-2960c7678e7f",
-    "action": "create",
-    "collection": "icelan_tournois_registrations",
+    "_syncId": "0029f0e2-7699-4aa3-9f93-eb482560aa2c",
+    "action": "read",
+    "collection": "icelan_collabs",
     "fields": [
       "*"
     ],
@@ -2996,6 +2960,18 @@
     "validation": null
   },
   {
+    "_syncId": "6857a486-8fa5-4baa-89a5-618f4e9cc392",
+    "action": "read",
+    "collection": "icelan_sponsors",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "6a6bbfd8-2e2a-4ce6-bac8-17161503cca7",
     "action": "read",
     "collection": "icbd_activities",
@@ -3032,9 +3008,9 @@
     "validation": null
   },
   {
-    "_syncId": "8ad4a3f9-9c15-4c1e-9562-393fd6b93d4a",
+    "_syncId": "98c12611-fe81-44c0-8246-43cce10b05f4",
     "action": "read",
-    "collection": "icelan_tournois_registrations",
+    "collection": "commissions",
     "fields": [
       "*"
     ],
@@ -3044,9 +3020,9 @@
     "validation": null
   },
   {
-    "_syncId": "98c12611-fe81-44c0-8246-43cce10b05f4",
+    "_syncId": "a0e906ef-b033-4143-89c4-e6a7c1e45b6b",
     "action": "read",
-    "collection": "commissions",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -3151,9 +3127,9 @@
     "validation": null
   },
   {
-    "_syncId": "b6fc7064-a317-4467-8fb6-b35e20f20688",
+    "_syncId": "b8b44ada-4f42-43d3-90fe-27eea1b97f77",
     "action": "read",
-    "collection": "registrations",
+    "collection": "icelan_animations",
     "fields": [
       "*"
     ],

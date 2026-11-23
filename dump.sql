@@ -344,4 +344,3 @@ INSERT INTO public.icelan_participants (id, first_name, family_name, email, icel
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (32, 'Alyx', 'Cornu', 'alyx.cornu@gmail.com', 'HaccFight', 'HaccFight', 'e824ce79-2769-4371-bfd8-e34aeb6bae5c') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (33, 'Alice', 'And Bob', 'alice.andbob@epfl.ch', 'aliceb', 'aliceb', 'd829af63-f55d-4c82-99f5-e382765f4a63') ON CONFLICT DO NOTHING;
 INSERT INTO public.icelan_participants (id, first_name, family_name, email, icelan_username, discord_username, source_registration) VALUES (34, 'Jon', 'Pfister', 'jonatan.pfister@epfl.ch', 'pad', 'padjokej', '7ee5cfce-d573-453c-a94f-ff2adadedbe8') ON CONFLICT DO NOTHING;
-
