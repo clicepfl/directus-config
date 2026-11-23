@@ -1,0 +1,46 @@
+{
+  "collection": "icelan_participants",
+  "field": "source_registration",
+  "meta": {
+    "collection": "icelan_participants",
+    "conditions": null,
+    "display": null,
+    "display_options": null,
+    "field": "source_registration",
+    "group": null,
+    "hidden": false,
+    "interface": "input",
+    "note": null,
+    "options": null,
+    "readonly": true,
+    "required": false,
+    "searchable": true,
+    "sort": 2,
+    "special": [
+      "uuid"
+    ],
+    "translations": null,
+    "validation": null,
+    "validation_message": null,
+    "width": "full"
+  },
+  "schema": {
+    "data_type": "uuid",
+    "default_value": null,
+    "foreign_key_column": null,
+    "foreign_key_table": null,
+    "generation_expression": null,
+    "has_auto_increment": false,
+    "is_generated": false,
+    "is_indexed": false,
+    "is_nullable": true,
+    "is_primary_key": false,
+    "is_unique": false,
+    "max_length": null,
+    "name": "source_registration",
+    "numeric_precision": null,
+    "numeric_scale": null,
+    "table": "icelan_participants"
+  },
+  "type": "uuid"
+}
