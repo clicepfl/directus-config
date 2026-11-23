@@ -2912,6 +2912,18 @@
     "validation": null
   },
   {
+    "_syncId": "0029f0e2-7699-4aa3-9f93-eb482560aa2c",
+    "action": "read",
+    "collection": "icelan_collabs",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "0aeaac93-268e-4fff-8c1a-b148644e45aa",
     "action": "read",
     "collection": "icbd_activities_icbd_speakers",
@@ -2996,6 +3008,18 @@
     "validation": null
   },
   {
+    "_syncId": "6857a486-8fa5-4baa-89a5-618f4e9cc392",
+    "action": "read",
+    "collection": "icelan_sponsors",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "6a6bbfd8-2e2a-4ce6-bac8-17161503cca7",
     "action": "read",
     "collection": "icbd_activities",
@@ -3047,6 +3071,18 @@
     "_syncId": "98c12611-fe81-44c0-8246-43cce10b05f4",
     "action": "read",
     "collection": "commissions",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "a0e906ef-b033-4143-89c4-e6a7c1e45b6b",
+    "action": "read",
+    "collection": "icelan_faqs",
     "fields": [
       "*"
     ],
@@ -3163,6 +3199,18 @@
     "validation": null
   },
   {
+    "_syncId": "b8b44ada-4f42-43d3-90fe-27eea1b97f77",
+    "action": "read",
+    "collection": "icelan_animations",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
     "_syncId": "c1977b77-4c39-4629-af3b-e4442772d6e4",
     "action": "read",
     "collection": "icbd_activities_registrations",
@@ -3178,6 +3226,18 @@
     "_syncId": "c2acd8f4-7cc2-4947-ba99-bf4139e9d656",
     "action": "read",
     "collection": "icelan_tournois",
+    "fields": [
+      "*"
+    ],
+    "permissions": null,
+    "policy": "_sync_default_public_policy",
+    "presets": null,
+    "validation": null
+  },
+  {
+    "_syncId": "fa76dd84-57ce-4fa6-a602-b921bc60846d",
+    "action": "read",
+    "collection": "icelan_participants",
     "fields": [
       "*"
     ],
